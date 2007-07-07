@@ -24,7 +24,7 @@ A guide to using GWT-Ext in your GWT application. You must be familiar with the 
     <meta name='gwt:module' content='com.foo.MyApp'>
     <link rel=stylesheet href="MyApp.css">
 
-    *<link rel="stylesheet" type="text/css" href="js/ext/resources/css/ext-all.css"/>*
+    <link rel="stylesheet" type="text/css" href="js/ext/resources/css/ext-all.css"/>
     <link rel="stylesheet" type="text/css" href="js/ext/resources/css/xtheme-aero.css" />
 
     <script type="text/javascript" src="js/ext/adapter/yui/yui-utilities.js"></script>
@@ -40,6 +40,10 @@ A guide to using GWT-Ext in your GWT application. You must be familiar with the 
 </html>
 
 }}}
+
+As I mentioned earlier, I would suggest that you include the full version of Ext's Javascript file *ext-all.js* and CSS file *ext-all.css* during developement. Once you get started and are familiar with how things work, you can look into selectively including only the required Ext Javascript and CSS files.
+
+# Thats it, you should now be able to build and run you app that uses GWT-Ext API's.
 
 
 

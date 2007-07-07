@@ -1,7 +1,7 @@
 #labels Featured
 = Introduction =
 
-A guide to using GWT-Ext in your GWT application. You must be familiar with the basics of how GWT works. If you're new to GWT, please read the [http://code.google.com/webtoolkit/gettingstarted.html GWT Getting Started Guide] first.
+A guide to using GWT-Ext in your GWT application. You must be familiar with the basics of how GWT works. If you're new to GWT, please read the GWT [http://code.google.com/webtoolkit/gettingstarted.html Getting Started Guide] first.
 
 = Details =
 

@@ -17,12 +17,29 @@ A guide to using GWT-Ext in your GWT application. You must be familiar with the 
 
 # You now need to include the Ext Javascript files and CSS in your applicaitons GWT host page (like /main/src/com/foo/client/public/MyApp.html).
 
+{{{
+<html>
+<head>
+    <title>My App</title>
+    <meta name='gwt:module' content='com.foo.MyApp'>
+    <link rel=stylesheet href="MyApp.css">
 
+    *<link rel="stylesheet" type="text/css" href="js/ext/resources/css/ext-all.css"/>*
+    <link rel="stylesheet" type="text/css" href="js/ext/resources/css/xtheme-aero.css" />
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+    <script type="text/javascript" src="js/ext/adapter/yui/yui-utilities.js"></script>
+    <script type="text/javascript" src="js/ext/adapter/yui/ext-yui-adapter.js"></script>
+    <script type="text/javascript" src="js/ext/ext-all.js"></script>
+
+</head>
+<body class="xtheme-aero">
+<script language="javascript" src="gwt.js"></script>
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+</body>
+</html>
+
+}}}
 
 
 

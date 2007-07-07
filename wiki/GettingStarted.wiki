@@ -41,6 +41,6 @@ A guide to using GWT-Ext in your GWT application. You must be familiar with the 
 
 }}}
 
-As I mentioned earlier, I would suggest that you include the full version of Ext's Javascript file *ext-all.js* and CSS file *ext-all.css* during developement. Once you get started and are familiar with how things work, you can look into selectively including only the required Ext Javascript and CSS files.
+   As I mentioned earlier, I would suggest that you include the full version of Ext's  Javascript file *ext-all.js* and CSS file *ext-all.css* during developement. Once you get started and are familiar with how things work, you can look into selectively including only the required Ext Javascript and CSS files.
 
  * Thats it, you should now be able to build and run you app that uses GWT-Ext API's.

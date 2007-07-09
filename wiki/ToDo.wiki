@@ -36,6 +36,5 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 
 === Utility classes ===
 
- * CSS
  * ClickRepeater
  * TextMetrics

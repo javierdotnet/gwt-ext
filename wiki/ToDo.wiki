@@ -1,5 +1,5 @@
 #labels Featured
-= Ext API's that have still to be covered =
+== Ext API's that have still to be covered ==
 
 Here's a list of known API's that are missing or incomplete. I have already completed some of them and will make them available in the next build after I do some testing. I'll update this page as each item gets complete.
 
@@ -31,4 +31,3 @@ Here's a list of known API's that are missing or incomplete. I have already comp
  * SplitBar
  * View
  * DateUtil
-

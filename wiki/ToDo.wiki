@@ -31,3 +31,11 @@ Here's a list of known API's that are missing or incomplete. I have already comp
  * SplitBar
  * View
  * DateUtil
+ * UpdateManager - some methods missing
+
+
+=== Utility classes ===
+
+ * CSS
+ * ClickRepeater
+ * TextMetrics

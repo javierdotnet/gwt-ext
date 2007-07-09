@@ -1,0 +1,34 @@
+#labels Featured
+= Ext API's that have still to be covered =
+
+Here's a list of known API's that are missing or incomplete. I have already completed some of them and will make them available in the next build after I do some testing. I'll update this page as each item gets complete.
+
+=== Drag and Drop Package ===
+
+ * The entire Ext Drag and Drop package (dd) 
+
+=== Tree Package ===
+
+ * TreeEditor
+ * TreeSorter
+ * TreeNodeUI
+
+=== General Widgets and support classes ===
+
+ * CompositeElement
+ * CompositeElementLite
+ * Editor
+ * Ext - some methods missing
+ * ExtElement - some methods missing
+ * Fx 
+ * JsonView
+ * KeyMap
+ * KeyNav
+ * Layer
+ * LoadMask
+ * MasterTemplate
+ * MessageBox 
+ * SplitBar
+ * View
+ * DateUtil
+

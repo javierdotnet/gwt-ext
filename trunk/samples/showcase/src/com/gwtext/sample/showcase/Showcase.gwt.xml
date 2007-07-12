@@ -1,0 +1,8 @@
+<module>
+
+    <inherits name='com.google.gwt.user.User'/>
+     <inherits name='com.gwtext.GwtExt'/>
+    
+    <entry-point class='com.gwtext.sample.showcase.client.Showcase'/>
+
+</module>

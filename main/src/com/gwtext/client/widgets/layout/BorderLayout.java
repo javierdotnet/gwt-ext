@@ -179,7 +179,11 @@ public class BorderLayout extends BaseExtWidget {
         borderLayout.remove(regionId, contentId);
     }-*/;
 
-
+    public native void restoreState()/*-{
+        var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        layout.restoreState();
+    }-*/;
+    
     public void restoreState(Provider provider) {
         JavaScriptObject jsProviderObj = provider == null ? null : provider.getJsObj();
         restoreState(jsObj, jsProviderObj);

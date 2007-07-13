@@ -32,7 +32,7 @@ public class TextFieldConfig extends FieldConfig {
     }
 
     public void setBlankText(String blankText) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "blankText", blanktext);
+        JavaScriptObjectHelper.setAttribute(jsObj, "blankText", blankText);
     }
 
     public void setDisableKeyFilter(boolean disableKeyFilter) {

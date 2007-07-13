@@ -22,8 +22,6 @@ package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.core.BaseConfig;
-
 
 public class JsonStore extends Store {
     public JsonStore(String url, String root, String[] fields) {
@@ -43,29 +41,6 @@ public class JsonStore extends Store {
     }
 
     private static native JavaScriptObject create(JavaScriptObject config) /*-{
-        debugger;
         return new $wnd.Ext.data.JsonStore(config);
     }-*/;
-
-    private static class JsonStoreConfig extends BaseConfig {
-
-        public void setUrl(String url) {
-            JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
-        }
-
-        public void setRoot(String root) {
-            JavaScriptObjectHelper.setAttribute(jsObj, "root", root);
-        }
-
-
-        public void setFields(String[] fields) {
-            JavaScriptObjectHelper.setAttribute(jsObj, "fields", JavaScriptObjectHelper.convertToJavaScriptArray(fields));
-        }
-
-        public void setFields(Field[] fields) {
-            JavaScriptObjectHelper.setAttribute(jsObj, "fields", JavaScriptObjectHelper.convertToJavaScriptArray(fields));
-        }
-
-
-    }
 }

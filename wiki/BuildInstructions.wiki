@@ -12,7 +12,7 @@ The [http://code.google.com/p/gwt-ext/source project source code access page] ha
 
 === Compiling from Source ===
 
-Other than a few native libs, everything is Java source that can be built on any supported platform with the included GWT-Ext [http://ant.apache.org/ Ant] build files. At the moment, you can only build the native code binaries on Linux, and even then with a bit of effort that is currently beyond the scope of this document. To keep things simple, we've checked in pre-built native binaries. 
+Everything is Java source that can be built with the included GWT-Ext [http://ant.apache.org/ Ant] build files. 
 
  * Install [Apache Ant 1.6.5  http://ant.apache.org/bindownload.cgi] or later. We'll assume that the ant command is in your path.
 
@@ -39,6 +39,5 @@ Other than a few native libs, everything is Java source that can be built on any
 There is a problem, detailed at ant.apache.org, where ant cannot find the JUnit classes. The simple workaround is to either:
   * Delete ant-junit.jar from the ant lib directory (for example, /usr/share/ant/lib/)
   * Copy junit.jar into your ant lib directory
-
 
 

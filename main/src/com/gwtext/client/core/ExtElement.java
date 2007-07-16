@@ -147,4 +147,11 @@ public class ExtElement extends JsObject {
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.update(html, loadScripts);
     }-*/;
+
+    public native void update(String html, boolean loadScripts, Function callback) /*-{
+        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        el.update(html, loadScripts, function() {
+            callback.@com.gwtext.client.core.Function::execute()();
+        });
+    }-*/;
 }

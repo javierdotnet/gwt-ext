@@ -105,7 +105,7 @@ public class ComboBox extends TriggerField {
      */
     public native void setValue(String value) /*-{
         var cb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        cb.getValue();
+        cb.setValue(value);
     }-*/;
 
 /*    protected void onAttach() {

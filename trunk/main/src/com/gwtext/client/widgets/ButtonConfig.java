@@ -113,6 +113,15 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "tooltip", tooltip);
     }
 
+    public void setTooltip(final String title, final String text) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "tooltip", new QuickTipsConfig() {
+            {
+                setTitle(title);
+                setText(text);
+            }
+        }.getJsObj());
+    }
+
     public void setTooltip(QuickTipsConfig config) {
         JavaScriptObjectHelper.setAttribute(jsObj, "tooltip", config.getJsObj());
     }

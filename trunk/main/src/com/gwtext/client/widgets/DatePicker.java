@@ -57,7 +57,7 @@ public class DatePicker extends Component {
     }
 
     private native void setValueMillis(JavaScriptObject dp, long time) /*-{
-        var date = new Date();
+        var date = new $wnd.Date();
         date.setTime(time);
         dp.setValue(date);
     }-*/;

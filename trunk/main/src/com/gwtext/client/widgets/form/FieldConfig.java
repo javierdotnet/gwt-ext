@@ -20,9 +20,11 @@
 
 package com.gwtext.client.widgets.form;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.FieldListener;
+
+import java.util.Date;
 
 public class FieldConfig extends BaseConfig {
     private FieldListener fieldListener;
@@ -105,6 +107,10 @@ public class FieldConfig extends BaseConfig {
     }
 
     public void setValue(String value) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "value", value);
+    }
+
+    public void setValue(Date value) {
         JavaScriptObjectHelper.setAttribute(jsObj, "value", value);
     }
 

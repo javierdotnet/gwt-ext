@@ -95,7 +95,7 @@ public class JavaScriptObjectHelper {
     }
 
     private static native void setDateAttribute(JavaScriptObject elem, String attr, long time) /*-{
-        elem[attr] = new Date(time);
+        elem[attr] = new $wnd.Date(time);
     }-*/;
 
     public static native void setAttribute(JavaScriptObject elem, String attr, UserObject userObject) /*-{

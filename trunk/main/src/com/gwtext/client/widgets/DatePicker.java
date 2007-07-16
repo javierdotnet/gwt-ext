@@ -41,13 +41,15 @@ public class DatePicker extends Component {
     private static DatePicker instance(JavaScriptObject jsObj) {
         return new DatePicker(jsObj);
     }
+
     public Date getValue() {
-        return new Date(getValueMillis(jsObj));
+        long time = getValueMillis(jsObj);
+        return time == -1 ? null : new Date(time);
     }
 
     private native long getValueMillis(JavaScriptObject dp)/*-{
         var date = dp.getValue();
-        return data.getTime();
+        return (date == '' || date == null) ? -1 : data.getTime();
     }-*/;
 
     public void setValue(Date date) {

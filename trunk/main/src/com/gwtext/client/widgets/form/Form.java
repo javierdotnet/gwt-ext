@@ -144,7 +144,18 @@ public class Form extends BaseExtWidget {
        form.addButton(text);
    }-*/;
 
-    public native void addButton(Button button) /*-{
+    public void addButton(Button button) {
+        Element buttonEl = button.getElement();
+        if(buttonEl != null) {
+            Element parent = DOM.getParent(buttonEl);
+            if(parent != null) {
+                DOM.removeChild(parent, buttonEl);
+            }
+        }
+        doAddButton(button);
+    }
+
+    private native void doAddButton(Button button) /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJS = button.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.addButton(buttonJS);

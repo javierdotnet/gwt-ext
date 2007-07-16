@@ -38,7 +38,8 @@ public class DateField extends TriggerField {
     }-*/;
 
     public Date getValue() {
-        return new Date(getTime(jsObj));
+        long date = getTime(jsObj);
+        return date == -1 ? null : new Date(date);
     }
 
     public void setValue(Date date) {
@@ -47,10 +48,12 @@ public class DateField extends TriggerField {
     }
 
     private native void setTime(JavaScriptObject df, long time)/*-{
-        df.setValue(new Date(time));
+        df.setValue(new $wnd.Date(time));
     }-*/;
 
     private native long getTime(JavaScriptObject df)/*-{
-        return df.getValue().getTime();
+        //ext 1.1rc1 returns empty string.
+        var val = df.getValue();
+        return (val == '' || val == null || val === undefined)? -1 : df.getValue().getTime();
     }-*/;
 }

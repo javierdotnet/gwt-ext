@@ -163,10 +163,9 @@ public class ColumnModel extends JsObject {
         cm.setHidden(colIndex, hidden);
     }-*/;
 
-
     public native void setRenderer(int colIndex, Renderer renderer) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        cm.setRenderer(function(s, p, r, rowIndex, colNum, ds) {
+        cm.setRenderer(colIndex, function(s, p, r, rowIndex, colNum, ds) {
             var str = s.toString();
             var rec = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
             return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/String;Lcom/gwtext/client/data/Record;II)(str, rec, rowIndex, colNum);

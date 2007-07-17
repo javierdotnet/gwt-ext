@@ -61,20 +61,15 @@ public class MessageBoxConfig extends BaseConfig {
     public void setButtons(boolean buttons) {
         JavaScriptObjectHelper.setAttribute(jsObj, "buttons", buttons);
     }
-
-    //todo test
-    public void setCallback(MessageBox.PromptCallback cb) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "fn", getCallbackFunction(cb));        
-    }
-
-    private native JavaScriptObject getCallbackFunction(MessageBox.PromptCallback cb) /*-{
-        return function(btnID, text) {
-            if(btnID === undefined) btnID = null;
-            if(text === undefined) text = null;
-            cb.@com.gwtext.client.widgets.MessageBox.PromptCallback::execute(Ljava/lang/String;Ljava/lang/String;)(btnID, text);
-        }
+    
+     public native void setCallback(MessageBox.PromptCallback cb)/*-{
+        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        config['fn'] = function(btnID, text) {
+                            if(btnID === undefined) btnID = null;
+                            if(text === undefined) text = null;
+                            cb.@com.gwtext.client.widgets.MessageBox.PromptCallback::execute(Ljava/lang/String;Ljava/lang/String;)(btnID, text);
+                        };
     }-*/;
-
 
     //name = button id, value = button label
     //name has to be one of 'ok, cancel, yes, no, and value is the label to be dispalyed

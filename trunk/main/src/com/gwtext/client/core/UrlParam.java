@@ -32,6 +32,18 @@ public class UrlParam extends NameValuePair {
         super(paramName, paramValue);
     }
 
+    public UrlParam(String paramName, boolean paramValue) {
+        super(paramName, paramValue);
+    }
+
+    public UrlParam(String paramName, float paramValue) {
+        super(paramName, paramValue);
+    }
+
+    public UrlParam(String paramName, int paramValue) {
+        super(paramName, paramValue);
+    }
+
     private static UrlParam instance(String paramName, String paramValue) {
         return new UrlParam(paramName, paramValue);
     }

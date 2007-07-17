@@ -79,9 +79,9 @@ public class Grid3Panel extends Composite {
             setup();
         }
     }
-
+                                                          
     private void setup() {
-        DataProxy dataProxy = new ScriptTagProxy("http://www.yui-ext.com/forum2/topics-remote.php");
+        DataProxy dataProxy = new ScriptTagProxy("http://extjs.com/forum/topics-remote.php");
 
         JsonReader reader = new JsonReader(new JsonReaderConfig() {
             {

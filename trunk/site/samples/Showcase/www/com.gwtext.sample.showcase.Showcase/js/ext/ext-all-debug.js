@@ -21552,12 +21552,10 @@ Ext.extend(Ext.form.DateField, Ext.form.TriggerField,  {
 
     
     setValue : function(date){
-		debugger;
         Ext.form.DateField.superclass.setValue.call(this, this.formatDate(this.parseDate(date)));
     },
 
         parseDate : function(value){
-		debugger;
         if(!value || value instanceof Date){
             return value;
         }

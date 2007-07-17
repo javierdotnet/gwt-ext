@@ -35,11 +35,7 @@ public class RequestParam extends JsObject {
     }
 
     public void setParams(UrlParam[] params) {
-        JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
-        for (int i = 0; i < params.length; i++) {
-            UrlParam param = params[i];
-            JavaScriptObjectHelper.setAttribute(paramObj, param.getParamName(), param.getParamValue());
-        }
+        JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "params", paramObj);
     }
 
@@ -56,11 +52,7 @@ public class RequestParam extends JsObject {
     }
 
     public void setHeaders(NameValuePair[] defaultHeaders) {
-        JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
-        for (int i = 0; i < defaultHeaders.length; i++) {
-            NameValuePair header = defaultHeaders[i];
-            JavaScriptObjectHelper.setAttribute(paramObj, header.getParamName(), header.getParamValue());
-        }
+        JavaScriptObject paramObj = NameValuePair.getJsObj(defaultHeaders);
         JavaScriptObjectHelper.setAttribute(jsObj, "headers", paramObj);
     }
 }

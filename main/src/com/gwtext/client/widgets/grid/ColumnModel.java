@@ -153,9 +153,9 @@ public class ColumnModel extends JsObject {
         cm.setEditable(colIndex, editable);
     }-*/;
 
-    public native void setEditor(GridEditor editor) /*-{
+    public native void setEditor(int colIndex, GridEditor editor) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        cm.setEditor(editor.@com.gwtext.client.core.JsObject::jsObj);
+        cm.setEditor(colIndex, editor.@com.gwtext.client.core.JsObject::jsObj);
     }-*/;
 
     public native void setHidden(int colIndex, boolean hidden) /*-{

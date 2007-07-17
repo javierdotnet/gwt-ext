@@ -21,30 +21,107 @@
 package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.JsObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class NameValuePair extends JsObject {
+
+    public static final int STRING = 0;
+    public static final int BOOLEAN = 1;
+    public static final int FLOAT = 2;
+    public static final int INT = 3;
+
+    private int type = STRING;
+    private static final String NAME = "name";
+    private static final String VALUE = "value";
 
     public NameValuePair(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
-    public NameValuePair(String paramName, String paramValue) {
+    public NameValuePair(String name, String value) {
         jsObj = JavaScriptObjectHelper.createObject();
-        JavaScriptObjectHelper.setAttribute(jsObj, "paramName", paramName);
-        JavaScriptObjectHelper.setAttribute(jsObj, "paramValue", paramValue);
+        JavaScriptObjectHelper.setAttribute(jsObj, NAME, name);
+        JavaScriptObjectHelper.setAttribute(jsObj, VALUE, value);
+        type = STRING;
     }
 
-    private static NameValuePair instance(String paramName, String paramValue) {
-        return new NameValuePair(paramName, paramValue);
+    public NameValuePair(String name, boolean value) {
+        jsObj = JavaScriptObjectHelper.createObject();
+        JavaScriptObjectHelper.setAttribute(jsObj, NAME, name);
+        JavaScriptObjectHelper.setAttribute(jsObj, VALUE, value);
+        type = BOOLEAN;
     }
 
-    public String getParamName() {
-        return JavaScriptObjectHelper.getAttribute(jsObj, "paramName");
+    public NameValuePair(String name, float value) {
+        jsObj = JavaScriptObjectHelper.createObject();
+        JavaScriptObjectHelper.setAttribute(jsObj, NAME, name);
+        JavaScriptObjectHelper.setAttribute(jsObj, VALUE, value);
+        type = FLOAT;
     }
 
-    public String getParamValue() {
-        return JavaScriptObjectHelper.getAttribute(jsObj, "paramValue");
+    public NameValuePair(String name, int value) {
+        jsObj = JavaScriptObjectHelper.createObject();
+        JavaScriptObjectHelper.setAttribute(jsObj, NAME, name);
+        JavaScriptObjectHelper.setAttribute(jsObj, VALUE, value);
+        type = INT;
+    }
+
+    private static NameValuePair instance(String name, String value) {
+        return new NameValuePair(name, value);
+    }
+
+    public String getName() {
+        return JavaScriptObjectHelper.getAttribute(jsObj, NAME);
+    }
+
+    public String getValue() {
+        return JavaScriptObjectHelper.getAttribute(jsObj, VALUE);
+    }
+
+    public boolean getValueAsBoolean() {
+        return JavaScriptObjectHelper.getAttributeAsBoolean(jsObj, VALUE);
+    }
+
+    public float getValueAsFloat() {
+        return JavaScriptObjectHelper.getAttributeAsFloat(jsObj, VALUE);
+    }
+
+    public int getValueAsInt() {
+        return JavaScriptObjectHelper.getAttributeAsInt(jsObj, VALUE);
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public static JavaScriptObject getJsObj(NameValuePair[] nameValuePairs) {
+        JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
+        if(nameValuePairs == null) return paramObj;
+        
+        for (int i = 0; i < nameValuePairs.length; i++) {
+            NameValuePair param = nameValuePairs[i];
+            switch (param.getType()) {
+                case STRING: {
+                    JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValue());
+                    break;
+                }
+                case BOOLEAN: {
+                    JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValueAsBoolean());
+                    break;
+                }
+                case FLOAT: {
+                    JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValueAsFloat());
+                    break;
+                }
+                case INT: {
+                    JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValueAsInt());
+                    break;
+                }
+                default: {
+                    JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValue());
+                }
+            }
+        }
+        return paramObj;
     }
 }

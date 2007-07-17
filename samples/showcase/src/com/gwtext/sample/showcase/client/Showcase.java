@@ -35,16 +35,14 @@ import com.gwtext.client.widgets.tree.TreePanel;
 import com.gwtext.client.widgets.tree.TreePanelConfig;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 import com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter;
-import com.gwtext.client.data.JsonStore;
-import com.gwtext.client.data.Field;
-import com.gwtext.client.data.StringField;
-import com.gwtext.client.data.DateField;
 import com.gwtext.sample.showcase.client.dialog.DialogPanel;
 import com.gwtext.sample.showcase.client.dialog.MessageBoxPanel;
 import com.gwtext.sample.showcase.client.form.Forms1Panel;
 import com.gwtext.sample.showcase.client.form.Forms2Panel;
+import com.gwtext.sample.showcase.client.form.Forms3Panel;
 import com.gwtext.sample.showcase.client.grid.Grid1Panel;
 import com.gwtext.sample.showcase.client.grid.Grid2Panel;
+import com.gwtext.sample.showcase.client.grid.Grid3Panel;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
 
@@ -176,13 +174,21 @@ public class Showcase implements EntryPoint {
 
         TreeNode grid2 = new TreeNode(new TreeNodeConfig() {
             {
-                setText("Ajax XML data");
+                setText("Editable Grid with remote XML data");
                 setUserObject(new UserObject(new Grid2Panel()));
+            }
+        });
+
+        TreeNode grid3 = new TreeNode(new TreeNodeConfig() {
+            {
+                setText("Paging and Remote Datasets");
+                setUserObject(new UserObject(new Grid3Panel()));
             }
         });
 
         grid.appendChild(grid1);
         grid.appendChild(grid2);
+        grid.appendChild(grid3);
         root.appendChild(grid);
 
         //forms example
@@ -204,9 +210,16 @@ public class Showcase implements EntryPoint {
                 setUserObject(new UserObject(new Forms2Panel()));
             }
         });
+        TreeNode form3 = new TreeNode(new TreeNodeConfig() {
+            {
+                setText("XML Form");
+                setUserObject(new UserObject(new Forms3Panel()));
+            }
+        });
 
         form.appendChild(form1);
         form.appendChild(form2);
+        form.appendChild(form3);
         root.appendChild(form);
 
         //tab example

@@ -35,11 +35,7 @@ public class UpdateManagerConfig extends BaseConfig {
     }
 
     public void setParams(UrlParam[] params) {
-        JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
-        for (int i = 0; i < params.length; i++) {
-            UrlParam param = params[i];
-            JavaScriptObjectHelper.setAttribute(paramObj, param.getParamName(), param.getParamValue());
-        }
+        JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "params", paramObj);
     }
 

@@ -7,6 +7,13 @@
  */
 
 
+#topic-grid {
+    border:1px solid #99bbe8;
+    overflow: hidden;
+    width: 665px;
+    height: 300px;
+}
+
 #grid-example1  {
     border: 3px solid #C3DAF9;
 }

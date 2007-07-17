@@ -1,5 +1,4 @@
-<html><head><script>var $wnd = parent;var $doc = $wnd.document;var $moduleName, $moduleBase;</script></head><body><font face='arial' size='-1'>This script is part of module</font><code>com.gwtext.sample.showcase.Showcase</code><script><!--
-var _,m$='com.google.gwt.core.client.',n$='com.google.gwt.lang.',o$='com.google.gwt.user.client.',p$='com.google.gwt.user.client.impl.',q$='com.google.gwt.user.client.ui.',r$='com.google.gwt.user.client.ui.impl.',s$='com.gwtext.client.core.',t$='com.gwtext.client.data.',u$='com.gwtext.client.util.',v$='com.gwtext.client.widgets.',w$='com.gwtext.client.widgets.event.',x$='com.gwtext.client.widgets.form.',y$='com.gwtext.client.widgets.grid.',z$='com.gwtext.client.widgets.grid.event.',A$='com.gwtext.client.widgets.layout.',B$='com.gwtext.client.widgets.menu.',C$='com.gwtext.client.widgets.menu.event.',D$='com.gwtext.client.widgets.tree.',E$='com.gwtext.client.widgets.tree.event.',F$='com.gwtext.sample.showcase.client.',a_='com.gwtext.sample.showcase.client.dialog.',b_='com.gwtext.sample.showcase.client.form.',c_='com.gwtext.sample.showcase.client.grid.',d_='com.gwtext.sample.showcase.client.menu.',e_='com.gwtext.sample.showcase.client.tabs.',f_='java.io.',g_='java.lang.',h_='java.util.';function l$(){}
+(function(){var $wnd = window;var $doc = $wnd.document;var $moduleName, $moduleBase;var _,m$='com.google.gwt.core.client.',n$='com.google.gwt.lang.',o$='com.google.gwt.user.client.',p$='com.google.gwt.user.client.impl.',q$='com.google.gwt.user.client.ui.',r$='com.google.gwt.user.client.ui.impl.',s$='com.gwtext.client.core.',t$='com.gwtext.client.data.',u$='com.gwtext.client.util.',v$='com.gwtext.client.widgets.',w$='com.gwtext.client.widgets.event.',x$='com.gwtext.client.widgets.form.',y$='com.gwtext.client.widgets.grid.',z$='com.gwtext.client.widgets.grid.event.',A$='com.gwtext.client.widgets.layout.',B$='com.gwtext.client.widgets.menu.',C$='com.gwtext.client.widgets.menu.event.',D$='com.gwtext.client.widgets.tree.',E$='com.gwtext.client.widgets.tree.event.',F$='com.gwtext.sample.showcase.client.',a_='com.gwtext.sample.showcase.client.dialog.',b_='com.gwtext.sample.showcase.client.form.',c_='com.gwtext.sample.showcase.client.grid.',d_='com.gwtext.sample.showcase.client.menu.',e_='com.gwtext.sample.showcase.client.tabs.',f_='java.io.',g_='java.lang.',h_='java.util.';function l$(){}
 function d5(a){return this===a;}
 function e5(){return C5(this);}
 function b5(){}
@@ -413,7 +412,7 @@ function zr(d,a,b,c){Ar(d,a,b,null,null,c);return d;}
 function Ar(g,b,e,a,c,f){var d;d=gt();tt(d,'proxy',b.f);tt(d,'reader',e.f);Dr(g,a,d);xt(d,'remoteSort',f);g.f=Fr(d);return g;}
 function Cr(b){var a;a=b.vc(b.f);return Er(a);}
 function Dr(d,a,c){var b;b=po(a);tt(c,'baseParams',b);}
-function Er(b){var a,c,d,e;e=zt(b);d=qb('[Lcom.gwtext.client.data.Record;',[294],[17],[e.a],null);for(a=0;a<e.a;a++){c=e[a];d[a]=Fq(new zq(),c);}return d;}
+function Er(b){var a,c,d,e;e=zt(b);d=qb('[Lcom.gwtext.client.data.Record;',[291],[15],[e.a],null);for(a=0;a<e.a;a++){c=e[a];d[a]=Fq(new zq(),c);}return d;}
 function Fr(a){return new ($wnd.Ext.data.Store)(a);}
 function as(a){var c=this.f;var b=c.getAt(a);if(b==null||b===undefined)return null;return dr(b);}
 function bs(a){return a.getModifiedRecords();}
@@ -503,7 +502,7 @@ function wt(b,a,c){yt(b,a,c.zc());}
 function ut(b,a,c){b[a]=c.a;}
 function qt(b,a,c){b[a]=c;}
 function yt(b,a,c){b[a]=new ($wnd.Date)(c);}
-function zt(a){var b,c,d;c=lt(a);d=qb('[Lcom.google.gwt.core.client.JavaScriptObject;',[293],[1],[c],null);for(b=0;b<c;b++){sb(d,b,Eb(mt(a,b),bb));}return d;}
+function zt(a){var b,c,d;c=lt(a);d=qb('[Lcom.google.gwt.core.client.JavaScriptObject;',[294],[1],[c],null);for(b=0;b<c;b++){sb(d,b,Eb(mt(a,b),bb));}return d;}
 function Bt(c,b){var a;c.d=b;a=c.kc();if(a!==null){c.Ee(a.jc());}return c;}
 function Dt(a){if(a.l===null){a.Ee(a.kc().jc());}return a.l;}
 function Et(b,a){kd(Dt(b),'height',a);}
@@ -737,7 +736,7 @@ function hC(){var a=this.d;a.end();}
 function iC(a){var c=this.d;var b=a.f;c.fieldset(b);}
 function jC(a){var c=this.d;var b=a.f;c.load(b);}
 function kC(){var b=this.d;var a=this.a;b.render(a);}
-function lC(a){var c=this.d;var b=a.f;c.submit(b);}
+function lC(a){debugger;var c=this.d;var b=a.f;c.submit(b);}
 function kB(){}
 _=kB.prototype=new At();_.z=cC;_.q=bC;_.F=dC;_.cb=eC;_.ib=fC;_.pb=gC;_.tb=hC;_.cc=iC;_.td=jC;_.te=kC;_.sf=lC;_.Af=x$+'Form';_.zf=100;_.a=null;function mB(a){Bm(a);return a;}
 function oB(b,a){vt(b.f,'method',a);}
@@ -784,7 +783,7 @@ function hE(a,b){st(a.f,'width',b);}
 function iE(j){var i=this.f;i['renderer']=function(g,c,d,f,a,b){var h=g.toString();var e=dr(d);return j.ve(h,e,f,a);};}
 function BD(){}
 _=BD.prototype=new Am();_.ff=iE;_.Af=y$+'ColumnConfig';_.zf=107;function kE(b,a){eo(b,a);return b;}
-function lE(f,b){var a,c,d,e;c=qb('[Lcom.google.gwt.core.client.JavaScriptObject;',[293],[1],[b.a],null);for(e=0;e<b.a;e++){a=b[e];sb(c,e,Eb(a.f,bb));}d=et(c);f.f=f.ib(d);return f;}
+function lE(f,b){var a,c,d,e;c=qb('[Lcom.google.gwt.core.client.JavaScriptObject;',[294],[1],[b.a],null);for(e=0;e<b.a;e++){a=b[e];sb(c,e,Eb(a.f,bb));}d=et(c);f.f=f.ib(d);return f;}
 function nE(a){return new ($wnd.Ext.grid.ColumnModel)(a);}
 function oE(b){var a=this.f;a.defaultSortable=b;}
 function pE(j,k){var i=this.f;i.setRenderer(j,function(g,c,d,f,a,b){var h=g.toString();var e=dr(d);return k.ve(h,e,f,a);});}
@@ -1190,13 +1189,13 @@ function lU(){}
 _=lU.prototype=new ku();_.Af=b_+'Forms3Panel$12';_.zf=208;function qU(b,a,c){b.a=c;return b;}
 function sU(a,b){this.a.sf(vU(new tU(),this));}
 function pU(){}
-_=pU.prototype=new ez();_.Bd=sU;_.Af=b_+'Forms3Panel$13';_.zf=209;function uU(a){{oB(a,'GET');pB(a,'xml-errors.xml');qB(a,'Saving Data...');oB(a,'post');}}
+_=pU.prototype=new ez();_.Bd=sU;_.Af=b_+'Forms3Panel$13';_.zf=209;function uU(a){{oB(a,'GET');pB(a,'xml-errors.xml');qB(a,'Saving Data...');}}
 function vU(b,a){mB(b);uU(b);return b;}
 function tU(){}
 _=tU.prototype=new lB();_.Af=b_+'Forms3Panel$14';_.zf=210;function yU(b,a,c,d){b.a=c;b.b=d;return b;}
 function AU(a,b){this.a.td(DU(new BU(),this,this.b));}
 function xU(){}
-_=xU.prototype=new ez();_.Bd=AU;_.Af=b_+'Forms3Panel$15';_.zf=211;function CU(a){{pB(a,'xml-form.xml');qB(a,'Loading');a.a.sb();}}
+_=xU.prototype=new ez();_.Bd=AU;_.Af=b_+'Forms3Panel$15';_.zf=211;function CU(a){{oB(a,'GET');pB(a,'xml-form.xml');qB(a,'Loading');a.a.sb();}}
 function DU(b,a,c){b.a=c;mB(b);CU(b);return b;}
 function BU(){}
 _=BU.prototype=new lB();_.Af=b_+'Forms3Panel$16';_.zf=212;function dV(a){{ps(a,'field');qs(a,'@success');}}
@@ -1248,7 +1247,7 @@ function FW(){}
 _=FW.prototype=new lh();_.fe=kY;_.Af=c_+'Grid2Panel';_.zf=226;_.a=false;_.b=null;function fX(a){{cE(a,'Common Name');aE(a,'common');hE(a,220);bE(a,aF(new FE(),nD(new eD(),kX(new iX(),a))));}}
 function gX(b,a){CD(b);fX(b);return b;}
 function aX(){}
-_=aX.prototype=new BD();_.Af=c_+'Grid2Panel$1';_.zf=227;function cX(a){{xr(a,rb('[Lcom.gwtext.client.core.UrlParam;',291,15,[wo(new uo(),'rnd',o8(new n8()).zc()+'')]));}}
+_=aX.prototype=new BD();_.Af=c_+'Grid2Panel$1';_.zf=227;function cX(a){{xr(a,rb('[Lcom.gwtext.client.core.UrlParam;',293,17,[wo(new uo(),'rnd',o8(new n8()).zc()+'')]));}}
 function dX(b,a){vr(b);cX(b);return b;}
 function bX(){}
 _=bX.prototype=new ur();_.Af=c_+'Grid2Panel$10';_.zf=228;function jX(a){{iD(a,false);}}
@@ -1296,7 +1295,7 @@ function vY(){}
 _=vY.prototype=new ku();_.Af=c_+'Grid3Panel$12';_.zf=239;function AY(b,a){b.a=a;return b;}
 function CY(a,b){g0(this.a.a,b);}
 function zY(){}
-_=zY.prototype=new ez();_.je=CY;_.Af=c_+'Grid3Panel$13';_.zf=240;function EY(a){{xr(a,rb('[Lcom.gwtext.client.core.UrlParam;',291,15,[vo(new uo(),'start',0),vo(new uo(),'limit',25)]));}}
+_=zY.prototype=new ez();_.je=CY;_.Af=c_+'Grid3Panel$13';_.zf=240;function EY(a){{xr(a,rb('[Lcom.gwtext.client.core.UrlParam;',293,17,[vo(new uo(),'start',0),vo(new uo(),'limit',25)]));}}
 function FY(b,a){vr(b);EY(b);return b;}
 function DY(){}
 _=DY.prototype=new ur();_.Af=c_+'Grid3Panel$14';_.zf=241;function fZ(d,b,c,a){return bt('<b><i>{0}<\/i><\/b>',rb('[Ljava.lang.String;',292,16,[d]));}
@@ -1530,5 +1529,4 @@ function n9(){}
 _=n9.prototype=new b5();_.bd=t9;_.vd=u9;_.Af=h_+'HashMap$EntrySetImplIterator';_.zf=0;_.a=null;_.b=null;function h$(){}
 _=h$.prototype=new f5();_.Af=h_+'NoSuchElementException';_.zf=288;function x3(){kN(gN(new zK()));}
 function gwtOnLoad(b,d,c){$moduleName=d;$moduleBase=c;if(b)try{x3();}catch(a){b(d);}else{x3();}}
-var Db=[{},{2:1},{2:1},{2:1},{2:1},{1:1,10:1},{1:1,4:1,10:1},{1:1,10:1},{5:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{26:1},{26:1},{26:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{3:1,7:1,9:1,10:1,12:1,13:1},{7:1,8:1,9:1,10:1,12:1,13:1},{5:1},{7:1,9:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{25:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{25:1},{7:1,10:1,12:1,13:1},{22:1},{25:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{25:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{6:1},{6:1},{22:1},{2:1},{2:1},{24:1},{2:1},{2:1},{2:1},{2:1},{16:1},{2:1},{27:1},{29:1},{29:1},{30:1},{27:1},{29:1},{28:1},{2:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1}];if ($wnd.com_gwtext_sample_showcase_Showcase) $wnd.com_gwtext_sample_showcase_Showcase.onScriptLoad();
---></script></body></html>
+var Db=[{},{2:1},{2:1},{2:1},{2:1},{1:1,10:1},{1:1,4:1,10:1},{1:1,10:1},{5:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{26:1},{26:1},{26:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{3:1,7:1,9:1,10:1,12:1,13:1},{7:1,8:1,9:1,10:1,12:1,13:1},{5:1},{7:1,9:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{25:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,9:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{25:1},{7:1,10:1,12:1,13:1},{22:1},{25:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{25:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{25:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{7:1,10:1,12:1,13:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{22:1},{6:1},{6:1},{22:1},{2:1},{2:1},{24:1},{2:1},{2:1},{2:1},{2:1},{16:1},{2:1},{27:1},{29:1},{29:1},{30:1},{27:1},{29:1},{28:1},{2:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1},{11:1}];if (com_gwtext_sample_showcase_Showcase) {  var __gwt_initHandlers = com_gwtext_sample_showcase_Showcase.__gwt_initHandlers;  com_gwtext_sample_showcase_Showcase.onScriptLoad(gwtOnLoad);}})();

@@ -44,11 +44,18 @@ public class Field extends Component {
     public Field(JavaScriptObject jsObj) {
         super(jsObj);
     }
-
+    
+    /**
+     * Set the location of the error message target globally. Supported values are 'qtip' (default) and 'side'    
+    public static native void setMsgTarget(String msgTarget) /*-{
+        $wnd.Ext.form.Field.prototype.msgTarget = msgTarget;
+    }-*/;
+    
     protected JavaScriptObject create(JavaScriptObject config) {
         throw new IllegalArgumentException("must be overridden");
     }
 
+    
     public void applyTo(String id) {
         Element el = DOM.getElementById(id);
         if (el == null) {

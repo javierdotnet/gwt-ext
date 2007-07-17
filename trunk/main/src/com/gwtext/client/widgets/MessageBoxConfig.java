@@ -79,11 +79,7 @@ public class MessageBoxConfig extends BaseConfig {
     //name = button id, value = button label
     //name has to be one of 'ok, cancel, yes, no, and value is the label to be dispalyed
     public void setButtons(NameValuePair[] buttons) {
-        JavaScriptObject config = JavaScriptObjectHelper.createObject();
-        for (int i = 0; i < buttons.length; i++) {
-            NameValuePair button = buttons[i];
-            JavaScriptObjectHelper.setAttribute(config, button.getParamName(), button.getParamValue());
-        }
+        JavaScriptObject config = NameValuePair.getJsObj(buttons);
         JavaScriptObjectHelper.setAttribute(jsObj, "buttons", config);
     }
                    

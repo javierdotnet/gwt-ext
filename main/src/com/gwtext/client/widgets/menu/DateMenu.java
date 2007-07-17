@@ -51,7 +51,7 @@ public class DateMenu extends Menu {
 
         dateMenu.addListener('select',
                 function(pallete, date) {
-                    var dateJS = @com.gwtext.client.util.DateFactory::create(J)(date.getTime());
+                    var dateJS = @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
                     return listener.@com.gwtext.client.widgets.menu.event.DateMenuListener::onSelect(Lcom/gwtext/client/widgets/menu/DateMenu;Ljava/util/Date;)(dateMenuJ, dateJS);
                 }
         );

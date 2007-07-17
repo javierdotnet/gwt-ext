@@ -2,7 +2,6 @@ package com.gwtext.sample.feedviewer.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.*;
 import com.gwtext.client.data.event.StoreListenerAdapter;
 import com.gwtext.client.util.Format;
@@ -41,7 +40,7 @@ public class FeedGrid {
                     }
                 }, new RecordDef(new Field[]{
                         new StringField("title"),
-                        new StringField("publishedDate"),
+                        new DateField("publishedDate"), //default date format
                         new StringField("link"),
                         new StringField("content")
                 }
@@ -204,7 +203,7 @@ public class FeedGrid {
 
     //toggle between preview and title-only views
     public void togglePreview(boolean pressed) {
-        showPreview = pressed;
+        showPreview = pressed;       
         grid.getView().refresh();
     }
 }

@@ -26,10 +26,17 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class HttpProxy extends DataProxy {
 
+    /**
+     * @param url data url, defaults to POST
+     */
     public HttpProxy(String url) {
         this(url, null);
     }
 
+    /**
+     * @param url data url
+     * @param method  GET or POST
+     */
     public HttpProxy(String url, String method) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);

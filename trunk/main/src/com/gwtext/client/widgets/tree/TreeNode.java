@@ -164,12 +164,16 @@ public class TreeNode extends Node {
 
          node.addListener('beforecollapse',
                  function(source, deep, anim) {
+                    if(deep === undefined) deep = false;
+                    if(anim === undefined) anim = false;
                     return listener.@com.gwtext.client.widgets.tree.event.TreeNodeListener::doBeforeCollapse(Lcom/gwtext/client/data/Node;ZZ)(nodeJ, deep, anim);
 			    }
           );
 
          node.addListener('beforeexpand',
                  function(source, deep, anim) {
+                    if(deep === undefined) deep = false;
+                    if(anim === undefined) anim = false; 
                     return listener.@com.gwtext.client.widgets.tree.event.TreeNodeListener::doBeforeExpand(Lcom/gwtext/client/data/Node;ZZ)(nodeJ, deep, anim);
 			    }
           );
@@ -221,6 +225,7 @@ public class TreeNode extends Node {
 
          node.addListener('textchange',
                  function(source, text, oldText) {
+                    if(oldText === undefined) oldText = null;
                     return listener.@com.gwtext.client.widgets.tree.event.TreeNodeListener::onTextChange(Lcom/gwtext/client/data/Node;Ljava/lang/String;Ljava/lang/String;)(nodeJ, text, oldText);
 			    }
           );

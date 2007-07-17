@@ -21,10 +21,7 @@
 package com.gwtext.client;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import com.gwtext.client.data.DateField;
-import com.gwtext.client.data.Field;
-import com.gwtext.client.data.JsonStore;
-import com.gwtext.client.data.StringField;
+import com.gwtext.client.data.*;
 
 //java -classpath gwt-user.jar com.google.gwt.junit.remote.BrowserManagerServer WinIE6 "C:\Program Files\Internet Explorer\IEXPLORE.EXE"
 //-Dgwt.args="-remoteweb rmi://localhost/WinIE6"  for remote
@@ -36,10 +33,10 @@ public class JsonStoreTest extends GWTTestCase {
     }
 
     public void testCreation() {
-        JsonStore store = new JsonStore("json", "list.visits", new Field[]{
+        JsonStore store = new JsonStore("json", "list.visits", new RecordDef(new Field[]{
                 new StringField("summary"),
                 new DateField("start"),
                 new DateField("end")}
-        );
+        ));
     }
 }

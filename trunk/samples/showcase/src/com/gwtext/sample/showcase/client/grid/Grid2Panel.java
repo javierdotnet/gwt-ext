@@ -57,7 +57,7 @@ public class Grid2Panel extends Composite {
 
     private void setup() {
         //this example loads an editable grid from remote xml data
-        HttpProxy proxy = new HttpProxy("plants.xml");
+        HttpProxy proxy = new HttpProxy("plants.xml", "GET");
         XmlReader reader = new XmlReader("plant", new RecordDef(
                 new Field[]{
                         new StringField("common"),

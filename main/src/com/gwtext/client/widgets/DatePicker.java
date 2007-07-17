@@ -69,7 +69,7 @@ public class DatePicker extends Component {
 
         component.addListener('select',
                 function(datePicker, date) {
-                    var d = @com.gwtext.client.util.DateFactory::create(J)(date.getTime());
+                    var d = @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
                     listener.@com.gwtext.client.widgets.event.DatePickerListener::onSelect(Lcom/gwtext/client/widgets/DatePicker;Ljava/util/Date;)(componentJ, d);
                 }
         );

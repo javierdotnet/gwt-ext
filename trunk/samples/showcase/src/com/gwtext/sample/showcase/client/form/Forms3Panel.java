@@ -189,7 +189,6 @@ public class Forms3Panel extends Composite {
                                 setMethod("GET");
                                 setUrl("xml-errors.xml");
                                 setWaitMsg("Saving Data...");
-                                setMethod("post");
                             }
                         });
                     }
@@ -201,6 +200,7 @@ public class Forms3Panel extends Composite {
             public void onClick(Button button, EventObject e) {
                 fs.load(new FormActionConfig() {
                     {
+                        setMethod("GET");
                         setUrl("xml-form.xml");
                         setWaitMsg("Loading");
                         submitBtn.enable();

@@ -23,8 +23,6 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.form.event.FieldListener;
 
@@ -46,7 +44,9 @@ public class Field extends Component {
     }
     
     /**
-     * Set the location of the error message target globally. Supported values are 'qtip' (default) and 'side'    
+     * Set the location of the error message target globally.
+     * @param msgTarget supported values are 'qtip' (default) and 'side'
+     */
     public static native void setMsgTarget(String msgTarget) /*-{
         $wnd.Ext.form.Field.prototype.msgTarget = msgTarget;
     }-*/;

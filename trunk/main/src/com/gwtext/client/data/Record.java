@@ -23,6 +23,8 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
+import java.util.Date;
+
 public class Record extends JsObject {
     public Record(JavaScriptObject jsObj) {
         super(jsObj);
@@ -80,6 +82,22 @@ public class Record extends JsObject {
     public native void set(String field, double value) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         record.set(field, value);
+    }-*/;
+
+    public native Date getAsDate(String field) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var val = record.get(field);
+        if(val == null || val === undefined) {
+            return null;
+        } else {
+            return @com.gwtext.client.util.DateUtil::create(J)(val.getTime());
+        }
+    }-*/;
+
+    public native void set(String field, Date value) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(value);
+        record.set(field, new $wnd.Date(millis));
     }-*/;
 
     //see http://extjs.com/forum/showthread.php?t=2834&highlight=validateedit&page=2 for use

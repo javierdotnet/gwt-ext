@@ -48,17 +48,18 @@ public class Store extends JsObject {
         jsObj = create(params);
     }
 
-    public Store(DataProxy dataProxy, Reader reader) {
-        JavaScriptObject params = JavaScriptObjectHelper.createObject();
-        JavaScriptObjectHelper.setAttribute(params, "proxy", dataProxy.getJsObj());
-        JavaScriptObjectHelper.setAttribute(params, "reader", reader.getJsObj());
-        jsObj = create(params);
-    }
-
     public Store(Reader reader) {
         JavaScriptObject params = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(params, "reader", reader.getJsObj());
         jsObj = create(params);
+    }
+
+    public Store(DataProxy dataProxy, Reader reader) {
+        this(dataProxy, reader, false);
+    }
+
+    public Store(DataProxy dataProxy, Reader reader, boolean remoteSort) {
+        this(dataProxy, reader, null, null, remoteSort);
     }
 
     public Store(DataProxy dataProxy, Reader reader, UrlParam[] baseParams, SortState initialSortState, boolean remoteSort) {
@@ -79,11 +80,7 @@ public class Store extends JsObject {
     }
 
     private void setBaseParams(UrlParam[] baseParams, JavaScriptObject params) {
-        JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
-        for (int i = 0; i < baseParams.length; i++) {
-            UrlParam param = baseParams[i];
-            JavaScriptObjectHelper.setAttribute(paramObj, param.getParamName(), param.getParamValue());
-        }
+        JavaScriptObject paramObj = UrlParam.getJsObj(baseParams);
         JavaScriptObjectHelper.setAttribute(params, "baseParams", paramObj);
     }
 

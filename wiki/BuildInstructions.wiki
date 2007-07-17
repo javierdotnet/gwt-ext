@@ -27,7 +27,7 @@ Everything is Java source that can be built with the included GWT-Ext [http://an
   then just invoke Ant
      {{{ ant  }}}
 
-  * The GWT-Ext build creates each binary distribution in the build/dist  subdirectory of the source root directory. In this example, the distributions would be in ~/gwt-ext/trunk/build.
+  * The GWT-Ext build creates a binary distribution in the build/dist  subdirectory of the source root directory. In this example, the distributions would be in ~/gwt-ext/trunk/build.
 
 === Testing ===
  * To perform the tests, simply run 
@@ -39,5 +39,4 @@ Everything is Java source that can be built with the included GWT-Ext [http://an
 There is a problem, detailed at ant.apache.org, where ant cannot find the JUnit classes. The simple workaround is to either:
   * Delete ant-junit.jar from the ant lib directory (for example, /usr/share/ant/lib/)
   * Copy junit.jar into your ant lib directory
-
 

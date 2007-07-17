@@ -2,12 +2,12 @@
 <response success="true">
 <contact>
     <name>
-        <first>Jack</first>
-        <last>Slocum</last>
+        <first>Sanjiv</first>
+        <last>Jivan</last>
     </name>
-    <company>Ext JS</company>
-    <email>support@extjs.com</email>
-    <state>OH</state>
+    <company>foo bar</company>
+    <email>sanjiv.jivan@gmail.com</email>
+    <state>MA</state>
     <dob>04/15/2007</dob>
 </contact>
 </response>

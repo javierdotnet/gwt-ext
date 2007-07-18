@@ -131,23 +131,23 @@ public class Component extends BaseExtWidget {
 
         component.addListener('beforedestroy',
                 function(source) {
-                    listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeDestroy(Lcom/gwtext/client/widgets/Component;)(componentJ);
+                    return listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeDestroy(Lcom/gwtext/client/widgets/Component;)(componentJ);
                 }
         );
 
         component.addListener('beforehide',
                 function(source) {
-                    listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeHide(Lcom/gwtext/client/widgets/Component;)(componentJ);
+                    return listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeHide(Lcom/gwtext/client/widgets/Component;)(componentJ);
                 }
         );
         component.addListener('beforerender',
                 function(source) {
-                    listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeRender(Lcom/gwtext/client/widgets/Component;)(componentJ);
+                    return listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeRender(Lcom/gwtext/client/widgets/Component;)(componentJ);
                 }
         );
         component.addListener('beforeshow',
                 function(source) {
-                    listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeShow(Lcom/gwtext/client/widgets/Component;)(componentJ);
+                    return listener.@com.gwtext.client.widgets.event.ComponentListener::onBeforeShow(Lcom/gwtext/client/widgets/Component;)(componentJ);
                 }
         );
         component.addListener('destroy',

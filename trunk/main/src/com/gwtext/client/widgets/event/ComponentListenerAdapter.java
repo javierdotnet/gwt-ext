@@ -23,20 +23,20 @@ package com.gwtext.client.widgets.event;
 import com.gwtext.client.widgets.Component;
 
 public class ComponentListenerAdapter implements ComponentListener {
-    public void onBeforeDestroy(Component component) {
-
+    public boolean doBeforeDestroy(Component component) {
+        return true;
     }
 
-    public void onBeforeHide(Component component) {
-
+    public boolean doBeforeHide(Component component) {
+        return true;
     }
 
-    public void onBeforeRender(Component component) {
-
+    public boolean doBeforeRender(Component component) {
+        return true;
     }
 
-    public void onBeforeShow(Component component) {
-
+    public boolean doBeforeShow(Component component) {
+        return true;
     }
 
     public void onDestroy(Component component) {

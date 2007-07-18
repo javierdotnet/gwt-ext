@@ -191,7 +191,7 @@ public class TabsPanel extends Composite {
 
         simple.add(new DateField(new DateFieldConfig() {
             {
-                setDisableDays(new int[]{0, 4});
+                setDisabledDays(new int[]{0, 4});
                 setFieldLabel("Sample Date");
                 setValue("05/07/07");
             }

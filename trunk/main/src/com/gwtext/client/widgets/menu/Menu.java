@@ -164,7 +164,7 @@ public class Menu extends RequiredElementWidget {
 
         menu.addListener('click',
                 function(source, menuItem, event) {
-                    var menuItemId = menuItem.id;
+                    var menuItemId = (menuItem == null || menuItem === undefined) ? null : menuItem.id;
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     return listener.@com.gwtext.client.widgets.menu.event.MenuListener::onClick(Lcom/gwtext/client/widgets/menu/Menu;Ljava/lang/String;Lcom/gwtext/client/core/EventObject;)(menuJ, menuItemId, e);
                 }
@@ -189,7 +189,7 @@ public class Menu extends RequiredElementWidget {
                 //todo order inconsistent
                 function(source, event, menuItem) {
                     var menuItemJ = null;
-                    if(menuItem != null && menuItem != undefined) {
+                    if(menuItem != null && !(menuItem === undefined)) {
                         menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
                     }
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
@@ -201,7 +201,7 @@ public class Menu extends RequiredElementWidget {
         menu.addListener('mouseover',
                 function(source, event, menuItem) {
                     var menuItemJ = null;
-                    if(menuItem != null && menuItem != undefined) {
+                    if(menuItem != null && !(menuItem === undefined)) {
                         menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
                     }
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);

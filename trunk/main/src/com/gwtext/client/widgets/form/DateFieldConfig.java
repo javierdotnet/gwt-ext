@@ -24,16 +24,16 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class DateFieldConfig extends TriggerFieldConfig {
 
-    public void setDisableDates(String[] disableDates) {
-        JavaScriptObjectHelper.setAttributeAsStringArray(jsObj, "disableDates", disableDates);
+    public void setDisabledDates(String[] disabledDates) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "disabledDates", disabledDates);
     }
 
     public void setDisabledDatesText(String disabledDatesText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabledDatesText", disabledDatesText);
     }
 
-    public void setDisableDays(int[] disableDays) {
-        JavaScriptObjectHelper.setAttributeAsIntArray(jsObj, "disableDays", disableDays);
+    public void setDisabledDays(int[] disabledDays) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "disabledDays", disabledDays);
     }
 
     public void setDisabledDaysText(String disabledDaysText) {

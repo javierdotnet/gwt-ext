@@ -73,10 +73,17 @@ public class JavaScriptObjectHelper {
 	    elem[attr] = value;
     }-*/;
 
+    public static void setAttribute(JavaScriptObject elem, String attr, int[] values) {
+	    setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
+    };
+
+    public static void setAttribute(JavaScriptObject elem, String attr, String[] values) {
+	    setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
+    };
+
     public static native void setAttribute(JavaScriptObject elem, String attr, JavaScriptObject value) /*-{
 	    elem[attr] = value;
     }-*/;
-
 
     public static native void setAttribute(JavaScriptObject elem, String attr, int value) /*-{
 	    elem[attr] = value;
@@ -128,7 +135,6 @@ public class JavaScriptObjectHelper {
                 rtn[i] = getIntValueFromJavaScriptObjectArray(hold, i);
             }
         }
-
         return rtn;
     }
 
@@ -161,18 +167,6 @@ public class JavaScriptObjectHelper {
 
     public static native JavaScriptObject getValueFromJavaScriptObjectArray(JavaScriptObject elem, int i) /*-{
 	    return elem[i];
-    }-*/;
-
-/*    public static native Element getElementValueFromJavaScriptObjectArray(JavaScriptObject elem, int i) *//*-{
-	    return elem[i];
-    }-*//*;*/
-
-    public static native void setAttributeAsIntArray(JavaScriptObject elem, String attr, int[] value) /*-{
-	    elem[attr] = value;
-    }-*/;
-
-    public static native void setAttributeAsStringArray(JavaScriptObject elem, String attr, String[] value) /*-{
-	    elem[attr] = value;
     }-*/;
 
     public static native boolean getAttributeAsBoolean(JavaScriptObject elem, String attr) /*-{

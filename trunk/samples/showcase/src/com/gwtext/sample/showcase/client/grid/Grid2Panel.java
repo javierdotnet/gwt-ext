@@ -120,7 +120,7 @@ public class Grid2Panel extends Composite {
                             {
                                 setFormat("m/d/Y");
                                 setMinValue("01/01/06");
-                                setDisableDays(new int[]{0, 6});
+                                setDisabledDays(new int[]{0, 6});
                                 setDisabledDaysText("Plants are not available on the weekend");
                             }
                         })));

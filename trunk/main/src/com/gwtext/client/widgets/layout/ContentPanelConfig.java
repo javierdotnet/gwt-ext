@@ -39,7 +39,7 @@ public class ContentPanelConfig extends BaseConfig {
 
     public void setAdjustments(int widthAdjustment, int heightAdjustment) {
         int[] adjustments = new int[]{widthAdjustment, heightAdjustment};
-        JavaScriptObjectHelper.setAttributeAsIntArray(jsObj, "adjustments", adjustments);
+        JavaScriptObjectHelper.setAttribute(jsObj, "adjustments", adjustments);
     }
 
     public void setAutoCreate(boolean autoCreate) {

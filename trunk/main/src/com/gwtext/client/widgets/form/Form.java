@@ -139,9 +139,10 @@ public class Form extends BaseExtWidget {
        form.add(fieldJS);
    }-*/;
 
-    public native void addButton(String text) /*-{
-       var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-       form.addButton(text);
+    public native Button addButton(String text) /*-{
+        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var buttonJS = form.addButton(text);
+        return @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(buttonJS);
    }-*/;
 
     public void addButton(Button button) {

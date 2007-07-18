@@ -41,7 +41,7 @@ There is a problem, detailed at ant.apache.org, where ant cannot find the JUnit 
   * Copy junit.jar into your ant lib directory
 
 === Ant XSLT issues ===
-If you get an error like the one below, please remove the file {AHT_HOME}\lib\xercesImpl.jar from your Ant installation as the copy of Xerces distrbuted with certain versions on Ant causes conflicts.
+If you get an error like the one below, please remove the file {ANT_HOME}\lib\xercesImpl.jar from your Ant installation as the copy of Xerces distrbuted with certain versions on Ant causes conflicts.
 
 {{{
 [java] FATAL ERROR:  'Could not compile stylesheet'

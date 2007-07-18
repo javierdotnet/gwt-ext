@@ -23,7 +23,10 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public abstract class JsObject {
+
+    //Ext global initialization code
     static {
+        Ext.setBlankImageUrl("images/s.gif");
         //setup Ext Function prototypes for the GWT scope
         //see http://groups.google.com/group/Google-Web-Toolkit/browse_thread/thread/3412d58a3c7a5e0d/f5f7bbe5754513aa#f5f7bbe5754513aa
         init();

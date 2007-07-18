@@ -28,7 +28,7 @@ public class JsonStore extends Store {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);
         JavaScriptObjectHelper.setAttribute(config, "root", root);
-        JavaScriptObjectHelper.setAttributeAsStringArray(config, "fields", fields);
+        JavaScriptObjectHelper.setAttribute(config, "fields", fields);
         jsObj = create(config);
     }
 

@@ -282,7 +282,7 @@ public class Form extends BaseExtWidget {
     }-*/;
 
     public native void submit(FormActionConfig config) /*-{
-		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var configJS  = config.@com.gwtext.client.core.JsObject::jsObj;
 		form.submit(configJS);
 	}-*/;

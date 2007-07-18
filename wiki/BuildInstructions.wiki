@@ -40,3 +40,15 @@ There is a problem, detailed at ant.apache.org, where ant cannot find the JUnit 
   * Delete ant-junit.jar from the ant lib directory (for example, /usr/share/ant/lib/)
   * Copy junit.jar into your ant lib directory
 
+=== Ant XSL issues ===
+If you get an error like the one below, please remove the file {AHT_HOME}\lib\xercesImpl.jar from your Ant installation as the copy of Xerces distrbuted with certain versions on Ant causes conflicts.
+
+{{{
+[java] FATAL ERROR:  'Could not compile stylesheet'
+
+BUILD FAILED
+C:\java\gwt-ext-svn\trunk\build.xml:35: The following error occurred while executing this line:
+C:\java\gwt-ext-svn\trunk\build.xml:15: The following error occurred while executing this line:
+C:\java\gwt-ext-svn\trunk\doc\build.xml:63: java.lang.RuntimeException: Unable to complete the xslt tranform
+
+}}}

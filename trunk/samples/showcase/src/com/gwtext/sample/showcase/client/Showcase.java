@@ -26,6 +26,7 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.QuickTips;
 import com.gwtext.client.widgets.UserObject;
+import com.gwtext.client.widgets.form.Field;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.ContentPanel;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
@@ -51,7 +52,8 @@ public class Showcase implements EntryPoint {
     private static PopupPanel messagePanel = new PopupPanel(true);
 
     public void onModuleLoad() {
-             
+        //globally sets error messages on form fields to the side      
+        Field.setMsgTarget("side");
 
         Ext.setBlankImageUrl("images/s.gif");
         QuickTips.init();

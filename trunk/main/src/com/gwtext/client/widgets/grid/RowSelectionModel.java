@@ -120,7 +120,8 @@ public class RowSelectionModel extends AbstractSelectionModel {
 
     public native void selectRows(int[] rows) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        sm.selectRows(rows);
+        var rowsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(rows);
+        sm.selectRows(rowsJS);
     }-*/;
 
 

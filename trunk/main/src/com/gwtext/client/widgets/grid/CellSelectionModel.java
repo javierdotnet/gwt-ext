@@ -38,6 +38,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
         sm.clearSelections(disableNotifications);
     }-*/;
 
+    //todo test array conversion
     public native int[] getSelectedCell() /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         return [sm.getSelectedCell()[0], sm.getSelectedCell()[1]];

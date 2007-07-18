@@ -23,8 +23,15 @@ package com.gwtext.sample.showcase.client.form;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.data.*;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.ButtonConfig;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.form.DateField;
+import com.gwtext.client.core.EventObject;
+
+import java.util.Date;
+
 
 public class Forms1Panel extends Composite {
 
@@ -72,13 +79,17 @@ public class Forms1Panel extends Composite {
             }
         }));
 
-        simple.add(new DateField(new DateFieldConfig() {
+        final DateField dateField = new DateField(new DateFieldConfig() {
             {
-                setDisableDays(new int[]{0, 4});
+                setDisabledDays(new int[]{0, 4});
                 setFieldLabel("Sample Date");
-                setValue("05/07/07");
+                //setting date by object
+                setValue(new Date());
+                setFormat("Y-m-d");
             }
-        }));
+        });
+
+        simple.add(dateField);
 
         simple.addButton("Save");
         simple.addButton("Cancel");
@@ -352,9 +363,9 @@ public class Forms1Panel extends Composite {
 
         form.end();
         form.end();
-        form.addButton("Save");
-        form.addButton("Cancel");
-
+        Button saveBtn = form.addButton("Save");
+        Button cancelBtn = form.addButton("Cancel");
+                
         form.applyIfToFields(new FieldConfig() {
             {
                 setWidth(230);
@@ -366,5 +377,6 @@ public class Forms1Panel extends Composite {
         vp.add(top);
         vp.add(fs);
         vp.add(form);
+
     }
 }

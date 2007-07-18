@@ -84,6 +84,16 @@ public class Record extends JsObject {
         record.set(field, value);
     }-*/;
 
+    public native boolean getAsBoolean(String field) /*-{
+            var record = this.@com.gwtext.client.core.JsObject::jsObj;
+            return record.get(field);
+    }-*/;
+
+    public native void set(String field, boolean value) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        record.set(field, value);
+    }-*/;
+
     public native Date getAsDate(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         var val = record.get(field);

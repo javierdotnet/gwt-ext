@@ -61,12 +61,14 @@ public class LayoutDialog extends BaseExtWidget {
 
     public native void alignTo(String id, String position, int[] offsetXY)/*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        dialog.alignTo(id, position, offsetXY);
+        var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
+        dialog.alignTo(id, position, offsetJS);
     }-*/;
 
     public native void anchorTo(String id, String position, int[] offsetXY, int bufferDelay)/*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        dialog.anchorTo(id, position, offsetXY, bufferDelay);
+        var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
+        dialog.anchorTo(id, position, offsetJS, bufferDelay);
     }-*/;
 
     public native void center() /*-{

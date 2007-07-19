@@ -38,10 +38,13 @@ public class CellSelectionModel extends AbstractSelectionModel {
         sm.clearSelections(disableNotifications);
     }-*/;
 
-    //todo test array conversion
+    /**
+     * @return  array containing rowIndex, colIndex
+     */
     public native int[] getSelectedCell() /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        return [sm.getSelectedCell()[0], sm.getSelectedCell()[1]];
+        var sc = sm.getSelectedCell();
+        return sc == null ? null : @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(sc);
     }-*/;
 
     public native void addCellSelectionModelListener(CellSelectionModelListener listener) /*-{
@@ -60,7 +63,6 @@ public class CellSelectionModel extends AbstractSelectionModel {
                 }
         );
 
-        //todo test
         sm.addListener('selectionchange',
                 function(source, selection) {
                     var recordJ = null;
@@ -69,9 +71,9 @@ public class CellSelectionModel extends AbstractSelectionModel {
                         recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(selection.record);
                         cell = selection.cell;
                     }
-                    listener.@com.gwtext.client.widgets.grid.event.CellSelectionModelListener::onSelectionChange(Lcom/gwtext/client/widgets/grid/CellSelectionModel;Lcom/gwtext/client/data/Record;[[I)(smJ, recordJ, cell);
+                    var cellJ = (cell == null || cell === undefined) ? null : @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(cell);
+                    listener.@com.gwtext.client.widgets.grid.event.CellSelectionModelListener::onSelectionChange(Lcom/gwtext/client/widgets/grid/CellSelectionModel;Lcom/gwtext/client/data/Record;[I)(smJ, recordJ, cellJ);
                 }
         );
     }-*/;
-
 }

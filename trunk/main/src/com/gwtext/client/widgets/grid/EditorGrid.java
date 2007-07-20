@@ -25,16 +25,16 @@ import com.gwtext.client.data.Store;
 import com.gwtext.client.widgets.grid.event.EditorGridListener;
 
 public class EditorGrid extends Grid {
-    public EditorGrid(String id, String height, String width, Store store, ColumnModel columnModel) {
-        this(id, height, width, store, columnModel, new GridConfig());
+    public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel) {
+        this(id, width, height, store, columnModel, new GridConfig());
     }
     
-    public EditorGrid(String id, String height, String width, Store store, ColumnModel columnModel, GridConfig config) {
-        super(id, height, width, store, columnModel, config);
+    public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
+        super(id, width, height, store, columnModel, config);
     }
 
-    public EditorGrid(String id, String height, String width, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
-        super(id, height, width, store, columnModel, selectionModel, config);
+    public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
+        super(id, width, height, store, columnModel, selectionModel, config);
     }
 
     protected native JavaScriptObject create(String id, JavaScriptObject configJS) /*-{

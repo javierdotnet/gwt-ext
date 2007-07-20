@@ -27,9 +27,9 @@ public class Size {
     public Size() {
     }
 
-    public Size(int height, int width) {
-        this.height = height;
+    public Size(int width, int height) {
         this.width = width;
+        this.height = height;
     }
 
     public float getHeight() {

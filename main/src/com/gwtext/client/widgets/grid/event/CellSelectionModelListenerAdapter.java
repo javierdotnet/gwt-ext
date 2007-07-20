@@ -32,7 +32,7 @@ public class CellSelectionModelListenerAdapter implements CellSelectionModelList
 
     }
 
-    public void onSelectionChange(CellSelectionModel sm, Record record, int[][] rowIndexColIndex) {
+    public void onSelectionChange(CellSelectionModel sm, Record record, int[] rowIndexColIndex) {
 
     }
 }

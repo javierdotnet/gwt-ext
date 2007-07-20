@@ -88,6 +88,11 @@ public class Store extends JsObject {
         return new $wnd.Ext.data.Store(params);        
     }-*/;
 
+    public native void setBaseParams(UrlParam[] baseParams) /*-{
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var baseParamsJS = @com.gwtext.client.core.NameValuePair::getJsObj([Lcom/gwtext/client/core/NameValuePair;)(baseParams);
+        store.baseParams = baseParamsJS;
+    }-*/;
 
     public UrlParam[] getBaseParams() {
         JavaScriptObject baseParamsNative = getBaseParams(jsObj);

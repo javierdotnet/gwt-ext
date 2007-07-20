@@ -38,7 +38,7 @@ public class BorderLayout extends BaseExtWidget {
         super(jsObj);
     }
 
-    public BorderLayout(String height, String width, LayoutRegionConfig north, LayoutRegionConfig south, LayoutRegionConfig west, LayoutRegionConfig east, LayoutRegionConfig center) {
+    public BorderLayout(String width, String height, LayoutRegionConfig north, LayoutRegionConfig south, LayoutRegionConfig west, LayoutRegionConfig east, LayoutRegionConfig center) {
         // Create div to draw layout into
         Element divElement = DOM.createDiv();
         setElement(divElement);
@@ -150,7 +150,7 @@ public class BorderLayout extends BaseExtWidget {
         JavaScriptObject size = getViewSize(jsObj);
         int height = JavaScriptObjectHelper.getAttributeAsInt(size, "height");
         int width = JavaScriptObjectHelper.getAttributeAsInt(size, "width");
-        return new Size(height, width);
+        return new Size(width, height);
     }
 
     private static native JavaScriptObject getViewSize(JavaScriptObject borderLayout) /*-{

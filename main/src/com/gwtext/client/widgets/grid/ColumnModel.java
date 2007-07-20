@@ -71,9 +71,14 @@ public class ColumnModel extends JsObject {
         return cm.getColumnHeader(colIndex);
     }-*/;
 
-    public native int getColumnId(int colIndex)/*-{
+    /**
+     * @param colIndex
+     * @return the column id set by the user using {@link com.gwtext.client.widgets.grid.ColumnConfig#setId(String)}. If the
+     * user did not set the id for the column, then the column position is returned as a String.
+     */
+    public native String getColumnId(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        return cm.getColumnId(colIndex);
+        return cm.getColumnId(colIndex).toString();
     }-*/;
 
     public native String getColumnTooltip(int colIndex)/*-{
@@ -107,7 +112,7 @@ public class ColumnModel extends JsObject {
         return cm.getTotalWidth(includeHidden);
     }-*/;
 
-    //TODO support pluggable strategy for logic og editable cells
+    //TODO support pluggable strategy for logic of editable cells
     public native boolean isCellEditable(int colIndex, int rowIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isCellEditable(colIndex, rowIndex);

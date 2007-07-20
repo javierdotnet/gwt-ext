@@ -29,18 +29,43 @@
       <h1>GWT-Ext Release Notes</h1>
       <ul>
 		    <li><a href="#Release_Notes_Current">@GWTEXT_VERSION@</a></li>
+		    <li><a href="#Release_Notes_0_9">0.9</a></li>
       </ul>
 
       <hr/>
-      <a name="Release_Notes_Current"></a>
+      <a name="Release_Notes_Current"></a>                      status:Fixed milestone:0_9_1
       <h2>Release Notes for @GWTEXT_VERSION@</h2>
+      <p>
+      This release has several new featureand bug fixes. See the GWT issue tracker for
+      <a href="http://code.google.com/p/gwt-ext/issues/list?can=1&q=label:Milestone-0_9_1%20status:Fixed&sort=-type&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Summary">the
+      complete list of enhancements and fixes</a> in this release.</p>
+      
+      <h3>New Features</h3>
+      <ul>
+        <li><b><a href="doc/html/com.gwtext.client.widgets.MessageBox.html">MessageBox</a></b>
+        <br>Added MessageBox widget</li>
+      </ul>
+
+    <h3>Breaking API Changes</h3>
+      This release also includes API changes that may require minor tweaks to existing code.  Any such changes
+      that affect you should only take a few minutes to rectify.
+      <h4><a href="doc/html/com.gwtext.client.widgets.grid.Grid.html">Grid</a>, <a href="doc/html/com.gwtext.client.widgets.grid.EditorGrid.html">EditorGrid</a>, <a href="doc/html/com.gwtext.client.widgets.layout.BorderLayout.html">BorderLayout</a></h4>
+
+      <ul>
+        <li>The constructors previously used to accept width and height in the order <b>height, width</b> but they now are in the order <b>width, height</b>. 
+        </li>
+      </ul>
+
+      <hr/>
+
+      <a name="Release_Notes_0_9"></a>
+      <h2>Release Notes for 0.9</h2>
       <p>
       This is the first release of GWT-Ext. While a large percentage of the Ext API's are covered, currently there's not much in the form
       of user documentation, Javadocs and test cases. The idea is to put out a version of GWT-Ext for users
       to take a look at and provide feedback and report bugs. A large percentage of the Ext API's like data, grid, forms, layoutds, menus have
-      very complete coverage in GWT-Ext. The most notable area that is missing is the Ext Drag and Drop (dd package) API's. 
+      very complete coverage in GWT-Ext. The most notable area that is missing is the Ext Drag and Drop (dd package) API's.
       </p>
       Please join the GWT-Ext <a href="http://groups.google.com/group/gwt-ext">Developer Forum</a> to post questions and provide feedback.
-     
       
    </body></html>

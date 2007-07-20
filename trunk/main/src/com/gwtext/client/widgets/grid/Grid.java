@@ -33,18 +33,18 @@ import com.gwtext.client.widgets.grid.event.*;
 
 public class Grid extends BaseExtWidget {
 
-    public Grid(String id, String height, String width, Store store, ColumnModel columnModel) {
-        this(id,height, width, store, columnModel, new GridConfig());
+    public Grid(String id, String width, String height, Store store, ColumnModel columnModel) {
+        this(id, width, height, store, columnModel, new GridConfig());
     }
-    public Grid(String id, String height, String width, Store store, ColumnModel columnModel, GridConfig config) {
-        this(id, height, width, store, columnModel, null, config);
+    public Grid(String id,  String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
+        this(id, width, height, store, columnModel, null, config);
     }
 
     public Grid(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
-    public Grid(String id, String height, String width, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
+    public Grid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
 
         RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
         Element div = DOM.getElementById(id);

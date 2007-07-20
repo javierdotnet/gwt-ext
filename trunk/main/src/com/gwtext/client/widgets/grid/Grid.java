@@ -33,21 +33,25 @@ import com.gwtext.client.widgets.grid.event.*;
 
 public class Grid extends BaseExtWidget {
 
-    public Grid(String id, String width, String height, Store store, ColumnModel columnModel) {
-        this(id, width, height, store, columnModel, new GridConfig());
-    }
-    public Grid(String id,  String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
-        this(id, width, height, store, columnModel, null, config);
-    }
-
     public Grid(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    public Grid(String id, String width, String height, Store store, ColumnModel columnModel) {
+        this(id, width, height, store, columnModel, new GridConfig());
+    }
+
+    public Grid(String id,  String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
+        this(id, width, height, store, columnModel, null, config);
+    }
+            
     public Grid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
 
-        RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
         Element div = DOM.getElementById(id);
+        if(div == null) {
+            RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
+            div = DOM.getElementById(id);
+        }
 
         final JavaScriptObject configJS = config.getJsObj();
         JavaScriptObjectHelper.setAttribute(configJS, "ds", store.getJsObj());
@@ -57,8 +61,9 @@ public class Grid extends BaseExtWidget {
 
         jsObj = create(id, configJS);
         setElement(div);
-        setHeight(height);
-        setWidth(width);
+        
+        if(width != null) setWidth(width);
+        if(height != null) setHeight(height);
 
     }
 

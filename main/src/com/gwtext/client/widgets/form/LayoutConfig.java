@@ -21,9 +21,9 @@
 package com.gwtext.client.widgets.form;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.widgets.ComponentConfig;
 
-public class LayoutConfig extends BaseConfig {
+public class LayoutConfig extends ComponentConfig {
 
     public void setAutoCreate(String autoCreate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);

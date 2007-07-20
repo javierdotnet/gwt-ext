@@ -28,6 +28,6 @@ public interface CellSelectionModelListener {
 
     void onCellSelect(CellSelectionModel sm, int rowIndex, int colIndex);
 
-    void onSelectionChange(CellSelectionModel sm, Record record, int[][] rowIndexColIndex);
+    void onSelectionChange(CellSelectionModel sm, Record record, int[] rowIndexColIndex);
 
 }

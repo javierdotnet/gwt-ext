@@ -116,7 +116,7 @@ public class TabsPanel extends Composite {
                 }
         });
 
-        com.gwtext.client.widgets.grid.Grid grid = new com.gwtext.client.widgets.grid.Grid("grid-example1", "300px", "600px", store, columnModel);
+        com.gwtext.client.widgets.grid.Grid grid = new com.gwtext.client.widgets.grid.Grid("grid-example1", "600px", "300px", store, columnModel);
 
         grid.render();
         store.load();

@@ -123,7 +123,7 @@ public class Grid1Panel extends Composite {
         });
 
         //create and render grid
-        Grid grid = new Grid("grid-example1", "300px", "600px", store, columnModel);
+        Grid grid = new Grid("grid-example1", "600px", "300px", store, columnModel);
         grid.render();
 
         vp.setWidth("100%");

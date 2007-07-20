@@ -137,7 +137,7 @@ public class Grid2Panel extends Composite {
         });
 
         columnModel.setDefaultSortable(true);
-        Grid grid = new EditorGrid("grid-example2", "300px", "600px", store, columnModel);
+        Grid grid = new EditorGrid("grid-example2", "600px", "300px", store, columnModel);
 
         grid.render();
         store.load(new StoreLoadConfig() {

@@ -143,7 +143,7 @@ public class Grid3Panel extends Composite {
 
         columnModel.setDefaultSortable(true);
 
-        grid = new Grid("topic-grid", "300px", "655px", store, columnModel, new GridConfig() {
+        grid = new Grid("topic-grid",  "655px", "300px", store, columnModel, new GridConfig() {
             {
                 setEnableColLock(false);
                 setLoadMask(true);

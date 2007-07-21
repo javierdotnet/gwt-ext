@@ -23,7 +23,6 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
-import com.gwtext.client.core.JsObject;
 
 //DOM.eventGetType(Event)
 public class EventObject extends JsObject {

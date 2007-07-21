@@ -19,15 +19,15 @@ Here's a list of known API's that are missing or incomplete. I have already comp
  * CompositeElementLite
  * Editor
  * Ext - some methods missing
- * ExtElement - some methods missing
- * Fx 
+ * ExtElement - *   done 07/21*
+ * Fx - *   done 07/21*
  * JsonView
  * KeyMap
  * KeyNav
  * Layer
  * LoadMask
  * MasterTemplate
- * ~~MessageBox~~  *done 07/09*
+ * ~~MessageBox~~  *   done 07/09*
  * SplitBar
  * View
  * DateUtil
@@ -38,6 +38,5 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 
  * ClickRepeater
  * TextMetrics
-
 
 

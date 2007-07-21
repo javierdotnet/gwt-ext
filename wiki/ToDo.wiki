@@ -8,34 +8,36 @@ Here's a list of known API's that are missing or incomplete. I have already comp
  * The entire Ext Drag and Drop package (dd) 
 
 === Tree Package ===
-
- * TreeEditor
- * TreeSorter
- * TreeNodeUI
+|| *Class* || *Status*||
+|| TreeEditor || ||
+|| TreeSorter || ||
+|| TreeNodeUI || ||
 
 === General Widgets and support classes ===
-
- * CompositeElement
- * CompositeElementLite
- * Editor
- * Ext - some methods missing
- * ExtElement - *   done 07/21*
- * Fx - *   done 07/21*
- * JsonView
- * KeyMap
- * KeyNav
- * Layer
- * LoadMask
- * MasterTemplate
- * MessageBox  *   done 07/09*
- * SplitBar
- * View
- * DateUtil
- * UpdateManager - some methods missing
+|| *Class* || *Status*||
+|| CompositeElement || ||
+|| CompositeElementLite || ||
+|| Editor || ||
+|| Ext || some methods missing ||
+|| ExtElement || *Completed 07/21* ||
+|| Fx || *Completed 07/21* ||
+|| JsonView || ||
+|| KeyMap || ||
+|| KeyNav || ||
+|| Layer || ||
+|| LoadMask || ||
+|| MasterTemplate || ||
+|| MessageBox || *Completed 07/09* ||
+|| SplitBar || ||
+|| View || ||
+|| DateUtil || ||
+|| UpdateManager || some methods missing ||
 
 
 === Utility classes ===
+|| *Class* || *Status*||
+|| ClickRepeater || ||
+|| TextMetrics || ||
 
- * ClickRepeater
- * TextMetrics
+
 

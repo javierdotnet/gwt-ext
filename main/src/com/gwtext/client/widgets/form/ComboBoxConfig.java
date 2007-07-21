@@ -129,8 +129,8 @@ public class ComboBoxConfig extends TriggerFieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "tpl", template.getJsObj());
     }
 
-    public void setTransform(String id) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
+    public void setTransform(String transform) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "transform", transform);
     }
 
     public void setTriggerAction(String triggerAction) {

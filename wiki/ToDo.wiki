@@ -22,7 +22,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || ExtElement || *Completed 07/21* ||
 || Fx || *Completed 07/21* ||
 || JsonView || ||
-|| KeyMap || ||
+|| KeyMap || *Completed 07/21* ||
 || KeyNav || ||
 || Layer || ||
 || LoadMask || ||
@@ -38,6 +38,5 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
-
 
 

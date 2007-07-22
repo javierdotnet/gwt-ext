@@ -70,7 +70,7 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "invalidClass", invalidClass);
     }
 
-    public void setInvalidText(boolean invalidText) {
+    public void setInvalidText(String invalidText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "invalidText", invalidText);
     }
 

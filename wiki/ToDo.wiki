@@ -30,7 +30,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || MessageBox || *Completed 07/09* ||
 || SplitBar || ||
 || View || *Completed 07/22* ||
-|| DateUtil || ||
+|| DateUtil || *Completed 07/22* ||
 || UpdateManager || some methods missing ||
 
 

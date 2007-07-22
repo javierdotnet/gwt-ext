@@ -22,10 +22,10 @@
 
 	<!-- Global Properties -->
 	<property environment="env" />
-	<condition property="gwtext.version" value="${env.GWTEXT_VERSION}" else="0.9">
+	<condition property="gwtext.version" value="${env.GWTEXT_VERSION}" else="0.9.1">
 		<isset property="env.GWTEXT_VERSION" />
 	</condition>
-	<condition property="ext.version" value="${env.EXT_VERSION}" else="1.1b2">
+	<condition property="ext.version" value="${env.EXT_VERSION}" else="1.1-rc1">
 		<isset property="env.EXT_VERSION" />
 	</condition>
     <condition property="gwtext.tools.check" value="${env.GWTEXT_TOOLS}" else="${gwtext.root}/../tools">
@@ -92,7 +92,7 @@
 	<condition property="junit.platform.args" value="-XstartOnFirstThread" else="">
 		<equals arg1="${build.host.platform}" arg2="mac" casesensitive="false" />
 	</condition>
-
+    
     <!--GWT jars location-->
     <property name="gwt.version" value="1.4.10" />
     <property name="gwt.user.jar" location="${gwtext.tools.lib}/gwt/${gwt.version}/${build.host.platform}/gwt-user.jar" />

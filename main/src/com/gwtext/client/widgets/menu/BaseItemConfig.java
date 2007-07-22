@@ -45,6 +45,10 @@ public class BaseItemConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideDelay", hideDelay);
     }
 
+    public void setShowDelay(int showDelay) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "showDelay", showDelay);
+    }
+       
     public void setHideOnClick(boolean hideOnClick) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideOnClick", hideOnClick);
     }

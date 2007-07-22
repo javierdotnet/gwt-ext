@@ -34,7 +34,7 @@ public class FieldTest extends GWTTestCase {
     public void testDateFieldSetValue() {
         DateField dateField = new DateField(new DateFieldConfig() {
             {
-                setDisableDays(new int[]{0, 4});
+                setDisabledDays(new int[]{0, 4});
                 setFieldLabel("Sample Date");
             }
         });

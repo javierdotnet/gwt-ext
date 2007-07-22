@@ -94,9 +94,9 @@ public class ColumnModel extends JsObject {
     //TODO
     //getColumnsBy(Function fn, [Object scope]) : Array
 
-    public native int getDataIndex(int colIndex)/*-{
+    public native String getDataIndex(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        return cm.getDataIndex(colIndex);
+        return cm.getDataIndex(colIndex).toString();
     }-*/;
 
     //TODO getRenderer is required??

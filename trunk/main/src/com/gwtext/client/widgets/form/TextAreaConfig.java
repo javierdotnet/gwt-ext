@@ -25,11 +25,11 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 public class TextAreaConfig extends TextFieldConfig {
 
     public void setGrowMax(int growMax) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "growMax", growMax);
+        super.setGrowMax(growMax);
     }
 
     public void setGrowMin(int growMin) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "growMin", growMin);
+        super.setGrowMin(growMin);
     }
             
     public void setPreventScrollbars(boolean preventScrollbars) {

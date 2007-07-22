@@ -24,19 +24,29 @@ import com.google.gwt.user.client.Element;
 public class DomHelper {
 
     public static native Element append(String parentId, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.append(parentId, rawHtml);
+        return $wnd.Ext.DomHelper.append(parentId, rawHtml);
+    }-*/;
+
+    public static native Element append(String parentId, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.append(parentId, configJS);
     }-*/;
 
     public static native Element append(Element parent, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.append(parent, rawHtml);
+        return $wnd.Ext.DomHelper.append(parent, rawHtml);
+    }-*/;
+
+    public static native Element append(Element parent, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.append(parent, configJS);
     }-*/;
 
     public static native Element append(Element parent, Element child)/*-{
-            return $wnd.Ext.DomHelper.append(parent, child);
+        return $wnd.Ext.DomHelper.append(parent, child);
     }-*/;
 
     public static native void applyStyles(Element parent, String styles)/*-{
-            return $wnd.Ext.DomHelper.applyStyles(parent, styles);
+        return $wnd.Ext.DomHelper.applyStyles(parent, styles);
     }-*/;
 
     public static native Template createTemplate(Element elem) /*-{
@@ -45,23 +55,43 @@ public class DomHelper {
     }-*/;
 
     public static native Element insertAfter(String id, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertAfter(id, rawHtml);
+        return $wnd.Ext.DomHelper.insertAfter(id, rawHtml);
+    }-*/;
+
+    public static native Element insertAfter(String id, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertAfter(id, configJS);
     }-*/;
 
     public static native Element insertAfter(Element elem, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertAfter(parent, rawHtml);
+        return $wnd.Ext.DomHelper.insertAfter(parent, rawHtml);
+    }-*/;
+
+    public static native Element insertAfter(Element elem, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertAfter(parent, configJS);
     }-*/;
 
     public static native Element insertAfter(Element elem, Element sibling)/*-{
-            return $wnd.Ext.DomHelper.insertAfter(elem, sibling);
+        return $wnd.Ext.DomHelper.insertAfter(elem, sibling);
     }-*/;
 
     public static native Element insertBefore(String id, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertBefore(id, rawHtml);
+        return $wnd.Ext.DomHelper.insertBefore(id, rawHtml);
+    }-*/;
+
+    public static native Element insertBefore(String id, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertBefore(id, configJS);
     }-*/;
 
     public static native Element insertBefore(Element elem, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertBefore(parent, rawHtml);
+        return $wnd.Ext.DomHelper.insertBefore(parent, rawHtml);
+    }-*/;
+
+    public static native Element insertBefore(Element elem, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertBefore(parent, configJS);
     }-*/;
 
     public static native Element insertBefore(Element elem, Element sibling)/*-{
@@ -69,15 +99,25 @@ public class DomHelper {
     }-*/;
 
     public static native Element insertFirst(String parentId, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertFirst(parentId, rawHtml);
+        return $wnd.Ext.DomHelper.insertFirst(parentId, rawHtml);
+    }-*/;
+
+    public static native Element insertFirst(String parentId, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertFirst(parentId, configJS);
     }-*/;
 
     public static native Element insertFirst(Element parent, String rawHtml)/*-{
-            return $wnd.Ext.DomHelper.insertFirst(parent, rawHtml);
+        return $wnd.Ext.DomHelper.insertFirst(parent, rawHtml);
+    }-*/;
+
+    public static native Element insertFirst(Element parent, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.insertFirst(parent, configJS);
     }-*/;
 
     public static native Element insertFirst(Element parent, Element child)/*-{
-            return $wnd.Ext.DomHelper.insertFirst(parent, child);
+        return $wnd.Ext.DomHelper.insertFirst(parent, child);
     }-*/;
 
     public static native String markup(Element elem)/*-{
@@ -85,15 +125,25 @@ public class DomHelper {
     }-*/;
 
     public static native Element overwrite(String oldId, String newRawHtml)/*-{
-            return $wnd.Ext.DomHelper.overwrite(oldId, newRawHtml);
+        return $wnd.Ext.DomHelper.overwrite(oldId, newRawHtml);
+    }-*/;
+
+    public static native Element overwrite(String oldId, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.overwrite(oldId, configJS);
     }-*/;
 
     public static native Element overwrite(Element oldElem, String newRawHtml)/*-{
-            return $wnd.Ext.DomHelper.overwrite(oldElem, newRawHtml);
+        return $wnd.Ext.DomHelper.overwrite(oldElem, newRawHtml);
+    }-*/;
+
+    public static native Element overwrite(Element oldElem, DomConfig config)/*-{
+        var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
+        return $wnd.Ext.DomHelper.overwrite(oldElem, configJS);
     }-*/;
 
     public static native Element overwrite(Element oldElem, Element newElem)/*-{
-            return $wnd.Ext.DomHelper.overwrite(oldElem, newElem);
+        return $wnd.Ext.DomHelper.overwrite(oldElem, newElem);
     }-*/;
 
 }

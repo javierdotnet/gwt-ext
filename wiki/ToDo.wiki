@@ -24,7 +24,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || JsonView || ||
 || KeyMap || *Completed 07/21* ||
 || KeyNav || *Completed 07/21* ||
-|| Layer || ||
+|| Layer || *Completed 07/21* ||
 || LoadMask || ||
 || MasterTemplate || ||
 || MessageBox || *Completed 07/09* ||
@@ -38,4 +38,3 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
-

@@ -29,7 +29,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || MasterTemplate || ||
 || MessageBox || *Completed 07/09* ||
 || SplitBar || ||
-|| View || ||
+|| View || *Completed 07/22* ||
 || DateUtil || ||
 || UpdateManager || some methods missing ||
 

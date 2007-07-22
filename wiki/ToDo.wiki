@@ -15,8 +15,8 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 
 === General Widgets and support classes ===
 || *Class* || *Status*||
-|| CompositeElement || ||
-|| CompositeElementLite || ||
+|| CompositeElement || *Completed 07/22* ||
+|| CompositeElementLite || *Completed 07/22* ||
 || Editor || ||
 || Ext || some methods missing ||
 || ExtElement || *Completed 07/21* ||

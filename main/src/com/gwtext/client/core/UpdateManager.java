@@ -21,11 +21,14 @@
 package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.JsObject;
 
 public class UpdateManager extends JsObject {
 
     public UpdateManager(JavaScriptObject jsObj) {
         super(jsObj);
+    }
+
+    public static UpdateManager instance(JavaScriptObject jsObj) {
+        return new UpdateManager(jsObj);
     }
 }

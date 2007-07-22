@@ -36,7 +36,7 @@ public interface StoreListener {
     //todo : currently removed second "options" arg
     void onLoad(Store store, Record[] records);
 
-    //json meta
+    //todo json meta
     //void onMetaChange(Store store, String meta);
 
     void onRemove(Store store, Record record, int index);

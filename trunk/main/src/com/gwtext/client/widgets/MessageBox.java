@@ -100,8 +100,8 @@ public class MessageBox {
         $wnd.Ext.MessageBox.hide();
     }-*/;
 
-    public static native void isVisible() /*-{
-            $wnd.Ext.MessageBox.hide();
+    public static native boolean isVisible() /*-{
+        $wnd.Ext.MessageBox.isVisible();
     }-*/;
 
     public static native void progress(String title, String message) /*-{

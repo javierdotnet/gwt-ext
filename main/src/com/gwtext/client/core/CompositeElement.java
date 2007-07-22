@@ -32,20 +32,20 @@ public class CompositeElement extends BaseElement {
     }
 
     public native CompositeElement add(String selector) /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.add(selector);
-         return this;
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.add(selector);
+        return this;
      }-*/;
-    
+
     public native CompositeElement add(ExtElement element) /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.add(element);
-         return this;
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.add(element);
+        return this;
      }-*/;
 
     public native void clear() /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.clear();
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.clear();
      }-*/;
 
     public native void contains(ExtElement element) /*-{
@@ -57,9 +57,9 @@ public class CompositeElement extends BaseElement {
     //todo each
 
     public native CompositeElement filter(String selector) /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.filter(selector);
-         return this;
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.filter(selector);
+        return this;
      }-*/;
 
     public native ExtElement first() /*-{
@@ -86,15 +86,15 @@ public class CompositeElement extends BaseElement {
     }-*/;
 
     public native CompositeElement removeElement(int index) /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.removeElement(index);
-         return this;
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.removeElement(index);
+        return this;
      }-*/;
 
     public native CompositeElement removeElement(int index, boolean removeDom) /*-{
-         var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-         ce.removeElement(index, removeDom);
-         return this;
+        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        ce.removeElement(index, removeDom);
+        return this;
      }-*/;
 
     public native CompositeElement removeElement(ExtElement element) /*-{
@@ -110,7 +110,6 @@ public class CompositeElement extends BaseElement {
         ce.removeElement(elJS, removeDom);
         return this;
      }-*/;
-
 
     public native CompositeElement replaceElement(int index, ExtElement replacement) /*-{
         var ce = this.@com.gwtext.client.core.JsObject::jsObj;

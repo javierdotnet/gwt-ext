@@ -19,15 +19,70 @@
  */
 package com.gwtext.client.util;
 
-import com.gwtext.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Element;
+import com.gwtext.client.core.JsObject;
 
 public class KeyMap extends JsObject {
     public KeyMap(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    public KeyMap(String id, KeyMapConfig config) {
+        this(id, config, null);
+    }
+
+    public KeyMap(Element el, KeyMapConfig config) {
+        this(el, config, null);
+    }
+
+    public KeyMap(String id, KeyMapConfig config, String eventName) {
+        jsObj = create(id, config.getJsObj(), eventName);
+    }
+
+    public KeyMap(Element el, KeyMapConfig config, String eventName) {
+        jsObj = create(el, config.getJsObj(), eventName);
+    }
+
+    private static native JavaScriptObject create(Element el, JavaScriptObject config, String eventName) /*-{
+        return new  $wnd.Ext.KeyMap(el, config, eventName);
+    }-*/;
+
+    private static native JavaScriptObject create(String id, JavaScriptObject config, String eventName) /*-{
+        return new  $wnd.Ext.KeyMap(id, config, eventName);
+    }-*/;
+
     public static KeyMap instance(JavaScriptObject jsObj) {
         return new KeyMap(jsObj);
     }
+
+    public native void addBinding(KeyMapConfig config) /*-{
+        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = this.@com.gwtext.client.core.JsObject::jsObj;
+        km.addBinding(configJS);
+    }-*/;
+
+    public native void disable() /*-{
+        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        km.disable();
+    }-*/;
+
+    public native void enable() /*-{
+        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        km.enable();
+    }-*/;
+
+    public native boolean isEnabled() /*-{
+        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        return km.isEnabled();
+    }-*/;
+
+    public native void setStopEvent(boolean stopEvent) /*-{
+        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        km.stopEvent = stopEvent;
+    }-*/;
+
+
+
+
 }

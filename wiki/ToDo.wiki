@@ -25,7 +25,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || KeyMap || *Completed 07/21* ||
 || KeyNav || *Completed 07/21* ||
 || Layer || *Completed 07/21* ||
-|| LoadMask || ||
+|| LoadMask || *Completed 07/21* ||
 || MasterTemplate || ||
 || MessageBox || *Completed 07/09* ||
 || SplitBar || ||

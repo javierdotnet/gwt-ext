@@ -21,6 +21,7 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.widgets.form.Field;
 
 public class Toolbar extends RequiredElementWidget {
@@ -70,6 +71,7 @@ public class Toolbar extends RequiredElementWidget {
         toolbar.addField(field);
     }-*/;
 
+    //http://extjs.com/forum/showthread.php?t=2470
     public native void addFill() /*-{
         var toolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         toolbar.addFill();
@@ -81,14 +83,16 @@ public class Toolbar extends RequiredElementWidget {
         toolbar.addItem(itemJS);
     }-*/;
 
-    public native void addSeparator() /*-{
+    public native Element addSeparator() /*-{
         var toolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        toolbar.addSeparator();
+        var separator = toolbar.addSeparator();
+        return separator.getEl();
     }-*/;
 
-    public native void addSpacer() /*-{
+    public native Element addSpacer() /*-{
         var toolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        toolbar.addSpacer();
+        var spacer = toolbar.addSpacer();
+        return spacer.getEl();
     }-*/;
 
     public native void addText(String text) /*-{

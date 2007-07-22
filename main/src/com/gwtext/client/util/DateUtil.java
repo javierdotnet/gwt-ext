@@ -23,6 +23,27 @@ package com.gwtext.client.util;
 import java.util.Date;
 
 public class DateUtil {
+
+    public static class Interval {
+        private String interval;
+
+        private Interval(String direction) {
+            this.interval = direction;
+        }
+
+        public String getInterval() {
+            return interval;
+        }
+    }
+
+    public static Interval MILLI = new Interval("ms");
+    public static Interval SECOND = new Interval("s");
+    public static Interval MINUTE = new Interval("mi");
+    public static Interval HOUR = new Interval("h");
+    public static Interval DAY = new Interval("d");
+    public static Interval MONTH = new Interval("mo");
+    public static Interval YEAR = new Interval("y");
+
     public static Date create(long time) {
         return new Date(time);
     }
@@ -33,7 +54,93 @@ public class DateUtil {
 
     public static native String format(Date date, String format) /*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
-        return new $wnd.Date(millis).format(format);            
+        return new $wnd.Date(millis).format(format);
+    }-*/;
+
+    public static native Date parseDate(String input, String format)/*-{
+        var date = $wnd.Date.parseDate(input, format);
+        return @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
+    }-*/;
+
+    public static native Date add(Date date, Interval interval, int value)/*-{
+        var intervalJS = interval.@com.gwtext.client.util.DateUtil.Interval::getInterval()();
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        var newDate = dateJS.add(intervalJS, value);
+        return  @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+    }-*/;
+
+    public static native Date clearTime(Date date)/*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        var newDate = date.clearTime();
+        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+    }-*/;
+
+
+
+    public static native int getDayOfYear(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getDayOfYear();
+    }-*/;
+
+    public static native int getDaysInMonth(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getDaysInMonth();
+    }-*/;
+
+    public static native Date getFirstDateOfMonth(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        var newDate = dateJS.getFirstDateOfMonth();
+        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+    }-*/;
+
+    public static native int getFirstDayOfMonth(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getFirstDayOfMonth();
+    }-*/;
+
+    public static native String getGMTOffset(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getGMTOffset();
+    }-*/;
+
+    public static native Date getLastDateOfMonth(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        var newDate = dateJS.getLastDateOfMonth();
+        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+    }-*/;
+
+    public static native int getLastDayOfMonth(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getLastDayOfMonth();
+    }-*/;
+
+    public static native String getTimezone(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.getTimezone();
+    }-*/;
+
+    public static native int getWeekOfYear(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        //returns string
+        var woy = dateJS.getWeekOfYear();
+        return @java.lang.Integer::parseInt(Ljava/lang/String;)(woy);
+    }-*/;
+
+    public static native boolean isLeapYear(Date date) /*-{
+        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
+        var dateJS = new $wnd.Date(millis);
+        return dateJS.isLeapYear();
     }-*/;
 
 }

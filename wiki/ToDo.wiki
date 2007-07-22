@@ -23,7 +23,7 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || Fx || *Completed 07/21* ||
 || JsonView || ||
 || KeyMap || *Completed 07/21* ||
-|| KeyNav || ||
+|| KeyNav || *Completed 07/21* ||
 || Layer || ||
 || LoadMask || ||
 || MasterTemplate || ||
@@ -38,5 +38,4 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
-
 

@@ -146,15 +146,11 @@ public class BorderLayout extends BaseExtWidget {
         return borderLayout.getRegion(direction);
     }-*/;
 
-    public Size getViewSize() {
-        JavaScriptObject size = getViewSize(jsObj);
-        int height = JavaScriptObjectHelper.getAttributeAsInt(size, "height");
-        int width = JavaScriptObjectHelper.getAttributeAsInt(size, "width");
-        return new Size(width, height);
-    }
 
-    private static native JavaScriptObject getViewSize(JavaScriptObject borderLayout) /*-{
-         return borderLayout.getViewSize();
+    public native Size getViewSize() /*-{
+        var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var sizeJS = layout.getViewSize();
+        return @com.gwtext.client.core.Size::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(sizeJS);
     }-*/;
 
     public native boolean isUpdating() /*-{

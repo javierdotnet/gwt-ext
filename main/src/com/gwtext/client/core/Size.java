@@ -20,6 +20,9 @@
 
 package com.gwtext.client.core;
 
+import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
+
 public class Size {
     private float height;
     private float width;
@@ -30,6 +33,13 @@ public class Size {
     public Size(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+
+    public static Size instance(JavaScriptObject jsObj) {
+        return new Size(
+                JavaScriptObjectHelper.getAttributeAsInt(jsObj, "width"),
+                JavaScriptObjectHelper.getAttributeAsInt(jsObj, "height")
+        );
     }
 
     public float getHeight() {

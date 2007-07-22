@@ -66,7 +66,7 @@ public class LayoutRegionConfig {
     }
 
     public void setAutoHide(boolean value) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "autohide", value);
+        JavaScriptObjectHelper.setAttribute(jsObj, "autoHide", value);
     }
 
     public void setCloseOnTab(boolean value) {

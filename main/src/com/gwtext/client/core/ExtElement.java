@@ -28,6 +28,9 @@ import com.gwtext.client.util.KeyMapConfig;
 
 public class ExtElement extends JsObject {
 
+	protected ExtElement() {
+	}
+	
     public ExtElement(JavaScriptObject jsObj) {
         super(jsObj);
     }

@@ -21,12 +21,15 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
+import com.gwtext.client.core.EventCallback;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
+import com.gwtext.client.util.KeyMapConfig;
+import com.gwtext.client.widgets.event.KeyListener;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
 
@@ -58,6 +61,32 @@ public class LayoutDialog extends BaseExtWidget {
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJS = dialog.addButton(text);
         return @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(buttonJS);
+    }-*/;
+
+    public native void addKeyListener(int keyCode, KeyListener listener)/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        dialog.addKeyListener(keyCode, function(dlg, key, event) {
+              var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+              listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
+            });
+    }-*/;
+
+    public native void addKeyListener(int[] keyCodes, KeyListener listener)/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var keyCodesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(keyCodes);
+        dialog.addKeyListener(keyCodesJS, function(dlg, key, event) {
+              var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+              listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
+            });
+    }-*/;
+
+    public native void addKeyListener(KeyMapConfig config, KeyListener listener)/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        dialog.addKeyListener(configJS, function(dlg, key, event) {
+              var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+              listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
+            });
     }-*/;
 
     public Button addButton(Button button) {

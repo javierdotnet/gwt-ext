@@ -49,7 +49,6 @@ public class TabPanel extends BaseExtWidget {
         return new $wnd.Ext.TabPanel(id);
     }-*/;
 
-
     public native int getMaxTabWidth() /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return tp.maxTabWidth;
@@ -107,9 +106,8 @@ public class TabPanel extends BaseExtWidget {
 
     public native void setTabPosition(String tabPosition) /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        return tp.tabPosition = tabPosition;
+        tp.tabPosition = tabPosition;
     }-*/;
-
 
     public native void activate(String tabID) /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -156,8 +154,8 @@ public class TabPanel extends BaseExtWidget {
     }-*/;
 
     public native void disableTab(int tabIndex) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.disableTab(tabIndex);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.disableTab(tabIndex);
     }-*/;
 
     public native void enableTab(String tabID) /*-{
@@ -166,8 +164,8 @@ public class TabPanel extends BaseExtWidget {
     }-*/;
 
     public native void enableTab(int tabIndex) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.enableTab(tabIndex);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.enableTab(tabIndex);
     }-*/;
 
 
@@ -184,13 +182,14 @@ public class TabPanel extends BaseExtWidget {
         return tp.getCount();
     }-*/;
 
-
     public TabPanelItem getTab(String id) {
-        return new TabPanelItem(getTab(jsObj, id));
+        JavaScriptObject tab = getTab(jsObj, id);
+        return tab == null ? null : new TabPanelItem(tab);
     }
 
     private native JavaScriptObject getTab(JavaScriptObject tp, String id) /*-{
-        tp.getTab(id);
+        var tab = tp.getTab(id);
+        return tab ? tab : null;
     }-*/;
 
     public TabPanelItem getTab(int tabIndex) {
@@ -199,17 +198,18 @@ public class TabPanel extends BaseExtWidget {
     }
 
     private native JavaScriptObject getTab(JavaScriptObject tp, int tabIndex) /*-{
-        return tp.getTab(tabIndex);
+        var tab = tp.getTab(tabIndex);
+        return tab ? tab : null;
     }-*/;
 
     public native void hideTab(String tabID) /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        tp.hideTab(tabID);
+       tp.hideTab(tabID);
     }-*/;
 
     public native void hideTab(int tabIndex) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.hideTab(tabIndex);
+       var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+       tp.hideTab(tabIndex);
     }-*/;
 
 
@@ -219,23 +219,23 @@ public class TabPanel extends BaseExtWidget {
     }-*/;
 
     public native void removeTab(int tabIndex) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.removeTab(tabIndex);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.removeTab(tabIndex);
     }-*/;
 
     public native void setTabWidth(int width) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.setTabWidth(width);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.setTabWidth(width);
     }-*/;
 
     public native void syncHeight() /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.syncHeight();
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.syncHeight();
     }-*/;
 
     public native void syncHeight(int targetHeight) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.syncHeight(targetHeight);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.syncHeight(targetHeight);
     }-*/;
 
     public native void unhideTab(String tabID) /*-{
@@ -244,8 +244,8 @@ public class TabPanel extends BaseExtWidget {
     }-*/;
 
     public native void unhideTab(int tabIndex) /*-{
-            var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-            tp.unhideTab(tabIndex);
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.unhideTab(tabIndex);
     }-*/;
 
 

@@ -333,7 +333,11 @@ public class JavaScriptObjectHelper {
     }
 
     public static native JavaScriptObject createJavaScriptArray() /*-{
-        return [];
+        //Important : constructing an from JSNI array using [] or new Array() results in a
+        //corrupted array object in the final javascript. The array ends up havign the correct elements
+        //but the test (myarr instaneof Array) fails because the jsni created array constructor is different.
+        //Need to construct array within the scope of the applications iframe by using new $wnd.Array
+        return new $wnd.Array();
     }-*/;
 
     public static native void setArrayValue(JavaScriptObject array, int index, String value) /*-{

@@ -80,7 +80,17 @@ public class GridConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoHeight", autoHeight);
     }
 
+    /**
+     * @param autoExpandColumn the column id
+     */
     public void setAutoExpandColumn(String autoExpandColumn) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "autoExpandColumn", autoExpandColumn);
+    }
+
+    /**
+     * @param autoExpandColumn the column id
+     */
+    public void setAutoExpandColumn(int autoExpandColumn) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoExpandColumn", autoExpandColumn);
     }
 

@@ -25,6 +25,19 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.widgets.grid.event.RowSelectionListener;
 
 public class RowSelectionModel extends AbstractSelectionModel {
+
+    public RowSelectionModel() {
+        this(false);
+    }
+
+    public RowSelectionModel(boolean singleSelect) {
+        jsObj = create(singleSelect);
+    }
+
+    private native JavaScriptObject create(boolean singleSelect) /*-{
+        return new $wnd.Ext.grid.RowSelectionModel({singleSelect: singleSelect});
+    }-*/;
+
     public RowSelectionModel(JavaScriptObject jsObj) {
         super(jsObj);
     }

@@ -25,11 +25,12 @@ import com.gwtext.client.data.Store;
 import com.gwtext.client.widgets.grid.event.EditorGridListener;
 
 public class EditorGrid extends Grid {
+
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel) {
-        this(id, width, height, store, columnModel, new GridConfig());
+        this(id, width, height, store, columnModel, new EditorGridConfig());
     }
     
-    public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
+    public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, EditorGridConfig config) {
         super(id, width, height, store, columnModel, config);
     }
 
@@ -41,6 +42,8 @@ public class EditorGrid extends Grid {
         return new $wnd.Ext.grid.EditorGrid(id, configJS);
     }-*/;
 
+    //todo need to convert values to string : via toString() as cell value may be non string data type.
+    //Or need to find way to introspect and convert JS type into corresponding java 'Object' type
     public native void addEditorGridListener(EditorGridListener listener)/*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -65,7 +68,6 @@ public class EditorGrid extends Grid {
                     return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doValidateEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, e.value, e.originalValue,  e.row, e.column);
                 }
         );
-
     }-*/;
 
     public native void startEditing(int rowIndex, int colIndex) /*-{
@@ -85,5 +87,4 @@ public class EditorGrid extends Grid {
     private native JavaScriptObject getSelectionModel(JavaScriptObject grid) /*-{
         return grid.getSelectionModel();
     }-*/;
-
 }

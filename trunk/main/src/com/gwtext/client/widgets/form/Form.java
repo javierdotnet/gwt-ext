@@ -30,7 +30,6 @@ import com.gwtext.client.widgets.BaseExtWidget;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.form.event.FormListener;
 
-
 public class Form extends BaseExtWidget {
 
     private boolean rendered = false;
@@ -145,7 +144,7 @@ public class Form extends BaseExtWidget {
         return @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(buttonJS);
    }-*/;
 
-    public void addButton(Button button) {
+    public Button addButton(Button button) {
         Element buttonEl = button.getElement();
         if(buttonEl != null) {
             Element parent = DOM.getParent(buttonEl);
@@ -154,6 +153,7 @@ public class Form extends BaseExtWidget {
             }
         }
         doAddButton(button);
+        return button;
     }
 
     private native void doAddButton(Button button) /*-{

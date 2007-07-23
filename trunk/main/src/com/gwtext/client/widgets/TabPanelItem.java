@@ -30,7 +30,6 @@ import com.gwtext.client.widgets.event.TabPanelItemListener;
 
 public class TabPanelItem extends BaseExtWidget {
 
-
     public TabPanelItem(JavaScriptObject tabPanelItem) {
         super(tabPanelItem);
     }
@@ -53,7 +52,7 @@ public class TabPanelItem extends BaseExtWidget {
         tpi.bodyEl = elemJS;
     }-*/;
 
-    private ExtElement getBodyEl() {
+    public ExtElement getBodyEl() {
         return new ExtElement(getBodyEl(jsObj));
     }
 

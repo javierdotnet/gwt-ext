@@ -24,6 +24,9 @@ import com.gwtext.client.core.Function;
 
 public class KeyMapConfig extends BaseConfig {
 
+    public KeyMapConfig() {
+    }
+
     public KeyMapConfig(int keyCode) {
         JavaScriptObjectHelper.setAttribute(jsObj, "key", keyCode);
     }

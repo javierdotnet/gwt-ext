@@ -45,6 +45,9 @@ public class ColumnConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "css", css);
     }
 
+    /**
+     * @param header You can use arbitrary html for the header
+     */
     public void setHeader(String header) {
         JavaScriptObjectHelper.setAttribute(jsObj, "header", header);
     }

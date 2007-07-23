@@ -81,7 +81,7 @@ public class TabPanelItem extends BaseExtWidget {
         tpi.id = id;
     }-*/;
 
-    public TabPanel getTapPanel() {
+    public TabPanel getTabPanel() {
         return new TabPanel(getTabPanel(jsObj));
     }
 

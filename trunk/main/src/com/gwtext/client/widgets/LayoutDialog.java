@@ -22,6 +22,7 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.DOM;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
@@ -53,10 +54,28 @@ public class LayoutDialog extends BaseExtWidget {
         return new $wnd.Ext.LayoutDialog(id, configJS);
     }-*/;
 
-    public native void addButton(Button button) /*-{
+    public native Button addButton(String text) /*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        var buttonJ = button.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        dialog.addButton(buttonJ);
+        var buttonJS = dialog.addButton(text);
+        return @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(buttonJS);
+    }-*/;
+
+    public Button addButton(Button button) {
+        Element buttonEl = button.getElement();
+        if(buttonEl != null) {
+            Element parent = DOM.getParent(buttonEl);
+            if(parent != null) {
+                DOM.removeChild(parent, buttonEl);
+            }
+        }
+        doAddButton(button);
+        return button;
+    }
+
+    private native void doAddButton(Button button) /*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var buttonJS = button.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        dialog.addButton(buttonJS);
     }-*/;
 
     public native void alignTo(String id, String position, int[] offsetXY)/*-{

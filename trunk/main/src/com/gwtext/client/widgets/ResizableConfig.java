@@ -61,15 +61,6 @@ public class ResizableConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "enabled", enabled);
     }
 
-    public void setHandles(boolean handles) {
-        //temp fix for Ext bug : http://extjs.com/forum/showthread.php?t=9813
-        if(handles) {
-            setHandles("all");
-        } else  {
-            JavaScriptObjectHelper.setAttribute(jsObj, "handles", handles);
-        }
-    }
-
     public void setHandles(String handles) {
         JavaScriptObjectHelper.setAttribute(jsObj, "handles", handles);
     }

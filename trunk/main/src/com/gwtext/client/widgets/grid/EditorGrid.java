@@ -51,21 +51,26 @@ public class EditorGrid extends Grid {
         grid.addListener('afteredit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::onAfterEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, e.value, e.originalValue, e.row, e.column);
+                    var value = e.value == null ? null : e.value.toString();
+                    var originalValue = e.originalValue == null ? null : e.originalValue.toString();
+                    listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::onAfterEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, value , originalValue, e.row, e.column);
                 }
         );        
 
         grid.addListener('beforeedit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doBeforeEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, e.value, e.row, e.column);
+                    var value = e.value == null ? null : e.value.toString();
+                    return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doBeforeEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, value, e.row, e.column);
                 }
         );
 
         grid.addListener('validateedit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doValidateEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, e.value, e.originalValue,  e.row, e.column);
+                    var value = e.value == null ? null : e.value.toString();
+                    var originalValue = e.originalValue == null ? null : e.originalValue.toString();
+                    return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doValidateEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)(gridJ, recordJ, e.field, value, originalValue,  e.row, e.column);
                 }
         );
     }-*/;

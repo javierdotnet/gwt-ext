@@ -13,7 +13,7 @@
 }
 
 .calendar .x-menu-item-icon {
-    background-image: url( ../../resources/images/default/shared/calendar.gif );
+    background-image: url( ../js/ext/resources/images/default/shared/calendar.gif );
 }
 
 .blist .x-btn-text {
@@ -25,7 +25,7 @@
 }
 
 .menu-title {
-    background: #ebeadb url( ../../resources/images/aero/grid/grid-hrow.gif ) repeat-x;
+    background: #ebeadb url( ../js/ext/resources/images/aero/grid/grid-hrow.gif ) repeat-x;
     border-bottom: 1px solid #99bbe8;
     color: #15428b;
     font: bold 10px tahoma, arial, verdana, sans-serif;

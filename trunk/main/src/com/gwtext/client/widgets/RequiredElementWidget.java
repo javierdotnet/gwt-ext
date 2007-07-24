@@ -42,8 +42,13 @@ public abstract class RequiredElementWidget extends BaseExtWidget {
         this.id = id;
         this.config = config;
         if (id != null) {
-            Element div = DOM.createDiv();
-            DOM.setElementProperty(div, "id", id);
+            Element div = null;
+            if(RootPanel.get(id) == null) {
+                div = DOM.createDiv();
+                DOM.setElementProperty(div, "id", id);
+            } else {
+                div = DOM.getElementById(id);
+            }
             setElement(div);
             RootPanel.get().add(this);
             jsObj = create(id, config == null ? JavaScriptObjectHelper.createObject() : config.getJsObj());

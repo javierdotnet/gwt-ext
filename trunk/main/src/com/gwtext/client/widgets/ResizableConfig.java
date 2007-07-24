@@ -62,7 +62,7 @@ public class ResizableConfig extends BaseConfig {
     }
 
     public void setHandles(boolean handles) {
-        //temp file for Ext bug : http://extjs.com/forum/showthread.php?t=9813
+        //temp fix for Ext bug : http://extjs.com/forum/showthread.php?t=9813
         if(handles) {
             setHandles("all");
         } else  {

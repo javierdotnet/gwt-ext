@@ -75,7 +75,7 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "menuAlign", menuAlign);
     }
 
-    public void setMinWidth(boolean minWidth) {
+    public void setMinWidth(int minWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minWidth", minWidth);
     }
 
@@ -87,10 +87,10 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "repeat", repeat);
     }
 
-    //TODO
-    public void setRepeat(ClickRepeater config) {
+    //TODO  setRepeat
+    /*public void setRepeat(ClickRepeater config) {
         //JavaScriptObjectHelper.setAttribute(jsObj, "config", config);
-    }
+    }*/
 
     public void setTabIndex(int tabIndex) {
         JavaScriptObjectHelper.setAttribute(jsObj, "tabIndex", tabIndex);

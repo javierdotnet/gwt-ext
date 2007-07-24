@@ -21,6 +21,9 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
+import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
 public class ComboBox extends TriggerField {
@@ -123,7 +126,7 @@ public class ComboBox extends TriggerField {
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 
         field.addListener('beforequery',
-                function(fld, o) {
+                function(o) {
                     var cbJ = @com.gwtext.client.widgets.form.event.ComboBoxCallback::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
                     return listener.@com.gwtext.client.widgets.form.event.ComboBoxListener::doBeforeQuery(Lcom/gwtext/client/widgets/form/ComboBox;Lcom/gwtext/client/widgets/form/event/ComboBoxCallback;)(fieldJ,cbJ);
                 }
@@ -155,4 +158,11 @@ public class ComboBox extends TriggerField {
         );
     }-*/;
 
+    protected void onLoad() {
+        Element input = DOM.createInputText();
+        String id = Ext.generateId();
+        DOM.setElementAttribute(input, "id", id);
+        DOM.appendChild(getElement(), input);
+        applyTo(id);
+    }
 }

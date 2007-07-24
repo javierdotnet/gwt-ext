@@ -30,7 +30,6 @@ import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.UrlLoadCallback;
 import com.gwtext.client.core.UpdateManager;
 import com.gwtext.client.core.UpdateManagerConfig;
-import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.widgets.Toolbar;
 import com.gwtext.client.widgets.layout.event.ContentPanelListener;
 
@@ -46,18 +45,19 @@ public class ContentPanel extends ComplexPanel {
     }
 
     public ContentPanel(String id, final String title) {
-        this(id, new ContentPanelConfig() {
-            {
-                setTitle(title);
-                setAutoCreate(true);
-            }
-        });
+        this(id, title, null);
     }
 
     public ContentPanel(String id, ContentPanelConfig config) {
+        this(id, null, config);
+    }
+
+    public ContentPanel(String id, String title, ContentPanelConfig config) {
         if (config == null) {
             config = new ContentPanelConfig();
         }
+        config.setAutoCreate(true);
+        if(title != null) config.setTitle(title);
 
         Element div = DOM.createDiv();
         setElement(div);
@@ -71,10 +71,8 @@ public class ContentPanel extends ComplexPanel {
         }
         DOM.appendChild(div, content);
 
-        //DOM.setElementProperty(div, "className", "ylayout-active-content");
         RootPanel.get().add(this);
 
-        config.setAutoCreate(true);
         jsObj = create(id, config.getJsObj());
         //setElement(new ExtElement(jsObj).getDOM());
         if (config.getContentPanelListener() != null) {
@@ -86,7 +84,6 @@ public class ContentPanel extends ComplexPanel {
             DOM.insertChild(getElement(), toolbar.getElement(), 0);
         }
     }
-
 
     protected ContentPanel(JavaScriptObject jsObj) {
         this.jsObj = jsObj;

@@ -544,6 +544,11 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    public BaseElement setVisible(boolean visible) {
+        setVisible(visible, false);
+        return this;
+    }
+
     public native BaseElement setVisible(boolean visible, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setVisible(visible, animate);

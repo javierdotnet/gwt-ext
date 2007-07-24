@@ -39,8 +39,13 @@ public class GridConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoSizeColumns", autoSizeColumns);
     }
 
-    public void setautoSizeHeaders(boolean autoSizeHeaders) {
+    public void setAutoSizeHeaders(boolean autoSizeHeaders) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoSizeHeaders", autoSizeHeaders);
+    }
+
+    //todo not documented by ext
+    public void setAutoWidth(boolean autoWidth) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "autoWidth", autoWidth);
     }
 
     public void setMonitorWindowResize(boolean monitorWindowResize) {

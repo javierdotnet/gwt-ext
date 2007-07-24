@@ -22,13 +22,13 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.JsObject;
+import com.gwtext.client.widgets.event.ResizableListener;
 
 //http://extjs.com/forum/showthread.php?t=1138&highlight=Resizable
 //http://extjs.com/forum/showthread.php?t=339&highlight=Resizable
 
 //todo 'east', 'dd' docs missing from Ext
-public class Resizable extends JsObject {
+public class Resizable extends BaseExtWidget {
 
     public Resizable(String id, ResizableConfig config) {
         jsObj = create(id, config.getJsObj());
@@ -44,5 +44,16 @@ public class Resizable extends JsObject {
 
     private native JavaScriptObject create(Element elem, JavaScriptObject config)/*-{
         return new $wnd.Ext.Resizable(elem, config);
+    }-*/;
+
+    public native void addResizableListener(ResizableListener listener) /*-{
+        var rz = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var rzJ = this;
+
+        rz.addListener('resize',
+                function() {
+                    listener.@com.gwtext.client.widgets.event.ResizableListener::onResize()();
+                }
+        );
     }-*/;
 }

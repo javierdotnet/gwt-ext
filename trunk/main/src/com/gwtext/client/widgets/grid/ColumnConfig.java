@@ -60,6 +60,11 @@ public class ColumnConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "locked", locked);
     }
 
+    //todo not documented by Ext
+    public void setFixed(boolean fixed) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "fixed", fixed);
+    }
+
     public native void setRenderer(Renderer renderer) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
         config['renderer'] = function(s, p, r, rowIndex, colNum, ds) {

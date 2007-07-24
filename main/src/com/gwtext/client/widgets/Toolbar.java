@@ -23,6 +23,7 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.widgets.form.Field;
+import com.gwtext.client.core.ExtElement;
 
 public class Toolbar extends RequiredElementWidget {
 
@@ -33,6 +34,10 @@ public class Toolbar extends RequiredElementWidget {
         super(id);
     }
 
+    public Toolbar(ExtElement container) {
+        jsObj =  create(container);
+    }
+
     public Toolbar(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -41,6 +46,10 @@ public class Toolbar extends RequiredElementWidget {
         return new $wnd.Ext.Toolbar(id);
     }-*/;
 
+    protected native JavaScriptObject create(ExtElement container) /*-{
+        var el = container.@com.gwtext.client.core.JsObject::jsObj;
+        return new $wnd.Ext.Toolbar(el);
+    }-*/;
 
     public void addButton(ToolbarButton button) {
         addButton(jsObj, button.getJsObj());

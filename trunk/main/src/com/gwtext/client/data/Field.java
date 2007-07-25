@@ -23,23 +23,17 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
+//todo investigate addition on defaultValue, although it works only with XmlReader
+//http://extjs.com/forum/showthread.php?t=4537&page=2
 public abstract class Field extends JsObject {
+
     protected static native void setConverter(JavaScriptObject config, Converter converter)/*-{
         config['convert'] = function(s) {
             return converter.@com.gwtext.client.data.Converter::format(Ljava/lang/String;)(s);
         }
-   }-*/;
+   }-*/;        
 
-    //not adding sortType to API as combination of data type and renderer accomplishes
+    //not adding setSortType to API as combination of data type and renderer accomplishes
     //sort type behavior
-    //http://extjs.com/forum/showthread.php?t=1853
-    /*public void setSortType(String sortType) {
-        setSortType(jsObj, sortType);
-    }
-
-    private native void setSortType(JavaScriptObject config, String sortType) *//*-{
-        config['sortType'] = sortType;
-    }-*//*;*/
-
-
+    //http://extjs.com/forum/showthread.php?t=1853    
 }

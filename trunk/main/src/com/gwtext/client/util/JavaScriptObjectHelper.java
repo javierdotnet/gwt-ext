@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 
 public class JavaScriptObjectHelper {
+
     private JavaScriptObjectHelper() {
     }
 
@@ -74,12 +75,12 @@ public class JavaScriptObjectHelper {
     }-*/;
 
     public static void setAttribute(JavaScriptObject elem, String attr, int[] values) {
-	    setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
-    };
+        setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
+    }
 
     public static void setAttribute(JavaScriptObject elem, String attr, String[] values) {
-	    setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
-    };
+        setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
+    }
 
     public static native void setAttribute(JavaScriptObject elem, String attr, JavaScriptObject value) /*-{
 	    elem[attr] = value;
@@ -174,14 +175,12 @@ public class JavaScriptObjectHelper {
 	    return (ret === undefined) ? null : ret;
     }-*/;
 
-
     public static JavaScriptObject[] listToArray(List list) {
         JavaScriptObject[] array = new JavaScriptObject[list.size()];
 
         for (int i = 0; i < array.length; i++) {
             array[i] = (JavaScriptObject) list.get(i);
         }
-
         return array;
     }
 
@@ -191,7 +190,6 @@ public class JavaScriptObjectHelper {
         for (int i = 0; i < array.length; i++) {
             arraySet(result, i, array[i]);
         }
-
         return result;
     }
 
@@ -201,18 +199,14 @@ public class JavaScriptObjectHelper {
         for (int i = 0; i < array.length; i++) {
             arraySet(result, i, array[i]);
         }
-
         return result;
     }
 
     private static native JavaScriptObject newJSArray(int length) /*-{
-	    if (length < 0)
-	    {
-	    return new Array();
-	    }
-	    else
-	    {
-	    return new Array(length);
+	    if (length < 0) {
+	        return new Array();
+	    } else {
+	        return new Array(length);
 	    }
     }-*/;
 
@@ -330,6 +324,23 @@ public class JavaScriptObjectHelper {
             }
         }
         return jsArray;
+    }
+
+    public static Integer toInteger(int value) {
+        return new Integer(value);
+    }
+
+    public static Float toFloat(float value) {
+        return new Float(value);
+
+    }
+
+    public static Date toDate(long millis) {
+        return new Date(millis);
+    }
+
+    public static Boolean toBoolean(boolean value) {
+        return Boolean.valueOf(value);
     }
 
     public static native JavaScriptObject createJavaScriptArray() /*-{

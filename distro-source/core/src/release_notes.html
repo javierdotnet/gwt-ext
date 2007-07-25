@@ -78,9 +78,15 @@
       This release also includes API changes that may require minor tweaks to existing code.  Any such changes
       that affect you should only take a few minutes to rectify.
       <h4><a href="doc/html/com.gwtext.client.widgets.grid.Grid.html">Grid</a>, <a href="doc/html/com.gwtext.client.widgets.grid.EditorGrid.html">EditorGrid</a>, <a href="doc/html/com.gwtext.client.widgets.layout.BorderLayout.html">BorderLayout</a></h4>
-
       <ul>
         <li>The constructors previously used to accept width and height in the order <b>height, width</b> but they now are in the order <b>width, height</b>. 
+        </li>
+      </ul>
+
+      <hr/>
+      <h4><a href="doc/html/com.gwtext.client.widgets.grid.event.EditorGridListener.html">EditorGridListener</a></h4>
+      <ul>
+        <li>The callback methods now have oldValue and newValue to be of type Object. Previously thwy were of type String.
         </li>
       </ul>
 

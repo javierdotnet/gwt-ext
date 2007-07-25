@@ -165,8 +165,8 @@ public class Store extends JsObject {
 
     //todo support regexp vrsion
     public native void filter(String field, String value, boolean anyMatch) /*-{
-			var store = this.@com.gwtext.client.core.JsObject::jsObj;
-			return store.filter(field, value, anyMatch);
+		var store = this.@com.gwtext.client.core.JsObject::jsObj;
+		return store.filter(field, value, anyMatch);
 	}-*/;
 
 
@@ -200,7 +200,6 @@ public class Store extends JsObject {
     //tested
     public Record[] getModifiedRecords() {
         JavaScriptObject nativeArray = getModifiedRecords(jsObj);
-
         return convertFromNativeRecordsArray(nativeArray);
     }
 
@@ -220,7 +219,6 @@ public class Store extends JsObject {
 
     public Record[] getRange(int startIndex, int endIndex) {
         JavaScriptObject nativeArray = getRange(jsObj, startIndex, endIndex);
-
         return convertFromNativeRecordsArray(nativeArray);
     }
 
@@ -243,7 +241,6 @@ public class Store extends JsObject {
         return store.getTotalCount();
     }-*/;
 
-
     public native int indexOf(Record record)/*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var rec = record.@com.gwtext.client.core.JsObject::jsObj;
@@ -255,11 +252,10 @@ public class Store extends JsObject {
         return store.indexOfId(id);
     }-*/;
 
-
     public native void insert(int index, Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
-		return store.insert(inedx, recordJ);
+		return store.insert(index, recordJ);
     }-*/;
 
     public void insert(int index, Record[] records) {
@@ -278,43 +274,49 @@ public class Store extends JsObject {
 
 
     public native void load() /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            store.load();
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.load();
 	}-*/;
 
     public native void reload() /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            store.reload();
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.reload();
 	}-*/;
 
     public native void load(int start, int limit) /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            store.load({params:{start:start, limit:limit}});
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.load({params:{start:start, limit:limit}});
 	}-*/;
 
     public native void load(StoreLoadConfig config) /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-            store.load(configJS);
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        store.load(configJS);
     }-*/;
 
     //needs to be xml dom document for XmlReader
     public native void loadData(Element doc, boolean append) /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            store.loadData(doc, append);
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.loadData(doc, append);
     }-*/;
 
+    //can be invoked from jsni code passing json object retreived from XHR response
+    public native void loadData(JavaScriptObject data, boolean append) /*-{
+        debugger;
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.loadData(data, append);
+    }-*/;
 
     public native void setProxy(DataProxy proxy) /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            var proxyJS = proxy.@com.gwtext.client.core.JsObject::jsObj;
-            store.proxy = proxyJS;
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var proxyJS = proxy.@com.gwtext.client.core.JsObject::jsObj;
+        store.proxy = proxyJS;
     }-*/;
 
     public native void reload(StoreLoadConfig config) /*-{
-            var store = this.@com.gwtext.client.core.JsObject::jsObj;
-            var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-            store.reload(configJS);
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        store.reload(configJS);
     }-*/;
     //todo query
     //queryBy
@@ -323,7 +325,6 @@ public class Store extends JsObject {
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		store.rejectChanges();
 	}-*/;
-
 
     public native void remove(Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -360,7 +361,6 @@ public class Store extends JsObject {
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.sum(field, startIndex, endIndex);
 	}-*/;
-
 
     public native void addStoreListener(StoreListener listener) /*-{
 	    var store = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -423,6 +423,4 @@ public class Store extends JsObject {
     private native JavaScriptObject getRecords(JavaScriptObject store)/*-{
 		return store.getRange();
 	}-*/;
-
-
 }

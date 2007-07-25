@@ -23,7 +23,8 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Ext {
-    public ExtElement get(String id) {
+
+    public static ExtElement get(String id) {
         JavaScriptObject el = getEl(id);
         return el == null ? null : new ExtElement(el);
     }

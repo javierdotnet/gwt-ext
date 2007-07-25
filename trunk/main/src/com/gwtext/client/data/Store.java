@@ -252,6 +252,7 @@ public class Store extends JsObject {
         return store.indexOfId(id);
     }-*/;
 
+
     public native void insert(int index, Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
@@ -302,7 +303,6 @@ public class Store extends JsObject {
 
     //can be invoked from jsni code passing json object retreived from XHR response
     public native void loadData(JavaScriptObject data, boolean append) /*-{
-        debugger;
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.loadData(data, append);
     }-*/;

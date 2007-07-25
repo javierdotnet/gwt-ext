@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.grid;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ColumnConfig extends BaseConfig {
 
@@ -67,8 +67,9 @@ public class ColumnConfig extends BaseConfig {
 
     public native void setRenderer(Renderer renderer) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
+
         config['renderer'] = function(s, p, r, rowIndex, colNum, ds) {
-            var str = s.toString();
+            var str = (s  == null || s === undefined ) ? null : s.toString();
             var rec = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
             return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/String;Lcom/gwtext/client/data/Record;II)(str, rec, rowIndex, colNum);
         }

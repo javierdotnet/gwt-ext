@@ -99,7 +99,11 @@ public class JavaScriptObjectHelper {
     }-*/;
 
     public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
-        setDateAttribute(elem, attr, value.getTime());
+        if(value == null) {
+            setAttribute(elem, attr, (String) null);
+        } else {
+            setDateAttribute(elem, attr, value.getTime());
+        }
     }
 
     private static native void setDateAttribute(JavaScriptObject elem, String attr, long time) /*-{

@@ -24,16 +24,15 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.widgets.grid.Grid;
 
 public class EditorGridListenerAdapter implements EditorGridListener {
-    public void onAfterEdit(Grid grid, Record record, String field, String newValue, String oldValue, int rowIndex, int colIndex) {
 
+    public void onAfterEdit(Grid grid, Record record, String field, Object newValue, Object oldValue, int rowIndex, int colIndex) {
     }
 
-    public boolean doBeforeEdit(Grid grid, Record record, String field, String value, int rowIndex, int colIndex) {
+    public boolean doBeforeEdit(Grid grid, Record record, String field, Object value, int rowIndex, int colIndex) {
         return true;
     }
 
-    public boolean doValidateEdit(Grid grid, Record record, String field, String value, String originalValue, int rowIndex, int colIndex) {
+    public boolean doValidateEdit(Grid grid, Record record, String field, Object value, Object originalValue, int rowIndex, int colIndex) {
         return true;
     }
-
 }

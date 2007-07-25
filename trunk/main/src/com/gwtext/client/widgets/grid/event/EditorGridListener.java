@@ -25,11 +25,10 @@ import com.gwtext.client.widgets.grid.Grid;
 
 //deails here http://extjs.com/forum/showthread.php?t=2834&highlight=validateedit
 public interface EditorGridListener {
-    void onAfterEdit(Grid grid, Record record, String field, String newValue, String oldValue, int rowIndex, int colIndex);
 
-    boolean doBeforeEdit(Grid grid, Record record, String field, String value, int rowIndex, int colIndex);
+    void onAfterEdit(Grid grid, Record record, String field, Object newValue, Object oldValue, int rowIndex, int colIndex);
 
-    boolean doValidateEdit(Grid grid, Record record, String field, String value, String originalValue, int rowIndex, int colIndex);
+    boolean doBeforeEdit(Grid grid, Record record, String field, Object value, int rowIndex, int colIndex);
 
-    
+    boolean doValidateEdit(Grid grid, Record record, String field, Object value, Object originalValue, int rowIndex, int colIndex);
 }

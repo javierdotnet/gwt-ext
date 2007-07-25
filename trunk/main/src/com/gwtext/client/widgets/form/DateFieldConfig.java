@@ -22,7 +22,13 @@ package com.gwtext.client.widgets.form;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+import java.util.Date;
+
 public class DateFieldConfig extends TriggerFieldConfig {
+
+    public void setaltFormats(String altFormats) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "altFormats", altFormats);
+    }
 
     public void setDisabledDates(String[] disabledDates) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabledDates", disabledDates);
@@ -48,18 +54,27 @@ public class DateFieldConfig extends TriggerFieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "invalidText", invalidText);
     }
 
-
-    public void setMaxText(String maxText) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "maxText", maxText);
-    }
-
-    public void setMaxValue(String maxValue) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "maxValue", maxValue);
-    }
-
     public void setMinValue(String minValue) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minValue", minValue);
     }
 
+    public void setMinValue(Date minValue) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "minValue", minValue);
+    }
 
+    public void setMinText(String minText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "minText", minText);
+    }
+        
+    public void setMaxValue(String maxValue) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "maxValue", maxValue);
+    }
+
+    public void setMaxValue(Date maxValue) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "maxValue", maxValue);
+    }
+
+    public void setMaxText(String maxText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "maxText", maxText);
+    }        
 }

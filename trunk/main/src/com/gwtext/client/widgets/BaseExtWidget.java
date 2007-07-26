@@ -35,10 +35,7 @@ public abstract class BaseExtWidget extends Widget {
 
     protected BaseExtWidget(JavaScriptObject jsObj) {
         this.jsObj = jsObj;
-        ExtElement extElement = getEl();
-        if (extElement != null) {
-            setElement(extElement.getDOM());
-        }
+        setElement(getElement(this.jsObj));
     }
 
     public JavaScriptObject getJsObj() {
@@ -50,15 +47,11 @@ public abstract class BaseExtWidget extends Widget {
     }
 
     public ExtElement getEl() {
-        JavaScriptObject object = getEl(jsObj);
-        if (object == null) {
-            return null;
-        } else {
-            return new ExtElement(object);
-        }
+        return jsObj == null ? null : new ExtElement(getElement());         
     }
 
-    private native JavaScriptObject getEl(JavaScriptObject jsObj) /*-{
+    //jsObj is ExtElement JS obejct
+    private native Element getElement(JavaScriptObject jsObj) /*-{
         var el = jsObj.el;
         if(el === undefined) {
             return null;
@@ -69,13 +62,13 @@ public abstract class BaseExtWidget extends Widget {
 
     protected void onLoad() {
         if (getElement() == null) {
-            setElement(getEl().getDOM());
+            setElement(getElement(jsObj));
         }
     }
 
     public Element getElement() {
         if (super.getElement() == null) {
-            setElement(getEl().getDOM());
+            setElement(getElement(jsObj));
         }
         return super.getElement();
     }

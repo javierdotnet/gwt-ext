@@ -21,7 +21,7 @@
 package com.gwtext.client.widgets.menu;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.widgets.ColorPallete;
+import com.gwtext.client.widgets.ColorPalette;
 
 public class ColorItem extends Item {
 
@@ -36,9 +36,9 @@ public class ColorItem extends Item {
         return new $wnd.Ext.menu.ColorItem(config);    
     }-*/;
 
-    public native ColorPallete getPallete() /*-{
+    public native ColorPalette getPalette() /*-{
         var ci = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        return @com.gwtext.client.widgets.ColorPallete::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ci.palette);
+        return @com.gwtext.client.widgets.ColorPalette::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ci.palette);
     }-*/;
 
 }

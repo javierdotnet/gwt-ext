@@ -20,8 +20,8 @@
 
 package com.gwtext.client.core;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 
 public abstract class JsObject {
 
@@ -100,6 +100,30 @@ public abstract class JsObject {
                 return method.apply(this || window, arguments);
             };
         };
+
+        $wnd.Ext.namespace("GwtExt");
+
+        //convert javascript data types into corresponding Java wrapper types
+        //int -> Integer, float -> Float, boolean -> Boolean and date - > java.util.Date
+        $wnd.GwtExt.convertToJavaType = function(obj) {
+                if(obj == null || obj === undefined) return null;
+                if(typeof obj == 'string') {
+                    return obj;
+                } else if (typeof obj == 'number') {
+                    if(parseInt(obj) == parseFloat(obj)) {
+                        return @com.gwtext.client.util.JavaScriptObjectHelper::toInteger(I)(obj);
+                    } else {
+                        return @com.gwtext.client.util.JavaScriptObjectHelper::toFloat(F)(obj);
+                    }
+                } else if(typeof obj == 'boolean') {
+                    return @com.gwtext.client.util.JavaScriptObjectHelper::toBoolean(Z)(obj);
+                } else if(obj instanceof $wnd.Date) {
+                    return @com.gwtext.client.util.JavaScriptObjectHelper::toDate(J)(obj.getTime());
+                } else {
+                    throw 'Unrecognized type ' + (typeof obj) + ' for value ' + obj.toString();
+                }
+        };
+        
     }-*/;
 
     protected JavaScriptObject jsObj;

@@ -27,13 +27,9 @@ import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.*;
 import com.gwtext.client.data.DateField;
 import com.gwtext.client.data.Field;
-import com.gwtext.client.widgets.layout.GridPanel;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.*;
-import com.gwtext.client.widgets.layout.BorderLayout;
-import com.gwtext.client.widgets.layout.ContentPanelConfig;
-import com.gwtext.client.widgets.layout.LayoutRegionConfig;
 
 import java.util.Date;
 
@@ -98,7 +94,7 @@ public class Grid2Panel extends Composite {
                         setWidth(70);
                         setAlign("right");
                         setRenderer(new Renderer() {
-                            public String render(String value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, Record record, int rowIndex, int colNum) {
                                 return "$" + value;
                             }
                         });

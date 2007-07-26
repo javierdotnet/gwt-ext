@@ -21,6 +21,7 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.widgets.event.ComponentListener;
 
 //should be abstract but since ComponentMgr requires to return Component, making it concrete
@@ -114,13 +115,18 @@ public class Component extends BaseExtWidget {
         component.render(id);
     }-*/;
 
+    public native void render(Element element) /*-{
+        var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        component.render(element);
+    }-*/;
+
     public native boolean isRendered() /*-{
         var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return component.rendered;
     }-*/;
 
 
-/*    public native void render(JavaScriptObject parentElement) *//*-{
+    /*    public native void render(JavaScriptObject parentElement) *//*-{
         var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         component.render(parentElement);
     }-*//*;*/

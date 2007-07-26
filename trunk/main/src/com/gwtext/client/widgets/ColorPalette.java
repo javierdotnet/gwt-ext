@@ -35,7 +35,6 @@ public class ColorPalette extends Component {
     }
 
     private native JavaScriptObject create(JavaScriptObject config)/*-{
-        debugger;
         var cp = new $wnd.Ext.ColorPalette(config);
         return cp;
     }-*/;
@@ -44,7 +43,6 @@ public class ColorPalette extends Component {
         var cp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         cp.select(color);
     }-*/;
-
 
     private static ColorPalette instance(JavaScriptObject jsObj) {
         return new ColorPalette(jsObj);

@@ -25,11 +25,10 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Ext;
-import com.gwtext.client.widgets.Button;
-import com.gwtext.client.widgets.ButtonConfig;
-import com.gwtext.client.widgets.LayoutDialog;
-import com.gwtext.client.widgets.LayoutDialogConfig;
+import com.gwtext.client.util.KeyMapConfig;
+import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.event.KeyListener;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.ContentPanel;
 import com.gwtext.client.widgets.layout.ContentPanelConfig;
@@ -54,6 +53,7 @@ public class DialogPanel extends Composite {
     }
 
     private void setup() {
+
         //create layout regionds for layout dialog
         LayoutRegionConfig west = new LayoutRegionConfig() {
             {
@@ -91,6 +91,41 @@ public class DialogPanel extends Composite {
             }
         }, null, null, west, null, center);
 
+        Button saveBtn = dialog.addButton("Save");
+        saveBtn.addButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                MessageBox.alert("Save", "Save clicked");
+            }
+        });
+
+        dialog.addButton(new Button("cancel", new ButtonConfig() {
+            {
+                setText("Cancel");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.alert("Cancel", "Cancel clicked");
+                    }
+                });
+            }
+        }));
+
+
+        dialog.addKeyListener(new int[]{13, 67}, new KeyListener() {
+            public void onKey(int key, EventObject e) {
+                MessageBox.alert("Key Listener", "Key " + key + " pressed");
+            }
+        });
+
+        dialog.addKeyListener(new KeyMapConfig() {
+            {
+                setShift(true);
+            }
+        }, new KeyListener() {
+            public void onKey(int key, EventObject e) {
+                MessageBox.alert("Key Listener", "Key " + key + " pressed");
+            }
+        });
+
         //add content to various regions
         final BorderLayout layout = dialog.getLayout();
         layout.beginUpdate();
@@ -123,7 +158,7 @@ public class DialogPanel extends Composite {
         });
         button.addButtonListener(new ButtonListenerAdapter() {
             public void onClick(Button button, EventObject e) {
-                dialog.show(id);
+                dialog.show(button.getEl());
             }
         });
 

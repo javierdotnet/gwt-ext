@@ -663,10 +663,10 @@ public class BaseElement extends JsObject implements Fx {
         el.unselectable();
     }-*/;
 
-    public  void update(String html) {
+    public void update(String html) {
         update(html, false);
-    };
-    
+    }
+
     public native void update(String html, boolean loadScripts) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.update(html, loadScripts);

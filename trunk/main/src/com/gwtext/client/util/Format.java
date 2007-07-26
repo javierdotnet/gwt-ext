@@ -27,6 +27,15 @@ public class Format {
         return $wnd.Ext.util.Format.capitalize(value);
     }-*/;
 
+    /**
+     * Format defaults to 'm/d/Y'
+     * @param value
+     * @return
+     */
+    public static native String date(String value)/*-{
+        return $wnd.Ext.util.Format.date(value);
+    }-*/;
+
     public static native String date(String value, String format)/*-{
         return $wnd.Ext.util.Format.date(value, format);
     }-*/;

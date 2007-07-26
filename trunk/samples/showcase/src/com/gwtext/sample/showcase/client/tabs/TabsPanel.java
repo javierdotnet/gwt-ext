@@ -20,7 +20,6 @@
 
 package com.gwtext.sample.showcase.client.tabs;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.data.*;
@@ -90,7 +89,7 @@ public class TabsPanel extends Composite {
                         setSortable(true);
                         setDataIndex("price");
                         setRenderer(new Renderer() {
-                            public String render(String value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, Record record, int rowIndex, int colNum) {
                                 return "$" + value;
                             }
                         });

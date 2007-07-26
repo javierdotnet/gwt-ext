@@ -23,7 +23,6 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.EventCallback;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
@@ -34,6 +33,15 @@ import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
 
 public class LayoutDialog extends BaseExtWidget {
+
+    /**
+     * Creates a Dialog with only a center region. i.e a Basic Dialog
+     * @param config
+     * @param center
+     */
+    public LayoutDialog(LayoutDialogConfig config, LayoutRegionConfig center) {
+        this(config, null, null, null, null, center);
+    }
 
     public LayoutDialog(LayoutDialogConfig config, LayoutRegionConfig north, LayoutRegionConfig south, LayoutRegionConfig west, LayoutRegionConfig east, LayoutRegionConfig center) {
         JavaScriptObject configJS = config.getJsObj();

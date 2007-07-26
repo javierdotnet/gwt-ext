@@ -49,7 +49,12 @@ public class GridTest extends GWTTestCase {
         //sample test
         Record record = recordDef.createRecord(new Object[]{"3m Co", new Double(71.72), new Double(0.02), new Double(0.03), "9/1 12:00am"});
         ArrayReader reader = new ArrayReader(recordDef);
-        Store store = new Store(proxy, reader, new UrlParam[]{new UrlParam("foo", "1"), new UrlParam("bar", "baz")}, null, false);
+        //Store store = new Store(proxy, reader, new UrlParam[]{new UrlParam("foo", "1"), new UrlParam("bar", "baz")}, null, false);
+        UrlParam[] urlParams = {new UrlParam("foo", "1"), new UrlParam("bar", "baz")};
+        Store store = new Store(proxy, reader);
+        store.setBaseParams(urlParams);
+
+        UrlParam[] baseParams = store.getBaseParams();
         store.load();
 
 
@@ -103,7 +108,7 @@ public class GridTest extends GWTTestCase {
                 }
         });
 
-        Grid grid = new Grid("grid-example1", "300px", "600px", store, columnModel, new GridConfig());
+        Grid grid = new Grid("grid-example1", "600px", "300px", store, columnModel, new GridConfig());
 
         grid.render();
 
@@ -112,7 +117,7 @@ public class GridTest extends GWTTestCase {
 
         LayoutRegionConfig center = new LayoutRegionConfig();
         center.setMargins(3, 3, 3, 3);
-        BorderLayout layout = new BorderLayout("300px", "500px", null, null, null, null, center);
+        BorderLayout layout = new BorderLayout("500px", "300px", null, null, null, null, center);
         layout.add(LayoutRegionConfig.CENTER, new GridPanel(grid, new ContentPanelConfig()));
 
 

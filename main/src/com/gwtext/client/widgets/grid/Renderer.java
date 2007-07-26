@@ -27,5 +27,5 @@ public interface Renderer {
     //r.data[c.name], p, r, rowIndex, i, ds
     //rowindex 0 based
     //col num 1 based
-    String render(String value, Record record, int rowIndex, int colNum);
+    String render(Object value, Record record, int rowIndex, int colNum);
 }

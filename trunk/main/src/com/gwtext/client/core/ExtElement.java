@@ -645,7 +645,7 @@ public class ExtElement extends BaseElement {
 
     public native void update(String html, boolean loadScripts, Function callback) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        el.update(html, loadScripts, function() {
+        el.update(html, loadScripts, callback  == null ? null : function() {
             callback.@com.gwtext.client.core.Function::execute()();
         });
     }-*/;

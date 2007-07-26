@@ -34,10 +34,6 @@ public class TabPanelItem extends BaseExtWidget {
         super(tabPanelItem);
     }
 
-    public ExtElement getEl() {
-        return new ExtElement(getEl(jsObj));
-    }
-
     public static TabPanelItem instance(JavaScriptObject jsObj) {
         return new TabPanelItem(jsObj);
     }

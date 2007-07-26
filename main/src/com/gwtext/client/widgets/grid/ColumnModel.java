@@ -171,10 +171,10 @@ public class ColumnModel extends JsObject {
     //todo add type safe callback like EditorGridListener
     public native void setRenderer(int colIndex, Renderer renderer) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        cm.setRenderer(colIndex, function(s, p, r, rowIndex, colNum, ds) {
-            var str = (s  == null || s === undefined ) ? null : s.toString();
+        cm.setRenderer(colIndex, function(val, p, r, rowIndex, colNum, ds) {
+            var valJ = (val  == null || val === undefined ) ? null : $wnd.GwtExt.convertToJavaType(val);
             var rec = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
-            return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/String;Lcom/gwtext/client/data/Record;II)(str, rec, rowIndex, colNum);
+            return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/Object;Lcom/gwtext/client/data/Record;II)(valJ, rec, rowIndex, colNum);
         });
     }-*/;
 

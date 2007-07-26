@@ -20,8 +20,10 @@
 
 package com.gwtext.sample.showcase.client.menu;
 
+import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.gwtext.client.core.Function;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.menu.*;
 import com.gwtext.client.widgets.menu.event.CheckItemListenerAdapter;
@@ -49,6 +51,8 @@ public class MenusPanel extends Composite {
     private void setup() {
         //create a toolbar and variosu menu items
         Toolbar tb = new Toolbar("toolbar1");
+        final ToolbarTextItem ti = new ToolbarTextItem("Text Item");
+        tb.addItem(ti);
 
         Menu menu = new Menu("mainMenu", new MenuConfig() {
             {
@@ -60,6 +64,11 @@ public class MenusPanel extends Composite {
 
         final CheckItemListenerAdapter listener = new CheckItemListenerAdapter() {
             public void onCheckChange(CheckItem item, boolean checked) {
+                ti.getEl().update("Text Item*", false, new Function() {
+                    public void execute() {
+                        //some callback
+                    }
+                });
                 Showcase.showMessage("Event: checkchange", "'" + item.getText() + "' is now " + (checked ? "checked" : "unchecked"));
             }
         };
@@ -151,7 +160,8 @@ public class MenusPanel extends Composite {
             }
         });
         tb.addButton(menuButton);
-        tb.addSeparator();
+        Element separator = tb.addSeparator();
+        Element spacer = tb.addSpacer();
 
         Menu splitMenu = new Menu("split-menu", new MenuConfig());
         Item bi = new Item(new ItemConfig());

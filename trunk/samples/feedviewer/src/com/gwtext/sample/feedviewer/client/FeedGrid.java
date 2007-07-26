@@ -78,16 +78,16 @@ public class FeedGrid {
                         setWidth(150);
                         setSortable(true);
                         setRenderer(new Renderer() {
-                            public String render(String value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, Record record, int rowIndex, int colNum) {
                                 if (value == null || value.equals("")) {
                                     return "";
                                 }
-                                Date date = new Date(value);
+                                Date date = (Date) value;
                                 Date now = new Date();
                                 if (date.getDay() == now.getDay() && date.getMonth() == now.getMonth() && date.getYear() == now.getYear()) {
-                                    return "Today " + Format.date(value, "g:i a");
+                                    return "Today " + Format.date(value.toString(), "g:i a");
                                 } else {
-                                    return Format.date(value, "n/j g:i a");
+                                    return Format.date(value.toString(), "n/j g:i a");
                                 }
                             }
                         });
@@ -184,17 +184,17 @@ public class FeedGrid {
     //render for grid row
     public Renderer getRowRenderer() {
         return new Renderer() {
-            public String render(String value, Record record, int rowIndex, int colNum) {
+            public String render(Object value, Record record, int rowIndex, int colNum) {
                 if (showPreview) {
                     return Format.format("<div class=\"topic\"><b>{0}</b><p>{1}</p></div>",
                             new String[]{
-                                    value,
+                                    value.toString(),
                                     Format.ellipsis(Format.stripTags(record.getAsString("content")), 200)
                             });
                 } else {
                     return Format.format("<div class=\"topic\"><b>{0}</b></div>",
                             new String[]{
-                                    value
+                                    value.toString()
                             });
                 }
             }

@@ -50,13 +50,15 @@ public abstract class BaseExtWidget extends Widget {
         return jsObj == null ? null : new ExtElement(getElement());         
     }
 
-    //jsObj is ExtElement JS obejct
+    //jsObj is JS object representing the UI Widget
+    //jsObj.el is the ExtElement of the Widget
+    //jsObj.el.dom is the DOM Element of the widget
     private native Element getElement(JavaScriptObject jsObj) /*-{
         var el = jsObj.el;
         if(el === undefined) {
             return null;
         } else {
-             return el;
+             return el.dom;
         }
     }-*/;
 

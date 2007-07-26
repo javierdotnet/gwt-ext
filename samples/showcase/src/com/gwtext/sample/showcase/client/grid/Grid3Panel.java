@@ -40,19 +40,19 @@ public class Grid3Panel extends Composite {
     private boolean showPreview = true;
 
     private Renderer renderTopic = new Renderer() {
-        public String render(String value, Record record, int rowIndex, int colNum) {
-            return Format.format("<b>{0}</b>{1}", new String[]{value, record.getAsString("excerpt")});
+        public String render(Object value, Record record, int rowIndex, int colNum) {
+            return Format.format("<b>{0}</b>{1}", new String[]{(String)value, record.getAsString("excerpt")});
         }
     };
 
     private Renderer renderTopicPlain = new Renderer() {
-        public String render(String value, Record record, int rowIndex, int colNum) {
-            return Format.format("<b><i>{0}</i></b>", new String[]{value});
+        public String render(Object value, Record record, int rowIndex, int colNum) {
+            return Format.format("<b><i>{0}</i></b>", new String[]{(String)value});
         }
     };
 
     private Renderer renderLast = new Renderer() {
-        public String render(String value, Record record, int rowIndex, int colNum) {
+        public String render(Object value, Record record, int rowIndex, int colNum) {
             Date lastPost = record.getAsDate("lastPost");
             String lastPostStr = DateUtil.format(lastPost, "M j, Y, g:i a");
             return Format.format("{0}<br/>by {1}", new String[]{lastPostStr, record.getAsString("author")});
@@ -60,12 +60,11 @@ public class Grid3Panel extends Composite {
     };
 
     private Renderer renderLastPlain = new Renderer() {
-        public String render(String value, Record record, int rowIndex, int colNum) {
+        public String render(Object value, Record record, int rowIndex, int colNum) {
             Date lastPost = record.getAsDate("lastPost");
             return DateUtil.format(lastPost, "M j, Y, g:i a");
         }
     };
-
 
     public Grid3Panel() {
         vp = new VerticalPanel();

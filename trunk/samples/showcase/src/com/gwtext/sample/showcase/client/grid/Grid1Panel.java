@@ -22,13 +22,11 @@ package com.gwtext.sample.showcase.client.grid;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.gwtext.client.core.Ext;
 import com.gwtext.client.data.*;
 import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.ColumnModel;
 import com.gwtext.client.widgets.grid.Grid;
 import com.gwtext.client.widgets.grid.Renderer;
-import com.gwtext.client.widgets.layout.*;
 import com.gwtext.sample.showcase.client.SampleData;
 
 public class Grid1Panel extends Composite {
@@ -97,7 +95,7 @@ public class Grid1Panel extends Composite {
                         setSortable(true);
                         setDataIndex("price");
                         setRenderer(new Renderer() {
-                            public String render(String value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, Record record, int rowIndex, int colNum) {
                                 return "$" + value;
                             }
                         });

@@ -45,30 +45,12 @@ public class EditorGrid extends Grid {
     public native void addEditorGridListener(EditorGridListener listener)/*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
-        var convert = function(obj) {
-                if(obj == null || obj === undefined) return null;
-                if(typeof obj == 'string') {
-                    return obj;
-                } else if (typeof obj == 'number') {
-                    if(parseInt(obj) == parseFloat(obj)) {
-                        return @com.gwtext.client.util.JavaScriptObjectHelper::toInteger(I)(obj);
-                    } else {
-                        return @com.gwtext.client.util.JavaScriptObjectHelper::toFloat(F)(obj);
-                    }
-                } else if(typeof obj == 'boolean') {
-                    return @com.gwtext.client.util.JavaScriptObjectHelper::toBoolean(Z)(obj);
-                } else if(obj instanceof $wnd.Date) {
-                    return @com.gwtext.client.util.JavaScriptObjectHelper::toDate(J)(obj.getTime());
-                } else {
-                    throw 'Unrecognized type ' + (typeof obj) + ' for value ' + obj.toString();
-                }
-        };
-
+    
         grid.addListener('afteredit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    var value = e.value === undefined ? null : convert(e.value);
-                    var originalValue = e.originalValue === undefined ? null : convert(e.originalValue);
+                    var value = e.value === undefined ? null : $wnd.GwtExt.convertToJavaType(e.value);
+                    var originalValue = e.originalValue === undefined ? null : $wnd.GwtExt.convertToJavaType(e.originalValue);
                     listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::onAfterEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;II)(gridJ, recordJ, e.field, value , originalValue, e.row, e.column);
                 }
         );        
@@ -76,7 +58,7 @@ public class EditorGrid extends Grid {
         grid.addListener('beforeedit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    var value = e.value === undefined ? null : convert(e.value);
+                    var value = e.value === undefined ? null : $wnd.GwtExt.convertToJavaType(e.value);
                     return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doBeforeEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/Object;II)(gridJ, recordJ, e.field, value, e.row, e.column);
                 }
         );
@@ -84,8 +66,8 @@ public class EditorGrid extends Grid {
         grid.addListener('validateedit',
                 function(e) {
                     var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e.record);
-                    var value = e.value === undefined ? null : convert(e.value);
-                    var originalValue = e.originalValue === undefined ? null : convert(e.originalValue);
+                    var value = e.value === undefined ? null : $wnd.GwtExt.convertToJavaType(e.value);
+                    var originalValue = e.originalValue === undefined ? null : $wnd.GwtExt.convertToJavaType(e.originalValue);
                     return listener.@com.gwtext.client.widgets.grid.event.EditorGridListener::doValidateEdit(Lcom/gwtext/client/widgets/grid/Grid;Lcom/gwtext/client/data/Record;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;II)(gridJ, recordJ, e.field, value, originalValue,  e.row, e.column);
                 }
         );

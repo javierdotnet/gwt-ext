@@ -21,7 +21,7 @@
 package com.gwtext.client.widgets.menu;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.widgets.ColorPallete;
+import com.gwtext.client.widgets.ColorPalette;
 import com.gwtext.client.widgets.menu.event.ColorMenuListener;
 
 public class ColorMenu extends Menu {
@@ -36,11 +36,11 @@ public class ColorMenu extends Menu {
         return new $wnd.Ext.menu.ColorMenu(menuConfig);
     }-*/;
 
-    public ColorPallete getColorPallete() {
-        return new ColorPallete(getColorPallete(jsObj));
+    public ColorPalette getColorPalette() {
+        return new ColorPalette(getColorPalette(jsObj));
     }
 
-    private native JavaScriptObject getColorPallete(JavaScriptObject colorMenu) /*-{
+    private native JavaScriptObject getColorPalette(JavaScriptObject colorMenu) /*-{
         return colorMenu.palette;    
     }-*/;
 
@@ -50,7 +50,7 @@ public class ColorMenu extends Menu {
         var colorMenuJ = this;
 
         colorMenu.addListener('select',
-                function(pallete, color) {
+                function(palette, color) {
                     return listener.@com.gwtext.client.widgets.menu.event.ColorMenuListener::onSelect(Lcom/gwtext/client/widgets/menu/ColorMenu;Ljava/lang/String;)(colorMenuJ, color);
                 }
         );        

@@ -20,7 +20,6 @@
 
 package com.gwtext.client.widgets.event;
 
-import com.gwtext.client.widgets.TabPanel;
 import com.gwtext.client.widgets.TabPanelItem;
 
 public class TabPanelItemListenerAdapter implements TabPanelItemListener {
@@ -28,7 +27,7 @@ public class TabPanelItemListenerAdapter implements TabPanelItemListener {
 
     }
 
-    public boolean doBeforeClose(TabPanel tabPanel) {
+    public boolean doBeforeClose(TabPanelItem tab) {
         return true;
     }
 

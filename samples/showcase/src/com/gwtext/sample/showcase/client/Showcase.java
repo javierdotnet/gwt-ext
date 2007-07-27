@@ -54,8 +54,7 @@ public class Showcase implements EntryPoint {
     public void onModuleLoad() {
         //globally sets error messages on form fields to the side      
         Field.setMsgTarget("side");
-
-        Ext.setBlankImageUrl("images/s.gif");
+		
         QuickTips.init();
 
         //create the main layout

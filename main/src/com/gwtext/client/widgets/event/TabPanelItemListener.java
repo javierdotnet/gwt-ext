@@ -19,13 +19,13 @@
  */
 package com.gwtext.client.widgets.event;
 
-import com.gwtext.client.widgets.TabPanel;
 import com.gwtext.client.widgets.TabPanelItem;
 
 public interface TabPanelItemListener {
+
     void onActivate(TabPanelItem tab);
 
-    boolean doBeforeClose(TabPanel tabPanel);
+    boolean doBeforeClose(TabPanelItem tab);
 
     void onClose(TabPanelItem tab);
 

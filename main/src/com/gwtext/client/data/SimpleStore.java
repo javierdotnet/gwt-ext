@@ -25,21 +25,22 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
 
 public class SimpleStore extends Store {
-    public SimpleStore( String[] fields, Object[][] data) {
-        this(null, fields, data);
+    
+    public SimpleStore(String[] fields, Object[][] data) {
+        this(-1, fields, data);
     }
 
-    public SimpleStore(String id, String[] fields, Object[][] data) {
+    public SimpleStore(int id, String[] fields, Object[][] data) {
         SimpleStoreConfig config = new SimpleStoreConfig();
-        if(id != null) config.setId(id);
+        if(id >= 0) config.setId(id);
         config.setFields(fields);
         config.setData(data);
         jsObj = create(config.getJsObj());
     }
 
-    public SimpleStore(String id, Field[] fields, Object[][] data) {
+    public SimpleStore(int id, Field[] fields, Object[][] data) {
         SimpleStoreConfig config = new SimpleStoreConfig();
-        config.setId(id);
+        if(id >= 0) config.setId(id);
         config.setFields(fields);
         config.setData(data);
         jsObj = create(config.getJsObj());
@@ -51,7 +52,7 @@ public class SimpleStore extends Store {
 
     private static class SimpleStoreConfig extends BaseConfig {
 
-        public void setId(String id) {
+        public void setId(int id) {
             JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
         }
 

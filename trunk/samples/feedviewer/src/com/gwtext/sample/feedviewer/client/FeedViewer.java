@@ -1,7 +1,9 @@
 package com.gwtext.sample.feedviewer.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.QuickTips;
 import com.gwtext.client.widgets.layout.BorderLayout;
@@ -17,8 +19,6 @@ public class FeedViewer implements EntryPoint {
     private NestedLayoutPanel feedDetailsPanel;
 
     public void onModuleLoad() {
-
-        Ext.setBlankImageUrl("images/s.gif");
         QuickTips.init();
 
         //setup main layout

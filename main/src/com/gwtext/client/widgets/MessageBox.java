@@ -37,7 +37,7 @@ public class MessageBox {
             return type;
         }
 
-         abstract void init();
+        abstract void init();
     }
 
     public static Button OK = new Button("OK") {
@@ -114,6 +114,7 @@ public class MessageBox {
 
     public static native void prompt(String title, String message, PromptCallback cb) /*-{
         $wnd.Ext.MessageBox.prompt(title, message, function(btnID, text) {
+            if(text === undefined) text = null;
             cb.@com.gwtext.client.widgets.MessageBox.PromptCallback::execute(Ljava/lang/String;Ljava/lang/String;)(btnID, text);
         });
     }-*/;
@@ -141,5 +142,4 @@ public class MessageBox {
     public static native void wait(String message, String title) /*-{
         $wnd.Ext.MessageBox.wait(message, title);
     }-*/;
- 
 }

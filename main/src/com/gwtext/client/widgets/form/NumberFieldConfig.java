@@ -59,6 +59,4 @@ public class NumberFieldConfig extends TextFieldConfig {
     public void setNanText(String nanText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "nanText", nanText);
     }
-
-
 }

@@ -20,7 +20,7 @@
 
 package com.gwtext.client.dd;
 
-public class DragSource extends DDProxy{
+public class DragSource extends DDProxy {
     public DragSource(String id, String sGroup) {
         super(id, sGroup);
     }

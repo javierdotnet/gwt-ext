@@ -20,8 +20,8 @@
 
 package com.gwtext.client.dd;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class DragDropConfig extends BaseConfig {
 

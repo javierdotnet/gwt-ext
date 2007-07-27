@@ -24,35 +24,32 @@ import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
 
 public class NodeListenerAdapter implements NodeListener {
-    public void onAppend(Tree tree, Node self, Node node, int index) {
 
+    public void onAppend(Tree tree, Node self, Node node, int index) {
     }
 
     public boolean doBeforeAppend(Tree tree, Node self, Node node) {
-        return false;
+        return true;
     }
 
     public boolean doBeforeInsert(Tree tree, Node self, Node node, Node refNode) {
-        return false;
+        return true;
     }
 
     public boolean doBeforeMove(Tree tree, Node self, Node oldParent, Node newParent, int index) {
-        return false;
+        return true;
     }
 
     public boolean doBeforeRemove(Tree tree, Node self, Node node) {
-        return false;
+        return true;
     }
 
     public void onInsert(Tree tree, Node self, Node node, Node refNode) {
-
     }
 
     public void onMove(Tree tree, Node self, Node oldParent, Node newParent, int index) {
-
     }
 
     public void onRemove(Tree tree, Node self, Node node) {
-
     }
 }

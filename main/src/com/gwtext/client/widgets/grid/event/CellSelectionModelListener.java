@@ -24,10 +24,10 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.widgets.grid.CellSelectionModel;
 
 public interface CellSelectionModelListener {
+
     boolean doBeforeRowSelect(CellSelectionModel sm, int rowIndex, int colIndex);
 
     void onCellSelect(CellSelectionModel sm, int rowIndex, int colIndex);
 
     void onSelectionChange(CellSelectionModel sm, Record record, int[] rowIndexColIndex);
-
 }

@@ -25,6 +25,7 @@ import com.gwtext.client.widgets.ColorPalette;
 import com.gwtext.client.widgets.menu.event.ColorMenuListener;
 
 public class ColorMenu extends Menu {
+
     public ColorMenu(String id, ColorMenuConfig menuConfig) {
         super(id, menuConfig);
         if (menuConfig.getColorMenuListener() != null) {

@@ -23,5 +23,6 @@ package com.gwtext.client.widgets.menu.event;
 import com.gwtext.client.widgets.menu.ColorMenu;
 
 public interface ColorMenuListener {
+
     void onSelect(ColorMenu colorMenu, String color);
 }

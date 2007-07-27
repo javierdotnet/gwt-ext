@@ -25,7 +25,9 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
 
-//NOTE: You must add ContentPanels to the inner BorderLayout only after constructing the NestedLayouyPanel with the BorderLayout
+/**
+ * <b>Note :</b>You must add ContentPanels to the inner BorderLayout only after constructing the NestedLayouyPanel with the BorderLayout
+ */
 public class NestedLayoutPanel extends ContentPanel {
 
     public NestedLayoutPanel(BorderLayout borderLayout, final String title) {

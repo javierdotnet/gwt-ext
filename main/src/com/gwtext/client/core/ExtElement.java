@@ -63,7 +63,7 @@ public class ExtElement extends BaseElement {
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
     }-*/;
 
-    //todo may need to change to EventCallback instead of Funciton in future
+    //todo may need to change to EventCallback instead of Function in future
     public native void addListener(String eventName, Function cb, ListenerConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.addListener(eventName, function() {
@@ -99,10 +99,16 @@ public class ExtElement extends BaseElement {
         return this;
     }-*/;
 
+    public native ExtElement boxWrap() /*-{
+        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var wrap = elem.boxWrap();
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(wrap);
+    }-*/;
+
     public native ExtElement boxWrap(String boxClass) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.boxWrap(boxClass);
-        return this;
+        var wrap = elem.boxWrap(boxClass);
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(wrap);
     }-*/;
 
     public native ExtElement center() /*-{
@@ -179,7 +185,6 @@ public class ExtElement extends BaseElement {
         elem.createProxy(cls, renderTo, matchBox);
         return this;
     }-*/;
-
 
     public native ExtElement down(String selector) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;

@@ -24,10 +24,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public abstract class RequiredElementWidget extends BaseExtWidget {
+
     protected String id;
     protected BaseConfig config;
 
@@ -43,7 +44,7 @@ public abstract class RequiredElementWidget extends BaseExtWidget {
         this.config = config;
         if (id != null) {
             Element div = null;
-            if(RootPanel.get(id) == null) {
+            if (RootPanel.get(id) == null) {
                 div = DOM.createDiv();
                 DOM.setElementProperty(div, "id", id);
             } else {

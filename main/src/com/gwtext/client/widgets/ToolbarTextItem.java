@@ -23,6 +23,7 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ToolbarTextItem extends ToolbarItem {
+
     public ToolbarTextItem(String text) {
         setJsObj(create(text));
     }

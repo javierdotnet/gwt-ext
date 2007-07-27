@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
 public class CSSRule extends JsObject {
+
     public CSSRule(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -46,5 +47,4 @@ public class CSSRule extends JsObject {
             return @com.gwtext.client.util.CSSRule::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parentRule);
         }
     }-*/;
-
 }

@@ -31,7 +31,7 @@ public class TextAreaConfig extends TextFieldConfig {
     public void setGrowMin(int growMin) {
         super.setGrowMin(growMin);
     }
-            
+
     public void setPreventScrollbars(boolean preventScrollbars) {
         JavaScriptObjectHelper.setAttribute(jsObj, "preventScrollbars", preventScrollbars);
     }

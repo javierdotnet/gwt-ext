@@ -21,11 +21,12 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class FormActionConfig extends BaseConfig {
+
     public void setUrl(String url) {
         JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
     }
@@ -46,5 +47,4 @@ public class FormActionConfig extends BaseConfig {
     public void setWaitMsg(String waitMsg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "waitMsg", waitMsg);
     }
-
 }

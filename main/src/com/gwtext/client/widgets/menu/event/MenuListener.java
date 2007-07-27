@@ -25,6 +25,7 @@ import com.gwtext.client.widgets.menu.BaseItem;
 import com.gwtext.client.widgets.menu.Menu;
 
 public interface MenuListener {
+
     boolean doBeforeHide(Menu menu);
 
     boolean doBeforeShow(Menu menu);
@@ -42,5 +43,4 @@ public interface MenuListener {
     void onMouseOver(Menu menu, BaseItem menuItem, EventObject e);
 
     void onShow(Menu menu);
-
 }

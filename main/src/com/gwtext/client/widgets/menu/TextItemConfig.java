@@ -23,13 +23,12 @@ package com.gwtext.client.widgets.menu;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class TextItemConfig extends BaseItemConfig {
-    
+
     public void setHideOnClick(boolean hideOnClick) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideOnClick", hideOnClick);
     }
-    
+
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }
-
 }

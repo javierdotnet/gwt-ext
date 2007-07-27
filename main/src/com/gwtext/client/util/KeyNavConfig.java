@@ -20,7 +20,6 @@
 package com.gwtext.client.util;
 
 import com.gwtext.client.core.BaseConfig;
-import com.gwtext.client.core.Function;
 import com.gwtext.client.core.EventCallback;
 
 public class KeyNavConfig extends BaseConfig {
@@ -56,7 +55,6 @@ public class KeyNavConfig extends BaseConfig {
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
         };
     }-*/;
-
 
     public native void onDown(EventCallback cb) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;

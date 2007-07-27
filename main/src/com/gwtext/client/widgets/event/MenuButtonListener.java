@@ -24,5 +24,6 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.SplitButton;
 
 public interface MenuButtonListener {
+
     void onArrowClick(SplitButton menuButton, EventObject e);
 }

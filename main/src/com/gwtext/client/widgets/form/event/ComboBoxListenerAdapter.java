@@ -24,6 +24,7 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.widgets.form.ComboBox;
 
 public class ComboBoxListenerAdapter implements ComboBoxListener {
+
     public boolean doBeforeQuery(ComboBox comboBox, ComboBoxCallback cb) {
         return true;
     }
@@ -33,16 +34,11 @@ public class ComboBoxListenerAdapter implements ComboBoxListener {
     }
 
     public void onCollapse(ComboBox comboBox) {
-
     }
 
     public void onExpand(ComboBox comboBox) {
-
     }
 
     public void onSelect(ComboBox comboBox, Record record, int index) {
-
     }
-
-
 }

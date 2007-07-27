@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.layout.event;
 import com.gwtext.client.widgets.layout.ContentPanel;
 
 public interface ContentPanelListener {
+
     void onActivate(ContentPanel cp);
 
     void onDeactivate(ContentPanel cp);

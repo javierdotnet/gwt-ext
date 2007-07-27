@@ -32,5 +32,4 @@ public class JsonReader extends Reader {
     private static native JavaScriptObject create(JavaScriptObject config, JavaScriptObject recordDef) /*-{
         return new $wnd.Ext.data.JsonReader(config, recordDef);
     }-*/;
-
 }

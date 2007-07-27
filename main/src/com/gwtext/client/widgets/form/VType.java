@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form;
 
 //http://extjs.com/forum/showthread.php?t=4271&highlight=vtype
 public class VType {
+
     private String vType;
 
     public VType(String vType) {
@@ -39,10 +40,9 @@ public class VType {
     public static VType ALPHANUM_MASK = new VType("alphanumMask");
     public static VType ALPHANUM = new VType("alphanum");
     public static VType ALPHANUM_TEXT = new VType("alphanumText");
-    public static VType EMAIL= new VType("email");
+    public static VType EMAIL = new VType("email");
     public static VType EMAIL_MASK = new VType("emailMask");
     public static VType EMAIL_TEXT = new VType("emailText");
     public static VType URL = new VType("url");
     public static VType URL_TEXT = new VType("urlText");
-
 }

@@ -77,8 +77,6 @@ public class DateUtil {
         return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
     }-*/;
 
-
-
     public static native int getDayOfYear(Date date) /*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
@@ -129,6 +127,7 @@ public class DateUtil {
         return dateJS.getTimezone();
     }-*/;
 
+    //todo ext function incorrect : see http://extjs.com/forum/showthread.php?t=9727
     public static native int getWeekOfYear(Date date) /*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);

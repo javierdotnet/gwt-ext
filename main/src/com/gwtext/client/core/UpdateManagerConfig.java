@@ -22,7 +22,6 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.core.BaseConfig;
 
 public class UpdateManagerConfig extends BaseConfig {
 

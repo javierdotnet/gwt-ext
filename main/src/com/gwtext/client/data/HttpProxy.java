@@ -34,8 +34,8 @@ public class HttpProxy extends DataProxy {
     }
 
     /**
-     * @param url data url
-     * @param method  GET or POST
+     * @param url    data url
+     * @param method GET or POST
      */
     public HttpProxy(String url, String method) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
@@ -55,6 +55,4 @@ public class HttpProxy extends DataProxy {
     private native JavaScriptObject getConnection(JavaScriptObject proxy) /*-{
         proxy.getConnection();
     }-*/;
-
-
 }

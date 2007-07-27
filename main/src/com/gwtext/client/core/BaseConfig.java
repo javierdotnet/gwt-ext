@@ -20,7 +20,6 @@
 
 package com.gwtext.client.core;
 
-import com.gwtext.client.core.JsObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public abstract class BaseConfig extends JsObject {
@@ -28,5 +27,4 @@ public abstract class BaseConfig extends JsObject {
     public BaseConfig() {
         jsObj = JavaScriptObjectHelper.createObject();
     }
-
 }

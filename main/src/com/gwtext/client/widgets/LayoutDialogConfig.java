@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class LayoutDialogConfig extends BaseConfig {
 
@@ -136,5 +136,4 @@ public class LayoutDialogConfig extends BaseConfig {
     public void setY(int y) {
         JavaScriptObjectHelper.setAttribute(jsObj, "y", y);
     }
-
 }

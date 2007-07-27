@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ScriptTagProxy extends DataProxy {
+
     public ScriptTagProxy(String url) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);

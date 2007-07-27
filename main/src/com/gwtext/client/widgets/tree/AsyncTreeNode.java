@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.tree.event.AsyncTreeNodeListener;
 
 public class AsyncTreeNode extends TreeNode {
+
     public AsyncTreeNode(AsyncTreeNodeConfig config) {
         super(config);
     }

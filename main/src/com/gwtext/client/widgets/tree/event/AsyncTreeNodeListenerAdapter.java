@@ -23,11 +23,11 @@ package com.gwtext.client.widgets.tree.event;
 import com.gwtext.client.widgets.tree.AsyncTreeNode;
 
 public class AsyncTreeNodeListenerAdapter implements AsyncTreeNodeListener {
+
     public boolean doBeforeLoad(AsyncTreeNode node) {
         return true;
     }
 
     public void onLoad(AsyncTreeNode node) {
-
     }
 }

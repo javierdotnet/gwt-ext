@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class FieldSetConfig extends LayoutConfig {
+
     public void setLegend(String legend) {
         JavaScriptObjectHelper.setAttribute(jsObj, "legend", legend);
     }

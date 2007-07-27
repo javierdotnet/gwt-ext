@@ -20,8 +20,8 @@
 
 package com.gwtext.client.state;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
@@ -44,6 +44,4 @@ public class CookieProviderConfig extends BaseConfig {
     public void setSecure(boolean secure) {
         JavaScriptObjectHelper.setAttribute(jsObj, "secure", secure);
     }
-
-
 }

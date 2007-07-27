@@ -27,9 +27,9 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.ExtElement;
-import com.gwtext.client.core.UrlLoadCallback;
 import com.gwtext.client.core.UpdateManager;
 import com.gwtext.client.core.UpdateManagerConfig;
+import com.gwtext.client.core.UrlLoadCallback;
 import com.gwtext.client.widgets.Toolbar;
 import com.gwtext.client.widgets.layout.event.ContentPanelListener;
 
@@ -57,7 +57,7 @@ public class ContentPanel extends ComplexPanel {
             config = new ContentPanelConfig();
         }
         config.setAutoCreate(true);
-        if(title != null) config.setTitle(title);
+        if (title != null) config.setTitle(title);
 
         Element div = DOM.createDiv();
         setElement(div);
@@ -74,7 +74,7 @@ public class ContentPanel extends ComplexPanel {
         RootPanel.get().add(this);
 
         jsObj = create(id, config.getJsObj());
-        //setElement(new ExtElement(jsObj).getDOM());
+
         if (config.getContentPanelListener() != null) {
             addContentPanelListener(config.getContentPanelListener());
         }
@@ -101,7 +101,6 @@ public class ContentPanel extends ComplexPanel {
         return new $wnd.Ext.ContentPanel(id, config);
     }-*/;
 
-
     public void add(Widget w) {
         add(w, getElement());
     }
@@ -110,7 +109,6 @@ public class ContentPanel extends ComplexPanel {
         var contentPanel = this.@com.gwtext.client.widgets.layout.ContentPanel::jsObj;
         contentPanel.destroy();
     }-*/;
-
 
     public ExtElement getEl() {
         return new ExtElement(getEl(jsObj));
@@ -171,15 +169,8 @@ public class ContentPanel extends ComplexPanel {
         contentPanel.refresh();
     }-*/;
 
-/*    public native void setContent(String content, boolean loadScripts)*//*-{
-        var contentPanel = this.@com.gwtext.client.widgets.layout.ContentPanel::jsObj;
-        contentPanel.setContent(content, loadScripts);
-    }-*//*;*/
-
     //add in separate div so that clean contents on clears divs contents and preserves the toolbar
     public void setContent(String content) {
-        //Element contentElem = DOM.getElementById(getId() + "-content");
-        //DOM.setInnerHTML(contentElem, content);
         ExtElement el = ExtElement.get(getId() + "-content");
         el.update(content, false);
     }

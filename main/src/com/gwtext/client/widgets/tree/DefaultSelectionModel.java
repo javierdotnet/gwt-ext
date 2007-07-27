@@ -24,7 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.widgets.tree.event.DefaultSelectionModelListener;
 
-public class DefaultSelectionModel extends JsObject implements TreeSelectionModel{
+public class DefaultSelectionModel extends JsObject implements TreeSelectionModel {
 
     public DefaultSelectionModel(JavaScriptObject jsObj) {
         super(jsObj);
@@ -77,7 +77,6 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
         return sm.unselect(tn);
     }-*/;
 
-
     public native void addSelectionModelListener(DefaultSelectionModelListener listener)/*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         var smJ = this;
@@ -96,5 +95,4 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
 			    }
           );    
     }-*/;
-
 }

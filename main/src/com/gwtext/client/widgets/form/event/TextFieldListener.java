@@ -23,5 +23,6 @@ package com.gwtext.client.widgets.form.event;
 import com.gwtext.client.widgets.form.Field;
 
 public interface TextFieldListener {
+
     void onAutoSize(Field field, int width);
 }

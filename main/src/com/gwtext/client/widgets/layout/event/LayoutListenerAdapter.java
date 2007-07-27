@@ -24,19 +24,16 @@ import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.LayoutRegion;
 
 public class LayoutListenerAdapter implements LayoutListener {
-    public void onLayout(BorderLayout layout) {
 
+    public void onLayout(BorderLayout layout) {
     }
 
     public void onRegionCollapsed(LayoutRegion region) {
-
     }
 
     public void onRegionExpanded(LayoutRegion region) {
-
     }
 
     public void onRegionResized(LayoutRegion region, int newSize) {
-
     }
 }

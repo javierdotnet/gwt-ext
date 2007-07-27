@@ -36,5 +36,4 @@ public class Layout extends Component {
     protected native JavaScriptObject create(JavaScriptObject jsObj) /*-{
         return new $wnd.Ext.form.Layout(jsObj);
     }-*/;
-
 }

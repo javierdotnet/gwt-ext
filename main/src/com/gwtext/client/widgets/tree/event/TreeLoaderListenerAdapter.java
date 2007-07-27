@@ -24,15 +24,14 @@ import com.gwtext.client.widgets.tree.TreeLoader;
 import com.gwtext.client.widgets.tree.TreeNode;
 
 public class TreeLoaderListenerAdapter implements TreeLoaderListener {
+
     public boolean doBeforeLoad(TreeLoader self, TreeNode node) {
         return true;
     }
 
     public void onLoad(TreeLoader self, TreeNode node, String response) {
-
     }
 
     public void onLoadException(TreeLoader self, TreeNode node, String response) {
-
     }
 }

@@ -54,7 +54,6 @@ public class ToolbarButton extends Button {
         return new $wnd.Ext.Toolbar.Button(config);
     }-*/;
 
-
     void registerEventHandlers() {
         for (Iterator iterator = listeners.iterator(); iterator.hasNext();) {
             ButtonListener buttonListener = (ButtonListener) iterator.next();
@@ -66,7 +65,6 @@ public class ToolbarButton extends Button {
     void setRendered(boolean rendered) {
         this.rendered = rendered;
     }
-
 
     public void addButtonListener(ButtonListener listener) {
         if (!rendered) {

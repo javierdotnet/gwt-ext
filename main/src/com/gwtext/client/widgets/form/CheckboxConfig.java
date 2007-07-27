@@ -24,6 +24,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.CheckboxListener;
 
 public class CheckboxConfig extends FieldConfig {
+
     private CheckboxListener checkboxListener;
 
     public void setBoxLabel(String boxLabel) {

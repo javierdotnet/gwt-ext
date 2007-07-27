@@ -25,6 +25,7 @@ import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.data.Store;
 
 public class PagingToolbar extends Toolbar {
+
     public PagingToolbar(ExtElement container, Store store, PagingToolbarConfig config) {
         jsObj = create(container.getJsObj(), store.getJsObj(), config.getJsObj());
     }

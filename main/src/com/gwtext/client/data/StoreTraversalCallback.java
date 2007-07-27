@@ -21,5 +21,6 @@
 package com.gwtext.client.data;
 
 public interface StoreTraversalCallback {
+
     boolean execute(Record record);
 }

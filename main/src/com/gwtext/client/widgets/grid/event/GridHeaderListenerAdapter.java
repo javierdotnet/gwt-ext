@@ -24,16 +24,14 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.grid.Grid;
 
 public class GridHeaderListenerAdapter implements GridHeaderListener {
-    public void onHeaderClick(Grid grid, int colIndex, EventObject e) {
 
+    public void onHeaderClick(Grid grid, int colIndex, EventObject e) {
     }
 
     public void onHeaderContextMenu(Grid grid, int colIndex, EventObject e) {
-
     }
 
     //todo rowindex??
     public void onHeaderDblClick(Grid grid, int colindex, EventObject e) {
-
     }
 }

@@ -21,8 +21,8 @@
 package com.gwtext.client.widgets.layout;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Toolbar;
 import com.gwtext.client.widgets.layout.event.ContentPanelListener;

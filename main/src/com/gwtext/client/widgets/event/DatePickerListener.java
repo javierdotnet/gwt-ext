@@ -25,5 +25,6 @@ import com.gwtext.client.widgets.DatePicker;
 import java.util.Date;
 
 public interface DatePickerListener {
+
     void onSelect(DatePicker dataPicker, Date date);
 }

@@ -24,12 +24,12 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.menu.event.CheckItemListener;
 
 public class CheckItemConfig extends ItemConfig {
+
     private CheckItemListener listener;
 
     public void setText(String text) {
         JavaScriptObjectHelper.setAttribute(jsObj, "text", text);
     }
-
 
     public void setChecked(boolean checked) {
         JavaScriptObjectHelper.setAttribute(jsObj, "checked", checked);

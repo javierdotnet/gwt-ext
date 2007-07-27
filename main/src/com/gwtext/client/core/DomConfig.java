@@ -23,11 +23,12 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 //If no tag is specified then a div will be automatically generated with the specified attributes.
 public class DomConfig {
+
     private String tag;
     private String id;
     private String cls;
@@ -50,26 +51,26 @@ public class DomConfig {
     }
 
     public DomConfig addChild(DomConfig child) {
-        if(html != null) {
+        if (html != null) {
             throw new IllegalArgumentException("Dom spec cannot have inner html and child elelents");
         }
-        if(children == null) children = new ArrayList();
+        if (children == null) children = new ArrayList();
         children.add(child);
         return this;
     }
 
     public JavaScriptObject getJsObject() {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
-        if(tag != null) JavaScriptObjectHelper.setAttribute(jsObj, "tag", tag);
-        if(id != null) JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
-        if(cls != null) JavaScriptObjectHelper.setAttribute(jsObj, "cls", cls);
-        if(style != null) JavaScriptObjectHelper.setAttribute(jsObj, "style", style);
-        if(html != null) JavaScriptObjectHelper.setAttribute(jsObj, "html", html);
+        if (tag != null) JavaScriptObjectHelper.setAttribute(jsObj, "tag", tag);
+        if (id != null) JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
+        if (cls != null) JavaScriptObjectHelper.setAttribute(jsObj, "cls", cls);
+        if (style != null) JavaScriptObjectHelper.setAttribute(jsObj, "style", style);
+        if (html != null) JavaScriptObjectHelper.setAttribute(jsObj, "html", html);
 
-        if(children != null) {
+        if (children != null) {
             JavaScriptObject[] childrenJS = new JavaScriptObject[children.size()];
-            int i=0;
-            for(Iterator it = children.iterator(); it.hasNext(); i++) {
+            int i = 0;
+            for (Iterator it = children.iterator(); it.hasNext(); i++) {
                 DomConfig config = (DomConfig) it.next();
                 childrenJS[i] = config.getJsObject();
             }

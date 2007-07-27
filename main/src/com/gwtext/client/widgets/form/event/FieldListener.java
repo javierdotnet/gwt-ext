@@ -24,6 +24,7 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.form.Field;
 
 public interface FieldListener {
+
     void onBlur(Field field);
 
     void onChange(Field field, String newVal, String oldVal);
@@ -35,5 +36,4 @@ public interface FieldListener {
     void onSpecialKey(Field field, EventObject e);
 
     void onValid(Field field);
-
 }

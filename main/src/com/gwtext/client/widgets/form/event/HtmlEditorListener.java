@@ -37,5 +37,4 @@ public interface HtmlEditorListener {
     void onPush(HtmlEditor field, String html);
 
     void onSync(HtmlEditor field, String html);
-
 }

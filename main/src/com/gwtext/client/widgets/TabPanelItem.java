@@ -141,7 +141,7 @@ public class TabPanelItem extends BaseExtWidget {
         //important : got to make sure that the panel is attached to the browser dom using GWT mechinaishms so that
         // panels chils alos get attached to browser dom and subsequently the gwt event wiring takes place via
         // ->onload -> onattach-> DOM.setEventListener
-        RootPanel.get().add(panel);        
+        RootPanel.get().add(panel);
         getBodyEl().appendChild(panel.getElement());
     }
 

@@ -29,7 +29,7 @@ public class EditorGrid extends Grid {
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel) {
         this(id, width, height, store, columnModel, new EditorGridConfig());
     }
-    
+
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, EditorGridConfig config) {
         super(id, width, height, store, columnModel, config);
     }
@@ -82,7 +82,7 @@ public class EditorGrid extends Grid {
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.stopEditing();
     }-*/;
-        
+
     public CellSelectionModel getCellSelectionModel() {
         return new CellSelectionModel(getSelectionModel(jsObj));
     }

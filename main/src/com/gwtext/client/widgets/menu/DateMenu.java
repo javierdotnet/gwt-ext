@@ -25,6 +25,7 @@ import com.gwtext.client.widgets.DatePicker;
 import com.gwtext.client.widgets.menu.event.DateMenuListener;
 
 public class DateMenu extends Menu {
+
     public DateMenu(String id, DateMenuConfig menuConfig) {
         super(id, menuConfig);
         if (menuConfig.getDateMenuListener() != null) {
@@ -56,6 +57,4 @@ public class DateMenu extends Menu {
                 }
         );
     }-*/;
-
-
 }

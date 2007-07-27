@@ -53,7 +53,7 @@ public class TreeNode extends Node {
     protected Node createNode(JavaScriptObject jsNode) {
         return new TreeNode(jsNode);
     }
-    
+
     public native void collapse() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.collapse();

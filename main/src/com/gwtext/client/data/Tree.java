@@ -25,6 +25,7 @@ import com.gwtext.client.core.JsObject;
 import com.gwtext.client.data.event.TreeListener;
 
 public class Tree extends JsObject {
+
     public Tree() {
         jsObj = create();
     }

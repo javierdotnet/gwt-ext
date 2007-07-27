@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.menu;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.menu.event.BaseItemListener;
 
 public class BaseItemConfig extends BaseConfig {
@@ -48,7 +48,7 @@ public class BaseItemConfig extends BaseConfig {
     public void setShowDelay(int showDelay) {
         JavaScriptObjectHelper.setAttribute(jsObj, "showDelay", showDelay);
     }
-       
+
     public void setHideOnClick(boolean hideOnClick) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideOnClick", hideOnClick);
     }
@@ -65,6 +65,4 @@ public class BaseItemConfig extends BaseConfig {
     public void setIconCls(String iconCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "iconCls", iconCls);
     }
-
-
 }

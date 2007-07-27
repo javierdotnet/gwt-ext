@@ -23,7 +23,6 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.event.MenuButtonListener;
 
-
 public class SplitButton extends Button {
 
     public SplitButton(String id, SplitButtonConfig config) {

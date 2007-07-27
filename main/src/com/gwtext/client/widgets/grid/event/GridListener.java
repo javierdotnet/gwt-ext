@@ -24,6 +24,7 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridListener {
+
     void onBodyScroll(int scrollLeft, int scrollTop);
 
     void onClick(EventObject e);

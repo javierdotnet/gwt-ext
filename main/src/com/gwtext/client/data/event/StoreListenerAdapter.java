@@ -24,8 +24,8 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
 
 public class StoreListenerAdapter implements StoreListener {
-    public void onAdd(Store store, Record[] records, int index) {
 
+    public void onAdd(Store store, Record[] records, int index) {
     }
 
     public boolean doBeforeLoad(Store store) {
@@ -33,22 +33,17 @@ public class StoreListenerAdapter implements StoreListener {
     }
 
     public void onClear(Store store) {
-
     }
 
     public void onDataChanged(Store store) {
-
     }
 
     public void onLoad(Store store, Record[] records) {
-
     }
 
     public void onRemove(Store store, Record record, int index) {
-
     }
 
     public void onUpdate(Store store, Record record, String operation) {
-
     }
 }

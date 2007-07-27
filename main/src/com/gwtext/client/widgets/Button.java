@@ -68,7 +68,6 @@ public class Button extends RequiredElementWidget {
         button.destroy();
     }-*/;
 
-
     public native void disable() /*-{
       var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
       button.disable();
@@ -151,6 +150,5 @@ public class Button extends RequiredElementWidget {
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onToggle(Lcom/gwtext/client/widgets/Button;Z)(buttonJ, pressed);
                 }
         );
-
     }-*/;
 }

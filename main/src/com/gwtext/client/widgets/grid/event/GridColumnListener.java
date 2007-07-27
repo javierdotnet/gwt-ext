@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridColumnListener {
+
     void onColumnMove(Grid grid, int oldIndex, int newIndex);
 
     void onColumnResize(Grid grid, int colIndex, int newSize);

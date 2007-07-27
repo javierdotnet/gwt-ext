@@ -23,6 +23,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class Margins {
+
     private int top;
     private int left;
     private int right;

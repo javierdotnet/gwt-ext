@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Column extends Layout {
+
     public Column() {
         this(new ColumnConfig());
     }

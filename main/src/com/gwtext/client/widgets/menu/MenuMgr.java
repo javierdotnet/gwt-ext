@@ -23,12 +23,9 @@ package com.gwtext.client.widgets.menu;
 public class MenuMgr {
 
     private MenuMgr() {
-
     }
 
     public static native void hideAll()/*-{
         $wnd.Ext.menu.MenuMgr.hideAll();
     }-*/;
-
-
 }

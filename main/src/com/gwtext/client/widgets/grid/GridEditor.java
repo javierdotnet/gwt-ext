@@ -25,6 +25,7 @@ import com.gwtext.client.core.JsObject;
 import com.gwtext.client.widgets.form.Field;
 
 public class GridEditor extends JsObject {
+
     public GridEditor(Field field) {
         jsObj = create(field.getJsObj());
     }
@@ -32,5 +33,4 @@ public class GridEditor extends JsObject {
     private native JavaScriptObject create(JavaScriptObject field) /*-{
         return new $wnd.Ext.grid.GridEditor(field);
     }-*/;
-
 }

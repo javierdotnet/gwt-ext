@@ -23,15 +23,13 @@ package com.gwtext.client.widgets.layout.event;
 import com.gwtext.client.widgets.layout.ContentPanel;
 
 public class ContentPanelListenerAdapter implements ContentPanelListener {
-    public void onActivate(ContentPanel cp) {
 
+    public void onActivate(ContentPanel cp) {
     }
 
     public void onDeactivate(ContentPanel cp) {
-
     }
 
     public void onResize(ContentPanel cp, int width, int height) {
-
     }
 }

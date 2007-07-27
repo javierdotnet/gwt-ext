@@ -24,27 +24,22 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.form.Field;
 
 public class FieldListenerAdapter implements FieldListener {
-    public void onBlur(Field field) {
 
+    public void onBlur(Field field) {
     }
 
     public void onChange(Field field, String newVal, String oldVal) {
-
     }
 
     public void onFocus(Field field) {
-
     }
 
     public void onInvalid(Field field, String msg) {
-
     }
 
     public void onSpecialKey(Field field, EventObject e) {
-
     }
 
     public void onValid(Field field) {
-
     }
 }

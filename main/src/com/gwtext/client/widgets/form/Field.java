@@ -42,20 +42,20 @@ public class Field extends Component {
     public Field(JavaScriptObject jsObj) {
         super(jsObj);
     }
-    
+
     /**
      * Set the location of the error message target globally.
+     *
      * @param msgTarget supported values are 'qtip' (default) and 'side'
      */
     public static native void setMsgTarget(String msgTarget) /*-{
         $wnd.Ext.form.Field.prototype.msgTarget = msgTarget;
     }-*/;
-    
+
     protected JavaScriptObject create(JavaScriptObject config) {
         throw new IllegalArgumentException("must be overridden");
     }
 
-    
     public void applyTo(String id) {
         Element el = DOM.getElementById(id);
         if (el == null) {
@@ -68,7 +68,6 @@ public class Field extends Component {
     private native void applyTo(JavaScriptObject field, String id) /*-{
         field.applyTo(id);
     }-*/;
-
 
     public native void clearInvalid() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -94,7 +93,7 @@ public class Field extends Component {
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.isDirty();
     }-*/;
-    
+
     public native boolean isValid() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.isValid();
@@ -119,11 +118,6 @@ public class Field extends Component {
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.setRawValue(value);
     }-*/;
-
-/*    public native void setSize(int width, int height) *//*-{
-        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        field.setSize(width, height);
-    }-*//*;*/
 
     public native void setValue(String value) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

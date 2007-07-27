@@ -21,6 +21,7 @@
 package com.gwtext.client.widgets;
 
 public class UserObject {
+
     protected Object data;
 
     public UserObject(Object data) {

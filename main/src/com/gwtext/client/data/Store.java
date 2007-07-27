@@ -273,7 +273,6 @@ public class Store extends JsObject {
 		store.insert(index, nativeRecordsArray);
     }-*/;
 
-
     public native void load() /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.load();
@@ -318,6 +317,7 @@ public class Store extends JsObject {
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         store.reload(configJS);
     }-*/;
+
     //todo query
     //queryBy
 
@@ -360,6 +360,15 @@ public class Store extends JsObject {
     public native float sum(String field, int startIndex, int endIndex) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.sum(field, startIndex, endIndex);
+	}-*/;
+
+    public Record[] getRecords() {
+        JavaScriptObject nativeArray = getRecords(jsObj);
+        return convertFromNativeRecordsArray(nativeArray);
+    }
+
+    private native JavaScriptObject getRecords(JavaScriptObject store)/*-{
+		return store.getRange();
 	}-*/;
 
     public native void addStoreListener(StoreListener listener) /*-{
@@ -414,13 +423,5 @@ public class Store extends JsObject {
     
      }-*/;
 
-    public Record[] getRecords() {
-        JavaScriptObject nativeArray = getRecords(jsObj);
 
-        return convertFromNativeRecordsArray(nativeArray);
-    }
-
-    private native JavaScriptObject getRecords(JavaScriptObject store)/*-{
-		return store.getRange();
-	}-*/;
 }

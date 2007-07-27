@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 //http://extjs.com/forum/showthread.php?t=3613&highlight=triggerfield
 public class TriggerField extends TextField {
+
     public TriggerField() {
         setJsObj(create(null));
     }

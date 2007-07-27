@@ -41,14 +41,14 @@ public class Grid extends BaseExtWidget {
         this(id, width, height, store, columnModel, new GridConfig());
     }
 
-    public Grid(String id,  String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
+    public Grid(String id, String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
         this(id, width, height, store, columnModel, null, config);
     }
-            
+
     public Grid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
 
         Element div = DOM.getElementById(id);
-        if(div == null) {
+        if (div == null) {
             RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
             div = DOM.getElementById(id);
         }
@@ -61,16 +61,14 @@ public class Grid extends BaseExtWidget {
 
         jsObj = create(id, configJS);
         setElement(div);
-        
-        if(width != null) setWidth(width);
-        if(height != null) setHeight(height);
 
+        if (width != null) setWidth(width);
+        if (height != null) setHeight(height);
     }
 
     protected native JavaScriptObject create(String id, JavaScriptObject configJS) /*-{
         return new $wnd.Ext.grid.Grid(id, configJS);
     }-*/;
-
 
     protected native JavaScriptObject create(Element elem, JavaScriptObject configJS) /*-{
         return new $wnd.Ext.grid.Grid(elem, configJS);
@@ -99,7 +97,7 @@ public class Grid extends BaseExtWidget {
         return grid.getColumnModel();
     }-*/;
 
-    //intead of getDataSource()
+    //instead of getDataSource()
     public Store getStore() {
         return new Store(getStore(jsObj));
     }
@@ -159,15 +157,13 @@ public class Grid extends BaseExtWidget {
 
     }-*/;
 
-
     public native void render(JavaScriptObject grid) /*-{
         grid.render();
     }-*/;
 
-
     //TODO reconfigure()
     //http://extjs.com/forum/showthread.php?t=8694&highlight=grid+reconfigure
-    
+
     public native void addGridCellListener(GridCellListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -210,11 +206,10 @@ public class Grid extends BaseExtWidget {
         );
     }-*/;
 
+    //todo
     public native void addGridDragListener(GridDragListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
-
-       //TODO
     }-*/;
 
     public native void addGridHeaderListener(GridHeaderListener listener) /*-{
@@ -348,6 +343,4 @@ public class Grid extends BaseExtWidget {
                 }
         );
     }-*/;
-
-
 }

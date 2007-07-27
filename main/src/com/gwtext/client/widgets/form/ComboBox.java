@@ -21,12 +21,10 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
 public class ComboBox extends TriggerField {
+
     public ComboBox() {
         setJsObj(create(null));
     }
@@ -36,14 +34,6 @@ public class ComboBox extends TriggerField {
         if (config.getComboBoxListener() != null) {
             addComboBoxListener(config.getComboBoxListener());
         }
-        //Element container = DOM.createDiv();
-        //DOM.setElementProperty(container, "id", id+"-container");
-        //RootPanel.get().add(new HTML("<div id='" + id+"-container'></div>"));
-
-        //applyTo(id+"-container");
-        //RootPanel.get().add(this);
-        //DOM.setElementProperty(getElement(), "id", id);
-
     }
 
     public ComboBox(ComboBoxConfig config) {
@@ -111,16 +101,6 @@ public class ComboBox extends TriggerField {
         cb.setValue(value);
     }-*/;
 
-/*    protected void onAttach() {
-    DeferredCommand.addCommand(new Command() {
-        public void execute() {
-            Widget parent = getParent();
-            Element parentElement = parent.getElement();
-            render(parentElement);
-        }
-    });
-}*/
-
     public native void addComboBoxListener(ComboBoxListener listener) /*-{
         var fieldJ = this;
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -157,12 +137,4 @@ public class ComboBox extends TriggerField {
                 }
         );
     }-*/;
-
-    protected void onLoad() {
-        Element input = DOM.createInputText();
-        String id = Ext.generateId();
-        DOM.setElementAttribute(input, "id", id);
-        DOM.appendChild(getElement(), input);
-        applyTo(id);
-    }
 }

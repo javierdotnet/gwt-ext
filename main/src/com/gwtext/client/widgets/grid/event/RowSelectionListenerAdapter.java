@@ -23,15 +23,14 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.RowSelectionModel;
 
 public class RowSelectionListenerAdapter implements RowSelectionListener {
+
     public boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex) {
         return true;
     }
 
     public void onRowSelect(RowSelectionModel sm, int rowIndex) {
-
     }
 
     public void onSelectionChange(RowSelectionModel sm) {
-
     }
 }

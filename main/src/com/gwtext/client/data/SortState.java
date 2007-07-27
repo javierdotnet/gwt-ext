@@ -21,6 +21,7 @@
 package com.gwtext.client.data;
 
 public class SortState {
+
     private String field;
     private String direction;
 

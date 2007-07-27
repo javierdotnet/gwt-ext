@@ -22,9 +22,9 @@ package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.data.Node;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.RequiredElementWidget;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 
 //TODO very incomplete
 public class TreePanel extends RequiredElementWidget {
@@ -55,7 +55,7 @@ public class TreePanel extends RequiredElementWidget {
             return new TreeNode(node);
         }
     }
-    
+
     public native void setPathSeparator(String separator)/*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         panel.pathSeparator = separator;
@@ -106,7 +106,7 @@ public class TreePanel extends RequiredElementWidget {
         var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return @com.gwtext.client.widgets.tree.TreeLoader::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree.getLoader());
     }-*/;
-    
+
     private native JavaScriptObject getNodeById(JavaScriptObject tree, String id) /*-{
         var node = tree.getNodeById(id);
         if(node === undefined) {
@@ -147,6 +147,7 @@ public class TreePanel extends RequiredElementWidget {
     //getLoader
     //getSelctionModel
     //selectPath
+    //getChecked
 
     //todo add rest
 
@@ -166,8 +167,5 @@ public class TreePanel extends RequiredElementWidget {
                     listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onContextMenu(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/core/EventObject;)(nodeJ, e);
 			    }
           );
-
     }-*/;
-
-
 }

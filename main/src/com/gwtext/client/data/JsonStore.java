@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class JsonStore extends Store {
+
     public JsonStore(String url, String root, String[] fields) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);

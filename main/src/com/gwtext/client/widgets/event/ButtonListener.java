@@ -20,10 +20,11 @@
 
 package com.gwtext.client.widgets.event;
 
-import com.gwtext.client.widgets.Button;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.widgets.Button;
 
 public interface ButtonListener {
+
     void onClick(Button button, EventObject e);
 
     void onMouseOut(Button button, EventObject e);

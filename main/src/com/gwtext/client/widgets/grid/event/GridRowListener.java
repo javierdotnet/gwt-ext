@@ -24,10 +24,10 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridRowListener {
+
     void onRowClick(Grid grid, int rowIndex, EventObject e);
 
     void onRowDblClick(Grid grid, int rowIndex, EventObject e);
 
     void onRowContextMenu(Grid grid, int rowIndex, EventObject e);
-
 }

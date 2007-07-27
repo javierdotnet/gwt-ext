@@ -20,10 +20,11 @@
 
 package com.gwtext.client.widgets.tree.event;
 
-import com.gwtext.client.data.Node;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.data.Node;
 
 public class TreeNodeListenerAdapter implements TreeNodeListener {
+
     public boolean doBeforeChildrenRendered(Node node) {
         return true;
     }
@@ -45,30 +46,23 @@ public class TreeNodeListenerAdapter implements TreeNodeListener {
     }
 
     public void onClick(Node node, EventObject e) {
-
     }
 
     public void onCollapse(Node node) {
-
     }
 
     public void onContextMenu(Node node, EventObject e) {
-
     }
 
     public void onDblClick(Node node, EventObject e) {
-
     }
 
     public void onDisabledChange(Node node, boolean disabled) {
-
     }
 
     public void onExpand(Node node) {
-
     }
 
     public void onTextChange(Node node, String text, String oldText) {
-
     }
 }

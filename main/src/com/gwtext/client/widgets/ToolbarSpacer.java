@@ -23,6 +23,7 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ToolbarSpacer extends ToolbarItem {
+
     public ToolbarSpacer() {
         setJsObj(create());
     }

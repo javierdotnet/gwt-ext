@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.event;
 import com.gwtext.client.widgets.Component;
 
 public interface ComponentListener {
+
     boolean doBeforeDestroy(Component component);
 
     boolean doBeforeHide(Component component);

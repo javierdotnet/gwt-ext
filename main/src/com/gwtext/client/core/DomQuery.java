@@ -62,8 +62,8 @@ public class DomQuery {
         return new DomQueryFunction() {
             public Element[] query() {
                 JavaScriptObject els = doQuery(fn);
-                Element[] elements = JavaScriptObjectHelper.toElementArray(els);
-                return elements;
+                return JavaScriptObjectHelper.toElementArray(els);
+
             }
 
             private native JavaScriptObject doQuery(JavaScriptObject fn) /*-{
@@ -72,8 +72,7 @@ public class DomQuery {
 
             public Element[] query(Element root) {
                 JavaScriptObject els = doQuery(fn, root);
-                Element[] elements = JavaScriptObjectHelper.toElementArray(els);
-                return elements;
+                return JavaScriptObjectHelper.toElementArray(els);
             }
 
             private native JavaScriptObject doQuery(JavaScriptObject fn, Element root) /*-{
@@ -84,8 +83,7 @@ public class DomQuery {
 
     public static Element[] filter(Element[] els, String selector, boolean nonMatches) {
         JavaScriptObject jsElements = doFilter(JavaScriptObjectHelper.convertToJavaScriptArray(els), selector, nonMatches);
-        Element[] elements = JavaScriptObjectHelper.toElementArray(jsElements);
-        return elements;
+        return JavaScriptObjectHelper.toElementArray(jsElements);
     }
 
     private static native JavaScriptObject doFilter(JavaScriptObject els, String selector, boolean nonMatches) /*-{
@@ -149,5 +147,4 @@ public class DomQuery {
     public static native String selectValue(String selector, Element root) /*-{
         return $wnd.Ext.DomQuery.selectValue(selector, root);
     }-*/;
-
 }

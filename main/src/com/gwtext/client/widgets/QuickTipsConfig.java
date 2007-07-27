@@ -20,12 +20,14 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class QuickTipsConfig extends BaseConfig {
+
     //todo check ext source code
-/*    public void setDelay(int delay) {
+    /*
+    public void setDelay(int delay) {
         JavaScriptObjectHelper.setAttribute(jsObj, "Delay", delay);
     }
 

@@ -78,10 +78,8 @@ public class TreeNodeConfig extends NodeConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "text", text);
     }
 
-
     //http://extjs.com/forum/showthread.php?t=4460&highlight=uiProvider
     //TODO
     //uiProvider
-
 
 }

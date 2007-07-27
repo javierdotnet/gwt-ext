@@ -50,6 +50,4 @@ public class Item extends BaseItem {
         var item = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return item.text;
     }-*/;
-
-
 }

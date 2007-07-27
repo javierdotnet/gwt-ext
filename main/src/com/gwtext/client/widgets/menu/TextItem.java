@@ -23,12 +23,11 @@ package com.gwtext.client.widgets.menu;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class TextItem extends Item {
-    
+
     //can pass html like <b class="menu-title">Choose a Theme</b> for custom styling
     public TextItem(String text) {
         setJsObj(create(text, null));
     }
-
 
     public TextItem(String text, TextItemConfig config) {
         setJsObj(create(text, config.getJsObj()));

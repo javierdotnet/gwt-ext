@@ -20,7 +20,7 @@
 
 package com.gwtext.client.dd;
 
-public class DragZone extends DragSource{
+public class DragZone extends DragSource {
     public DragZone(String id, String sGroup) {
         super(id, sGroup);
     }

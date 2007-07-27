@@ -26,22 +26,22 @@ public class FxConfig extends GenericConfig {
     public void setAfterCls(String afterCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterCls", afterCls);
     }
-    
+
     public void setAfterStyle(String afterStyle) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterStyle", afterStyle);
     }
-    
+
     public void setAfterStyle(GenericConfig afterStyle) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterStyle", afterStyle.getJsObj());
     }
-    
+
     public native void setAfterStyle(Function fn) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
         config['afterStyle'] = function() {
                             fn.@com.gwtext.client.core.Function::execute()();
                         };
-    }-*/; 
-    
+    }-*/;
+
     public void setConcurrent(boolean concurrent) {
         JavaScriptObjectHelper.setAttribute(jsObj, "concurrent", concurrent);
     }
@@ -56,20 +56,18 @@ public class FxConfig extends GenericConfig {
     public void setDuration(float duration) {
         JavaScriptObjectHelper.setAttribute(jsObj, "duration", duration);
     }
-    
+
     public void setEasing(String easing) {
         JavaScriptObjectHelper.setAttribute(jsObj, "easing", easing);
     }
-    
+
     public void setRemove(boolean remove) {
         JavaScriptObjectHelper.setAttribute(jsObj, "remove", remove);
     }
 
     //stopFx method present on Element. Dont see need to config property
-    
+
     public void setUseDisplay(boolean useDisplay) {
         JavaScriptObjectHelper.setAttribute(jsObj, "useDisplay", useDisplay);
     }
-
-                        
 }

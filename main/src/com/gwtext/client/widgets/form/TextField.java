@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.form.event.TextFieldListener;
 
 public class TextField extends Field {
+
     public TextField() {
         setJsObj(create(null));
     }

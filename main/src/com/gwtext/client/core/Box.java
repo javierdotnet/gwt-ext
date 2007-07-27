@@ -23,6 +23,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class Box extends JsObject {
+
     private int x;
     private int y;
     private int width;

@@ -21,5 +21,6 @@
 package com.gwtext.client.data;
 
 public interface Converter {
+
     String format(String data);
 }

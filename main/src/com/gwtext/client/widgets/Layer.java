@@ -24,7 +24,7 @@ import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.ExtElement;
 
 public class Layer extends ExtElement {
-    
+
     public Layer(LayerConfig config) {
         this(config, null);
     }

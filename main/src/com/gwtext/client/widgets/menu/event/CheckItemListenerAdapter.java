@@ -23,11 +23,11 @@ package com.gwtext.client.widgets.menu.event;
 import com.gwtext.client.widgets.menu.CheckItem;
 
 public class CheckItemListenerAdapter implements CheckItemListener {
+
     public boolean doBeforeCheckChange(CheckItem item, boolean checked) {
         return true;
     }
 
     public void onCheckChange(CheckItem item, boolean checked) {
-
     }
 }

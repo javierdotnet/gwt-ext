@@ -41,8 +41,9 @@ public class Ext {
         return $wnd.Ext.id();
     }-*/;
 
-    public native static void setBlankImageUrl(String url) /*-{
+    //made package protected. Users don't need to call this anymore since it is handled internally on
+    //applicaiotn startup.
+    native static void setBlankImageUrl(String url) /*-{
         $wnd.Ext.BLANK_IMAGE_URL = url;    
     }-*/;
-
 }

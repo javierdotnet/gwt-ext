@@ -23,6 +23,7 @@ package com.gwtext.client.core;
 import com.google.gwt.user.client.Element;
 
 public interface DomQueryFunction {
+
     Element[] query();
 
     Element[] query(Element root);

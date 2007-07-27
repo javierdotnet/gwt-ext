@@ -20,11 +20,12 @@
 
 package com.gwtext.client.widgets.form;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.TextFieldListener;
-import com.google.gwt.core.client.JavaScriptObject;
 
 public class TextFieldConfig extends FieldConfig {
+
     private TextFieldListener textFieldListener;
 
     public void setAllowBlank(boolean allowBlank) {
@@ -79,8 +80,7 @@ public class TextFieldConfig extends FieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "minLengthText", minLengthText);
     }
 
-
-      public void setRegex(String regex) {
+    public void setRegex(String regex) {
         setRegex(jsObj, regex);
     }
 
@@ -95,7 +95,6 @@ public class TextFieldConfig extends FieldConfig {
     public void setSelectOnFocus(boolean selectOnFocus) {
         JavaScriptObjectHelper.setAttribute(jsObj, "selectOnFocus", selectOnFocus);
     }
-
 
     public void setValidator(Validator validator) {
         setValidator(jsObj, validator);

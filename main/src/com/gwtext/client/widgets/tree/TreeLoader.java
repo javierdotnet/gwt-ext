@@ -25,6 +25,7 @@ import com.gwtext.client.core.JsObject;
 import com.gwtext.client.widgets.tree.event.TreeLoaderListener;
 
 public class TreeLoader extends JsObject {
+
     public TreeLoader(JavaScriptObject jsObj) {
         super(jsObj);
     }

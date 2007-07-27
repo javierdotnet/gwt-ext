@@ -26,7 +26,7 @@ import com.google.gwt.user.client.Event;
 
 //DOM.eventGetType(Event)
 public class EventObject extends JsObject {
-    
+
     public static int BACKSPACE, CONTROL, DELETE, DOWN, END, ENTER, ESC, F5, HOME, LEFT, PAGEDOWN,
             PAGEUP, RETURN, RIGHT, SHIFT, SPACE, TAB, UP;
 
@@ -139,7 +139,7 @@ public class EventObject extends JsObject {
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
         return e.button;
     }-*/;
-    
+
 
     public native Event getBrowserEvent() /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;

@@ -22,9 +22,9 @@ package com.gwtext.client.widgets.tree.event;
 
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.tree.TreeNode;
-import com.gwtext.client.core.EventObject;
 
 public interface TreePanelListener {
+
     boolean doBeforeChildrenRendered(TreeNode node);
 
     boolean doBeforeClick(TreeNode node, EventObject e);
@@ -37,6 +37,8 @@ public interface TreePanelListener {
 
     //todo
     //boolean doBeforeNodeDrop();
+
+    void onCheckChange(TreeNode node, boolean checked);
 
     void onClick(TreeNode node, EventObject e);
 

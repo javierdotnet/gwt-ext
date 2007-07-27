@@ -23,6 +23,7 @@ package com.gwtext.client.state;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class CookieProvider extends Provider {
+
     public CookieProvider() {
         jsObj = create();
     }

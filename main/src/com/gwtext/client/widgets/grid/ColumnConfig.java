@@ -88,12 +88,11 @@ public class ColumnConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "sortable", sortable);
     }
 
-   public void setWidth(int width) {
+    public void setWidth(int width) {
         JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
     }
 
     public void setEditor(GridEditor editor) {
         JavaScriptObjectHelper.setAttribute(jsObj, "editor", editor.getJsObj());
     }
-
 }

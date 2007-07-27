@@ -24,6 +24,7 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.tree.TreeNode;
 
 public class TreePanelListenerAdapter implements TreePanelListener {
+
     public boolean doBeforeChildrenRendered(TreeNode node) {
         return true;
     }
@@ -43,6 +44,9 @@ public class TreePanelListenerAdapter implements TreePanelListener {
 
     public boolean doBeforeLoad(TreeNode node) {
         return true;
+    }
+
+    public void onCheckChange(TreeNode node, boolean checked) {
     }
 
     public void onClick(TreeNode node, EventObject e) {

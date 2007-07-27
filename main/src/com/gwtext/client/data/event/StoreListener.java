@@ -24,6 +24,7 @@ import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
 
 public interface StoreListener {
+
     void onAdd(Store store, Record[] records, int index);
 
     //todo : currently removed second "options" arg
@@ -43,6 +44,4 @@ public interface StoreListener {
 
     //operatiion is Ext.data.Record.EDIT, operation is Ext.data.Record.REJECT or operatiion is Ext.data.Record.COMMIT
     void onUpdate(Store store, Record record, String operation);
-
-
 }

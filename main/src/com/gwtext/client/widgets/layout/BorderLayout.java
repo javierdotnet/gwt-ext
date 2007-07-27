@@ -56,8 +56,7 @@ public class BorderLayout extends BaseExtWidget {
         if (west != null) JavaScriptObjectHelper.setAttribute(config, "west", west.getJsObj());
         if (east != null) JavaScriptObjectHelper.setAttribute(config, "east", east.getJsObj());
         if (center != null) JavaScriptObjectHelper.setAttribute(config, "center", center.getJsObj());
-        JavaScriptObject jsobj = create(elem, config);
-        return jsobj;
+        return create(elem, config);
     }
 
     private static native JavaScriptObject create(Element elem, JavaScriptObject config)/*-{
@@ -85,15 +84,6 @@ public class BorderLayout extends BaseExtWidget {
 
     //TODO add batch?
     //http://extjs.com/forum/showthread.php?t=5136&highlight=LayoutDialog+dynamic
-
-    /**
-     *
-     * @deprecated Use {@link #add(com.gwtext.client.widgets.layout.LayoutRegionConfig.LayoutRegionConstant, ContentPanel)}
-     */
-/*    public void add(Widget w) {
-        throw new IllegalArgumentException("This method is not supported for BorderLayout")
-        //add(w, getElement());
-    }*/
 
     public native boolean isMonitorWindowResize() /*-{
         var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -179,7 +169,7 @@ public class BorderLayout extends BaseExtWidget {
         var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         layout.restoreState();
     }-*/;
-    
+
     public void restoreState(Provider provider) {
         JavaScriptObject jsProviderObj = provider == null ? null : provider.getJsObj();
         restoreState(jsObj, jsProviderObj);

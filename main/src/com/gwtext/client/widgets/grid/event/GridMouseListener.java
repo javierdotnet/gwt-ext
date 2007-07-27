@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.core.EventObject;
 
 public interface GridMouseListener {
+
     void onMouseDown(EventObject e);
 
     void onMouseOut(EventObject e);

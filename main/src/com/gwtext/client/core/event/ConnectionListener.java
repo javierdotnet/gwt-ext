@@ -23,12 +23,10 @@ package com.gwtext.client.core.event;
 import com.gwtext.client.core.Connection;
 
 public interface ConnectionListener {
+
     boolean doBeforeRequest(Connection conn);
 
     void onRequestComplete(Connection conn, String responseText);
 
     void onRequestException(Connection conn);
-
-
-
 }

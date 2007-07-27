@@ -24,15 +24,13 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.grid.Grid;
 
 public class GridCellListenerAdapter implements GridCellListener {
-    public void onCellClick(Grid grid, int rowIndex, int colindex, EventObject e) {
 
+    public void onCellClick(Grid grid, int rowIndex, int colindex, EventObject e) {
     }
 
     public void onCellContextMenu(Grid grid, int rowIndex, int cellIndex, EventObject e) {
-
     }
 
     public void onCellDblClick(Grid grid, int rowIndex, int colIndex, EventObject e) {
-
     }
 }

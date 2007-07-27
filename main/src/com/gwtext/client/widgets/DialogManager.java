@@ -20,6 +20,7 @@
 package com.gwtext.client.widgets;
 
 public class DialogManager {
+
     public static native void setZseed(int zseed)/*-{
         $wnd.Ext.DialogManager.zseed = zseed;
     }-*/;

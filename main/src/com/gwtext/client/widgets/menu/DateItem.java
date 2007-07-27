@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.DatePicker;
 
 public class DateItem extends Item {
+
     public DateItem() {
     }
 
@@ -39,5 +40,4 @@ public class DateItem extends Item {
         var di = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return @com.gwtext.client.widgets.DatePicker::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(di.picker);
     }-*/;
-
 }      

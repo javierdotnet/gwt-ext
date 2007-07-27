@@ -24,11 +24,11 @@ import com.gwtext.client.widgets.tree.DefaultSelectionModel;
 import com.gwtext.client.widgets.tree.TreeNode;
 
 public class DefaultSelectionModelListenerAdapter implements DefaultSelectionModelListener {
+
     public boolean doBeforeSelect(DefaultSelectionModel sm, TreeNode newNode, TreeNode oldNode) {
         return true;
     }
 
     public void onSelectionChange(DefaultSelectionModel sm, TreeNode node) {
-
     }
 }

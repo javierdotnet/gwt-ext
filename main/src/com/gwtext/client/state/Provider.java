@@ -39,5 +39,4 @@ public abstract class Provider extends JsObject {
         var provider = this.@com.gwtext.client.core.JsObject::jsObj;
         provider.set(name, value);
     }-*/;
-
 }

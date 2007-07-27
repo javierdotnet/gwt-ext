@@ -135,7 +135,7 @@ public class ComboBoxConfig extends TriggerFieldConfig {
 
     public void setTriggerAction(String triggerAction) {
         JavaScriptObjectHelper.setAttribute(jsObj, "triggerAction", triggerAction);
-    }       
+    }
 
     public void setTypeAhead(boolean typeAhead) {
         JavaScriptObjectHelper.setAttribute(jsObj, "typeAhead", typeAhead);

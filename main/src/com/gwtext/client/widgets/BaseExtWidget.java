@@ -47,7 +47,7 @@ public abstract class BaseExtWidget extends Widget {
     }
 
     public ExtElement getEl() {
-        return jsObj == null ? null : new ExtElement(getElement());         
+        return jsObj == null ? null : new ExtElement(getElement());
     }
 
     //jsObj is JS object representing the UI Widget
@@ -137,5 +137,4 @@ public abstract class BaseExtWidget extends Widget {
         }
         return DOM.toString(getElement());
     }
-
 }

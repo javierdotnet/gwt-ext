@@ -24,6 +24,7 @@ import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.LayoutRegion;
 
 public interface LayoutListener {
+
     void onLayout(BorderLayout layout);
 
     void onRegionCollapsed(LayoutRegion region);
@@ -31,6 +32,4 @@ public interface LayoutListener {
     void onRegionExpanded(LayoutRegion region);
 
     void onRegionResized(LayoutRegion region, int newSize);
-
-
 }

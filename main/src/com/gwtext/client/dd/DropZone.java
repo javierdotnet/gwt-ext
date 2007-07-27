@@ -20,7 +20,7 @@
 
 package com.gwtext.client.dd;
 
-public class DropZone extends DropTarget{
+public class DropZone extends DropTarget {
     public DropZone(String id, String sGroup) {
         super(id, sGroup);
     }

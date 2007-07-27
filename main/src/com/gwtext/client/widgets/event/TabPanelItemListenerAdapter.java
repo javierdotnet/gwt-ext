@@ -23,8 +23,8 @@ package com.gwtext.client.widgets.event;
 import com.gwtext.client.widgets.TabPanelItem;
 
 public class TabPanelItemListenerAdapter implements TabPanelItemListener {
-    public void onActivate(TabPanelItem tab) {
 
+    public void onActivate(TabPanelItem tab) {
     }
 
     public boolean doBeforeClose(TabPanelItem tab) {
@@ -32,10 +32,8 @@ public class TabPanelItemListenerAdapter implements TabPanelItemListener {
     }
 
     public void onClose(TabPanelItem tab) {
-
     }
 
     public void onDeactivate(TabPanelItem tab) {
-
     }
 }

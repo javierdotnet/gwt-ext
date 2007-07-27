@@ -47,5 +47,4 @@ public class RecordDef extends JsObject {
         temp.load();
         return temp.getAt(0);
     }
-
 }

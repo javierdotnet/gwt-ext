@@ -25,7 +25,6 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.UpdateManager;
-import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.widgets.event.TabPanelItemListener;
 
 public class TabPanelItem extends BaseExtWidget {
@@ -167,7 +166,6 @@ public class TabPanelItem extends BaseExtWidget {
         tpi.show();
     }-*/;
 
-
     public native void addTabPanelItemListener(TabPanelItemListener listener) /*-{
         var tabPanelItem = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var tabPanelItemJ = this;
@@ -178,9 +176,8 @@ public class TabPanelItem extends BaseExtWidget {
                 }
         );
         tabPanelItem.addListener('beforeclose',
-                function(tab) {
-                    var tabJ = @com.gwtext.client.widgets.TabPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tab);
-                    return listener.@com.gwtext.client.widgets.event.TabPanelItemListener::doBeforeClose(Lcom/gwtext/client/widgets/TabPanel;)(tabJ);
+                function(tpi) {
+                    return listener.@com.gwtext.client.widgets.event.TabPanelItemListener::doBeforeClose(Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelItemJ);
                 }
         );
         tabPanelItem.addListener('close',
@@ -193,6 +190,5 @@ public class TabPanelItem extends BaseExtWidget {
                     listener.@com.gwtext.client.widgets.event.TabPanelItemListener::onDeactivate(Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelItemJ);
                 }
         );
-
     }-*/;
 }

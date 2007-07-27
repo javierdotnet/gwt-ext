@@ -42,7 +42,7 @@ public class TreeNode extends Node {
         super(config);
     }
 
-    private static TreeNode instance(JavaScriptObject jsObj) {
+    public static Node instance(JavaScriptObject jsObj) {
         return new TreeNode(jsObj);
     }
 
@@ -50,6 +50,9 @@ public class TreeNode extends Node {
         return new $wnd.Ext.tree.TreeNode(config);
     }-*/;
 
+    protected Node createNode(JavaScriptObject jsNode) {
+        return new TreeNode(jsNode);
+    }
     
     public native void collapse() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -143,7 +146,6 @@ public class TreeNode extends Node {
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.unselect();
     }-*/;
-
 
     public native void addTreeNodeListener(TreeNodeListener listener)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;

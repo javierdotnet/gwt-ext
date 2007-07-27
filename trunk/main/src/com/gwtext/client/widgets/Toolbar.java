@@ -22,8 +22,8 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.widgets.form.Field;
 import com.gwtext.client.core.ExtElement;
+import com.gwtext.client.widgets.form.Field;
 
 public class Toolbar extends RequiredElementWidget {
 
@@ -35,7 +35,7 @@ public class Toolbar extends RequiredElementWidget {
     }
 
     public Toolbar(ExtElement container) {
-        jsObj =  create(container);
+        jsObj = create(container);
     }
 
     public Toolbar(JavaScriptObject jsObj) {

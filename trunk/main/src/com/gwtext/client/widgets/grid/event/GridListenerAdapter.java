@@ -20,36 +20,29 @@
 
 package com.gwtext.client.widgets.grid.event;
 
-import com.gwtext.client.widgets.grid.Grid;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.widgets.grid.Grid;
 
 public class GridListenerAdapter implements GridListener {
 
     public void onBodyScroll(int scrollLeft, int scrollTop) {
-
     }
 
     public void onClick(EventObject e) {
-
     }
 
     public void onContextMenu(EventObject e) {
-
     }
 
     public void onDblClick(EventObject e) {
-
     }
 
     public void onKeyDown(EventObject e) {
-
     }
 
     public void onKeyPress(EventObject e) {
-
     }
 
     public void onRender(Grid grid) {
-
     }
 }

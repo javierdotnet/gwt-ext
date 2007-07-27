@@ -21,7 +21,6 @@
 package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.JsObject;
 import com.gwtext.client.core.event.ConnectionListener;
 
 public class Connection extends JsObject {

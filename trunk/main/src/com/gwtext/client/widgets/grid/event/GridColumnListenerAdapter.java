@@ -23,11 +23,10 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.Grid;
 
 public class GridColumnListenerAdapter implements GridColumnListener {
-    public void onColumnMove(Grid grid, int oldIndex, int newIndex) {
 
+    public void onColumnMove(Grid grid, int oldIndex, int newIndex) {
     }
 
     public void onColumnResize(Grid grid, int colIndex, int newSize) {
-
     }
 }

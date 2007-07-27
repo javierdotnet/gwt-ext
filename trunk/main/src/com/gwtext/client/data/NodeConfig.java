@@ -20,12 +20,12 @@
 
 package com.gwtext.client.data;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.UserObject;
 
 public class NodeConfig extends BaseConfig {
-    
+
     public void setUserObject(UserObject userObject) {
         JavaScriptObjectHelper.setAttribute(jsObj, "data", userObject);
     }

@@ -23,19 +23,16 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.core.EventObject;
 
 public class GridMouseListenerAdapter implements GridMouseListener {
-    public void onMouseDown(EventObject e) {
 
+    public void onMouseDown(EventObject e) {
     }
 
     public void onMouseOut(EventObject e) {
-
     }
 
     public void onMouseOver(EventObject e) {
-
     }
 
     public void onMouseUp(EventObject e) {
-
     }
 }

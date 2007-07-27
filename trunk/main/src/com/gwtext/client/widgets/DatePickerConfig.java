@@ -25,7 +25,8 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
-public class DatePickerConfig extends ComponentConfig{
+public class DatePickerConfig extends ComponentConfig {
+
     public void setCancelText(String cancelText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "cancelText", cancelText);
     }
@@ -109,5 +110,4 @@ public class DatePickerConfig extends ComponentConfig{
     public void setTodayTip(String todayTip) {
         JavaScriptObjectHelper.setAttribute(jsObj, "todayTip", todayTip);
     }
-
 }

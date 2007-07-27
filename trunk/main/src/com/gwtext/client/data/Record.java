@@ -26,6 +26,7 @@ import com.gwtext.client.core.JsObject;
 import java.util.Date;
 
 public class Record extends JsObject {
+
     public Record(JavaScriptObject jsObj) {
         super(jsObj);
     }

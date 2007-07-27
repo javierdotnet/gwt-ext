@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.grid.event.CellSelectionModelListener;
 
 public class CellSelectionModel extends AbstractSelectionModel {
+
     public CellSelectionModel(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -39,7 +40,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
     }-*/;
 
     /**
-     * @return  array containing rowIndex, colIndex
+     * @return array containing rowIndex, colIndex
      */
     public native int[] getSelectedCell() /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;

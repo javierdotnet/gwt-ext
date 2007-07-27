@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class PagingToolbarConfig extends BaseConfig {
 
@@ -40,6 +40,4 @@ public class PagingToolbarConfig extends BaseConfig {
     public void setDisplayInfo(boolean displayInfo) {
         JavaScriptObjectHelper.setAttribute(jsObj, "displayInfo", displayInfo);
     }
-
-
 }

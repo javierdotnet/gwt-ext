@@ -20,6 +20,7 @@
 package com.gwtext.client.core;
 
 //API returns Fx and not Element because adding not Fx methosd to the chain can result in
+
 //unexpected side effects See http://extjs.com/forum/showthread.php?t=2647
 public interface Fx {
 

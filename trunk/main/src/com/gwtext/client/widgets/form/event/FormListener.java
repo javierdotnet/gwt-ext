@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form.event;
 import com.gwtext.client.widgets.form.Form;
 
 public interface FormListener {
+
     void onActionComplete(Form form);
 
     void onActionFailed(Form form);

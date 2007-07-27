@@ -36,6 +36,7 @@ public class LayoutDialog extends BaseExtWidget {
 
     /**
      * Creates a Dialog with only a center region. i.e a Basic Dialog
+     *
      * @param config
      * @param center
      */
@@ -99,9 +100,9 @@ public class LayoutDialog extends BaseExtWidget {
 
     public Button addButton(Button button) {
         Element buttonEl = button.getElement();
-        if(buttonEl != null) {
+        if (buttonEl != null) {
             Element parent = DOM.getParent(buttonEl);
-            if(parent != null) {
+            if (parent != null) {
                 DOM.removeChild(parent, buttonEl);
             }
         }
@@ -170,7 +171,6 @@ public class LayoutDialog extends BaseExtWidget {
         var tabs = dialog.getTabs();
         return tabs == null ? null : @com.gwtext.client.widgets.TabPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tabs);
     }-*/;
-
 
     public native void hide() /*-{
             var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -246,8 +246,4 @@ public class LayoutDialog extends BaseExtWidget {
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         dialog.toFront();
     }-*/;
-
-
-
-    
 }

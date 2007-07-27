@@ -22,8 +22,6 @@ package com.gwtext.client.widgets.layout;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.grid.Grid;
-import com.gwtext.client.widgets.layout.ContentPanel;
-import com.gwtext.client.widgets.layout.ContentPanelConfig;
 
 public class GridPanel extends ContentPanel {
 
@@ -42,6 +40,4 @@ public class GridPanel extends ContentPanel {
     private native JavaScriptObject getGrid(JavaScriptObject gridPanel) /*-{
         return gridPanel.getGrid();
     }-*/;
-
-
 }

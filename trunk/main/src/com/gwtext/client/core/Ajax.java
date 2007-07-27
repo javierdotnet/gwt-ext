@@ -71,5 +71,4 @@ public class Ajax extends Connection {
         var conn = this.@com.gwtext.client.core.JsObject::jsObj;
         return conn.serializeForm(formId);
     }-*/;
-
 }

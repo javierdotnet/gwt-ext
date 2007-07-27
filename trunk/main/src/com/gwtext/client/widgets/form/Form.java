@@ -146,9 +146,9 @@ public class Form extends BaseExtWidget {
 
     public Button addButton(Button button) {
         Element buttonEl = button.getElement();
-        if(buttonEl != null) {
+        if (buttonEl != null) {
             Element parent = DOM.getParent(buttonEl);
-            if(parent != null) {
+            if (parent != null) {
                 DOM.removeChild(parent, buttonEl);
             }
         }
@@ -232,7 +232,6 @@ public class Form extends BaseExtWidget {
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return form.isValid();
     }-*/;
-
 
     public native void load(FormActionConfig config) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

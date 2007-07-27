@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.RowSelectionModel;
 
 public interface RowSelectionListener {
+
     boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex);
 
     void onRowSelect(RowSelectionModel sm, int rowIndex);

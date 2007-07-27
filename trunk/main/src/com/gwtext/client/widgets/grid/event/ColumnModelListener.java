@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.ColumnModel;
 
 public interface ColumnModelListener {
+
     void onColumnLockChange(ColumnModel cm, int colIndex, boolean locked);
 
     void onColumnMoved(ColumnModel cm, int oldIndex, int newIndex);

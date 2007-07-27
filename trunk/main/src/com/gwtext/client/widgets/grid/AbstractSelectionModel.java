@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
 public abstract class AbstractSelectionModel extends JsObject {
+
     protected AbstractSelectionModel() {
     }
 

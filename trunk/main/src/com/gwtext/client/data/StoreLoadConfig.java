@@ -21,11 +21,12 @@
 package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class StoreLoadConfig extends BaseConfig {
+
     public void setAdd(boolean add) {
         JavaScriptObjectHelper.setAttribute(jsObj, "add", add);
     }

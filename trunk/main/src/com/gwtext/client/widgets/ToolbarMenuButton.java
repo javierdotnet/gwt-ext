@@ -35,10 +35,11 @@ import java.util.List;
 
 //ie. after it has been added to the toolbar
 public class ToolbarMenuButton extends SplitButton {
+
     private boolean rendered;
     private List menuButtonListeners;
     private List buttonListeners;
-      
+
     public ToolbarMenuButton(Menu menu, SplitButtonConfig config) {
         this(null, menu, config);
     }

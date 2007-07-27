@@ -20,11 +20,8 @@
 
 package com.gwtext.client.core;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.core.BaseConfig;
-import com.gwtext.client.core.UrlParam;
-import com.gwtext.client.core.NameValuePair;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ConnectionConfig extends BaseConfig {
 
@@ -35,7 +32,7 @@ public class ConnectionConfig extends BaseConfig {
     public void setDefaultHeaders(NameValuePair[] defaultHeaders) {
         JavaScriptObject paramObj = NameValuePair.getJsObj(defaultHeaders);
         JavaScriptObjectHelper.setAttribute(jsObj, "defaultHeaders", paramObj);
-    }    
+    }
 
     public void setExtraParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
@@ -50,11 +47,7 @@ public class ConnectionConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "timeout", timeout);
     }
 
-
     public void setUrl(String url) {
         JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
     }
-
-
-        
 }

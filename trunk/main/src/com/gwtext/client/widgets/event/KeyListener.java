@@ -22,6 +22,6 @@ package com.gwtext.client.widgets.event;
 import com.gwtext.client.core.EventObject;
 
 public interface KeyListener {
-    
+
     void onKey(int key, EventObject e);
 }

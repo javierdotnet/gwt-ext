@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.menu;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.menu.event.MenuListener;
 
 public class MenuConfig extends BaseConfig {

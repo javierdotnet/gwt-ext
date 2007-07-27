@@ -29,7 +29,7 @@ public class MessageBoxConfig extends BaseConfig {
     public void setAnimEl(String animEl) {
         JavaScriptObjectHelper.setAttribute(jsObj, "animEl", animEl);
     }
-            
+
     public void setTitle(String title) {
         JavaScriptObjectHelper.setAttribute(jsObj, "title", title);
     }
@@ -57,12 +57,12 @@ public class MessageBoxConfig extends BaseConfig {
     public void setButtons(MessageBox.Button buttons) {
         JavaScriptObjectHelper.setAttribute(jsObj, "buttons", buttons.getJsObj());
     }
-    
+
     public void setButtons(boolean buttons) {
         JavaScriptObjectHelper.setAttribute(jsObj, "buttons", buttons);
     }
-    
-     public native void setCallback(MessageBox.PromptCallback cb)/*-{
+
+    public native void setCallback(MessageBox.PromptCallback cb)/*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
         config['fn'] = function(btnID, text) {
                             if(btnID === undefined) btnID = null;
@@ -77,7 +77,7 @@ public class MessageBoxConfig extends BaseConfig {
         JavaScriptObject config = NameValuePair.getJsObj(buttons);
         JavaScriptObjectHelper.setAttribute(jsObj, "buttons", config);
     }
-                   
+
     public void setMsg(String msg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "msg", msg);
     }
@@ -97,11 +97,11 @@ public class MessageBoxConfig extends BaseConfig {
     public void setMinWidth(int minWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minWidth", minWidth);
     }
-    
+
     public void setMaxWidth(int maxWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxWidth", maxWidth);
     }
-    
+
     public void setMinProgressWidth(int minProgressWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minProgressWidth", minProgressWidth);
     }
@@ -109,5 +109,4 @@ public class MessageBoxConfig extends BaseConfig {
     public void setDefaultTextHeight(int defaultTextHeight) {
         JavaScriptObjectHelper.setAttribute(jsObj, "defaultTextHeight", defaultTextHeight);
     }
-                        
 }

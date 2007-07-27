@@ -23,6 +23,6 @@ package com.gwtext.client.widgets.form.event;
 import com.gwtext.client.widgets.form.Checkbox;
 
 public interface CheckboxListener {
-    void onCheck(Checkbox field, boolean checked);
 
+    void onCheck(Checkbox field, boolean checked);
 }

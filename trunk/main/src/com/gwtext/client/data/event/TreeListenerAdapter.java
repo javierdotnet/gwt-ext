@@ -24,8 +24,8 @@ import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
 
 public class TreeListenerAdapter implements TreeListener {
-    public void onAppend(Tree tree, Node parent, Node node, int index) {
 
+    public void onAppend(Tree tree, Node parent, Node node, int index) {
     }
 
     public boolean doBeforeAppend(Tree tree, Node parent, Node node) {
@@ -45,14 +45,11 @@ public class TreeListenerAdapter implements TreeListener {
     }
 
     public void onInsert(Tree tree, Node parent, Node node, Node refNode) {
-
     }
 
     public void onMove(Tree tree, Node node, Node oldParent, Node newParent, int index) {
-
     }
 
     public void onRemove(Tree tree, Node parent, Node node) {
-
     }
 }

@@ -20,10 +20,11 @@
 
 package com.gwtext.client.data;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class JsonReaderConfig extends BaseConfig {
+
     public void setId(String id) {
         JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
     }

@@ -20,10 +20,11 @@
 
 package com.gwtext.client.widgets.tree;
 
-import com.gwtext.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.JsObject;
 
 public class TreeNodeUI extends JsObject {
+
     public TreeNodeUI(JavaScriptObject jsObj) {
         super(jsObj);
     }

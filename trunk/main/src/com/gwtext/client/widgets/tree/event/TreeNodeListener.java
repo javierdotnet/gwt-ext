@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.tree.event;
 
-import com.gwtext.client.data.Node;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.data.Node;
 
 public interface TreeNodeListener {
 
@@ -48,5 +48,4 @@ public interface TreeNodeListener {
     void onExpand(Node node);
 
     void onTextChange(Node node, String text, String oldText);
-
 }

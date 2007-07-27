@@ -27,6 +27,7 @@ import com.gwtext.client.widgets.form.event.FieldListener;
 import java.util.Date;
 
 public class FieldConfig extends BaseConfig {
+
     private FieldListener fieldListener;
 
     public void setId(String id) {
@@ -36,7 +37,7 @@ public class FieldConfig extends BaseConfig {
     public void setAutoCreate(boolean autoCreate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);
     }
-    
+
     public void setAutoCreate(String autoCreate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);
     }
@@ -89,7 +90,7 @@ public class FieldConfig extends BaseConfig {
     public void setReadOnly(boolean readOnly) {
         JavaScriptObjectHelper.setAttribute(jsObj, "readOnly", readOnly);
     }
-            
+
     public void setValidateOnBlur(boolean validateOnBlur) {
         JavaScriptObjectHelper.setAttribute(jsObj, "validateOnBlur", validateOnBlur);
     }

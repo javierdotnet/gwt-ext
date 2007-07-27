@@ -50,7 +50,6 @@ public class Checkbox extends Field {
         cb.setValue(checked);
     }-*/;
 
-
     public native void addCheckboxListener(CheckboxListener listener) /*-{
         var fieldJ = this;
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

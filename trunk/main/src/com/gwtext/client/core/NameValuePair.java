@@ -96,8 +96,8 @@ public class NameValuePair extends JsObject {
 
     public static JavaScriptObject getJsObj(NameValuePair[] nameValuePairs) {
         JavaScriptObject paramObj = JavaScriptObjectHelper.createObject();
-        if(nameValuePairs == null) return paramObj;
-        
+        if (nameValuePairs == null) return paramObj;
+
         for (int i = 0; i < nameValuePairs.length; i++) {
             NameValuePair param = nameValuePairs[i];
             switch (param.getType()) {

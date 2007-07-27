@@ -23,23 +23,19 @@ package com.gwtext.client.widgets.grid.event;
 import com.gwtext.client.widgets.grid.ColumnModel;
 
 public class ColumnModelListenerAdapter implements ColumnModelListener {
-    public void onColumnLockChange(ColumnModel cm, int colIndex, boolean locked) {
 
+    public void onColumnLockChange(ColumnModel cm, int colIndex, boolean locked) {
     }
 
     public void onColumnMoved(ColumnModel cm, int oldIndex, int newIndex) {
-
     }
 
     public void onHeaderChange(ColumnModel cm, int oldIndex, String newText) {
-
     }
 
     public void onHiddenChange(ColumnModel cm, int colIndex, boolean hidden) {
-
     }
 
     public void onWidthChange(ColumnModel cm, int colIndex, int newWidth) {
-
     }
 }

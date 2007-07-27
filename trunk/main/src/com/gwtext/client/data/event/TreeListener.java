@@ -24,6 +24,7 @@ import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
 
 public interface TreeListener {
+
     void onAppend(Tree tree, Node parent, Node node, int index);
 
     boolean doBeforeAppend(Tree tree, Node parent, Node node);

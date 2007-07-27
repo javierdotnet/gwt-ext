@@ -21,5 +21,6 @@
 package com.gwtext.client.core;
 
 public interface UrlLoadCallback {
+
     void execute(boolean success, String responseText);
 }

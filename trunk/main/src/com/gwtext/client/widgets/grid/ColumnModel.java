@@ -30,7 +30,7 @@ public class ColumnModel extends JsObject {
     public ColumnModel(JavaScriptObject jsObj) {
         super(jsObj);
     }
-   
+
     public ColumnModel(ColumnConfig[] columns) {
         JavaScriptObject[] config = new JavaScriptObject[columns.length];
         for (int i = 0; i < columns.length; i++) {
@@ -60,7 +60,7 @@ public class ColumnModel extends JsObject {
     //http://extjs.com/forum/showthread.php?t=6025&highlight=getCellEditor
     //need to support way to allow user to plug in logic based cell editors
     //public GridEditor getCellEditor(int colIndex, int rowIndex)
-    
+
     public native int getColumnCount()/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.getColumnCount();
@@ -74,7 +74,7 @@ public class ColumnModel extends JsObject {
     /**
      * @param colIndex
      * @return the column id set by the user using {@link com.gwtext.client.widgets.grid.ColumnConfig#setId(String)}. If the
-     * user did not set the id for the column, then the column position is returned as a String.
+     *         user did not set the id for the column, then the column position is returned as a String.
      */
     public native String getColumnId(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -100,7 +100,6 @@ public class ColumnModel extends JsObject {
     }-*/;
 
     //TODO getRenderer is required??
-
 
     public native int getTotalWidth()/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -168,7 +167,6 @@ public class ColumnModel extends JsObject {
         cm.setHidden(colIndex, hidden);
     }-*/;
 
-    //todo add type safe callback like EditorGridListener
     public native void setRenderer(int colIndex, Renderer renderer) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setRenderer(colIndex, function(val, p, r, rowIndex, colNum, ds) {

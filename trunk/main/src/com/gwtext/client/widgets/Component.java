@@ -26,6 +26,7 @@ import com.gwtext.client.widgets.event.ComponentListener;
 
 //should be abstract but since ComponentMgr requires to return Component, making it concrete
 public class Component extends BaseExtWidget {
+
     protected Component() {
     }
 
@@ -34,7 +35,7 @@ public class Component extends BaseExtWidget {
     }
 
     private static Component instance(JavaScriptObject jsObj) {
-        return new Component(jsObj);   
+        return new Component(jsObj);
     }
 
     public native void disable() /*-{
@@ -125,12 +126,6 @@ public class Component extends BaseExtWidget {
         return component.rendered;
     }-*/;
 
-
-    /*    public native void render(JavaScriptObject parentElement) *//*-{
-        var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        component.render(parentElement);
-    }-*//*;*/
-
     public native void addComponentListener(ComponentListener listener) /*-{
         var componentJ = this;
         var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -187,5 +182,4 @@ public class Component extends BaseExtWidget {
                 }
         );
     }-*/;
-
 }

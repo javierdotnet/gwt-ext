@@ -24,6 +24,7 @@ import com.gwtext.client.widgets.TabPanel;
 import com.gwtext.client.widgets.TabPanelItem;
 
 public interface TabPanelListener {
+
     boolean doBeforeTabChange(TabPanel tabPanel, TabPanelItem tab);
 
     void onTabChange(TabPanel tabPanel, TabPanelItem activeTab);

@@ -173,12 +173,6 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native BaseElement boxWrap() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.boxWrap();
-        return this;
-    }-*/;
-
     public native void clean() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.clean();

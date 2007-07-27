@@ -21,9 +21,9 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.core.BaseConfig;
 
 public class TreeLoaderConfig extends BaseConfig {
 
@@ -38,6 +38,5 @@ public class TreeLoaderConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "clearOnLoad", clearOnLoad);
     }
 
-    //todo  	uiProviders
-
+    //todo  uiProviders
 }

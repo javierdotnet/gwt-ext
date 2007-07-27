@@ -24,5 +24,6 @@ package com.gwtext.client.core;
  * Generic callback interface
  */
 public interface Function {
+
     void execute();
 }

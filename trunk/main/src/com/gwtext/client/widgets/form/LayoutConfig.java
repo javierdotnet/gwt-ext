@@ -52,5 +52,4 @@ public class LayoutConfig extends ComponentConfig {
     public void setStyle(String style) {
         JavaScriptObjectHelper.setAttribute(jsObj, "style", style);
     }
-
 }

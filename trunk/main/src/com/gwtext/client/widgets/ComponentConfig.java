@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ComponentConfig extends BaseConfig {
 
@@ -32,5 +32,4 @@ public class ComponentConfig extends BaseConfig {
     public void setHideMode(String hideMode) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideMode", hideMode);
     }
-    
 }

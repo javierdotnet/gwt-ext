@@ -26,6 +26,7 @@ import com.gwtext.client.widgets.event.DatePickerListener;
 import java.util.Date;
 
 public class DatePicker extends Component {
+
     public DatePicker(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -61,7 +62,6 @@ public class DatePicker extends Component {
         date.setTime(time);
         dp.setValue(date);
     }-*/;
-
 
     public native void addDatePickerListener(DatePickerListener listener) /*-{
         var componentJ = this;

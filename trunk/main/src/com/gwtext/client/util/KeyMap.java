@@ -24,6 +24,7 @@ import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.JsObject;
 
 public class KeyMap extends JsObject {
+
     public KeyMap(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -81,8 +82,4 @@ public class KeyMap extends JsObject {
         var km = this.@com.gwtext.client.core.JsObject::jsObj;
         km.stopEvent = stopEvent;
     }-*/;
-
-
-
-
 }

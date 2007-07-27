@@ -23,5 +23,6 @@ package com.gwtext.client.widgets.tree;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public interface TreeSelectionModel {
+
     JavaScriptObject getJsObj();
 }

@@ -20,23 +20,20 @@
 
 package com.gwtext.client.widgets.event;
 
-import com.gwtext.client.widgets.Button;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.widgets.Button;
 
 public class ButtonListenerAdapter implements ButtonListener {
-    public void onClick(Button button, EventObject e) {
 
+    public void onClick(Button button, EventObject e) {
     }
 
     public void onMouseOut(Button button, EventObject e) {
-
     }
 
     public void onMouseOver(Button button, EventObject e) {
-
     }
 
     public void onToggle(Button button, boolean pressed) {
-
     }
 }

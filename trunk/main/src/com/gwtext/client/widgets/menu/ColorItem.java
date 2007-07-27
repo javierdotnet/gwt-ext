@@ -40,5 +40,4 @@ public class ColorItem extends Item {
         var ci = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return @com.gwtext.client.widgets.ColorPalette::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ci.palette);
     }-*/;
-
 }

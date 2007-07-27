@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.tree;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class TreePanelConfig extends BaseConfig {
 
@@ -82,7 +82,7 @@ public class TreePanelConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "rootVisible", rootVisible);
     }
 
-    public void  setSelectionModel(TreeSelectionModel selectionModel) {
+    public void setSelectionModel(TreeSelectionModel selectionModel) {
         JavaScriptObjectHelper.setAttribute(jsObj, "selModel", selectionModel.getJsObj());
     }
 

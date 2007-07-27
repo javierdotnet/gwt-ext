@@ -76,6 +76,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  * a row, you want to geta handle of the ID for that record which might correspond to the primary key of the database table from which the data is being read.
  */
 public class ArrayReader extends Reader {
+
     /**
      * Construct an ArrayRader using the specified {@link RecordDef}.
      *

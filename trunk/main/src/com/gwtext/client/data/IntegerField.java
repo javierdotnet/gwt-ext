@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class IntegerField extends Field {
+
     public IntegerField(String name) {
         this(name, null, null);
     }
@@ -52,5 +53,4 @@ public class IntegerField extends Field {
         if (converter != null) setConverter(jsObj, converter);
         return jsObj;
     }
-
 }

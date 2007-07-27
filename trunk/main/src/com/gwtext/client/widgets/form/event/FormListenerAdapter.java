@@ -23,12 +23,11 @@ package com.gwtext.client.widgets.form.event;
 import com.gwtext.client.widgets.form.Form;
 
 public class FormListenerAdapter implements FormListener {
-    public void onActionComplete(Form form) {
 
+    public void onActionComplete(Form form) {
     }
 
     public void onActionFailed(Form form) {
-
     }
 
     public boolean doBeforeAction(Form form) {
@@ -36,6 +35,5 @@ public class FormListenerAdapter implements FormListener {
     }
 
     public void onClientValidation(Form form, boolean valid) {
-
     }
 }

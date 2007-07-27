@@ -23,5 +23,6 @@ package com.gwtext.client.widgets.event;
 import com.gwtext.client.widgets.ColorPalette;
 
 public interface ColorPaletteListener {
+
     void onSelect(ColorPalette colorPalette, String color);
 }

@@ -42,6 +42,4 @@ public class NumberField extends TextField {
          var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
          return field.getValue();
     }-*/;
-
-
 }

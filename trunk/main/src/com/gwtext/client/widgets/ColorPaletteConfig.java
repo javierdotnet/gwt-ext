@@ -23,6 +23,7 @@ package com.gwtext.client.widgets;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ColorPaletteConfig extends ComponentConfig {
+
     public void setAllowReselect(boolean allowReselect) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowReselect", allowReselect);
     }
@@ -34,5 +35,4 @@ public class ColorPaletteConfig extends ComponentConfig {
     public void setValue(String value) {
         JavaScriptObjectHelper.setAttribute(jsObj, "value", value);
     }
-    
 }

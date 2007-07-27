@@ -25,5 +25,6 @@ import com.gwtext.client.widgets.menu.DateMenu;
 import java.util.Date;
 
 public interface DateMenuListener {
+
     void onSelect(DateMenu dateMenu, Date date);
 }

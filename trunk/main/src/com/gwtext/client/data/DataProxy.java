@@ -24,6 +24,7 @@ import com.gwtext.client.core.JsObject;
 
 //Store has events for beforeload, load and load exeption events
 //also DataProxy implmentation here does not have load() method because this is typeically called
+
 //by store.load() instead of being invoked directly
 public abstract class DataProxy extends JsObject {
 

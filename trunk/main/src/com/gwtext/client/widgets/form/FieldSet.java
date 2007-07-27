@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class FieldSet extends Layout {
+
     public FieldSet() {
         this(new FieldSetConfig());
     }

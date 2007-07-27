@@ -65,7 +65,7 @@ public class DateFieldConfig extends TriggerFieldConfig {
     public void setMinText(String minText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minText", minText);
     }
-        
+
     public void setMaxValue(String maxValue) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxValue", maxValue);
     }
@@ -76,5 +76,5 @@ public class DateFieldConfig extends TriggerFieldConfig {
 
     public void setMaxText(String maxText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxText", maxText);
-    }        
+    }
 }

@@ -20,15 +20,15 @@
 
 package com.gwtext.client.util;
 
-import java.util.Date;
-
 public class Format {
+
     public static native String capitalize(String value)/*-{
         return $wnd.Ext.util.Format.capitalize(value);
     }-*/;
 
     /**
      * Format defaults to 'm/d/Y'
+     *
      * @param value
      * @return
      */
@@ -91,13 +91,6 @@ public class Format {
     public static native String usMoney(double value)/*-{
         return $wnd.Ext.util.Format.usMoney(value);
     }-*/;
-
-    /*C:/java/ext-1.1-beta1/source/util/Date.js*/
-    //TODO
-    public String dateFormat(Date date) {
-        return date.toString();
-    }
-
 
     public static native String format(String format, String value) /*-{
         return $wnd.String.format(format, value);

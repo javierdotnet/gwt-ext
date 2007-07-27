@@ -21,8 +21,8 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Reader;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.FormListener;
@@ -42,14 +42,12 @@ public class FormConfig extends BaseConfig {
         return surroundWithBox;
     }
 
-
     //http://extjs.com/forum/showthread.php?t=4814&highlight=doAction
     //acts like hidden form fields
     public void setBaseParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
     }
-
 
     public void setButtonAlign(String buttonAlign) {
         JavaScriptObjectHelper.setAttribute(jsObj, "buttonAlign", buttonAlign);
@@ -114,7 +112,6 @@ public class FormConfig extends BaseConfig {
         this.width = width;
     }
 
-
     public int getWidth() {
         return width;
     }
@@ -134,7 +131,6 @@ public class FormConfig extends BaseConfig {
     public void setFormListener(FormListener formListener) {
         this.formListener = formListener;
     }
-
 
     public void setWaitMsgTarget(String waitMsgTarget) {
         JavaScriptObjectHelper.setAttribute(jsObj, "waitMsgTarget", waitMsgTarget);

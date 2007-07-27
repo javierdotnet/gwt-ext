@@ -21,5 +21,6 @@
 package com.gwtext.client.widgets.tree;
 
 public interface NodeExpansionCallback {
+
     void onExpand(boolean success, TreeNode node);
 }

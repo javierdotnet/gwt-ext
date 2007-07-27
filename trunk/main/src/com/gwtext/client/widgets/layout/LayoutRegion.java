@@ -21,12 +21,12 @@
 package com.gwtext.client.widgets.layout;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.JsObject;
 
-public class LayoutRegion {
-    private JavaScriptObject jsObj;
+public class LayoutRegion extends JsObject {
 
     protected LayoutRegion(JavaScriptObject jsObj) {
-        this.jsObj = jsObj;
+        super(jsObj);
     }
 
     public static LayoutRegion instance(JavaScriptObject jsObj) {
@@ -42,7 +42,7 @@ public class LayoutRegion {
     }-*/;
 
     public native void showPanel(String contentId)/*-{
-        var layoutRegion = this.@com.gwtext.client.widgets.layout.LayoutRegion::jsObj;
+        var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
         layoutRegion.showPanel(contentId);
     }-*/;
 }

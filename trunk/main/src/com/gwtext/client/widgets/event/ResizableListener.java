@@ -20,6 +20,6 @@
 package com.gwtext.client.widgets.event;
 
 public interface ResizableListener {
-    
+
     void onResize();
 }

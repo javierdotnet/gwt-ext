@@ -21,7 +21,8 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class RegExp extends JsObject{
+public class RegExp extends JsObject {
+
     public RegExp(String re) {
         jsObj = create(re);
     }

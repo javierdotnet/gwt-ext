@@ -25,6 +25,7 @@ import com.gwtext.client.widgets.menu.BaseItem;
 import com.gwtext.client.widgets.menu.Menu;
 
 public class MenuListenerAdapter implements MenuListener {
+
     public boolean doBeforeHide(Menu menu) {
         return true;
     }
@@ -34,26 +35,20 @@ public class MenuListenerAdapter implements MenuListener {
     }
 
     public void onClick(Menu menu, String menuItemId, EventObject e) {
-
     }
 
     public void onHide(Menu menu) {
-
     }
 
     public void onItemClick(BaseItem item, EventObject e) {
-
     }
 
     public void onMouseOut(Menu menu, BaseItem menuItem, EventObject e) {
-
     }
 
     public void onMouseOver(Menu menu, BaseItem menuItem, EventObject e) {
-
     }
 
     public void onShow(Menu menu) {
-
     }
 }

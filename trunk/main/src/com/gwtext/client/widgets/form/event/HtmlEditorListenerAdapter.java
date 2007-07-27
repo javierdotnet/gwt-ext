@@ -23,8 +23,8 @@ package com.gwtext.client.widgets.form.event;
 import com.gwtext.client.widgets.form.HtmlEditor;
 
 public class HtmlEditorListenerAdapter implements HtmlEditorListener {
-    public void onActivate(HtmlEditor field) {
 
+    public void onActivate(HtmlEditor field) {
     }
 
     public boolean doBeforePush(HtmlEditor field, String html) {
@@ -36,18 +36,14 @@ public class HtmlEditorListenerAdapter implements HtmlEditorListener {
     }
 
     public void onEditModeChange(HtmlEditor field, boolean sourceEdit) {
-
     }
 
     public void onInitialize(HtmlEditor field) {
-
     }
 
     public void onPush(HtmlEditor field, String html) {
-
     }
 
     public void onSync(HtmlEditor field, String html) {
-
     }
 }

@@ -20,14 +20,15 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ResizableConfig extends BaseConfig {
 
     public void setAutoAdjustments() {
         JavaScriptObjectHelper.setAttribute(jsObj, "adjustments", "auto");
     }
+
     public void setAdjustments(int widthAdjustment, int heightAdjustment) {
         int[] adjustments = new int[]{widthAdjustment, heightAdjustment};
         JavaScriptObjectHelper.setAttribute(jsObj, "adjustments", adjustments);
@@ -128,5 +129,4 @@ public class ResizableConfig extends BaseConfig {
     public void setWrap(boolean wrap) {
         JavaScriptObjectHelper.setAttribute(jsObj, "wrap", wrap);
     }
-                                                                                                  
 }

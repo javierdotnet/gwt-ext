@@ -31,5 +31,4 @@ public class ItemConfig extends BaseItemConfig {
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }
-
 }

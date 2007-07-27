@@ -24,6 +24,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.MenuButtonListener;
 
 public class SplitButtonConfig extends ButtonConfig {
+
     private MenuButtonListener menuButtonListener;
 
     public void setArrowTooltip(String arrowTooltip) {

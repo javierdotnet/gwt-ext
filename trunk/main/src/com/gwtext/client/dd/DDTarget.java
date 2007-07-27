@@ -20,7 +20,7 @@
 
 package com.gwtext.client.dd;
 
-public class DDTarget extends DragDrop{
+public class DDTarget extends DragDrop {
     public DDTarget(String id, String sGroup) {
         super(id, sGroup);
     }

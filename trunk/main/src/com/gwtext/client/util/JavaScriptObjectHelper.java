@@ -99,7 +99,7 @@ public class JavaScriptObjectHelper {
     }-*/;
 
     public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
-        if(value == null) {
+        if (value == null) {
             setAttribute(elem, attr, (String) null);
         } else {
             setDateAttribute(elem, attr, value.getTime());
@@ -230,67 +230,12 @@ public class JavaScriptObjectHelper {
 	    array[index] = value;
     }-*/;
 
-
-    /**
-     * Find elements which match class name, returns null is none found.
-     */
-    public static Element[] getElementsByClassName(String className) {
-        Element[] elements = null;
-
-        JavaScriptObject arrayObject = getJavaScriptObjectElementsByClassName(className);
-
-        int length = getJavaScriptObjectArraySize(arrayObject);
-
-        if (length > 0) {
-            elements = new Element[length];
-            for (int index = 0; index < length; index++) {
-                Element e = getElementValueFromJavaScriptObjectArray(arrayObject, index);
-                elements[index] = e;
-            }
-        }
-
-        return elements;
-    }
-
-    /**
-     * Find elements which match class name and return as JavaScriptObject
-     */
-    public static native JavaScriptObject getJavaScriptObjectElementsByClassName(String className) /*-{
-		var elements = new Array();
-		if ($doc.getElementsByTagName)
-		{
-			var els = $doc.getElementsByTagName("*");
-			var c = new RegExp('/b^|' + className + '|$/b');
-			var n=0;
-			for (var i=0; i < els.length; i++)
-			{
-			   if (els[i].className)
-			   {
-			      if(c.test(els[i].className))
-			      {
-			         elements[n] = els[i];
-			         n++;
-			      }
-			  }
-			}
-		}
-
-		return elements;
-    }-*/;
-
     /**
      * This is used to access Element array as JavaScriptObject
      */
     public static native Element getElementValueFromJavaScriptObjectArray(JavaScriptObject elem, int i) /*-{
     	return elem[i];
 	}-*/;
-
-    public static native void invoke(JavaScriptObject jsobj, String functionName, Object arg1, JavaScriptObject arg2)/*-{
-        alert(jsobj[functionName]);
-        alert(arg1);
-        alert(arg2);
-       jsobj[functionName].call(jsobj, arg1, arg2);
-    }-*/;
 
     public static native JavaScriptObject createObject() /*-{
         return new Object;
@@ -303,7 +248,6 @@ public class JavaScriptObjectHelper {
         }
         return jsArray;
     }
-
 
     public static JavaScriptObject convertToJavaScriptArray(Object[] array) {
         JavaScriptObject jsArray = createJavaScriptArray();
@@ -336,7 +280,6 @@ public class JavaScriptObjectHelper {
 
     public static Float toFloat(float value) {
         return new Float(value);
-
     }
 
     public static Date toDate(long millis) {
@@ -396,5 +339,4 @@ public class JavaScriptObjectHelper {
         }
         return arr;
     }
-
 }

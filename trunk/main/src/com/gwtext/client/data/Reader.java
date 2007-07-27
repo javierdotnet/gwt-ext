@@ -29,6 +29,7 @@ import com.gwtext.client.core.JsObject;
  * {@link com.gwtext.client.widgets.grid.Grid} are backed by {@link Store} to probide the "model" for the widget.
  */
 public abstract class Reader extends JsObject {
+
     protected RecordDef recordDef;
 
     public RecordDef getRecordDef() {

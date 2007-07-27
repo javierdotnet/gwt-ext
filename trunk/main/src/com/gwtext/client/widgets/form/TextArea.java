@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class TextArea extends TextField {
+
     public TextArea() {
         setJsObj(create(null));
     }
@@ -39,5 +40,4 @@ public class TextArea extends TextField {
         var ta = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         ta.autoSize();
     }-*/;
-
 }

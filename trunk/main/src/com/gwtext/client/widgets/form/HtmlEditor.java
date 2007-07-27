@@ -25,6 +25,7 @@ import com.gwtext.client.widgets.Toolbar;
 import com.gwtext.client.widgets.form.event.HtmlEditorListener;
 
 public class HtmlEditor extends Field {
+
     public HtmlEditor() {
         setJsObj(create(null));
     }
@@ -100,7 +101,7 @@ public class HtmlEditor extends Field {
                 }
         );
 
-         field.addListener('initialize',
+        field.addListener('initialize',
                 function(fld) {
                     return listener.@com.gwtext.client.widgets.form.event.HtmlEditorListener::onInitialize(Lcom/gwtext/client/widgets/form/HtmlEditor;)(fieldJ);
                 }

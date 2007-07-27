@@ -24,6 +24,7 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridCellListener {
+
     void onCellClick(Grid grid, int rowIndex, int colindex, EventObject e);
 
     void onCellContextMenu(Grid grid, int rowIndex, int cellIndex, EventObject e);

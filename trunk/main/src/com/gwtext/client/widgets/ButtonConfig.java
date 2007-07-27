@@ -20,9 +20,8 @@
 
 package com.gwtext.client.widgets;
 
-import com.gwtext.client.core.Template;
 import com.gwtext.client.core.BaseConfig;
-import com.gwtext.client.util.ClickRepeater;
+import com.gwtext.client.core.Template;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.ButtonListener;
 import com.gwtext.client.widgets.menu.Menu;
@@ -79,10 +78,10 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "minWidth", minWidth);
     }
 
-  public void setPressed(boolean pressed) {
+    public void setPressed(boolean pressed) {
         JavaScriptObjectHelper.setAttribute(jsObj, "pressed", pressed);
     }
-    
+
     public void setRepeat(boolean repeat) {
         JavaScriptObjectHelper.setAttribute(jsObj, "repeat", repeat);
     }
@@ -134,7 +133,7 @@ public class ButtonConfig extends BaseConfig {
     public void setType(String type) {
         JavaScriptObjectHelper.setAttribute(jsObj, "type", type);
     }
-    
+
     public ButtonListener getButtonListener() {
         return buttonListener;
     }

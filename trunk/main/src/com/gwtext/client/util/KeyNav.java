@@ -24,6 +24,7 @@ import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.JsObject;
 
 public class KeyNav extends JsObject {
+
     public KeyNav(JavaScriptObject jsObj) {
         super(jsObj);
     }
@@ -53,7 +54,4 @@ public class KeyNav extends JsObject {
         var kn = this.@com.gwtext.client.core.JsObject::jsObj;
         kn.enable();
     }-*/;
-
-
-
 }

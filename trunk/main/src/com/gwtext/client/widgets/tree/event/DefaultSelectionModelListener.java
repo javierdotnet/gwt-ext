@@ -24,6 +24,7 @@ import com.gwtext.client.widgets.tree.DefaultSelectionModel;
 import com.gwtext.client.widgets.tree.TreeNode;
 
 public interface DefaultSelectionModelListener {
+
     boolean doBeforeSelect(DefaultSelectionModel sm, TreeNode newNode, TreeNode oldNode);
 
     //note treenode is null when clearSelection is called, or when a node is unselected

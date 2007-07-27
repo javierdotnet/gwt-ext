@@ -24,11 +24,11 @@ import com.gwtext.client.widgets.TabPanel;
 import com.gwtext.client.widgets.TabPanelItem;
 
 public class TabPanelListenerAdapter implements TabPanelListener {
+
     public boolean doBeforeTabChange(TabPanel tabPanel, TabPanelItem tab) {
         return true;
     }
 
     public void onTabChange(TabPanel tabPanel, TabPanelItem activeTab) {
-
     }
 }

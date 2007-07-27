@@ -20,8 +20,8 @@
 
 package com.gwtext.client.widgets.grid;
 
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class GridConfig extends BaseConfig {
 
@@ -107,7 +107,7 @@ public class GridConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoExpandMax", autoExpandMax);
     }
 
-    //view
+    //todo view
 
     public void setAllowTextSelectionPattern(String allowTextSelectionPattern) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowTextSelectionPattern", allowTextSelectionPattern);
@@ -116,6 +116,4 @@ public class GridConfig extends BaseConfig {
     public void setLoadMask(boolean loadMask) {
         JavaScriptObjectHelper.setAttribute(jsObj, "loadMask", loadMask);
     }
-
-
 }

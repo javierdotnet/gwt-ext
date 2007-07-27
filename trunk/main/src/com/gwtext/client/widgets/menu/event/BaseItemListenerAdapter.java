@@ -24,11 +24,10 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.menu.BaseItem;
 
 public class BaseItemListenerAdapter implements BaseItemListener {
-    public void onClick(BaseItem item, EventObject e) {
 
+    public void onClick(BaseItem item, EventObject e) {
     }
 
     public void onDeactivate(BaseItem item) {
-
     }
 }

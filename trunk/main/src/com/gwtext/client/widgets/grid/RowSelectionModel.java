@@ -70,11 +70,11 @@ public class RowSelectionModel extends AbstractSelectionModel {
         return sm.getSelected();
     }-*/;
 
-
-    //todo
-    public Record[] getSelections() {
-        return null;
-    }
+    public native Record[] getSelections() /*-{
+        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var records = sm.getSelections();
+        return @com.gwtext.client.data.Store::convertFromNativeRecordsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(records);
+    }-*/;
 
     public native boolean hasSelection() /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -136,7 +136,6 @@ public class RowSelectionModel extends AbstractSelectionModel {
         var rowsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(rows);
         sm.selectRows(rowsJS);
     }-*/;
-
 
     public native void addRowSelectionListener(RowSelectionListener listener) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;

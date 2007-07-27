@@ -248,20 +248,19 @@ public class TabPanel extends BaseExtWidget {
         tp.unhideTab(tabIndex);
     }-*/;
 
-
     public native void addTablPanelListener(TabPanelListener listener) /*-{
         var tabPanel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var tabPanelJ = this;
 
         tabPanel.addListener('tabchange',
                 function(tab, tpi) {
-                    var tpiJ = @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tab);
+                    var tpiJ = @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tpi);
                     listener.@com.gwtext.client.widgets.event.TabPanelListener::onTabChange(Lcom/gwtext/client/widgets/TabPanel;Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelJ, tpiJ);
                 }
         );
         tabPanel.addListener('beforetabchange',
-                function(tab, tpi) {
-                    var tabJ = @com.gwtext.client.widgets.TabPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tab);
+                function(tab, e, tpi) {
+                    var tpiJ = @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tpi);
                     return listener.@com.gwtext.client.widgets.event.TabPanelListener::doBeforeTabChange(Lcom/gwtext/client/widgets/TabPanel;Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelJ, tpiJ);
                 }
         );

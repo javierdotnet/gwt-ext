@@ -47,12 +47,16 @@ public class TabPanelItem extends BaseExtWidget {
         tpi.bodyEl = elemJS;
     }-*/;
 
-    public ExtElement getBodyEl() {
-        return new ExtElement(getBodyEl(jsObj));
-    }
-
-    private native JavaScriptObject getBodyEl(JavaScriptObject tpi) /*-{
-        return tpi.bodyEl;
+    public native ExtElement getBodyEl() /*-{
+        var tpi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var bodyEl = tpi.bodyEl;
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(bodyEl);
+    }-*/;
+    
+    public native ExtElement getTextEl() /*-{
+        var tpi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var textEl = tpi.textEl;
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(textEl);
     }-*/;
 
     public native String getCloseText() /*-{

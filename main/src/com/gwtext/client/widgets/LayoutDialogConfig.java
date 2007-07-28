@@ -29,10 +29,6 @@ public class LayoutDialogConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "animateTarget", animateTarget);
     }
 
-    public void setAutoCreate(boolean autoCreate) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);
-    }
-
     public void setAutoScroll(boolean autoScroll) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoScroll", autoScroll);
     }
@@ -53,7 +49,7 @@ public class LayoutDialogConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "collapsible", collapsible);
     }
 
-    public void setConstrainttoviewport(boolean constrainttoviewport) {
+    public void setConstraintToViewport(boolean constrainttoviewport) {
         JavaScriptObjectHelper.setAttribute(jsObj, "constrainttoviewport", constrainttoviewport);
     }
 
@@ -61,7 +57,7 @@ public class LayoutDialogConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "draggable", draggable);
     }
 
-    public void setFixedcenter(boolean fixedcenter) {
+    public void setFixedCenter(boolean fixedcenter) {
         JavaScriptObjectHelper.setAttribute(jsObj, "fixedcenter", fixedcenter);
     }
 

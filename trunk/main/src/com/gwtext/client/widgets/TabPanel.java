@@ -168,7 +168,6 @@ public class TabPanel extends BaseExtWidget {
         tp.enableTab(tabIndex);
     }-*/;
 
-
     public TabPanelItem getActiveTab() {
         return new TabPanelItem(getActiveTab(jsObj));
     }

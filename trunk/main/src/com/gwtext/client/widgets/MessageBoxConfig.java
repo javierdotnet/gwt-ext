@@ -66,7 +66,7 @@ public class MessageBoxConfig extends BaseConfig {
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
         config['fn'] = function(btnID, text) {
                             if(btnID === undefined) btnID = null;
-                            if(text === undefined) text = null;
+                            if(text === undefined || text == '') text = null;
                             cb.@com.gwtext.client.widgets.MessageBox.PromptCallback::execute(Ljava/lang/String;Ljava/lang/String;)(btnID, text);
                         };
     }-*/;
@@ -109,4 +109,8 @@ public class MessageBoxConfig extends BaseConfig {
     public void setDefaultTextHeight(int defaultTextHeight) {
         JavaScriptObjectHelper.setAttribute(jsObj, "defaultTextHeight", defaultTextHeight);
     }
+
+    public void setWidth(int width) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
+    }        
 }

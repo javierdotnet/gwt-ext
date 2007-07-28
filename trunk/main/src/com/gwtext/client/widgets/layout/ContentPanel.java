@@ -84,9 +84,13 @@ public class ContentPanel extends ComplexPanel {
             DOM.insertChild(getElement(), toolbar.getElement(), 0);
         }
     }
-
+    
     protected ContentPanel(JavaScriptObject jsObj) {
         this.jsObj = jsObj;
+    }
+
+    public static ContentPanel instance(JavaScriptObject jsObj) {
+        return new ContentPanel(jsObj);
     }
 
     public JavaScriptObject getJsObj() {

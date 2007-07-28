@@ -79,7 +79,6 @@ public class DialogPanel extends Composite {
         //create and configure layout dialog
         final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
             {
-                setAutoCreate(true);
                 setModal(true);
                 setWidth(600);
                 setHeight(400);

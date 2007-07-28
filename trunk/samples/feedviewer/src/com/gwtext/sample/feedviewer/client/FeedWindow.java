@@ -75,7 +75,6 @@ public class FeedWindow {
         //setup dialog
         dialog = new LayoutDialog(new LayoutDialogConfig() {
             {
-                setAutoCreate(true);
                 setTitle("Add Feed!");
                 setWidth(500);
                 setHeight(200);

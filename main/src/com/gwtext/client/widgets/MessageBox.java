@@ -114,7 +114,9 @@ public class MessageBox {
 
     public static native void prompt(String title, String message, PromptCallback cb) /*-{
         $wnd.Ext.MessageBox.prompt(title, message, function(btnID, text) {
-            if(text === undefined) text = null;
+            //if no text is entered text is undedined in web mode but raises error in hosted mode typing to
+            //coerce to string. Add harmless check for empty string too to keep host mode happy
+            if(text === undefined || text == '') text = null;
             cb.@com.gwtext.client.widgets.MessageBox.PromptCallback::execute(Ljava/lang/String;Ljava/lang/String;)(btnID, text);
         });
     }-*/;

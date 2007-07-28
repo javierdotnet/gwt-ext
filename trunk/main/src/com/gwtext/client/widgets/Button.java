@@ -21,10 +21,15 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.event.ButtonListener;
 
 public class Button extends RequiredElementWidget {
 
+    public Button(ButtonConfig config) {
+        this(Ext.generateId(), config);
+    }
+    
     public Button(String id, ButtonConfig config) {
         super(id, config);
         if (config.getButtonListener() != null) {

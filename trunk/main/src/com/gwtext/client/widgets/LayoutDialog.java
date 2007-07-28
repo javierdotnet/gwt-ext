@@ -46,6 +46,9 @@ public class LayoutDialog extends BaseExtWidget {
 
     public LayoutDialog(LayoutDialogConfig config, LayoutRegionConfig north, LayoutRegionConfig south, LayoutRegionConfig west, LayoutRegionConfig east, LayoutRegionConfig center) {
         JavaScriptObject configJS = config.getJsObj();
+
+        //in GWT we always want the dialog to be autocreated
+        JavaScriptObjectHelper.setAttribute(configJS, "autoCreate", true);
         if (north != null) JavaScriptObjectHelper.setAttribute(configJS, "north", north.getJsObj());
         if (south != null) JavaScriptObjectHelper.setAttribute(configJS, "south", south.getJsObj());
         if (west != null) JavaScriptObjectHelper.setAttribute(configJS, "west", west.getJsObj());

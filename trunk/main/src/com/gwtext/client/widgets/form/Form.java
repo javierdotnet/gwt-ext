@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.Ext;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.BaseExtWidget;
@@ -37,17 +38,25 @@ public class Form extends BaseExtWidget {
     //used in jsni render method
     private String id;
 
+    public Form() {
+        this((String)null);
+    }
+
     public Form(String id) {
-        this.id = id;
+        this.id = id == null ? Ext.generateId() : id;
         FormConfig fconfig = new FormConfig();
-        createElement(id, fconfig);
+        createElement(this.id, fconfig);
         setJsObj(create(fconfig.getJsObj()));
         RootPanel.get().add(this);
     }
 
+    public Form(FormConfig config) {
+        this(null, config);
+    }
+
     public Form(String id, FormConfig config) {
-        this.id = id;
-        createElement(id, config);
+        this.id = (id == null) ? Ext.generateId() : id;
+        createElement(this.id, config);
         setJsObj(create(config.getJsObj()));
         RootPanel.get().add(this);
         if (config.getFormListener() != null) {
@@ -200,6 +209,14 @@ public class Form extends BaseExtWidget {
         form.end();
     }-*/;
 
+
+    public void fieldset(final String legend) {
+        fieldset(new FieldSetConfig() {
+            {
+                setLegend(legend);
+            }
+        });
+    }
 
     public native void fieldset(FieldSetConfig config)/*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

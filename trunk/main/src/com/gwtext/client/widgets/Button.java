@@ -26,10 +26,18 @@ import com.gwtext.client.widgets.event.ButtonListener;
 
 public class Button extends RequiredElementWidget {
 
+    public Button(final String text) {
+        this(new ButtonConfig() {
+            {
+                setText(text);
+            }
+        });
+    }
+
     public Button(ButtonConfig config) {
         this(Ext.generateId(), config);
     }
-    
+
     public Button(String id, ButtonConfig config) {
         super(id, config);
         if (config.getButtonListener() != null) {

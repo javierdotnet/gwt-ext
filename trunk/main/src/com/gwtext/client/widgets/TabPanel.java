@@ -25,9 +25,14 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.event.TabPanelListener;
 
 public class TabPanel extends BaseExtWidget {
+
+    public TabPanel() {
+        this(Ext.generateId());
+    }
 
     public TabPanel(String id) {
         RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
@@ -119,6 +124,10 @@ public class TabPanel extends BaseExtWidget {
         tp.activate(tabIndex);
     }-*/;
 
+    public TabPanelItem addTab(String label, boolean closable) {
+        return addTab(Ext.generateId(), label, closable);
+    }
+    
     public TabPanelItem addTab(String id, String label, boolean closable) {
         return new TabPanelItem(createTabPanelItem(jsObj, id, label, closable));
     }
@@ -138,6 +147,11 @@ public class TabPanel extends BaseExtWidget {
         tp.autoSizeTabs();
     }-*/;
 
+    public native void beginUpdate() /*-{
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.beginUpdate();
+    }-*/;
+        
     public native void destroy() /*-{
         var tb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tb.destroy();
@@ -168,6 +182,11 @@ public class TabPanel extends BaseExtWidget {
         tp.enableTab(tabIndex);
     }-*/;
 
+    public native void endUpdate() /*-{
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tp.endUpdate();
+    }-*/;
+    
     public TabPanelItem getActiveTab() {
         return new TabPanelItem(getActiveTab(jsObj));
     }

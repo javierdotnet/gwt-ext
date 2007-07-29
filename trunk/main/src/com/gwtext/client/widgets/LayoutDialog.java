@@ -169,6 +169,24 @@ public class LayoutDialog extends BaseExtWidget {
         return layoutDialog.getLayout();
     }-*/;
 
+    public native ExtElement getHeaderEl()/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var header = dialog.header;
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(header);
+    }-*/;
+
+    public native ExtElement getBodyEl()/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var body = dialog.body;
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(body);
+    }-*/;
+
+    public native ExtElement getFooterEl()/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var footer = dialog.footer;
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(footer);
+    }-*/;
+
     public native TabPanel getTabs()/*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var tabs = dialog.getTabs();

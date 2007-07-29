@@ -98,6 +98,19 @@ public class LayoutRegion extends JsObject {
         return panel == null || panel === undefined ? null : @com.gwtext.client.widgets.layout.ContentPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
     }-*/;
 
+    public native int getNumPanels()/*-{
+        var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
+        return layoutRegion.panels.getCount();
+    }-*/;
+
+    public void removeAll() {
+        int numPanels  = getNumPanels();
+        for(int i =0;i< numPanels; i++) {
+            ContentPanel cp = getPanel(0);
+            remove(cp.getId(), true);
+        }
+    }
+
     public native ContentPanel getPanel(String contentPanelId)/*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
         var panel = layoutRegion.getPanel(contentPanelId);
@@ -160,16 +173,14 @@ public class LayoutRegion extends JsObject {
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
         layoutRegion.remove(contentPanelId, preservePanel);
     }-*/;
-    
-    public native void remove(int index)/*-{
-        var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
-        layoutRegion.remove(index);
-    }-*/;
 
-    public native void remove(int index, boolean preservePanel)/*-{
-        var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
-        layoutRegion.remove(index, preservePanel);
-    }-*/;
+    //Not exposing as remove by index is a dangerous operaton since everytime
+    //an element is removed, the size of the udnerlying array reduces and the subsequent call for remove
+    //is not in sync with array index. ie remove(0), remove(1), remove (2)
+    //would results in the array size changeing from [a, b, c] => [b] ie second call of remove(1) removes
+    // element 'c' and not 'b' because new array after remove(0) is [b, c]
+    //public native void remove(int index)
+
 
     public native void resizeTo(int newSize)/*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;

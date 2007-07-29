@@ -26,10 +26,8 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtext.client.core.ExtElement;
-import com.gwtext.client.core.UpdateManager;
-import com.gwtext.client.core.UpdateManagerConfig;
-import com.gwtext.client.core.UrlLoadCallback;
+import com.gwtext.client.core.*;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Toolbar;
 import com.gwtext.client.widgets.layout.event.ContentPanelListener;
 
@@ -37,7 +35,8 @@ public class ContentPanel extends ComplexPanel {
 
     protected JavaScriptObject jsObj;
 
-    protected ContentPanel() {
+    public ContentPanel() {
+        this(null, (String) null);
     }
 
     public ContentPanel(String id) {
@@ -56,11 +55,13 @@ public class ContentPanel extends ComplexPanel {
         if (config == null) {
             config = new ContentPanelConfig();
         }
-        config.setAutoCreate(true);
+        JavaScriptObjectHelper.setAttribute(config.getJsObj(), "autoCreate", true);
         if (title != null) config.setTitle(title);
 
+        //TODO handle attaching ContentPanel to existing elements
         Element div = DOM.createDiv();
         setElement(div);
+        if (id == null) id = Ext.generateId();
         DOM.setElementProperty(div, "id", id);
         Element content = DOM.createDiv();
         String contentID = id + "-content";
@@ -84,7 +85,53 @@ public class ContentPanel extends ComplexPanel {
             DOM.insertChild(getElement(), toolbar.getElement(), 0);
         }
     }
-    
+
+    public native void purgeListeners() /*-{
+        var cp = this.@com.gwtext.client.widgets.layout.ContentPanel::jsObj;
+        cp.purgeListeners();
+    }-*/;
+
+    /*
+       Supports attaching ContentPanel to existing element. Existing element "becomes" this ContentPanel.
+       Frame frame = new Frame(sourceUrl);
+       frame.setHeight("100%");
+       frame.setWidth("100%");
+       RootPanel.get().add(frame);
+       ContentPanel cp = new ContentPanel(frame, "Source", new ContentPanelConfig() {
+           {
+               setFitToFrame(true);
+           }
+       });
+    */
+    public ContentPanel(Widget container, String title, ContentPanelConfig config) {
+        if (config == null) {
+            config = new ContentPanelConfig();
+        }
+        JavaScriptObjectHelper.setAttribute(config.getJsObj(), "autoCreate", true);
+        if (title != null) config.setTitle(title);
+
+        jsObj = create(container.getElement(), config.getJsObj());
+        setElement(getElement(jsObj));
+
+        if (config.getContentPanelListener() != null) {
+            addContentPanelListener(config.getContentPanelListener());
+        }
+
+        Toolbar toolbar = config.getToolbar();
+        if (toolbar != null) {
+            DOM.insertChild(getElement(), toolbar.getElement(), 0);
+        }
+    }
+
+    private native Element getElement(JavaScriptObject jsObj) /*-{
+        var el = jsObj.el;
+        if(el === undefined) {
+            return null;
+        } else {
+             return el.dom;
+        }
+    }-*/;
+
     protected ContentPanel(JavaScriptObject jsObj) {
         this.jsObj = jsObj;
     }
@@ -100,6 +147,10 @@ public class ContentPanel extends ComplexPanel {
     public void setJsObj(JavaScriptObject jsObj) {
         this.jsObj = jsObj;
     }
+
+    protected static native JavaScriptObject create(Element container, JavaScriptObject config)/*-{
+        return new $wnd.Ext.ContentPanel(container, config);
+    }-*/;
 
     protected static native JavaScriptObject create(String id, JavaScriptObject config)/*-{
         return new $wnd.Ext.ContentPanel(id, config);
@@ -119,7 +170,7 @@ public class ContentPanel extends ComplexPanel {
     }
 
     private static native JavaScriptObject getEl(JavaScriptObject contentPanel)/*-{
-        return this.getEl();
+        return contentPanel.getEl();
     }-*/;
 
     public native String getId()/*-{
@@ -138,7 +189,8 @@ public class ContentPanel extends ComplexPanel {
     }
 
     private static native JavaScriptObject getToolbar(JavaScriptObject contentPanel) /*-{
-        return contentPanel.getToolbar();
+        var tb = contentPanel.getToolbar();
+        return tb == null || tb === undefined ? null : tb;
     }-*/;
 
     public UpdateManager getUpdateManager() {
@@ -190,7 +242,7 @@ public class ContentPanel extends ComplexPanel {
     }-*/;
 
     public void setUrl(String url, UpdateManagerConfig params, boolean loadOnce) {
-        setUrl(jsObj, url, params.getJsObj(), loadOnce);
+        setUrl(jsObj, url, params == null ? null : params.getJsObj(), loadOnce);
     }
 
     private static native void setUrl(JavaScriptObject contentPanel, String url, JavaScriptObject params, boolean loadOnce) /*-{

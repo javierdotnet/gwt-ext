@@ -32,6 +32,30 @@ public class UpdateManager extends JsObject {
         return new UpdateManager(jsObj);
     }
 
+    public static native void setDefaultTimeout(int timeout)/*-{
+        $wnd.Ext.UpdateManager.defaults.timeout = timeout;
+    }-*/;
+
+    public static native void setDefaultLoadScripts(boolean loadScripts)/*-{
+        $wnd.Ext.UpdateManager.defaults.loadScripts = loadScripts;
+    }-*/;
+
+    public static native void setDefaultSslBlankUrl(String sslBlankUrl)/*-{
+        $wnd.Ext.UpdateManager.defaults.sslBlankUrl = sslBlankUrl;
+    }-*/;
+
+    public static native void setDefaultDisableCaching(boolean disableCaching)/*-{
+        $wnd.Ext.UpdateManager.defaults.disableCaching = disableCaching;
+    }-*/;
+
+    public static native void setDefaultShowLoadIndicator(boolean showLoadIndicator)/*-{
+        $wnd.Ext.UpdateManager.defaults.showLoadIndicator = showLoadIndicator;    
+    }-*/;
+
+    public static native void setDefaultIndicatorText(String indicatorText)/*-{
+        $wnd.Ext.UpdateManager.defaults.indicatorText = indicatorText;
+    }-*/;
+
     public native void abort() /*-{
         var um = this.@com.gwtext.client.core.JsObject::jsObj;
         um.abort();

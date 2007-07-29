@@ -42,10 +42,6 @@ public class ContentPanelConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "adjustments", adjustments);
     }
 
-    public void setAutoCreate(boolean autoCreate) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);
-    }
-
     public void setAutoScroll(boolean autoScroll) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoScroll", autoScroll);
     }
@@ -84,8 +80,8 @@ public class ContentPanelConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "params", paramObj);
     }
 
-    public void setResizeEl(String id) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
+    public void setResizeEl(String resizeEl) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "resizeEl", resizeEl);
     }
 
     public void setTitle(String value) {

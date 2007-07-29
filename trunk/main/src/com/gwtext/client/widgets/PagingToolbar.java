@@ -23,6 +23,7 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.data.Store;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class PagingToolbar extends Toolbar {
 
@@ -33,4 +34,32 @@ public class PagingToolbar extends Toolbar {
     private native JavaScriptObject create(JavaScriptObject container, JavaScriptObject store, JavaScriptObject config) /*-{
         return new $wnd.Ext.PagingToolbar(container, store, config);
     }-*/;
+
+    public void setAfterPageText(String afterPageText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "afterPageText", afterPageText);
+    }
+
+    public void setBeforePageText(String beforePageText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "beforePageText", beforePageText);
+    }
+
+    public void setFirstText(String firstText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "firstText", firstText);
+    }
+
+    public void setLastText(String lastText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "lastText", lastText);
+    }
+
+    public void setNextText(String nextText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "nextText", nextText);
+    }
+
+    public void setPrevText(String prevText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "prevText", prevText);
+    }
+
+    public void setRefreshText(String refreshText) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "refreshText", refreshText);
+    }                                    
 }

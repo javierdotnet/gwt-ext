@@ -61,6 +61,11 @@ public class FormConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "fileUpload", fileUpload);
     }
 
+    //http://extjs.com/forum/archive/index.php/t-7316.html
+    public void setHideLabels(boolean hideLabels) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "hideLabels", hideLabels);
+    }
+
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }

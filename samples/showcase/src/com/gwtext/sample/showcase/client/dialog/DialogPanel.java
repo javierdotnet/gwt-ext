@@ -133,14 +133,12 @@ public class DialogPanel extends Composite {
         layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), "The First Tab"));
         layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
             {
-                setAutoCreate(true);
                 setTitle("Another Tab");
                 setBackground(true);
             }
         }));
         layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
             {
-                setAutoCreate(true);
                 setTitle("Third Tab");
                 setClosable(true);
                 setBackground(true);

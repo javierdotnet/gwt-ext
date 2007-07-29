@@ -33,7 +33,7 @@ public class Field extends Component {
     }
 
     public Field(FieldConfig config) {
-        setJsObj(create(config.getJsObj()));
+        setJsObj(create(config.getJsObj()));        
         if (config.getFieldListener() != null) {
             addFieldListener(config.getFieldListener());
         }
@@ -64,6 +64,11 @@ public class Field extends Component {
         }
         applyTo(jsObj, id);
     }
+
+    public native void applyTo(Element element) /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.applyTo(element);
+    }-*/;
 
     private native void applyTo(JavaScriptObject field, String id) /*-{
         field.applyTo(id);

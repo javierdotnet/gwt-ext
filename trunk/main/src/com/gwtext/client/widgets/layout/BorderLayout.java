@@ -45,7 +45,6 @@ public class BorderLayout extends BaseExtWidget {
         setHeight(height);
         setWidth(width);
         RootPanel.get().add(this);
-
         jsObj = createBorderLayout(getElement(), north, south, west, east, center);
     }
 
@@ -72,6 +71,10 @@ public class BorderLayout extends BaseExtWidget {
         return hasContentPanel;
     }
 
+    public void add(ContentPanel contentPanel) {
+        add(LayoutRegionConfig.CENTER, contentPanel);
+    }
+    
     /**
      * add content to target region as a widget. The contentId has to be a unique value.
      * This takes config parameters as an object which let you have more control over the
@@ -151,6 +154,14 @@ public class BorderLayout extends BaseExtWidget {
     public native void layout()/*-{
         var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         layout.layout();
+    }-*/;
+
+    public void remove(LayoutRegionConfig.LayoutRegionConstant direction, int index) {
+        remove(jsObj, direction.getDirection(), index);
+    }
+
+    private native void remove(JavaScriptObject borderLayout, String regionId, int index) /*-{
+        borderLayout.remove(regionId, index);
     }-*/;
 
     /**

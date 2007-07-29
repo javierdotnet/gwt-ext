@@ -20,6 +20,7 @@
 
 package com.gwtext.client.widgets.form;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.util.JavaScriptObjectHelper;
@@ -28,6 +29,7 @@ import com.gwtext.client.widgets.form.event.ComboBoxListener;
 public class ComboBoxConfig extends TriggerFieldConfig {
 
     private ComboBoxListener comboBoxListener;
+    private String displayField;
 
     public void setAllQuery(String allQuery) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allQuery", allQuery);
@@ -35,7 +37,17 @@ public class ComboBoxConfig extends TriggerFieldConfig {
 
     public void setDisplayField(String displayField) {
         JavaScriptObjectHelper.setAttribute(jsObj, "displayField", displayField);
+        JavaScriptObject store = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(jsObj, "store");
+        if(store != null) {
+            setFilterColParam(store, displayField);
+        } else {
+            this.displayField = displayField;
+        }
     }
+
+    private native void setFilterColParam(JavaScriptObject store, String displayField) /*-{
+        store.baseParams = {filterCol:displayField};
+    }-*/;
 
     public void setEditable(boolean editable) {
         JavaScriptObjectHelper.setAttribute(jsObj, "editable", editable);
@@ -106,7 +118,6 @@ public class ComboBoxConfig extends TriggerFieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "resizable", resizable);
     }
 
-
     public void setSelectedClass(String selectedClass) {
         JavaScriptObjectHelper.setAttribute(jsObj, "selectedClass", selectedClass);
     }
@@ -122,6 +133,14 @@ public class ComboBoxConfig extends TriggerFieldConfig {
     //todo not doced by ext
     public void setStore(Store store) {
         JavaScriptObjectHelper.setAttribute(jsObj, "store", store.getJsObj());
+        if(displayField != null) {
+            setFilterColParam(store.getJsObj(), displayField);
+        }
+    }
+
+    //todo not doced by ext
+    public void setTitle(String title) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "title", title);
     }
 
     //todo not doced by ext

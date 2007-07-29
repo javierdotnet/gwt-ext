@@ -95,6 +95,11 @@ public abstract class BaseExtWidget extends Widget {
         return isVisible(getElement());
     }
 
+    public native void purgeListeners() /*-{
+        var widget = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        widget.purgeListeners();
+    }-*/;
+        
     public void setHeight(String height) {
         // This exists to deal with an inconsistency in IE's implementation where
         // it won't accept negative numbers in length measurements

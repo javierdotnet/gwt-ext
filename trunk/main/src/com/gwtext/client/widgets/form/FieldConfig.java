@@ -34,8 +34,16 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
     }
 
+    public String getId() {
+        return JavaScriptObjectHelper.getAttribute(jsObj, "id");
+    }
+
     public void setAutoCreate(boolean autoCreate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoCreate", autoCreate);
+    }
+
+    public boolean isAutoCreate() {
+        return  JavaScriptObjectHelper.getAttributeAsBoolean(jsObj, "autoCreate");
     }
 
     public void setAutoCreate(String autoCreate) {

@@ -45,9 +45,14 @@ public class Record extends JsObject {
         return record.dirty;
     }-*/;
 
+    //todo throw exception if field is invalid as opposed to null value for field?
+    //throw new Error("JS Error Object");
     public native String getAsString(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        return record.get(field).toString();
+        var value = record.get(field);
+        //todo?
+        //if (value === undefined) throw new Error("Invalid field " + field);
+        return (value === undefined || value == null ) ? null : value.toString();
     }-*/;
 
     public native void set(String field, String value) /*-{
@@ -57,7 +62,8 @@ public class Record extends JsObject {
 
     public native int getAsInteger(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        return record.get(field);
+        var value =  record.get(field);
+        return (value === undefined || value == null ) ? 0 : value;
     }-*/;
 
     public native void set(String field, int value) /*-{
@@ -67,7 +73,8 @@ public class Record extends JsObject {
 
     public native float getAsFloat(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        return record.get(field);
+        var value = record.get(field);
+        return (value === undefined || value == null ) ? null : value;
     }-*/;
 
     public native void set(String field, float value) /*-{
@@ -77,7 +84,8 @@ public class Record extends JsObject {
 
     public native double getAsDouble(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        return record.get(field);
+        var value = record.get(field);
+        return (value === undefined || value == null ) ? null : value;
     }-*/;
 
     public native void set(String field, double value) /*-{
@@ -86,8 +94,9 @@ public class Record extends JsObject {
     }-*/;
 
     public native boolean getAsBoolean(String field) /*-{
-            var record = this.@com.gwtext.client.core.JsObject::jsObj;
-            return record.get(field);
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var value = record.get(field);
+        return (value === undefined || value == null) ? false : value;
     }-*/;
 
     public native void set(String field, boolean value) /*-{
@@ -116,5 +125,4 @@ public class Record extends JsObject {
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         record.reject();
     }-*/;
-
 }

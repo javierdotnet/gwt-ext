@@ -80,6 +80,10 @@ public class TextFieldConfig extends FieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "minLengthText", minLengthText);
     }
 
+    public void setPassword(boolean password) {
+        if(password) setInputType("password");
+    }
+            
     public void setRegex(String regex) {
         setRegex(jsObj, regex);
     }

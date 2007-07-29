@@ -176,7 +176,7 @@ public class JavaScriptObjectHelper {
 
     public static native boolean getAttributeAsBoolean(JavaScriptObject elem, String attr) /*-{
 	    var ret = elem[attr];
-	    return (ret === undefined) ? null : ret;
+	    return (ret === undefined) ? false : ret;
     }-*/;
 
     public static JavaScriptObject[] listToArray(List list) {

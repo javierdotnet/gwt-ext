@@ -30,7 +30,7 @@ public class MemoryProxy extends DataProxy {
         jsObj = create(JavaScriptObjectHelper.convertToJavaScriptArray(data));
     }
 
-    private static native JavaScriptObject create(JavaScriptObject data) /*-{
+    protected native JavaScriptObject create(JavaScriptObject data) /*-{
         return new $wnd.Ext.data.MemoryProxy(data);
     }-*/;
 }

@@ -18,13 +18,12 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 === General Widgets and support classes ===
 || *Class* || *Status*||
 || Editor || ||
-|| JsonView || ||
+|| JsonView || 90% complete ||
 || MasterTemplate || ||
 || SplitBar || ||
-|| View || ||
+|| View || 90% complete ||
 
 === Utility classes ===
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
-

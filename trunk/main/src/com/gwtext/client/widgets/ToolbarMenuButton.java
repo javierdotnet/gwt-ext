@@ -36,6 +36,12 @@ import java.util.List;
 //ie. after it has been added to the toolbar
 public class ToolbarMenuButton extends SplitButton {
 
+    // Unlike the Button class, these classes do not take an 'id' in thier constructors and
+    // their creation is controlled by the toobar. As a result in order to set and id for these
+    // instead of the Ext generated id's, locally store the id and after the ToolbarButton or
+    // ToolbarMenuButton is create when Toolbar#addButton(ToolbarButton button) or
+    // addButton(ToolbarMenuButton button) is called, manually set the id of the button    
+    private String id;
     private boolean rendered;
     private List menuButtonListeners;
     private List buttonListeners;
@@ -45,11 +51,20 @@ public class ToolbarMenuButton extends SplitButton {
     }
 
     public ToolbarMenuButton(String label, Menu menu) {
-        this(label, menu, new SplitButtonConfig());
+        this(null, label, menu);
+    }
+
+    public ToolbarMenuButton(String id, String label, Menu menu) {
+        this(id, label, menu, new SplitButtonConfig());
     }
 
     public ToolbarMenuButton(String label, Menu menu, SplitButtonConfig config) {
+        this(null, label, menu, config);
+    }
+
+    public ToolbarMenuButton(String id, String label, Menu menu, SplitButtonConfig config) {
         super(null, config);
+        this.id = id;
         JavaScriptObjectHelper.setAttribute(config.getJsObj(), "menu", menu.getJsObj());
         if (label != null) JavaScriptObjectHelper.setAttribute(config.getJsObj(), "text", label);
         jsObj = create(null, config.getJsObj());
@@ -64,6 +79,10 @@ public class ToolbarMenuButton extends SplitButton {
     protected native JavaScriptObject create(String id, JavaScriptObject config) /*-{
         return new $wnd.Ext.Toolbar.MenuButton(config);
     }-*/;
+
+    String getId() {
+        return id;
+    }
 
     void registerEventHandlers() {
         for (Iterator iterator = menuButtonListeners.iterator(); iterator.hasNext();) {

@@ -106,7 +106,7 @@ public class TextFieldConfig extends FieldConfig {
 
     private native void setValidator(JavaScriptObject config, Validator validator) /*-{
         config['validator'] = function(value) {
-            return this.@com.gwtext.client.widgets.form.Validator::validate(Ljava/lang/String;)(value);
+            return validator.@com.gwtext.client.widgets.form.Validator::validate(Ljava/lang/String;)(value);
         }
     }-*/;
 

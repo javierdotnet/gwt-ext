@@ -47,9 +47,9 @@ public class JavaScriptObjectHelper {
 	    return (ret === undefined) ? null : ret;
     }-*/;
 
-    public static native JavaScriptObject[] getAttributeAsJavaScriptObjectArray(JavaScriptObject elem, String attr) /*-{
-	    var ret = elem[attr];
-	    return (ret === undefined) ? null : ret;
+    public static native JavaScriptObject[] getAttributeAsJavaScriptObjectArray(JavaScriptObject elem, String attr) /*-{        
+        var arrayJS = elem[attr];
+	    return (arrayJS === undefined) ? null : @com.gwtext.client.util.JavaScriptObjectHelper::toArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrayJS);
     }-*/;
 
     public static JavaScriptObject[] toArray(JavaScriptObject array) {

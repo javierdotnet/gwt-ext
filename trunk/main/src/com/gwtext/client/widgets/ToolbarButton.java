@@ -34,6 +34,12 @@ import java.util.List;
 //ie. after it has been added to the toolbar
 public class ToolbarButton extends Button {
 
+    // Unlike the Button class, these classes do not take an 'id' in thier constructors and 
+    // their creation is controlled by the toobar. As a result in order to set and id for these
+    // instead of the Ext generated id's, locally store the id and after the ToolbarButton or
+    // ToolbarMenuButton is create when Toolbar#addButton(ToolbarButton button) or
+    // addButton(ToolbarMenuButton button) is called, manually set the id of the button
+    private String id;
     private boolean rendered;
     private List listeners;
 
@@ -42,12 +48,21 @@ public class ToolbarButton extends Button {
     }
 
     public ToolbarButton(String label, ButtonConfig config) {
+        this(null, label, config);
+    }
+
+    public ToolbarButton(String id, String label, ButtonConfig config) {
         super(null, config);
+        this.id = id;
         if (label != null) JavaScriptObjectHelper.setAttribute(config.getJsObj(), "text", label);
         jsObj = create(null, config.getJsObj());
         if (listeners == null) {
             listeners = new ArrayList();
         }
+    }
+
+    String getId() {
+        return id;
     }
 
     protected native JavaScriptObject create(String id, JavaScriptObject config) /*-{

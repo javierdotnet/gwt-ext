@@ -55,8 +55,8 @@ public abstract class BaseExtWidget extends Widget {
     //jsObj.el.dom is the DOM Element of the widget
     private native Element getElement(JavaScriptObject jsObj) /*-{
         var el = jsObj.el;
-        if(el === undefined) {
-            return null;
+        if(el == null || el === undefined) {
+            throw new Error('Widget ' + jsObj + ' has no element property set');
         } else {
             //There's an inconsistency in Ext where most elements have the property 'el' set to Ext's Element
             //with the exception of Menu->Item, Menu->Separator, Menu->TextItem,  Toolbar.Item and subclasses

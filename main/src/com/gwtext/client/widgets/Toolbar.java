@@ -52,19 +52,25 @@ public class Toolbar extends RequiredElementWidget {
     }-*/;
 
     public void addButton(ToolbarButton button) {
-        addButton(jsObj, button.getJsObj());
+        addButton(jsObj, button.getJsObj(), button.getId());
         button.registerEventHandlers();
         button.setRendered(true);
     }
 
     public void addButton(ToolbarMenuButton button) {
-        addButton(jsObj, button.getJsObj());
+        addButton(jsObj, button.getJsObj(), button.getId());
         button.registerEventHandlers();
         button.setRendered(true);
     }
 
-    private native void addButton(JavaScriptObject toolbar, JavaScriptObject button) /*-{
-        toolbar.addButton(button);
+    private native void addButton(JavaScriptObject toolbar, JavaScriptObject button, String id) /*-{
+        var btn = toolbar.addButton(button);
+        var btnEl = btn.el.child("button:first");
+        //set the button id's now that the buttons have been rendered to the DOM by the toolbar
+        if(id != null) {
+            btnEl.id = id;
+            btnEl.dom.id = id;
+        }
     }-*/;
 
     public native void addElement(String html) /*-{

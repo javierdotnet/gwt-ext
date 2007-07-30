@@ -58,7 +58,11 @@ public abstract class BaseExtWidget extends Widget {
         if(el === undefined) {
             return null;
         } else {
-             return el.dom;
+            //There's an inconsistency in Ext where most elements have the property 'el' set to Ext's Element
+            //with the exception of Menu->Item, Menu->Separator, Menu->TextItem,  Toolbar.Item and subclasses
+            //(Toolbar.Separator, Toolbar.Spacer, Toolbar.TextItem) where the 'el' property is set to
+            //the DOM element itself. Therefore retruning 'el' if 'el' is not Ext's Element. See details in issue 39.
+             return el.dom || el ;
         }
     }-*/;
 
@@ -135,6 +139,7 @@ public abstract class BaseExtWidget extends Widget {
                 "CSS widths should not be negative";
         DOM.setStyleAttribute(getElement(), "width", width);
     }
+
 
     public String toString() {
         if (getElement() == null) {

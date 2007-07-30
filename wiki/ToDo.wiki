@@ -1,7 +1,10 @@
 #labels Featured
 == Ext API's that have still to be covered ==
 
-Here's a list of known API's that are missing or incomplete. I have already completed some of them and will make them available in the next build after I do some testing. I'll update this page as each item gets complete.
+*The list has been updated to reflect the API's remaining with the GWT 0.9.1 release. The complete list of API changes from GWT-Ext 0.9 to 0.9.1 can be found [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9-0.9.1/changes.html here]*
+
+
+Here's a list of known API's that are missing or incomplete. I'll update this page as each item gets complete.
 
 === Drag and Drop Package ===
 
@@ -11,30 +14,17 @@ Here's a list of known API's that are missing or incomplete. I have already comp
 || *Class* || *Status*||
 || TreeEditor || ||
 || TreeSorter || ||
-|| TreeNodeUI || ||
 
 === General Widgets and support classes ===
 || *Class* || *Status*||
-|| CompositeElement || *Completed 07/22* ||
-|| CompositeElementLite || *Completed 07/22* ||
 || Editor || ||
-|| Ext || some methods missing ||
-|| ExtElement || *Completed 07/21* ||
-|| Fx || *Completed 07/21* ||
 || JsonView || ||
-|| KeyMap || *Completed 07/21* ||
-|| KeyNav || *Completed 07/21* ||
-|| Layer || *Completed 07/21* ||
-|| LoadMask || *Completed 07/21* ||
 || MasterTemplate || ||
-|| MessageBox || *Completed 07/09* ||
 || SplitBar || ||
-|| View || *Completed 07/22* ||
-|| DateUtil || *Completed 07/22* ||
-|| UpdateManager || some methods missing ||
-
+|| View || ||
 
 === Utility classes ===
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
+

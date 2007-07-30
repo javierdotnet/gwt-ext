@@ -70,6 +70,7 @@ public class Node extends JsObject {
 
     public Node[] getChildNodes() {
         JavaScriptObject[] jsNodes = JavaScriptObjectHelper.getAttributeAsJavaScriptObjectArray(jsObj, "childNodes");
+        if(jsNodes == null) return null;
         Node[] nodes = new Node[jsNodes.length];
         for (int i = 0; i < jsNodes.length; i++) {
             JavaScriptObject jsNode = jsNodes[i];

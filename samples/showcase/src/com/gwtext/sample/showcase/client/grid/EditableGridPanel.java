@@ -137,7 +137,7 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 
         VerticalPanel vp = createPanel();
         vp.add(new HTML("<h1>Editor Grid Example</h1>"));
-        vp.add(new HTML("<p>This example shows how to create a grid with inline editing.</p>"));
+        vp.add(new HTML("<p>This example shows how to create a grid with inline editing. Try double clicking on the table cells.</p>"));
 
         vp.add(grid);
         vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);

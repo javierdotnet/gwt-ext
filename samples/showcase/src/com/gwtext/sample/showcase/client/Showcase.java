@@ -76,7 +76,7 @@ public class Showcase implements EntryPoint {
 
         DockPanel dock = new DockPanel();
         dock.setVerticalAlignment(DockPanel.ALIGN_MIDDLE);
-        dock.add(new HTML("<h3> GWT-Ext 0.9.1 Showcase</h3>"), DockPanel.WEST);
+        dock.add(new HTML("<h3><a href='http://code.google.com/p/gwt-ext/' style='color:#333333;text-decoration:none;'>GWT-Ext 0.9.1 Showcase</a></h3>"), DockPanel.WEST);
 
         Form themeForm = new Form();
         final Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
@@ -87,6 +87,7 @@ public class Showcase implements EntryPoint {
 
         ComboBox themeCb = new ComboBox(new ComboBoxConfig() {
             {
+                setEditable(false);
                 setStore(store);
                 setDisplayField("label");
                 setForceSelection(true);

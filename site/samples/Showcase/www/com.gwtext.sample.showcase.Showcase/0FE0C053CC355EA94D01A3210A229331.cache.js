@@ -1458,7 +1458,7 @@ _=C3.prototype=new lqb();_.Af=E3;_.mi=jxb+'KeyListenerDialogPanel$4';_.li=0;func
 function c4(a,b){this.a.Bh(mE(a));}
 function F3(){}
 _=F3.prototype=new cL();_.hf=c4;_.mi=jxb+'KeyListenerDialogPanel$5';_.li=197;function k5(){return 'dialog/LayoutDialogPanel.java.html';}
-function l5(){var a,b,c,d,e,f,g;g=j4(new h4(),this);b=n4(new l4(),this);c=mG(new EF(),r4(new p4(),this),null,null,g,null,b);f=c.p('Save');f.n(new t4());nG(c,oF(new BE(),'cancel',y4(new w4(),this)));d=pG(c);dT(d);cT(d,(nU(),CU),zT(new nT(),ux(),'West'));cT(d,(nU(),AU),xT(new nT(),'The First Tab'));cT(d,(nU(),AU),yT(new nT(),ux(),F4(new D4(),this)));cT(d,(nU(),AU),yT(new nT(),ux(),d5(new b5(),this)));fT(d);a=nF(new BE(),'Click Me!');a.n(g5(new f5(),this,c));e=r0(this);Fq(e,nn(new xl(),'<h1>Layout Dialog<\/h1>'));Fq(e,nn(new xl(),'<p>This example shows how to a dialog with a layout<\/p>'));Fq(e,a);return e;}
+function l5(){var a,b,c,d,e,f,g;g=j4(new h4(),this);b=n4(new l4(),this);c=mG(new EF(),r4(new p4(),this),null,null,g,null,b);f=c.p('Save');f.n(new t4());nG(c,oF(new BE(),'cancel',y4(new w4(),this)));d=pG(c);dT(d);cT(d,(nU(),CU),zT(new nT(),ux(),'West'));cT(d,(nU(),AU),zT(new nT(),ux(),'The First Tab'));cT(d,(nU(),AU),yT(new nT(),ux(),F4(new D4(),this)));cT(d,(nU(),AU),yT(new nT(),ux(),d5(new b5(),this)));fT(d);a=nF(new BE(),'Click Me!');a.n(g5(new f5(),this,c));e=r0(this);Fq(e,nn(new xl(),'<h1>Layout Dialog<\/h1>'));Fq(e,nn(new xl(),'<p>This example shows how to a dialog with a layout<\/p>'));Fq(e,a);return e;}
 function g4(){}
 _=g4.prototype=new m0();_.yd=k5;_.ce=l5;_.mi=jxb+'LayoutDialogPanel';_.li=198;function i4(a){{xU(a,true);uU(a,150);wU(a,100);vU(a,250);tU(a,true);pU(a,true);zU(a,true);}}
 function j4(b,a){mU(b);i4(b);return b;}

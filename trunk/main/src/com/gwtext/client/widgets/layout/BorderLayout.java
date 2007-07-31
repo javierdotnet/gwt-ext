@@ -73,6 +73,7 @@ public class BorderLayout extends BaseExtWidget {
 
     public void add(ContentPanel contentPanel) {
         add(LayoutRegionConfig.CENTER, contentPanel);
+        contentPanel.getEl().show(false);
     }
     
     /**

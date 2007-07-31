@@ -1,0 +1,42 @@
+
+<textarea name="code" class="java" style="display:none;">
+MemoryProxy proxy = new PagingMemoryProxy(SampleData.getCompanyData());
+RecordDef recordDef = new RecordDef(
+        new Field[]{
+                new StringField("company"),
+                new FloatField("price"),
+                new FloatField("change"),
+                new FloatField("pctChange"),
+                new DateField("lastChanged", "n/j h:ia")
+        }
+);
+
+ArrayReader reader = new ArrayReader(recordDef);
+final Store store = new Store(proxy, reader);
+store.load();
+
+Form form = new Form();
+ComboBox cb = new ComboBox(new ComboBoxConfig() {
+    {
+        setMinChars(1);
+        setFieldLabel("Company");
+        setStore(store);
+        setDisplayField("company");
+        setMode("local");
+        setTriggerAction("all");
+        setEmptyText("Enter company");
+        setLoadingText("Searching...");
+        setTypeAhead(true);
+        setSelectOnFocus(true);
+        setWidth(250);
+        setPageSize(10);
+    }
+});
+
+form.add(cb);
+form.render();
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

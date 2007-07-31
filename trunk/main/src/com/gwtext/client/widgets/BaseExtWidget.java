@@ -56,7 +56,9 @@ public abstract class BaseExtWidget extends Widget {
     private native Element getElement(JavaScriptObject jsObj) /*-{
         var el = jsObj.el;
         if(el == null || el === undefined) {
-            throw new Error('Widget ' + jsObj + ' has no element property set');
+            return null;
+            //forms buttons are detached when initially added
+            //throw new Error('Widget ' + jsObj + ' has no element property set');
         } else {
             //There's an inconsistency in Ext where most elements have the property 'el' set to Ext's Element
             //with the exception of Menu->Item, Menu->Separator, Menu->TextItem,  Toolbar.Item and subclasses

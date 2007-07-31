@@ -7,7 +7,7 @@
 
 /* Page background color */
 body { background: #CCFFFF url(background.gif); font-family: arial; }
-
+body  em { display : none; }
 /* Table colors */
 .TableHeadingColor     { background: #CCCCFF } /* Dark mauve */
 .TableSubHeadingColor  { background: #EEEEFF } /* Light mauve */

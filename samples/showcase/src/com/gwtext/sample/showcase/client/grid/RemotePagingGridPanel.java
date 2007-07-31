@@ -195,7 +195,7 @@ public class RemotePagingGridPanel extends ShowcaseExampleVSD {
     private void togglePreview(boolean pressed) {
         showPreview = pressed;
         grid.getColumnModel().setRenderer(0, getTopicRenderer());
-        grid.getColumnModel().setRenderer(3, getLastRenderer());
+        grid.getColumnModel().setRenderer(2, getLastRenderer());
         grid.getView().refresh();
     }
 

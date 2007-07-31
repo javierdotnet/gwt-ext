@@ -1,0 +1,34 @@
+
+<textarea name="code" class="java" style="display:none;">
+    final Store store = new SimpleStore(new String[]{"abbr", "country"}, SampleData.getCountries());
+
+    final Template template = new Template("<div class=\"x-combo-list-item\"><img src=\"images/flags/{abbr}.gif\"> " +
+            "{country}<div class=\"x-clear\"></div></div>");
+
+    Form form = new Form();
+
+    ComboBox cb = new ComboBox(new ComboBoxConfig() {
+        {
+            setMinChars(1);
+            setFieldLabel("Countries");
+            setStore(store);
+            setDisplayField("country");
+            setMode("local");
+            setTriggerAction("all");
+            setEmptyText("Select Country");
+            setTypeAhead(true);
+            setSelectOnFocus(true);
+            setWidth(200);
+            setResizable(true);
+            setTpl(template);
+            setTitle("Countries");
+        }
+    });
+
+    form.add(cb);
+    form.render();
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

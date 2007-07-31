@@ -29,7 +29,7 @@ import com.gwtext.client.widgets.UserObject;
 import java.util.Comparator;
 
 public class Node extends JsObject {
-
+   
     public Node(NodeConfig config) {
         jsObj = create(config.getJsObj());
     }
@@ -337,4 +337,20 @@ public class Node extends JsObject {
 					}
 		);
 	 }-*/;
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !(o instanceof Node)) return false;
+
+        Node node = (Node) o;
+        String id = getId();
+        String oid = node.getId();
+        if (id != null ? !id.equals(oid) : oid != null) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        String id = getId();
+        return (id != null ? id.hashCode() : 0);
+    }
 }

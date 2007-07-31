@@ -1,0 +1,62 @@
+
+<textarea name="code" class="java" style="display:none;">
+DataProxy dataProxy = new ScriptTagProxy("http://extjs.com/forum/topics-remote.php");
+
+JsonReader reader = new JsonReader(new JsonReaderConfig() {
+    {
+        setRoot("topics");
+        setTotalProperty("totalCount");
+        setId("post_id");
+    }
+}, new RecordDef(new Field[]{
+        new StringField("title", "topic_title"),
+        new StringField("topicId", "topic_id"),
+        new StringField("author", "author"),
+        new com.gwtext.client.data.DateField("lastPost", "post_time", "timestamp"),
+        new StringField("excerpt", "post_text")
+}));
+
+final Store store = new Store(dataProxy, reader);
+store.load();
+
+Form form = new Form(new FormConfig() {
+    {
+        setWidth(610);
+        setSurrondWithBox(true);
+        setHideLabels(true);
+        setHeader("Search the Ext Forums");
+    }
+});
+
+final Template resultTpl = new Template("<div class=\"search-item\"><h3><span>{lastPost:date(\"M j, Y\")}<br />" +
+                                            "by {author}</span>{title}</h3>{excerpt}</div>");
+ComboBox cb = new ComboBox(new ComboBoxConfig() {
+    {
+        setStore(store);
+        setDisplayField("title");
+        setTypeAhead(false);
+        setLoadingText("Searching...");
+        setWidth(570);
+        setPageSize(10);
+        setHideTrigger(true);
+        setTpl(resultTpl);
+        setMode("remote");
+        setTitle("ExtJS Forums");
+
+        setComboBoxListener(new ComboBoxListenerAdapter() {
+            public void onSelect(ComboBox comboBox, Record record, int index) {
+                String[] args = new String[]{record.getAsString("topicId"), record.getId()};
+                String url = Format.format("http://extjs.com/forum/showthread.php?t={0}&p={1}", args);
+                Window.open(url, "forum", "");
+            }
+        });
+    }
+});
+
+form.add(cb);
+form.render();
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

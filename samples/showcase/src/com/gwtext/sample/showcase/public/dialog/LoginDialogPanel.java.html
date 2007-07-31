@@ -1,0 +1,151 @@
+
+<textarea name="code" class="java" style="display:none;">
+LayoutRegionConfig center = new LayoutRegionConfig() {
+    {
+        setAutoScroll(true);
+        setTabPosition("top");
+        setCloseOnTab(true);
+        setAlwaysShowTabs(true);
+    }
+};
+
+final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
+    {
+        setModal(true);
+        setWidth(500);
+        setHeight(350);
+        setShadow(true);
+        setResizable(false);
+        setClosable(false);
+        setProxyDrag(true);
+        setTitle("Sign in");
+    }
+}, center);
+
+
+final BorderLayout layout = dialog.getLayout();
+layout.beginUpdate();
+
+ContentPanel signInPanel = new ContentPanel(Ext.generateId(), "Sign In");
+final Form signInForm = getSignInForm();
+
+VerticalPanel signInWrapper = new VerticalPanel() {
+    {
+        setSpacing(30);
+        setWidth("100%");
+        setHorizontalAlignment(VerticalPanel.ALIGN_CENTER);
+    }
+};
+signInWrapper.add(signInForm);
+
+signInPanel.add(signInWrapper);
+layout.add(LayoutRegionConfig.CENTER, signInPanel);
+
+ContentPanel registerPanel = new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
+    {
+        setTitle("Register");
+        setBackground(true);
+    }
+});
+
+final Form registerForm = getRegistrationForm();
+VerticalPanel registerWrapper = new VerticalPanel() {
+    {
+        setSpacing(30);
+        setWidth("100%");
+        setHorizontalAlignment(VerticalPanel.ALIGN_CENTER);
+    }
+};
+registerWrapper.add(registerForm);
+
+registerPanel.add(registerWrapper);
+layout.add(LayoutRegionConfig.CENTER, registerPanel);
+
+final Toolbar tb = new Toolbar("my-tb");
+tb.addButton(new ToolbarButton("About", new ButtonConfig()));
+tb.addSeparator();
+tb.addItem(new ToolbarTextItem("Copyright &copy; 2007"));
+
+ContentPanel infoPanel = new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
+    {
+        setTitle("Info");
+        setClosable(true);
+        setBackground(true);
+        setToolbar(tb);
+    }
+});
+infoPanel.setContent("<p>Some content goes here</p>");
+
+layout.add(LayoutRegionConfig.CENTER, infoPanel);
+layout.endUpdate();
+
+final Button signInBtn = dialog.addButton("Sign in");
+signInBtn.addButtonListener(new ButtonListenerAdapter() {
+    public void onClick(Button button, EventObject e) {
+        signInForm.submit();
+    }
+});
+
+final Button registerBtn = dialog.addButton("Register");
+registerBtn.addButtonListener(new ButtonListenerAdapter() {
+    public void onClick(Button button, EventObject e) {
+        registerForm.submit();
+    }
+});
+registerBtn.hide();
+
+dialog.addButton(new Button(new ButtonConfig() {
+    {
+        setText("Cancel");
+        setButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                signInForm.reset();
+                registerForm.reset();
+                dialog.hide();
+            }
+        });
+    }
+}));
+
+TabPanel tabPanel = layout.getRegion(LayoutRegionConfig.CENTER).getTabs();
+
+tabPanel.getTab(0).addTabPanelItemListener(new TabPanelItemListenerAdapter() {
+    public void onActivate(TabPanelItem tab) {
+        dialog.setTitle("Sign In");
+        registerBtn.hide();
+        signInBtn.show();
+    }
+});
+
+tabPanel.getTab(1).addTabPanelItemListener(new TabPanelItemListenerAdapter() {
+    public void onActivate(TabPanelItem tab) {
+        dialog.setTitle("Register");
+        signInBtn.hide();
+        registerBtn.show();
+        tab.getTextEl().highlight();
+    }
+});
+
+tabPanel.getTab(2).addTabPanelItemListener(new TabPanelItemListenerAdapter() {
+    public void onActivate(TabPanelItem tab) {
+        dialog.setTitle("Info");
+        registerBtn.hide();
+        signInBtn.hide();
+    }
+});
+
+Button button = new Button(new ButtonConfig() {
+    {
+        setText("Login / Register");
+    }
+});
+button.addButtonListener(new ButtonListenerAdapter() {
+    public void onClick(Button button, EventObject e) {
+        dialog.show(button.getEl());
+    }
+});
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

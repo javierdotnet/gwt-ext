@@ -62,7 +62,7 @@ public class ComboBoxPagingPanel extends ShowcaseExampleVSD {
                 setFieldLabel("Company");
                 setStore(store);
                 setDisplayField("company");
-                setMode("local");
+                setMode("remote");
                 setTriggerAction("all");
                 setEmptyText("Enter company");
                 setLoadingText("Searching...");

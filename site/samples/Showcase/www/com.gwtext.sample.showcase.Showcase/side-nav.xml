@@ -1,0 +1,41 @@
+<side-nav>
+
+    <node title="Dialogs">
+        <leaf title="Message Box and Progress"/>
+        <leaf title="Basic Dialog"/>
+        <leaf title="Layout Dialog"/>
+        <leaf title="Login Dialog"/>
+        <leaf title="Multiple Dialogs"/>
+    </node>
+
+    <node title="ComboBox">
+        <leaf title="Basic"/>
+        <leaf title="Compact"/>
+        <leaf title="Paging"/>
+        <leaf title="Styled"/>
+        <leaf title="Live Search"/>
+    </node>
+
+    <node title="Toolbar and Menus">
+        <leaf title="Toolbar and Menus"/>
+    </node>
+
+    <node title="Grids">
+        <leaf title="Basic Array Grid"/>
+        <leaf title="Editable Grid"/>
+        <leaf title="Grid with Remote Paging"/>
+    </node>
+
+    <node title="Forms">
+        <leaf title="Simple Form"/>
+        <leaf title="Multi-Column Form"/>
+        <leaf title="Multi-Column Fieldset Form"/>
+        <leaf title="Multi-Column Labels Top Form"/>
+        <leaf title="Load / Submit Xml Form"/>
+    </node>
+
+    <node title="Tab Panel">
+        <leaf title="Dynamic and Events"/>
+    </node>
+
+</side-nav>

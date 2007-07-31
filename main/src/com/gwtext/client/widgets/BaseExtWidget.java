@@ -103,7 +103,7 @@ public abstract class BaseExtWidget extends Widget {
         var widget = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         widget.purgeListeners();
     }-*/;
-        
+
     public void setHeight(String height) {
         // This exists to deal with an inconsistency in IE's implementation where
         // it won't accept negative numbers in length measurements
@@ -140,6 +140,17 @@ public abstract class BaseExtWidget extends Widget {
         DOM.setStyleAttribute(getElement(), "width", width);
     }
 
+    public boolean equals(Object obj) {
+        if (obj instanceof BaseExtWidget) {
+            return getElement().equals(((BaseExtWidget) obj).getElement());
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return getElement().hashCode();
+    }
 
     public String toString() {
         if (getElement() == null) {

@@ -103,14 +103,6 @@ public class LayoutRegion extends JsObject {
         return layoutRegion.panels.getCount();
     }-*/;
 
-    public void removeAll() {
-        int numPanels  = getNumPanels();
-        for(int i =0;i< numPanels; i++) {
-            ContentPanel cp = getPanel(0);
-            remove(cp.getId(), true);
-        }
-    }
-
     public native ContentPanel getPanel(String contentPanelId)/*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
         var panel = layoutRegion.getPanel(contentPanelId);
@@ -172,7 +164,20 @@ public class LayoutRegion extends JsObject {
     public native void remove(String contentPanelId, boolean preservePanel)/*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
         layoutRegion.remove(contentPanelId, preservePanel);
+        if(preservePanel) {
+            var el = $wnd.Ext.get(contentPanelId);
+            el.setVisibilityMode($wnd.Ext.Element.DISPLAY);
+            el.hide();
+        }
     }-*/;
+    
+    public void removeAll(boolean preservePanel) {
+        int numPanels  = getNumPanels();
+        for(int i =0;i< numPanels; i++) {
+            ContentPanel cp = getPanel(0);
+            remove(cp.getId(), preservePanel);
+        }
+    }
 
     //Not exposing as remove by index is a dangerous operaton since everytime
     //an element is removed, the size of the udnerlying array reduces and the subsequent call for remove

@@ -1,10 +1,7 @@
 #labels Featured
 == Ext API's that have still to be covered ==
 
-*The list has been updated to reflect the API's remaining with the GWT 0.9.1 release. The complete list of API changes from GWT-Ext 0.9 to 0.9.1 can be found [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9-0.9.1/newdocs/changes.html here].* 
-
-*A high level summary of the changes can be viewed [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9-0.9.1/newdocs/changes/jdiff_statistics.html  here].*
-
+*The list has been updated to reflect the API's remaining with the GWT 0.9.1 release. * 
 
 Here's a list of known API's that are missing or incomplete. I'll update this page as each item gets complete.
 
@@ -29,4 +26,3 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
-

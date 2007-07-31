@@ -19,114 +19,188 @@
  */
 package com.gwtext.sample.showcase.client.dialog;
 
-import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.NameValuePair;
-import com.gwtext.client.data.*;
+import com.gwtext.client.util.Format;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.ButtonConfig;
 import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.MessageBoxConfig;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.sample.showcase.client.Showcase;
+import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
-public class MessageBoxPanel extends Composite {
+public class MessageBoxPanel extends ShowcaseExampleVSD {
 
-    private boolean init = false;
-    private VerticalPanel vp;
 
-    public MessageBoxPanel() {
-        vp = new VerticalPanel();
-        vp.setSpacing(15);
-        initWidget(vp);
+    public String getSourceUrl() {
+        return "dialog/MessageBoxPanel.java.html";
     }
 
-    protected void onLoad() {
-        if (!init) {
-            init = true;
-            setup();
-        }
-    }
+    public Panel getViewPanel() {
 
-    private void setup() {
-        JsonStore store = new JsonStore("json", "list.visits", new RecordDef(new Field[]{
-                new StringField("summary"),
-                new DateField("start"),
-                new DateField("end")}
-        ));
+        VerticalPanel vp = createPanel();
 
-        HTML content = new HTML(html);
-        Button b = new Button("test", new ButtonConfig() {
+        HTML intro = new HTML("<h1>MessageBox Dialogs</h1><p>The example shows how to use the MessageBox class. Some of the buttons have animations, some are normal.</p>");
+        vp.add(intro);
+
+        Grid grid = new Grid(6, 2);
+        grid.setCellSpacing(20);
+
+        grid.setWidget(0, 0, new HTML("<b>Confirm</b><br />Standard Yes/No dialog."));
+        grid.setWidget(0, 1, new Button(new ButtonConfig() {
             {
-                setText("Click Me!");
+                setText("Show Me");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.confirm("Confirm", "Are you sure you want to do that?",
+                                new MessageBox.ConfirmCallback() {
+                                    public void execute(String btnID) {
+                                        Showcase.showMessage("Button Click",
+                                                Format.format("You clicked the {0} button", btnID));
+                                    }
+                                });
+                    }
+                });
+            }
+        }));
+
+        grid.setWidget(1, 0, new HTML("<b>Prompt</b><br />Standard prompt dialog."));
+        grid.setWidget(1, 1, new Button(new ButtonConfig() {
+            {
+                setText("Show Me");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.prompt("Name", "Please enter your name:",
+                                new MessageBox.PromptCallback() {
+                                    public void execute(String btnID, String text) {
+                                        Showcase.showMessage("Button Click",
+                                                Format.format("You clicked the {0} button and entered the text \"{1}\"", btnID, text));
+                                    }
+                                });
+                    }
+                });
+
+            }
+        }));
+
+        grid.setWidget(2, 0, new HTML("<b>Multi-line Prompt</b><br />A multi-line prompt dialog."));
+        grid.setWidget(2, 1, new Button("mb3", new ButtonConfig() {
+            {
+                setText("Show Me");
                 setButtonListener(new ButtonListenerAdapter() {
                     public void onClick(Button button, EventObject e) {
                         MessageBox.show(new MessageBoxConfig() {
                             {
-                                setButtons(new NameValuePair[]{
-                                        new NameValuePair("h", "Hello"),
-                                        new NameValuePair("w", "World")
-                                });
-
-                                //setButtons(MessageBox.OKCANCEL);
-                                setTitle("Hello World");
-                                setClosable(true);
-                                setMsg("Sample Message Box");
+                                setTitle("Address");
+                                setMsg("Please enter yuor address:");
+                                setWidth(300);
+                                setButtons(MessageBox.OKCANCEL);
+                                setMultiline(true);
                                 setCallback(new MessageBox.PromptCallback() {
                                     public void execute(String btnID, String text) {
-                                        System.out.println("here");
+                                        Showcase.showMessage("Button Click",
+                                                Format.format("You clicked the {0} button and entered the text \"{1}\"", btnID, text));
                                     }
                                 });
+                                setAnimEl("mb3");
                             }
                         });
                     }
                 });
             }
-        });
-        vp.add(b);
+        }));
 
+        grid.setWidget(3, 0, new HTML("<b>Yes/No/Cancel</b><br />Standard Yes/No/Cancel dialog."));
+        grid.setWidget(3, 1, new Button("mb4", new ButtonConfig() {
+            {
+                setText("Show Me");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.show(new MessageBoxConfig() {
+                            {
+                                setTitle("Save Changes?");
+                                setMsg("Your are closing a tab that has unsaved changes. Would you like to save your changes?");
+                                setButtons(MessageBox.YESNOCANCEL);
+                                setCallback(new MessageBox.PromptCallback() {
+                                    public void execute(String btnID, String text) {
+                                        Showcase.showMessage("Button Click",
+                                                Format.format("You clicked the {0} button", btnID));
+                                    }
+                                });
+                                setAnimEl("mb4");
+                            }
+                        });
+                    }
+                });
+            }
+        }));
+
+
+        grid.setWidget(4, 0, new HTML("<b>Progress Dialog</b><br />You can set a progress on a progress MessageBox."));
+        grid.setWidget(4, 1, new Button("mb5", new ButtonConfig() {
+            {
+                setText("Show Me");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.show(new MessageBoxConfig() {
+                            {
+                                setTitle("Please wait...");
+                                setMsg("Initializing...");
+                                setWidth(240);
+                                setProgress(true);
+                                setClosable(false);
+                                setCallback(new MessageBox.PromptCallback() {
+                                    public void execute(String btnID, String text) {
+                                        Showcase.showMessage("Button Click",
+                                                Format.format("You clicked the {0} button and entered the text {1}", btnID, text));
+                                    }
+                                });
+                                setAnimEl("mb5");
+                            }
+                        });
+
+                        //create bogus progress
+                        for (int i = 1; i < 12; i++) {
+                            final int j = i;
+                            Timer timer = new Timer() {
+                                public void run() {
+                                    if (j == 11) {
+                                        MessageBox.hide();
+                                    } else {
+                                        MessageBox.updateProgress(j * 10, "Loading item " + j + " of 10... ");
+                                    }
+                                }
+                            };
+                            timer.schedule(i * 1000);
+                        }
+                    }
+                });
+            }
+        }));
+
+
+        grid.setWidget(5, 0, new HTML("<b>Alert</b><br />Standard Alert dialog."));
+        grid.setWidget(5, 1, new Button("mb6", new ButtonConfig() {
+            {
+                setText("Show Me");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        MessageBox.alert("Status", "Changes saved successfully", new MessageBox.AlertCallback() {
+                            public void execute() {
+                                Showcase.showMessage("Button Click", "You closed alert");
+                            }
+                        });
+                    }
+                });
+            }
+        }));
+
+        vp.add(grid);
+        return vp;
     }
-
-
-    private static String html = "<h1>MessageBox Dialogs</h1>\n" +
-            "<p>The example shows how to use the MessageBox class. Some of the buttons have animations, some are normal.</p>\n" +
-            "<p>The js is not minified so it is readable. See <a href=\"msg-box.js\">msg-box.js</a>.</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Confirm</b><br />\n" +
-            "    Standard Yes/No dialog.\n" +
-            "    <button id=\"mb1\">Show Me</button>\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Prompt</b><br />\n" +
-            "    Standard prompt dialog.\n" +
-            "    <button id=\"mb2\">Show Me</button>\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Multi-line Prompt</b><br />\n" +
-            "    A multi-line prompt dialog.\n" +
-            "    <button id=\"mb3\">Show Me</button>\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Yes/No/Cancel</b><br />\n" +
-            "    Standard Yes/No/Cancel dialog.\n" +
-            "    <button id=\"mb4\">Show Me</button>\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Progress Dialog</b><br />\n" +
-            "    You can set a progress on a progress MessageBox.\n" +
-            "    <button id=\"mb6\">Show Me</button>\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "    <b>Alert</b><br />\n" +
-            "    Standard alert message dialog.\n" +
-            "    <button id=\"mb7\">Show Me</button>\n" +
-            "</p>";
-
 }

@@ -32,34 +32,23 @@ import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.ColumnModel;
 import com.gwtext.client.widgets.grid.Renderer;
 import com.gwtext.sample.showcase.client.SampleData;
+import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
-public class TabsPanel extends Composite {
+public class TabsPanel extends ShowcaseExampleVSD {
 
-    private boolean init = false;
-    private VerticalPanel vp;
-
-    public TabsPanel() {
-        vp = new VerticalPanel();
-        vp.setSpacing(15);
-        vp.setStyleName("top-30");
-        initWidget(vp);
+    public String getSourceUrl() {
+        return "tabs/TabsPanel.java.html";
     }
 
-    protected void onLoad() {
-        if (!init) {
-            init = true;
-            setup();
-        }
-    }
+    public Panel getViewPanel() {
 
-    private void setup() {
         final TabPanel tp = new TabPanel("tab-1");
         tp.setResizeTabs(true);
         tp.setMinTabWidth(20);
 
         TabPanelItem tpi = tp.addTab("tpi1", "First Tab", false);
 
-        MemoryProxy proxy = new MemoryProxy(SampleData.getArrayGridData());
+        MemoryProxy proxy = new MemoryProxy(SampleData.getCompanyData());
         ArrayReader reader = new ArrayReader(new RecordDef(
                 new com.gwtext.client.data.Field[]{
                         new StringField("company"),
@@ -116,13 +105,11 @@ public class TabsPanel extends Composite {
         });
 
         com.gwtext.client.widgets.grid.Grid grid = new com.gwtext.client.widgets.grid.Grid("grid-example1", "600px", "300px", store, columnModel);
-
         grid.render();
         store.load();
 
-
-        Button b = new Button("GWT Button");
-        b.addClickListener(new ClickListener() {
+        Button button = new Button("GWT Button");
+        button.addClickListener(new ClickListener() {
             public void onClick(Widget sender) {
                 MessageBox.alert("Button Click", "From GWT events");
             }
@@ -140,10 +127,16 @@ public class TabsPanel extends Composite {
         RootPanel.get().add(fp);
         fp.add(link);
         fp.add(grid);
-        fp.add(b);
+        fp.add(button);
         tpi.setContent(fp);
 
-        TabPanelItem tpi2 = tp.addTab("tpi12", "Some other Tab", false);
+        TabPanelItem tpi2 = tp.addTab("tpi12", "Some other Tab", true);
+        tpi2.addTabPanelItemListener(new TabPanelItemListenerAdapter() {
+            public void onActivate(TabPanelItem tab) {
+                MessageBox.alert("Tab Activated", "Tab '" + tab.getText() + "' activated.");
+            }
+        });
+
         VerticalPanel tpi2Panel = new VerticalPanel();
         tpi2Panel.setSpacing(15);
         Form form = getForm();
@@ -151,18 +144,16 @@ public class TabsPanel extends Composite {
         tpi2.setContent(tpi2Panel);
 
         tp.activate(0);
+
+        Panel vp = createPanel();
         vp.add(tp);
 
-        //register listener for second tab
-        tpi2.addTabPanelItemListener(new TabPanelItemListenerAdapter() {
-            public void onActivate(TabPanelItem tab) {
-                MessageBox.alert("Tab Activate ", "Tab " + tab.getText() + " activated");
-            }
-        });
+        return vp;
+
     }
 
     private Form getForm() {
-        Form simple = new Form("form-ctx", new FormConfig() {
+        Form form = new Form(new FormConfig() {
             {
                 setWidth(500);
                 setHeader("Simple Form");
@@ -171,7 +162,7 @@ public class TabsPanel extends Composite {
                 setSurrondWithBox(true);
             }
         });
-        simple.add(new TextField(new TextFieldConfig() {
+        form.add(new TextField(new TextFieldConfig() {
             {
                 setFieldLabel("First Name");
                 setName("first");
@@ -180,7 +171,7 @@ public class TabsPanel extends Composite {
             }
         }));
 
-        simple.add(new TextField(new TextFieldConfig() {
+        form.add(new TextField(new TextFieldConfig() {
             {
                 setFieldLabel("Last Name");
                 setName("last");
@@ -188,7 +179,7 @@ public class TabsPanel extends Composite {
             }
         }));
 
-        simple.add(new DateField(new DateFieldConfig() {
+        form.add(new DateField(new DateFieldConfig() {
             {
                 setDisabledDays(new int[]{0, 4});
                 setFieldLabel("Sample Date");
@@ -196,11 +187,9 @@ public class TabsPanel extends Composite {
             }
         }));
 
-        simple.addButton("Save");
-        simple.addButton("Cancel");
-        simple.render();
-        return simple;
-
+        form.addButton("Save");
+        form.addButton("Cancel");
+        form.render();
+        return form;
     }
-
 }

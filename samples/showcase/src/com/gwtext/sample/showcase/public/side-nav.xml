@@ -3,7 +3,6 @@
     <node title="Dialogs">
         <leaf title="Message Box and Progress"/>
         <leaf title="Basic Dialog"/>
-        <leaf title="Dialog with Key Listeners"/>
         <leaf title="Layout Dialog"/>
         <leaf title="Login Dialog"/>
         <leaf title="Multiple Dialogs"/>

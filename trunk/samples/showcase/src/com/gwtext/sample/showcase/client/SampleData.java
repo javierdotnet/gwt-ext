@@ -24,11 +24,11 @@ public class SampleData {
 
     public static Object[][] getCountries() {
         return new Object[][]{
+                new Object[]{"sc", "Seychelles"},
                 new Object[]{"us", "United States"},
                 new Object[]{"de", "Germany"},
                 new Object[]{"in", "India"},
                 new Object[]{"fr", "France"},
-                new Object[]{"sc", "Seychelles"},
                 new Object[]{"au", "Australia"},
                 new Object[]{"br", "Brazil"},
                 new Object[]{"ca", "Canada"},

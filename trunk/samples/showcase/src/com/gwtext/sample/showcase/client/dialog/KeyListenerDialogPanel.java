@@ -53,7 +53,7 @@ public class KeyListenerDialogPanel extends ShowcaseExampleVSD {
             }
         }, new LayoutRegionConfig());
 
-        dialog.addButton(new Button("Cancel", new ButtonConfig() {
+        Button cancelBtn = dialog.addButton(new Button("Cancel", new ButtonConfig() {
             {
                 setText("Cancel");
                 setButtonListener(new ButtonListenerAdapter() {
@@ -65,7 +65,7 @@ public class KeyListenerDialogPanel extends ShowcaseExampleVSD {
         }));
 
         //keycode 13 = Enter, 67 = c
-        dialog.addKeyListener(new int[]{13, 67}, new KeyListener() {
+        dialog.addKeyListener(new int[]{ 67}, new KeyListener() {
             public void onKey(int key, EventObject e) {
                 MessageBox.alert("Key Listener", "Key with keyCode " + key + " pressed.");
                 //stop event userful to prevent bubbling of enter key
@@ -76,8 +76,8 @@ public class KeyListenerDialogPanel extends ShowcaseExampleVSD {
         //add content to the center region
         final BorderLayout layout = dialog.getLayout();
         ContentPanel contentPanel = new ContentPanel();
-        contentPanel.add(new HTML("<h3>This Dialog has Key Listeners for the 'Enter' key and for the key 'c'. " +
-                                    "Try pressing either key to invoke the key listener</h3>"));
+        contentPanel.add(new HTML("<h3>This Dialog has Key Listeners for the key 'c'. " +
+                                    "Try pressing 'c'  to invoke the key listener</h3>"));
         layout.add(LayoutRegionConfig.CENTER, contentPanel);
 
         Button button = new Button("Show Dialog");
@@ -86,6 +86,8 @@ public class KeyListenerDialogPanel extends ShowcaseExampleVSD {
                 dialog.show(button.getEl());
             }
         });
+
+        dialog.setDefaultButton(cancelBtn);
 
         VerticalPanel vp = createPanel();
         vp.add(new HTML("<h1>Key Listener Dialog</h1>"));

@@ -20,36 +20,24 @@
 
 package com.gwtext.sample.showcase.client.menu;
 
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.gwtext.client.core.Function;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.menu.*;
 import com.gwtext.client.widgets.menu.event.CheckItemListenerAdapter;
 import com.gwtext.sample.showcase.client.Showcase;
+import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
-public class MenusPanel extends Composite {
+public class MenusPanel extends ShowcaseExampleVSD {
 
-    private boolean init = false;
-    private VerticalPanel vp;
-
-    public MenusPanel() {
-        vp = new VerticalPanel();
-        vp.setSpacing(15);
-        initWidget(vp);
+    public String getSourceUrl() {
+        return "menu/MenusPanel.java.html";
     }
 
-    protected void onLoad() {
-        if (!init) {
-            init = true;
-            setup();
-        }
-    }
+    public Panel getViewPanel() {
 
-
-    private void setup() {
-        //create a toolbar and variosu menu items
+        //create a toolbar and various menu items
         Toolbar tb = new Toolbar("toolbar1");
         final ToolbarTextItem ti = new ToolbarTextItem("Text Item");
         tb.addItem(ti);
@@ -58,20 +46,15 @@ public class MenusPanel extends Composite {
             {
                 setShadow(true);
                 setMinWidth(10);
-
             }
         });
 
         final CheckItemListenerAdapter listener = new CheckItemListenerAdapter() {
             public void onCheckChange(CheckItem item, boolean checked) {
-                ti.getEl().update("Text Item*", false, new Function() {
-                    public void execute() {
-                        //some callback
-                    }
-                });
                 Showcase.showMessage("Event: checkchange", "'" + item.getText() + "' is now " + (checked ? "checked" : "unchecked"));
             }
         };
+
         menu.addItem(new CheckItem(new CheckItemConfig() {
             {
                 setText("I like Ext");
@@ -82,7 +65,7 @@ public class MenusPanel extends Composite {
 
         menu.addItem(new CheckItem(new CheckItemConfig() {
             {
-                setText("Ext for JQuery");
+                setText("I also like GWT-Ext :)");
                 setChecked(true);
                 setCheckItemListener(listener);
             }
@@ -137,7 +120,6 @@ public class MenusPanel extends Composite {
         }));
 
         MenuItem menuItem = new MenuItem("Radio Options", "", menu2);
-
         MenuItem dateMenuItem = new MenuItem("Choose a Date", "", new DateMenu("datemenu", new DateMenuConfig()));
         MenuItem colorMenuItem = new MenuItem("Choose a Color", "", new ColorMenu("colormenu", new ColorMenuConfig()));
         menu.addItem(menuItem);
@@ -153,26 +135,28 @@ public class MenusPanel extends Composite {
         menu.addItem(item1);
         menu.addItem(item2);
 
-        ToolbarMenuButton menuButton = new ToolbarMenuButton("Button w/ Menu", menu, new SplitButtonConfig() {
+        ToolbarMenuButton menuButton = new ToolbarMenuButton("foos-mb", "Button w/ Menu", menu, new SplitButtonConfig() {
             {
                 setArrowTooltip("Arrow Tooltip");
                 setCls("x-btn-text-icon bmenu");
             }
         });
         tb.addButton(menuButton);
-        Element separator = tb.addSeparator();
-        Element spacer = tb.addSpacer();
+        tb.addSeparator();
 
         Menu splitMenu = new Menu("split-menu", new MenuConfig());
         Item bi = new Item(new ItemConfig());
         bi.setText("<b>Bold</b>");
         splitMenu.addItem(bi);
+
         Item ii = new Item(new ItemConfig());
         ii.setText("<i>Italic</i>");
         splitMenu.addItem(ii);
+
         Item ui = new Item(new ItemConfig());
         ui.setText("<u>Underline</u>");
         splitMenu.addItem(ui);
+
         splitMenu.addSeparator();
 
         Menu colorMenu = new Menu("cmenu", new MenuConfig());
@@ -183,7 +167,6 @@ public class MenusPanel extends Composite {
         colorMenu.addItem(moreColors);
 
         MenuItem colorMI = new MenuItem("Pic a Color", "", colorMenu);
-
         splitMenu.addItem(colorMI);
         Item excellent = new Item(new ItemConfig());
         excellent.setText("Excellent");
@@ -194,7 +177,7 @@ public class MenusPanel extends Composite {
         tb.addButton(button2);
         tb.addSeparator();
 
-        ToolbarButton toggleButton = new ToolbarButton("Toggle Me", new ButtonConfig() {
+        ToolbarButton toggleButton = new ToolbarButton("foos-btn", "Toggle Me", new ButtonConfig() {
             {
                 setEnableToggle(true);
                 setPressed(true);
@@ -215,12 +198,16 @@ public class MenusPanel extends Composite {
                 setTooltip("<b>Quick Tips</b><br/>Icon only button with tooltip");
             }
         });
+
         tb.addButton(iconOnly);
         tb.addSeparator();
         tb.addButton(toggleButton);
 
+        VerticalPanel vp = createPanel();
+        vp.add(new HTML("<h1>Toolbar with Menus</h1>"));
         vp.setWidth("300px");
-        vp.setHeight("100%");
         vp.add(tb);
+
+        return vp;
     }
 }

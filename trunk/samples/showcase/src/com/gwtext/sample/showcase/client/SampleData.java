@@ -21,6 +21,21 @@
 package com.gwtext.sample.showcase.client;
 
 public class SampleData {
+
+    public static Object[][] getCountries() {
+        return new Object[][]{
+                new Object[]{"us", "United States"},
+                new Object[]{"de", "Germany"},
+                new Object[]{"in", "India"},
+                new Object[]{"fr", "France"},
+                new Object[]{"sc", "Seychelles"},
+                new Object[]{"au", "Australia"},
+                new Object[]{"br", "Brazil"},
+                new Object[]{"ca", "Canada"},
+                new Object[]{"cn", "China"}
+        };
+    }
+
     public static Object[][] getStates() {
         return new Object[][]{
                 new Object[]{"AL", "Alabama"},
@@ -77,10 +92,7 @@ public class SampleData {
         };
     }
 
-    public static Object[][] getArrayGridData() {
-
-
-
+    public static Object[][] getCompanyData() {
         return new Object[][]{
                 new Object[]{"3m Co", new Double(71.72), new Double(0.02), new Double(0.03), "9/1 12:00am"},
                 new Object[]{"Alcoa Inc", new Double(29.01), new Double(0.42), new Double(1.47), "9/1 12:00am"},

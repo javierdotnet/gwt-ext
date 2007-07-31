@@ -20,41 +20,28 @@
 
 package com.gwtext.sample.showcase.client.dialog;
 
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Ext;
-import com.gwtext.client.util.KeyMapConfig;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
-import com.gwtext.client.widgets.event.KeyListener;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.ContentPanel;
 import com.gwtext.client.widgets.layout.ContentPanelConfig;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
+import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
-public class DialogPanel extends Composite {
+public class LayoutDialogPanel extends ShowcaseExampleVSD {
 
-    private boolean init = false;
-    private VerticalPanel vp;
-
-    public DialogPanel() {
-        vp = new VerticalPanel();
-        vp.setSpacing(15);
-        initWidget(vp);
+    public String getSourceUrl() {
+        return "dialog/LayoutDialogPanel.java.html";
     }
 
-    protected void onLoad() {
-        if (!init) {
-            init = true;
-            setup();
-        }
-    }
+    public Panel getViewPanel() {
 
-    private void setup() {
-
-        //create layout regionds for layout dialog
+        //create layout regions for layout dialog
         LayoutRegionConfig west = new LayoutRegionConfig() {
             {
                 setSplit(true);
@@ -76,7 +63,6 @@ public class DialogPanel extends Composite {
             }
         };
 
-        //create and configure layout dialog
         final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
             {
                 setModal(true);
@@ -108,29 +94,13 @@ public class DialogPanel extends Composite {
             }
         }));
 
-
-        dialog.addKeyListener(new int[]{13, 67}, new KeyListener() {
-            public void onKey(int key, EventObject e) {
-                MessageBox.alert("Key Listener", "Key " + key + " pressed");
-            }
-        });
-
-        dialog.addKeyListener(new KeyMapConfig() {
-            {
-                setShift(true);
-            }
-        }, new KeyListener() {
-            public void onKey(int key, EventObject e) {
-                MessageBox.alert("Key Listener", "Key " + key + " pressed");
-            }
-        });
-
         //add content to various regions
         final BorderLayout layout = dialog.getLayout();
         layout.beginUpdate();
         layout.add(LayoutRegionConfig.WEST, new ContentPanel(Ext.generateId(), "West"));
 
-        layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), "The First Tab"));
+        //adding multiple Content Panels to the same region resutls in tabs
+        layout.add(LayoutRegionConfig.CENTER, new ContentPanel("The First Tab"));
         layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
             {
                 setTitle("Another Tab");
@@ -144,23 +114,20 @@ public class DialogPanel extends Composite {
                 setBackground(true);
             }
         }));
-
         layout.endUpdate();
 
-        final String id = Ext.generateId();
-        Button button = new Button(id, new ButtonConfig() {
-            {
-                setText("Click Me!");
-            }
-        });
+        Button button = new Button("Click Me!");
         button.addButtonListener(new ButtonListenerAdapter() {
             public void onClick(Button button, EventObject e) {
                 dialog.show(button.getEl());
             }
         });
 
-        vp.add(new HTML("<h1>Hello World Dialog</h1>"));
-        vp.add(new HTML("<p>This example shows how to create a simple dialog</p>"));
-        vp.add(button);
+        VerticalPanel panel = createPanel();
+        panel.add(new HTML("<h1>Layout Dialog</h1>"));
+        panel.add(new HTML("<p>This example shows how to a dialog with a layout</p>"));
+        panel.add(button);
+
+        return panel;
     }
 }

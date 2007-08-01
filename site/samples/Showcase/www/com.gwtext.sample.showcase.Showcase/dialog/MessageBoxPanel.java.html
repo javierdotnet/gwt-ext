@@ -102,12 +102,6 @@ Button progressBtn = new Button("mb5", new ButtonConfig() {
                         setWidth(240);
                         setProgress(true);
                         setClosable(false);
-                        setCallback(new MessageBox.PromptCallback() {
-                            public void execute(String btnID, String text) {
-                                Showcase.showMessage("Button Click",
-                                        Format.format("You clicked the {0} button and entered the text {1}", btnID, text));
-                            }
-                        });
                         setAnimEl("mb5");
                     }
                 });

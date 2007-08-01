@@ -97,7 +97,7 @@ public class MessageBoxPanel extends ShowcaseExampleVSD {
                         MessageBox.show(new MessageBoxConfig() {
                             {
                                 setTitle("Address");
-                                setMsg("Please enter yuor address:");
+                                setMsg("Please enter your address:");
                                 setWidth(300);
                                 setButtons(MessageBox.OKCANCEL);
                                 setMultiline(true);

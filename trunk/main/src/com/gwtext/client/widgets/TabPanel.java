@@ -187,12 +187,10 @@ public class TabPanel extends BaseExtWidget {
         tp.endUpdate();
     }-*/;
     
-    public TabPanelItem getActiveTab() {
-        return new TabPanelItem(getActiveTab(jsObj));
-    }
-
-    private native JavaScriptObject getActiveTab(JavaScriptObject tp) /*-{
-        return tp.getActiveTab();
+    public native TabPanelItem getActiveTab()/*-{
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var activeTab = tp.getActiveTab();
+        return activeTab ? @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(activeTab):null;
     }-*/;
 
     public native int getCount() /*-{
@@ -200,24 +198,16 @@ public class TabPanel extends BaseExtWidget {
         return tp.getCount();
     }-*/;
 
-    public TabPanelItem getTab(String id) {
-        JavaScriptObject tab = getTab(jsObj, id);
-        return tab == null ? null : new TabPanelItem(tab);
-    }
-
-    private native JavaScriptObject getTab(JavaScriptObject tp, String id) /*-{
+    public native TabPanelItem getTab(String id)/*-{
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var tab = tp.getTab(id);
-        return tab ? tab : null;
+        return tab ? @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tab) : null;
     }-*/;
 
-    public TabPanelItem getTab(int tabIndex) {
-        JavaScriptObject tab = getTab(jsObj, tabIndex);
-        return tab == null ? null : new TabPanelItem(tab);
-    }
-
-    private native JavaScriptObject getTab(JavaScriptObject tp, int tabIndex) /*-{
+    public native TabPanelItem getTab(int tabIndex) /*-{
+        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var tab = tp.getTab(tabIndex);
-        return tab ? tab : null;
+        return tab ? @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tab) : null;
     }-*/;
 
     public native void hideTab(String tabID) /*-{
@@ -229,7 +219,6 @@ public class TabPanel extends BaseExtWidget {
        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        tp.hideTab(tabIndex);
     }-*/;
-
 
     public native void removeTab(String tabID) /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

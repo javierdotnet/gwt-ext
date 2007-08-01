@@ -28,6 +28,7 @@ import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.util.KeyMapConfig;
+import com.gwtext.client.widgets.event.DialogListener;
 import com.gwtext.client.widgets.event.KeyListener;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
@@ -266,5 +267,53 @@ public class LayoutDialog extends BaseExtWidget {
     public native void toFront() /*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         dialog.toFront();
+    }-*/;
+
+    public native void addDialogListener(DialogListener listener)/*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var dialogJ = this;
+
+        dialog.addListener('beforehide',
+                function(source) {
+                    return listener.@com.gwtext.client.widgets.event.DialogListener::doBeforeHide(Lcom/gwtext/client/widgets/LayoutDialog;)(dialogJ);
+                }
+        );
+
+        dialog.addListener('beforeshow',
+                function(source) {
+                    return listener.@com.gwtext.client.widgets.event.DialogListener::doBeforeShow(Lcom/gwtext/client/widgets/LayoutDialog;)(dialogJ);
+                }
+        );
+    
+        dialog.addListener('hide',
+                function(source) {
+                    listener.@com.gwtext.client.widgets.event.DialogListener::onHide(Lcom/gwtext/client/widgets/LayoutDialog;)(dialogJ);
+                }
+        );
+
+        dialog.addListener('keydown',
+                function(source, event) {
+                    var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                    listener.@com.gwtext.client.widgets.event.DialogListener::onKeyDown(Lcom/gwtext/client/widgets/LayoutDialog;Lcom/gwtext/client/core/EventObject;)(dialogJ, e);
+                }
+        );
+
+        dialog.addListener('move',
+                function(source, x, y) {
+                    listener.@com.gwtext.client.widgets.event.DialogListener::onMove(Lcom/gwtext/client/widgets/LayoutDialog;II)(dialogJ, x, y);
+                }
+        );
+
+        dialog.addListener('resize',
+                function(source, width, height) {
+                    listener.@com.gwtext.client.widgets.event.DialogListener::onResize(Lcom/gwtext/client/widgets/LayoutDialog;II)(dialogJ, width, height);
+                }
+        );
+                
+        dialog.addListener('show',
+                function(source) {
+                    listener.@com.gwtext.client.widgets.event.DialogListener::onShow(Lcom/gwtext/client/widgets/LayoutDialog;)(dialogJ);
+                }
+        );
     }-*/;
 }

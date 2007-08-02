@@ -107,6 +107,10 @@ public class LayoutRegionConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "hidden", value);
     }
 
+    public void setHideTabs(boolean hideTabs) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "hideTabs", hideTabs);
+    }
+
     public void setHideWhenEmpty(boolean value) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideWhenEmpty", value);
     }

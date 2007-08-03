@@ -153,8 +153,6 @@ public class Grid extends BaseExtWidget {
         view.updateColumns();
         view.updateSplitters();
         view.updateHeaderSortState();
-        view.renderPhase2.defer(1, grid);
-
     }-*/;
 
     public native void render(JavaScriptObject grid) /*-{

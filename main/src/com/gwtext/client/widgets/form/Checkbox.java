@@ -21,6 +21,7 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.form.event.CheckboxListener;
 
 public class Checkbox extends Field {
@@ -34,7 +35,21 @@ public class Checkbox extends Field {
         if (config.getCheckboxListener() != null) {
             addCheckboxListener(config.getCheckboxListener());
         }
-    }
+
+		//workaround issue with Ext where setting checkbox to checked does not work in IE6
+		//see http://extjs.com/forum/showthread.php?t=10472
+		addCheckboxListener(new CheckboxListener() {
+			public void onCheck(Checkbox field, boolean checked) {
+				if(Ext.isIE() && checked) {
+					doCheck(field.getJsObj());
+				}
+			}
+
+			private native void doCheck(JavaScriptObject cb)/*-{
+				 cb.el.dom.defaultChecked = true;
+			}-*/;
+		});
+	}
 
     protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.form.Checkbox(config);    

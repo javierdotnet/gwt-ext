@@ -1,0 +1,40 @@
+
+<textarea name="code" class="xml" style="display:none;">
+<!--Form load data-->
+<response success="true">
+    <contact>
+        <name>
+            <first>Sanjiv</first>
+            <last>Jivan</last>
+        </name>
+        <company>foo bar</company>
+        <email>sanjiv.jivan@gmail.com</email>
+        <state>MA</state>
+        <dob>04/15/2007</dob>
+    </contact>
+</response>
+
+<!--Form response data-->
+<response success="false">
+    <errors>
+        <field>
+            <id>first</id>
+            <msg><![CDATA[
+            Invalid name. <br /><i>This is a test validation message from the server </i>
+         ]]></msg>
+        </field>
+        <field>
+            <id>dob</id>
+            <msg><![CDATA[
+            Invalid Date of Birth. <br /><i>This is a test validation message from the server </i>
+         ]]></msg>
+        </field>
+    </errors>
+</response>
+</textarea>
+        
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+

@@ -1,0 +1,3265 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<comments
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:noNamespaceSchemaLocation='comments.xsd'
+  name="GWT-Ext_0.9_to_GWT-Ext_0.9.1"
+  jdversion="1.0.10">
+
+<!-- This file contains comments for a JDiff report. -->
+<!-- It is used only in generating the report, and does not need to ship with the final report. -->
+
+<!-- The id attribute in an identifier element identifies the change as noted in the report. -->
+<!-- An id has the form package[.class[.[ctor|method|field].signature]], where [] indicates optional text. -->
+<!-- A comment element can have multiple identifier elements, which will -->
+<!-- will cause the same text to appear at each place in the report, but -->
+<!-- will be converted to separate comments when the comments file is used. -->
+<!-- HTML tags in the text field will appear in the report. -->
+<!-- You also need to close p HTML elements, used for paragraphs - see the top-level documentation. -->
+<comment>
+  <identifier id="com.gwtext.client.core"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.AnimationConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addClassOnClick_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addClassOnFocus_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.toggleClass_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Box"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.CompositeElement"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.CompositeElementLite"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ConnectionConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper.append_added(java.lang.String, com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper.insertAfter_added(java.lang.String, com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper.insertBefore_added(java.lang.String, com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper.insertFirst_added(java.lang.String, com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.DomHelper.overwrite_added(java.lang.String, com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.EventCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.EventManager"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.escapeRe_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.fly_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.fly_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.generateId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.get_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isBorderBox_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isEnableGarbageCollector_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isEnableListenerCollection_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isGecko_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isIE7_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isLinux_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isMac_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isOpera_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isReady_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isSafari_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isSecure_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isStrict_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isUseShims_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.isWindows_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.setBlankImageUrl_removed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.setEnableGarbageCollector_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.setEnableListenerCollection_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Ext.setSslSecureUrl_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.addClass_removed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.addListener_added(java.lang.String, com.gwtext.client.core.Function, com.gwtext.client.core.ListenerConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.alignTo_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.alignTo_removed(java.lang.String, java.lang.String, int[], boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.anchorTo_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.anchorTo_removed(java.lang.String, java.lang.String, int[], boolean, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.appendChild_changed(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.appendTo_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.beginMeasure_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.blur_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.boxWrap_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.boxWrap_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.center_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.center_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.child_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.clearPositioning_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.clearPositioning_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.contains_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createChild_added(com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createChild_added(com.gwtext.client.core.DomConfig, Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createProxy_added(com.gwtext.client.core.DomConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createProxy_added(com.gwtext.client.core.DomConfig, Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createProxy_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.createProxy_added(java.lang.String, Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.create_changed(Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.ctor_added(Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.down_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.endMeasure_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.findParentNode_added(java.lang.String, Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.findParent_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.findParent_added(java.lang.String, Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.focus_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getAlignToXY_added(Element, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getAlignToXY_added(Element, java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getAnchorXY_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getAnchorXY_added(java.lang.String, boolean, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getAttributeNS_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getBorderWidth_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getBottom_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getBox_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getBox_added(boolean, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getCenterXY_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getColor_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getColor_added(java.lang.String, java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getComputedHeight_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getComputedWidth_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getFrameWidth_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getHeight_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getHeight_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getLeft_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getLeft_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getMargins_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getNextSibling_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getPadding_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getPositioning_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getPrevSibling_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getRegion_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getScroll_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getSize_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getStyle_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getTop_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getTop_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getUpdateManager_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getValueAsNumber_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getValue_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getViewSize_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getWidth_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getWidth_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getXY_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getX_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.getY_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.hasClass_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertAfter_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertBefore_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertFirst_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertHtml_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertSibling_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.insertSibling_added(Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isBorderBox_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isDisplayed_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isMasked_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isScrollable_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isVisible_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.isVisible_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.is_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.mask_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.position_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.position_added(java.lang.String, int, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.query_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.replace_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.scrollIntoView_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.scrollIntoView_added(Element, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.select_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.select_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.translatePoints_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.unclip_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.up_added(java.lang.String, Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.update_changed(java.lang.String, boolean, com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Fx"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.FxConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.GenericConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ListenerConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Margins"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.BOOLEAN"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.FLOAT"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.INT"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.STRING"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.ctor_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.ctor_added(java.lang.String, float)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.ctor_added(java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getJsObj_added(com.gwtext.client.core.NameValuePair[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getName_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getParamName_removed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getParamValue_removed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getType_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getValueAsBoolean_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getValueAsFloat_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getValueAsInt_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.NameValuePair.getValue_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.PositioningConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.RegExp"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Region"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Size"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Size.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.abort_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.formUpdate_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.formUpdate_added(java.lang.String, java.lang.String, boolean, com.gwtext.client.core.UrlLoadCallback)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.getEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.isUpdating_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.refresh_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultDisableCaching_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultIndicatorText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultLoadScripts_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultShowLoadIndicator_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultSslBlankUrl_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultTimeout_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDefaultUrl_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setDisableCaching_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setIndicatorText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setLoadScripts_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setShowIndicator_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setTimeout_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.startAutoRefresh_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.stopAutoRefresh_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.update_added(java.lang.String, com.gwtext.client.core.UpdateManagerConfig, com.gwtext.client.core.UrlLoadCallback, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManagerConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlParam"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlParam.ctor_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlParam.ctor_added(java.lang.String, float)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlParam.ctor_added(java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.event.TextResizeListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.JsonReaderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.JsonStore"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.JsonStore.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.data.RecordDef)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.JsonStore.ctor_removed(java.lang.String, java.lang.String, com.gwtext.client.data.Field[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.MemoryProxy"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.MemoryProxy.create_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.createNode_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.NodeConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.PagingMemoryProxy"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.getAsBoolean_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.getAsDate_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.set_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.set_added(java.lang.String, java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_added(int, com.gwtext.client.data.Field[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_added(int, java.lang.String[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_removed(java.lang.String, com.gwtext.client.data.Field[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_removed(java.lang.String, java.lang.String[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Store"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Store.ctor_added(com.gwtext.client.data.DataProxy, com.gwtext.client.data.Reader, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Store.setBaseParams_added(com.gwtext.client.core.UrlParam[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.StoreLoadConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.XmlReaderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDropConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.state"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.state.CookieProviderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.DateFactory"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.DateUtil"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.DateUtil.Interval"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.Format"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.Format.dateFormat_removed(java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.Format.date_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.getElementsByClassName_removed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.getJavaScriptObjectElementsByClassName_removed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.invoke_removed(JavaScriptObject, java.lang.String, java.lang.Object, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.setAttributeAsIntArray_removed(JavaScriptObject, java.lang.String, int[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.setAttributeAsStringArray_removed(JavaScriptObject, java.lang.String, java.lang.String[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toBoolean_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toDate_added(long)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toFloat_added(float)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toInteger_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyMap"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyMapConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyNav"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyNavConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget.getEl_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget.purgeListeners_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button.ctor_added(com.gwtext.client.widgets.ButtonConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button.ctor_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button.ctor_removed(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ButtonConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ButtonConfig.setMinWidth_changed(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ButtonConfig.setRepeat_removed(com.gwtext.client.util.ClickRepeater)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ButtonConfig.setTooltip_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ColorPalette"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ColorPaletteConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ColorPallete"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ColorPalleteConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ComponentConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ComponentConfig.setId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Layer"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayerConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addButton_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addButton_changed(com.gwtext.client.widgets.Button)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addKeyListener_added(com.gwtext.client.util.KeyMapConfig, com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addKeyListener_added(int, com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addKeyListener_added(int[], com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.ctor_added(com.gwtext.client.widgets.LayoutDialogConfig, com.gwtext.client.widgets.layout.LayoutRegionConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.getBodyEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.getFooterEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.getHeaderEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setAutoCreate_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setConstraintToViewport_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setConstrainttoviewport_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setFixedCenter_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setFixedcenter_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LoadMask"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LoadMaskConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBox"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBox.AlertCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBox.Button"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBox.ConfirmCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBox.PromptCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.MessageBoxConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setAfterPageText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setBeforePageText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setFirstText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setLastText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setNextText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setPrevText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbar.setRefreshText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.PagingToolbarConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.QuickTipsConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.RequiredElementWidget"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.RequiredElementWidget.config"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.RequiredElementWidget.ctor_added(java.lang.String, com.gwtext.client.core.BaseConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.RequiredElementWidget.ctor_removed(java.lang.String, com.gwtext.client.widgets.BaseConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Resizable"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Resizable.addResizableListener_added(com.gwtext.client.widgets.event.ResizableListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ResizableConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ResizableConfig.setHandles_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.addTab_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.beginUpdate_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.endUpdate_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanelItem"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanelItem.getBodyEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanelItem.getTabPanel_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanelItem.getTapPanel_removed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanelItem.getTextEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.addSeparator_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.addSpacer_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.create_added(com.gwtext.client.core.ExtElement)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.ctor_added(com.gwtext.client.core.ExtElement)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarButton"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarButton.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.widgets.ButtonConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarMenuButton"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarMenuButton.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.widgets.menu.Menu)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarMenuButton.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.widgets.menu.Menu, com.gwtext.client.widgets.SplitButtonConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ColorPaletteListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ColorPalleteListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.doBeforeDestroy_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.doBeforeHide_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.doBeforeRender_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.doBeforeShow_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.onBeforeDestroy_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.onBeforeHide_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.onBeforeRender_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListener.onBeforeShow_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.doBeforeDestroy_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.doBeforeHide_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.doBeforeRender_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.doBeforeShow_added(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.onBeforeDestroy_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.onBeforeHide_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.onBeforeRender_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ComponentListenerAdapter.onBeforeShow_removed(com.gwtext.client.widgets.Component)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.KeyListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ResizableListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.TabPanelItemListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.TabPanelItemListener.doBeforeClose_changed(com.gwtext.client.widgets.TabPanelItem)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.TabPanelItemListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.TabPanelItemListenerAdapter.doBeforeClose_changed(com.gwtext.client.widgets.TabPanelItem)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.ComboBoxConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.ComboBoxConfig.setTitle_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setDisableDates_removed(java.lang.String[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setDisableDays_removed(int[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setDisabledDates_added(java.lang.String[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setDisabledDays_added(int[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setMaxValue_added(java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setMinText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setMinValue_added(java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.DateFieldConfig.setaltFormats_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Field"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Field.setMsgTarget_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.getId_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.isAutoCreate_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setInvalidText_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setValue_added(java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form.addButton_changed(com.gwtext.client.widgets.Button)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form.addButton_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form.ctor_added(com.gwtext.client.widgets.form.FormConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Form.fieldset_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormActionConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig.setHideLabels_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormLoadConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.LayoutConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.getValue_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextFieldConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextFieldConfig.setBlankText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextFieldConfig.setBlanktext_removed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextFieldConfig.setPassword_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.AbstractSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.AbstractSelectionModel.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnConfig.setFixed_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getColumnId_changed(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getDataIndex_changed(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setEditor_changed(int, com.gwtext.client.widgets.grid.GridEditor)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGrid"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGrid.ctor_added(java.lang.String, java.lang.String, java.lang.String, com.gwtext.client.data.Store, com.gwtext.client.widgets.grid.ColumnModel, com.gwtext.client.widgets.grid.AbstractSelectionModel, com.gwtext.client.widgets.grid.EditorGridConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGrid.ctor_added(java.lang.String, java.lang.String, java.lang.String, com.gwtext.client.data.Store, com.gwtext.client.widgets.grid.ColumnModel, com.gwtext.client.widgets.grid.EditorGridConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGrid.ctor_removed(java.lang.String, java.lang.String, java.lang.String, com.gwtext.client.data.Store, com.gwtext.client.widgets.grid.ColumnModel, com.gwtext.client.widgets.grid.AbstractSelectionModel, com.gwtext.client.widgets.grid.GridConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGrid.ctor_removed(java.lang.String, java.lang.String, java.lang.String, com.gwtext.client.data.Store, com.gwtext.client.widgets.grid.ColumnModel, com.gwtext.client.widgets.grid.GridConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.EditorGridConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setAutoExpandColumn_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setAutoSizeHeaders_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setAutoWidth_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setautoSizeHeaders_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.autoSizeColumn_added(int, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.autoSizeColumn_added(int, boolean, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.autoSizeColumns_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.ensureVisible_added(int, int, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.fitColumns_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.focusCell_added(int, int, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.focusRow_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.getCell_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.getHeaderCell_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.getLockedRow_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.getRow_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.hideColumn_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.refreshRow_added(com.gwtext.client.data.Record)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.refreshRow_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.scrollToTop_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.stripeRows_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.unhideColumn_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.updateHeaderSortState_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.updateRows_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Renderer"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Renderer.render_changed(java.lang.Object, com.gwtext.client.data.Record, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel.ctor_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel.ctor_removed(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.CellSelectionModelListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.CellSelectionModelListener.onSelectionChange_changed(com.gwtext.client.widgets.grid.CellSelectionModel, com.gwtext.client.data.Record, int[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.CellSelectionModelListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.CellSelectionModelListenerAdapter.onSelectionChange_changed(com.gwtext.client.widgets.grid.CellSelectionModel, com.gwtext.client.data.Record, int[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListener.doBeforeEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListener.doValidateEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListener.onAfterEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListenerAdapter.doBeforeEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListenerAdapter.doValidateEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.event.EditorGridListenerAdapter.onAfterEdit_changed(com.gwtext.client.widgets.grid.Grid, com.gwtext.client.data.Record, java.lang.String, java.lang.Object, java.lang.Object, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.BorderLayout"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.BorderLayout.add_added(com.gwtext.client.widgets.layout.ContentPanel)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.BorderLayout.isMonitorWindowResize_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.BorderLayout.remove_added(com.gwtext.client.widgets.layout.LayoutRegionConfig.LayoutRegionConstant, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.BorderLayout.restoreState_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel.create_changed(Element, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.widgets.layout.ContentPanelConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel.ctor_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanel.purgeListeners_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanelConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.ContentPanelConfig.setAutoCreate_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.addLayoutRegionListener_added(com.gwtext.client.widgets.layout.event.LayoutRegionListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.add_added(com.gwtext.client.widgets.layout.ContentPanel)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.collapse_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.collapse_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.expand_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.expand_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getActivePanel_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getBodyEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getCollapsedEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getNumPanels_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getPanel_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getPosition_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getTabs_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getTitleEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.getTitleTextEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.hasPanel_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.hasPanel_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.hidePanel_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.hidePanel_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.hide_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.isVisible_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.removeAll_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.remove_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.remove_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.resizeTo_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.setCollapsedTitle_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.showPanel_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.show_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.unhidePanel_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.unhidePanel_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.event.LayoutRegionListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.event.LayoutRegionListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.BaseItemConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.BaseItemConfig.setShowDelay_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorItem"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorItem.getPalette_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorItem.getPallete_removed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorMenu"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorMenu.getColorPalette_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.ColorMenu.getColorPallete_removed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.MenuConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoaderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNode"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNode.createNode_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNode.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.addClass_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.getElNode_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.getEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.hide_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.highlight_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.isChecked_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.removeClass_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.show_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.toggleCheck_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getTree_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanelConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onCheckChange_added(com.gwtext.client.widgets.tree.TreeNode, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onCheckChange_added(com.gwtext.client.widgets.tree.TreeNode, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+
+</comments>

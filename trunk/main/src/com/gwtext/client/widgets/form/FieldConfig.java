@@ -99,7 +99,11 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "readOnly", readOnly);
     }
 
-    public void setValidateOnBlur(boolean validateOnBlur) {
+	public void setTabIndex(int tabIndex) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "tabIndex", tabIndex);
+    }
+
+	public void setValidateOnBlur(boolean validateOnBlur) {
         JavaScriptObjectHelper.setAttribute(jsObj, "validateOnBlur", validateOnBlur);
     }
 

@@ -146,7 +146,9 @@ public class Field extends Component {
 
         field.addListener('change',
                 function(fld, newVal, oldVal) {
-                    listener.@com.gwtext.client.widgets.form.event.FieldListener::onChange(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/String;Ljava/lang/String;)(fieldJ, newVal, oldVal);
+					if(newVal === undefined) newVal = null;
+					if(oldVal === undefined) oldVal = null;
+					listener.@com.gwtext.client.widgets.form.event.FieldListener::onChange(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/String;Ljava/lang/String;)(fieldJ, newVal, oldVal);
                 }
         );
 
@@ -158,7 +160,8 @@ public class Field extends Component {
 
         field.addListener('invalid',
                 function(fld, msg) {
-                    listener.@com.gwtext.client.widgets.form.event.FieldListener::onInvalid(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/String;)(fieldJ, msg);
+					if(msg === undefined) msg = null;
+					listener.@com.gwtext.client.widgets.form.event.FieldListener::onInvalid(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/String;)(fieldJ, msg);
                 }
         );
 

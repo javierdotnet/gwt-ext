@@ -263,7 +263,9 @@ public class JavaScriptObjectHelper {
                 JavaScriptObjectHelper.setArrayValue(jsArray, i, ((Double) val).doubleValue());
             } else if (val instanceof Boolean) {
                 JavaScriptObjectHelper.setArrayValue(jsArray, i, ((Boolean) val).booleanValue());
-            } else if (val instanceof JavaScriptObject) {
+            } else if (val instanceof Date){
+				JavaScriptObjectHelper.setArrayValue(jsArray, i, (Date)val);
+			} else if (val instanceof JavaScriptObject) {
                 JavaScriptObjectHelper.setArrayValue(jsArray, i, ((JavaScriptObject) val));
             } else if (val instanceof JsObject) {
                 JavaScriptObjectHelper.setArrayValue(jsArray, i, ((JsObject) val).getJsObj());
@@ -298,7 +300,15 @@ public class JavaScriptObjectHelper {
         return new $wnd.Array();
     }-*/;
 
-    public static native void setArrayValue(JavaScriptObject array, int index, String value) /*-{
+    public static void setArrayValue(JavaScriptObject array, int index, Date value) {
+		setArrayDateValue(array, index, value.getTime());
+	}
+	
+	private static native void setArrayDateValue(JavaScriptObject array, int index, long time) /*-{
+        array[index] = new $wnd.Date(time);
+    }-*/;
+
+	public static native void setArrayValue(JavaScriptObject array, int index, String value) /*-{
         array[index] = value;
     }-*/;
 

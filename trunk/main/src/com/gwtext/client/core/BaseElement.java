@@ -136,6 +136,20 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Perform animation on this element. For example :
+     * <code><pre>
+     * GenericConfig animArgs = new GenericConfig();
+     * JavaScriptObject val = JavaScriptObjectHelper.createObject();
+     * JavaScriptObjectHelper.setAttribute(val, "from", 600);
+     * JavaScriptObjectHelper.setAttribute(val, "to", 0);
+     * animArgs.setProperty("width", val);
+     * el.animate(animArgs);
+     * </pre></code>
+     *
+     * @param args animation control args
+     * @return this
+     */
     public native BaseElement animate(GenericConfig args)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::jsObj;
@@ -143,10 +157,20 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Perform animation on this element.
+     *
+     * @param args animation control args
+     * @param duration how long the animation lasts in seconds (defaults to .35)
+     * @param onComplete function to call when animation completes
+     * @param easing  easeOut See http://developer.yahoo.com/yui/docs/YAHOO.util.Easing.html
+     * @param animType 'run' is the default. Can also be 'color', 'motion', or 'scroll'
+     * @return this
+     */
     public native BaseElement animate(GenericConfig args, float duration, Function onComplete, String easing, String animType)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::jsObj;
-        elem.animate(argsJS, duration, function() {
+        elem.animate(argsJS, duration, onComplete == null ? null : function() {
             onComplete.@com.gwtext.client.core.Function::execute()();
         }, easing, animType);
         return this;

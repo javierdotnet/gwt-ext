@@ -19,6 +19,7 @@
  */
 package com.gwtext.client.core;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class GenericConfig extends BaseConfig {
@@ -61,5 +62,13 @@ public class GenericConfig extends BaseConfig {
 
     public String[] getPropertyAsStringArray(String property) {
         return JavaScriptObjectHelper.getAttributeAsStringArray(jsObj, property);
+    }
+
+    public void setProperty(String property, JavaScriptObject value) {
+        JavaScriptObjectHelper.setAttribute(jsObj, property, value);
+    }
+
+    public JavaScriptObject getPropertyAsJavascripObject(String property) {
+        return JavaScriptObjectHelper.getAttributeAsJavaScriptObject(jsObj, property);
     }
 }

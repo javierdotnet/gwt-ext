@@ -19,10 +19,11 @@
  */
 package com.gwtext.sample.showcase.client.grid;
 
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.HTML;
+import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.*;
 import com.gwtext.client.data.DateField;
@@ -30,117 +31,135 @@ import com.gwtext.client.data.Field;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.*;
+import com.gwtext.client.widgets.grid.event.GridCellListenerAdapter;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
 import java.util.Date;
 
 public class EditableGridPanel extends ShowcaseExampleVSD {
 
-    public String getDataUrl() {
-        return "data/plants.xml.html";
-    }
+	public String getDataUrl() {
+		return "data/plants.xml.html";
+	}
 
-    public String getSourceUrl() {
-        return "grid/EditableGridPanel.java.html";
-    }
+	public String getSourceUrl() {
+		return "grid/EditableGridPanel.java.html";
+	}
 
-    public Panel getViewPanel() {
-        HttpProxy proxy = new HttpProxy("data/plants.xml", "GET");
-        XmlReader reader = new XmlReader("plant", new RecordDef(
-                new Field[]{
-                        new StringField("common"),
-                        new StringField("botanical"),
-                        new StringField("light"),
-                        new FloatField("price"),
-                        new DateField("availDate", "availability", "m/d/Y"),
-                        new BooleanField("indoor")
-                }
-        ));
+	public Panel getViewPanel() {
+		HttpProxy proxy = new HttpProxy("data/plants.xml", "GET");
+		XmlReader reader = new XmlReader("plant", new RecordDef(
+				new Field[]{
+						new StringField("common"),
+						new StringField("botanical"),
+						new StringField("light"),
+						new FloatField("price"),
+						new DateField("availDate", "availability", "m/d/Y"),
+						new BooleanField("indoor")
+				}
+		));
 
-        Store store = new Store(proxy, reader);
+		Store store = new Store(proxy, reader);
 
-        ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
-                new ColumnConfig() {
-                    {
-                        setHeader("Common Name");
-                        setDataIndex("common");
-                        setWidth(220);
-                        setEditor(new GridEditor(new TextField(new TextFieldConfig() {
-                            {
-                                setAllowBlank(false);
-                            }
-                        })));
-                    }
-                },
-                new ColumnConfig() {
-                    {
-                        setHeader("Light");
-                        setDataIndex("light");
-                        setWidth(130);
-                    }
-                },
-                new ColumnConfig() {
-                    {
-                        setHeader("Price");
-                        setDataIndex("price");
-                        setWidth(70);
-                        setAlign("right");
-                        setRenderer(new Renderer() {
-                            public String render(Object value, Record record, int rowIndex, int colNum) {
-                                return "$" + value;
-                            }
-                        });
-                        setEditor(new GridEditor(new NumberField(new NumberFieldConfig() {
-                            {
-                                setAllowBlank(false);
-                                setAllowNegative(false);
-                                setMaxValue(10);
-                            }
-                        })));
-                    }
-                },
-                new ColumnConfig() {
-                    {
-                        setHeader("Available");
-                        setDataIndex("availDate");
-                        setWidth(95);
-                        setEditor(new GridEditor(new com.gwtext.client.widgets.form.DateField(new DateFieldConfig() {
-                            {
-                                setFormat("m/d/Y");
-                                setMinValue("01/01/06");
-                                setDisabledDays(new int[]{0, 6});
-                                setDisabledDaysText("Plants are not available on the weekend");
-                            }
-                        })));
-                    }
-                },
-                new ColumnConfig() {
-                    {
-                        setHeader("Indoor?");
-                        setDataIndex("indoor");
-                        setWidth(55);
-                        setEditor(new GridEditor(new Checkbox(new CheckboxConfig())));
-                    }
-                }
-        });
-        columnModel.setDefaultSortable(true);
+		ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
+				new ColumnConfig() {
+					{
+						setHeader("Common Name");
+						setDataIndex("common");
+						setWidth(220);
+						setEditor(new GridEditor(new TextField(new TextFieldConfig() {
+							{
+								setAllowBlank(false);
+							}
+						})));
+					}
+				},
+				new ColumnConfig() {
+					{
+						setHeader("Light");
+						setDataIndex("light");
+						setWidth(130);
+					}
+				},
+				new ColumnConfig() {
+					{
+						setHeader("Price");
+						setDataIndex("price");
+						setWidth(70);
+						setAlign("right");
+						setRenderer(new Renderer() {
+							public String render(Object value, Record record, int rowIndex, int colNum) {
+								return "$" + value;
+							}
+						});
+						setEditor(new GridEditor(new NumberField(new NumberFieldConfig() {
+							{
+								setAllowBlank(false);
+								setAllowNegative(false);
+								setMaxValue(10);
+							}
+						})));
+					}
+				},
+				new ColumnConfig() {
+					{
+						setHeader("Available");
+						setDataIndex("availDate");
+						setWidth(95);
+						setEditor(new GridEditor(new com.gwtext.client.widgets.form.DateField(new DateFieldConfig() {
+							{
+								setFormat("m/d/Y");
+								setMinValue("01/01/06");
+								setDisabledDays(new int[]{0, 6});
+								setDisabledDaysText("Plants are not available on the weekend");
+							}
+						})));
+					}
+				},
+				new ColumnConfig() {
+					{
+						setHeader("Indoor?");
+						setDataIndex("indoor");
+						setWidth(55);
+						//setEditor(new GridEditor(new Checkbox(new CheckboxConfig())));
 
-        Grid grid = new EditorGrid("grid-example2", "600px", "300px", store, columnModel);
-        grid.render();
+						setRenderer(new Renderer() {
+							public String render(Object value, Record record, int rowIndex, int colNum) {
+								boolean checked = ((Boolean) value).booleanValue();
+								return "<img class=\"checkbox\" src=\"js/ext/resources/images/default/menu/" + (checked ? "checked.gif" : "unchecked.gif") + "\"/>";
+							}
+						});
+					}
+				}
+		});
+		columnModel.setDefaultSortable(true);
 
-        store.load(new StoreLoadConfig() {
-            {
-                setParams(new UrlParam[]{new UrlParam("rnd", new Date().getTime() + "")});
-            }
+		EditorGrid grid = new EditorGrid("grid-example2", "600px", "300px", store, columnModel);
 
-        });
+		grid.addGridCellListener(new GridCellListenerAdapter() {
+			public void onCellClick(Grid grid, int rowIndex, int colIndex, EventObject e) {
+				if (grid.getColumnModel().getDataIndex(colIndex).equals("indoor") && e.getTarget(".checkbox", 1) != null) {
+					Record record = grid.getStore().getAt(rowIndex);
+					record.set("indoor", !record.getAsBoolean("indoor"));
+				}
+			}
+		});
 
-        VerticalPanel vp = createPanel();
-        vp.add(new HTML("<h1>Editor Grid Example</h1>"));
-        vp.add(new HTML("<p>This example shows how to create a grid with inline editing. Try double clicking on the table cells.</p>"));
+		grid.render();
 
-        vp.add(grid);
-        vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-        return vp;
-    }
+		store.load(new StoreLoadConfig() {
+			{
+				setParams(new UrlParam[]{new UrlParam("rnd", new Date().getTime() + "")});
+			}
+
+		});
+
+		VerticalPanel vp = createPanel();
+		vp.add(new HTML("<h1>Editor Grid Example</h1>"));
+		vp.add(new HTML("<p>This example shows how to create a grid with inline editing. Try double clicking on the table cells.</p>"));
+
+		vp.add(grid);
+		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+		return vp;
+	}
 }

@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.tree;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.data.NodeConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
+import com.gwtext.client.widgets.QuickTipsConfig;
 
 public class TreeNodeConfig extends NodeConfig {
 
@@ -69,6 +70,10 @@ public class TreeNodeConfig extends NodeConfig {
     public void setQtip(String qtip) {
         JavaScriptObjectHelper.setAttribute(jsObj, "qtip", qtip);
     }
+
+    public void setQtipCfg(QuickTipsConfig qtipCfg) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "qtipCfg", qtipCfg.getJsObj());
+    }    
 
     public void setSingleClickExpand(boolean singleClickExpand) {
         JavaScriptObjectHelper.setAttribute(jsObj, "singleClickExpand", singleClickExpand);

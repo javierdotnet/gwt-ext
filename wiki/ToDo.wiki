@@ -19,10 +19,10 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 === General Widgets and support classes ===
 || *Class* || *Status*||
 || Editor || ||
-|| JsonView || 90% complete ||
+|| JsonView || *complete 08/07/2007*||
 || MasterTemplate || ||
 || SplitBar || ||
-|| View || 90% complete ||
+|| View || *complete 08/07/2007* ||
 
 === Utility classes ===
 || *Class* || *Status*||

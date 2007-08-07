@@ -140,10 +140,10 @@ public class BaseElement extends JsObject implements Fx {
      * Perform animation on this element. For example :
      * <code><pre>
      * GenericConfig animArgs = new GenericConfig();
-     * JavaScriptObject val = JavaScriptObjectHelper.createObject();
-     * JavaScriptObjectHelper.setAttribute(val, "from", 600);
-     * JavaScriptObjectHelper.setAttribute(val, "to", 0);
-     * animArgs.setProperty("width", val);
+     * GenericConfig widthArgs = new GenericConfig();
+     * widthArgs.setProperty("from", 600);
+     * widthArgs.setProperty("to", 0);
+     * animArgs.setProperty("width", widthArgs);
      * el.animate(animArgs);
      * </pre></code>
      *

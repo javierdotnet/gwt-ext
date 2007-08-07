@@ -133,13 +133,13 @@ public class BorderLayout extends BaseExtWidget {
     }-*/;
 
     public LayoutRegion getRegion(LayoutRegionConfig.LayoutRegionConstant direction) {
-        return new LayoutRegion(getRegion(jsObj, direction.getDirection()));
+        JavaScriptObject region = getRegion(jsObj, direction.getDirection());
+        return region == null ? null : new LayoutRegion(region);
     }
 
     private native JavaScriptObject getRegion(JavaScriptObject borderLayout, String direction)/*-{
         return borderLayout.getRegion(direction);
     }-*/;
-
 
     public native Size getViewSize() /*-{
         var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

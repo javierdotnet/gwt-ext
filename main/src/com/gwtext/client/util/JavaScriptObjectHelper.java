@@ -280,8 +280,16 @@ public class JavaScriptObjectHelper {
         return new Integer(value);
     }
 
+    public static Long toLong(long value) {
+        return new Long(value);
+    }
+
     public static Float toFloat(float value) {
         return new Float(value);
+    }
+
+    public static Double toDouble(double value) {
+        return new Double(value);
     }
 
     public static Date toDate(long millis) {

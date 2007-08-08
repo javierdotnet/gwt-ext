@@ -110,14 +110,15 @@ public class LayoutDialog extends BaseExtWidget {
                 DOM.removeChild(parent, buttonEl);
             }
         }
-        doAddButton(button);
+        JavaScriptObject btnJS = doAddButton(button);
+        button.setJsObj(btnJS);
         return button;
     }
 
-    private native void doAddButton(Button button) /*-{
+    private native JavaScriptObject doAddButton(Button button) /*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJS = button.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        dialog.addButton(buttonJS);
+        return dialog.addButton(buttonJS);
     }-*/;
 
     public native void alignTo(String id, String position, int[] offsetXY)/*-{

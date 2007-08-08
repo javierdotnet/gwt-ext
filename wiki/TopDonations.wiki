@@ -1,5 +1,5 @@
 #labels Featured
-== This is a running list of the top 10 donations for GWT-Ext in alphabetic order ==
+=== This is a running list of the top 10 donations for GWT-Ext in alphabetic order ===
 
 You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.html this] page. 
 

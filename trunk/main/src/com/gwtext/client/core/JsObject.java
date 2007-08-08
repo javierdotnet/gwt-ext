@@ -107,10 +107,18 @@ public abstract class JsObject {
                 if(typeof obj == 'string') {
                     return obj;
                 } else if (typeof obj == 'number') {
-                    if(parseInt(obj) == parseFloat(obj)) {
-                        return @com.gwtext.client.util.JavaScriptObjectHelper::toInteger(I)(obj);
+                    if(obj.toString().indexOf('.') == -1) {
+                        if(obj <= @java.lang.Integer::MAX_VALUE) {
+                            return @com.gwtext.client.util.JavaScriptObjectHelper::toInteger(I)(obj);
+                        } else {
+                          return @com.gwtext.client.util.JavaScriptObjectHelper::toLong(J)(obj);
+                        }
                     } else {
-                        return @com.gwtext.client.util.JavaScriptObjectHelper::toFloat(F)(obj);
+                        if(obj <= @java.lang.Float::MAX_VALUE) {
+                            return @com.gwtext.client.util.JavaScriptObjectHelper::toFloat(F)(obj);
+                        } else {
+                            return @com.gwtext.client.util.JavaScriptObjectHelper::toDouble(D)(obj);
+                        }
                     }
                 } else if(typeof obj == 'boolean') {
                     return @com.gwtext.client.util.JavaScriptObjectHelper::toBoolean(Z)(obj);

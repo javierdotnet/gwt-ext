@@ -23,34 +23,35 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
-public class FloatField extends Field {
+public class DateFieldDef extends FieldDef {
 
-    public FloatField(String name) {
+    /**
+     * Uses default date parsing via new Date(dataVal);
+     *
+     * @param name field name
+     */
+    public DateFieldDef(String name) {
         this(name, null, null);
     }
 
-    public FloatField(String name, String mapping) {
-        this(name, mapping, null);
+    public DateFieldDef(String name, String dateFormat) {
+        this(name, null, dateFormat);
     }
 
-    public FloatField(String name, int mapping) {
-        this(name, mapping, null);
+    public DateFieldDef(String name, String mapping, String dateFormat) {
+        jsObj = create(name, mapping, dateFormat);
     }
 
-    public FloatField(String name, String mapping, Converter converter) {
-        jsObj = create(name, mapping, converter);
+    public DateFieldDef(String name, int mapping, String dateFormat) {
+        this(name, dateFormat, String.valueOf(mapping));
     }
 
-    public FloatField(String name, int mapping, Converter converter) {
-        this(name, String.valueOf(mapping), converter);
-    }
-
-    private static JavaScriptObject create(String name, String mapping, Converter converter) {
+    private static JavaScriptObject create(String name, String mapping, String dateFormat) {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(jsObj, "name", name);
-        JavaScriptObjectHelper.setAttribute(jsObj, "type", "float");
+        JavaScriptObjectHelper.setAttribute(jsObj, "type", "date");
         if (mapping != null) JavaScriptObjectHelper.setAttribute(jsObj, "mapping", mapping);
-        if (converter != null) setConverter(jsObj, converter);
+        if (dateFormat != null) JavaScriptObjectHelper.setAttribute(jsObj, "dateFormat", dateFormat);
         return jsObj;
     }
 }

@@ -26,7 +26,7 @@ import com.gwtext.client.core.JsObject;
 //todo investigate addition on defaultValue, although it works only with XmlReader
 
 //http://extjs.com/forum/showthread.php?t=4537&page=2
-public abstract class Field extends JsObject {
+public abstract class FieldDef extends JsObject {
 
     protected static native void setConverter(JavaScriptObject config, Converter converter)/*-{
         config['convert'] = function(s) {

@@ -23,32 +23,32 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
-public class BooleanField extends Field {
+public class IntegerFieldDef extends FieldDef {
 
-    public BooleanField(String name) {
+    public IntegerFieldDef(String name) {
         this(name, null, null);
     }
 
-    public BooleanField(String name, String mapping) {
+    public IntegerFieldDef(String name, String mapping) {
         this(name, mapping, null);
     }
 
-    public BooleanField(String name, int mapping) {
+    public IntegerFieldDef(String name, int mapping) {
         this(name, mapping, null);
     }
 
-    public BooleanField(String name, int mapping, Converter converter) {
-        this(name, String.valueOf(mapping), converter);
-    }
-
-    public BooleanField(String name, String mapping, Converter converter) {
+    public IntegerFieldDef(String name, String mapping, Converter converter) {
         jsObj = create(name, mapping, converter);
+    }
+
+    public IntegerFieldDef(String name, int mapping, Converter converter) {
+        this(name, String.valueOf(mapping), converter);
     }
 
     private static JavaScriptObject create(String name, String mapping, Converter converter) {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(jsObj, "name", name);
-        JavaScriptObjectHelper.setAttribute(jsObj, "type", "bool");
+        JavaScriptObjectHelper.setAttribute(jsObj, "type", "int");
         if (mapping != null) JavaScriptObjectHelper.setAttribute(jsObj, "mapping", mapping);
         if (converter != null) setConverter(jsObj, converter);
         return jsObj;

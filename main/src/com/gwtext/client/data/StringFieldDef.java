@@ -23,35 +23,34 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
-public class DateField extends Field {
+public class StringFieldDef extends FieldDef {
 
-    /**
-     * Uses default date parsing via new Date(dataVal);
-     *
-     * @param name field name
-     */
-    public DateField(String name) {
+    public StringFieldDef(String name) {
         this(name, null, null);
     }
 
-    public DateField(String name, String dateFormat) {
-        this(name, null, dateFormat);
+    public StringFieldDef(String name, String mapping) {
+        this(name, mapping, null);
     }
 
-    public DateField(String name, String mapping, String dateFormat) {
-        jsObj = create(name, mapping, dateFormat);
+    public StringFieldDef(String name, int mapping) {
+        this(name, mapping, null);
     }
 
-    public DateField(String name, int mapping, String dateFormat) {
-        this(name, dateFormat, String.valueOf(mapping));
+    public StringFieldDef(String name, String mapping, Converter converter) {
+        jsObj = create(name, mapping, converter);
     }
 
-    private static JavaScriptObject create(String name, String mapping, String dateFormat) {
+    public StringFieldDef(String name, int mapping, Converter converter) {
+        this(name, String.valueOf(mapping), converter);
+    }
+
+    private static JavaScriptObject create(String name, String mapping, Converter converter) {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(jsObj, "name", name);
-        JavaScriptObjectHelper.setAttribute(jsObj, "type", "date");
+        JavaScriptObjectHelper.setAttribute(jsObj, "type", "string");
         if (mapping != null) JavaScriptObjectHelper.setAttribute(jsObj, "mapping", mapping);
-        if (dateFormat != null) JavaScriptObjectHelper.setAttribute(jsObj, "dateFormat", dateFormat);
+        if (converter != null) setConverter(jsObj, converter);
         return jsObj;
     }
 }

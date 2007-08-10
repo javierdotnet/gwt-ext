@@ -23,32 +23,32 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
-public class StringField extends Field {
+public class FloatFieldDef extends FieldDef {
 
-    public StringField(String name) {
+    public FloatFieldDef(String name) {
         this(name, null, null);
     }
 
-    public StringField(String name, String mapping) {
+    public FloatFieldDef(String name, String mapping) {
         this(name, mapping, null);
     }
 
-    public StringField(String name, int mapping) {
+    public FloatFieldDef(String name, int mapping) {
         this(name, mapping, null);
     }
 
-    public StringField(String name, String mapping, Converter converter) {
+    public FloatFieldDef(String name, String mapping, Converter converter) {
         jsObj = create(name, mapping, converter);
     }
 
-    public StringField(String name, int mapping, Converter converter) {
+    public FloatFieldDef(String name, int mapping, Converter converter) {
         this(name, String.valueOf(mapping), converter);
     }
 
     private static JavaScriptObject create(String name, String mapping, Converter converter) {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(jsObj, "name", name);
-        JavaScriptObjectHelper.setAttribute(jsObj, "type", "string");
+        JavaScriptObjectHelper.setAttribute(jsObj, "type", "float");
         if (mapping != null) JavaScriptObjectHelper.setAttribute(jsObj, "mapping", mapping);
         if (converter != null) setConverter(jsObj, converter);
         return jsObj;

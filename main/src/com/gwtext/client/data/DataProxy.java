@@ -25,7 +25,6 @@ import com.gwtext.client.core.JsObject;
 
 /**
  * This class is an abstract base class for implementations which provide retrieval of unformatted data objects.
- * <p>
  * DataProxy implementations are usually used in conjunction with an implementation of {@link com.gwtext.client.data.Reader}
  * (of the appropriate type which knows how to parse the data object) to provide a block of {@link com.gwtext.client.data.Record}'s
  *  to a {@link Store}.

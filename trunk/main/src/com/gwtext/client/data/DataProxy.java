@@ -22,10 +22,24 @@ package com.gwtext.client.data;
 
 import com.gwtext.client.core.JsObject;
 
-//Store has events for beforeload, load and load exeption events
-//also DataProxy implmentation here does not have load() method because this is typeically called
 
-//by store.load() instead of being invoked directly
+/**
+ * This class is an abstract base class for implementations which provide retrieval of unformatted data objects.
+ * <p>
+ * DataProxy implementations are usually used in conjunction with an implementation of {@link com.gwtext.client.data.Reader}
+ * (of the appropriate type which knows how to parse the data object) to provide a block of {@link com.gwtext.client.data.Record}'s
+ *  to a {@link Store}.
+ *
+ * @author Sanjiv Jivan
+ * @since 0.9
+ * @see com.gwtext.client.data.Reader
+ * @see com.gwtext.client.data.Record
+ * @see Store
+ */
 public abstract class DataProxy extends JsObject {
+
+//Store has events for beforeload, load and load exeption events
+//Also DataProxy implementation here does not have load() method because this is typically called by store.load()
+//instead of being invoked directly
 
 }

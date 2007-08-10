@@ -41,7 +41,9 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  *  ));
  * </pre>
  * <p/>
- * If the data array had data that doesn't exactly match the the fields you need in the Reader, then you can specify a (zero based) positional mapper in the field definitions.
+ * If the data array has data that doesn't exactly match the the fields you need in the Reader, then you can specify a
+ * (zero based) positional mapper in the field definitions.
+ *
  * <pre>
  * ArrayReader reader = new ArrayReader(new RecordDef(
  *   new Field[]{
@@ -58,8 +60,8 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  * store.load();
  * </pre>
  * <p/>
- * Sometimes you'd like to map a field in the data source to be the "ID" of the record. You indicate the position of the
- * data element that represents the ID by using constructor that takes the field ID index as the first argument.
+ * Sometimes you might want to map a field in the data source to be the "ID" of the record. You indicate the position
+ * of the data element that represents the ID by using constructor that takes the field ID index as the first argument.
  * <p/>
  * <pre>
  * ArrayReader reader = new ArrayReader(5, new RecordDef(
@@ -71,9 +73,14 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  *  ));
  * </pre>
  * <p/>
- * So for the above data set the ID for the first record will get mapped to 1 (data index of 5 corresponts to the last element in the array) and the ID of the
- * second row gets mapped to 2.  Mapping ID's for Record's are useful when, say, the data soource is mapped to a widget like a Grid and when the user clicks on
- * a row, you want to geta handle of the ID for that record which might correspond to the primary key of the database table from which the data is being read.
+ * So for the above data set the ID for the first record will get mapped to 1 (data index of 5 corresponts to the last
+ * element in the array) and the ID of the second row gets mapped to 2.  Mapping ID's for Record's are useful when, say,
+ * the data soource is mapped to a widget like a Grid and when the user clicks on a row, you want to geta handle of the
+ * ID for that record which might correspond to the primary key of the database table from which the data is being read.
+ *
+ * @author Sanjiv Jivan
+ * @since 0.9
+ * @see RecordDef
  */
 public class ArrayReader extends Reader {
 
@@ -91,8 +98,9 @@ public class ArrayReader extends Reader {
     /**
      * Construct an ArrayRader using the specified {@link RecordDef}.
      *
-     * @param id        position of the ID of the field in the underlying array data
+     * @param id position of the ID of the field in the underlying array data that provides an ID for the Record
      * @param recordDef the record definition
+     * @see Record
      */
     public ArrayReader(int id, RecordDef recordDef) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();

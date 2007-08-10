@@ -38,11 +38,11 @@ public class FeedGrid {
                     {
                         setRoot("entries");
                     }
-                }, new RecordDef(new Field[]{
-                        new StringField("title"),
-                        new DateField("publishedDate"), //default date format
-                        new StringField("link"),
-                        new StringField("content")
+                }, new RecordDef(new FieldDef[]{
+                        new StringFieldDef("title"),
+                        new DateFieldDef("publishedDate"), //default date format
+                        new StringFieldDef("link"),
+                        new StringFieldDef("content")
                 }
                 )));
 

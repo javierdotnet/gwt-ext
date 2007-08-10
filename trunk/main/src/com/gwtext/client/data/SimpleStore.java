@@ -38,7 +38,7 @@ public class SimpleStore extends Store {
         jsObj = create(config.getJsObj());
     }
 
-    public SimpleStore(int id, Field[] fields, Object[][] data) {
+    public SimpleStore(int id, FieldDef[] fields, Object[][] data) {
         SimpleStoreConfig config = new SimpleStoreConfig();
         if(id >= 0) config.setId(id);
         config.setFields(fields);
@@ -60,7 +60,7 @@ public class SimpleStore extends Store {
             JavaScriptObjectHelper.setAttribute(jsObj, "fields", JavaScriptObjectHelper.convertToJavaScriptArray(fields));
         }
 
-        public void setFields(Field[] fields) {
+        public void setFields(FieldDef[] fields) {
             JavaScriptObjectHelper.setAttribute(jsObj, "fields", JavaScriptObjectHelper.convertToJavaScriptArray(fields));
         }
 

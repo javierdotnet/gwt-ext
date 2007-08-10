@@ -24,7 +24,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.*;
-import com.gwtext.client.data.Field;
+import com.gwtext.client.data.FieldDef;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.ButtonConfig;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
@@ -48,22 +48,22 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
                 setRecord("contact");
                 setSuccess("@success");
             }
-        }, new RecordDef(new Field[]{
-                new StringField("first", "name/first"),
-                new StringField("last", "name/last"),
-                new StringField("company"),
-                new StringField("email"),
-                new StringField("state"),
-                new com.gwtext.client.data.DateField("dob", "dob", "m/d/Y")}));
+        }, new RecordDef(new FieldDef[]{
+                new StringFieldDef("first", "name/first"),
+                new StringFieldDef("last", "name/last"),
+                new StringFieldDef("company"),
+                new StringFieldDef("email"),
+                new StringFieldDef("state"),
+                new DateFieldDef("dob", "dob", "m/d/Y")}));
 
         final XmlReader errorReader = new XmlReader(new XmlReaderConfig() {
             {
                 setRecord("field");
                 setSuccess("@success");
             }
-        }, new RecordDef(new Field[]{
-                new StringField("id"),
-                new StringField("msg")
+        }, new RecordDef(new FieldDef[]{
+                new StringFieldDef("id"),
+                new StringFieldDef("msg")
         }));
 
         final Form form = new Form("form-ct11", new FormConfig() {
@@ -117,9 +117,9 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
         MemoryProxy proxy = new MemoryProxy(SampleData.getStates());
 
         Reader cbReader = new ArrayReader(new RecordDef(
-                new Field[]{
-                        new StringField("abbr", "0"),
-                        new StringField("state", "1")
+                new FieldDef[]{
+                        new StringFieldDef("abbr", "0"),
+                        new StringFieldDef("state", "1")
                 })
         );
 

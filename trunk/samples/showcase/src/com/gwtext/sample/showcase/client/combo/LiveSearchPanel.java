@@ -22,7 +22,6 @@ package com.gwtext.sample.showcase.client.combo;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.*;
 import com.gwtext.client.util.Format;
@@ -49,12 +48,12 @@ public class LiveSearchPanel extends ShowcaseExampleVSD {
                 setTotalProperty("totalCount");
                 setId("post_id");
             }
-        }, new RecordDef(new Field[]{
-                new StringField("title", "topic_title"),
-                new StringField("topicId", "topic_id"),
-                new StringField("author", "author"),
-                new com.gwtext.client.data.DateField("lastPost", "post_time", "timestamp"),
-                new StringField("excerpt", "post_text")
+        }, new RecordDef(new FieldDef[]{
+                new StringFieldDef("title", "topic_title"),
+                new StringFieldDef("topicId", "topic_id"),
+                new StringFieldDef("author", "author"),
+                new DateFieldDef("lastPost", "post_time", "timestamp"),
+                new StringFieldDef("excerpt", "post_text")
         }));
 
         final Store store = new Store(dataProxy, reader);

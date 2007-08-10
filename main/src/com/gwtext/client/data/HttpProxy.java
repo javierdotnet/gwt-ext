@@ -24,9 +24,26 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.Connection;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+
+/**
+ * An implementation of {@link DataProxy} that reads a data object from the specified URL.
+ * <p>
+ * Note that this class cannot be used to retrieve data from a domain other than the domain from which the
+ * running page was served.
+ * <p>
+ * For cross-domain access to remote data, use an {@link ScriptTagProxy}.
+ * <p>
+ * Be aware that to enable the browser to parse an XML document, the server must set the Content-Type header in the
+ * HTTP response to "text/xml".
+ *
+ * @author Sanjiv Jivan
+ * @since 0.9
+ * @see com.gwtext.client.data.ScriptTagProxy
+ */
 public class HttpProxy extends DataProxy {
 
     /**
+     * Construct a new HttpProxy to the specified URL
      * @param url data url, defaults to POST
      */
     public HttpProxy(String url) {
@@ -34,7 +51,9 @@ public class HttpProxy extends DataProxy {
     }
 
     /**
-     * @param url    data url
+     * Construct a new HttpProxy using the specified URL and method.
+     *
+     * @param url data url
      * @param method GET or POST
      */
     public HttpProxy(String url, String method) {
@@ -48,6 +67,11 @@ public class HttpProxy extends DataProxy {
         return new $wnd.Ext.data.HttpProxy(config);
     }-*/;
 
+    /**
+     * Return the Connection object being used by this Proxy.
+     * 
+     * @return the Connection object. This object may be used to subscribe to events on a finer-grained basis.
+     */
     public Connection getConnection() {
         return new Connection(getConnection(jsObj));
     }

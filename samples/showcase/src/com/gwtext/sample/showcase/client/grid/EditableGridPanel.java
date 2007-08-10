@@ -26,8 +26,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.*;
-import com.gwtext.client.data.DateField;
-import com.gwtext.client.data.Field;
+import com.gwtext.client.data.DateFieldDef;
+import com.gwtext.client.data.FieldDef;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.*;
@@ -49,13 +49,13 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 	public Panel getViewPanel() {
 		HttpProxy proxy = new HttpProxy("data/plants.xml", "GET");
 		XmlReader reader = new XmlReader("plant", new RecordDef(
-				new Field[]{
-						new StringField("common"),
-						new StringField("botanical"),
-						new StringField("light"),
-						new FloatField("price"),
-						new DateField("availDate", "availability", "m/d/Y"),
-						new BooleanField("indoor")
+				new FieldDef[]{
+						new StringFieldDef("common"),
+						new StringFieldDef("botanical"),
+						new StringFieldDef("light"),
+						new FloatFieldDef("price"),
+						new DateFieldDef("availDate", "availability", "m/d/Y"),
+						new BooleanFieldDef("indoor")
 				}
 		));
 

@@ -78,13 +78,13 @@ public class RemotePagingGridPanel extends ShowcaseExampleVSD {
                 setTotalProperty("totalCount");
                 setId("post_id");
             }
-        }, new RecordDef(new Field[]{
-                new StringField("title", "topic_title"),
-                new StringField("author", "username"),
-                new IntegerField("totalPosts", "topic_replies"),
-                new DateField("lastPost", "post_time", "timestamp"),
-                new StringField("lastPoster", "user2"),
-                new StringField("excerpt", "post_text")
+        }, new RecordDef(new FieldDef[]{
+                new StringFieldDef("title", "topic_title"),
+                new StringFieldDef("author", "username"),
+                new IntegerFieldDef("totalPosts", "topic_replies"),
+                new DateFieldDef("lastPost", "post_time", "timestamp"),
+                new StringFieldDef("lastPoster", "user2"),
+                new StringFieldDef("excerpt", "post_text")
         }));
 
         final Store store = new Store(dataProxy, reader, true);

@@ -42,12 +42,12 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
     public Panel getViewPanel() {
         MemoryProxy proxy = new MemoryProxy(SampleData.getCompanyData());
         RecordDef recordDef = new RecordDef(
-                new Field[]{
-                        new StringField("company"),
-                        new FloatField("price"),
-                        new FloatField("change"),
-                        new FloatField("pctChange"),
-                        new DateField("lastChanged", "n/j h:ia")
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia")
                 }
         );
 

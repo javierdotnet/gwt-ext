@@ -23,32 +23,42 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
-public class IntegerField extends Field {
+/**
+ * Field that represents boolean data.
+ *
+ * @author Sanjiv Jivan
+ * @since 0.9
+ */
+public class BooleanFieldDef extends FieldDef {
 
-    public IntegerField(String name) {
+    /**
+     *  Construct a new BooleanField  
+     * @param name
+     */
+    public BooleanFieldDef(String name) {
         this(name, null, null);
     }
 
-    public IntegerField(String name, String mapping) {
+    public BooleanFieldDef(String name, String mapping) {
         this(name, mapping, null);
     }
 
-    public IntegerField(String name, int mapping) {
+    public BooleanFieldDef(String name, int mapping) {
         this(name, mapping, null);
     }
 
-    public IntegerField(String name, String mapping, Converter converter) {
-        jsObj = create(name, mapping, converter);
-    }
-
-    public IntegerField(String name, int mapping, Converter converter) {
+    public BooleanFieldDef(String name, int mapping, Converter converter) {
         this(name, String.valueOf(mapping), converter);
+    }
+
+    public BooleanFieldDef(String name, String mapping, Converter converter) {
+        jsObj = create(name, mapping, converter);
     }
 
     private static JavaScriptObject create(String name, String mapping, Converter converter) {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(jsObj, "name", name);
-        JavaScriptObjectHelper.setAttribute(jsObj, "type", "int");
+        JavaScriptObjectHelper.setAttribute(jsObj, "type", "bool");
         if (mapping != null) JavaScriptObjectHelper.setAttribute(jsObj, "mapping", mapping);
         if (converter != null) setConverter(jsObj, converter);
         return jsObj;

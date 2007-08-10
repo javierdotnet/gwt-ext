@@ -26,7 +26,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class RecordDef extends JsObject {
 
-    public RecordDef(Field[] fields) {
+    public RecordDef(FieldDef[] fields) {
         Object[] jsObjs = new Object[fields.length];
         for (int i = 0; i < jsObjs.length; i++) {
             JavaScriptObject jsObj = fields[i].getJsObj();

@@ -419,9 +419,6 @@ public class Store extends JsObject {
                 var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
                 return listener.@com.gwtext.client.data.event.StoreListener::onUpdate(Lcom/gwtext/client/data/Store;Lcom/gwtext/client/data/Record;Ljava/lang/String;)(storeJ, recordJ, operation);
             }
-		);
-    
+		);    
      }-*/;
-
-
 }

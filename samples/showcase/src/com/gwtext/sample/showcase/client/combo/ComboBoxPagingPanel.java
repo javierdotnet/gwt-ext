@@ -20,7 +20,6 @@
 package com.gwtext.sample.showcase.client.combo;
 
 import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.data.*;
 import com.gwtext.client.widgets.form.ComboBox;
 import com.gwtext.client.widgets.form.ComboBoxConfig;
@@ -42,12 +41,12 @@ public class ComboBoxPagingPanel extends ShowcaseExampleVSD {
 
         MemoryProxy proxy = new PagingMemoryProxy(SampleData.getCompanyData());
         RecordDef recordDef = new RecordDef(
-                new Field[]{
-                        new StringField("company"),
-                        new FloatField("price"),
-                        new FloatField("change"),
-                        new FloatField("pctChange"),
-                        new DateField("lastChanged", "n/j h:ia")
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia")
                 }
         );
 

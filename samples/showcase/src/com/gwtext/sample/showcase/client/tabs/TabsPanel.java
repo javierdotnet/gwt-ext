@@ -50,12 +50,12 @@ public class TabsPanel extends ShowcaseExampleVSD {
 
         MemoryProxy proxy = new MemoryProxy(SampleData.getCompanyData());
         ArrayReader reader = new ArrayReader(new RecordDef(
-                new com.gwtext.client.data.Field[]{
-                        new StringField("company"),
-                        new FloatField("price"),
-                        new FloatField("change"),
-                        new FloatField("pctChange"),
-                        new com.gwtext.client.data.DateField("lastChanged", "n/j h:ia")
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia")
                 }
         ));
 

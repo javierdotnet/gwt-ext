@@ -6,6 +6,9 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 *Thank you for supporting GWT-Ext!*
 
 ||*User / Company*|| Company Summary (optional) ||
-|| Rob Smith || ||
+
+|| Mathias Bogaert || - ||
+|| Rob Smith || - ||
+
 
 

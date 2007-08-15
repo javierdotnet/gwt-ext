@@ -20,7 +20,7 @@
 package com.gwtext.client.util;
 
 import com.gwtext.client.core.BaseConfig;
-import com.gwtext.client.core.Function;
+import com.gwtext.client.widgets.event.KeyListener;
 
 public class KeyMapConfig extends BaseConfig {
 
@@ -51,11 +51,11 @@ public class KeyMapConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "shift", shift);
     }
 
-    public native void setCallback(Function cb) /*-{
+    public native void setKeyListener(KeyListener listener) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
-        config['fn'] = function() {
-            cb.@com.gwtext.client.core.Function::execute()();
+        config['fn'] = function(key, event) {
+            var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+            listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
         };
     }-*/;
-
 }

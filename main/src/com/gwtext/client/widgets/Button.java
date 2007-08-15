@@ -138,8 +138,7 @@ public class Button extends RequiredElementWidget {
 
         button.addListener('click',
                 function(source, event) {
-                    //var self = @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-                    var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);                    
+                    var e = event === undefined ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onClick(Lcom/gwtext/client/widgets/Button;Lcom/gwtext/client/core/EventObject;)(buttonJ, e);
                 }
         );

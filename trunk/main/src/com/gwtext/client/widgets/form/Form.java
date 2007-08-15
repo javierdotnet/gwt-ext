@@ -65,15 +65,19 @@ public class Form extends BaseExtWidget {
     }
 
     private void createElement(String id, FormConfig config) {
-
         int width = config.getWidth();
-        if (width == -1) {
+        String widthStr = config.getWidthStr();
+        if (width == -1 && widthStr == null) {
             Element div = DOM.createDiv();
             DOM.setElementProperty(div, "id", id);
             setElement(div);
         } else {
             Element root = DOM.createDiv();
-            DOM.setStyleAttribute(root, "width", width + "px");
+            if(width != -1) {
+                DOM.setStyleAttribute(root, "width", width + "px");
+            } else {
+                DOM.setStyleAttribute(root, "width", widthStr);
+            }
 
             Element parent = root;
             if (config.isSurroundWithBox()) {

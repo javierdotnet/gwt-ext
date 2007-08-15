@@ -30,6 +30,8 @@ import com.gwtext.client.widgets.form.event.FormListener;
 public class FormConfig extends BaseConfig {
 
     private int width = -1;
+    private String widthStr;
+
     private String header;
     private FormListener formListener;
     private boolean surroundWithBox;
@@ -115,10 +117,20 @@ public class FormConfig extends BaseConfig {
     //synthetic param
     public void setWidth(int width) {
         this.width = width;
+        this.widthStr = null;
     }
 
     public int getWidth() {
         return width;
+    }
+
+    public void setWidth(String width) {
+        this.widthStr = width;
+        this.width = -1;
+    }
+
+    public String getWidthStr() {
+        return widthStr;
     }
 
     public void setHeader(String header) {

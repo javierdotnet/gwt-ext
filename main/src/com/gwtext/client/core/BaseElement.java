@@ -23,6 +23,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.util.KeyMap;
 import com.gwtext.client.util.KeyMapConfig;
+import com.gwtext.client.widgets.event.KeyListener;
 
 public class BaseElement extends JsObject implements Fx {
 
@@ -69,27 +70,30 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native KeyMap addKeyListener(int keyCode, Function cb)/*-{
+    public native KeyMap addKeyListener(int keyCode, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var km = elem.addKeyListener(keyCode, function() {
-              cb.@com.gwtext.client.core.Function::execute()();
+        var km = elem.addKeyListener(keyCode, function(key, event) {
+                var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
             });
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
-    public native KeyMap addKeyListener(int[] keyCodes, Function cb)/*-{
+    public native KeyMap addKeyListener(int[] keyCodes, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var keyCodesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(keyCodes);
-        var km = elem.addKeyListener(keyCodesJS, function() {
-              cb.@com.gwtext.client.core.Function::execute()();
+        var km = elem.addKeyListener(keyCodesJS, function(key, event) {
+                var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
             });
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
-    public native KeyMap addKeyListener(String keys, Function cb)/*-{
+    public native KeyMap addKeyListener(String keys, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var km = elem.addKeyListener(keys, function() {
-              cb.@com.gwtext.client.core.Function::execute()();
+        var km = elem.addKeyListener(keys, function(key, event) {
+                var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
             });
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;

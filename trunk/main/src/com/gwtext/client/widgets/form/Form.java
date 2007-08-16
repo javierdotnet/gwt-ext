@@ -165,14 +165,15 @@ public class Form extends BaseExtWidget {
                 DOM.removeChild(parent, buttonEl);
             }
         }
-        doAddButton(button);
-        return button;
+        JavaScriptObject buttonJS = doAddButton(button);
+		button.setJsObj(buttonJS);
+		return button;
     }
 
-    private native void doAddButton(Button button) /*-{
+    private native JavaScriptObject doAddButton(Button button) /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJS = button.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        form.addButton(buttonJS);
+        return form.addButton(buttonJS);
     }-*/;
 
 

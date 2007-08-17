@@ -49,8 +49,8 @@ public class LayoutDialogConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "collapsible", collapsible);
     }
 
-    public void setConstraintToViewport(boolean constrainttoviewport) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "constrainttoviewport", constrainttoviewport);
+    public void setConstrainToViewport(boolean constrainttoviewport) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "constraintoviewport", constrainttoviewport);
     }
 
     public void setDraggable(boolean draggable) {

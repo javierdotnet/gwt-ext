@@ -24,7 +24,7 @@ import com.gwtext.client.core.Box;
 import com.gwtext.client.core.Size;
 import com.gwtext.client.widgets.event.BoxComponentListener;
 
-public class BoxComponent extends Component {
+public abstract class BoxComponent extends Component {
 
     protected BoxComponent() {
     }

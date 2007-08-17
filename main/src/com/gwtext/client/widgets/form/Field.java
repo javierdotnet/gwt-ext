@@ -23,10 +23,10 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.widgets.Component;
+import com.gwtext.client.widgets.BoxComponent;
 import com.gwtext.client.widgets.form.event.FieldListener;
 
-public class Field extends Component {
+public class Field extends BoxComponent {
 
     public Field() {
         setJsObj(create(null));

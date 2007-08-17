@@ -213,6 +213,16 @@ public class LayoutDialog extends BaseExtWidget {
             return tabs == null ? null : @com.gwtext.client.widgets.TabPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tabs);
     }-*/;
 
+    public native boolean isVisible() /*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return dialog.isVisible();
+    }-*/;
+
+    public native void moveTo(int x, int y) /*-{
+        var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        dialog.moveTo(x, y);
+    }-*/;
+
     public native void resizeTo(int width, int height) /*-{
             var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
             dialog.resizeTo(width, height);

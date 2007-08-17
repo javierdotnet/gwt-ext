@@ -29,10 +29,12 @@ public class CheckboxConfig extends FieldConfig {
 
     public void setBoxLabel(String boxLabel) {
         JavaScriptObjectHelper.setAttribute(jsObj, "boxLabel", boxLabel);
-    }
+		setLabelSeparator("&nbsp;");
+	}
 
-    //TODO - this is not working. see thread on ext list
-    public void setChecked(boolean checked) {
+    //TODO - added temp workaroud to get this working. see thread on ext list
+	//http://extjs.com/forum/showthread.php?t=10472
+	public void setChecked(boolean checked) {
         JavaScriptObjectHelper.setAttribute(jsObj, "checked", checked);
     }
 

@@ -71,7 +71,7 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "fieldLabel", fieldLabel);
     }
 
-    public void setInputType(String inputType) {
+	public void setInputType(String inputType) {
         JavaScriptObjectHelper.setAttribute(jsObj, "inputType", inputType);
     }
 
@@ -83,7 +83,17 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "invalidText", invalidText);
     }
 
-    public void setMsgFx(String msgFx) {
+	//not in ext docs
+	public void setLabelStyle(String labelStyle) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "labelStyle", labelStyle);
+    }
+
+	//not in ext docs
+	public void setLabelSeparator(String labelSeparator) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "labelSeparator", labelSeparator);
+    }
+	
+	public void setMsgFx(String msgFx) {
         JavaScriptObjectHelper.setAttribute(jsObj, "msgFx", msgFx);
     }
 

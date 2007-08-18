@@ -28,7 +28,12 @@ public class FieldListenerAdapter implements FieldListener {
     public void onBlur(Field field) {
     }
 
-    public void onChange(Field field, String newVal, String oldVal) {
+    //make old API final so that it results in compile errors when users' previous code overrides this instead of
+    //silently failing. Uses should now use onChange(Field field, Object newVal, Object oldVal)
+    public final void onChange(Field field, String  newVal, String oldVal) {        
+    }
+
+    public void onChange(Field field, Object newVal, Object oldVal) {
     }
 
     public void onFocus(Field field) {

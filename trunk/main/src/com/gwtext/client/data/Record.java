@@ -104,6 +104,11 @@ public class Record extends JsObject {
         record.set(field, value);
     }-*/;
 
+    public native void setId(String id) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        record.id = id;
+    }-*/;
+
     public native Date getAsDate(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         var val = record.get(field);

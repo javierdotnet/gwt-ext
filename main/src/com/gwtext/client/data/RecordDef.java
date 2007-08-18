@@ -26,9 +26,12 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class RecordDef extends JsObject {
 
+    private int numFields;
+
     public RecordDef(FieldDef[] fields) {
-        Object[] jsObjs = new Object[fields.length];
-        for (int i = 0; i < jsObjs.length; i++) {
+        numFields = fields.length;
+        Object[] jsObjs = new Object[numFields];
+        for (int i = 0; i < numFields; i++) {
             JavaScriptObject jsObj = fields[i].getJsObj();
             jsObjs[i] = jsObj;
         }
@@ -39,8 +42,16 @@ public class RecordDef extends JsObject {
         return $wnd.Ext.data.Record.create(recordDef);
     }-*/;
 
-    //tested - works
+    public Record createRecord(String id, Object[] rowData) {
+        Record record = createRecord(rowData);
+        record.setId(id);
+        return record;
+    }
+
     public Record createRecord(Object[] rowData) {
+        if(rowData.length != numFields) {
+            throw new IllegalArgumentException("Expected " + numFields  + " fields but was passed " + rowData.length + " fields.");
+        }
         MemoryProxy proxy = new MemoryProxy(new Object[][]{rowData});
         ArrayReader reader = new ArrayReader(this);
         Store temp = new Store(proxy, reader);

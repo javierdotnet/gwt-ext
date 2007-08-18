@@ -27,7 +27,7 @@ public interface FieldListener {
 
     void onBlur(Field field);
 
-    void onChange(Field field, String newVal, String oldVal);
+    void onChange(Field field, Object newVal, Object oldVal);
 
     void onFocus(Field field);
 

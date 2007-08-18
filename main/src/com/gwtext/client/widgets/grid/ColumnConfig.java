@@ -68,10 +68,12 @@ public class ColumnConfig extends BaseConfig {
     public native void setRenderer(Renderer renderer) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
 
-        config['renderer'] = function(val, p, r, rowIndex, colNum, ds) {
+        config['renderer'] = function(val, cell, r, rowIndex, colNum, store) {
             var valJ = (val  == null || val === undefined ) ? null : $wnd.GwtExt.convertToJavaType(val);
-            var rec = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
-            return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/Object;Lcom/gwtext/client/data/Record;II)(valJ, rec, rowIndex, colNum);
+            var recJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+            var cellJ = @com.gwtext.client.widgets.grid.ColumnModel::createCellMetadata(Lcom/google/gwt/core/client/JavaScriptObject;)(cell);
+            var storeJ = @com.gwtext.client.data.Store::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(store);
+            return renderer.@com.gwtext.client.widgets.grid.Renderer::render(Ljava/lang/Object;Lcom/gwtext/client/widgets/grid/CellMetadata;Lcom/gwtext/client/data/Record;IILcom/gwtext/client/data/Store;)(valJ, cellJ, recJ, rowIndex, colNum, storeJ);
         }
     }-*/;
 

@@ -145,10 +145,10 @@ public class Field extends BoxComponent {
         );
 
         field.addListener('change',
-                function(fld, newVal, oldVal) {
-					if(newVal === undefined) newVal = null;
-					if(oldVal === undefined) oldVal = null;
-					listener.@com.gwtext.client.widgets.form.event.FieldListener::onChange(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/String;Ljava/lang/String;)(fieldJ, newVal, oldVal);
+                function(fld, newVal, oldVal) {					
+                    var newValJ = (newVal  == null || newVal === undefined || newVal == '') ? null : $wnd.GwtExt.convertToJavaType(newVal);
+                    var oldValJ = (oldVal  == null || oldVal === undefined || oldVal == '' ) ? null : $wnd.GwtExt.convertToJavaType(oldVal);
+					listener.@com.gwtext.client.widgets.form.event.FieldListener::onChange(Lcom/gwtext/client/widgets/form/Field;Ljava/lang/Object;Ljava/lang/Object;)(fieldJ, newValJ, oldValJ);
                 }
         );
 

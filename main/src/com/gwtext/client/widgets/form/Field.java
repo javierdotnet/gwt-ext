@@ -91,7 +91,8 @@ public class Field extends BoxComponent {
 
     public native String getValueAsString() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        return field.getValue();
+        var value = field.getValue();
+        return (value == null || value === undefined ) ? '' : value.toString();
     }-*/;
 
     public native boolean isDirty() /*-{

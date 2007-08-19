@@ -7,8 +7,8 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 
 ||*User / Company*|| Company / Application Summary (optional) ||
 
+|| Jason Horman || - ||
 || Mathias Bogaert || - ||
 || Ming Fang || Financial app ||
 || Rob Smith || Financial app ||
-
 

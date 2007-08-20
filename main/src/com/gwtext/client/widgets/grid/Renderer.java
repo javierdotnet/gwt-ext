@@ -21,11 +21,9 @@
 package com.gwtext.client.widgets.grid;
 
 import com.gwtext.client.data.Record;
+import com.gwtext.client.data.Store;
 
 public interface Renderer {
 
-    //r.data[c.name], p, r, rowIndex, i, ds
-    //rowindex 0 based
-    //col num 1 based
-    String render(Object value, Record record, int rowIndex, int colNum);
+    String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store);
 }

@@ -22,10 +22,7 @@ package com.gwtext.sample.showcase.client.grid;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
 import com.gwtext.client.data.*;
-import com.gwtext.client.widgets.grid.ColumnConfig;
-import com.gwtext.client.widgets.grid.ColumnModel;
-import com.gwtext.client.widgets.grid.Grid;
-import com.gwtext.client.widgets.grid.Renderer;
+import com.gwtext.client.widgets.grid.*;
 import com.gwtext.sample.showcase.client.SampleData;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
@@ -86,7 +83,7 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
                         setSortable(true);
                         setDataIndex("price");
                         setRenderer(new Renderer() {
-                            public String render(Object value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
                                 return "$" + value;
                             }
                         });
@@ -100,7 +97,7 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
                         setSortable(true);
                         setDataIndex("change");
                         setRenderer(new Renderer() {
-                            public String render(Object value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
                                 if (((Float) value).floatValue() < 0) {
                                     return "<span style='color:red;'>" + value + "</span>";
                                 } else {

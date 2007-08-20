@@ -41,6 +41,10 @@ public class Store extends JsObject {
         super(jsObj);
     }
 
+    public static Store instance(JavaScriptObject jsObj) {
+        return new Store(jsObj);
+    }
+
     //http://extjs.com/forum/showthread.php?t=3564&highlight=memoryproxy
     public Store(RecordDef recordDef) {
         JavaScriptObject params = JavaScriptObjectHelper.createObject();

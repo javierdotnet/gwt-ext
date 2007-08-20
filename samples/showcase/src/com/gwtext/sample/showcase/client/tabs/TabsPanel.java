@@ -27,8 +27,8 @@ import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.TabPanel;
 import com.gwtext.client.widgets.TabPanelItem;
 import com.gwtext.client.widgets.event.TabPanelItemListenerAdapter;
-import com.gwtext.client.widgets.form.DateField;
 import com.gwtext.client.widgets.form.*;
+import com.gwtext.client.widgets.grid.CellMetadata;
 import com.gwtext.client.widgets.grid.ColumnModel;
 import com.gwtext.client.widgets.grid.Renderer;
 import com.gwtext.sample.showcase.client.SampleData;
@@ -78,7 +78,7 @@ public class TabsPanel extends ShowcaseExampleVSD {
                         setSortable(true);
                         setDataIndex("price");
                         setRenderer(new Renderer() {
-                            public String render(Object value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
                                 return "$" + value;
                             }
                         });

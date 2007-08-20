@@ -88,7 +88,7 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						setWidth(70);
 						setAlign("right");
 						setRenderer(new Renderer() {
-							public String render(Object value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
 								return "$" + value;
 							}
 						});
@@ -124,7 +124,7 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						//setEditor(new GridEditor(new Checkbox(new CheckboxConfig())));
 
 						setRenderer(new Renderer() {
-							public String render(Object value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
 								boolean checked = ((Boolean) value).booleanValue();
 								return "<img class=\"checkbox\" src=\"js/ext/resources/images/default/menu/" + (checked ? "checked.gif" : "unchecked.gif") + "\"/>";
 							}

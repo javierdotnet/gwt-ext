@@ -45,6 +45,24 @@ public class Record extends JsObject {
         return record.dirty;
     }-*/;
 
+    public native Record copy() /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record2 = record.copy();
+        return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record2);
+    }-*/;
+
+    public native Record copy(String id) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record2 = record.copy(id);
+        return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record2);
+    }-*/;
+
+    public native void commit() /*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        record.commit();
+    }-*/;
+
+
     //todo throw exception if field is invalid as opposed to null value for field?
     //throw new Error("JS Error Object");
     public native String getAsString(String field) /*-{

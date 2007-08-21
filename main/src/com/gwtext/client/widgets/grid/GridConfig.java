@@ -60,6 +60,14 @@ public class GridConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "trackMouseOver", trackMouseOver);
     }
 
+    public void setEnableCtxMenu(boolean enableCtxMenu) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "enableCtxMenu", enableCtxMenu);
+    }
+
+    public void setEnableColumnResize(boolean enableColumnResize) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "enableColumnResize", enableColumnResize);
+    }
+
     //http://extjs.com/forum/showthread.php?p=43678#post43678
     public void setEnableDragDrop(boolean enableDragDrop) {
         JavaScriptObjectHelper.setAttribute(jsObj, "enableDragDrop", enableDragDrop);

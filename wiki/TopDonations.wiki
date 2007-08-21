@@ -11,4 +11,4 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 || Mathias Bogaert || - ||
 || Ming Fang || Financial app ||
 || Rob Smith || Financial app ||
-|| Scooter Willis || Financial app ||
+|| Scooter Willis || - ||

@@ -227,9 +227,11 @@ public class LayoutRegion extends JsObject {
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
 
         layoutRegion.addListener('beforeremove',
-                function(region, panel) {
+                function(region, panel, e) {
                     var panelJ = @com.gwtext.client.widgets.layout.ContentPanel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
-                    return listener.@com.gwtext.client.widgets.layout.event.LayoutRegionListener::doBeforeRemove(Lcom/gwtext/client/widgets/layout/LayoutRegion;Lcom/gwtext/client/widgets/layout/ContentPanel;)(layoutRegionJ, panelJ);
+                    var val =  listener.@com.gwtext.client.widgets.layout.event.LayoutRegionListener::doBeforeRemove(Lcom/gwtext/client/widgets/layout/LayoutRegion;Lcom/gwtext/client/widgets/layout/ContentPanel;)(layoutRegionJ, panelJ);
+                    e.cancel = !val;
+                    return val;
                 }
         );
 

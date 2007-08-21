@@ -268,8 +268,10 @@ public class TabPanel extends BaseExtWidget {
         tabPanel.addListener('beforetabchange',
                 function(tab, e, tpi) {
                     var tpiJ = @com.gwtext.client.widgets.TabPanelItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tpi);
-                    e.cancel = !listener.@com.gwtext.client.widgets.event.TabPanelListener::doBeforeTabChange(Lcom/gwtext/client/widgets/TabPanel;Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelJ, tpiJ);
-                }
+                    var val = listener.@com.gwtext.client.widgets.event.TabPanelListener::doBeforeTabChange(Lcom/gwtext/client/widgets/TabPanel;Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelJ, tpiJ);
+                    e.cancel = !val;
+                    return val;
+            }
         );
     }-*/;
 }

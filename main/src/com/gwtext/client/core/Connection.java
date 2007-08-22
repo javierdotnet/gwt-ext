@@ -73,7 +73,7 @@ public class Connection extends JsObject {
 
 
     public native void addConnectionListener(ConnectionListener listener)/*-{
-        var conn = listener.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
         var connJ = this;
 
         conn.addListener('beforerequest',

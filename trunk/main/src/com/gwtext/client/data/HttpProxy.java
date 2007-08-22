@@ -74,6 +74,6 @@ public class HttpProxy extends DataProxy {
     }
 
     private native JavaScriptObject getConnection(JavaScriptObject proxy) /*-{
-        proxy.getConnection();
+        return proxy.getConnection();
     }-*/;
 }

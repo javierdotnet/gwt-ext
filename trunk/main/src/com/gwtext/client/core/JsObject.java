@@ -33,7 +33,10 @@ public abstract class JsObject {
         init();
     }
 
-    private static native void init()/*-{    
+    private static native void init()/*-{
+
+        @com.gwtext.client.core.EventObject::initConstants()();
+
         Function.prototype.createCallback = function() {
             // make args available, in function below
             var args = arguments;

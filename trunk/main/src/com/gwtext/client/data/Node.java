@@ -203,17 +203,16 @@ public class Node extends JsObject {
     }-*/;
 
     public native Node insertBefore(Node node, Node nodeRef) /*-{
-        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        var self = this.@com.gwtext.client.core.JsObject::jsObj;
         var node1 = node.@com.gwtext.client.core.JsObject::jsObj;
         var node2 = nodeRef.@com.gwtext.client.core.JsObject::jsObj;
-        var insNode = node.insertBefore(node1, node2);
-        return this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(insNode);
+        return node;
     }-*/;
 
     public native boolean isAncestor(Node node) /*-{
-        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        var self = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJS = node.@com.gwtext.client.core.JsObject::jsObj;
-        return node.isAncestor(nodeJS);
+        return self.isAncestor(nodeJS);
     }-*/;
 
     public native boolean isFirst() /*-{
@@ -258,9 +257,10 @@ public class Node extends JsObject {
     //todo test
     public native void sort(Comparator c) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        var nodeJ = this;
         node.sort(function(n1, n2) {
-            var n1J = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n1);
-            var n2J = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n2);
+            var n1J = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n1);
+            var n2J = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n2);
             c.@java.util.Comparator::compare(Ljava/lang/Object;Ljava/lang/Object;)(n1J, n2J);
         })
     }-*/;
@@ -272,7 +272,7 @@ public class Node extends JsObject {
 		node.addListener('append',
 					function(tree, self, newNode, index) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var newNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
+						var newNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
 						listener.@com.gwtext.client.data.event.NodeListener::onAppend(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;I)(treeJ, nodeJ, newNodeJ, index);
 					}
 		);
@@ -280,7 +280,7 @@ public class Node extends JsObject {
 		node.addListener('beforeappend',
 					function(tree, self, newNode) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var newNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
+						var newNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
 						return listener.@com.gwtext.client.data.event.NodeListener::doBeforeAppend(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;)(treeJ, nodeJ, newNodeJ);
 					}
 		);
@@ -288,8 +288,8 @@ public class Node extends JsObject {
 		node.addListener('beforeinsert',
 					function(tree, self, newNode, refNode) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var newNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
-						var refNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
+						var newNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
+						var refNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
 						return listener.@com.gwtext.client.data.event.NodeListener::doBeforeInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;)(treeJ, nodeJ, newNodeJ, refNodeJ);
 					}
 		);
@@ -297,8 +297,8 @@ public class Node extends JsObject {
 		node.addListener('beforemove',
 					function(tree, self, oldParent, newParent, index) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var oldParentJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
-						var newParentJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
+						var oldParentJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
+						var newParentJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
 						return listener.@com.gwtext.client.data.event.NodeListener::doBeforeMove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;I)(treeJ, nodeJ, oldParentJ, newParentJ, index);
 					}
 		);
@@ -306,7 +306,7 @@ public class Node extends JsObject {
 		node.addListener('beforeremove',
 					function(tree, self, removeNode) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var removeNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(removeNode);
+						var removeNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(removeNode);
 						return listener.@com.gwtext.client.data.event.NodeListener::doBeforeRemove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;)(treeJ, nodeJ, removeNodeJ);
 					}
 		);
@@ -314,8 +314,8 @@ public class Node extends JsObject {
 		node.addListener('insert',
 					function(tree, self, newNode, refNode) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var newNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
-						var refNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
+						var newNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
+						var refNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
 						listener.@com.gwtext.client.data.event.NodeListener::onInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;)(treeJ, nodeJ, newNodeJ, refNodeJ);
 					}
 		);
@@ -323,8 +323,8 @@ public class Node extends JsObject {
 		node.addListener('move',
 					function(tree, self, oldParent, newParent, index) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var oldParentJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
-						var newParentJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
+						var oldParentJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
+						var newParentJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
 						listener.@com.gwtext.client.data.event.NodeListener::onMove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;I)(treeJ, nodeJ, oldParentJ, newParentJ, index);
 					}
 		);
@@ -332,7 +332,7 @@ public class Node extends JsObject {
 		node.addListener('remove',
 					function(tree, self, removeNode) {
 						var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-						var removeNodeJ = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(removeNode);
+						var removeNodeJ = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(removeNode);
 						listener.@com.gwtext.client.data.event.NodeListener::onRemove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/data/Node;Lcom/gwtext/client/data/Node;)(treeJ, nodeJ, removeNodeJ);
 					}
 		);

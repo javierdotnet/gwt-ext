@@ -30,9 +30,12 @@ public class EventObject extends JsObject {
     public static int BACKSPACE, CONTROL, DELETE, DOWN, END, ENTER, ESC, F5, HOME, LEFT, PAGEDOWN,
             PAGEUP, RETURN, RIGHT, SHIFT, SPACE, TAB, UP;
 
+    /*
+    Initializing constants from JsObject static bloc instead of here because of issue with OS X
+    See http://code.google.com/p/gwt-ext/issues/detail?id=71
     static {
         initConstants();
-    }
+    }*/
 
     public EventObject(JavaScriptObject jsObj) {
         super(jsObj);

@@ -206,6 +206,7 @@ public class Node extends JsObject {
         var self = this.@com.gwtext.client.core.JsObject::jsObj;
         var node1 = node.@com.gwtext.client.core.JsObject::jsObj;
         var node2 = nodeRef.@com.gwtext.client.core.JsObject::jsObj;
+        self.insertBefore(node1, node2);
         return node;
     }-*/;
 

@@ -96,7 +96,7 @@ public class BorderLayout extends BaseExtWidget {
 
     public native void setMonitorWindowResize(boolean monitorWindowResize) /*-{
         var layout = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        return layout.monitorWindowResize = monitorWindowResize;
+        layout.monitorWindowResize = monitorWindowResize;
     }-*/;
 
     public void beginUpdate() {

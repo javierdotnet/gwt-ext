@@ -159,8 +159,13 @@ public class Grid extends BaseExtWidget {
         grid.render();
     }-*/;
 
-    //TODO reconfigure()
     //http://extjs.com/forum/showthread.php?t=8694&highlight=grid+reconfigure
+    public native void reconfigure(Store store, ColumnModel columnModel) /*-{
+        var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
+        var columnModelJS = columnModel.@com.gwtext.client.core.JsObject::jsObj;
+        grid.reconfigure(storeJS, columnModelJS);
+    }-*/;
 
     public native void addGridCellListener(GridCellListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

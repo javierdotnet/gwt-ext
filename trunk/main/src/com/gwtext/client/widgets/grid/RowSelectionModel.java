@@ -84,7 +84,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
         return sm.isIdSelected(id);
     }-*/;
 
-    public native void isSelected(int row) /*-{
+    public native boolean isSelected(int row) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         return sm.isSelected(row);
     }-*/;

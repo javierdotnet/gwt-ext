@@ -22,5 +22,5 @@ package com.gwtext.client.widgets.form;
 
 public interface Validator {
 
-    boolean validate(String value);
+    boolean validate(String value) throws ValidationException;
 }

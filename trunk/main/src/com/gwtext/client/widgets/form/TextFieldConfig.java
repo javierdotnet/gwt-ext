@@ -104,9 +104,24 @@ public class TextFieldConfig extends FieldConfig {
         setValidator(jsObj, validator);
     }
 
+    private static String doValidate(Validator validator, String value) {
+        try {
+            return validator.validate(value) ? "true-val" : "false-val";
+        } catch (ValidationException e) {
+            return e.getMessage();
+        }
+    }
+
     private native void setValidator(JavaScriptObject config, Validator validator) /*-{
-        config['validator'] = function(value) {
-            return validator.@com.gwtext.client.widgets.form.Validator::validate(Ljava/lang/String;)(value);
+        config['validator'] = function(value) {            
+            var val = @com.gwtext.client.widgets.form.TextFieldConfig::doValidate(Lcom/gwtext/client/widgets/form/Validator;Ljava/lang/String;)(validator, value);
+            if(val === "true-val") {
+                return true;
+            } else if ( val === "false-val") {
+                return false;
+            } else {
+                return val;
+            }
         }
     }-*/;
 

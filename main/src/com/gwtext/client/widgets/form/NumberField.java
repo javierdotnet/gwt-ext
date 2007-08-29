@@ -38,9 +38,10 @@ public class NumberField extends TextField {
         return new $wnd.Ext.form.NumberField(jsObj);
     }-*/;
 
-    public native float getValue() /*-{
-         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-         return field.getValue();
+    public native Number getValue() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var value = field.getValue();
+        return (value == null || value === undefined || value === '') ? null : $wnd.GwtExt.convertToJavaType(value);
     }-*/;
 
     public native void setValue(float value) /*-{

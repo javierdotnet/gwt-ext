@@ -124,17 +124,20 @@ public class EventObject extends JsObject {
 
     public native boolean isAltKey() /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
-        return e.altKey;
+        var isAlt = e.altKey;
+        return (isAlt == null || isAlt === undefined) ? false : isAlt;
     }-*/;
 
     public native boolean isCtrlKey() /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
-        return e.ctrlKey;
+        var isCrtl = e.ctrlKey;
+        return (isCrtl == null || isCrtl === undefined) ? false : isCrtl;
     }-*/;
 
     public native boolean isShiftKey() /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
-        return e.shiftKey;
+        var isShift = e.shiftKey;
+        return (isShift == null || isShift === undefined) ? false : isShift;
     }-*/;
 
     //-1 = none, 0 = left, 1 = middle, 2 right

@@ -84,7 +84,7 @@ public class Connection extends JsObject {
 
         conn.addListener('requestcomplete',
                 function(conn, response, options) {
-                    return listener.@com.gwtext.client.core.event.ConnectionListener::onRequestComplete(Lcom/gwtext/client/core/Connection;Ljava/lang/String;)(connJ, response.responseXML);
+                    return listener.@com.gwtext.client.core.event.ConnectionListener::onRequestComplete(Lcom/gwtext/client/core/Connection;Ljava/lang/String;)(connJ, response.responseText);
                 }
         );
 

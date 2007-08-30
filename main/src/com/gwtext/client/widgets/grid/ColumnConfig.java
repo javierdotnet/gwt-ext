@@ -69,7 +69,7 @@ public class ColumnConfig extends BaseConfig {
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
 
         config['renderer'] = function(val, cell, r, rowIndex, colNum, store) {
-            var valJ = (val  == null || val === undefined ) ? null : $wnd.GwtExt.convertToJavaType(val);
+            var valJ = (val  == null || val === undefined || val === '') ? null : $wnd.GwtExt.convertToJavaType(val);
             var recJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
             var cellJ = @com.gwtext.client.widgets.grid.ColumnModel::createCellMetadata(Lcom/google/gwt/core/client/JavaScriptObject;)(cell);
             var storeJ = @com.gwtext.client.data.Store::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(store);

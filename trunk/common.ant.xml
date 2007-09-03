@@ -94,7 +94,7 @@
 	</condition>
     
     <!--GWT jars location-->
-    <property name="gwt.version" value="1.4.10" />
+    <property name="gwt.version" value="1.4.60" />
     <property name="gwt.user.jar" location="${gwtext.tools.lib}/gwt/${gwt.version}/${build.host.platform}/gwt-user.jar" />
 	<property name="gwt.dev.jar" location="${gwtext.tools.lib}/gwt/${gwt.version}/${build.host.platform}/gwt-dev-${build.host.platform}.jar" />
 

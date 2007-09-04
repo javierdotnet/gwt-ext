@@ -1,4 +1,3 @@
-#labels Featured
 == Compiling from Source ===
 
 === Checking Out the Source from Subversion ===

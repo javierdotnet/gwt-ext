@@ -115,7 +115,7 @@ public class Toolbar extends RequiredElementWidget {
         toolbar.addText(text);
     }-*/;
 
-    public void insertButton(int index, ToolbarItem item) {
+    public void insertItem(int index, ToolbarItem item) {
         insertButton(jsObj, index, item.getJsObj());
     }
 

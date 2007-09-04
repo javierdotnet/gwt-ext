@@ -100,7 +100,7 @@ public class LayoutDialogPanel extends ShowcaseExampleVSD {
         layout.add(LayoutRegionConfig.WEST, new ContentPanel(Ext.generateId(), "West"));
 
         //adding multiple Content Panels to the same region resutls in tabs
-        layout.add(LayoutRegionConfig.CENTER, new ContentPanel("The First Tab"));
+        layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), "The First Tab"));
         layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
             {
                 setTitle("Another Tab");

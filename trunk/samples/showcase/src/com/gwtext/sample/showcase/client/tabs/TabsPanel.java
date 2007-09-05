@@ -159,7 +159,7 @@ public class TabsPanel extends ShowcaseExampleVSD {
                 setHeader("Simple Form");
                 setLabelWidth(75);
                 setUrl("foobar.php");
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
             }
         });
         form.add(new TextField(new TextFieldConfig() {

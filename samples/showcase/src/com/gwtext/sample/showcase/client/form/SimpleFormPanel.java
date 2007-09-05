@@ -40,7 +40,7 @@ public class SimpleFormPanel extends ShowcaseExampleVSD {
                 setHeader("Simple Form");
                 setLabelWidth(75);
                 setUrl("foobar.php");
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
             }
         });
 

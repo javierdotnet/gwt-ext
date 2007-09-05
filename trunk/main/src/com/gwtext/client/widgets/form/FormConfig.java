@@ -36,7 +36,7 @@ public class FormConfig extends BaseConfig {
     private FormListener formListener;
     private boolean surroundWithBox;
 
-    public void setSurrondWithBox(boolean surroundWithBox) {
+    public void setSurroundWithBox(boolean surroundWithBox) {
         this.surroundWithBox = surroundWithBox;
     }
 

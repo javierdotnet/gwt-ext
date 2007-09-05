@@ -74,6 +74,7 @@ public class LayoutRegionConfig {
     }
 
     public void setCollapsed(boolean value) {
+        setCollapsible(true);
         JavaScriptObjectHelper.setAttribute(jsObj, "collapsed", value);
     }
 

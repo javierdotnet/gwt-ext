@@ -41,7 +41,7 @@ public class MultiColumnLabelsTopPanel extends ShowcaseExampleVSD {
                 setHeader("Multi-column and labels top");
                 setWidth(400);
                 setLabelWidth(75);
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
             }
         });
 

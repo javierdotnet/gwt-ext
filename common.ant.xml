@@ -25,7 +25,7 @@
 	<condition property="gwtext.version" value="${env.GWTEXT_VERSION}" else="0.9.1">
 		<isset property="env.GWTEXT_VERSION" />
 	</condition>
-	<condition property="ext.version" value="${env.EXT_VERSION}" else="1.1-rc1">
+	<condition property="ext.version" value="${env.EXT_VERSION}" else="1.1.1">
 		<isset property="env.EXT_VERSION" />
 	</condition>
     <condition property="gwtext.tools.check" value="${env.GWTEXT_TOOLS}" else="${gwtext.root}/../tools">

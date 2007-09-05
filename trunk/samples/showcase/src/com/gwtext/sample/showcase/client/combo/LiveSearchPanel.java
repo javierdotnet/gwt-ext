@@ -62,7 +62,7 @@ public class LiveSearchPanel extends ShowcaseExampleVSD {
         Form form = new Form(new FormConfig() {
             {
                 setWidth(610);
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
                 setHideLabels(true);
                 setHeader("Search the Ext Forums");
             }

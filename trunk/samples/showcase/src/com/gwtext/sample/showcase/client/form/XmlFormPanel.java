@@ -24,7 +24,6 @@ import com.google.gwt.user.client.ui.Panel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.*;
-import com.gwtext.client.data.FieldDef;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.ButtonConfig;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
@@ -72,7 +71,7 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
                 setHeader("XML Form");
                 setWidth(400);
                 setLabelWidth(75);
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
                 setReader(reader);
                 setErrorReader(errorReader);
             }

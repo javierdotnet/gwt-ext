@@ -38,7 +38,7 @@ public class MultiColumnFieldsetPanel extends ShowcaseExampleVSD {
                 setLabelWidth(75);
                 setWidth(700);
                 setHeader("Multi-column, nesting and fieldsets");
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
             }
         });
 

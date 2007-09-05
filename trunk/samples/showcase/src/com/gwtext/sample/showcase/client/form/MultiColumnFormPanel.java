@@ -37,7 +37,7 @@ public class MultiColumnFormPanel extends ShowcaseExampleVSD {
                 setLabelAlign("top");
                 setHeader("Multi-column and labels top");
                 setWidth(600);
-                setSurrondWithBox(true);
+                setSurroundWithBox(true);
             }
         });
 

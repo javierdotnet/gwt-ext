@@ -113,6 +113,12 @@ public class UpdateManager extends JsObject {
         um.loadScripts = loadScripts;
     }-*/;
 
+    //TODO this does not work in Ext (possible Ext bug).
+    public native void setMethod(String method) /*-{
+        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        um.method = method;
+    }-*/;
+
     public native void setShowIndicator(boolean showIndicator) /*-{
         var um = this.@com.gwtext.client.core.JsObject::jsObj;
         um.showIndicator = showIndicator;
@@ -134,16 +140,20 @@ public class UpdateManager extends JsObject {
     }-*/;
 
     public void update(String url, UpdateManagerConfig params, UrlLoadCallback callback, boolean discardUrl) {
-        update(jsObj, url, params == null ? null : params.getJsObj(), callback, discardUrl);
+        if(params == null) {
+            params = new UpdateManagerConfig();            
+        }
+        params.setUrl(url);
+        update(jsObj, params.getJsObj(), callback, discardUrl);
     }
 
-    private static native void update(JavaScriptObject updateManager, String url, JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
+    private static native void update(JavaScriptObject updateManager,  JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
                 callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZLjava/lang/String;)(success, response.responseText);
             }
         }
-        updateManager.update(url, params, cb, discardUrl);
+        updateManager.update(params, null, cb, discardUrl);
     }-*/;
 }

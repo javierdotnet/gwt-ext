@@ -71,7 +71,7 @@ public class UpdateManager extends JsObject {
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
-                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZLjava/lang/String;)(success, response.responseText);
+                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
         um.formUpdate(formID, url, reset, cb);
@@ -151,7 +151,7 @@ public class UpdateManager extends JsObject {
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
-                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZLjava/lang/String;)(success, response.responseText);
+                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
         updateManager.update(params, null, cb, discardUrl);

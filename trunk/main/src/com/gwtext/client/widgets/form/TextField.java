@@ -50,4 +50,24 @@ public class TextField extends Field {
                 }
         );
     }-*/;
+
+    public native void autoSize() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.autoSize();
+    }-*/;
+    
+    public native void selectText() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.selectText();
+    }-*/;
+
+    public native void selectText(int start, int end) /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.selectText(start, end);
+    }-*/;
+
+    public native boolean validateValue(String value) /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return field.validateValue(value);
+    }-*/;     
 }

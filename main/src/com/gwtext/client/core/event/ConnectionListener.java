@@ -28,5 +28,5 @@ public interface ConnectionListener {
 
     void onRequestComplete(Connection conn, String responseText);
 
-    void onRequestException(Connection conn);
+    void onRequestException(Connection conn, int httpStatus, String responseText);
 }

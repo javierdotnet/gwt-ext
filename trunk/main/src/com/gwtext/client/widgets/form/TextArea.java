@@ -35,5 +35,4 @@ public class TextArea extends TextField {
     protected native JavaScriptObject create(JavaScriptObject jsObj) /*-{
         return new $wnd.Ext.form.TextArea(jsObj);
     }-*/;
-
 }

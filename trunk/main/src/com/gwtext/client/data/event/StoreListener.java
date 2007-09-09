@@ -45,5 +45,5 @@ public interface StoreListener {
     //todo enum operatiion is Ext.data.Record.EDIT, operation is Ext.data.Record.REJECT or operatiion is Ext.data.Record.COMMIT
     void onUpdate(Store store, Record record, String operation);
 
-    void onLoadException(String errorMessage);
+    void onLoadException(Throwable error);
 }

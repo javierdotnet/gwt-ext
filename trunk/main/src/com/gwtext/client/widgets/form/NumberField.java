@@ -48,4 +48,31 @@ public class NumberField extends TextField {
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.setValue(value);
     }-*/;
+
+    public void setValue(Number value) {
+        if(value == null) {
+            setNullValue();
+        } else {
+            setValue(value.floatValue());
+        }
+    }
+
+    private native void setNullValue() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.setValue(null);
+    }-*/;
+
+    public boolean validateValue(Number value) {
+        return value == null ? validateNullValue() : validateValue(value.floatValue());
+    }
+
+    private native boolean validateNullValue() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return field.validateValue(null);
+    }-*/;
+
+    public native boolean validateValue(float value) /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return field.validateValue(value);
+    }-*/;
 }

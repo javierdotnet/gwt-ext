@@ -22,6 +22,7 @@ package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 //todo investigate addition on defaultValue, although it works only with XmlReader
 
@@ -33,6 +34,10 @@ public abstract class FieldDef extends JsObject {
             return converter.@com.gwtext.client.data.Converter::format(Ljava/lang/String;)(s);
         }
    }-*/;
+
+    public String getName() {
+        return JavaScriptObjectHelper.getAttribute(getJsObj(), "name");
+    }
 
     //not adding setSortType to API as combination of data type and renderer accomplishes
     //sort type behavior

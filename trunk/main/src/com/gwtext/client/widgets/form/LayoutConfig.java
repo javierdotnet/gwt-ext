@@ -41,6 +41,7 @@ public class LayoutConfig extends ComponentConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "labelAlign", labelAlign);
     }
 
+    //todo make field config ? http://extjs.com/forum/showthread.php?t=5270
     public void setLabelSeparator(String labelSeparator) {
         JavaScriptObjectHelper.setAttribute(jsObj, "labelSeparator", labelSeparator);
     }

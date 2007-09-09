@@ -36,8 +36,4 @@ public class TextArea extends TextField {
         return new $wnd.Ext.form.TextArea(jsObj);
     }-*/;
 
-    public native void autoSize() /*-{
-        var ta = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        ta.autoSize();
-    }-*/;
 }

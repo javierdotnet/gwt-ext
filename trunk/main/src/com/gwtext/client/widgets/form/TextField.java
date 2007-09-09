@@ -69,5 +69,9 @@ public class TextField extends Field {
     public native boolean validateValue(String value) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.validateValue(value);
-    }-*/;     
+    }-*/;
+
+    public String getText() {
+        return getValueAsString();
+    }
 }

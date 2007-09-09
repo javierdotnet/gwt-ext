@@ -26,10 +26,11 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class RecordDef extends JsObject {
 
-    private int numFields;
+    private FieldDef[] fields;
 
     public RecordDef(FieldDef[] fields) {
-        numFields = fields.length;
+        this.fields = fields;
+        int numFields = fields.length;
         Object[] jsObjs = new Object[numFields];
         for (int i = 0; i < numFields; i++) {
             JavaScriptObject jsObj = fields[i].getJsObj();
@@ -49,6 +50,7 @@ public class RecordDef extends JsObject {
     }
 
     public Record createRecord(Object[] rowData) {
+        int numFields = fields.length;
         if(rowData.length != numFields) {
             throw new IllegalArgumentException("Expected " + numFields  + " fields but was passed " + rowData.length + " fields.");
         }
@@ -57,5 +59,9 @@ public class RecordDef extends JsObject {
         Store temp = new Store(proxy, reader);
         temp.load();
         return temp.getAt(0);
+    }
+
+    public FieldDef[] getFields() {
+        return fields;
     }
 }

@@ -375,6 +375,19 @@ public class Store extends JsObject {
 		return store.getRange();
 	}-*/;
 
+
+    private static StoreLoadException createStoreLoadException(String message) {
+        return new StoreLoadException(message);
+    }
+
+    private static HttpStoreLoadException createHttpStoreLoadExeption(int httpStatus, String message) {
+        return new HttpStoreLoadException(httpStatus, message);
+    }
+
+    private static boolean isThrowable(Object object) {
+        return object instanceof Throwable;
+    }
+
     public native void addStoreListener(StoreListener listener) /*-{
 	    var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var storeJ = this;
@@ -428,14 +441,20 @@ public class Store extends JsObject {
         store.addListener('loadexception',
             function(proxy, arg1, response, e) {
                 var err = null;
-                if(e !== undefined && e.message != null) {
-                    err = e.message;
-                } else if(response != null && response.responseText != null && response.responseText !== undefined) {
-                    err = response.status + ':' + response.responseText;
-                } else if (response != null) {
-                    err = response.toString();
+                var isException = false;
+                if(e != null && e !== undefined) {
+                    isException = @com.gwtext.client.data.Store::isThrowable(Ljava/lang/Object;)(e);
                 }
-                listener.@com.gwtext.client.data.event.StoreListener::onLoadException(Ljava/lang/String;)(err);
+                if(isException) {
+                    err = e;
+                } else if(e !== undefined && e.message != null && e.message !== undefined) {
+                    err = @com.gwtext.client.data.Store::createStoreLoadException(Ljava/lang/String;)(e.message);
+                } else if(response != null && response.responseText != null && response.responseText !== undefined) {
+                    err = err = @com.gwtext.client.data.Store::createHttpStoreLoadExeption(ILjava/lang/String;)(response.status, response.responseText);
+                } else if (response != null) {
+                    err = @com.gwtext.client.data.Store::createStoreLoadException(Ljava/lang/String;)(response.toString());
+                }
+                listener.@com.gwtext.client.data.event.StoreListener::onLoadException(Ljava/lang/Throwable;)(err);
             }
 		);
      }-*/;

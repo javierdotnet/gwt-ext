@@ -82,7 +82,7 @@ public class ContentPanel extends ComplexPanel {
 
         Toolbar toolbar = config.getToolbar();
         if (toolbar != null) {
-            DOM.insertChild(getElement(), toolbar.getElement(), 0);
+          //  DOM.insertChild(getElement(), toolbar.getElement(), 0);
         }
     }
 
@@ -214,7 +214,7 @@ public class ContentPanel extends ComplexPanel {
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
-                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZLjava/lang/String;)(success, response.responseText);
+                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
         contentPanel.load(url, params, cb, discardUrl);

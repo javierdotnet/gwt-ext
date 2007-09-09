@@ -47,6 +47,6 @@ public class StoreListenerAdapter implements StoreListener {
     public void onUpdate(Store store, Record record, String operation) {
     }
 
-    public void onLoadException(String errorMessage) {
+    public void onLoadException(Throwable error) {
     }
 }

@@ -423,6 +423,20 @@ public class Store extends JsObject {
                 var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
                 return listener.@com.gwtext.client.data.event.StoreListener::onUpdate(Lcom/gwtext/client/data/Store;Lcom/gwtext/client/data/Record;Ljava/lang/String;)(storeJ, recordJ, operation);
             }
-		);    
+		);
+
+        store.addListener('loadexception',
+            function(proxy, arg1, response, e) {
+                var err = null;
+                if(e !== undefined && e.message != null) {
+                    err = e.message;
+                } else if(response != null && response.responseText != null && response.responseText !== undefined) {
+                    err = response.status + ':' + response.responseText;
+                } else if (response != null) {
+                    err = response.toString();
+                }
+                listener.@com.gwtext.client.data.event.StoreListener::onLoadException(Ljava/lang/String;)(err);
+            }
+		);
      }-*/;
 }

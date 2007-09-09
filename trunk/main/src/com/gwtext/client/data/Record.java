@@ -148,4 +148,21 @@ public class Record extends JsObject {
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         record.reject();
     }-*/;
+
+    public native Object getDataAsObject()/*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        return record.bean === undefined ? null : record.bean ;
+    }-*/;
+
+    public native JavaScriptObject getDataAsJsObject()/*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var val = record.json || record.node;
+        return val === undefined ? null : val;             
+    }-*/;
+
+    public native void commitData()/*-{
+        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        record.commitData();             
+    }-*/;
+
 }

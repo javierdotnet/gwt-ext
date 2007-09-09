@@ -73,7 +73,7 @@ public class JsonView extends View {
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
-                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZLjava/lang/String;)(success, response.responseText);
+                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
         jsonView.load(url, params, cb, discardUrl);

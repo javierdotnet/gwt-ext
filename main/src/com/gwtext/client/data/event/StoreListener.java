@@ -36,12 +36,14 @@ public interface StoreListener {
 
     //todo : currently removed second "options" arg
     void onLoad(Store store, Record[] records);
-
+    
     //todo json meta
     //void onMetaChange(Store store, String meta);
 
     void onRemove(Store store, Record record, int index);
 
-    //operatiion is Ext.data.Record.EDIT, operation is Ext.data.Record.REJECT or operatiion is Ext.data.Record.COMMIT
+    //todo enum operatiion is Ext.data.Record.EDIT, operation is Ext.data.Record.REJECT or operatiion is Ext.data.Record.COMMIT
     void onUpdate(Store store, Record record, String operation);
+
+    void onLoadException(String errorMessage);
 }

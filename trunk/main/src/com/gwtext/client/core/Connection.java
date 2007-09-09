@@ -90,7 +90,7 @@ public class Connection extends JsObject {
 
         conn.addListener('requestexception',
                 function(conn, response, options) {
-                    return listener.@com.gwtext.client.core.event.ConnectionListener::onRequestException(Lcom/gwtext/client/core/Connection;)(connJ)
+                    return listener.@com.gwtext.client.core.event.ConnectionListener::onRequestException(Lcom/gwtext/client/core/Connection;ILjava/lang/String;)(connJ, response.status, response.responseText);
                 }
         );
     }-*/;

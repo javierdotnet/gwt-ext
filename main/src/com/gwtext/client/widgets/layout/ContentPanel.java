@@ -82,7 +82,7 @@ public class ContentPanel extends ComplexPanel {
 
         Toolbar toolbar = config.getToolbar();
         if (toolbar != null) {
-          //  DOM.insertChild(getElement(), toolbar.getElement(), 0);
+            DOM.insertChild(getElement(), toolbar.getElement(), 0);
         }
     }
 

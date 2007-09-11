@@ -20,6 +20,7 @@
 
 package com.gwtext.client.data.event;
 
+import com.google.gwt.core.client.GWT;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
 
@@ -48,5 +49,6 @@ public class StoreListenerAdapter implements StoreListener {
     }
 
     public void onLoadException(Throwable error) {
+        GWT.log("An error was encountered loading the store", error);
     }
 }

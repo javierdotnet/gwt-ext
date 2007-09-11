@@ -37,7 +37,8 @@ public class Record extends JsObject {
 
     public native String getId() /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        return record.id;
+        var id = record.id;
+        return (id == null || id === undefined) ? null : id.toString();
     }-*/;
 
     public native boolean isDirty() /*-{
@@ -164,5 +165,4 @@ public class Record extends JsObject {
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         record.commitData();             
     }-*/;
-
 }

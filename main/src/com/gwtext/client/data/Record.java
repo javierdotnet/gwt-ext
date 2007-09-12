@@ -131,7 +131,7 @@ public class Record extends JsObject {
     public native Date getAsDate(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
         var val = record.get(field);
-        if(val == null || val === undefined) {
+        if(val == null || val === undefined || val == '') {
             return null;
         } else {
             return @com.gwtext.client.util.DateUtil::create(J)(val.getTime());

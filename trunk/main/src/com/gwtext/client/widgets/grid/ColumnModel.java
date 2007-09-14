@@ -99,6 +99,17 @@ public class ColumnModel extends JsObject {
         return cm.getDataIndex(colIndex).toString();
     }-*/;
 
+    /**
+     * Returns the index for a specified column id.
+     * @param id column id used in ColumnConfig when defining the ColumnModel
+     * @return column index (0 based), -1 if not found
+     * @see ColumnConfig#setId(String)
+     */
+    public native int getIndexById(String id) /*-{
+        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        return cm.getIndexById(id);
+    }-*/;
+
     //TODO getRenderer is required??
 
     public native int getTotalWidth()/*-{
@@ -125,6 +136,23 @@ public class ColumnModel extends JsObject {
     public native boolean isHidden(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isHidden(colIndex);
+    }-*/;
+
+    /**
+     * Returns if the column is locked.
+     * @param colIndex column index (0 based)
+     * @return locked
+     */
+    public native boolean isLocked(int colIndex)/*-{
+        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+
+        var locked = null;
+        try {
+            cm.isLocked(colIndex);
+        } catch(e) {
+            locked = false;
+        }
+        return locked === undefined || locked == null? false : locked;
     }-*/;
 
     public native boolean isResizable(int colIndex)/*-{

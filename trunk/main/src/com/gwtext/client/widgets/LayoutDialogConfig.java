@@ -25,6 +25,19 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class LayoutDialogConfig extends BaseConfig {
 
+    private String id;
+    /**
+     * Sets the LayoutDialog's element id. If none is specified, one is generated.
+     * @param id LayoutDialog id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public void setAnimateTarget(String animateTarget) {
         JavaScriptObjectHelper.setAttribute(jsObj, "animateTarget", animateTarget);
     }

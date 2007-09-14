@@ -55,7 +55,8 @@ public class LayoutDialog extends BaseExtWidget {
         if (west != null) JavaScriptObjectHelper.setAttribute(configJS, "west", west.getJsObj());
         if (east != null) JavaScriptObjectHelper.setAttribute(configJS, "east", east.getJsObj());
         if (center != null) JavaScriptObjectHelper.setAttribute(configJS, "center", center.getJsObj());
-        jsObj = create(Ext.generateId(), configJS);
+        String id = config.getId();
+        jsObj = create(id == null ? Ext.generateId() : id, configJS);
     }
 
     public LayoutDialog(JavaScriptObject jsObj) {

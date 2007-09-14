@@ -27,6 +27,9 @@ public class GridPanel extends ContentPanel {
 
     public GridPanel(Grid grid, ContentPanelConfig config) {
         jsObj = create(grid.getJsObj(), config.getJsObj());
+        if (config.getContentPanelListener() != null) {
+            addContentPanelListener(config.getContentPanelListener());
+        }
     }
 
     private native JavaScriptObject create(JavaScriptObject grid, JavaScriptObject config) /*-{

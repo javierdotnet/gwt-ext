@@ -219,7 +219,7 @@ public class Grid extends BaseExtWidget {
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
 
-        grid.addListener('click',
+        grid.addListener('headerclick',
                 function(g, colIndex, event) {
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     listener.@com.gwtext.client.widgets.grid.event.GridHeaderListener::onHeaderClick(Lcom/gwtext/client/widgets/grid/Grid;ILcom/gwtext/client/core/EventObject;)(gridJ, colIndex, e);

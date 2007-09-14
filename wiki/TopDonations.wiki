@@ -9,6 +9,8 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 
 || Jason Horman || - ||
 || Mathias Bogaert || - ||
+|| M. Dodd || - ||
 || Ming Fang || Financial app ||
 || Rob Smith || Financial app ||
 || Scooter Willis || http://www.videoprotein.com ||
+ 

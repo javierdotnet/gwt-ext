@@ -53,6 +53,11 @@ public class GridView extends JsObject {
         view.refresh();
     }-*/;
 
+    public native void refresh(boolean headersToo) /*-{
+        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        view.refresh(headersToo);
+    }-*/;
+
     public native void refreshRow(int index) /*-{
         var view = this.@com.gwtext.client.core.JsObject::jsObj;
         view.refreshRow(index);

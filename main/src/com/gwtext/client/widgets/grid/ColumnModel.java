@@ -66,13 +66,24 @@ public class ColumnModel extends JsObject {
         return cm.getColumnCount();
     }-*/;
 
+    /**
+     * Returns the column header.
+     * @param colID column ID
+     * @return header
+     */
+    public String getColumnHeader(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex == -1 ? null : getColumnHeader(colIndex);
+    }
+
     public native String getColumnHeader(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.getColumnHeader(colIndex);
     }-*/;
 
     /**
-     * @param colIndex
+     * Returns the column ID.
+     * @param colIndex column index
      * @return the column id set by the user using {@link com.gwtext.client.widgets.grid.ColumnConfig#setId(String)}. If the
      *         user did not set the id for the column, then the column position is returned as a String.
      */
@@ -81,10 +92,20 @@ public class ColumnModel extends JsObject {
         return cm.getColumnId(colIndex).toString();
     }-*/;
 
+    public String getColumnTooltip(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex == -1 ? null : getColumnTooltip(colIndex);
+    }
+
     public native String getColumnTooltip(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.getColumnTooltip(colIndex);
     }-*/;
+
+    public int getColumnWidth(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex == -1 ? -1 : getColumnWidth(colIndex);
+    }
 
     public native int getColumnWidth(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -93,6 +114,11 @@ public class ColumnModel extends JsObject {
 
     //TODO
     //getColumnsBy(Function fn, [Object scope]) : Array
+
+    public String getDataIndex(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex == -1 ? null : getDataIndex(colIndex);
+    }
 
     public native String getDataIndex(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -122,21 +148,42 @@ public class ColumnModel extends JsObject {
         return cm.getTotalWidth(includeHidden);
     }-*/;
 
+    public boolean isCellEditable(String colID, int rowIndex) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isCellEditable(colIndex, rowIndex);
+    }
+
     //TODO support pluggable strategy for logic of editable cells
     public native boolean isCellEditable(int colIndex, int rowIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isCellEditable(colIndex, rowIndex);
     }-*/;
 
+    public boolean isFixed(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isFixed(colIndex);
+    }
+
     public native boolean isFixed(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isFixed(colIndex);
     }-*/;
 
+    public boolean isHidden(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isHidden(colIndex);
+    }
+
     public native boolean isHidden(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isHidden(colIndex);
     }-*/;
+
+
+    public boolean isLocked(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isLocked(colIndex);
+    }
 
     /**
      * Returns if the column is locked.
@@ -155,40 +202,92 @@ public class ColumnModel extends JsObject {
         return locked === undefined || locked == null? false : locked;
     }-*/;
 
+    public boolean isResizable(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isResizable(colIndex);
+    }
+
     public native boolean isResizable(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isResizable(colIndex);
     }-*/;
+
+    public boolean isSortable(String colID) {
+        int colIndex = getIndexById(colID);
+        return colIndex != -1 && isSortable(colIndex);
+    }
 
     public native boolean isSortable(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         return cm.isSortable(colIndex);
     }-*/;
 
+    public void setColumnHeader(String colID, String header) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setColumnHeader(colIndex, header);
+        }
+    }
+
     public native void setColumnHeader(int colIndex, String header) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setColumnHeader(colIndex, header);
     }-*/;
+
+    public void setColumnWidth(String colID, int width) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setColumnWidth(colIndex, width);
+        }
+    }
 
     public native void setColumnWidth(int colIndex, int width) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setColumnWidth(colIndex, width);
     }-*/;
 
+    public void setDataIndex(String colID, int dataIndex) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setDataIndex(colIndex, dataIndex);
+        }
+    }
+
     public native void setDataIndex(int colIndex, int dataIndex) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setDataIndex(colIndex, dataIndex);
     }-*/;
+
+    public void setEditable(String colID, boolean editable) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setEditable(colIndex, editable);
+        }
+    }
 
     public native void setEditable(int colIndex, boolean editable) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setEditable(colIndex, editable);
     }-*/;
 
+    public void setEditor(String colID, GridEditor editor) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setEditor(colIndex, editor);
+        }
+    }
+
     public native void setEditor(int colIndex, GridEditor editor) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setEditor(colIndex, editor.@com.gwtext.client.core.JsObject::jsObj);
     }-*/;
+
+    public void setHidden(String colID, boolean hidden) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setHidden(colIndex, hidden);
+        }
+    }
 
     public native void setHidden(int colIndex, boolean hidden) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -205,6 +304,13 @@ public class ColumnModel extends JsObject {
                 JavaScriptObjectHelper.setAttribute(jsObj, "attr", htmlAttribute);
             }
         };
+    }
+
+    public void setRenderer(String colID, Renderer renderer) {
+        int colIndex = getIndexById(colID);
+        if (colIndex != -1) {
+            setRenderer(colIndex, renderer);
+        }
     }
 
     public native void setRenderer(int colIndex, Renderer renderer) /*-{
@@ -252,5 +358,4 @@ public class ColumnModel extends JsObject {
                 }
         );
     }-*/;
-
 }

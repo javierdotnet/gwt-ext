@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.grid;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.core.Ext;
@@ -132,6 +133,26 @@ public class Grid extends BaseExtWidget {
         return grid.getView();
     }-*/;
 
+    public void hideColumn(String colID) {
+        int colIndex = getColumnModel().getIndexById(colID);
+        if(colIndex != -1) {
+            hideColumn(colIndex);
+        }
+    }
+
+    public void hideColumn(int colIndex) {
+        getColumnModel().setHidden(colIndex, true);
+        if (Ext.isIE()) {
+            Timer t = new Timer() {
+                public void run() {
+                    getView().refresh();
+                    getView().updateHeaderSortState();
+                }
+            };
+            t.schedule(10);
+        }
+    }
+
     public void render() {
         render(jsObj);
         //fixes issue with grid being displayed in table
@@ -139,20 +160,33 @@ public class Grid extends BaseExtWidget {
         if (Ext.isIE()) {
             addGridColumnListener(new GridColumnListenerAdapter() {
                 public void onColumnResize(Grid grid, int colIndex, int newSize) {
-                    adjustColumns(grid.getJsObj());
+                    adjustColumns();
                 }
             });
+            Timer t = new Timer() {
+                public void run() {
+                    getView().refresh();
+                    getView().updateHeaderSortState();
+                }
+            };
+            t.schedule(10);
         }
     }
 
+    public void adjustColumns() {
+        doAdjustColumns(jsObj);
+    }
+
     //fix for grid rendering issues in IE when grid in table
-    private native void adjustColumns(JavaScriptObject grid) /*-{
+    private native void doAdjustColumns(JavaScriptObject grid) /*-{
         var view = grid.getView();
         view.refresh();
         view.updateHeaders();
         view.updateColumns();
         view.updateSplitters();
         view.updateHeaderSortState();
+        //view.renderPhase2.defer(1, grid);
+
     }-*/;
 
     public native void render(JavaScriptObject grid) /*-{
@@ -166,6 +200,27 @@ public class Grid extends BaseExtWidget {
         var columnModelJS = columnModel.@com.gwtext.client.core.JsObject::jsObj;
         grid.reconfigure(storeJS, columnModelJS);
     }-*/;
+
+
+    public void showColumn(String colID) {
+        int colIndex = getColumnModel().getIndexById(colID);
+        if(colIndex != -1) {
+            showColumn(colIndex);
+        }
+    }
+
+    public void showColumn(int colIndex) {
+        getColumnModel().setHidden(colIndex, false);
+        if (Ext.isIE()) {
+            Timer t = new Timer() {
+                public void run() {
+                    getView().refresh();
+                    getView().updateHeaderSortState();
+                }
+            };
+            t.schedule(10);
+        }
+    }
 
     public native void addGridCellListener(GridCellListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

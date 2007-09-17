@@ -75,7 +75,7 @@ public class ComboBox extends TriggerField {
     public native String getValue() /*-{
         var cb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var val = cb.getValue();
-        return val === '' ? null : val;
+        return val === '' ? null : val.toString();
     }-*/;
 
     public native boolean isExpanded() /*-{

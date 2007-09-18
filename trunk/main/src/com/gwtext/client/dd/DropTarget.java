@@ -20,8 +20,14 @@
 
 package com.gwtext.client.dd;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class DropTarget extends DDTarget {
-    public DropTarget(String id, String sGroup) {
-        super(id, sGroup);
+    public DropTarget(String id, String sGroup, DragDropConfig config) {
+        super(id, sGroup, config);
     }
+
+    protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
+        return new $wnd.Ext.dd.DropTarget(id, sGroup, config);
+    }-*/;
 }

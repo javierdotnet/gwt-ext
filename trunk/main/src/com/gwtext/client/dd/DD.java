@@ -20,8 +20,15 @@
 
 package com.gwtext.client.dd;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class DD extends DragDrop {
-    public DD(String id, String sGroup) {
-        super(id, sGroup);
+    public DD(String id, String sGroup, DragDropConfig config) {
+        super(id, sGroup, config);
     }
+
+    protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
+        return new $wnd.Ext.dd.DD(id, sGroup, config);
+    }-*/;
+
 }

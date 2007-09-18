@@ -20,8 +20,16 @@
 
 package com.gwtext.client.dd;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class DDProxy extends DD {
-    public DDProxy(String id, String sGroup) {
-        super(id, sGroup);
+    public DDProxy(String id, String sGroup, DragDropConfig config) {
+        super(id, sGroup, config);
     }
+
+    protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
+        return new $wnd.Ext.dd.DDProxy(id, sGroup, config);
+    }-*/;
+
+    
 }

@@ -142,7 +142,11 @@ public class FieldConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
     }
 
-    public FieldListener getFieldListener() {
+	public void setWidth(String width) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
+    }
+
+	public FieldListener getFieldListener() {
         return fieldListener;
     }
 

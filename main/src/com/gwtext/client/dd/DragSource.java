@@ -20,8 +20,14 @@
 
 package com.gwtext.client.dd;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class DragSource extends DDProxy {
-    public DragSource(String id, String sGroup) {
-        super(id, sGroup);
+    public DragSource(String id, String sGroup, DragDropConfig config) {
+        super(id, sGroup, config);
     }
+
+    protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
+        return new $wnd.Ext.dd.DragSource(id, sGroup, config);
+    }-*/;
 }

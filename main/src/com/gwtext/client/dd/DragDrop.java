@@ -22,24 +22,121 @@ package com.gwtext.client.dd;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.EventCallback;
-import com.gwtext.client.core.Function;
+import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.util.Debug;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class DragDrop extends JsObject {
+    static {
+        init();
+    }
 
+    private static native void init() /*-{
+         $wnd.Ext.dd.DragDrop.prototype.ddJ=null;
+    
+         $wnd.Ext.dd.DragDrop.prototype.startDrag = function(x, y) {
+             var ddJ = this.ddJ;
+             ddJ.@com.gwtext.client.dd.DragDrop::startDrag(II)(x,y);
+            }
+
+         $wnd.Ext.dd.DragDrop.prototype.endDrag = function(e) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             ddJ.@com.gwtext.client.dd.DragDrop::endDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
+            }
+
+        $wnd.Ext.dd.DragDrop.prototype.onDrag = function(e) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             ddJ.@com.gwtext.client.dd.DragDrop::onDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
+            }
+
+        $wnd.Ext.dd.DragDrop.prototype.onDragDrop = function(e, id) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             if(typeof id == 'string') {
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+             } else {
+                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+             }
+        }
+
+        $wnd.Ext.dd.DragDrop.prototype.onDragEnter = function(e, id) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             if(typeof id == 'string') {
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+             } else {
+                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+             }
+        }
+
+        $wnd.Ext.dd.DragDrop.prototype.onDragOut = function(e, id) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             if(typeof id == 'string') {
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+             } else {
+                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+             }
+        }
+
+        $wnd.Ext.dd.DragDrop.prototype.onDragOver = function(e, id) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             if(typeof id == 'string') {
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+             } else {
+                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+                ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+             }
+        }
+
+        $wnd.Ext.dd.DragDrop.prototype.onInvalidDrop = function(e) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             ddJ.@com.gwtext.client.dd.DragDrop::onInvalidDrop(Lcom/gwtext/client/core/EventObject;)(eJ);
+            }
+
+        $wnd.Ext.dd.DragDrop.prototype.onMouseDown = function(e) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             ddJ.@com.gwtext.client.dd.DragDrop::onMouseDown(Lcom/gwtext/client/core/EventObject;)(eJ);
+            }
+
+        $wnd.Ext.dd.DragDrop.prototype.onMouseUp = function(e) {
+             var ddJ = this.ddJ;
+             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+             ddJ.@com.gwtext.client.dd.DragDrop::onMouseUp(Lcom/gwtext/client/core/EventObject;)(eJ);
+            }
+    }-*/;
+    
     public DragDrop(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    public DragDrop(String id) {
+        this(id, null);
+    }
+
     public DragDrop(String id, String sGroup) {
-        jsObj = create(id, sGroup, null);
+        this(id, sGroup, null);
     }
 
     public DragDrop(String id, String sGroup, DragDropConfig config) {
+        Debug.debug();
         jsObj = create(id, sGroup, config == null ? null : config.getJsObj());
+        setLocalRef(jsObj, this);
+        onAvailable();
     }
+
+    private native void setLocalRef(JavaScriptObject dd, DragDrop dragDrop) /*-{
+        dd.ddJ = dragDrop;
+    }-*/;
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DragDrop(id, sGroup, config);
@@ -127,13 +224,9 @@ public class DragDrop extends JsObject {
         dd.clearTicks();
     }-*/;
 
-    public native void onEndDrag(EventCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.endDrag = function(e) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            callback.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
-        };
-    }-*/;
+    public void endDrag(EventObject e) {
+
+    }
 
 
     public native Element getDragEl() /*-{
@@ -178,20 +271,12 @@ public class DragDrop extends JsObject {
         dd.lock();
     }-*/;
 
-    public native void onAvailable(Function callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onAvailable = function() {
-            callback.@com.gwtext.client.core.Function::execute()();
-        };
-    }-*/;
+    public void onAvailable() {
+    }
 
-    public native void onDrag(EventCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onDrag = function(e) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            callback.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
-        };
-    }-*/;
+    public void onDrag(EventObject e) {
+        
+    }
 
     private static DragDrop[] convertToDragDropArray(JavaScriptObject nativeArray) {
         JavaScriptObject[] itemsJ = JavaScriptObjectHelper.toArray(nativeArray);
@@ -203,81 +288,52 @@ public class DragDrop extends JsObject {
         return items;
     }
 
-    public native void onDragDrop(DragDropCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onDragDrop = function(e, id) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            if(typeof id == 'string') {
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id)
-            } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-            }
-        };
-    }-*/;
+    public void onDragDrop(EventObject e, String id) {
 
-    public native void onDragEnter(DragDropCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onDragEnter = function(e, id) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            if(typeof id == 'string') {
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id)
-            } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-            }
-        };
-    }-*/;
+    }
 
-    public native void onDragOut(DragDropCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onDragOut = function(e, id) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            if(typeof id == 'string') {
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id)
-            } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-            }
-        };
-    }-*/;
+    public void onDragDrop(EventObject e, DragDrop[] items) {
 
-    public native void onDragOver(DragDropCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onDragOver = function(e, id) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            if(typeof id == 'string') {
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id)
-            } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                callback.@com.gwtext.client.dd.DragDropCallback::execute(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-            }
-        };
-    }-*/;
+    }
 
-    public native void onInvalidDrop(EventCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onInvalidDrop = function(e) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            callback.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
-        };
-    }-*/;
+    public void onDragEnter(EventObject e, String id) {
 
-    public native void onMouseDown(EventCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onMouseDown = function(e) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            callback.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
-        };
-    }-*/;
+    }
 
-    public native void onMouseUp(EventCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.onMouseUp = function(e) {
-            var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-            callback.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
-        };
-    }-*/;
+    public void onDragEnter(EventObject e, DragDrop[] items) {
+
+    }
+
+    public void onDragOut(EventObject e, String id) {
+
+    }
+
+    public void onDragOut(EventObject e, DragDrop[] items) {
+
+    }
+
+    public void onDragOver(EventObject e, String id) {
+
+    }
+
+    public void onDragOver(EventObject e, DragDrop[] items) {
+
+    }
+
+
+    public void onInvalidDrop(EventObject e) {
+
+    }
+
+    public void onMouseDown(EventObject e) {
+
+    }
+
+    public void onMouseUp(EventObject e) {
+
+    }
+
+
 
     public native void padding() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -345,13 +401,9 @@ public class DragDrop extends JsObject {
         dd.setYConstraint(iUp, iDown, iTickSize);
     }-*/;
 
-    public native void startDrag(StartDragCallback callback) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        var ddJ = this;
-        dd.startDrag = function(x, y) {
-            callback.@com.gwtext.client.dd.StartDragCallback::startDrag(Lcom/gwtext/client/dd/DragDrop;II)(ddJ, x, y);
-        };
-    }-*/;
+
+    public void startDrag(int x, int y) {
+    }
 
     public native String toString() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;

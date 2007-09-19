@@ -23,7 +23,7 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DragZone extends DragSource {
-    public DragZone(String id, String sGroup, DragDropConfig config) {
+    public DragZone(String id, String sGroup, DragDropProxyConfig config) {
         super(id, sGroup, config);
     }
 

@@ -47,11 +47,14 @@ import com.gwtext.client.widgets.tree.TreePanelConfig;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 import com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter;
 import com.gwtext.sample.showcase.client.combo.*;
+import com.gwtext.sample.showcase.client.dd.BasicDDPanel;
+import com.gwtext.sample.showcase.client.dd.DDHandlesPanel;
+import com.gwtext.sample.showcase.client.dd.DDOnTopPanel;
+import com.gwtext.sample.showcase.client.dd.DDProxyPanel;
 import com.gwtext.sample.showcase.client.dialog.*;
 import com.gwtext.sample.showcase.client.form.*;
-import com.gwtext.sample.showcase.client.grid.BasicArrayGridPanel;
-import com.gwtext.sample.showcase.client.grid.EditableGridPanel;
-import com.gwtext.sample.showcase.client.grid.RemotePagingGridPanel;
+import com.gwtext.sample.showcase.client.grid.*;
+import com.gwtext.sample.showcase.client.keyboard.KeyboardPanel;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
 
@@ -219,12 +222,13 @@ public class Showcase implements EntryPoint {
             String name = child.getNodeName();
 
             final String title = child.getAttributes().getNamedItem("title").getNodeValue();
+            TreeNode treeNode = new TreeNode(title);
             if (name.equals("node")) {
-                TreeNode category = new TreeNode(title);
+                TreeNode category = treeNode;
                 currentNode.appendChild(category);
                 load(category, child.getChildNodes());
             } else if (name.equals("leaf")) {
-                currentNode.appendChild(new TreeNode(title));
+                currentNode.appendChild(treeNode);
             }
         }
     }
@@ -311,6 +315,9 @@ public class Showcase implements EntryPoint {
         screens.put("Grids>Basic Array Grid", new BasicArrayGridPanel());
         screens.put("Grids>Editable Grid", new EditableGridPanel());
         screens.put("Grids>Grid with Remote Paging", new RemotePagingGridPanel());
+        screens.put("Grids>Dynamic Grid", new DynamicGridPanel());
+        screens.put("Grids>Column Order", new ColumnOrderGridPanel());
+        screens.put("Grids>Stock Ticker", new StockTickerGridPanel());
 
         screens.put("Forms>Simple Form", new SimpleFormPanel());
         screens.put("Forms>Multi-Column Form", new MultiColumnFormPanel());
@@ -319,5 +326,12 @@ public class Showcase implements EntryPoint {
         screens.put("Forms>Load / Submit Xml Form", new XmlFormPanel());
 
         screens.put("Tab Panel>Dynamic and Events", new TabsPanel());
+
+        screens.put("Navigation>Keyboard", new KeyboardPanel());
+
+        screens.put("Drag and Drop>Basic", new BasicDDPanel());
+        screens.put("Drag and Drop>Handles", new DDHandlesPanel());
+        screens.put("Drag and Drop>On Top", new DDOnTopPanel());
+        screens.put("Drag and Drop>On Top", new DDProxyPanel());
     }
 }

@@ -23,6 +23,15 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DD extends DragDrop {
+    
+    public DD(String id) {
+        this(id, null);
+    }
+
+    public DD(String id, String sGroup) {
+        this(id, sGroup, null);
+    }
+
     public DD(String id, String sGroup, DragDropConfig config) {
         super(id, sGroup, config);
     }

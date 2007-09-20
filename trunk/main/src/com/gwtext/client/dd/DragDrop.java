@@ -24,7 +24,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.JsObject;
-import com.gwtext.client.util.Debug;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class DragDrop extends JsObject {
@@ -128,7 +127,6 @@ public class DragDrop extends JsObject {
     }
 
     public DragDrop(String id, String sGroup, DragDropConfig config) {
-        Debug.debug();
         jsObj = create(id, sGroup, config == null ? null : config.getJsObj());
         setLocalRef(jsObj, this);
         onAvailable();

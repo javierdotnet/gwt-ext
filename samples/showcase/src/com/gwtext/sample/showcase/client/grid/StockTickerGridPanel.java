@@ -36,11 +36,11 @@ import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 public class StockTickerGridPanel extends ShowcaseExampleVSD {
 
     public String getDataUrl() {
-        return null;
+        return "data/CompanyData.java.html";
     }
 
     public String getSourceUrl() {
-        return null;
+        return "grid/StockTickerGridPanel.java.html";
     }
 
     public Panel getViewPanel() {
@@ -164,8 +164,8 @@ public class StockTickerGridPanel extends ShowcaseExampleVSD {
         buttonPanel.add(stopButton);
 
         Panel panel = createPanel();
-        panel.add(new HTML("<h1>Array Grid Example</h1>"));
-        panel.add(new HTML("<p>This example shows how to create a grid from Array data.</p>"));
+        panel.add(new HTML("<h1>Stock Ticker Grid Example</h1>"));
+        panel.add(new HTML("<p>This example shows how to create a grid and then change the displayed data by updating the underlying Record's in the Store</p>"));
         panel.add(grid);
         panel.add(buttonPanel);
 

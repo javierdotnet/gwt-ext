@@ -89,6 +89,8 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						setAlign("right");
 						setRenderer(new Renderer() {
                             public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+							    //cellMetadata.setHtmlAttribute("style=\"background:yellow;\"");
+								cellMetadata.setCssClass("foobar");
 								return "$" + value;
 							}
 						});
@@ -121,8 +123,8 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						setHeader("Indoor?");
 						setDataIndex("indoor");
 						setWidth(55);
-						//setEditor(new GridEditor(new Checkbox(new CheckboxConfig())));
 
+						//use custom checkbox renderer
 						setRenderer(new Renderer() {
                             public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
 								boolean checked = ((Boolean) value).booleanValue();

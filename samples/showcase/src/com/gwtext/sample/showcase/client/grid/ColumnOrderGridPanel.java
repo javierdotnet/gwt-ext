@@ -35,11 +35,11 @@ import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 public class ColumnOrderGridPanel extends ShowcaseExampleVSD {
 
     public String getDataUrl() {
-        return null;
+        return "data/CountryData.java.html";
     }
 
     public String getSourceUrl() {
-        return null;
+       return "grid/ColumnOrderGridPanel.java.html";
     }
 
     public Panel getViewPanel() {
@@ -140,7 +140,7 @@ public class ColumnOrderGridPanel extends ShowcaseExampleVSD {
 
         Panel panel = createPanel();
         panel.add(new HTML("<h1>Grid Column Order Example</h1>"));
-        panel.add(new HTML("<p>This example shows how to create a grid from Array data.</p>"));
+        panel.add(new HTML("<p>This example shows how to programatically hide and display columns.</p>"));
         panel.add(grid);
         panel.add(buttonPanel);
 

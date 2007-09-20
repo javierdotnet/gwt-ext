@@ -29,18 +29,18 @@ import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
 public class DDHandlesPanel extends ShowcaseExampleVSD {
 
-    private static String DEMO_HTML = "<div id=\"dd-demo-1\" class=\"dd-demo\">\n" +
+    private static String DEMO_HTML = "<div id=\"dd-demo-1b\" class=\"dd-demo\">\n" +
             "    <div id=\"dd-handle-1a\" class=\"dd-multi-handle-1\">H1</div>\n" +
             "    <div id=\"dd-handle-1b\" class=\"dd-multi-handle-2\">H2</div>\n" +
             "</div>\n" +
-            "<div id=\"dd-demo-2\" class=\"dd-demo\">\n" +
+            "<div id=\"dd-demo-2b\" class=\"dd-demo\">\n" +
             "    <div id=\"dd-handle-2\" class=\"dd-handle\">H</div>\n" +
             "</div>\n" +
             "<div id=\"dd-handle-3b\" class=\"dd-outer-handle\">Outer</div>\n" +
-            "<div id=\"dd-demo-3\" class=\"dd-demo\"></div>";
+            "<div id=\"dd-demo-3b\" class=\"dd-demo\"></div>";
 
     public String getSourceUrl() {
-        return null;
+        return "dd/DDHandlesPanel.java.html";
     }
 
     public Panel getViewPanel() {
@@ -52,16 +52,16 @@ public class DDHandlesPanel extends ShowcaseExampleVSD {
 
         DeferredCommand.addCommand(new Command() {
             public void execute() {
-                DD dd = new DD("dd-demo-1");
+                DD dd = new DD("dd-demo-1b");
 
                 // Configure one or more child element as a drag handle
                 dd.setHandleElId("dd-handle-1a");
                 dd.setHandleElId("dd-handle-1b");
 
-                DD dd2 = new DD("dd-demo-2");
+                DD dd2 = new DD("dd-demo-2b");
                 dd2.setHandleElId("dd-handle-2");
 
-                DD dd3 = new DD("dd-demo-3");
+                DD dd3 = new DD("dd-demo-3b");
                 dd3.setHandleElId("dd-handle-3a");
 
                 // A handle that is not child of the source element

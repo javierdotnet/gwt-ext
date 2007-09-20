@@ -64,9 +64,7 @@ public class SimpleFormPanel extends ShowcaseExampleVSD {
         final DateField dateField = new DateField(new DateFieldConfig() {
             {
                 setDisabledDays(new int[]{0, 4});
-                setFieldLabel("Sample Date");
-                //setting date by object
-                setValue(new Date());
+                setFieldLabel("Sample Date");                
                 setFormat("Y-m-d");
             }
         });

@@ -82,7 +82,11 @@ public class JavaScriptObjectHelper {
         setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
     }
 
-    public static native void setAttribute(JavaScriptObject elem, String attr, JavaScriptObject value) /*-{
+    public static void setAttribute(JavaScriptObject elem, String attr, Date[] values) {
+        setAttribute(elem, attr, JavaScriptObjectHelper.convertToJavaScriptArray(values));
+    }
+
+	public static native void setAttribute(JavaScriptObject elem, String attr, JavaScriptObject value) /*-{
 	    elem[attr] = value;
     }-*/;
 

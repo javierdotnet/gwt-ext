@@ -36,82 +36,100 @@ public class DragDrop extends JsObject {
     
          $wnd.Ext.dd.DragDrop.prototype.startDrag = function(x, y) {
              var ddJ = this.ddJ;
-             ddJ.@com.gwtext.client.dd.DragDrop::startDrag(II)(x,y);
+             if(ddJ != null) ddJ.@com.gwtext.client.dd.DragDrop::startDrag(II)(x,y);
             }
 
          $wnd.Ext.dd.DragDrop.prototype.endDrag = function(e) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             ddJ.@com.gwtext.client.dd.DragDrop::endDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
+             if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 ddJ.@com.gwtext.client.dd.DragDrop::endDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
+			 }
             }
 
         $wnd.Ext.dd.DragDrop.prototype.onDrag = function(e) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             ddJ.@com.gwtext.client.dd.DragDrop::onDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
-            }
+			 if(ddJ != null) {
+			     var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+                 ddJ.@com.gwtext.client.dd.DragDrop::onDrag(Lcom/gwtext/client/core/EventObject;)(eJ);
+		     }
+			}
 
         $wnd.Ext.dd.DragDrop.prototype.onDragDrop = function(e, id) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             if(typeof id == 'string') {
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
-             } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-             }
-        }
+			if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 if(typeof id == 'string') {
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+				 } else {
+					var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragDrop(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+				 }
+			}
+		}
 
         $wnd.Ext.dd.DragDrop.prototype.onDragEnter = function(e, id) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             if(typeof id == 'string') {
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
-             } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-             }
-        }
+			if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 if(typeof id == 'string') {
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+				 } else {
+					var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragEnter(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+				 }
+			}
+		}
 
         $wnd.Ext.dd.DragDrop.prototype.onDragOut = function(e, id) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             if(typeof id == 'string') {
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
-             } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-             }
-        }
+			 if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 if(typeof id == 'string') {
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+				 } else {
+					var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragOut(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+				 }
+			 }
+		}
 
         $wnd.Ext.dd.DragDrop.prototype.onDragOver = function(e, id) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             if(typeof id == 'string') {
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
-             } else {
-                var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
-                ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
-             }
-        }
+			 if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 if(typeof id == 'string') {
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;Ljava/lang/String;)(eJ, id);
+				 } else {
+					var items = @com.gwtext.client.dd.DragDrop::convertToDragDropArray(Lcom/google/gwt/core/client/JavaScriptObject;)(id);
+					ddJ.@com.gwtext.client.dd.DragDrop::onDragOver(Lcom/gwtext/client/core/EventObject;[Lcom/gwtext/client/dd/DragDrop;)(eJ, items);
+				 }
+			 }
+		}
 
         $wnd.Ext.dd.DragDrop.prototype.onInvalidDrop = function(e) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             ddJ.@com.gwtext.client.dd.DragDrop::onInvalidDrop(Lcom/gwtext/client/core/EventObject;)(eJ);
-            }
+			 if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 ddJ.@com.gwtext.client.dd.DragDrop::onInvalidDrop(Lcom/gwtext/client/core/EventObject;)(eJ);
+			 }
+	    }
 
         $wnd.Ext.dd.DragDrop.prototype.onMouseDown = function(e) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             ddJ.@com.gwtext.client.dd.DragDrop::onMouseDown(Lcom/gwtext/client/core/EventObject;)(eJ);
-            }
+			 if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 ddJ.@com.gwtext.client.dd.DragDrop::onMouseDown(Lcom/gwtext/client/core/EventObject;)(eJ);
+			}
+		}
 
         $wnd.Ext.dd.DragDrop.prototype.onMouseUp = function(e) {
              var ddJ = this.ddJ;
-             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-             ddJ.@com.gwtext.client.dd.DragDrop::onMouseUp(Lcom/gwtext/client/core/EventObject;)(eJ);
-            }
+			 if(ddJ != null) {
+				 var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+				 ddJ.@com.gwtext.client.dd.DragDrop::onMouseUp(Lcom/gwtext/client/core/EventObject;)(eJ);
+			}
+	   }
     }-*/;
     
     public DragDrop(JavaScriptObject jsObj) {

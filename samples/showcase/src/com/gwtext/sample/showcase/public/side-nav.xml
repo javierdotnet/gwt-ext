@@ -24,6 +24,9 @@
         <leaf title="Basic Array Grid"/>
         <leaf title="Editable Grid"/>
         <leaf title="Grid with Remote Paging"/>
+        <leaf title="Dynamic Grid"/>
+        <leaf title="Column Order"/>
+        <leaf title="Stock Ticker"/>
     </node>
 
     <node title="Forms">
@@ -36,6 +39,13 @@
 
     <node title="Tab Panel">
         <leaf title="Dynamic and Events"/>
+    </node>
+
+    <node title="Drag and Drop">
+        <leaf title="Basic"/>
+        <leaf title="Handles"/>
+        <leaf title="On Top"/>
+        <leaf title="Proxy"/>
     </node>
 
 </side-nav>

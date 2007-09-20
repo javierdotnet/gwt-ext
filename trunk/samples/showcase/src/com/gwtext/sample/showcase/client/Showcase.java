@@ -54,7 +54,6 @@ import com.gwtext.sample.showcase.client.dd.DDProxyPanel;
 import com.gwtext.sample.showcase.client.dialog.*;
 import com.gwtext.sample.showcase.client.form.*;
 import com.gwtext.sample.showcase.client.grid.*;
-import com.gwtext.sample.showcase.client.keyboard.KeyboardPanel;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
 
@@ -326,8 +325,6 @@ public class Showcase implements EntryPoint {
         screens.put("Forms>Load / Submit Xml Form", new XmlFormPanel());
 
         screens.put("Tab Panel>Dynamic and Events", new TabsPanel());
-
-        screens.put("Navigation>Keyboard", new KeyboardPanel());
 
         screens.put("Drag and Drop>Basic", new BasicDDPanel());
         screens.put("Drag and Drop>Handles", new DDHandlesPanel());

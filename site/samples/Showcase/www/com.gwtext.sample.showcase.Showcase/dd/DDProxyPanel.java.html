@@ -1,0 +1,31 @@
+
+<textarea name="code" class="java" style="display:none;">
+
+<div id="dd-demo-1d" class="dd-demo"></div>
+<div id="dd-demo-2d" class="dd-demo"></div>
+<div id="dd-demo-3d" class="dd-demo"></div>
+
+<div id="dd-demo-3-proxy">Custom</div>
+
+
+DeferredCommand.addCommand(new Command() {
+	public void execute() {
+		DDProxy dd = new DDProxy("dd-demo-1d");
+		DDProxy dd2 = new DDProxy("dd-demo-2d");
+
+		// The third instance has a dedicated custom proxy
+		DDProxy dd3 = new DDProxy("dd-demo-3d", "default", new DragDropProxyConfig() {
+			{
+				setDragElId("dd-demo-3-proxy");
+				setResizeFrame(false);
+			}
+		});
+	}
+});
+
+</textarea>
+
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

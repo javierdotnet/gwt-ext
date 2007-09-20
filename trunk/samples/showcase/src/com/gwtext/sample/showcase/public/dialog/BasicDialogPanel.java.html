@@ -1,15 +1,16 @@
 
 <textarea name="code" class="java" style="display:none;">
+//create and configure layout dialog
 final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
-    {
-        setTitle("Basic Dialog");
-        setModal(true);
-        setWidth(500);
-        setHeight(300);
-        setShadow(true);
-        setMinHeight(300);
-        setMinHeight(300);
-    }
+	{
+		setTitle("Basic Dialog");
+		setModal(true);
+		setWidth(500);
+		setHeight(300);
+		setShadow(true);
+		setMinHeight(300);
+		setMinHeight(300);
+	}
 }, new LayoutRegionConfig());
 
 //first way to add button
@@ -18,14 +19,14 @@ saveBtn.disable();
 
 //another way to add button
 dialog.addButton(new Button("Cancel", new ButtonConfig() {
-    {
-        setText("Cancel");
-        setButtonListener(new ButtonListenerAdapter() {
-            public void onClick(Button button, EventObject e) {
-                dialog.hide();
-            }
-        });
-    }
+	{
+		setText("Cancel");
+		setButtonListener(new ButtonListenerAdapter() {
+			public void onClick(Button button, EventObject e) {
+				dialog.hide();
+			}
+		});
+	}
 }));
 
 //add content to the center region
@@ -36,9 +37,9 @@ layout.add(contentPanel);
 
 Button button = new Button("Hello World");
 button.addButtonListener(new ButtonListenerAdapter() {
-    public void onClick(Button button, EventObject e) {
-        dialog.show(button.getEl());
-    }
+	public void onClick(Button button, EventObject e) {
+		dialog.show(button.getEl());
+	}
 });
 </textarea>
 

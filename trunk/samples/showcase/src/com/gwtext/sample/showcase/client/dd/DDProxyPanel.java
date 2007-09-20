@@ -30,14 +30,14 @@ import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
 public class DDProxyPanel extends ShowcaseExampleVSD {
 
-    private static String DEMO_HTML = "<div id=\"dd-demo-1\" class=\"dd-demo\"></div>\n" +
-            "<div id=\"dd-demo-2\" class=\"dd-demo\"></div>\n" +
-            "<div id=\"dd-demo-3\" class=\"dd-demo\"></div>\n" +
+    private static String DEMO_HTML = "<div id=\"dd-demo-1d\" class=\"dd-demo\"></div>\n" +
+            "<div id=\"dd-demo-2d\" class=\"dd-demo\"></div>\n" +
+            "<div id=\"dd-demo-3d\" class=\"dd-demo\"></div>\n" +
             "\n" +
             "<div id=\"dd-demo-3-proxy\">Custom</div>";
 
     public String getSourceUrl() {
-        return null;
+        return "dd/DDProxyPanel.java.html";
     }
 
     public Panel getViewPanel() {
@@ -49,11 +49,11 @@ public class DDProxyPanel extends ShowcaseExampleVSD {
 
         DeferredCommand.addCommand(new Command() {
             public void execute() {
-                DDProxy dd = new DDProxy("dd-demo-1");
-                DDProxy dd2 = new DDProxy("dd-demo-2");
+                DDProxy dd = new DDProxy("dd-demo-1d");
+                DDProxy dd2 = new DDProxy("dd-demo-2d");
 
                 // The third instance has a dedicated custom proxy
-                DDProxy dd3 = new DDProxy("dd-demo-3", "default", new DragDropProxyConfig() {
+                DDProxy dd3 = new DDProxy("dd-demo-3d", "default", new DragDropProxyConfig() {
                     {
                         setDragElId("dd-demo-3-proxy");
                         setResizeFrame(false);

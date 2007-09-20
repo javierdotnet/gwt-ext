@@ -31,12 +31,12 @@ import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
 public class DDOnTopPanel extends ShowcaseExampleVSD {
 
-    private static String DEMO_HTML = "<div id=\"dd-demo-1\" class=\"dd-demo\"></div>\n" +
-            "<div id=\"dd-demo-2\" class=\"dd-demo\"></div>\n" +
-            "<div id=\"dd-demo-3\" class=\"dd-demo\"></div>";
+    private static String DEMO_HTML = "<div id=\"dd-demo-1c\" class=\"dd-demo\"></div>\n" +
+            "<div id=\"dd-demo-2c\" class=\"dd-demo\"></div>\n" +
+            "<div id=\"dd-demo-3c\" class=\"dd-demo\"></div>";
 
     public String getSourceUrl() {
-        return null;
+       return "dd/DDOnTopPanel.java.html";
     }
 
     public Panel getViewPanel() {
@@ -48,9 +48,9 @@ public class DDOnTopPanel extends ShowcaseExampleVSD {
 
         DeferredCommand.addCommand(new Command() {
             public void execute() {
-                DD dd1 = new DDOnTop("dd-demo-1");
-                DD dd2 = new DDOnTop("dd-demo-2");
-                DD dd3 = new DDOnTop("dd-demo-3");
+                DD dd1 = new DDOnTop("dd-demo-1c");
+                DD dd2 = new DDOnTop("dd-demo-2c");
+                DD dd3 = new DDOnTop("dd-demo-3c");
             }
         });
         return panel;

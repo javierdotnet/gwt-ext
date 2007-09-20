@@ -38,18 +38,18 @@ private Renderer renderLastPlain = new Renderer() {
 DataProxy dataProxy = new ScriptTagProxy("http://extjs.com/forum/topics-remote.php");
 
 JsonReader reader = new JsonReader(new JsonReaderConfig() {
-    {
-        setRoot("topics");
-        setTotalProperty("totalCount");
-        setId("post_id");
-    }
-}, new RecordDef(new Field[]{
-        new StringField("title", "topic_title"),
-        new StringField("author", "username"),
-        new IntegerField("totalPosts", "topic_replies"),
-        new DateField("lastPost", "post_time", "timestamp"),
-        new StringField("lastPoster", "user2"),
-        new StringField("excerpt", "post_text")
+	{
+		setRoot("topics");
+		setTotalProperty("totalCount");
+		setId("post_id");
+	}
+}, new RecordDef(new FieldDef[]{
+		new StringFieldDef("title", "topic_title"),
+		new StringFieldDef("author", "username"),
+		new IntegerFieldDef("totalPosts", "topic_replies"),
+		new DateFieldDef("lastPost", "post_time", "timestamp"),
+		new StringFieldDef("lastPoster", "user2"),
+		new StringFieldDef("excerpt", "post_text")
 }));
 
 final Store store = new Store(dataProxy, reader, true);
@@ -57,43 +57,44 @@ store.setDefaultSort("lastPost", "DESC");
 store.load();
 
 ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
-        new ColumnConfig() {
-            {
-                setId("topic");
-                setHeader("Topic");
-                setDataIndex("title");
-                setWidth(420);
-                setRenderer(getTopicRenderer());
-                setCss("white-space:normal;");
-            }
-        },
-        new ColumnConfig() {
-            {
-                setHeader("Author");
-                setDataIndex("author");
-                setWidth(100);
-                setHidden(true);
-            }
-        },
-        new ColumnConfig() {
-            {
-                setId("last");
-                setHeader("Last Post");
-                setDataIndex("lastPost");
-                setWidth(150);
-                setRenderer(getLastRenderer());
-                setSortable(true);
-            }
-        }
+		new ColumnConfig() {
+			{
+				setId("topic");
+				setHeader("Topic");
+				setDataIndex("title");
+				setWidth(420);
+				setRenderer(getTopicRenderer());
+				setCss("white-space:normal;");
+			}
+		},
+		new ColumnConfig() {
+			{
+				setHeader("Author");
+				setDataIndex("author");
+				setWidth(100);
+				setHidden(true);
+			}
+		},
+		new ColumnConfig() {
+			{
+				setId("last");
+				setHeader("Last Post");
+				setDataIndex("lastPost");
+				setWidth(150);
+				setRenderer(getLastRenderer());
+				setSortable(true);
+			}
+		}
 });
 
 columnModel.setDefaultSortable(true);
 
 grid = new Grid("topic-grid", "600px", "300px", store, columnModel, new GridConfig() {
-    {
-        setEnableColLock(false);
-        setLoadMask(true);
-    }
+	{
+		setEnableColLock(false);
+		setLoadMask(true);
+
+	}
 });
 
 grid.render();
@@ -101,35 +102,35 @@ grid.render();
 ExtElement gridFoot = grid.getView().getFooterPanel(true);
 
 PagingToolbar pagingToolbar = new PagingToolbar(gridFoot, store, new PagingToolbarConfig() {
-    {
-        setPageSize(25);
-        setDisplayInfo(true);
-        setDisplayMsg("Displaying topics {0} - {1} of {2}");
-        setEmptyMsg("No topics to display");
-    }
+	{
+		setPageSize(25);
+		setDisplayInfo(true);
+		setDisplayMsg("Displaying topics {0} - {1} of {2}");
+		setEmptyMsg("No topics to display");
+	}
 });
 
 pagingToolbar.addSeparator();
 pagingToolbar.addButton(new ToolbarButton("Detailed View", new ButtonConfig() {
-    {
-        setPressed(showPreview);
-        setEnableToggle(true);
-        setCls("x-btn-text-icon details");
-        setButtonListener(new ButtonListenerAdapter() {
-            public void onToggle(Button button, boolean pressed) {
-                togglePreview(pressed);
-            }
-        });
-    }
+	{
+		setPressed(showPreview);
+		setEnableToggle(true);
+		setCls("x-btn-text-icon details");
+		setButtonListener(new ButtonListenerAdapter() {
+			public void onToggle(Button button, boolean pressed) {
+				togglePreview(pressed);
+			}
+		});
+	}
 }));
 
 store.load(new StoreLoadConfig() {
-    {
-        setParams(new UrlParam[]{
-                new UrlParam("start", 0),
-                new UrlParam("limit", 25)
-        });
-    }
+	{
+		setParams(new UrlParam[]{
+				new UrlParam("start", 0),
+				new UrlParam("limit", 25)
+		});
+	}
 });
 
 ...

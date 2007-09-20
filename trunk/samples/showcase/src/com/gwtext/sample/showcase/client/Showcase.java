@@ -314,7 +314,6 @@ public class Showcase implements EntryPoint {
         screens.put("Grids>Basic Array Grid", new BasicArrayGridPanel());
         screens.put("Grids>Editable Grid", new EditableGridPanel());
         screens.put("Grids>Grid with Remote Paging", new RemotePagingGridPanel());
-        screens.put("Grids>Dynamic Grid", new DynamicGridPanel());
         screens.put("Grids>Column Order", new ColumnOrderGridPanel());
         screens.put("Grids>Stock Ticker", new StockTickerGridPanel());
 

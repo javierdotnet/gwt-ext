@@ -157,7 +157,7 @@ public class ContentPanel extends ComplexPanel {
     }-*/;
 
     public void add(Widget w) {
-        add(w, getElement());
+		add(w, DOM.getFirstChild(getElement()));
     }
 
     public native void destroy() /*-{

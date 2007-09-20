@@ -329,6 +329,6 @@ public class Showcase implements EntryPoint {
         screens.put("Drag and Drop>Basic", new BasicDDPanel());
         screens.put("Drag and Drop>Handles", new DDHandlesPanel());
         screens.put("Drag and Drop>On Top", new DDOnTopPanel());
-        screens.put("Drag and Drop>On Top", new DDProxyPanel());
+        screens.put("Drag and Drop>Proxy", new DDProxyPanel());
     }
 }

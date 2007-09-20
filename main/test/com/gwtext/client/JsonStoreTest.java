@@ -33,10 +33,10 @@ public class JsonStoreTest extends GWTTestCase {
     }
 
     public void testCreation() {
-        JsonStore store = new JsonStore("json", "list.visits", new RecordDef(new Field[]{
-                new StringField("summary"),
-                new DateField("start"),
-                new DateField("end")}
+        JsonStore store = new JsonStore("json", "list.visits", new RecordDef(new FieldDef[]{
+                new StringFieldDef("summary"),
+                new DateFieldDef("start"),
+                new DateFieldDef("end")}
         ));
     }
 }

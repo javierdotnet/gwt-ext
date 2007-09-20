@@ -37,12 +37,12 @@ public class GridTest extends GWTTestCase {
     public void testGrid() {
         MemoryProxy proxy = new MemoryProxy(SampleData.getArrayGridData());
         RecordDef recordDef = new RecordDef(
-                new Field[]{
-                        new StringField("company"),
-                        new FloatField("price"),
-                        new FloatField("change"),
-                        new FloatField("pctChange"),
-                        new DateField("lastChanged", "n/j h:ia")
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia")
                 }
         );
 
@@ -83,7 +83,11 @@ public class GridTest extends GWTTestCase {
                         setSortable(true);
                         setDataIndex("price");
                         setRenderer(new Renderer() {
-                            public String render(String value, Record record, int rowIndex, int colNum) {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+                                return null;
+                            }
+
+                            public String render(Object value, Record record, int rowIndex, int colNum) {
                                 return "$" + value;
                             }
                         });

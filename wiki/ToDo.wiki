@@ -8,8 +8,7 @@
 Here's a list of known API's that are missing or incomplete. I'll update this page as each item gets complete.
 
 === Drag and Drop Package ===
-
- * The entire Ext Drag and Drop package (dd) 
+60% complete 9/22/2007
 
 === Tree Package ===
 || *Class* || *Status*||
@@ -28,3 +27,4 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 || *Class* || *Status*||
 || ClickRepeater || ||
 || TextMetrics || ||
+ 

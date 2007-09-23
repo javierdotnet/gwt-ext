@@ -48,16 +48,27 @@ public class HttpProxy extends DataProxy {
     }
 
     /**
-     * Construct a new HttpProxy using the specified URL and method.
+     * Construct a new HttpProxy using the specified URL and method. A Singleton Connection object, {@link com.gwtext.client.core.Ajax},  will be used to make the
+     * http request.
      *
      * @param url data url
      * @param method GET or POST
+     * @see com.gwtext.client.core.Ajax
      */
     public HttpProxy(String url, String method) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);
         if (method != null) JavaScriptObjectHelper.setAttribute(config, "method", method);
         jsObj = create(config);
+    }
+
+    /**
+     * Construct a new HttpProxy using the specified Connection.
+     *
+     * @param conn connection to use to make the http call
+     */
+    public HttpProxy(Connection conn) {
+        jsObj = create(conn.getJsObj());
     }
 
     private native JavaScriptObject create(JavaScriptObject config) /*-{

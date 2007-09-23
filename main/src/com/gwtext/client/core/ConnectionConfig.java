@@ -43,6 +43,10 @@ public class ConnectionConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "method", method);
     }
 
+    /**
+     * The timeout in milliseconds to be used for requests. (defaults to 30000)
+     * @param timeout timout
+     */
     public void setTimeout(int timeout) {
         JavaScriptObjectHelper.setAttribute(jsObj, "timeout", timeout);
     }

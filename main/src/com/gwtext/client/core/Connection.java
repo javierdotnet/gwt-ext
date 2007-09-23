@@ -37,7 +37,7 @@ public class Connection extends JsObject {
     }
 
     private native JavaScriptObject create(JavaScriptObject config) /*-{
-        return new $wnd.Ext.Connection(config);
+        return new $wnd.Ext.data.Connection(config);
     }-*/;
 
     public native void abort() /*-{

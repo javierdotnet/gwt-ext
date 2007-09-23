@@ -60,9 +60,10 @@ public class TextFieldConfig extends FieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "growMin", growMin);
     }
 
-    public void setMaskRe(String maskRe) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "maskRe", maskRe);
-    }
+    public native void setMaskRe(String maskRe) /*-{
+        var jsObj = this.@com.gwtext.client.core.JsObject::jsObj;
+        jsObj['maskRe'] = new $wnd.RegExp(maskRe);
+    }-*/;
 
     public void setMaxLength(int maxLength) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxLength", maxLength);

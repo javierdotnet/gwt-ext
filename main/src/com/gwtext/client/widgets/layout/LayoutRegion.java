@@ -79,17 +79,17 @@ public class LayoutRegion extends JsObject {
 
     public native void collapse(boolean skipAnim) /*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
-        layoutRegion.collapse();
+        layoutRegion.collapse(null, skipAnim);
     }-*/;
 
     public native void expand() /*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
-        layoutRegion.collapse();
+        layoutRegion.expand();
     }-*/;
 
     public native void expand(boolean skipAnim) /*-{
         var layoutRegion = this.@com.gwtext.client.core.JsObject::jsObj;
-        layoutRegion.collapse(null, skipAnim);
+        layoutRegion.expand(null, skipAnim);
     }-*/;
 
     public native ContentPanel getActivePanel()/*-{

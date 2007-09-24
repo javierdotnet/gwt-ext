@@ -23,6 +23,11 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DDTarget extends DragDrop {
+
+    public DDTarget(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     public DDTarget(String id, String sGroup, DragDropConfig config) {
         super(id, sGroup, config);
     }

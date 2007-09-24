@@ -21,7 +21,10 @@
 package com.gwtext.client.widgets.tree.event;
 
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.dd.DragDrop;
 import com.gwtext.client.widgets.tree.TreeNode;
+import com.gwtext.client.widgets.tree.TreePanel;
 
 public class TreePanelListenerAdapter implements TreePanelListener {
 
@@ -46,6 +49,10 @@ public class TreePanelListenerAdapter implements TreePanelListener {
         return true;
     }
 
+    public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+        return true;
+    }
+
     public void onCheckChange(TreeNode node, boolean checked) {
     }
 
@@ -64,10 +71,25 @@ public class TreePanelListenerAdapter implements TreePanelListener {
     public void onDisabledChange(TreeNode node, boolean disabled) {
     }
 
+    public void onDragDrop(TreePanel treePanel, TreeNode node, DD dd) {
+    }
+
+    public void onEndDrag(TreePanel treePanel, TreeNode node) {
+    }
+
     public void onExpand(TreeNode node) {
     }
 
     public void onLoad(TreeNode node) {
+    }
+
+    public void onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+    }
+
+    public void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+    }
+
+    public void onStartDrag(TreePanel treePanel, TreeNode node) {
     }
 
     public void onTextChange(TreeNode node, String text, String oldText) {

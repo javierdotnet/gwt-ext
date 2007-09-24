@@ -23,6 +23,11 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DropZone extends DropTarget {
+
+    public DropZone(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     public DropZone(String id, String sGroup, DragDropConfig config) {
         super(id, sGroup, config);
     }

@@ -35,7 +35,11 @@ public class TreeNodeConfig extends NodeConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowDrop", allowDrop);
     }
 
-    public void setCls(String cls) {
+	public void setChecked(boolean checked) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "checked", checked);
+    }
+
+	public void setCls(String cls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "cls", cls);
     }
 

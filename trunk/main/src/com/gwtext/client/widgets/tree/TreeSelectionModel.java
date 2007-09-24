@@ -25,4 +25,16 @@ import com.google.gwt.core.client.JavaScriptObject;
 public interface TreeSelectionModel {
 
     JavaScriptObject getJsObj();
+
+    void clearSelections();
+
+    boolean isSelected(TreeNode treeNode);
+
+    void select(TreeNode treeNode);
+
+    void selectNext();
+
+    void selectPrevious();
+
+    void unselect(TreeNode treeNode);
 }

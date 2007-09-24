@@ -20,8 +20,12 @@
 
 package com.gwtext.client.widgets.tree.event;
 
+import com.google.gwt.user.client.Event;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.dd.DragDrop;
 import com.gwtext.client.widgets.tree.TreeNode;
+import com.gwtext.client.widgets.tree.TreePanel;
 
 public interface TreePanelListener {
 
@@ -35,8 +39,9 @@ public interface TreePanelListener {
 
     boolean doBeforeLoad(TreeNode node);
 
-    //todo
-    //boolean doBeforeNodeDrop();
+    //treepanel, target, data, point, source, rawEvent, dropNode
+    //todo data?
+    boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 
     void onCheckChange(TreeNode node, boolean checked);
 
@@ -50,19 +55,19 @@ public interface TreePanelListener {
 
     void onDisabledChange(TreeNode node, boolean disabled);
 
-    //todo
-    //onDragDrop()
-    //onEndDrag()
+    void onDragDrop(TreePanel treePanel, TreeNode node, DD dd);
+
+    void onEndDrag(TreePanel treePanel, TreeNode node);
 
     void onExpand(TreeNode node);
 
     void onLoad(TreeNode node);
 
-    //onNodeDragOver()
+    void onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 
-    //onNodeDrop
+    void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 
-    //onStartDrag
+    void onStartDrag(TreePanel treePanel, TreeNode node);
 
     void onTextChange(TreeNode node, String text, String oldText);
 }

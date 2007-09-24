@@ -23,6 +23,11 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DragSource extends DDProxy {
+
+    public DragSource(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     public DragSource(String id, String sGroup, DragDropProxyConfig config) {
         super(id, sGroup, config);
     }

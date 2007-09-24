@@ -24,6 +24,7 @@ import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class TreePanelConfig extends BaseConfig {
+    private TreeSelectionModel selectionModel;
 
     public void setAnimate(boolean animate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "animate", animate);
@@ -45,10 +46,12 @@ public class TreePanelConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "ddScroll", ddScroll);
     }
 
-    //TODO
+    //TODO no TreeDragZone configs appear to be in Ext
     //dragConfig
 
-    //dropConfig
+    public void setDropConfig(TreeDropZone dropConfig) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "dropConfig", dropConfig.getJsObj());
+    }
 
     public void setEnableDD(boolean enableDD) {
         JavaScriptObjectHelper.setAttribute(jsObj, "enableDD", enableDD);
@@ -74,8 +77,8 @@ public class TreePanelConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "lines", lines);
     }
 
-    public void setLoader(boolean loader) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "loader", loader);
+    public void setLoader(TreeLoader loader) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "loader", loader.getJsObj());
     }
 
     public void setRootVisible(boolean rootVisible) {
@@ -84,6 +87,11 @@ public class TreePanelConfig extends BaseConfig {
 
     public void setSelectionModel(TreeSelectionModel selectionModel) {
         JavaScriptObjectHelper.setAttribute(jsObj, "selModel", selectionModel.getJsObj());
+        this.selectionModel = selectionModel;
+    }
+
+    public TreeSelectionModel getSelectionModel() {
+        return selectionModel;
     }
 
     public void setSingleExpand(boolean singleExpand) {

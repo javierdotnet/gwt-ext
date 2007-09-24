@@ -24,6 +24,10 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class DDProxy extends DD {
 
+    public DDProxy(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     public DDProxy(String id) {
         super(id);
     }

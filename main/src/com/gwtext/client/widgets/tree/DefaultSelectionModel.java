@@ -26,6 +26,14 @@ import com.gwtext.client.widgets.tree.event.DefaultSelectionModelListener;
 
 public class DefaultSelectionModel extends JsObject implements TreeSelectionModel {
 
+    public DefaultSelectionModel() {
+        jsObj = create();
+    }
+
+    private native JavaScriptObject create() /*-{
+        return new $wnd.Ext.tree.DefaultSelectionModel();
+    }-*/;
+
     public DefaultSelectionModel(JavaScriptObject jsObj) {
         super(jsObj);
     }

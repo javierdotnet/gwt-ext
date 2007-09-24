@@ -24,6 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.core.Paddings;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class DragDrop extends JsObject {
@@ -158,14 +159,38 @@ public class DragDrop extends JsObject {
         return new $wnd.Ext.dd.DragDrop(id, sGroup, config);
     }-*/;
 
+    private static DragDrop instance(JavaScriptObject jsObj) {
+        return new DragDrop(jsObj);
+    }
+    
     public native boolean  isAvailable() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
         return dd.available;
     }-*/;
-    
-    public native String getGroups() /*-{
+
+    public String[] getGroups(){
+        JavaScriptObject nativeArray = doGetGroups();
+        String[] rtn = null;
+
+        if (nativeArray != null) {
+            rtn = new String[JavaScriptObjectHelper.getJavaScriptObjectArraySize(nativeArray)];
+
+            for (int i = 0; i < rtn.length; i++) {
+                rtn[i] = JavaScriptObjectHelper.getStringValueFromJavaScriptObjectArray(nativeArray, i);
+            }
+        }
+        return rtn;
+    }
+
+    private native JavaScriptObject doGetGroups() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        return dd.groups;
+        var groups = dd.groups;
+        var group;
+        var arr = new $wnd.Array();
+        for(group in groups) {
+            arr.push(group);
+        }
+        return arr;
     }-*/;
     
     public native boolean hasOuterHandles() /*-{
@@ -189,7 +214,8 @@ public class DragDrop extends JsObject {
 
    public native boolean isMaintainOffset() /*-{
        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-       return dd.maintainOffset;
+       var mo = dd.maintainOffset;
+       return (mo === undefined || mo == null) ? false : mo; 
    }-*/;
 
    public native boolean isPrimaryButtonOnly() /*-{
@@ -351,9 +377,10 @@ public class DragDrop extends JsObject {
 
 
 
-    public native void padding() /*-{
+    public native Paddings getPadding() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        dd.padding();
+        var padding = dd.padding;
+        return @com.gwtext.client.core.Paddings::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(padding);
     }-*/;
 
     public native void removeFromGroup(String sGroup) /*-{

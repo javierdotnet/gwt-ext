@@ -62,7 +62,7 @@ public class FeedPanel extends Composite {
                 setIconCls("delete-icon");
                 setButtonListener(new ButtonListenerAdapter() {
                     public void onClick(Button button, EventObject e) {
-                        TreeNode node = treePanel.getSelectionModel().getSelectedNode();
+                        TreeNode node = ((DefaultSelectionModel)treePanel.getSelectionModel()).getSelectedNode();
                         if (node != null) {
                             String url = node.getId();
                             removeFeed(url);
@@ -97,7 +97,7 @@ public class FeedPanel extends Composite {
     }
 
     public void addFeedListener(final FeedListener listener) {
-        treePanel.getSelectionModel().addSelectionModelListener(new DefaultSelectionModelListener() {
+        ((DefaultSelectionModel)treePanel.getSelectionModel()).addSelectionModelListener(new DefaultSelectionModelListener() {
             public boolean doBeforeSelect(DefaultSelectionModel sm, TreeNode newNode, TreeNode oldNode) {
                 return newNode.isLeaf();
             }

@@ -23,7 +23,11 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class DD extends DragDrop {
-    
+
+    public DD(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     public DD(String id) {
         this(id, null);
     }
@@ -39,5 +43,9 @@ public class DD extends DragDrop {
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DD(id, sGroup, config);
     }-*/;
+
+    private static DD instance(JavaScriptObject jsObj) {
+        return new DD(jsObj);
+    }
 
 }

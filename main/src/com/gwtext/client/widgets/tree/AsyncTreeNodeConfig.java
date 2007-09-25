@@ -21,7 +21,11 @@
 
 package com.gwtext.client.widgets.tree;
 
+import com.gwtext.client.util.JavaScriptObjectHelper;
+
 public class AsyncTreeNodeConfig extends TreeNodeConfig {
 
-    //loader
+    public void setLoader(TreeLoader loader) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "loader", loader.getJsObj());
+    }
 }

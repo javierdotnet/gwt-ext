@@ -25,9 +25,14 @@ import com.gwtext.client.widgets.tree.event.AsyncTreeNodeListener;
 
 public class AsyncTreeNode extends TreeNode {
 
-    public AsyncTreeNode(AsyncTreeNodeConfig config) {
+	public AsyncTreeNode(AsyncTreeNodeConfig config) {
         super(config);
     }
+
+	public AsyncTreeNode(String text, AsyncTreeNodeConfig config) {
+		this(config);
+		setText(text);
+	}
 
     protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.tree.AsyncTreeNode(config);

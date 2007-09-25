@@ -36,4 +36,14 @@ public class TextItem extends Item {
     private native JavaScriptObject create(String text, JavaScriptObject config) /*-{
         return new $wnd.Ext.menu.TextItem(text);
     }-*/;
+
+    public native String getText()/*-{
+        var ti = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return ti.el.innerHTML;
+    }-*/;
+
+    public native void setText(String text)/*-{
+        var ti = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        ti.el.innerHTML = text;
+    }-*/;
 }

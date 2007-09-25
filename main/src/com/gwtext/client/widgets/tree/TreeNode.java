@@ -34,7 +34,12 @@ public class TreeNode extends Node {
         });
     }
 
-    TreeNode(JavaScriptObject jsObj) {
+	public TreeNode(String text, TreeNodeConfig config) {
+        this(config);
+		setText(text);
+	}
+
+	TreeNode(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
@@ -132,7 +137,7 @@ public class TreeNode extends Node {
         node.setText(text);
     }-*/;
 
-    public native String getText() /*-{
+	public native String getText() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.text;
     }-*/;

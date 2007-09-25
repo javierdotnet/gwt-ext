@@ -22,7 +22,6 @@ package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.tree.event.MultiSelectionModelListener;
 
 public class MultiSelectionModel extends JsObject implements TreeSelectionModel {
@@ -55,24 +54,13 @@ public class MultiSelectionModel extends JsObject implements TreeSelectionModel 
 
     public  TreeNode[] getSelectedNodes() {
         JavaScriptObject nativeArray = getSelectedNodes(jsObj);
-        return convertFromNativeTreeNodeArray(nativeArray);
+        return TreePanel.convertFromNativeTreeNodeArray(nativeArray);
     }
 
     private native JavaScriptObject getSelectedNodes(JavaScriptObject sm) /*-{
         var treeNodes = sm.getSelectedNode();
         return (treeNodes === undefined) ? null : treeNodes;
     }-*/;
-
-    private static TreeNode[] convertFromNativeTreeNodeArray(JavaScriptObject nativeArray) {
-        if (nativeArray == null) return new TreeNode[0];
-        JavaScriptObject[] treeNodesJ = JavaScriptObjectHelper.toArray(nativeArray);
-        TreeNode[] treeNodes = new TreeNode[treeNodesJ.length];
-        for (int i = 0; i < treeNodesJ.length; i++) {
-            JavaScriptObject treeNode = treeNodesJ[i];
-            treeNodes[i] = new TreeNode(treeNode);
-        }
-        return treeNodes;
-    }
 
 
     public native boolean isSelected(TreeNode treeNode) /*-{
@@ -116,7 +104,7 @@ public class MultiSelectionModel extends JsObject implements TreeSelectionModel 
         sm.addListener('selectionchange',
                  function(self, nodes) {
                     if(nodes === undefined) nodes = null;
-                    var nodesJ = @com.gwtext.client.widgets.tree.MultiSelectionModel::convertFromNativeTreeNodeArray(Lcom/google/gwt/core/client/JavaScriptObject;)(nodes);
+                    var nodesJ = @com.gwtext.client.widgets.tree.TreePanel::convertFromNativeTreeNodeArray(Lcom/google/gwt/core/client/JavaScriptObject;)(nodes);
                     listener.@com.gwtext.client.widgets.tree.event.MultiSelectionModelListener::onSelectionChange(Lcom/gwtext/client/widgets/tree/MultiSelectionModel;[Lcom/gwtext/client/widgets/tree/TreeNode;)(smJ, nodesJ);
 			    }
           );

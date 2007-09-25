@@ -51,7 +51,7 @@ public class DD extends DragDrop {
 
     public native boolean isScroll() /*-{
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        return dd.scroll;
+        return dd.scroll ? true : false;
     }-*/;
 
     public native void setScroll(boolean scroll) /*-{

@@ -59,7 +59,23 @@ public class Node extends JsObject {
         }
     }
 
-    private static native Object getUserObject(JavaScriptObject node) /*-{
+	public native void setAttribute(String name, String value) /*-{
+		var node = this.@com.gwtext.client.core.JsObject::jsObj;
+		node.attributes[name] = value;
+	}-*/;
+			
+	protected native void setAttribute(String name, JavaScriptObject value) /*-{
+		var node = this.@com.gwtext.client.core.JsObject::jsObj;
+		node.attributes[name] = value;
+	}-*/;
+
+	public native String getAttribute(String name) /*-{
+		var node = this.@com.gwtext.client.core.JsObject::jsObj;
+		var value = node.attributes[name];
+		return value === undefined ? null : value;
+	}-*/;
+
+	private static native Object getUserObject(JavaScriptObject node) /*-{
         //need to convert javascript undefined to null before passing to java layer
         if(node.attributes.data === undefined) {
             return null;
@@ -93,8 +109,12 @@ public class Node extends JsObject {
         return node.id;
     }-*/;
 
+    public native String setId(String id) /*-{
+        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        node.id = id;
+    }-*/;
 
-    public native Node getLastChild() /*-{
+	public native Node getLastChild() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.lastChild == null || node.lastChild === undefined)  {
             return null;

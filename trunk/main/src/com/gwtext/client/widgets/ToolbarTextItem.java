@@ -32,4 +32,13 @@ public class ToolbarTextItem extends ToolbarItem {
         return new $wnd.Ext.Toolbar.TextItem(text);
     }-*/;
 
+    public native String getText()/*-{
+        var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        return tbi.el.innerHTML;
+    }-*/;
+
+    public native void setText(String text)/*-{
+        var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tbi.el.innerHTML = text;
+    }-*/;     
 }

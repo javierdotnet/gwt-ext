@@ -12,12 +12,12 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 
 === Tree Package ===
 || *Class* || *Status*||
-|| TreeEditor || *Done 9/25* ||
-|| TreeSorter || *Done 9/25* ||
+|| TreeEditor || *complete 9/25* ||
+|| TreeSorter || *complete 9/25* ||
 
 === General Widgets and support classes ===
 || *Class* || *Status*||
-|| Editor || *Done 9/25* ||
+|| Editor || *complete 9/25* ||
 || JsonView || *complete 08/07/2007*||
 || MasterTemplate || ||
 || SplitBar || ||

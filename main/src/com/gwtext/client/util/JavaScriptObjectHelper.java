@@ -361,4 +361,13 @@ public class JavaScriptObjectHelper {
         }
         return arr;
     }
+
+    public static String[] convertToJavaStringArray(JavaScriptObject array) {
+        int length = getArrayLength(array);
+        String[] arr = new String[length];
+        for (int i = 0; i < length; i++) {
+            arr[i] = getArrayValue(array, i);
+        }
+        return arr;
+    }
 }

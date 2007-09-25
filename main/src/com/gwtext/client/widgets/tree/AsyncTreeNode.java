@@ -30,7 +30,7 @@ public class AsyncTreeNode extends TreeNode {
     }
 
     protected native JavaScriptObject create(JavaScriptObject config)/*-{
-        return $wnd.Ext.data.AsyncTreeNode(config);
+        return new $wnd.Ext.tree.AsyncTreeNode(config);
     }-*/;
 
     public native boolean isLoaded() /*-{

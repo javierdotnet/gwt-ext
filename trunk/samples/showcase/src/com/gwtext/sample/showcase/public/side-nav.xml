@@ -47,4 +47,8 @@
         <leaf title="Proxy"/>
     </node>
 
+    <node title="Animation">
+        <leaf title="custom"/>
+    </node>
+
 </side-nav>

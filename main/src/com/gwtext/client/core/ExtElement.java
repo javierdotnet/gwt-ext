@@ -63,17 +63,6 @@ public class ExtElement extends BaseElement {
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
     }-*/;
 
-    //todo may need to change to EventCallback instead of Function in future
-    public native void addListener(String eventName, Function cb, ListenerConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        el.addListener(eventName, function() {
-                cb.@com.gwtext.client.core.Function::execute()();
-            },
-            null,
-            config.@com.gwtext.client.core.JsObject::jsObj
-        );
-    }-*/;
-
     //todo support CompositeElements
     public native ExtElement appendChild(Element child) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;

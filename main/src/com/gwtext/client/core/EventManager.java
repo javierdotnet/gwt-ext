@@ -24,9 +24,10 @@ import com.gwtext.client.core.event.TextResizeListener;
 
 public class EventManager {
 
-    public static native void addListener(Element element, String eventName, Function cb, ListenerConfig config) /*-{        
-        $wnd.Ext.EventManager.addListener(element, eventName, function() {
-                cb.@com.gwtext.client.core.Function::execute()();
+    public static native void addListener(Element element, String eventName, EventCallback cb, ListenerConfig config) /*-{        
+        $wnd.Ext.EventManager.addListener(element, eventName, function(event) {
+                var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
             },
             null,
             config.@com.gwtext.client.core.JsObject::jsObj

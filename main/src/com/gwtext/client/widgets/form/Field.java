@@ -43,6 +43,10 @@ public class Field extends BoxComponent {
         super(jsObj);
     }
 
+    private static Field instance(JavaScriptObject jsObj) {
+        return new Field(jsObj);
+    }
+    
     /**
      * Set the location of the error message target globally.
      *

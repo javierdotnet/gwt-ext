@@ -102,7 +102,11 @@ public class JavaScriptObjectHelper {
 	    elem[attr] = value;
     }-*/;
 
-    public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
+    public static native void setAttribute(JavaScriptObject elem, String attr, double value) /*-{
+	    elem[attr] = value;
+    }-*/;
+
+	public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
         if (value == null) {
             setAttribute(elem, attr, (String) null);
         } else {

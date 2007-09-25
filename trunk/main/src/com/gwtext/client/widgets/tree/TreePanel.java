@@ -89,22 +89,35 @@ public class TreePanel extends RequiredElementWidget {
         }
     }-*/;
 
-    public int[] getChecked() {
+    public TreeNode[] getChecked() {
         JavaScriptObject arr = getChecked(jsObj);
-        return JavaScriptObjectHelper.convertToJavaIntArray(arr);
+        return convertFromNativeTreeNodeArray(arr);
+    }
+
+    static TreeNode[] convertFromNativeTreeNodeArray(JavaScriptObject nativeArray) {
+        if (nativeArray == null) return new TreeNode[0];
+        JavaScriptObject[] treeNodesJ = JavaScriptObjectHelper.toArray(nativeArray);
+        TreeNode[] treeNodes = new TreeNode[treeNodesJ.length];
+        for (int i = 0; i < treeNodesJ.length; i++) {
+            JavaScriptObject treeNode = treeNodesJ[i];
+            treeNodes[i] = new TreeNode(treeNode);
+        }
+        return treeNodes;
     }
 
     private native JavaScriptObject getChecked(JavaScriptObject tree) /*-{
-        return tree.getChecked();
+        var checked = tree.getChecked();
+        return checked === undefined || (checked.length == 1 && checked[0] === undefined) ? null : checked;
     }-*/;
 
-    public int[] getChecked(TreeNode startNode) {
+    public TreeNode[] getChecked(TreeNode startNode) {
         JavaScriptObject arr = getChecked(jsObj, startNode.getJsObj());
-        return JavaScriptObjectHelper.convertToJavaIntArray(arr);
+        return convertFromNativeTreeNodeArray(arr);
     }
 
     private native JavaScriptObject getChecked(JavaScriptObject tree, JavaScriptObject startNode) /*-{
-        return tree.getChecked(startNode);
+        var checked =  tree.getChecked(startNode);
+        return checked === undefined || (checked.length == 1 && checked[0] === undefined) ? null : checked;
     }-*/;
 
     public native TreeLoader getLoader() /*-{
@@ -137,7 +150,6 @@ public class TreePanel extends RequiredElementWidget {
     private native JavaScriptObject getRootNode(JavaScriptObject tree) /*-{
         return tree.getRootNode();
     }-*/;
-
 
     public native void selectPath(String path, NodeExpansionCallback cb) /*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

@@ -21,15 +21,15 @@
 package com.gwtext.sample.showcase.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.http.client.*;
 import com.google.gwt.user.client.ui.*;
-import com.google.gwt.xml.client.*;
+import com.google.gwt.xml.client.Element;
+import com.google.gwt.xml.client.Node;
+import com.google.gwt.xml.client.NodeList;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.SimpleStore;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.util.CSS;
-import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.QuickTips;
 import com.gwtext.client.widgets.form.ComboBox;
 import com.gwtext.client.widgets.form.ComboBoxConfig;
@@ -40,10 +40,7 @@ import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.ContentPanel;
 import com.gwtext.client.widgets.layout.LayoutRegion;
 import com.gwtext.client.widgets.layout.LayoutRegionConfig;
-import com.gwtext.client.widgets.tree.TreeNode;
-import com.gwtext.client.widgets.tree.TreeNodeConfig;
-import com.gwtext.client.widgets.tree.TreePanel;
-import com.gwtext.client.widgets.tree.TreePanelConfig;
+import com.gwtext.client.widgets.tree.*;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 import com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter;
 import com.gwtext.sample.showcase.client.combo.*;
@@ -147,14 +144,25 @@ public class Showcase implements EntryPoint {
             }
         });
 
-        //now create nodes for the various menu items
-        final TreeNode root = new TreeNode(new TreeNodeConfig() {
-            {
-                setText("Examples and Demos");
-            }
-        });
+		final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
+					{
+						setDataUrl("side-nav.xml");
+						setRootTag("side-nav");
+						setFolderTag("node");
+						setFolderTitleMapping("@title");
+						setLeafTitleMapping("@title");
+						setLeafTag("leaf");
+					}
+				});
 
-        //setup a tree listener that reads the content panel associated with the
+
+		AsyncTreeNode root = new AsyncTreeNode("Examples and Demos", new AsyncTreeNodeConfig() {
+			{
+				setLoader(loader);
+			}
+		});
+
+		//setup a tree listener that reads the content panel associated with the
         //node that is clicked and then displays it in the main / center panel
         TreePanelListener treePanelListener = new TreePanelListenerAdapter() {
             public void onClick(TreeNode self, EventObject e) {
@@ -175,61 +183,16 @@ public class Showcase implements EntryPoint {
 
         //register listener
         menuTree.addTreePanelListener(treePanelListener);
-
         menuTree.setRootNode(root);
 
-        //build side nav tree from xml data
-        RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, "side-nav.xml");
-        try {
-            builder.sendRequest(null, new RequestCallback() {
+		//load the tree nodes
+		root.expand();
 
-                public void onResponseReceived(Request request, Response response) {
-                    if (response.getStatusCode() == 200) {
-                        Document xml = null;
-                        try {
-                            xml = XMLParser.parse(response.getText());
-                        } catch (Exception e) {
-                            MessageBox.alert("Error", e.getMessage());
-                            return;
-                        }
-                        load(root, xml.getElementsByTagName("side-nav").item(0).getChildNodes());
-                        root.expand();
-                    } else {
-                        MessageBox.alert("Error", "Error code : " + response.getStatusCode());
-                    }
-                }
-
-                public void onError(Request request, Throwable throwable) {
-                    MessageBox.alert("Error", throwable.getMessage());
-                }
-            });
-        } catch (RequestException e) {
-            MessageBox.alert("Error", e.getMessage());
-        }
-
-        menuTree.render();
+		menuTree.render();
         ContentPanel cp = new ContentPanel("eg-explorer", "Examples Explorer");
         cp.add(menuTree);
 
         return cp;
-    }
-
-    private void load(TreeNode currentNode, NodeList chidren) {
-        for (int i = 0; i < chidren.getLength(); i++) {
-            Node child = chidren.item(i);
-            if (!(child instanceof Element)) continue;
-            String name = child.getNodeName();
-
-            final String title = child.getAttributes().getNamedItem("title").getNodeValue();
-            TreeNode treeNode = new TreeNode(title);
-            if (name.equals("node")) {
-                TreeNode category = treeNode;
-                currentNode.appendChild(category);
-                load(category, child.getChildNodes());
-            } else if (name.equals("leaf")) {
-                currentNode.appendChild(treeNode);
-            }
-        }
     }
 
     private BorderLayout createBorderLayout() {

@@ -143,12 +143,14 @@ public class TreePanel extends RequiredElementWidget {
         }
     }-*/;
 
-    public Node getRootNode() {
-        return new Node(getRootNode(jsObj));
+    public TreeNode getRootNode() {
+        JavaScriptObject rootJS = getRootNode(jsObj);
+        return rootJS == null ? null : new TreeNode(rootJS);
     }
     
     private native JavaScriptObject getRootNode(JavaScriptObject tree) /*-{
-        return tree.getRootNode();
+        var root = tree.getRootNode();
+        return root === undefined ? null : root;
     }-*/;
 
     public native void selectPath(String path, NodeExpansionCallback cb) /*-{

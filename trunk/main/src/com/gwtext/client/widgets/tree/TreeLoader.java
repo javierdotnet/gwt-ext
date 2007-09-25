@@ -26,7 +26,9 @@ import com.gwtext.client.widgets.tree.event.TreeLoaderListener;
 
 public class TreeLoader extends JsObject {
 
-    public TreeLoader(JavaScriptObject jsObj) {
+	protected TreeLoader() {}
+	
+	public TreeLoader(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
@@ -34,7 +36,7 @@ public class TreeLoader extends JsObject {
         jsObj = create(config.getJsObj());
     }
 
-    private native JavaScriptObject create(JavaScriptObject config)/*-{
+    protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.tree.TreeLoader(config);
     }-*/;
 

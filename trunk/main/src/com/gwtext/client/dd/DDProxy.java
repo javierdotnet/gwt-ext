@@ -42,5 +42,35 @@ public class DDProxy extends DD {
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DDProxy(id, sGroup, config);
-    }-*/;    
+    }-*/;
+
+    public native boolean isCenterFrame() /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        return ddProxy.centerFrame ? true : false;
+    }-*/;
+
+    public native void setCenterFrame(boolean centerFrame) /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        ddProxy.centerFrame = centerFrame;
+    }-*/;
+
+    public native boolean isResizeFrame() /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        return ddProxy.resizeFrame ? true : false;
+    }-*/;
+
+    public native void setResizeFrame(boolean resizeFrame) /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        ddProxy.resizeFrame = resizeFrame;
+    }-*/;
+
+    public native void createFrame() /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        ddProxy.createFrame();
+    }-*/;
+
+    public native void initFrame() /*-{
+        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        ddProxy.initFrame();
+    }-*/;
 }

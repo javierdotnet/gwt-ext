@@ -105,13 +105,25 @@ public class BaseElement extends JsObject implements Fx {
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
-    public native void addListener(String eventName, Function cb) /*-{
+    public native void addListener(String eventName, EventCallback cb) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        el.addListener(eventName, function() {
-                cb.@com.gwtext.client.core.Function::execute()();
+        el.addListener(eventName, function(event) {
+                var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
             }
         );
     }-*/;
+
+    public native void addListener(String eventName, EventCallback cb, ListenerConfig config) /*-{
+        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        el.addListener(eventName, function(event) {
+                var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
+            },
+            null,
+            config.@com.gwtext.client.core.JsObject::jsObj
+        );
+    }-*/;    
 
     public native BaseElement alignTo(String id, String position)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;

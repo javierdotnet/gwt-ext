@@ -69,6 +69,9 @@ public class CustomAnimationPanel extends ShowcaseExampleVSD {
         panel.add(demo);
         panel.add(button);
 
+        panel.add(new HTML("<h1>Basic Animation</h1>"));
+        panel.add(new HTML("<p>This demonstrates how to apply a simple animation effect to an HTML Element. Click the button to begin the demo.</p>"));
+
         return panel;
     }
 }

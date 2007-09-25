@@ -29,7 +29,11 @@ public class TreeLoaderConfig extends BaseConfig {
 
     //todo baseAttrs
 
-    public void setBaseParams(UrlParam[] params) {
+	public void setDataUrl(String dataUrl) {
+		JavaScriptObjectHelper.setAttribute(jsObj, "dataUrl", dataUrl);
+	}
+
+	public void setBaseParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
     }

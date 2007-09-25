@@ -21,6 +21,7 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.event.ButtonListener;
 
@@ -101,6 +102,17 @@ public class Button extends RequiredElementWidget {
         return button.getText();
     }-*/;
 
+    /**
+     * An Ext Button consists of a table that wraps a button element. This method returns the underlying
+     * Button element
+     * @return the Button Element
+     */
+    public native Element getButtonElement() /*-{
+        var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var but = button.el.child('button:first').dom;
+        return but;
+    }-*/;
+
     public native void hide() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.hide();
@@ -130,6 +142,17 @@ public class Button extends RequiredElementWidget {
     public native void toggle(boolean state) /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.toggle(state);
+    }-*/;
+
+    /**
+     * Sets the Button's tooltip.
+     * 
+     * @param tooltip Button's toolip
+     */
+    public native void setTooltip(String tooltip) /*-{
+        var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var but = button.el.child('button:first').dom;
+        but.qtip = tooltip;
     }-*/;
 
     public native void addButtonListener(ButtonListener listener) /*-{

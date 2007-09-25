@@ -54,6 +54,11 @@ public class TreeNodeUI extends JsObject {
         ui.show();
     }-*/;
 
+    public native void toggleCheck() /*-{
+        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        ui.toggleCheck();
+    }-*/;
+
     public native void toggleCheck(boolean value) /*-{
         var ui = this.@com.gwtext.client.core.JsObject::jsObj;
         ui.toggleCheck(value);

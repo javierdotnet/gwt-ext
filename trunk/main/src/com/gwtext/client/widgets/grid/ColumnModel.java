@@ -195,7 +195,7 @@ public class ColumnModel extends JsObject {
 
         var locked = null;
         try {
-            cm.isLocked(colIndex);
+            locked = cm.isLocked(colIndex);
         } catch(e) {
             locked = false;
         }

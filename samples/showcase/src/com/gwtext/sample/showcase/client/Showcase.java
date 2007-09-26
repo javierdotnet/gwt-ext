@@ -157,6 +157,7 @@ public class Showcase implements EntryPoint {
         final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
             {
                 setDataUrl("side-nav.xml");
+                setMethod("get");
                 setRootTag("side-nav");
                 setFolderTag("node");
                 setFolderTitleMapping("@title");

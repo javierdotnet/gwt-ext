@@ -54,6 +54,7 @@ public class CheckboxTreePanel extends ShowcaseExampleVSD {
         final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
             {
                 setDataUrl("countries-cb.xml");
+                setMethod("get");
                 setRootTag("countries");
                 setFolderTitleMapping("@title");
                 setFolderTag("team");

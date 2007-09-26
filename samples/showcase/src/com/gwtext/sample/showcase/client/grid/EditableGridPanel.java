@@ -26,10 +26,6 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.*;
-import com.gwtext.client.data.event.StoreListenerAdapter;
-import com.gwtext.client.widgets.Button;
-import com.gwtext.client.widgets.ButtonConfig;
-import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.*;
 import com.gwtext.client.widgets.grid.ColumnConfig;
@@ -64,13 +60,6 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 		));
 
 		final Store store = new Store(proxy, reader);
-
-        store.addStoreListener(new StoreListenerAdapter() {
-            public void onLoadException(Throwable error) {
-                super.onLoadException(error);
-            }
-        });
-
         
         ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
 				new ColumnConfig() {
@@ -100,8 +89,6 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						setAlign("right");
 						setRenderer(new Renderer() {
                             public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
-							    //cellMetadata.setHtmlAttribute("style=\"background:yellow;\"");
-								cellMetadata.setCssClass("foobar");
 								return "$" + value;
 							}
 						});
@@ -166,31 +153,11 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 			}
 
 		});
-        store.addStoreListener(new StoreListenerAdapter() {
-            public void onUpdate(Store store, Record record, String operation) {
-                super.onUpdate(store, record, operation);
-                Object val = record.getDataAsJsObject();
-                Object val2 = record.getDataAsObject();                
-                System.out.println("val " + val);
-            }
-        });
 
         VerticalPanel vp = createPanel();
 		vp.add(new HTML("<h1>Editor Grid Example</h1>"));
 		vp.add(new HTML("<p>This example shows how to create a grid with inline editing. Try double clicking on the table cells.</p>"));
 
-        vp.add(new Button(new ButtonConfig() {
-            {
-                setText("Update");
-                setButtonListener(new ButtonListenerAdapter() {
-                    public void onClick(Button button, EventObject e) {
-                        store.commitChanges();
-                    }
-
-
-                });
-            }
-        }));
         vp.add(grid);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		return vp;

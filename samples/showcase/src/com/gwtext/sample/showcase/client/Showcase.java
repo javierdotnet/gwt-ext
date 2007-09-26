@@ -21,28 +21,28 @@
 package com.gwtext.sample.showcase.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.*;
-import com.google.gwt.xml.client.Element;
-import com.google.gwt.xml.client.Node;
-import com.google.gwt.xml.client.NodeList;
+import com.gwtext.client.core.EventCallback;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.Function;
+import com.gwtext.client.data.NodeTraversalCallback;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.SimpleStore;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.util.CSS;
-import com.gwtext.client.widgets.QuickTips;
-import com.gwtext.client.widgets.form.ComboBox;
-import com.gwtext.client.widgets.form.ComboBoxConfig;
-import com.gwtext.client.widgets.form.Field;
-import com.gwtext.client.widgets.form.Form;
+import com.gwtext.client.util.DelayedTask;
+import com.gwtext.client.util.Format;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.*;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.form.event.ComboBoxListenerAdapter;
-import com.gwtext.client.widgets.layout.BorderLayout;
-import com.gwtext.client.widgets.layout.ContentPanel;
-import com.gwtext.client.widgets.layout.LayoutRegion;
-import com.gwtext.client.widgets.layout.LayoutRegionConfig;
+import com.gwtext.client.widgets.layout.*;
 import com.gwtext.client.widgets.tree.*;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 import com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter;
+import com.gwtext.sample.showcase.client.animation.CustomAnimationPanel;
 import com.gwtext.sample.showcase.client.combo.*;
 import com.gwtext.sample.showcase.client.dd.BasicDDPanel;
 import com.gwtext.sample.showcase.client.dd.DDHandlesPanel;
@@ -53,14 +53,21 @@ import com.gwtext.sample.showcase.client.form.*;
 import com.gwtext.sample.showcase.client.grid.*;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
+import com.gwtext.sample.showcase.client.tree.CheckboxTreePanel;
+import com.gwtext.sample.showcase.client.tree.EditableTreePanel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Showcase implements EntryPoint {
     private static PopupPanel messagePanel = new PopupPanel(true);
 
     private Map screens = new HashMap();
+    private TextField searchField;
+    private TreeFilter treeFilter;
+    private DelayedTask delayedTask = new DelayedTask();
 
     public void onModuleLoad() {
 
@@ -75,7 +82,8 @@ public class Showcase implements EntryPoint {
 
         DockPanel dock = new DockPanel();
         dock.setVerticalAlignment(DockPanel.ALIGN_MIDDLE);
-        dock.add(new HTML("<h3><a href='http://code.google.com/p/gwt-ext/' style='color:#333333;text-decoration:none;'>GWT-Ext 0.9.1 Showcase</a></h3>"), DockPanel.WEST);
+        dock.add(new HTML("<h3><a href='http://code.google.com/p/gwt-ext/' style='color:#333333;text-decoration:none;'>GWT-Ext 0.9.2 Showcase</a>  " +
+                "<span style='font-size:10'>(<a href='http://code.google.com/p/gwt-ext/' target='_blank'>http://code.google.com/p/gwt-ext/</a>)</span></h3> "), DockPanel.WEST);
 
         Form themeForm = new Form();
         final Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
@@ -135,7 +143,7 @@ public class Showcase implements EntryPoint {
     private ContentPanel createExamplesExplorer(final BorderLayout layout) {
 
         //create and configure the main tree
-        TreePanel menuTree = new TreePanel("eg-tree", new TreePanelConfig() {
+        final TreePanel menuTree = new TreePanel("eg-tree", new TreePanelConfig() {
             {
                 setAnimate(true);
                 setEnableDD(true);
@@ -144,25 +152,25 @@ public class Showcase implements EntryPoint {
             }
         });
 
-		final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
-					{
-						setDataUrl("side-nav.xml");
-						setRootTag("side-nav");
-						setFolderTag("node");
-						setFolderTitleMapping("@title");
-						setLeafTitleMapping("@title");
-						setLeafTag("leaf");
-					}
-				});
+        treeFilter = new TreeFilter(menuTree);
 
+        final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
+            {
+                setDataUrl("side-nav.xml");
+                setRootTag("side-nav");
+                setFolderTag("node");
+                setFolderTitleMapping("@title");
+                setLeafTitleMapping("@title");
+                setLeafTag("leaf");
+            }
+        });
+        AsyncTreeNode root = new AsyncTreeNode("Examples and Demos", new AsyncTreeNodeConfig() {
+            {
+                setLoader(loader);
+            }
+        });
 
-		AsyncTreeNode root = new AsyncTreeNode("Examples and Demos", new AsyncTreeNodeConfig() {
-			{
-				setLoader(loader);
-			}
-		});
-
-		//setup a tree listener that reads the content panel associated with the
+        //setup a tree listener that reads the content panel associated with the
         //node that is clicked and then displays it in the main / center panel
         TreePanelListener treePanelListener = new TreePanelListenerAdapter() {
             public void onClick(TreeNode self, EventObject e) {
@@ -183,16 +191,129 @@ public class Showcase implements EntryPoint {
 
         //register listener
         menuTree.addTreePanelListener(treePanelListener);
+
         menuTree.setRootNode(root);
+        menuTree.render();
 
-		//load the tree nodes
-		root.expand();
+        //loads tree data asynchronously
+        root.expand();
+        menuTree.expandAll();
 
-		menuTree.render();
-        ContentPanel cp = new ContentPanel("eg-explorer", "Examples Explorer");
+        final Toolbar filterToolbar = new Toolbar("filter-tb");
+        ToolbarButton funnelButton = new ToolbarButton(new ButtonConfig() {
+            {
+                setTooltip("Tree filtering is currently OFF<br>Click to turn Tree filtering <b>ON</b>");
+                setCls("x-btn-icon filter-btn");
+                setEnableToggle(true);
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onToggle(Button button, boolean pressed) {
+                        if (pressed) {
+                            DOM.setStyleAttribute(button.getButtonElement(), "backgroundImage", "url(images/funnel_X.gif)");
+                            button.setTooltip("Tree filtering is currently ON<br>Click to turn Tree filtering <b>OFF</b>");
+                            onSearchChange(true);
+                        } else {
+                            DOM.setStyleAttribute(button.getButtonElement(), "backgroundImage", "url(images/funnel_plus.gif)");
+                            button.setTooltip("Tree filtering is currently OFF<br>Click to turn Tree filtering <b>ON</b>");
+                            treeFilter.clear();
+                            onSearchChange(false);
+                        }
+                    }
+                });
+            }
+        });
+
+        filterToolbar.addButton(funnelButton);
+
+        searchField = new TextField(new TextFieldConfig() {
+            {
+                setMaxLength(40);
+                setGrow(false);
+                setSelectOnFocus(true);
+            }
+        });
+
+        filterToolbar.addField(searchField);
+        filterToolbar.addSeparator();
+
+        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
+            {
+                setCls("x-btn-icon expand-all-btn");
+                setTooltip("Expand All");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        menuTree.expandAll();
+                    }
+                });
+            }
+        }));
+
+        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
+            {
+                setCls("x-btn-icon collapse-all-btn");
+                setTooltip("Collapse All");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        menuTree.collapseAll();
+                    }
+                });
+            }
+        }));
+
+        ContentPanel cp = new ContentPanel("eg-explorer", "Examples Explorer", new ContentPanelConfig() {
+            {
+                setToolbar(filterToolbar);
+            }
+        });
         cp.add(menuTree);
 
+        searchField.getEl().addListener("keyup", new EventCallback() {
+            public void execute(EventObject e) {
+                delayedTask.delay(500, new Function() {
+                    public void execute() {
+                        onSearchChange(false);
+                    }
+                });
+            }
+        });
+
         return cp;
+    }
+
+    private void onSearchChange(final boolean filteredOnly) {
+        final String filter = searchField.getText();
+        if (filter == null || filter.equals("")) {
+            treeFilter.clear();
+            treeFilter.filterBy(new TreeTraversalCallback() {
+                public boolean execute(TreeNode node) {
+                    node.setText(Format.stripTags(node.getText()));
+                    return true;
+                }
+            });
+        } else {
+            treeFilter.filterBy(new TreeTraversalCallback() {
+                public boolean execute(TreeNode node) {
+                    String text = Format.stripTags(node.getText());
+                    node.setText(text);
+                    if (text.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+                        node.setText("<b>" + text + "</b>");
+                        ((TreeNode) node.getParentNode()).expand();
+                        return true;
+                    } else {
+                        final List childMatches = new ArrayList();
+                        node.cascade(new NodeTraversalCallback() {
+                            public boolean execute(com.gwtext.client.data.Node node) {
+                                String childText = ((TreeNode) node).getText();
+                                if (childText.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+                                    childMatches.add(new Object());
+                                }
+                                return true;
+                            }
+                        });
+                        return !filteredOnly || childMatches.size() != 0;
+                    }
+                }
+            });
+        }
     }
 
     private BorderLayout createBorderLayout() {
@@ -251,12 +372,12 @@ public class Showcase implements EntryPoint {
     }
 
     private static native String getMessageHtml(String title, String message) /*-{
-        return ['<div class="msg">',
-                '<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>',
-                '<div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc"><h3>', title, '</h3>', message, '</div></div></div>',
-                '<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>',
-                '</div>'].join('');
-    }-*/;
+                                                          return ['<div class="msg">',
+                                                                  '<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>',
+                                                                  '<div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc"><h3>', title, '</h3>', message, '</div></div></div>',
+                                                                  '<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>',
+                                                                  '</div>'].join('');
+                                                      }-*/;
 
     {
         screens.put("Dialogs>Message Box and Progress", new MessageBoxPanel());
@@ -292,5 +413,9 @@ public class Showcase implements EntryPoint {
         screens.put("Drag and Drop>Handles", new DDHandlesPanel());
         screens.put("Drag and Drop>On Top", new DDOnTopPanel());
         screens.put("Drag and Drop>Proxy", new DDProxyPanel());
+
+        screens.put("Animation>Custom", new CustomAnimationPanel());
+        screens.put("Tree>Editable and Sortable", new EditableTreePanel());
+        screens.put("Tree>Checkbox", new CheckboxTreePanel());
     }
 }

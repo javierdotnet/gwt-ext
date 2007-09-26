@@ -23,14 +23,18 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.UrlParam;
+import com.gwtext.client.core.ConnectionConfig;
 import com.gwtext.client.data.*;
-import com.gwtext.client.data.DateFieldDef;
-import com.gwtext.client.data.FieldDef;
+import com.gwtext.client.data.event.StoreListenerAdapter;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.ButtonConfig;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.*;
-import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.*;
+import com.gwtext.client.widgets.grid.ColumnConfig;
 import com.gwtext.client.widgets.grid.event.GridCellListenerAdapter;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
@@ -47,8 +51,19 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 	}
 
 	public Panel getViewPanel() {
-		HttpProxy proxy = new HttpProxy("data/plants.xml", "GET");
-		XmlReader reader = new XmlReader("plant", new RecordDef(
+
+        Connection conn = new Connection(new ConnectionConfig() {
+            {
+                setUrl("data/plants.xml");
+                setMethod("GET");
+                setTimeout(1000);
+            }
+        });
+
+        //HttpProxy proxy = new HttpProxy("data/plantsa.xml", "GET");
+        HttpProxy proxy = new HttpProxy(conn);
+
+        XmlReader reader = new XmlReader("plant", new RecordDef(
 				new FieldDef[]{
 						new StringFieldDef("common"),
 						new StringFieldDef("botanical"),
@@ -59,9 +74,16 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 				}
 		));
 
-		Store store = new Store(proxy, reader);
+		final Store store = new Store(proxy, reader);
 
-		ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
+        store.addStoreListener(new StoreListenerAdapter() {
+            public void onLoadException(Throwable error) {
+                super.onLoadException(error);
+            }
+        });
+
+        
+        ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
 				new ColumnConfig() {
 					{
 						setHeader("Common Name");
@@ -155,12 +177,32 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 			}
 
 		});
+        store.addStoreListener(new StoreListenerAdapter() {
+            public void onUpdate(Store store, Record record, String operation) {
+                super.onUpdate(store, record, operation);
+                Object val = record.getDataAsJsObject();
+                Object val2 = record.getDataAsObject();                
+                System.out.println("val " + val);
+            }
+        });
 
-		VerticalPanel vp = createPanel();
+        VerticalPanel vp = createPanel();
 		vp.add(new HTML("<h1>Editor Grid Example</h1>"));
 		vp.add(new HTML("<p>This example shows how to create a grid with inline editing. Try double clicking on the table cells.</p>"));
 
-		vp.add(grid);
+        vp.add(new Button(new ButtonConfig() {
+            {
+                setText("Update");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        store.commitChanges();
+                    }
+
+
+                });
+            }
+        }));
+        vp.add(grid);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		return vp;
 	}

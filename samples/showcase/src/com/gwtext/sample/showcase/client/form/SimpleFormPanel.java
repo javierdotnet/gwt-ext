@@ -50,6 +50,7 @@ public class SimpleFormPanel extends ShowcaseExampleVSD {
                 setName("first");
                 setWidth(175);
                 setAllowBlank(false);
+                setMaskRe("[0-9a-z]");
             }
         }));
 

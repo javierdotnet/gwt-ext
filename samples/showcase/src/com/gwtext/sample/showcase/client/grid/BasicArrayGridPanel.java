@@ -19,12 +19,27 @@
  */
 package com.gwtext.sample.showcase.client.grid;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
 import com.gwtext.client.data.*;
+import com.gwtext.client.data.event.StoreListenerAdapter;
+import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.grid.*;
+import com.gwtext.client.widgets.grid.ColumnConfig;
+import com.gwtext.client.widgets.grid.event.GridHeaderListener;
+import com.gwtext.client.core.EventObject;
 import com.gwtext.sample.showcase.client.SampleData;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
+import com.gwtext.sample.showcase.client.remote.DataBean;
+import com.gwtext.sample.showcase.client.remote.ShowcaseService;
+import com.gwtext.sample.showcase.client.remote.ShowcaseServiceAsync;
+import com.gwtplus.client.BeanAdapter;
+import com.gwtplus.client.data.BeanProxy;
+import com.gwtplus.client.data.BeanReader;
+import com.gwtplus.client.data.FetchCriteria;
+import com.gwtplus.client.data.RemoteLoader;
 
 public class BasicArrayGridPanel extends ShowcaseExampleVSD {
 
@@ -53,9 +68,18 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
 
         ArrayReader reader = new ArrayReader(recordDef);
         Store store = new Store(proxy, reader);
-        store.load();
+        store.addStoreListener(new StoreListenerAdapter() {
+            public void onLoad(Store store, Record[] records) {
+                super.onLoad(store, records);
+            }
 
-        //edit a couple of rows programatically
+            public void onLoadException(Throwable error) {
+                super.onLoadException(error);
+            }
+        });
+       // store.load();
+
+ /*       //edit a couple of rows programatically
         Record rec1 = store.getAt(0);
         rec1.set("company", "i2");
 
@@ -63,17 +87,18 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
         rec5.set("company", "SAP");
 
         //retreive modified rows
-        Record[] modified = store.getModifiedRecords();
+        Record[] modified = store.getModifiedRecords();*/
 
         //setup column model
         ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
                 new ColumnConfig() {
                     {
-                        setHeader("Company");
+                        setHeader("Company/Foo");
                         setWidth(160);
                         setSortable(true);
                         setLocked(false);
                         setDataIndex("company");
+                        setLocked(true);
                     }
                 },
                 new ColumnConfig() {
@@ -119,13 +144,116 @@ public class BasicArrayGridPanel extends ShowcaseExampleVSD {
 
         //create and render grid
         final Grid grid = new Grid("grid-example1", "460px", "300px", store, columnModel);
+
+
+
+        grid.addGridHeaderListener(new GridHeaderListener() {
+            public void onHeaderClick(Grid grid, int colIndex, EventObject e) {
+                System.out.println("");
+            }
+
+            public void onHeaderContextMenu(Grid grid, int colIndex, EventObject e) {
+                System.out.println("");
+            }
+
+            public void onHeaderDblClick(Grid grid, int colindex, EventObject e) {
+                System.out.println("");
+            }
+        });
         grid.render();
 
+
+        boolean index = grid.getColumnModel().isLocked(0);
+        //boolean index2 = grid.getColumnModel().isLocked(5);
+
+        store.load();
+        
         Panel panel = createPanel();
         panel.add(new HTML("<h1>Array Grid Example</h1>"));
         panel.add(new HTML("<p>This example shows how to create a grid from Array data.</p>"));
         panel.add(grid);
+        panel.add(getGrid2());
 
         return panel;
+    }
+
+    public Grid getGrid2() {
+         final ShowcaseServiceAsync service = ShowcaseService.App.getInstance();
+
+        BeanProxy proxy = new BeanProxy(new RemoteLoader() {
+            public void load(AsyncCallback callback, FetchCriteria fetchCriteria) {
+                service.getData(callback);
+            }
+        });
+
+        /*RecordDef recordDef = new RecordDef(new FieldDef[]{
+                new StringFieldDef("name"),
+                new DateFieldDef("date")
+        });*/
+        BeanAdapter beanWrapper = (BeanAdapter) GWT.create(DataBean.class);
+        //RecordDef recordDef = beanWrapper.getRecordDef();
+
+        RecordDef recordDef  = new RecordDef(new FieldDef[]{
+                new StringFieldDef("name")
+                , new StringFieldDef("personName", "person.name")
+                , new StringFieldDef("state", "person.address.state")
+                /*, new StringFieldDef("person.address.address")
+                , new StringFieldDef("person.address.postalcode")
+                , new IntegerFieldDef("person.numcars")*/
+        });
+
+
+        FieldDef[] fields = recordDef.getFields();
+        ColumnConfig[] columnConfigs = new ColumnConfig[fields.length];
+
+        for (int i = 0; i < fields.length; i++) {
+            final FieldDef field = fields[i];
+            ColumnConfig config = new ColumnConfig() {
+                {
+                    setHeader(field.getName());
+                    setWidth(100);
+                    setDataIndex(field.getName());
+                    Field editField = null;
+                    if(field instanceof StringFieldDef) {
+                        editField = new TextField(new TextFieldConfig());
+                    } else if (field instanceof FloatFieldDef || field instanceof IntegerFieldDef) {
+                        editField = new NumberField();
+                    } else if (field instanceof BooleanFieldDef) {
+                        editField = new Checkbox();
+                    } else if(field instanceof DateFieldDef) {
+                        editField = new DateField();
+                    } else {
+                        editField = new TextField(new TextFieldConfig());
+                    }
+                    setEditor(new GridEditor(editField));
+                }
+            };
+            columnConfigs[i] = config;
+        }
+        ColumnModel columnModel = new ColumnModel(columnConfigs);
+
+        BeanReader reader = new BeanReader(beanWrapper, recordDef);
+
+        final Store store = new Store(proxy, reader);
+        store.addStoreListener(new StoreListenerAdapter() {
+            public void onLoad(Store store, Record[] records) {
+                super.onLoad(store, records);
+                Record record = records[0];
+                record.set("name", "sanjiv");
+                record.commit();
+                DataBean bean = (DataBean) record.getDataAsObject();
+                System.out.println("");
+
+            }
+
+            public void onLoadException(Throwable error) {
+                super.onLoadException(error);
+            }
+        });
+
+        store.load();
+        final EditorGrid grid = new EditorGrid("grid-example11", "460px", "300px", store, columnModel);
+        grid.render();
+        return grid;
     }
 }

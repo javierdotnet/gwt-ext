@@ -158,19 +158,21 @@ public class Node extends JsObject {
 
     public native void bubble(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        node.bubble(function(n) {
-            var nj = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
-            return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-        });
-    }-*/;
+                  var nodeJ = this;
+                  node.bubble(function(n) {
+                      var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
+                      return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
+                  });
+              }-*/;
 
     public native void cascade(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        node.cascade(function(n) {
-            var nj = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
-            return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-        });
-    }-*/;
+             var nodeJ = this;
+             node.cascade(function(n) {
+                 var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
+                 return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
+             });
+         }-*/;
 
     public native boolean contains(Node child) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -180,20 +182,22 @@ public class Node extends JsObject {
 
     public native void eachChild(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        node.eachChild(function(n) {
-            var nj = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
-            return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-        });
-    }-*/;
+             var nodeJ = this;
+             node.eachChild(function(n) {
+                 var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
+                 return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
+             });
+         }-*/;
 
     //skipping findChild in favor of more powerful and flexible findChildBy API
     public native void findChildBy(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        node.findChildBy(function(n) {
-            var nj = this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
-            return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-        });
-    }-*/;
+             var nodeJ = this;
+             node.findChildBy(function(n) {
+                 var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
+                 return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
+             });
+         }-*/;
 
     public native int getDepth() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;

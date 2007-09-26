@@ -1,5 +1,5 @@
 <side-nav>
-    <node title="Tree" qtip="Animation Examples" icon="images/silk/chart_organisation.gif">
+    <node title="Tree" qtip="Tree Examples" icon="images/silk/chart_organisation.gif">
         <leaf title="Editable and Sortable"/>
         <leaf title="Checkbox"/>
     </node>

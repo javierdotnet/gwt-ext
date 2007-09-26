@@ -333,7 +333,7 @@ public class Showcase implements EntryPoint {
         west.setCollapsible(true);
         west.setAnimate(true);
         west.setCollapsed(false);
-        west.setAutoScroll(false);
+        west.setAutoScroll(true);
 
         LayoutRegionConfig east = new LayoutRegionConfig();
         east.setSplit(true);

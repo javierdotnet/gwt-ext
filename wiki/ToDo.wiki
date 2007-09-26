@@ -1,27 +1,20 @@
 #labels Featured
 == Ext API's that have still to be covered ==
 
-*The list has been updated to reflect the API's remaining with the GWT 0.9.1 release. The complete list of API changes from GWT-Ext 0.9 to 0.9.1 can be found [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9-0.9.1/newdocs/changes.html here].*
+*The list has been updated to reflect the API's remaining with the GWT 0.9.2 release. The complete list of API changes from GWT-Ext 0.9.1 to 0.9.2 can be found [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9.1-0.9.2/newdocs/changes.html here].*
 
-*A high level summary of the changes can be viewed [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9-0.9.1/newdocs/changes/jdiff_statistics.html  here].*
+*A high level summary of the changes can be viewed [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9.1-0.9.2/newdocs/changes/jdiff_statistics.html  here].*
 
 Here's a list of known API's that are missing or incomplete. I'll update this page as each item gets complete.
 
-=== Drag and Drop Package ===
-80% complete 9/22/2007
-
-=== Tree Package ===
-|| *Class* || *Status*||
-|| TreeEditor || *complete 9/25* ||
-|| TreeSorter || *complete 9/25* ||
+=== Drag and Drop===
+90% complete. Few API's from core Drag and Drop classes (com.gwtext.client.dd) are missing. Also Grid Drag/Drop API's missing.
 
 === General Widgets and support classes ===
 || *Class* || *Status*||
-|| Editor || *complete 9/25* ||
-|| JsonView || *complete 08/07/2007*||
 || MasterTemplate || ||
 || SplitBar || ||
-|| View || *complete 08/07/2007* ||
+
 
 === Utility classes ===
 || *Class* || *Status*||

@@ -22,13 +22,9 @@ package com.gwtext.sample.showcase.client.tree;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
-import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.SimpleStore;
 import com.gwtext.client.data.Store;
-import com.gwtext.client.widgets.Button;
-import com.gwtext.client.widgets.ButtonConfig;
-import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.ComboBox;
 import com.gwtext.client.widgets.form.ComboBoxConfig;
 import com.gwtext.client.widgets.tree.*;
@@ -68,6 +64,7 @@ public class EditableTreePanel extends ShowcaseExampleVSD {
                 setResizable(true);
                 setTpl(template);
                 setTitle("Countries");
+                setAllowBlank(false);
             }
         });
 

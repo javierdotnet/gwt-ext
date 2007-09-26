@@ -37,7 +37,6 @@
         <leaf title="Multi-Column Form"/>
         <leaf title="Multi-Column Fieldset Form" icon="images/silk/overlays.gif"/>
         <leaf title="Multi-Column Labels Top Form"/>
-        <leaf title="Load / Submit Xml Form"/>
     </node>
 
     <node title="Tab Panel" qtip="Tab Panel Example" icon="images/silk/tab.gif">

@@ -27,7 +27,6 @@
 
     <node title="Grids" qtip="Examples of various Grids" icon="images/silk/table.gif">
         <leaf title="Basic Array Grid"/>
-        <leaf title="Editable Grid"/>
         <leaf title="Grid with Remote Paging"/>
         <leaf title="Column Order"/>
         <leaf title="Stock Ticker"/>

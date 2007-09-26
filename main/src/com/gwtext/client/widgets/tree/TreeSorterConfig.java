@@ -28,7 +28,7 @@ public class TreeSorterConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "caseSensitive", caseSensitive);
     }
 
-    public void setDir(boolean dir) {
+    public void setDir(String dir) {
         JavaScriptObjectHelper.setAttribute(jsObj, "dir", dir);
     }
 

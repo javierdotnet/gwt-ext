@@ -136,7 +136,7 @@ public class Showcase implements EntryPoint {
 
     private static String getScreenName(TreeNode node, String name) {
         TreeNode parentNode = (TreeNode) node.getParentNode();
-        return (parentNode == null || parentNode.getParentNode() == null) ? name : getScreenName(parentNode, parentNode.getText() + ">" + name);
+        return (parentNode == null || parentNode.getParentNode() == null) ? name : getScreenName(parentNode, Format.stripTags(parentNode.getText()) + ">" + name);
     }
 
 
@@ -175,7 +175,8 @@ public class Showcase implements EntryPoint {
         //node that is clicked and then displays it in the main / center panel
         TreePanelListener treePanelListener = new TreePanelListenerAdapter() {
             public void onClick(TreeNode self, EventObject e) {
-                String screenName = getScreenName(self, self.getText());
+                String nodeName = Format.stripTags(self.getText());
+                String screenName = getScreenName(self, nodeName);
                 if (screens.containsKey(screenName)) {
                     ShowcaseExample panel = (ShowcaseExample) screens.get(screenName);
                     LayoutRegion region = layout.getRegion(LayoutRegionConfig.CENTER);

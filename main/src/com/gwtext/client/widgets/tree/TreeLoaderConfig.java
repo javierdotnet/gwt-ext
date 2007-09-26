@@ -33,7 +33,11 @@ public class TreeLoaderConfig extends BaseConfig {
 		JavaScriptObjectHelper.setAttribute(jsObj, "dataUrl", dataUrl);
 	}
 
-	public void setBaseParams(UrlParam[] params) {
+    public void setMethod(String method) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "requestMethod", method);
+    }
+
+    public void setBaseParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
     }
@@ -41,6 +45,6 @@ public class TreeLoaderConfig extends BaseConfig {
     public void setClearOnLoad(boolean clearOnLoad) {
         JavaScriptObjectHelper.setAttribute(jsObj, "clearOnLoad", clearOnLoad);
     }
-
+    
     //todo  uiProviders
 }

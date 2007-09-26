@@ -80,6 +80,7 @@ public class EditableTreePanel extends ShowcaseExampleVSD {
         final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
             {
                 setDataUrl("countries.xml");
+                setMethod("get");
                 setRootTag("countries");
                 setFolderTitleMapping("@title");
                 setFolderTag("team");

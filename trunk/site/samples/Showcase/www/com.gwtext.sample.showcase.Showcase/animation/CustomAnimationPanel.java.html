@@ -1,0 +1,31 @@
+
+<textarea name="code" class="java" style="display:none;">
+HTML demo = new HTML("Demo");
+final ExtElement el = new ExtElement(demo.getElement());
+el.setStyle("background", "#ccc");
+el.setStyle("overflow", "hidden");
+el.setStyle("width", "200px");
+
+Button button = new Button(new ButtonConfig() {
+    {
+        setText("Run");
+        setButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                GenericConfig animArgs = new GenericConfig();
+
+                GenericConfig widthArgs = new GenericConfig();
+                widthArgs.setProperty("from", 600);
+                widthArgs.setProperty("to", 0);
+
+                animArgs.setProperty("width", widthArgs);
+                el.animate(animArgs);
+
+            }
+        });
+    }
+});
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

@@ -1,8 +1,5 @@
 package com.gwtext.client.widgets.tree;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
-
 public class XMLTreeLoaderConfig extends TreeLoaderConfig {
 	private String rootTag;
 	private String folderTag = "node";
@@ -21,7 +18,10 @@ public class XMLTreeLoaderConfig extends TreeLoaderConfig {
 	private String folderQtipMapping = "@qtip";
 	private String leafQtipMapping = "@qtip";
 
-	public void setRootTag(String rootTag) {
+    private String folderCheckedMapping = "@checked";
+    private String leafCheckedMapping = "@checked";
+
+    public void setRootTag(String rootTag) {
 		this.rootTag = rootTag;
 	}
 
@@ -124,4 +124,20 @@ public class XMLTreeLoaderConfig extends TreeLoaderConfig {
 	public void setLeafQtipMapping(String leafQtipMapping) {
 		this.leafQtipMapping = leafQtipMapping;
 	}
+
+    public String getFolderCheckedMapping() {
+        return folderCheckedMapping;
+    }
+
+    public void setFolderCheckedMapping(String folderCheckedMapping) {
+        this.folderCheckedMapping = folderCheckedMapping;
+    }
+
+    public String getLeafCheckedMapping() {
+        return leafCheckedMapping;
+    }
+
+    public void setLeafCheckedMapping(String leafCheckedMapping) {
+        this.leafCheckedMapping = leafCheckedMapping;
+    }
 }

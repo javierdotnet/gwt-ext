@@ -32,5 +32,6 @@ public interface EditorListener {
 
     void onComplete(Editor source, Object value, Object startValue);
 
+    //todo not firing?
     void onSpeciakKey(Field field, EventObject e);
 }

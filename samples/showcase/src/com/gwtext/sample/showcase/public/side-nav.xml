@@ -1,14 +1,19 @@
 <side-nav>
-
-    <node title="Dialogs">
-        <leaf title="Message Box and Progress"/>
-        <leaf title="Basic Dialog"/>
-        <leaf title="Layout Dialog"/>
-        <leaf title="Login Dialog"/>
-        <leaf title="Multiple Dialogs"/>
+    <node title="Tree" qtip="Animation Examples" icon="images/silk/chart_organisation.gif">
+        <leaf title="Editable and Sortable"/>
+        <leaf title="Checkbox"/>
     </node>
 
-    <node title="ComboBox">
+    <node title="Dialogs" qtip="Dialog Examples" icon="images/silk/application_cascade.gif">
+             <leaf title="Message Box and Progress"/>
+             <leaf title="Basic Dialog"/>
+             <leaf title="Layout Dialog"/>
+             <leaf title="Login Dialog"/>
+             <leaf title="Multiple Dialogs"/>
+         </node>
+
+    <node title="ComboBox" qtip="ComboBox Examples. Checkbox here for fun!" icon="images/silk/script_edit.gif"
+          checked="true">
         <leaf title="Basic"/>
         <leaf title="Compact"/>
         <leaf title="Paging"/>
@@ -16,11 +21,11 @@
         <leaf title="Live Search"/>
     </node>
 
-    <node title="Toolbar and Menus">
+    <node title="Toolbar and Menus" qtip="Toolbar &amp; Menu Examples" icon="images/silk/application_view_tile.gif">
         <leaf title="Toolbar and Menus"/>
     </node>
 
-    <node title="Grids">
+    <node title="Grids" qtip="Examples of various Grids" icon="images/silk/table.gif">
         <leaf title="Basic Array Grid"/>
         <leaf title="Editable Grid"/>
         <leaf title="Grid with Remote Paging"/>
@@ -28,27 +33,30 @@
         <leaf title="Stock Ticker"/>
     </node>
 
-    <node title="Forms">
+    <node title="Forms" qtip="Demonstrates Form layout and functionality" icon="images/silk/application_form_add.gif">
         <leaf title="Simple Form"/>
         <leaf title="Multi-Column Form"/>
-        <leaf title="Multi-Column Fieldset Form"/>
+        <leaf title="Multi-Column Fieldset Form" icon="images/silk/overlays.gif"/>
         <leaf title="Multi-Column Labels Top Form"/>
         <leaf title="Load / Submit Xml Form"/>
     </node>
 
-    <node title="Tab Panel">
+    <node title="Tab Panel" qtip="Tab Panel Example" icon="images/silk/tab.gif">
         <leaf title="Dynamic and Events"/>
     </node>
 
-    <node title="Drag and Drop">
+    <node title="Drag and Drop" qtip="Drag &amp; Drop Examples" icon="images/silk/layers.gif">
         <leaf title="Basic"/>
         <leaf title="Handles"/>
         <leaf title="On Top"/>
         <leaf title="Proxy"/>
+        <leaf title="Reorder List" disabled="true"/>
+        <leaf title="Interaction Groups" disabled="true"/>
+        <leaf title="Resiable Panel" disabled="true"/>
+        <leaf title="Custom Click Validator" disabled="true"/>
     </node>
 
-    <node title="Animation">
+    <node title="Animation" qtip="Animation Examples" icon="images/silk/page_white_swoosh.gif">
         <leaf title="Custom"/>
     </node>
-
 </side-nav>

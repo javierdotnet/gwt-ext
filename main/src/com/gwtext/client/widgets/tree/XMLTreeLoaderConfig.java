@@ -9,17 +9,19 @@ public class XMLTreeLoaderConfig extends TreeLoaderConfig {
 	private String folderIdMapping;
 	private String leafIdMapping;
 
-	private String folderIconMapping = "@icon";
-	private String leafIconMapping = "@icon";
+	private String iconMapping = "@icon";
+	private String iconClsMapping = "@iconCls";
+	private String qtipMapping = "@qtip";
+    private String checkedMapping = "@checked";
+    private String disabledMapping = "@disabled";
+    private String expandedMapping = "@expanded";
+    private String hrefMapping = "@href";
+    private String hrefTargetMapping = "@hrefTarget";
+    private String allowDragMapping = "@allowDrag";
+    private String allowDropMapping = "@allowDrop";
 
-	private String folderIconClsMapping = "@iconCls";
-	private String leafIconClsMapping = "@iconCls";
+    private String[] attributeMappings;
 
-	private String folderQtipMapping = "@qtip";
-	private String leafQtipMapping = "@qtip";
-
-    private String folderCheckedMapping = "@checked";
-    private String leafCheckedMapping = "@checked";
 
     public void setRootTag(String rootTag) {
 		this.rootTag = rootTag;
@@ -77,67 +79,91 @@ public class XMLTreeLoaderConfig extends TreeLoaderConfig {
 		this.leafIdMapping = leafIdMapping;
 	}
 
-	public String getFolderIconMapping() {
-		return folderIconMapping;
-	}
-
-	public void setFolderIconMapping(String folderIconMapping) {
-		this.folderIconMapping = folderIconMapping;
-	}
-
-	public String getLeafIconMapping() {
-		return leafIconMapping;
-	}
-
-	public void setLeafIconMapping(String leafIconMapping) {
-		this.leafIconMapping = leafIconMapping;
-	}
-
-	public String getFolderIconClsMapping() {
-		return folderIconClsMapping;
-	}
-
-	public void setFolderIconClsMapping(String folderIconClsMapping) {
-		this.folderIconClsMapping = folderIconClsMapping;
-	}
-
-	public String getLeafIconClsMapping() {
-		return leafIconClsMapping;
-	}
-
-	public void setLeafIconClsMapping(String leafIconClsMapping) {
-		this.leafIconClsMapping = leafIconClsMapping;
-	}
-
-	public String getFolderQtipMapping() {
-		return folderQtipMapping;
-	}
-
-	public void setFolderQtipMapping(String folderQtipMapping) {
-		this.folderQtipMapping = folderQtipMapping;
-	}
-
-	public String getLeafQtipMapping() {
-		return leafQtipMapping;
-	}
-
-	public void setLeafQtipMapping(String leafQtipMapping) {
-		this.leafQtipMapping = leafQtipMapping;
-	}
-
-    public String getFolderCheckedMapping() {
-        return folderCheckedMapping;
+    public String getIconMapping() {
+        return iconMapping;
     }
 
-    public void setFolderCheckedMapping(String folderCheckedMapping) {
-        this.folderCheckedMapping = folderCheckedMapping;
+    public void setIconMapping(String iconMapping) {
+        this.iconMapping = iconMapping;
     }
 
-    public String getLeafCheckedMapping() {
-        return leafCheckedMapping;
+    public String getIconClsMapping() {
+        return iconClsMapping;
     }
 
-    public void setLeafCheckedMapping(String leafCheckedMapping) {
-        this.leafCheckedMapping = leafCheckedMapping;
+    public void setIconClsMapping(String iconClsMapping) {
+        this.iconClsMapping = iconClsMapping;
+    }
+
+    public String getQtipMapping() {
+        return qtipMapping;
+    }
+
+    public void setQtipMapping(String qtipMapping) {
+        this.qtipMapping = qtipMapping;
+    }
+
+    public String getCheckedMapping() {
+        return checkedMapping;
+    }
+
+    public void setCheckedMapping(String checkedMapping) {
+        this.checkedMapping = checkedMapping;
+    }
+
+    public String getDisabledMapping() {
+        return disabledMapping;
+    }
+
+    public void setDisabledMapping(String disabledMapping) {
+        this.disabledMapping = disabledMapping;
+    }
+
+    public String getExpandedMapping() {
+        return expandedMapping;
+    }
+
+    public void setExpandedMapping(String expandedMapping) {
+        this.expandedMapping = expandedMapping;
+    }
+
+    public String getHrefMapping() {
+        return hrefMapping;
+    }
+
+    public void setHrefMapping(String hrefMapping) {
+        this.hrefMapping = hrefMapping;
+    }
+
+    public String getHrefTargetMapping() {
+        return hrefTargetMapping;
+    }
+
+    public void setHrefTargetMapping(String hrefTargetMapping) {
+        this.hrefTargetMapping = hrefTargetMapping;
+    }
+
+    public String getAllowDragMapping() {
+        return allowDragMapping;
+    }
+
+    public void setAllowDragMapping(String allowDragMapping) {
+        this.allowDragMapping = allowDragMapping;
+    }
+
+    public String getAllowDropMapping() {
+        return allowDropMapping;
+    }
+
+    public void setAllowDropMapping(String allowDropMapping) {
+        this.allowDropMapping = allowDropMapping;
+    }
+
+    public String[] getAttributeMappings() {
+        return attributeMappings;
+    }
+
+    public void setAttributeMappings(String[] attributeMappings) {
+        this.attributeMappings = attributeMappings;
     }
 }

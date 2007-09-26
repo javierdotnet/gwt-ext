@@ -23,10 +23,8 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.UrlParam;
-import com.gwtext.client.core.ConnectionConfig;
 import com.gwtext.client.data.*;
 import com.gwtext.client.data.event.StoreListenerAdapter;
 import com.gwtext.client.widgets.Button;
@@ -52,16 +50,7 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 
 	public Panel getViewPanel() {
 
-        Connection conn = new Connection(new ConnectionConfig() {
-            {
-                setUrl("data/plants.xml");
-                setMethod("GET");
-                setTimeout(1000);
-            }
-        });
-
-        //HttpProxy proxy = new HttpProxy("data/plantsa.xml", "GET");
-        HttpProxy proxy = new HttpProxy(conn);
+        HttpProxy proxy = new HttpProxy("data/plants.xml", "GET");
 
         XmlReader reader = new XmlReader("plant", new RecordDef(
 				new FieldDef[]{

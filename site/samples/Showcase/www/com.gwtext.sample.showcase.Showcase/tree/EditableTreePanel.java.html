@@ -1,0 +1,69 @@
+
+<textarea name="code" class="java" style="display:none;">
+final Store store = new SimpleStore(new String[]{"abbr", "country"}, SampleData.getCountries());
+
+final Template template = new Template("<div class=\"x-combo-list-item\"><img src=\"images/flags/{abbr}.gif\"> " +
+                            "{country}<div class=\"x-clear\"></div></div>");
+
+
+ComboBox cb = new ComboBox(new ComboBoxConfig() {
+                               {
+                                   setMinChars(1);
+                                   setFieldLabel("Countries");
+                                   setStore(store);
+                                   setDisplayField("country");
+                                   setMode("local");
+                                   setTriggerAction("all");
+                                   setEmptyText("Select Country");
+                                   setTypeAhead(true);
+                                   setSelectOnFocus(true);
+                                   setWidth(60);
+                                   setResizable(true);
+                                   setTpl(template);
+                                   setTitle("Countries");
+                               }
+                           });
+
+final TreePanel editableTreePanel = new TreePanel("editable-tree", new TreePanelConfig() {
+   {
+       setAnimate(true);
+       setEnableDD(true);
+       setContainerScroll(true);
+       setRootVisible(true);
+   }
+});
+
+final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
+   {
+       setDataUrl("countries.xml");
+       setRootTag("countries");
+       setFolderTitleMapping("@title");
+       setFolderTag("team");
+       setLeafTitleMapping("@title");
+       setLeafTag("country");
+       setQtipMapping("@qtip");
+       setDisabledMapping("@disabled");
+       setCheckedMapping("@checked");
+       setIconMapping("@icon");
+       setAttributeMappings(new String[]{"@rank"});
+   }
+});
+AsyncTreeNode root = new AsyncTreeNode("Countries", new AsyncTreeNodeConfig() {
+   {
+       setLoader(loader);
+   }
+});
+
+editableTreePanel.setRootNode(root);
+editableTreePanel.render();
+
+root.expand();
+editableTreePanel.expandAll();
+
+TreeEditor treeEditor = new TreeEditor(editableTreePanel, cb);
+</textarea>
+
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

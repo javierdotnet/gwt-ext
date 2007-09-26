@@ -27,6 +27,7 @@
 
     <node title="Grids" qtip="Examples of various Grids" icon="images/silk/table.gif">
         <leaf title="Basic Array Grid"/>
+		<leaf title="Editable Grid"/>
         <leaf title="Grid with Remote Paging"/>
         <leaf title="Column Order"/>
         <leaf title="Stock Ticker"/>
@@ -37,6 +38,7 @@
         <leaf title="Multi-Column Form"/>
         <leaf title="Multi-Column Fieldset Form" icon="images/silk/overlays.gif"/>
         <leaf title="Multi-Column Labels Top Form"/>
+		<leaf title="Load / Submit Xml Form"/>
     </node>
 
     <node title="Tab Panel" qtip="Tab Panel Example" icon="images/silk/tab.gif">

@@ -1,0 +1,35 @@
+
+<textarea name="code" class="java" style="display:none;">
+//html
+<div id="dd-demo-1c" class="dd-demo"></div>
+<div id="dd-demo-2c" class="dd-demo"></div>
+<div id="dd-demo-3c" class="dd-demo"></div>
+
+DeferredCommand.addCommand(new Command() {
+    public void execute() {
+        DD dd1 = new DDOnTop("dd-demo-1c");
+        DD dd2 = new DDOnTop("dd-demo-2c");
+        DD dd3 = new DDOnTop("dd-demo-3c");
+    }
+});
+
+class DDOnTop extends DD {
+    private int origZ = 0;
+
+
+    public DDOnTop(String id) {
+        super(id);
+    }
+
+    public void startDrag(int x, int y) {
+        origZ = DOM.getIntStyleAttribute(this.getEl(), "zIndex");
+        DOM.setIntStyleAttribute(this.getEl(), "zIndex", 999);
+    }
+
+    public void endDrag(EventObject e) {
+        DOM.setIntStyleAttribute(DDOnTop.this.getEl(), "zIndex", origZ);
+    }
+}
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

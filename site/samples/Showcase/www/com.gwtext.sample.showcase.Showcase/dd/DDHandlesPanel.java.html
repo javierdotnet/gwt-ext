@@ -1,0 +1,34 @@
+
+<textarea name="code" class="java" style="display:none;">
+//html
+<div id="dd-demo-1b" class="dd-demo">
+    <div id="dd-handle-1a" class="dd-multi-handle-1">H1</div>
+    <div id=\"dd-handle-1b" class="dd-multi-handle-2">H2</div>
+</div>
+<div id="dd-demo-2b" class="dd-demo">
+    <div id="dd-handle-2" class="dd-handle">H</div>
+</div>
+<div id="dd-handle-3b" class="dd-outer-handle">Outer</div>
+<div id="dd-demo-3b" class="dd-demo"></div>
+
+DeferredCommand.addCommand(new Command() {
+    public void execute() {
+        DD dd = new DD("dd-demo-1b");
+
+        // Configure one or more child element as a drag handle
+        dd.setHandleElId("dd-handle-1a");
+        dd.setHandleElId("dd-handle-1b");
+
+        DD dd2 = new DD("dd-demo-2b");
+        dd2.setHandleElId("dd-handle-2");
+
+        DD dd3 = new DD("dd-demo-3b");
+        dd3.setHandleElId("dd-handle-3a");
+
+        // A handle that is not child of the source element
+        dd3.setOuterHandleElId("dd-handle-3b");
+    }
+});
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

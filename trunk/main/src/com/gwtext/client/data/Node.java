@@ -109,7 +109,7 @@ public class Node extends JsObject {
         return node.id;
     }-*/;
 
-    public native String setId(String id) /*-{
+    public native void setId(String id) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.id = id;
     }-*/;

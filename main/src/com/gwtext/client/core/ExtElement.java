@@ -137,15 +137,17 @@ public class ExtElement extends BaseElement {
     public native ExtElement createChild(DomConfig config) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.createChild(configJS);
-        return this;
+        var childJS = elem.createChild(configJS);
+        var childJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
+        return childJ;
     }-*/;
 
     public native ExtElement createChild(DomConfig config, Element insertBefore) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.createChild(configJS, insertBefore);
-        return this;
+        var childJS = elem.createChild(configJS, insertBefore);
+        var childJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
+        return childJ;
     }-*/;
 
     //http://extjs.com/forum/showthread.php?t=568&highlight=createProxy

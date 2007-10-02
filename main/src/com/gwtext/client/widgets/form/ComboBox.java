@@ -23,7 +23,7 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
-public class ComboBox extends TriggerField {
+public class ComboBox extends TextField {
 
     public ComboBox() {
         setJsObj(create(null));

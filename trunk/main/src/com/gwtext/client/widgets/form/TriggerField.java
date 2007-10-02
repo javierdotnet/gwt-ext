@@ -21,19 +21,31 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.EventObject;
 
 //http://extjs.com/forum/showthread.php?t=3613&highlight=triggerfield
-public class TriggerField extends TextField {
+public abstract class TriggerField extends TextField {
 
     public TriggerField() {
         setJsObj(create(null));
+        setup(this, jsObj);
     }
 
     public TriggerField(TriggerFieldConfig config) {
         super(config);
+        setup(this, jsObj);
     }
 
+    private native void setup(TriggerField triggerField, JavaScriptObject jsObj) /*-{
+        jsObj.onTriggerClick = function(event) {
+            var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+            triggerField.@com.gwtext.client.widgets.form.TriggerField::onTriggerClick(Lcom/gwtext/client/core/EventObject;)(e);
+        }
+    }-*/;
+    
     protected native JavaScriptObject create(JavaScriptObject jsObj) /*-{
         return new $wnd.Ext.form.TriggerField(jsObj);
     }-*/;
+
+    protected abstract void onTriggerClick(EventObject event);
 }

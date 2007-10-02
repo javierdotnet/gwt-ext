@@ -140,8 +140,12 @@ public class Record extends JsObject {
 
     public native void set(String field, Date value) /*-{
         var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(value);
-        record.set(field, new $wnd.Date(millis));
+        if(value == null) {
+            record.set(field, null);
+        } else {
+            var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(value);
+            record.set(field, new $wnd.Date(millis));            
+        }
     }-*/;
 
     //see http://extjs.com/forum/showthread.php?t=2834&highlight=validateedit&page=2 for use

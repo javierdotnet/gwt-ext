@@ -54,7 +54,7 @@ public class Grid extends BaseExtWidget {
             div = DOM.getElementById(id);
         }
 
-        final JavaScriptObject configJS = config.getJsObj();
+        final JavaScriptObject configJS = config == null ? null : config.getJsObj();
         JavaScriptObjectHelper.setAttribute(configJS, "ds", store.getJsObj());
         JavaScriptObjectHelper.setAttribute(configJS, "cm", columnModel.getJsObj());
         if (selectionModel != null)

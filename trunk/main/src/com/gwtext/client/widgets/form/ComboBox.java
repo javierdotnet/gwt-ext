@@ -21,7 +21,6 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
 public class ComboBox extends TriggerField {
@@ -48,9 +47,6 @@ public class ComboBox extends TriggerField {
         return new $wnd.Ext.form.ComboBox(jsObj);
     }-*/;
 
-    //noop as trigger is implemented natively
-    protected void onTriggerClick(EventObject event) {
-    }
 
     public native void clearValue() /*-{
         var cb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

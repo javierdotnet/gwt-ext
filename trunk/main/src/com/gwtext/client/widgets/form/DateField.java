@@ -24,7 +24,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import java.util.Date;
 
-public class DateField extends TriggerField {
+public class DateField extends TextField {
 
     public DateField() {
         setJsObj(create(null));

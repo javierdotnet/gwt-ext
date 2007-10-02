@@ -136,7 +136,7 @@ public class LayoutDialog extends BaseExtWidget {
 
     public native void center() /*-{
         var dialog = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        dialog.show();
+        dialog.center();
     }-*/;
 
     public native void collapse() /*-{

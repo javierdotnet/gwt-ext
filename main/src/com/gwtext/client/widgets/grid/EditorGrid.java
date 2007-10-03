@@ -31,7 +31,7 @@ public class EditorGrid extends Grid {
     }
 
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, EditorGridConfig config) {
-        super(id, width, height, store, columnModel, config);
+        this(id, width, height, store, columnModel, new RowSelectionModel(), config);
     }
 
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, EditorGridConfig config) {

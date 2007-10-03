@@ -114,12 +114,12 @@ public class EventObject extends JsObject {
 
     public native boolean within(String id) /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
-        e.within(id);
+        return e.within(id);
     }-*/;
 
     public native boolean within(Element elem) /*-{
         var e = this.@com.gwtext.client.core.JsObject::jsObj;
-        e.within(elem);
+        return e.within(elem);
     }-*/;
 
     public native boolean isAltKey() /*-{

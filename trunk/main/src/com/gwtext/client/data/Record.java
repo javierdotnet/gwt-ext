@@ -164,9 +164,4 @@ public class Record extends JsObject {
         var val = record.json || record.node;
         return val === undefined ? null : val;             
     }-*/;
-
-    public native void commitData()/*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
-        record.commitData();             
-    }-*/;
 }

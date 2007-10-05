@@ -31,7 +31,7 @@ public class EditorGrid extends Grid {
     }
 
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, EditorGridConfig config) {
-        this(id, width, height, store, columnModel, new RowSelectionModel(), config);
+        super(id, width, height, store, columnModel, config);
     }
 
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, EditorGridConfig config) {
@@ -73,11 +73,20 @@ public class EditorGrid extends Grid {
         );
     }-*/;
 
+    /**
+     * Starts editing the specified for the specified row/column.
+     *
+     * @param rowIndex row to edit
+     * @param colIndex column to edit
+     */
     public native void startEditing(int rowIndex, int colIndex) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.startEditing(rowIndex, colIndex);
     }-*/;
 
+    /**
+     * Stops any active editing.
+     */
     public native void stopEditing() /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.stopEditing();

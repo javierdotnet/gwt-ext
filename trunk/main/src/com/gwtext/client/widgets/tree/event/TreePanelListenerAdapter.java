@@ -83,7 +83,8 @@ public class TreePanelListenerAdapter implements TreePanelListener {
     public void onLoad(TreeNode node) {
     }
 
-    public void onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+    public boolean onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+        return true;
     }
 
     public void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {

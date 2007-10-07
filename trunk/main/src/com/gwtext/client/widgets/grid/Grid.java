@@ -201,7 +201,11 @@ public class Grid extends BaseExtWidget {
         grid.reconfigure(storeJS, columnModelJS);
     }-*/;
 
-
+    public native void setLoadMask(String message)/*-{
+        var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        grid.loadMask.msg = message;
+    }-*/;
+    
     public void showColumn(String colID) {
         int colIndex = getColumnModel().getIndexById(colID);
         if(colIndex != -1) {

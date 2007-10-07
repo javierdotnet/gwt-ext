@@ -23,7 +23,6 @@ package com.gwtext.client.util;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.JsObject;
-import com.gwtext.client.widgets.UserObject;
 
 import java.util.Date;
 import java.util.List;
@@ -106,7 +105,7 @@ public class JavaScriptObjectHelper {
 	    elem[attr] = value;
     }-*/;
 
-	public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
+    public static void setAttribute(JavaScriptObject elem, String attr, Date value) {
         if (value == null) {
             setAttribute(elem, attr, (String) null);
         } else {
@@ -116,10 +115,6 @@ public class JavaScriptObjectHelper {
 
     private static native void setDateAttribute(JavaScriptObject elem, String attr, long time) /*-{
         elem[attr] = new $wnd.Date(time);
-    }-*/;
-
-    public static native void setAttribute(JavaScriptObject elem, String attr, UserObject userObject) /*-{
-	    elem[attr] = userObject.@com.gwtext.client.widgets.UserObject::data;
     }-*/;
 
     public static native void setObjectAttribute(JavaScriptObject elem, String attr, Object object) /*-{

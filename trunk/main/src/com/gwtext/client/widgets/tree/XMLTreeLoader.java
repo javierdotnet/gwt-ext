@@ -81,6 +81,7 @@ public class XMLTreeLoader extends TreeLoader {
         RequestBuilder.Method httpMethod = "post".equalsIgnoreCase(method) ? RequestBuilder.POST : RequestBuilder.GET;
 
         RequestBuilder builder = new RequestBuilder(httpMethod, url);
+        builder.setHeader("Content-type","application/x-www-form-urlencoded");
         try {
             builder.sendRequest(params, new RequestCallback() {
 

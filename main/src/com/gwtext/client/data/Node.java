@@ -24,7 +24,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.data.event.NodeListener;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.UserObject;
 
 import java.util.Comparator;
 
@@ -50,14 +49,21 @@ public class Node extends JsObject {
         return new Node(jsNode);
     }
 
-    public UserObject getUserObject() {
-        Object o = getUserObject(getJsObj());
-        if (o == null) {
+    public native void setUserObject(Object o) /*-{
+        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        node.attributes.data = o;
+    }-*/;
+
+    public native Object getUserObject() /*-{
+        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+
+        //need to convert javascript undefined to null before passing to java layer
+        if(node.attributes.data === undefined) {
             return null;
         } else {
-            return new UserObject(o);
-        }
-    }
+            return node.attributes.data;
+       }
+    }-*/;
 
 	public native void setAttribute(String name, String value) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;

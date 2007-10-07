@@ -22,6 +22,7 @@ package com.gwtext.client.widgets.grid;
 
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
+import com.gwtext.client.widgets.LoadMaskConfig;
 
 public class GridConfig extends BaseConfig {
 
@@ -124,4 +125,8 @@ public class GridConfig extends BaseConfig {
     public void setLoadMask(boolean loadMask) {
         JavaScriptObjectHelper.setAttribute(jsObj, "loadMask", loadMask);
     }
+
+    public void setLoadMask(LoadMaskConfig loadMask) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "loadMask", loadMask.getJsObj());
+    }    
 }

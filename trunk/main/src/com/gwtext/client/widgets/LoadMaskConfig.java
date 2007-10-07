@@ -22,16 +22,49 @@ package com.gwtext.client.widgets;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * {@link LoadMask} config class.
+ *
+ * @see com.gwtext.client.widgets.LoadMask
+ */
 public class LoadMaskConfig extends BaseConfig {
 
+    public LoadMaskConfig() {
+    }
+
+    /**
+     * The text to display in a centered loading message box.
+     *
+     * @param msg text to dispaly
+     */
+    public LoadMaskConfig(String msg) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "msg", msg);
+    }
+
+    /**
+     * The text to display in a centered loading message box (defaults to 'Loading...')
+     *
+     * @param msg message to display
+     */
     public void setMsg(String msg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "msg", msg);
     }
 
+    /**
+     * The CSS class to apply to the loading message element (defaults to "x-mask-loading").
+     *
+     * @param msgCls the message CSS class
+     */
     public void setMsgCls(String msgCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "msgCls", msgCls);
     }
 
+    /**
+     * True to create a single-use mask that is automatically destroyed after loading (useful for page loads), False to persist
+     * the mask element reference for multiple uses (e.g., for paged data widgets).
+     *
+     * @param removeMask defaults to false
+     */
     public void setRemoveMask(boolean removeMask) {
         JavaScriptObjectHelper.setAttribute(jsObj, "removeMask", removeMask);
     }

@@ -20,7 +20,6 @@
 
 package com.gwtext.client.widgets.tree.event;
 
-import com.google.gwt.user.client.Event;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.dd.DD;
 import com.gwtext.client.dd.DragDrop;
@@ -63,7 +62,7 @@ public interface TreePanelListener {
 
     void onLoad(TreeNode node);
 
-    void onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
+    boolean onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 
     void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 

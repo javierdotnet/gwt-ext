@@ -66,6 +66,8 @@ public interface TreePanelListener {
 
     void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
 
+    void onMove(TreePanel treePanel, TreeNode node, TreeNode oldParent, TreeNode newParent, int index);
+
     void onStartDrag(TreePanel treePanel, TreeNode node);
 
     void onTextChange(TreeNode node, String text, String oldText);

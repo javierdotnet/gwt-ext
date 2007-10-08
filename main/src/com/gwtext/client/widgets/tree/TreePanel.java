@@ -365,7 +365,16 @@ public class TreePanel extends RequiredElementWidget {
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onNodeDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, targetNodeJ, point, sourceJ, dropNodeJ);
             }
         );
-    
+
+        treePanel.addListener('move',
+            function(tree, node, oldParent, newParent, index) {
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var oldParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
+                var newParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
+                listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onMove(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(treePanelJ, nodeJ, oldParentJ, newParentJ, index);
+            }
+        );
+
         treePanel.addListener('startdrag',
             function(treePanel, node, e) {
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);

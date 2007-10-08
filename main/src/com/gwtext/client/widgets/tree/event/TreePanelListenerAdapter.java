@@ -90,6 +90,9 @@ public class TreePanelListenerAdapter implements TreePanelListener {
     public void onNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
     }
 
+    public void onMove(TreePanel treePanel, TreeNode node, TreeNode oldParent, TreeNode newParent, int index) {
+    }
+
     public void onStartDrag(TreePanel treePanel, TreeNode node) {
     }
 

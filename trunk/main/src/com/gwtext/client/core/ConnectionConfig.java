@@ -23,24 +23,42 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Connection configuration class.
+ */
 public class ConnectionConfig extends BaseConfig {
 
+    /**
+     * Whether this request should abort any pending requests.
+     *
+     * @param autoAbort defaults to false
+     */
     public void setAutoAbort(boolean autoAbort) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoAbort", autoAbort);
     }
 
+    /**
+     * Request headers which are added to each request made by this object.
+     *
+     * @param defaultHeaders default headers
+     */
     public void setDefaultHeaders(NameValuePair[] defaultHeaders) {
         JavaScriptObject paramObj = NameValuePair.getJsObj(defaultHeaders);
         JavaScriptObjectHelper.setAttribute(jsObj, "defaultHeaders", paramObj);
     }
 
+    /**
+     * Properties which are used as extra parameters to each request made by this object.
+     *
+     * @param params request parameters
+     */
     public void setExtraParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "extraParams", paramObj);
     }
 
-    public void setMethod(String method) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "method", method);
+    public void setMethod(Connection.Method method) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "method", method.getMethod());
     }
 
     /**
@@ -51,6 +69,11 @@ public class ConnectionConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "timeout", timeout);
     }
 
+    /**
+     * The default URL to be used for requests to the server.
+     *
+     * @param url defaults to undefined
+     */
     public void setUrl(String url) {
         JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
     }

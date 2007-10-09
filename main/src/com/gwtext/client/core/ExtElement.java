@@ -47,7 +47,7 @@ public class ExtElement extends BaseElement {
     }
 
     /**
-     * Create an ExtElement wrapper around en existing DOM Element.
+     * Create an ExtElement wrapper around an existing DOM Element.
      *
      * @param elem the DOM Element
      * @param forceNew by default the constructor checks to see if there is already an instance of this element in the cache and if there is it returns the same instance.

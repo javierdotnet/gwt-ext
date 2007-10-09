@@ -35,6 +35,12 @@ public class PagingToolbar extends Toolbar {
         return new $wnd.Ext.PagingToolbar(container, store, config);
     }-*/;
 
+    public native void bind(Store store) /*-{
+		var pagingToolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
+		pagingToolbar.bind(storeJS);
+	}-*/;
+
     public void setAfterPageText(String afterPageText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterPageText", afterPageText);
     }
@@ -61,5 +67,11 @@ public class PagingToolbar extends Toolbar {
 
     public void setRefreshText(String refreshText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "refreshText", refreshText);
-    }                                    
+    }
+
+    public native void unbind(Store store) /*-{
+		var pagingToolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
+		pagingToolbar.unbind(storeJS);
+	}-*/;
 }

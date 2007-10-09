@@ -26,7 +26,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//If no tag is specified then a div will be automatically generated with the specified attributes.
+/**
+ * The Dom object spec. Can be configured with specs of children too. If no tag is specified then a div will
+ * be automatically generated with the specified attributes.
+ *
+ * @see DomHelper#append(String, DomConfig)
+ * @see ExtElement#createChild(DomConfig) 
+ */
 public class DomConfig {
 
     private String tag;
@@ -37,12 +43,27 @@ public class DomConfig {
     private String html;
     private List children;
 
+    /**
+     * Constructor.
+     *
+     * @param tag the element tag name
+     * @param id the element id
+     * @param cls the element CSS class name
+     */
     public DomConfig(String tag, String id, String cls) {
         this.tag = tag;
         this.id = id;
         this.cls = cls;
     }
 
+    /**
+     * Constructor.
+     *
+     * @param tag the element tag name
+     * @param id the element id
+     * @param cls the element CSS class name
+     * @param html the innerHTML for the element.
+     */
     public DomConfig(String tag, String id, String cls, String html) {
         this.tag = tag;
         this.id = id;
@@ -50,6 +71,12 @@ public class DomConfig {
         this.html = html;
     }
 
+    /**
+     * Add a child element.
+     *
+     * @param child the child element config
+     * @return this
+     */
     public DomConfig addChild(DomConfig child) {
         if (html != null) {
             throw new IllegalArgumentException("Dom spec cannot have inner html and child elelents");

@@ -22,6 +22,13 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * This class represents an Element's Box.
+ *
+ * @see com.gwtext.client.core.BaseElement#setBox(Box)
+ * @see com.gwtext.client.core.BaseElement#setBox(Box, boolean, boolean)
+ * @see com.gwtext.client.core.BaseElement#setBox(Box, boolean, AnimationConfig)
+ */
 public class Box extends JsObject {
 
     private int x;
@@ -29,6 +36,13 @@ public class Box extends JsObject {
     private int width;
     private int height;
 
+    /**
+     * Constructor
+     * @param x x-position
+     * @param y y-position
+     * @param width the box width
+     * @param height the box height
+     */
     public Box(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
@@ -41,7 +55,7 @@ public class Box extends JsObject {
         JavaScriptObjectHelper.setAttribute(jsObj, "height", height);
     }
 
-    public static Box instance(JavaScriptObject jsObj) {
+    private static Box instance(JavaScriptObject jsObj) {
         return new Box(
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "x"),
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "y"),
@@ -50,18 +64,38 @@ public class Box extends JsObject {
         );
     }
 
+    /**
+     * Get the x position value.
+     *
+     * @return the x value
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Get the y position value.
+     *
+     * @return the y position
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Get the box width.
+     *
+     * @return the box width
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Get the box height.
+     *
+     * @return the box height
+     */
     public int getHeight() {
         return height;
     }

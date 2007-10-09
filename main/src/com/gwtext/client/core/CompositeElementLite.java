@@ -21,6 +21,9 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Flyweight composite class. Reuses the same Ext.Element for element operations.
+ */
 public class CompositeElementLite extends CompositeElement {
 
     public CompositeElementLite(JavaScriptObject jsObj) {
@@ -31,6 +34,12 @@ public class CompositeElementLite extends CompositeElement {
         return new CompositeElementLite(jsObj);
     }
 
+    /**
+     * Returns a flyweight Element of the dom element object at the specified index.
+     *
+     * @param index the element index
+     * @return the element at index
+     */
     public native ExtElement item(int index) /*-{
         var cel = this.@com.gwtext.client.core.JsObject::jsObj;
         var el = cel.item();

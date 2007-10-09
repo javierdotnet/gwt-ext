@@ -22,6 +22,9 @@ package com.gwtext.client.core;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Base abstract configutation class.
+ */
 public abstract class BaseConfig extends JsObject {
 
     public BaseConfig() {

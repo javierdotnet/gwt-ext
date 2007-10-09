@@ -19,7 +19,18 @@
  */
 package com.gwtext.client.core.event;
 
+/**
+ * TextResizeListener interface.
+ *
+ * @see com.gwtext.client.core.EventManager
+ */
 public interface TextResizeListener {
 
+    /**
+     * Fires when the user changes the active text size.
+     *
+     * @param oldSize the old size
+     * @param newSize the new size
+     */
     void onTextResize(int oldSize, int newSize);
 }

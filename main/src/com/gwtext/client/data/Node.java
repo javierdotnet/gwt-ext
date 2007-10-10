@@ -51,26 +51,26 @@ public class Node extends JsObject {
 
     public native void setUserObject(Object o) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        node.attributes.data = o;
+        node.attributes._data = o;
     }-*/;
 
     public native Object getUserObject() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
 
         //need to convert javascript undefined to null before passing to java layer
-        if(node.attributes.data === undefined) {
+        if(node.attributes._data === undefined) {
             return null;
         } else {
-            return node.attributes.data;
+            return node.attributes._data;
        }
     }-*/;
 
     private static native Object getUserObject(JavaScriptObject node) /*-{
         //need to convert javascript undefined to null before passing to java layer
-        if(node.attributes.data === undefined) {
+        if(node.attributes._data === undefined) {
             return null;
         } else {
-            return node.attributes.data;
+            return node.attributes._data;
        }
     }-*/;
 

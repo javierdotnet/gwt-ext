@@ -24,6 +24,9 @@ import com.google.gwt.core.client.GWT;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
 
+/**
+ * Store listener adapter.
+ */
 public class StoreListenerAdapter implements StoreListener {
 
     public void onAdd(Store store, Record[] records, int index) {
@@ -45,7 +48,11 @@ public class StoreListenerAdapter implements StoreListener {
     public void onRemove(Store store, Record record, int index) {
     }
 
-    public void onUpdate(Store store, Record record, String operation) {
+    public void onUpdate(Store store, Record record, Record.Operation operation) {
+    }
+
+    //temporarily here so that users can update thier old code
+    final public void onUpdate(Store store, Record record, String operation) {
     }
 
     public void onLoadException(Throwable error) {

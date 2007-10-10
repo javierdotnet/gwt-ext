@@ -25,11 +25,35 @@ import com.gwtext.client.widgets.Button;
 
 public interface ButtonListener {
 
+    /**
+     * Fires when this button is clicked
+     *
+     * @param button this
+     * @param e the event object
+     */
     void onClick(Button button, EventObject e);
 
+    /**
+     * Fires when the mouse exits the button.
+     *
+     * @param button this
+     * @param e the event object
+     */
     void onMouseOut(Button button, EventObject e);
 
+    /**
+     * Fires when the mouse hovers over the button.
+     *
+     * @param button this
+     * @param e the event object
+     */
     void onMouseOver(Button button, EventObject e);
 
+    /**
+     *  Fires when the "pressed" state of this button changes (only if enableToggle = true).
+     *
+     * @param button this
+     * @param pressed true if pressed
+     */
     void onToggle(Button button, boolean pressed);
 }

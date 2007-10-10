@@ -435,7 +435,6 @@ public class Store extends JsObject {
             function(self, record, operation) {
                 var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
                 var operationJ = null;
-                debugger;
                 if(operation =='edit') {
                     operationJ = @com.gwtext.client.data.Record::EDIT;
                 } else if(operation == 'reject') {

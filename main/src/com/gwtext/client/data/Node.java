@@ -65,7 +65,21 @@ public class Node extends JsObject {
        }
     }-*/;
 
-	public native void setAttribute(String name, String value) /*-{
+    private static native Object getUserObject(JavaScriptObject node) /*-{
+        //need to convert javascript undefined to null before passing to java layer
+        if(node.attributes.data === undefined) {
+            return null;
+        } else {
+            return node.attributes.data;
+       }
+    }-*/;
+
+    public native void setAttribute(String name, Object value) /*-{
+		var node = this.@com.gwtext.client.core.JsObject::jsObj;
+		node.attributes[name] = value;
+	}-*/;
+
+    public native void setAttribute(String name, String value) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		node.attributes[name] = value;
 	}-*/;
@@ -81,14 +95,11 @@ public class Node extends JsObject {
 		return value === undefined ? null : value;
 	}-*/;
 
-	private static native Object getUserObject(JavaScriptObject node) /*-{
-        //need to convert javascript undefined to null before passing to java layer
-        if(node.attributes.data === undefined) {
-            return null;
-        } else {
-            return node.attributes.data;
-       }
-    }-*/;
+	public native Object getAttributeAsObject(String name) /*-{
+		var node = this.@com.gwtext.client.core.JsObject::jsObj;
+		var value = node.attributes[name];
+		return value === undefined ? null : value;
+	}-*/;
 
     public Node[] getChildNodes() {
         JavaScriptObject[] jsNodes = JavaScriptObjectHelper.getAttributeAsJavaScriptObjectArray(jsObj, "childNodes");

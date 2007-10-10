@@ -434,7 +434,16 @@ public class Store extends JsObject {
 		store.addListener('update',
             function(self, record, operation) {
                 var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-                return listener.@com.gwtext.client.data.event.StoreListener::onUpdate(Lcom/gwtext/client/data/Store;Lcom/gwtext/client/data/Record;Ljava/lang/String;)(storeJ, recordJ, operation);
+                var operationJ = null;
+                debugger;
+                if(operation =='edit') {
+                    operationJ = @com.gwtext.client.data.Record::EDIT;
+                } else if(operation == 'reject') {
+                    operationJ = @com.gwtext.client.data.Record::REJECT;
+                } else if (operation == 'commit') {
+                    operationJ = @com.gwtext.client.data.Record::COMMIT;
+                }
+                return listener.@com.gwtext.client.data.event.StoreListener::onUpdate(Lcom/gwtext/client/data/Store;Lcom/gwtext/client/data/Record;Lcom/gwtext/client/data/Record$Operation;)(storeJ, recordJ, operationJ);
             }
 		);
 

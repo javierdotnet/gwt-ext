@@ -27,6 +27,37 @@ import java.util.Date;
 
 public class Record extends JsObject {
 
+    public static final class Operation {
+        private final String operation;
+
+        private Operation(String operation) {
+            this.operation = operation;
+        }
+
+        public String getOperation() {
+            return operation;
+        }
+
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Operation)) return false;
+
+            Operation operation1 = (Operation) o;
+
+            if (!operation.equals(operation1.operation)) return false;
+
+            return true;
+        }
+
+        public int hashCode() {
+            return operation.hashCode();
+        }
+    }
+
+    public static Operation EDIT = new Operation("edit");
+    public static Operation REJECT = new Operation("reject");
+    public static Operation COMMIT = new Operation("commit");
+
     public Record(JavaScriptObject jsObj) {
         super(jsObj);
     }

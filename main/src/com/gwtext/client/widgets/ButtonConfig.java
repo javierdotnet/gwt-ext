@@ -47,6 +47,16 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "enableToggle", enableToggle);
     }
 
+    /**
+     * You can bind your form buttons to the valid state of the form. Note: the Form's monitorValid config must be set to true.
+     * To bind a button(s) enabled state to the valid state set this property to true.
+     *
+     * @param bindToForm to to bind to form's valid state
+     */
+    public void setFormBind(boolean bindToForm) {
+       JavaScriptObjectHelper.setAttribute(jsObj, "formBind", bindToForm);
+    }
+
     public void setHandleMouseEvents(boolean handleMouseEvents) {
         JavaScriptObjectHelper.setAttribute(jsObj, "handleMouseEvents", handleMouseEvents);
     }

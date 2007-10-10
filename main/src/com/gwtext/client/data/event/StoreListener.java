@@ -23,6 +23,9 @@ package com.gwtext.client.data.event;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
 
+/**
+ * {@link Store} listener interface.
+ */
 public interface StoreListener {
 
     /**

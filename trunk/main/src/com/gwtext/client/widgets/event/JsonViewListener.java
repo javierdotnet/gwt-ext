@@ -23,9 +23,27 @@ import com.gwtext.client.widgets.JsonView;
 
 public interface JsonViewListener {
 
+    /**
+     * Fires before rendering of the downloaded JSON data.
+     *
+     * @param view this
+     * @return false to cancel render
+     */
     boolean doBeforeRender(JsonView view);
 
+    /**
+     * Fires when data is loaded.
+     *
+     * @param view this
+     */
     void onLoad(JsonView view);
 
-    void onLoadException(JsonView view);
+    /**
+     * Fires when loading fails.
+     *
+     * @param view this
+     * @param httpStatus the http status code
+     * @param responseText the response
+     */
+    void onLoadException(JsonView view, int httpStatus, String responseText);
 }

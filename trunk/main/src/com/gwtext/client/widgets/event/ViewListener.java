@@ -25,15 +25,62 @@ import com.gwtext.client.widgets.View;
 
 public interface ViewListener {
 
+    /**
+     * Fires before a click is processed. Returns false to cancel the default action.
+     *
+     * @param view  the view
+     * @param index the index of the target node
+     * @param node the target node
+     * @param e the event object
+     * @return false to cancel the default action
+     */
     boolean doBeforeClick(View view, int index, Element node, EventObject e);
 
+    /**
+     * Fires before a selection is made. If any handlers return false, the selection is cancelled.
+     *
+     * @param view the view
+     * @param node the node to be selected
+     * @param selections Array of currently selected nodes
+     * @return false to cancel the selection
+     */
     boolean doBeforeSelect(View view, Element node, Element[] selections);
 
+    /**
+     * Fires when a template node is clicked.
+     *
+     * @param view the view
+     * @param index the index of the target node
+     * @param node the target node
+     * @param e the raw event object
+     */
     void onClick(View view, int index, Element node, EventObject e);
 
+    /**
+     * Fires when a template node is right clicked.
+     *
+     * @param view the view
+     * @param index the index of the target node
+     * @param node the target node
+     * @param e the raw event object
+     */
     void onContextMenu(View view, int index, Element node, EventObject e);
 
+    /**
+     * Fires when a template node is double clicked.
+     *
+     * @param view the view
+     * @param index the index of the target node
+     * @param node the target node
+     * @param e the raw event object
+     */
     void onDblClick(View view, int index, Element node, EventObject e);
 
+    /**
+     * Fires when the selected nodes change.
+     *
+     * @param view the view
+     * @param selections array of the selected nodes
+     */
     void onSelectionChange(View view, Element[] selections);
 }

@@ -23,11 +23,32 @@ import com.gwtext.client.widgets.TabPanelItem;
 
 public interface TabPanelItemListener {
 
+    /**
+     * Fires when this tab becomes the active tab.
+     *
+     * @param tab the tab panel item
+     */
     void onActivate(TabPanelItem tab);
 
+    /**
+     * Fires before this tab is closed. To cancel the close return false
+     *
+     * @param tab the tab panel item
+     * @return false to cancel close
+     */
     boolean doBeforeClose(TabPanelItem tab);
 
+    /**
+     * Fires when this tab is closed.
+     * 
+     * @param tab the tab panel item
+     */
     void onClose(TabPanelItem tab);
 
+    /**
+     * Fires when this tab is no longer the active tab.
+     * 
+     * @param tab the tab panel item
+     */
     void onDeactivate(TabPanelItem tab);
 }

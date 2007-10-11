@@ -24,5 +24,11 @@ import com.gwtext.client.widgets.form.Checkbox;
 
 public interface CheckboxListener {
 
+    /**
+     * Fires when the checkbox is checked or unchecked.
+     *
+     * @param field this field
+     * @param checked the new checked value
+     */
     void onCheck(Checkbox field, boolean checked);
 }

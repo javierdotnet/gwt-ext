@@ -25,6 +25,12 @@ import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
 public class ComboBox extends TextField {
 
+    public static Mode REMOTE = new Mode("remote");
+    public static Mode LOCAL = new Mode("local");
+
+    public static Trigger ALL = new Trigger("all");
+    public static Trigger QUERY = new Trigger("query");
+
     public ComboBox() {
         setJsObj(create(null));
     }
@@ -139,4 +145,28 @@ public class ComboBox extends TextField {
                 }
         );
     }-*/;
+
+    public static class Mode {
+        private String mode;
+
+        private Mode(String mode) {
+            this.mode = mode;
+        }
+
+        public String getMode() {
+            return mode;
+        }
+    }
+
+    public static class Trigger {
+        private String trigger;
+
+        private Trigger(String trigger) {
+            this.trigger = trigger;
+        }
+
+        public String getTrigger() {
+            return trigger;
+        }
+    }
 }

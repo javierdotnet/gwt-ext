@@ -24,9 +24,36 @@ import com.gwtext.client.widgets.grid.RowSelectionModel;
 
 public interface RowSelectionListener {
 
-    boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex);
+    /**
+     * Fires when a row is selected being selected, return false to cancel.
+     *
+     * @param sm this
+     * @param rowIndex the row index
+     * @param keepExisting false if other selections will be cleared
+     * @return false the cancel the row select
+     */
+    boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex, boolean keepExisting);
 
+    /**
+     * Fires when a row is deselected.
+     *
+     * @param sm this
+     * @param rowIndex the row index
+     */
+    void onRowDeselect(RowSelectionModel sm, int rowIndex);
+
+    /**
+     * Fires when a row is selected.
+     *
+     * @param sm this
+     * @param rowIndex the row index
+     */
     void onRowSelect(RowSelectionModel sm, int rowIndex);
 
+    /**
+     * Fires when the selection changes.
+     *
+     * @param sm this
+     */
     void onSelectionChange(RowSelectionModel sm);
 }

@@ -50,9 +50,16 @@ public class Resizable extends BaseExtWidget {
         var rz = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var rzJ = this;
 
+        rz.addListener('beforeresize',
+                function(r, event) {
+                    var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+                    return listener.@com.gwtext.client.widgets.event.ResizableListener::doBeforeResize(Lcom/gwtext/client/widgets/Resizable;Lcom/gwtext/client/core/EventObject;)(rzJ, eJ);
+                }
+        );
+    
         rz.addListener('resize',
-                function() {
-                    listener.@com.gwtext.client.widgets.event.ResizableListener::onResize()();
+                function(r, w, h) {
+                    listener.@com.gwtext.client.widgets.event.ResizableListener::onResize(Lcom/gwtext/client/widgets/Resizable;II)(rzJ, w, h);
                 }
         );
     }-*/;

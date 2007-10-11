@@ -24,5 +24,13 @@ import com.gwtext.client.widgets.form.Field;
 
 public interface TextFieldListener {
 
+    /**
+     *  Fires when the autosize function is triggered. The field may or may not have actually changed size according to
+     *  the default logic, but this event provides a hook for the developer to apply additional logic at runtime to
+     * resize the field if needed.
+     *
+     * @param field this
+     * @param width the new field width
+     */
     void onAutoSize(Field field, int width);
 }

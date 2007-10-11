@@ -24,7 +24,21 @@ import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridColumnListener {
 
+    /**
+     * Fires when the user moves a column.
+     *
+     * @param grid this
+     * @param oldIndex the old column index
+     * @param newIndex the new column index
+     */
     void onColumnMove(Grid grid, int oldIndex, int newIndex);
 
+    /**
+     * Fires when the user resizes a column.
+     *  
+     * @param grid this
+     * @param colIndex the column index
+     * @param newSize the new column size
+     */
     void onColumnResize(Grid grid, int colIndex, int newSize);
 }

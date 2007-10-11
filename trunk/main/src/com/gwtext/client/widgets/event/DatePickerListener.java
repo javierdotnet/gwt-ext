@@ -26,5 +26,11 @@ import java.util.Date;
 
 public interface DatePickerListener {
 
+    /**
+     * Fires when a date is selected.
+     * 
+     * @param dataPicker this
+     * @param date the selected date
+     */
     void onSelect(DatePicker dataPicker, Date date);
 }

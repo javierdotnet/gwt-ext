@@ -25,7 +25,20 @@ import com.gwtext.client.widgets.TabPanelItem;
 
 public interface TabPanelListener {
 
+    /**
+     * Fires before the active tab changes. Return false to cancel the change.
+     * 
+     * @param tabPanel this
+     * @param tab the tab being changed to
+     * @return false to cancel the change
+     */
     boolean doBeforeTabChange(TabPanel tabPanel, TabPanelItem tab);
 
+    /**
+     * Fires when the active tab changes.
+     *
+     * @param tabPanel this
+     * @param activeTab the new active tab
+     */
     void onTabChange(TabPanel tabPanel, TabPanelItem activeTab);
 }

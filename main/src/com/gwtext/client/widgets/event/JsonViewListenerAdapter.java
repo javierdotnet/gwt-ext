@@ -30,6 +30,6 @@ public class JsonViewListenerAdapter implements JsonViewListener {
     public void onLoad(JsonView view) {
     }
 
-    public void onLoadException(JsonView view) {
+    public void onLoadException(JsonView view, int httpStatus, String responseText) {
     }
 }

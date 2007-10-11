@@ -25,5 +25,11 @@ import com.gwtext.client.widgets.SplitButton;
 
 public interface MenuButtonListener {
 
+    /**
+     * Fires when this button's arrow is clicked.
+     *
+     * @param menuButton this
+     * @param e the event object
+     */
     void onArrowClick(SplitButton menuButton, EventObject e);
 }

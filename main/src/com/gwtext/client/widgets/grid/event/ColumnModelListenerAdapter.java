@@ -30,7 +30,7 @@ public class ColumnModelListenerAdapter implements ColumnModelListener {
     public void onColumnMoved(ColumnModel cm, int oldIndex, int newIndex) {
     }
 
-    public void onHeaderChange(ColumnModel cm, int oldIndex, String newText) {
+    public void onHeaderChange(ColumnModel cm, int columnIndex, String newText) {
     }
 
     public void onHiddenChange(ColumnModel cm, int colIndex, boolean hidden) {

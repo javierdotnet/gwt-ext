@@ -23,5 +23,11 @@ import com.gwtext.client.core.EventObject;
 
 public interface KeyListener {
 
+    /**
+     * Fires when a key is entered.
+     * 
+     * @param key the key code
+     * @param e the event object
+     */
     void onKey(int key, EventObject e);
 }

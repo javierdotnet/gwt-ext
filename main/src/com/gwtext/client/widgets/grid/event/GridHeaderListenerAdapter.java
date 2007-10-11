@@ -31,7 +31,6 @@ public class GridHeaderListenerAdapter implements GridHeaderListener {
     public void onHeaderContextMenu(Grid grid, int colIndex, EventObject e) {
     }
 
-    //todo rowindex??
-    public void onHeaderDblClick(Grid grid, int colindex, EventObject e) {
+    public void onHeaderDblClick(Grid grid, int colIndex, EventObject e) {
     }
 }

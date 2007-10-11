@@ -24,8 +24,15 @@ import com.gwtext.client.widgets.grid.RowSelectionModel;
 
 public class RowSelectionListenerAdapter implements RowSelectionListener {
 
-    public boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex) {
+    public final boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex) {
         return true;
+    }
+
+    public final boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex, boolean keepExisting) {
+        return true;
+    }
+
+    public void onRowDeselect(RowSelectionModel sm, int rowIndex) {
     }
 
     public void onRowSelect(RowSelectionModel sm, int rowIndex) {

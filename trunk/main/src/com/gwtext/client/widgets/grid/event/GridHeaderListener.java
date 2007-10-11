@@ -25,10 +25,30 @@ import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridHeaderListener {
 
+    /**
+     * Fires when a header is clicked.
+     *
+     * @param grid this
+     * @param colIndex the column index
+     * @param e the event object
+     */
     void onHeaderClick(Grid grid, int colIndex, EventObject e);
 
+    /**
+     * Fires when a header is right clicked.
+     *
+     * @param grid this
+     * @param colIndex the column index
+     * @param e the event object
+     */
     void onHeaderContextMenu(Grid grid, int colIndex, EventObject e);
 
-    //todo rowindex??
-    void onHeaderDblClick(Grid grid, int colindex, EventObject e);
+    /**
+     * Fires when a header cell is double clicked.
+     *
+     * @param grid this
+     * @param colIndex the column index
+     * @param e the event object
+     */
+    void onHeaderDblClick(Grid grid, int colIndex, EventObject e);
 }

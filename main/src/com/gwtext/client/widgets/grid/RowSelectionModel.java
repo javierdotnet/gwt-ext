@@ -140,14 +140,20 @@ public class RowSelectionModel extends AbstractSelectionModel {
         var smJ = this;
 
         sm.addListener('beforerowselect',
-                function(source, rowIndex) {
-                    return listener.@com.gwtext.client.widgets.grid.event.RowSelectionListener::doBeforeRowSelect(Lcom/gwtext/client/widgets/grid/RowSelectionModel;I)(smJ, rowIndex);
+                function(source, rowIndex, keepExisting) {
+                    return listener.@com.gwtext.client.widgets.grid.event.RowSelectionListener::doBeforeRowSelect(Lcom/gwtext/client/widgets/grid/RowSelectionModel;IZ)(smJ, rowIndex, keepExisting);
                 }
         );
 
         sm.addListener('rowselect',
                 function(source, rowIndex) {
                     listener.@com.gwtext.client.widgets.grid.event.RowSelectionListener::onRowSelect(Lcom/gwtext/client/widgets/grid/RowSelectionModel;I)(smJ, rowIndex);
+                }
+        );
+
+        sm.addListener('rowdeselect',
+                function(source, rowIndex) {
+                    listener.@com.gwtext.client.widgets.grid.event.RowSelectionListener::onRowDeselect(Lcom/gwtext/client/widgets/grid/RowSelectionModel;I)(smJ, rowIndex);
                 }
         );
 

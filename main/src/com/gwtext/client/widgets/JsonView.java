@@ -102,7 +102,7 @@ public class JsonView extends View {
 
         view.addListener('loadexception',
                 function(self, response) {
-                    listener.@com.gwtext.client.widgets.event.JsonViewListener::onLoadException(Lcom/gwtext/client/widgets/JsonView;)(viewJ);
+                    listener.@com.gwtext.client.widgets.event.JsonViewListener::onLoadException(Lcom/gwtext/client/widgets/JsonView;ILjava/lang/String;)(viewJ, response.status, response.responseText)
                 }
         );
 

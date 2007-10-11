@@ -25,11 +25,32 @@ import com.gwtext.client.widgets.layout.LayoutRegion;
 
 public interface LayoutListener {
 
+    /**
+     * Fires when a layout is performed.
+     *
+     * @param layout this
+     */
     void onLayout(BorderLayout layout);
 
+    /**
+     * Fires when a region is collapsed.
+     *
+     * @param region the collapsed region
+     */
     void onRegionCollapsed(LayoutRegion region);
 
+    /**
+     * Fires when a region is expanded.
+     *
+     * @param region the expanded region
+     */
     void onRegionExpanded(LayoutRegion region);
 
+    /**
+     * Fires when the user resizes a region.
+     * 
+     * @param region the resized region
+     * @param newSize the new size (width for east/west, height for north/south)
+     */
     void onRegionResized(LayoutRegion region, int newSize);
 }

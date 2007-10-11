@@ -24,9 +24,26 @@ import com.gwtext.client.widgets.layout.ContentPanel;
 
 public interface ContentPanelListener {
 
+    /**
+     * Fires when this panel is activated.
+     *
+     * @param cp this
+     */
     void onActivate(ContentPanel cp);
 
+    /**
+     * Fires when this panel is deactivated.
+     * 
+     * @param cp this
+     */
     void onDeactivate(ContentPanel cp);
 
+    /**
+     * Fires when this panel is resized if fitToFrame is true.
+     *
+     * @param cp this
+     * @param width the width after any component adjustments
+     * @param height the height after any component adjustments
+     */
     void onResize(ContentPanel cp, int width, int height);
 }

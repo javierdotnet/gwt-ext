@@ -25,9 +25,30 @@ import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridRowListener {
 
+    /**
+     * Fires when a row is clicked.
+     *
+     * @param grid this
+     * @param rowIndex the row index
+     * @param e the event object
+     */
     void onRowClick(Grid grid, int rowIndex, EventObject e);
 
+    /**
+     * Fires when a row is double clicked.
+     *
+     * @param grid this
+     * @param rowIndex the row index
+     * @param e the event object
+     */
     void onRowDblClick(Grid grid, int rowIndex, EventObject e);
 
+    /**
+     * Fires when a row is right clicked.
+     *
+     * @param grid this
+     * @param rowIndex the row index
+     * @param e the event object
+     */    
     void onRowContextMenu(Grid grid, int rowIndex, EventObject e);
 }

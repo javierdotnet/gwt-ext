@@ -25,17 +25,53 @@ import com.gwtext.client.widgets.grid.Grid;
 
 public interface GridListener {
 
+    /**
+     * Fires when the body element is scrolled.
+     *
+     * @param scrollLeft scroll left value
+     * @param scrollTop scroll top value
+     */
     void onBodyScroll(int scrollLeft, int scrollTop);
 
+    /**
+     * The raw click event for the entire grid.
+     *
+     * @param e the event object
+     */
     void onClick(EventObject e);
 
+    /**
+     * The raw contextmenu event for the entire grid.
+     *
+     * @param e the event object
+     */
     void onContextMenu(EventObject e);
 
+    /**
+     * The raw dblclick event for the entire grid.
+     *
+     * @param e the event object
+     */
     void onDblClick(EventObject e);
 
+    /**
+     * The raw keydown event for the entire grid..
+     *
+     * @param e the event object
+     */
     void onKeyDown(EventObject e);
 
+    /**
+     * The raw keypress event for the entire grid.
+     *
+     * @param e the event object
+     */
     void onKeyPress(EventObject e);
 
+    /**
+     * Fires when the grid is rendered
+     * 
+     * @param grid this
+     */
     void onRender(Grid grid);
 }

@@ -20,6 +20,7 @@
 
 package com.gwtext.client.widgets.grid.event;
 
+import com.google.gwt.user.client.Event;
 import com.gwtext.client.widgets.grid.Grid;
 import com.gwtext.client.widgets.grid.GridDD;
 
@@ -29,15 +30,54 @@ public interface GridDragListener {
 
     //raw event?
 
-    void onStartDrag(Grid grid, GridDD dd);
+    /**
+     * Fires when row(s) start being dragged.
+     *
+     * @param grid this
+     * @param dd The drag drop object
+     * @param e the browser event
+     */
+    void onStartDrag(Grid grid, GridDD dd, Event e);
 
-    void onDragDrop(Grid grid, GridDD dd, String targetId);
+    /**
+     * Fires when dragged row(s) are dropped on a valid DD target.
+     * 
+     * @param grid this
+     * @param dd the drag drop object
+     * @param targetId The target drag drop object
+     * @param e the browser event
+     */
+    void onDragDrop(Grid grid, GridDD dd, String targetId, Event e);
 
-    void onDragEnter(Grid grid, GridDD dd, String targetId);
+    /**
+     * Fires when the dragged row(s) first cross another DD target while being dragged.
+     *
+     * @param grid this
+     * @param dd the drag drop object
+     * @param targetId The target drag drop object
+     * @param e the browser event
+     */
+    void onDragEnter(Grid grid, GridDD dd, String targetId, Event e);
 
-    void onDragOut(Grid grid, GridDD dd, String targetId);
+    /**
+     * Fires when the dragged row(s) leave another DD target while being dragged.
+     *
+     * @param grid this
+     * @param dd the drag drop object
+     * @param targetId The target drag drop object
+     * @param e the browser event
+     */
+    void onDragOut(Grid grid, GridDD dd, String targetId, Event e);
 
-    void onDragOver(Grid grid, GridDD dd, String targetId);
+    /**
+     * Fires while row(s) are being dragged. "targetId" is the id of the target object the selected rows are being
+     * dragged over.
+     *
+     * @param grid this
+     * @param dd the drag drop object
+     * @param targetId The target drag drop object
+     * @param e the browser event
+     */
+    void onDragOver(Grid grid, GridDD dd, String targetId, Event e);
 
-    void onEndEnter(Grid grid);
 }

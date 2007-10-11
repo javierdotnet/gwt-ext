@@ -24,5 +24,11 @@ import com.gwtext.client.widgets.ColorPalette;
 
 public interface ColorPaletteListener {
 
+    /**
+     * Fires when a color is selected.
+     *
+     * @param colorPalette this
+     * @param color The 6-digit color hex code (without the # symbol) 
+     */
     void onSelect(ColorPalette colorPalette, String color);
 }

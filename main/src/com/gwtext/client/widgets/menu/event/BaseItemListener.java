@@ -25,7 +25,25 @@ import com.gwtext.client.widgets.menu.BaseItem;
 
 public interface BaseItemListener {
 
+    /**
+     * Fires when this item is activated
+     *
+     * @param item this
+     */
+    void onActivate(BaseItem item);
+
+    /**
+     * Fires when this item is clicked
+     *
+     * @param item the item
+     * @param e the event object
+     */
     void onClick(BaseItem item, EventObject e);
 
+    /**
+     * Fires when this item is deactivated
+     * 
+     * @param item this
+     */
     void onDeactivate(BaseItem item);
 }

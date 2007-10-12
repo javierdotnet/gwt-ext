@@ -20,9 +20,15 @@
 
 package com.gwtext.client.widgets.menu.event;
 
-import com.gwtext.client.widgets.menu.ColorMenu;
+import com.gwtext.client.widgets.ColorPalette;
 
 public interface ColorMenuListener {
 
-    void onSelect(ColorMenu colorMenu, String color);
+    /**
+     * Fired when the color menu is selected.
+     *
+     * @param colorPalette the color palette
+     * @param color the selected color
+     */
+    void onSelect(ColorPalette colorPalette, String color);
 }

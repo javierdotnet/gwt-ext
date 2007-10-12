@@ -25,6 +25,9 @@ import com.gwtext.client.widgets.menu.BaseItem;
 
 public class BaseItemListenerAdapter implements BaseItemListener {
 
+    public void onActivate(BaseItem item) {
+    }
+
     public void onClick(BaseItem item, EventObject e) {
     }
 

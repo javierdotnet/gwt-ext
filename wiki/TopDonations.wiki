@@ -14,6 +14,7 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 || M. Dodd || - ||
 || Ming Fang || Financial app ||
 || Rob Smith || Financial app ||
+|| Robert Björn || - ||
 || Scooter Willis || http://www.videoprotein.com ||
 || Steve Schreiner || - ||
  

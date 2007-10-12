@@ -24,8 +24,19 @@ import com.gwtext.client.widgets.tree.AsyncTreeNode;
 
 public interface AsyncTreeNodeListener {
 
+    /**
+     * Fires before this node is loaded, return false to cancel.
+     *
+     * @param node the node
+     * @return false to cancel
+     */
     boolean doBeforeLoad(AsyncTreeNode node);
 
+    /**
+     * Fires when this node is loaded.
+     *
+     * @param node the node
+     */
     void onLoad(AsyncTreeNode node);
 
 }

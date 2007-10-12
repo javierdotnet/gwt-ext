@@ -23,23 +23,36 @@ package com.gwtext.client.widgets.grid;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.grid.event.CellSelectionModelListener;
 
+/**
+ * This class provides the basic implementation for cell selection in a grid.
+ */
 public class CellSelectionModel extends AbstractSelectionModel {
 
     public CellSelectionModel(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    /**
+     * Clears all selections.
+     */
     public native void clearSelections() /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         sm.clearSelections();
     }-*/;
 
+    /**
+     * Clears all selections.
+     *
+     * @param disableNotifications true to disable notifications to the {@link GridView}
+     */
     public native void clearSelections(boolean disableNotifications) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         sm.clearSelections(disableNotifications);
     }-*/;
 
     /**
+     * Returns the currently selected cell.
+     *
      * @return array containing rowIndex, colIndex
      */
     public native int[] getSelectedCell() /*-{
@@ -48,6 +61,11 @@ public class CellSelectionModel extends AbstractSelectionModel {
         return sc == null ? null : @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(sc);
     }-*/;
 
+    /**
+     * Adds a Cell Selection model listener.
+     *
+     * @param listener the listener
+     */
     public native void addCellSelectionModelListener(CellSelectionModelListener listener) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::jsObj;
         var smJ = this;

@@ -51,12 +51,19 @@ public class BaseItem extends Component {
         var baseItem = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var baseItemJ = this;
 
+        baseItem.addListener('activate',
+                function(source) {
+                    return listener.@com.gwtext.client.widgets.menu.event.BaseItemListener::onActivate(Lcom/gwtext/client/widgets/menu/BaseItem;)(baseItemJ);
+                }
+        );
+
         baseItem.addListener('click',
                 function(source, event) {
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     return listener.@com.gwtext.client.widgets.menu.event.BaseItemListener::onClick(Lcom/gwtext/client/widgets/menu/BaseItem;Lcom/gwtext/client/core/EventObject;)(baseItemJ, e);
                 }
         );
+
         baseItem.addListener('deactivate',
                 function(source) {
                     return listener.@com.gwtext.client.widgets.menu.event.BaseItemListener::onDeactivate(Lcom/gwtext/client/widgets/menu/BaseItem;)(baseItemJ);

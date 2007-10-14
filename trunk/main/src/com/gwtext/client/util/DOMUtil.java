@@ -34,7 +34,7 @@ public class DOMUtil {
      * @param divID the div ID
      * @return panel representation of the specified div
      */
-    public FlowPanel convertDivToPanel(final String divID) {
+    public static FlowPanel convertDivToPanel(final String divID) {
         return new FlowPanel() {
             {
                 setElement(DOM.getElementById(divID));

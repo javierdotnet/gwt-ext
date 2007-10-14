@@ -182,6 +182,22 @@ public class Store extends JsObject {
         });
     }-*/;
 
+    /**
+     * Returns the record at the specified index. This method is functionally equivalent to {@link #getAt(int)}.
+     *
+     * @param index the Store index
+     * @return the Record at index
+     */
+    public Record getRecordAt(int index) {
+        return getAt(index);
+    }
+    
+    /**
+     * Returns the record at the specified index.
+     *
+     * @param index the Store index
+     * @return the Record at index
+     */
     public native Record getAt(int index) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var rec = store.getAt(index);

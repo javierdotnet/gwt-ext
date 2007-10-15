@@ -22,6 +22,9 @@ package com.gwtext.sample.showcase.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.HistoryListener;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
 import com.gwtext.client.core.EventCallback;
 import com.gwtext.client.core.EventObject;
@@ -61,13 +64,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Showcase implements EntryPoint {
+public class Showcase implements EntryPoint, HistoryListener {
     private static PopupPanel messagePanel = new PopupPanel(true);
 
     private Map screens = new HashMap();
     private TextField searchField;
     private TreeFilter treeFilter;
     private DelayedTask delayedTask = new DelayedTask();
+    private BorderLayout layout;
+    private TreePanel menuTree;
 
     public void onModuleLoad() {
 
@@ -75,7 +80,7 @@ public class Showcase implements EntryPoint {
         QuickTips.init();
 
         //create the main layout
-        BorderLayout layout = createBorderLayout();
+        layout = createBorderLayout();
 
         //add a header
         ContentPanel ncp = new ContentPanel("north", "North Title");
@@ -98,7 +103,7 @@ public class Showcase implements EntryPoint {
                 setStore(store);
                 setDisplayField("label");
                 setForceSelection(true);
-                setTriggerAction("all");
+                setTriggerAction(ComboBox.ALL);
                 setValue("Aero Glass Theme");
                 setFieldLabel("Switch theme");
                 setComboBoxListener(new ComboBoxListenerAdapter() {
@@ -128,22 +133,22 @@ public class Showcase implements EntryPoint {
         layout.add(LayoutRegionConfig.CENTER, centerPanel);
 
         //add a navigation tree menu
-        ContentPanel navcp = createExamplesExplorer(layout);
+        ContentPanel navcp = createExamplesExplorer();
         layout.add(LayoutRegionConfig.WEST, navcp);
 
         RootPanel.get().add(layout);
+
+        // onHistoryChanged() is not called when the application first runs. Call
+        // it now in order to reflect the initial state.
+
+        // Add history listener
+        History.addHistoryListener(this);
     }
 
-    private static String getScreenName(TreeNode node, String name) {
-        TreeNode parentNode = (TreeNode) node.getParentNode();
-        return (parentNode == null || parentNode.getParentNode() == null) ? name : getScreenName(parentNode, Format.stripTags(parentNode.getText()) + ">" + name);
-    }
-
-
-    private ContentPanel createExamplesExplorer(final BorderLayout layout) {
+    private ContentPanel createExamplesExplorer() {
 
         //create and configure the main tree
-        final TreePanel menuTree = new TreePanel("eg-tree", new TreePanelConfig() {
+        menuTree = new TreePanel("eg-tree", new TreePanelConfig() {
             {
                 setAnimate(true);
                 setEnableDD(true);
@@ -152,6 +157,7 @@ public class Showcase implements EntryPoint {
             }
         });
 
+
         treeFilter = new TreeFilter(menuTree);
 
         final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
@@ -159,6 +165,8 @@ public class Showcase implements EntryPoint {
                 setDataUrl("side-nav.xml");
                 setMethod("get");
                 setRootTag("side-nav");
+                setFolderIdMapping("@id");
+                setLeafIdMapping("@id");
                 setFolderTag("node");
                 setFolderTitleMapping("@title");
                 setLeafTitleMapping("@title");
@@ -175,20 +183,10 @@ public class Showcase implements EntryPoint {
         //node that is clicked and then displays it in the main / center panel
         TreePanelListener treePanelListener = new TreePanelListenerAdapter() {
             public void onClick(TreeNode self, EventObject e) {
-                String nodeName = Format.stripTags(self.getText());
-                String screenName = getScreenName(self, nodeName);
-                if (screens.containsKey(screenName)) {
-                    ShowcaseExample panel = (ShowcaseExample) screens.get(screenName);
-                    LayoutRegion region = layout.getRegion(LayoutRegionConfig.CENTER);
-                    region.removeAll(true);
-                    ContentPanel[] panels = panel.getPanels();
-                    for (int i = 0; i < panels.length; i++) {
-                        ContentPanel contentPanel = panels[i];
-                        layout.add(contentPanel);
-                    }
-                    region.showPanel(0);
-                }
+                String nodeID = self.getId();
+                showScreen(nodeID);
             }
+
         };
 
         //register listener
@@ -200,6 +198,17 @@ public class Showcase implements EntryPoint {
         //loads tree data asynchronously
         root.expand();
         menuTree.expandAll();
+
+        final String initToken = History.getToken();
+        if (initToken.length() != 0) {
+            Timer timer = new Timer() {
+                public void run() {
+                    onHistoryChanged(initToken);
+                    menuTree.getNodeById(initToken).select();
+                }
+            };
+            timer.schedule(2000);
+        }
 
         final Toolbar filterToolbar = new Toolbar("filter-tb");
         ToolbarButton funnelButton = new ToolbarButton(new ButtonConfig() {
@@ -226,18 +235,24 @@ public class Showcase implements EntryPoint {
 
         filterToolbar.addButton(funnelButton);
 
-        searchField = new TextField(new TextFieldConfig() {
+        searchField = new
+
+                TextField(new TextFieldConfig() {
             {
                 setMaxLength(40);
                 setGrow(false);
                 setSelectOnFocus(true);
             }
-        });
+        }
+
+        );
 
         filterToolbar.addField(searchField);
         filterToolbar.addSeparator();
 
-        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
+        filterToolbar.addButton(new
+
+                ToolbarButton(new ButtonConfig() {
             {
                 setCls("x-btn-icon expand-all-btn");
                 setTooltip("Expand All");
@@ -247,9 +262,13 @@ public class Showcase implements EntryPoint {
                     }
                 });
             }
-        }));
+        }
 
-        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
+        ));
+
+        filterToolbar.addButton(new
+
+                ToolbarButton(new ButtonConfig() {
             {
                 setCls("x-btn-icon collapse-all-btn");
                 setTooltip("Collapse All");
@@ -259,7 +278,9 @@ public class Showcase implements EntryPoint {
                     }
                 });
             }
-        }));
+        }
+
+        ));
 
         ContentPanel cp = new ContentPanel("eg-explorer", "Examples Explorer", new ContentPanelConfig() {
             {
@@ -268,17 +289,38 @@ public class Showcase implements EntryPoint {
         });
         cp.add(menuTree);
 
-        searchField.getEl().addListener("keyup", new EventCallback() {
-            public void execute(EventObject e) {
-                delayedTask.delay(500, new Function() {
-                    public void execute() {
-                        onSearchChange(false);
+        searchField.getEl().
+
+                addListener("keyup", new EventCallback() {
+                    public void execute
+                            (EventObject
+                                    e) {
+                        delayedTask.delay(500, new Function() {
+                            public void execute() {
+                                onSearchChange(false);
+                            }
+                        });
                     }
-                });
-            }
-        });
+                }
+
+                );
 
         return cp;
+    }
+
+    private void showScreen(String nodeID) {
+        if (screens.containsKey(nodeID)) {
+            ShowcaseExample panel = (ShowcaseExample) screens.get(nodeID);
+            LayoutRegion region = layout.getRegion(LayoutRegionConfig.CENTER);
+            region.removeAll(true);
+            ContentPanel[] panels = panel.getPanels();
+            for (int i = 0; i < panels.length; i++) {
+                ContentPanel contentPanel = panels[i];
+                layout.add(contentPanel);
+            }
+            region.showPanel(0);
+            History.newItem(nodeID);
+        }
     }
 
     private void onSearchChange(final boolean filteredOnly) {
@@ -365,6 +407,14 @@ public class Showcase implements EntryPoint {
         return new BorderLayout("100%", "100%", north, null, west, null, center);
     }
 
+    /**
+     * This method is called whenever the application's history changes.
+     *
+     * @param historyToken
+     */
+    public void onHistoryChanged(String historyToken) {
+        showScreen(historyToken);
+    }
 
     public static void showMessage(String title, String message) {
         messagePanel.setPopupPosition(500, 300);
@@ -382,42 +432,43 @@ public class Showcase implements EntryPoint {
                                                       }-*/;
 
     {
-        screens.put("Dialogs>Message Box and Progress", new MessageBoxPanel());
-        screens.put("Dialogs>Basic Dialog", new BasicDialogPanel());
-        screens.put("Dialogs>Dialog with Key Listeners", new KeyListenerDialogPanel());
-        screens.put("Dialogs>Layout Dialog", new LayoutDialogPanel());
-        screens.put("Dialogs>Multiple Dialogs", new MultipleDialogPanel());
-        screens.put("Dialogs>Login Dialog", new LoginDialogPanel());
+        screens.put("messageBoxDialog", new MessageBoxPanel());
+        screens.put("basicDialog", new BasicDialogPanel());
+        screens.put("layoutDialog", new LayoutDialogPanel());
+        screens.put("multipleDialogs", new MultipleDialogPanel());
+        screens.put("loginDialog", new LoginDialogPanel());
 
-        screens.put("ComboBox>Basic", new BasicComboBoxPanel());
-        screens.put("ComboBox>Compact", new CompactComboBoxPanel());
-        screens.put("ComboBox>Paging", new ComboBoxPagingPanel());
-        screens.put("ComboBox>Styled", new ComboBoxStyledPanel());
-        screens.put("ComboBox>Live Search", new LiveSearchPanel());
+        screens.put("basicComboBox", new BasicComboBoxPanel());
+        screens.put("compactComboBox", new CompactComboBoxPanel());
+        screens.put("pagingComboBox", new ComboBoxPagingPanel());
+        screens.put("styledComboBox", new ComboBoxStyledPanel());
+        screens.put("liveSearch", new LiveSearchPanel());
 
-        screens.put("Toolbar and Menus>Toolbar and Menus", new MenusPanel());
+        screens.put("toolbarAndMenus", new MenusPanel());
 
-        screens.put("Grids>Basic Array Grid", new BasicArrayGridPanel());
-        screens.put("Grids>Editable Grid", new EditableGridPanel());
-        screens.put("Grids>Grid with Remote Paging", new RemotePagingGridPanel());
-        screens.put("Grids>Column Order", new ColumnOrderGridPanel());
-        screens.put("Grids>Stock Ticker", new StockTickerGridPanel());
+        screens.put("basicArrayGrid", new BasicArrayGridPanel());
+        screens.put("editableGrid", new EditableGridPanel());
+        screens.put("remotePagingGrid", new RemotePagingGridPanel());
+        screens.put("columnOrderGrid", new ColumnOrderGridPanel());
+        screens.put("stockTicker", new StockTickerGridPanel());
 
-        screens.put("Forms>Simple Form", new SimpleFormPanel());
-        screens.put("Forms>Multi-Column Form", new MultiColumnFormPanel());
-        screens.put("Forms>Multi-Column Fieldset Form", new MultiColumnFieldsetPanel());
-        screens.put("Forms>Multi-Column Labels Top Form", new MultiColumnLabelsTopPanel());
-        screens.put("Forms>Load / Submit Xml Form", new XmlFormPanel());
+        screens.put("simpleForm", new SimpleFormPanel());
+        screens.put("multiColumnForm", new MultiColumnFormPanel());
+        screens.put("multiColumnFieldsetForm", new MultiColumnFieldsetPanel());
+        screens.put("multiColumnLabelsTopForm", new MultiColumnLabelsTopPanel());
+        screens.put("loadSubmitXmlForm", new XmlFormPanel());
+        screens.put("formWithGrid", new GridFormPanel());
 
-        screens.put("Tab Panel>Dynamic and Events", new TabsPanel());
+        screens.put("dynaicTabPanel", new TabsPanel());
 
-        screens.put("Drag and Drop>Basic", new BasicDDPanel());
-        screens.put("Drag and Drop>Handles", new DDHandlesPanel());
-        screens.put("Drag and Drop>On Top", new DDOnTopPanel());
-        screens.put("Drag and Drop>Proxy", new DDProxyPanel());
+        screens.put("basicDD", new BasicDDPanel());
+        screens.put("handlesDD", new DDHandlesPanel());
+        screens.put("onTopDD", new DDOnTopPanel());
+        screens.put("proxyDD", new DDProxyPanel());
 
-        screens.put("Animation>Custom", new CustomAnimationPanel());
-        screens.put("Tree>Editable and Sortable", new EditableTreePanel());
-        screens.put("Tree>Checkbox", new CheckboxTreePanel());
+        screens.put("customAnimation", new CustomAnimationPanel());
+
+        screens.put("editableTree", new EditableTreePanel());
+        screens.put("checkboxTree", new CheckboxTreePanel());
     }
 }

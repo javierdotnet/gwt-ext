@@ -1,0 +1,88 @@
+
+<textarea name="code" class="java" style="display:none;">
+//create layout regions for layout dialog
+LayoutRegionConfig west = new LayoutRegionConfig() {
+	{
+		setSplit(true);
+		setInitialSize(150);
+		setMinSize(100);
+		setMaxSize(250);
+		setCollapsible(true);
+		setAnimate(true);
+		setTitlebar(true);
+	}
+};
+
+LayoutRegionConfig center = new LayoutRegionConfig() {
+	{
+		setAutoScroll(true);
+		setTabPosition("top");
+		setCloseOnTab(true);
+		setAlwaysShowTabs(true);
+	}
+};
+
+final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
+	{
+		setModal(true);
+		setWidth(600);
+		setHeight(400);
+		setShadow(true);
+		setMinHeight(300);
+		setMinHeight(300);
+		setProxyDrag(true);
+		setTitle("Hello World");
+	}
+}, null, null, west, null, center);
+
+Button saveBtn = dialog.addButton("Save");
+saveBtn.addButtonListener(new ButtonListenerAdapter() {
+	public void onClick(Button button, EventObject e) {
+		MessageBox.alert("Save", "Save clicked");
+	}
+});
+
+dialog.addButton(new Button("cancel", new ButtonConfig() {
+	{
+		setText("Cancel");
+		setButtonListener(new ButtonListenerAdapter() {
+			public void onClick(Button button, EventObject e) {
+				MessageBox.alert("Cancel", "Cancel clicked");
+			}
+		});
+	}
+}));
+
+//add content to various regions
+final BorderLayout layout = dialog.getLayout();
+layout.beginUpdate();
+layout.add(LayoutRegionConfig.WEST, new ContentPanel(Ext.generateId(), "West"));
+
+//adding multiple Content Panels to the same region resutls in tabs
+layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), "The First Tab"));
+layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
+	{
+		setTitle("Another Tab");
+		setBackground(true);
+	}
+}));
+layout.add(LayoutRegionConfig.CENTER, new ContentPanel(Ext.generateId(), new ContentPanelConfig() {
+	{
+		setTitle("Third Tab");
+		setClosable(true);
+		setBackground(true);
+	}
+}));
+layout.endUpdate();
+
+Button button = new Button("Click Me!");
+button.addButtonListener(new ButtonListenerAdapter() {
+	public void onClick(Button button, EventObject e) {
+		dialog.show(button.getEl());
+	}
+});
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

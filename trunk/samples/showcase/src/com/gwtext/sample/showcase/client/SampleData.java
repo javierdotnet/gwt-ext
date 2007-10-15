@@ -20,6 +20,9 @@
 
 package com.gwtext.sample.showcase.client;
 
+import com.gwtext.client.data.*;
+import com.gwtext.client.widgets.grid.*;
+
 public class SampleData {
 
     public static Object[][] getCountries() {
@@ -106,7 +109,7 @@ public class SampleData {
                 new Object[]{"Altria Group Inc", new Double(83.81), new Double(0.28), new Double(0.34), "9/1 12:00am", "MO"},
                 new Object[]{"American Express Company", new Double(52.55), new Double(0.01), new Double(0.02), "9/1 12:00am", "AXP"},
                 new Object[]{"American International Group, Inc.", new Double(64.13), new Double(0.31), new Double(0.49), "9/1 12:00am", "AIG"},
-                new Object[]{"AT&T Inc.", new Double(31.61), new Double(-0.48), new Double(-1.54), "9/1 12:00am", "T" },
+                new Object[]{"AT&T Inc.", new Double(31.61), new Double(-0.48), new Double(-1.54), "9/1 12:00am", "T"},
                 new Object[]{"Boeing Co.", new Double(75.43), new Double(0.53), new Double(0.71), "9/1 12:00am", "BA"},
                 new Object[]{"Caterpillar Inc.", new Double(67.27), new Double(0.92), new Double(1.39), "9/1 12:00am", "CAT"},
                 new Object[]{"Citigroup, Inc.", new Double(49.37), new Double(0.02), new Double(0.04), "9/1 12:00am", "C"},
@@ -132,5 +135,83 @@ public class SampleData {
                 new Object[]{"Wal-Mart Stores, Inc.", new Double(45.45), new Double(0.73), new Double(1.63), "9/1 12:00am", "WMT"},
                 new Object[]{"Walt Disney Company (The) (Holding Company)", new Double(29.89), new Double(0.24), new Double(0.81), "9/1 12:00am", "DIS"}
         };
+    }
+
+
+    public static Grid getSampleGrid(String id, String width, String height) {
+        MemoryProxy proxy = new MemoryProxy(SampleData.getCompanyData());
+        RecordDef recordDef = new RecordDef(
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia"),
+                        new StringFieldDef("symbol")
+                }
+        );
+
+
+
+        ArrayReader reader = new ArrayReader(recordDef);
+        Store store = new Store(proxy, reader);
+        store.load();
+
+        //setup column model
+        ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
+                new ColumnConfig() {
+                    {
+                        setHeader("Company");
+                        setWidth(160);
+                        setSortable(true);
+                        setLocked(false);
+                        setDataIndex("company");
+                    }
+                },
+                new ColumnConfig() {
+                    {
+                        setHeader("Price");
+                        setWidth(75);
+                        setSortable(true);
+                        setDataIndex("price");
+                        setRenderer(new Renderer() {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+                                return "$" + value;
+                            }
+                        });
+                    }
+                },
+                new ColumnConfig() {
+                    {
+                        setId("change");
+                        setHeader("Change");
+                        setWidth(75);
+                        setSortable(true);
+                        setDataIndex("change");
+                        setRenderer(new Renderer() {
+                            public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+                                if (((Float) value).floatValue() < 0) {
+                                    return "<span style='color:red;'>" + value + "</span>";
+                                } else {
+                                    return value.toString();
+                                }
+                            }
+                        });
+                    }
+                },
+                new ColumnConfig() {
+                    {
+                        setHeader("% Change");
+                        setWidth(75);
+                        setSortable(true);
+                        setDataIndex("pctChange");
+                    }
+                }
+        });
+
+        //create and render grid
+        final Grid grid = new Grid(id, width, height, store, columnModel);
+        grid.render();
+        return grid;
     }
 }

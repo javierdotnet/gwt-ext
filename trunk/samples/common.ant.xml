@@ -50,7 +50,7 @@
 			<targetfiles path="${sample.build}/www/com.gwtext.sample.${sample.package}.${sample.module}/com.gwtext.sample.${sample.package}.${sample.module}.nocache.html" />
 			<sequential>
 				<mkdir dir="${sample.build}/www" />
-				<java dir="${sample.build}" classname="com.google.gwt.dev.GWTCompiler" classpath="${sample.build}/src:${gwt.user.jar}:${gwt.dev.jar}:${gwtext.dev.jar}" fork="yes" failonerror="true">
+				<java dir="${sample.build}" classname="com.google.gwt.dev.GWTCompiler" classpath="${sample.build}/src:${gwt.user.jar}:${gwt.dev.jar}:${gwtext.dev.jar}" fork="yes" failonerror="true" maxmemory="256m">
 					<arg value="-out" />
 					<arg file="${sample.build}/www" />
 					<arg value="com.gwtext.sample.${sample.package}.${sample.module}" />

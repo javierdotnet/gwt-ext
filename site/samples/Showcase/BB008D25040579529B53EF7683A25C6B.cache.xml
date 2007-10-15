@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cache-entry>
+	<generated-type-hash class="com.google.gwt.i18n.client.constants.CurrencyCodeMapConstants_" hash="8277A1C7B5AA006BA38095BEB609E722"/>
+	<generated-type-hash class="com.google.gwt.i18n.client.constants.NumberConstants_" hash="5873569F35109F546DABA53ACD8F9CD6"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.TextBoxImpl" out="com.google.gwt.user.client.ui.impl.TextBoxImpl"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.ListBox.Impl" out="com.google.gwt.user.client.ui.ListBox.Impl"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.FocusImpl" out="com.google.gwt.user.client.ui.impl.FocusImplOld"/>
+	<rebind-decision in="com.google.gwt.xml.client.impl.XMLParserImpl" out="com.google.gwt.xml.client.impl.XMLParserImplOpera"/>
+	<rebind-decision in="com.google.gwt.i18n.client.constants.NumberConstants" out="com.google.gwt.i18n.client.constants.NumberConstants_"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.FormPanelImpl" out="com.google.gwt.user.client.ui.impl.FormPanelImpl"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.HistoryImpl" out="com.google.gwt.user.client.impl.HistoryImplStandard"/>
+	<rebind-decision in="com.gwtext.sample.showcase.client.Showcase" out="com.gwtext.sample.showcase.client.Showcase"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.DOMImpl" out="com.google.gwt.user.client.impl.DOMImplOpera"/>
+	<rebind-decision in="com.google.gwt.i18n.client.constants.CurrencyCodeMapConstants" out="com.google.gwt.i18n.client.constants.CurrencyCodeMapConstants_"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.HTTPRequestImpl" out="com.google.gwt.user.client.impl.HTTPRequestImpl"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.PopupImpl" out="com.google.gwt.user.client.ui.impl.PopupImpl"/>
+</cache-entry>

@@ -1,0 +1,19 @@
+
+<textarea name="code" class="java" style="display:none;">
+//html
+<div id="dd-demo-1a" class="dd-demo"></div>
+<div id="dd-demo-2a" class="dd-demo"></div>
+<div id="dd-demo-3a" class="dd-demo"></div>
+
+DeferredCommand.addCommand(new Command() {
+    public void execute() {
+        DD dd1 = new DD("dd-demo-1a");
+      DD dd2 = new DD("dd-demo-2a");
+      DD dd3 = new DD("dd-demo-3a");
+    }
+});
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

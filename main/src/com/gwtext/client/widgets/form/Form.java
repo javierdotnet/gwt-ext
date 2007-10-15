@@ -200,6 +200,13 @@ public class Form extends BaseExtWidget {
         form.column(configJS);
     }-*/;
 
+    public void container(final String containerID) {
+        container(new ContainerConfig() {
+            {
+                setId(containerID);
+            }
+        });
+    }
 
     //http://extjs.com/forum/showthread.php?t=5262&page=2
     public native void container(ContainerConfig config)/*-{

@@ -28,7 +28,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 public class DOMUtil {
 
     /**
-     * Converts the soecified Div ID to a Panel. The Div must be rendered to the browser DOM
+     * Converts the specified Div ID to a Panel. The Div must be rendered to the browser DOM
      * before calling this method.
      *
      * @param divID the div ID

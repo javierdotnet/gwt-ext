@@ -31,6 +31,9 @@ import com.gwtext.client.widgets.BaseExtWidget;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.form.event.FormListener;
 
+/**
+ * Form widget.
+ */
 public class Form extends BaseExtWidget {
 
     private boolean rendered = false;
@@ -38,10 +41,18 @@ public class Form extends BaseExtWidget {
     //used in jsni render method
     private String id;
 
+    /**
+     * Constucts a new Form.
+     */
     public Form() {
         this((String)null);
     }
 
+    /**
+     * Constructs a new Form.
+     *
+     * @param id the Form ID
+     */
     public Form(String id) {
         this.id = id == null ? Ext.generateId() : id;
         FormConfig fconfig = new FormConfig();
@@ -50,10 +61,21 @@ public class Form extends BaseExtWidget {
         RootPanel.get().add(this);
     }
 
+    /**
+     * Constructs a new Form using the specified configuration.
+     *
+     * @param config the Form configuration
+     */
     public Form(FormConfig config) {
         this(null, config);
     }
 
+    /**
+     * Constructs a new Form.
+     *
+     * @param id the Form ID
+     * @param config the Form configuraiton
+     */
     public Form(String id, FormConfig config) {
         this.id = (id == null) ? Ext.generateId() : id;
         createElement(this.id, config);
@@ -145,18 +167,35 @@ public class Form extends BaseExtWidget {
         return new $wnd.Ext.form.Form(config);
     }-*/;
 
+    /**
+     * Add a Field to the current open container (e.g. column, fieldset, etc.).
+     * 
+     * @param field the field to add
+     */
     public native void add(Field field) /*-{
        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        var fieldJS = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        form.add(fieldJS);
    }-*/;
 
+    /**
+     * Adds a button to the footer of the form - this must be called before the form is rendered.
+     * 
+     * @param text the button text
+     * @return the added Button
+     */
     public native Button addButton(String text) /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJS = form.addButton(text);
         return @com.gwtext.client.widgets.Button::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(buttonJS);
    }-*/;
 
+    /**
+     * Adds a button to the footer of the form - this must be called before the form is rendered.
+     *
+     * @param button the Button to add
+     * @return the added Button
+     */
     public Button addButton(Button button) {
         Element buttonEl = button.getElement();
         if (buttonEl != null) {
@@ -176,30 +215,52 @@ public class Form extends BaseExtWidget {
         return form.addButton(buttonJS);
     }-*/;
 
-
+    /**
+     * Copies all properties of the passed config to all fields in this form with the passed object if they don't already exist.
+     * 
+     * @param fieldConfig the config object
+     */
     public native void applyIfToFields(FieldConfig fieldConfig) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var configJS = fieldConfig.@com.gwtext.client.core.JsObject::jsObj;
         field.applyIfToFields(configJS);
     }-*/;
 
+    /**
+     * Copies all properties of the passed config to all fields in this form with the passed object.
+     *
+     * @param fieldConfig the config object
+     */
     public native void applyToFields(FieldConfig fieldConfig) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var configJS = fieldConfig.@com.gwtext.client.core.JsObject::jsObj;
         field.applyToFields(configJS);
     }-*/;
 
+    /**
+     * Clears all invalid messages in this form.
+     */
     public native void clearInvalid() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.clearInvalid();
     }-*/;
 
+    /**
+     * Opens a new {@link Column} container in the layout stack. The column remains open until end() is called.
+     * 
+     * @param config
+     */
     public native void column(ColumnConfig config)/*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         form.column(configJS);
     }-*/;
 
+    /**
+     * Opens a new {@link Layout} container in the layout stack. The container remains open until end() is called.
+     *
+     * @param containerID the container ID
+     */
     public void container(final String containerID) {
         container(new ContainerConfig() {
             {
@@ -209,19 +270,30 @@ public class Form extends BaseExtWidget {
     }
 
     //http://extjs.com/forum/showthread.php?t=5262&page=2
+    /**
+     * Opens a new {@link Layout} container in the layout stack. The container remains open until end() is called.
+     *
+     * @param config the container config
+     */
     public native void container(ContainerConfig config)/*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         form.container(configJS);
     }-*/;
 
-
+    /**
+     * Closes the current open container.
+     */
     public native void end() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.end();
     }-*/;
 
-
+    /**
+     * Opens a new {@link FieldSet} container in the layout stack. The fieldset remains open until end() is called.
+     *
+     * @param legend the fieldset legend
+     */
     public void fieldset(final String legend) {
         fieldset(new FieldSetConfig() {
             {
@@ -230,12 +302,23 @@ public class Form extends BaseExtWidget {
         });
     }
 
+    /**
+     * Opens a new {@link FieldSet} container in the layout stack. The fieldset remains open until end() is called.
+     *
+     * @param config the fieldset config
+     */
     public native void fieldset(FieldSetConfig config)/*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         form.fieldset(configJS);
     }-*/;
 
+    /**
+     * Find a {@link Field} in this form by id, dataIndex, name or hiddenName.
+     * 
+     * @param id the field ID to search for
+     * @return the field
+     */
     public Field findField(String id) {
         JavaScriptObject field = findField(getJsObj(), id);
 
@@ -246,28 +329,50 @@ public class Form extends BaseExtWidget {
         return form.findField(id);
     }-*/;
 
+    //todo add getValues() that returns Map
+    /**
+     * Returns the fields in this form as a String
+     * 
+     * @return form vield values as String
+     */
     public native String getValues() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return form.getValues(true);
     }-*/;
 
-
+    /**
+     * Returns true if any fields in this form have changed since their original load.
+     *
+     * @return true if dirty
+     */
     public native boolean isDirty() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return form.isDirty();
     }-*/;
 
+    /**
+     * Returns true if client-side validation on the form is successful.
+     *
+     * @return true if valid
+     */
     public native boolean isValid() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return form.isValid();
     }-*/;
 
+    //http://extjs.com/forum/showthread.php?t=4340
     public native void load(FormActionConfig config) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var configJS  = config.@com.gwtext.client.core.JsObject::jsObj;
 		form.load(configJS);
 	}-*/;
 
+    /**
+     * Loads a {@link Record} into this form. The name of the Fields in the {@link com.gwtext.client.data.RecordDef}
+     * must match the names of the Fields in the From.
+     *
+     * @param record the Record to load
+     */
     public native void loadRecord(Record record) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var recordJS  = record.@com.gwtext.client.core.JsObject::jsObj;
@@ -276,18 +381,29 @@ public class Form extends BaseExtWidget {
 
     //markInvalid( )  - no need since can findField by ID and call markInvalid on field itself
 
+    /**
+     * Removes a field from the items collection (does NOT remove its markup).
+     *
+     * @param field the field to remove
+     */
     public native void remove(Field field) /*-{
-			var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-			var fieldJS  = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-			form.remove(fieldJS);
+	    var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var fieldJS  = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		form.remove(fieldJS);
 	}-*/;
 
+    /**
+     * Render this form. This should only be called once.
+     */
     public native void render() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var containerID = this.@com.gwtext.client.widgets.form.Form::id;
         form.render(containerID);
     }-*/;
 
+    /**
+     * Resets this form.
+     */
     public native void reset() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.reset();
@@ -295,38 +411,69 @@ public class Form extends BaseExtWidget {
 
     //setValues  -- no need for now
 
+    /**
+     * Starts monitoring of the valid state of this form. Usually this is done by passing the config option
+     * "monitorValid"
+     */
     public native void startMonitoring() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.startMonitoring();
     }-*/;
 
+    /**
+     * Stops monitoring of the valid state of this form.
+     */
     public native void stopMonitoring() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.stopMonitoring();
     }-*/;
 
+    /**
+     * Shortcut to do a submit action.
+     */
     public native void submit() /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         form.submit();
     }-*/;
 
+    /**
+     * Submit the form using the specified configuration.
+     *
+     * @param config form submit config
+     */
     public native void submit(FormActionConfig config) /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var configJS  = config.@com.gwtext.client.core.JsObject::jsObj;
 		form.submit(configJS);
 	}-*/;
 
+    /**
+     * Submit the form using the specified configuration.
+     *
+     * @param config form submit config
+     * @param clientValidation pass true to call form.isValid() prior to posting to validate the form on the client (defaults to false)
+     */
     public void submit(FormActionConfig config, boolean clientValidation) {
         JavaScriptObjectHelper.setAttribute(config.getJsObj(), "clientValidation", clientValidation);
         submit(config);
     }
 
+    /**
+     * Persists the values in this Form into the passed Record object.
+     * 
+     * @param record the record to edit
+     */
     public native void updateRecord(Record record) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var recordJS  = record.@com.gwtext.client.core.JsObject::jsObj;
 		form.updateRecord(recordJS);
 	}-*/;
 
+    /**
+     * Add a Form listener.
+     *
+     * @param listener the form listener
+     */
     public native void addFormListenerListener(FormListener listener) /*-{
         var formJ = this;
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

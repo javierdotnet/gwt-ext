@@ -20,7 +20,16 @@
 
 package com.gwtext.client.data;
 
+/**
+ * Converter that can be used to format the incoming data before processing it by the {@link Reader}.
+ */
 public interface Converter {
 
-    String format(String data);
+	/**
+	 * Format incoming data before processing it by the Reader.
+	 * 
+	 * @param data raw data
+	 * @return processed data
+	 */
+	String format(String data);
 }

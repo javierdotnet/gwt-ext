@@ -21,7 +21,9 @@ package com.gwtext.sample.showcase.client.form;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
+import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.Position;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.*;
 import com.gwtext.client.widgets.Button;
@@ -67,7 +69,7 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
 
         final Form form = new Form("form-ct11", new FormConfig() {
             {
-                setLabelAlign("right");
+                setLabelAlign(Position.RIGHT);
                 setHeader("XML Form");
                 setWidth(400);
                 setLabelWidth(75);
@@ -168,7 +170,7 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
                     public void onClick(Button button, EventObject e) {
                         form.submit(new FormActionConfig() {
                             {
-                                setMethod("GET");
+                                setMethod(Connection.GET);
                                 setUrl("data/xml-errors.xml");
                                 setWaitMsg("Saving Data...");
                             }
@@ -182,7 +184,7 @@ public class XmlFormPanel extends ShowcaseExampleVSD {
             public void onClick(Button button, EventObject e) {
                 form.load(new FormActionConfig() {
                     {
-                        setMethod("GET");
+                        setMethod(Connection.GET);
                         setUrl("data/xml-form.xml");
                         setWaitMsg("Loading");
                         submitBtn.enable();

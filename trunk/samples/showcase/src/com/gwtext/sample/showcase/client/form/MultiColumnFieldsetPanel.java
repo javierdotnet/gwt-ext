@@ -21,6 +21,7 @@ package com.gwtext.sample.showcase.client.form;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
+import com.gwtext.client.core.Position;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
@@ -34,7 +35,7 @@ public class MultiColumnFieldsetPanel extends ShowcaseExampleVSD {
 
         Form form = new Form(new FormConfig() {
             {
-                setLabelAlign("right");
+                setLabelAlign(Position.RIGHT);
                 setLabelWidth(75);
                 setWidth(700);
                 setHeader("Multi-column, nesting and fieldsets");

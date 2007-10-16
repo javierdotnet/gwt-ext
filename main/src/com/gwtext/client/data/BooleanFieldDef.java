@@ -32,25 +32,52 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 public class BooleanFieldDef extends FieldDef {
 
     /**
-     *  Construct a new BooleanField  
-     * @param name
+     *  Construct a new BooleanField.
+	 *  
+     * @param name the name of field
      */
     public BooleanFieldDef(String name) {
         this(name, null, null);
     }
 
-    public BooleanFieldDef(String name, String mapping) {
+	/**
+	 * Construct a new BooleanField
+	 *
+	 * @param name the name of field
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 */
+	public BooleanFieldDef(String name, String mapping) {
         this(name, mapping, null);
     }
 
-    public BooleanFieldDef(String name, int mapping) {
+	/**
+	 * Construct a new BooleanField
+	 *
+	 * @param name the field name
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 */
+	public BooleanFieldDef(String name, int mapping) {
         this(name, mapping, null);
     }
 
-    public BooleanFieldDef(String name, int mapping, Converter converter) {
+	/**
+	 * Construct a new BooleanField
+	 *
+	 * @param name the field name
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param converter format the incoming data before processing it
+	 */
+	public BooleanFieldDef(String name, int mapping, Converter converter) {
         this(name, String.valueOf(mapping), converter);
     }
 
+	/**
+	 * Construct a new BooleanField
+	 *
+	 * @param name the field name
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param converter format the incoming data before processing it
+	 */
     public BooleanFieldDef(String name, String mapping, Converter converter) {
         jsObj = create(name, mapping, converter);
     }

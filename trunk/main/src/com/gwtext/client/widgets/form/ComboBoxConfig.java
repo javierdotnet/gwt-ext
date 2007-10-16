@@ -27,6 +27,9 @@ import com.gwtext.client.data.Store;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
+/**
+ * Configuration class for {@link ComboBox}.
+ */
 public class ComboBoxConfig extends TriggerFieldConfig {
 
     private ComboBoxListener comboBoxListener;
@@ -42,6 +45,11 @@ public class ComboBoxConfig extends TriggerFieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "allQuery", allQuery);
     }
 
+    /**
+     * The underlying data field name to bind to this ComboBox (defaults to undefined if mode = 'remote' or 'text' if mode = 'local').
+     * 
+     * @param displayField the display field
+     */
     public void setDisplayField(String displayField) {
         JavaScriptObjectHelper.setAttribute(jsObj, "displayField", displayField);
         JavaScriptObject store = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(jsObj, "store");
@@ -104,7 +112,6 @@ public class ComboBoxConfig extends TriggerFieldConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "lazyRender", lazyRender);
     }
 
-    //TODO enum
     /**
      * A valid anchor position value.
      *
@@ -283,6 +290,19 @@ public class ComboBoxConfig extends TriggerFieldConfig {
     }
 
     //todo not doced by ext
+    /**
+     * Set the template to use to render the ComboBox items. Used to customize dispaly of ComboBox items.
+     * <br/><br/>
+     * For example the template below uses the fields 'url' and 'text' from the Store's RecordDef.
+     * <br/><br/>
+     * setTpl(new Template("&lt;div class=\"x-combo-list-item\">" +
+     *                   "&lt;em>{url}&lt;/em>&lt;strong>{text}&lt;/strong>" +
+     *                   "&lt;div class=\"x-clear\">&lt;/div>&lt;/div>"));
+     *
+     * @param template template to use for rendering items.
+     * @see Store
+     * @see com.gwtext.client.data.RecordDef
+     */
     public void setTpl(Template template) {
         JavaScriptObjectHelper.setAttribute(jsObj, "tpl", template.getJsObj());
     }

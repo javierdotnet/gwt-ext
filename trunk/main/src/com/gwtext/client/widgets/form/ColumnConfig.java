@@ -22,10 +22,19 @@ package com.gwtext.client.widgets.form;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Column configuration object.
+ *
+ * @see Form#column(ColumnConfig)
+ */
 public class ColumnConfig extends LayoutConfig {
 
+    /**
+     * The fixed width of the column in pixels or CSS value (defaults to "auto").
+     *
+     * @param width the column width
+     */
     public void setWidth(int width) {
         JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
     }
-
 }

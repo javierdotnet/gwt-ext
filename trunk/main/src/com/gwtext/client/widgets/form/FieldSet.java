@@ -22,12 +22,25 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Creates a fieldset container for layout and rendering of fields in a {@link Form}.
+ *
+ * @see com.gwtext.client.widgets.form.Form#fieldset(FieldSetConfig)
+ */
 public class FieldSet extends Layout {
 
+    /**
+     * Creates a new FieldSet.
+     */
     public FieldSet() {
         this(new FieldSetConfig());
     }
 
+    /**
+     * Creates a new FieldSet using the specified configuration.
+     *
+     * @param config fieldset configuration
+     */
     public FieldSet(FieldSetConfig config) {
         super(config);
     }

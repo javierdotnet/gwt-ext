@@ -22,12 +22,23 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Creates a column container for layout and rendering of fields in a {@link Form}.
+ */
 public class Column extends Layout {
 
+    /**
+     * Created a new Column object.
+     */
     public Column() {
         this(new ColumnConfig());
     }
 
+    /**
+     * Creates a nwe Column object with the specific configuration.
+     *
+     * @param config the config object
+     */
     public Column(ColumnConfig config) {
         setJsObj(create(config.getJsObj()));
     }

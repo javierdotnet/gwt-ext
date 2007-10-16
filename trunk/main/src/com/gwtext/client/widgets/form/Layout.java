@@ -23,12 +23,23 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.Component;
 
+/**
+ * Creates a container for layout and rendering of fields in a {@link Form}.
+ */
 public class Layout extends Component {
 
+    /**
+     * Creates a new Layout.
+     */
     public Layout() {
         setJsObj(create(null));
     }
 
+    /**
+     * Creates a new Layout using the configuration.
+     *
+     * @param config the configuration
+     */
     public Layout(LayoutConfig config) {
         setJsObj(create(config.getJsObj()));
     }

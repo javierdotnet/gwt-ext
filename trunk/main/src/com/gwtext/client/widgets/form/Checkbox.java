@@ -23,12 +23,23 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.form.event.CheckboxListener;
 
+/**
+ * Single checkbox field.
+ */
 public class Checkbox extends Field {
 
+    /**
+     * Creates a new Checkbox field.
+     */
     public Checkbox() {
         this(new CheckboxConfig());
     }
 
+    /**
+     * Creates a new Checkbox field using the specified configuration.
+     *
+     * @param config checkbox configuration
+     */
     public Checkbox(CheckboxConfig config) {
         super(config);
         if (config.getCheckboxListener() != null) {
@@ -40,16 +51,31 @@ public class Checkbox extends Field {
         return new $wnd.Ext.form.Checkbox(config);    
     }-*/;
 
+    /**
+     * Returns the checked state of the checkbox.
+     *
+     * @return true if checked, else false
+     */
     public native boolean getValue() /*-{
          var cb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
          return cb.getValue();
      }-*/;
 
+    /**
+     * Sets the checked state of the checkbox.
+     *
+     * @param checked true to chec the checkbox, false to uncheck it
+     */
     public native void setValue(boolean checked) /*-{
         var cb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         cb.setValue(checked);
     }-*/;
 
+    /**
+     * Add a checkbox listener.
+     *
+     * @param listener the listener
+     */
     public native void addCheckboxListener(CheckboxListener listener) /*-{
         var fieldJ = this;
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

@@ -22,28 +22,54 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class FormActionConfig extends BaseConfig {
 
+    /**
+     * The URL for the action (defaults to the form's url).
+     *
+     * @param url the url for the action
+     */
     public void setUrl(String url) {
         JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
     }
 
-    public void setMethod(String method) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "method", method);
+    /**
+     * The form method to use (defaults to the form's method, or POST if not specified).
+     * 
+     * @param method the method
+     */
+    public void setMethod(Connection.Method method) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "method", method.getMethod());
     }
 
+    /**
+     * The params to pass (defaults to the form's baseParams, or none if not defined).
+     * 
+     * @param params the params 
+     */
     public void setParams(String params) {
         JavaScriptObjectHelper.setAttribute(jsObj, "params", params);
     }
 
+    /**
+     * The params to pass (defaults to the form's baseParams, or none if not defined).
+     *
+     * @param params the params  
+     */
     public void setParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "params", paramObj);
     }
 
+    /**
+     * The message to display when the action is being processed.
+     *
+     * @param waitMsg the wait message
+     */
     public void setWaitMsg(String waitMsg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "waitMsg", waitMsg);
     }

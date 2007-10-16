@@ -23,29 +23,56 @@ package com.gwtext.client.widgets.form;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.CheckboxListener;
 
+/**
+ * {@link Checkbox} configuration class.
+ *
+ */
 public class CheckboxConfig extends FieldConfig {
 
     private CheckboxListener checkboxListener;
 
+    /**
+     * The text that appears beside the checkbox.
+     *
+     * @param boxLabel the box label
+     */
     public void setBoxLabel(String boxLabel) {
         JavaScriptObjectHelper.setAttribute(jsObj, "boxLabel", boxLabel);
 		setLabelSeparator("&nbsp;");
 	}
 
-    //TODO - added temp workaroud to get this working. see thread on ext list
-	//http://extjs.com/forum/showthread.php?t=10472
+    /**
+     *  True if the the checkbox should render already checked (defaults to false).
+     *
+     * @param checked true to render checked
+     */
 	public void setChecked(boolean checked) {
         JavaScriptObjectHelper.setAttribute(jsObj, "checked", checked);
     }
 
+    /**
+     * The value that should go into the generated input element's value attribute.
+     * 
+     * @param inputValue fields input value
+     */
     public void setInputValue(String inputValue) {
         JavaScriptObjectHelper.setAttribute(jsObj, "inputValue", inputValue);
     }
 
+    /**
+     * Return the registered checkbox listener.
+     *
+     * @return the listener
+     */
     public CheckboxListener getCheckboxListener() {
         return checkboxListener;
     }
 
+    /**
+     * Register a CheckboxListener.
+     *
+     * @param checkboxListener checkbox listener
+     */
     public void setCheckboxListener(CheckboxListener checkboxListener) {
         this.checkboxListener = checkboxListener;
     }

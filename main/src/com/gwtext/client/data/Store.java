@@ -21,8 +21,9 @@
 package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.xml.client.Element;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.core.RegExp;
+import com.gwtext.client.core.SortDir;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.event.StoreListener;
 import com.gwtext.client.util.JavaScriptObjectHelper;
@@ -123,13 +124,22 @@ public class Store extends JsObject {
         return params;
     }-*/;
 
-
+    /**
+     * Add a Record to the Store and fires the add event.
+     *
+     * @param record the Record to add
+     */
     public native void add(Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
 		return store.add(recordJ);
     }-*/;
 
+    /**
+     * Add Records to the Store and fires the add event.
+     *
+     * @param records the Records to add
+     */
     public void add(Record[] records) {
         JavaScriptObject[] recordsJS = new JavaScriptObject[records.length];
         for (int i = 0; i < records.length; i++) {
@@ -144,21 +154,38 @@ public class Store extends JsObject {
 		store.add(nativeRecordsArray);
     }-*/;
 
+    /**
+     * Revert to a view of the Record cache with no filtering applied.
+     */
     public native void clearFilter() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.clearFilter();
     }-*/;
 
+    /**
+     * Revert to a view of the Record cache with no filtering applied.
+     *
+     * @param suppressEvent if true the filter is cleared silently without notifying listeners
+     */
     public native void clearFilter(boolean suppressEvent) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.clearFilter(suppressEvent);
     }-*/;
 
+    /**
+     * Commit all Records with outstanding changes. To handle updates for changes, subscribe to the Store's "update" event, 
+     * and perform updating when the third parameter {@link Record#COMMIT}.
+     */
     public native void commitChanges() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.commitChanges();
     }-*/;
 
+    /**
+     * Calls the specified function for each of the Records in the cache.
+     *
+     * @param cb the Store traversal callback
+     */
     public native void each(StoreTraversalCallback cb)/*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.each(function(r) {
@@ -167,13 +194,47 @@ public class Store extends JsObject {
         });
     }-*/;
 
-    //todo support regexp vrsion
-    public native void filter(String field, String value, boolean anyMatch) /*-{
+    /**
+     * Filter the records by a specified property using a Regular expression.
+     *
+     * @param field the filed to filter on
+     * @param regexp the regular expression to test field value against
+     */
+    public native void filter(String field, RegExp regexp) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
-		return store.filter(field, value, anyMatch);
+        var re = regexp.@com.gwtext.client.core.JsObject::jsObj;
+        store.filter(field, re);
 	}-*/;
 
+    /**
+     * Filter the records by a specified property .
+     *
+     * @param field the filed to filter on
+     * @param value a string that the field should start with
+     */
+    public native void filter(String field, String value) /*-{
+		var store = this.@com.gwtext.client.core.JsObject::jsObj;
+		store.filter(field, value);
+	}-*/;
 
+    /**
+     * Filter the records by a specified property .
+     * 
+     * @param field the filed to filter on
+     * @param value a string that the field should start with
+     * @param anyMatch true to match any part not just the beginning
+     */
+    public native void filter(String field, String value, boolean anyMatch) /*-{
+		var store = this.@com.gwtext.client.core.JsObject::jsObj;
+		store.filter(field, value, anyMatch);
+	}-*/;
+
+    /**
+     * Filter by a function. The specified function will be called with each record in this data source. If the function returns
+     * true the record is included, otherwise it is filtered.
+     *
+     * @param cb the filter function
+     */
     public native void filterBy(StoreTraversalCallback cb)/*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.filterBy(function(r) {
@@ -205,6 +266,12 @@ public class Store extends JsObject {
 		return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(rec);
     }-*/;
 
+    /**
+     * Get the Record with the specified id.
+     *
+     * @param id the Record ID
+     * @return the matched Record or null if no match found
+     */
     public native Record getById(String id) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var rec = store.getById(id);
@@ -212,12 +279,22 @@ public class Store extends JsObject {
 		return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(rec);
 	}-*/;
 
+    /**
+     * Gets the number of cached records. If using paging, this may not be the total size of the dataset. If the data
+     * object used by the Reader contains the dataset size, then the getTotalCount() function returns the data set size
+     *
+     * @return the Record count
+     */
     public native int getCount() /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         return store.getCount();
     }-*/;
 
-    //tested
+    /**
+     * Gets all records modified since the last commit. Modified records are persisted across load operations (e.g., during paging).
+     *
+     * @return the modified Records
+     */
     public Record[] getModifiedRecords() {
         JavaScriptObject nativeArray = getModifiedRecords(jsObj);
         return convertFromNativeRecordsArray(nativeArray);
@@ -237,6 +314,13 @@ public class Store extends JsObject {
 		return store.getModifiedRecords();
 	}-*/;
 
+    /**
+     * Returns a range of Records between specified indices.
+     *
+     * @param startIndex the starting index (0 based)
+     * @param endIndex the ending index
+     * @return array of Records
+     */
     public Record[] getRange(int startIndex, int endIndex) {
         JavaScriptObject nativeArray = getRange(jsObj, startIndex, endIndex);
         return convertFromNativeRecordsArray(nativeArray);
@@ -246,6 +330,11 @@ public class Store extends JsObject {
 		return store.getRange(startIndex, endIndex);
 	}-*/;
 
+    /**
+     * Returns the sort state of the Store.
+     * 
+     * @return the Store sort state
+     */
     public SortState getSortState() {
         JavaScriptObject sortState = getSortState(jsObj);
         return new SortState(JavaScriptObjectHelper.getAttribute(sortState, "field"),
@@ -256,29 +345,58 @@ public class Store extends JsObject {
 		return store.getSortState();
 	}-*/;
 
+    /**
+     * Gets the total number of records in the dataset as returned by the server. If using paging, for this to
+     *  be accurate, the data object used by the Reader must contain the dataset size.
+     *
+     * @return total record count
+     */
     public native int getTotalCount() /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         return store.getTotalCount();
     }-*/;
 
+    /**
+     *  Get the index within the cache of the passed Record.
+     * 
+     * @param record the Record to find
+     * @return the index of the passed Record. Returns -1 if not found
+     */
     public native int indexOf(Record record)/*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var rec = record.@com.gwtext.client.core.JsObject::jsObj;
         return store.indexOf(rec);
     }-*/;
 
+    /**
+     * Get the index within the cache of the Record with the passed id.
+     * 
+     * @param id the Record ID
+     * @return  the index of the Record. Returns -1 if not found
+     */
     public native int indexOfId(String id)/*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         return store.indexOfId(id);
     }-*/;
 
-
+    /**
+     * Inserts Records to the Store at the given index and fires the add event.
+     * 
+     * @param index the start index at which to insert the passed Record
+     * @param record the Record to insert
+     */
     public native void insert(int index, Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
 		return store.insert(index, recordJ);
     }-*/;
 
+    /**
+     * Inserts Records to the Store at the given index and fires the add event.
+     *
+     * @param index the start index at which to insert the passed Records
+     * @param records the Records to insert
+     */
     public void insert(int index, Record[] records) {
         JavaScriptObject[] recordsJS = new JavaScriptObject[records.length];
         for (int i = 0; i < records.length; i++) {
@@ -293,95 +411,274 @@ public class Store extends JsObject {
 		store.insert(index, nativeRecordsArray);
     }-*/;
 
+    /**
+     * Loads the Record cache from the configured Proxy using the configured Reader.
+     * <br/><br/>
+     * If using remote paging, then the first load call must specify the start and limit properties
+     * to establish the initial position within the dataset by calling {@link #load(int, int)} , and the number of Records
+     * to cache on each read from the Proxy. It is important to note that for remote data sources, loading is asynchronous,
+     * and this call will return before the new data has been loaded. Perform any post-processing in a "load" event handler.
+     */
     public native void load() /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.load();
 	}-*/;
 
-    public native void reload() /*-{
-        var store = this.@com.gwtext.client.core.JsObject::jsObj;
-        store.reload();
-	}-*/;
-
+    /**
+     * Loads the Record cache from the configured Proxy using the configured Reader.
+     * <br/><br/>
+     * If using remote paging, then the first load call must specify the start and limit properties
+     * to establish the initial position within the dataset by calling {@link #load(int, int)} , and the number of Records
+     * to cache on each read from the Proxy. It is important to note that for remote data sources, loading is asynchronous,
+     * and this call will return before the new data has been loaded. Perform any post-processing in a "load" event handler.
+     *
+     * @param start start position
+     * @param limit limit
+     */
     public native void load(int start, int limit) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.load({params:{start:start, limit:limit}});
 	}-*/;
 
+    /**
+     * Loads the Record cache from the configured Proxy using the configured Reader.
+     * <br/><br/>
+     * If using remote paging, then the first load call must specify the start and limit properties
+     * to establish the initial position within the dataset by calling {@link #load(int, int)} , and the number of Records
+     * to cache on each read from the Proxy. It is important to note that for remote data sources, loading is asynchronous,
+     * and this call will return before the new data has been loaded. Perform any post-processing in a "load" event handler.
+     *
+     * @param config the load config
+     */
     public native void load(StoreLoadConfig config) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         store.load(configJS);
     }-*/;
 
-    //needs to be xml dom document for XmlReader
-    public native void loadData(Element doc, boolean append) /*-{
+    /**
+     * Reloads the Record cache from the configured Proxy using the configured Reader and the options
+     * from the last load operation performed.
+     */
+    public native void reload() /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
-        store.loadData(doc, append);
-    }-*/;
-
+        store.reload();
+	}-*/;
+    
     //can be invoked from jsni code passing json object retreived from XHR response
     public native void loadData(JavaScriptObject data, boolean append) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.loadData(data, append);
     }-*/;
 
+    /**
+     * Sets the Store's DataProxy.
+     *
+     * @param proxy the data proxy
+     */
     public native void setProxy(DataProxy proxy) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var proxyJS = proxy.@com.gwtext.client.core.JsObject::jsObj;
         store.proxy = proxyJS;
     }-*/;
 
+    /**
+     * Reloads the Record cache from the configured Proxy using the configured Reader and the options
+     * from the last load operation performed.
+     *
+     * @param config reload config
+     */
     public native void reload(StoreLoadConfig config) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         store.reload(configJS);
     }-*/;
 
-    //todo query
-    //queryBy
+    /**
+     * Query the records by a specified property.
+     * 
+     * @param field the field to query on
+     * @param value a string that the field should start with
+     * @return array of match records or empty array if no match found
+     */
+    public Record[] query(String field, String value) {
+        JavaScriptObject nativeArray = doQuery(field, value, false);
+        return convertFromNativeRecordsArray(nativeArray);
+    }
 
+    private native JavaScriptObject doQuery(String field, String value, boolean anyMatch) /*-{
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var records = store.query(field, value, anyMatch);
+        return records.items;
+    }-*/;
+
+    /**
+     * Query the records by a specified property.
+     *
+     * @param field the field to query on
+     * @param value a string that the field should start with
+     * @param anyMatch true to match any part not just the beginning
+     * @return array of match records or empty array if no match found
+     */
+    public Record[] query(String field, String value, boolean anyMatch) {
+        JavaScriptObject nativeArray = doQuery(field, value, anyMatch);
+        return convertFromNativeRecordsArray(nativeArray);
+    }
+
+    /**
+     * Query the records by a specified property.
+     *
+     * @param field the field to query on
+     * @param regexp a RegExp to test against the field
+     * @return array of match records or empty array if no match found
+     */
+    public Record[] query(String field, RegExp regexp) {
+        JavaScriptObject nativeArray = doQuery(field, regexp);
+        return convertFromNativeRecordsArray(nativeArray);
+    }
+
+    private native JavaScriptObject doQuery(String field, RegExp regexp) /*-{
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var re = regexp.@com.gwtext.client.core.JsObject::jsObj;
+        var records = store.query(field, re);
+        return records.items;
+    }-*/;
+
+
+    /**
+     * Query by a function. The specified function will be called with each record in this data source.
+     * If the function returns true the record is included in the results.
+     *
+     * @param queryFunction the query function
+     * @return array of match records or empty array if no match found
+     */
+    public Record[] queryBy(StoreQueryFunction queryFunction) {
+        JavaScriptObject nativeArray = doQueryBy(queryFunction);
+        return convertFromNativeRecordsArray(nativeArray);
+    }
+
+    private native JavaScriptObject doQueryBy(StoreQueryFunction queryFunction) /*-{
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        var results = store.queryBy(function(record, id) {
+            id = (id === undefined)? null: id.toString();
+            var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+            return queryFunction.@com.gwtext.client.data.StoreQueryFunction::test(Lcom/gwtext/client/data/Record;Ljava/lang/String;)(recordJ, id);
+        });
+        return results.items;
+    }-*/;
+
+    /**
+     * Cancel outstanding changes on all changed records.
+     */
     public native void rejectChanges() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		store.rejectChanges();
 	}-*/;
 
+    /**
+     * Remove a Record from the Store and fires the remove event.
+     * 
+     * @param record the record to remove
+     */
     public native void remove(Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
 		return store.remove(recordJ);
     }-*/;
 
+    /**
+     * Remove all Records from the Store and fires the clear event.
+     */
     public native void removeAll() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		store.removeAll();
 	}-*/;
 
+    /**
+     * Sets the default sort column and order to be used by the next load operation.
+     *
+     * @param field the name of the field to sort by
+     * @param sortDir the sort order
+     */
+    public void setDefaultSort(String field, SortDir sortDir){
+        setDefaultSort(field, sortDir.getDirection());
+    }
+
+    /**
+     * Sets the default sort column and order to be used by the next load operation.
+     * 
+     * @param field the name of the field to sort by
+     * @param sortDir the sort order, "ASC" or "DESC" (defaults to "ASC")
+     * @deprecated Use {@link #setDefaultSort(String, com.gwtext.client.core.SortDir)}
+     */
     public native void setDefaultSort(String field, String sortDir) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         store.setDefaultSort(field, sortDir);
     }-*/;
 
+    /**
+     * Sort the Records. If remote sorting is used, the sort is performed on the server, and the cache is reloaded.
+     * If local sorting is used, the cache is sorted internally.
+     * 
+     * @param field the name of the field to sort by
+     */
     public native void sort(String field) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		store.sort(field);
 	}-*/;
 
+     /**
+     * Sort the Records. If remote sorting is used, the sort is performed on the server, and the cache is reloaded.
+     * If local sorting is used, the cache is sorted internally.
+     *
+     * @param field the name of the field to sort by
+     * @param direction the sort order
+     */
+    public void sort(String field, SortDir direction) {
+        sort(field, direction.getDirection());
+    }
+     /**
+     * Sort the Records. If remote sorting is used, the sort is performed on the server, and the cache is reloaded.
+     * If local sorting is used, the cache is sorted internally.
+     *
+     * @param field the name of the field to sort by
+     * @param direction the sort order, "ASC" or "DESC" (defaults to "ASC")
+     * @deprecated Use {@link #sort(String, com.gwtext.client.core.SortDir)} 
+     */
     public native void sort(String field, String direction) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		store.sort(field, direction);
 	}-*/;
 
+    /**
+     * Sums the value of property for each record between start and end and returns the result.
+     * 
+     * @param field field on your records
+     * @return the sum
+     */
     public native float sum(String field) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.sum(field);
 	}-*/;
 
+    /**
+     * Sums the value of property for each record between start and end and returns the result.
+     *
+     * @param field field on your records
+     * @param startIndex the record index to start at (defaults to 0)
+     * @param endIndex the last record index to include
+     * @return the sum
+     */
     public native float sum(String field, int startIndex, int endIndex) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;
 		return store.sum(field, startIndex, endIndex);
 	}-*/;
 
+    /**
+     * Return all the Records in the Store.
+     *
+     * @return the Records
+     */
     public Record[] getRecords() {
         JavaScriptObject nativeArray = getRecords(jsObj);
         return convertFromNativeRecordsArray(nativeArray);
@@ -404,6 +701,11 @@ public class Store extends JsObject {
         return object instanceof Throwable;
     }
 
+    /**
+     * Add a Store listener.
+     *
+     * @param listener the listener
+     */
     public native void addStoreListener(StoreListener listener) /*-{
 	    var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var storeJ = this;

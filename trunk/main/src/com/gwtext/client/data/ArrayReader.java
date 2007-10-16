@@ -31,12 +31,12 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  *                new Object[]{"3m Co", new Double(71.72), new Double(0.02), new Double(0.03), "9/1 12:00am", 1},
  *                new Object[]{"Alcoa Inc", new Double(29.01), new Double(0.42), new Double(1.47), "9/1 12:00am", 2}};
  * ArrayReader reader = new ArrayReader(new RecordDef(
- *   new Field[]{
- *     new StringField("company"),
- *     new FloatField("price"),
- *     new FloatField("change"),
- *     new FloatField("pctChange"),
- *     new com.gwtext.client.data.DateField("lastChanged", "n/j h:ia")
+ *   new FieldDef[]{
+ *     new StringFieldDef("company"),
+ *     new FloatFieldDef("price"),
+ *     new FloatFieldDef("change"),
+ *     new FloatFieldDef("pctChange"),
+ *     new DateFieldDef("lastChanged", "n/j h:ia")
  *     }
  *  ));
  * </pre>
@@ -46,10 +46,10 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  *
  * <pre>
  * ArrayReader reader = new ArrayReader(new RecordDef(
- *   new Field[]{
- *     new StringField("company"),   //equivalent to new StringField("company", 0);
- *     new FloatField("change", 2),
- *     new com.gwtext.client.data.DateField("lastChanged", "n/j h:ia", 4)
+ *   new FieldDef[]{
+ *     new StringFieldDef("company"),   //equivalent to new StringField("company", 0);
+ *     new FloatFieldDef("change", 2),
+ *     new DateFieldDef("lastChanged", "n/j h:ia", 4)
  *     }
  *  ));
  * </pre>
@@ -65,10 +65,10 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  * <p/>
  * <pre>
  * ArrayReader reader = new ArrayReader(5, new RecordDef(
- *   new Field[]{
- *     new StringField("company"),   //equivalent to new StringField("company", 0);
- *     new FloatField("change", 2),
- *     new com.gwtext.client.data.DateField("lastChanged", "n/j h:ia", 4)
+ *   new FieldDef[]{
+ *     new StringFieldDef("company"),   //equivalent to new StringFieldDef("company", 0);
+ *     new FloatFieldDef("change", 2),
+ *     new DateFieldDef("lastChanged", "n/j h:ia", 4)
  *     }
  *  ));
  * </pre>

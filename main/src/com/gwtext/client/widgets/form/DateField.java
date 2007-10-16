@@ -24,12 +24,23 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import java.util.Date;
 
+/**
+ * Provides a date input field with {@link com.gwtext.client.widgets.DatePicker} dropdown and automatic date validation.
+ */
 public class DateField extends TextField {
 
+    /**
+     * Construct a new DateField.
+     */
     public DateField() {
         setJsObj(create(null));
     }
 
+    /**
+     * Construct a new DateField using the specified configuration.
+     *
+     * @param config datefield config
+     */
     public DateField(DateFieldConfig config) {
         super(config);
     }
@@ -38,11 +49,21 @@ public class DateField extends TextField {
         return new $wnd.Ext.form.DateField(jsObj);
     }-*/;
 
+    /**
+     * Returns the current date value of the date field.
+     *
+     * @return the date value
+     */
     public Date getValue() {
         long date = getTime(jsObj);
         return date == -1 ? null : new Date(date);
     }
 
+    /**
+     * Sets the value of the date field.
+     *
+     * @param date the date value
+     */
     public void setValue(Date date) {
         long time = date.getTime();
         setTime(jsObj, time);

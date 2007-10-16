@@ -24,12 +24,23 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Numeric text field that provides automatic keystroke filtering and numeric validation.
+ */
 public class NumberField extends TextField {
 
+    /**
+     * Creates a new NumberField.
+     */
     public NumberField() {
         this(new NumberFieldConfig());
     }
 
+    /**
+     * Creates a new NumberField using the specified configuration.
+     *
+     * @param config the configuration object
+     */
     public NumberField(NumberFieldConfig config) {
         super(config);
     }
@@ -38,17 +49,32 @@ public class NumberField extends TextField {
         return new $wnd.Ext.form.NumberField(jsObj);
     }-*/;
 
+    /**
+     * Returns the field value.
+     *
+     * @return the field value
+     */
     public native Number getValue() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var value = field.getValue();
         return (value == null || value === undefined || value === '') ? null : $wnd.GwtExt.convertToJavaType(value);
     }-*/;
 
+    /**
+     * Sets the fields value.
+     *
+     * @param value the field value
+     */
     public native void setValue(float value) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.setValue(value);
     }-*/;
 
+    /**
+     * Sets the fields value.
+     *
+     * @param value the field value
+     */
     public void setValue(Number value) {
         if(value == null) {
             setNullValue();
@@ -57,20 +83,41 @@ public class NumberField extends TextField {
         }
     }
 
+    /**
+     * Sets the fields value to null.
+     *
+     */
     private native void setNullValue() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.setValue(null);
     }-*/;
 
+    /**
+     * Validates a value according to the field's validation rules and marks the field as invalid if the validation fails.
+     *
+     * @param value the value to validate
+     * @return true if valid
+     */
     public boolean validateValue(Number value) {
         return value == null ? validateNullValue() : validateValue(value.floatValue());
     }
 
+    /**
+     * Validates a null value according to the field's validation rules and marks the field as invalid if the validation fails.
+     *
+     * @return true if valid
+     */
     private native boolean validateNullValue() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.validateValue(null);
     }-*/;
 
+    /**
+     * Validates a value according to the field's validation rules and marks the field as invalid if the validation fails.
+     *
+     * @param value the value to validate
+     * @return true if valid
+     */
     public native boolean validateValue(float value) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.validateValue(value);

@@ -122,6 +122,16 @@ public class FormConfig extends BaseConfig {
      * Valid values are "left," "top" and "right" (defaults to "left"). This property cascades to child containers if not set.
      *
      * @param labelAlign label alignment
+     * @deprecated Use {@link #setLabelAlign(com.gwtext.client.core.Position)}
+     */
+    public void setLabelAlign(String labelAlign) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "labelAlign", labelAlign);
+    }
+    
+    /**
+     * Valid values are "left," "top" and "right" (defaults to "left"). This property cascades to child containers if not set.
+     *
+     * @param labelAlign label alignment
      */
     public void setLabelAlign(Position labelAlign) {
         JavaScriptObjectHelper.setAttribute(jsObj, "labelAlign", labelAlign.getPosition());

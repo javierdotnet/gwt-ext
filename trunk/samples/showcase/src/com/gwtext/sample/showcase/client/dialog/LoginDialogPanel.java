@@ -25,6 +25,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Ext;
+import com.gwtext.client.core.Position;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.event.TabPanelItemListenerAdapter;
@@ -235,7 +236,7 @@ public class LoginDialogPanel extends ShowcaseExampleVSD {
             {
                 setWidth(400);
                 setLabelWidth(75);
-                setLabelAlign("right");
+                setLabelAlign(Position.RIGHT);
             }
         });
 

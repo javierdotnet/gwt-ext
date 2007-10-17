@@ -22,12 +22,24 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
+ *
+ */
 public class TextArea extends TextField {
 
+    /**
+     * Constructs a new TextArea.
+     */
     public TextArea() {
         setJsObj(create(null));
     }
 
+    /**
+     * Constructs a new TextArea using the specified configuration.
+     *
+     * @param config TextArea configration
+     */
     public TextArea(TextAreaConfig config) {
         super(config);
     }

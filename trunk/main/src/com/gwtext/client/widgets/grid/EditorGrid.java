@@ -24,16 +24,49 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.widgets.grid.event.EditorGridListener;
 
+/**
+ * Class for creating and editable grid.
+ */
 public class EditorGrid extends Grid {
 
+    /**
+     * Creates a new Editor Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grids column model
+     */
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel) {
         this(id, width, height, store, columnModel, new EditorGridConfig());
     }
 
+    /**
+     * Creates a new Editor Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grids column model
+     * @param config the grid configuration
+     */
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, EditorGridConfig config) {
         super(id, width, height, store, columnModel, config);
     }
 
+    /**
+     * Creates a new Editor Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grids column model
+     * @param selectionModel the grid selection model
+     * @param config the grid configuration
+     */
     public EditorGrid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, EditorGridConfig config) {
         super(id, width, height, store, columnModel, selectionModel, config);
     }
@@ -42,6 +75,11 @@ public class EditorGrid extends Grid {
         return new $wnd.Ext.grid.EditorGrid(id, configJS);
     }-*/;
 
+    /**
+     * Add an EditorGrid listener.
+     *
+     * @param listener the listener
+     */
     public native void addEditorGridListener(EditorGridListener listener)/*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -92,6 +130,11 @@ public class EditorGrid extends Grid {
         grid.stopEditing();
     }-*/;
 
+    /**
+     * Get the Grids Cell selection model
+     *
+     * @return the cell selection model
+     */
     public CellSelectionModel getCellSelectionModel() {
         return new CellSelectionModel(getSelectionModel(jsObj));
     }

@@ -32,20 +32,60 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.BaseExtWidget;
 import com.gwtext.client.widgets.grid.event.*;
 
+/**
+ * A Grid widget.
+ * <br/></br/>
+ * <b>Common Problems:</b>
+ * <ul>
+ * <li>Grid does not resize properly when going smaller: Setting overflow hidden on the container element will correct this</li>
+ * <li>If you get el.style[camel]= NaNpx or -2px or something related, be certain you have given your container element dimensions. The grid adapts to your container's size, if your container has no size defined then the results are unpredictable.</li>
+ * <li>Do not render the grid into an element with display:none. Try using visibility:hidden. Otherwise there is no way for the grid to calculate dimensions/offsets.</li>
+ * </ul>
+ */
 public class Grid extends BaseExtWidget {
 
     public Grid(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    /**
+     * Creates a new Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grid's column model
+     */
     public Grid(String id, String width, String height, Store store, ColumnModel columnModel) {
         this(id, width, height, store, columnModel, new GridConfig());
     }
 
+    /**
+     * Creates a new Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grid's column model
+     * @param config the grid configuration
+     */
     public Grid(String id, String width, String height, Store store, ColumnModel columnModel, GridConfig config) {
         this(id, width, height, store, columnModel, null, config);
     }
 
+    /**
+     * Creates a new Grid.
+     *
+     * @param id the Grid ID
+     * @param width the Grid width
+     * @param height the Grid height
+     * @param store the Grid's data store
+     * @param columnModel the Grid's column model
+     * @param selectionModel the Grid's selection model
+     * @param config the grid configuration
+     */
     public Grid(String id, String width, String height, Store store, ColumnModel columnModel, AbstractSelectionModel selectionModel, GridConfig config) {
 
         Element div = DOM.getElementById(id);
@@ -75,21 +115,38 @@ public class Grid extends BaseExtWidget {
         return new $wnd.Ext.grid.Grid(elem, configJS);
     }-*/;
 
+    /**
+     * Causes the grid to manually recalculate its dimensions. Generally this is done automatically, but if manual update
+     * is required this method will initiate it.
+     */
     public native void autoSize() /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.autoSize();
     }-*/;
 
+    /**
+     * Destroy this grid.
+     */
     public native void destroy() /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.destroy();
     }-*/;
 
+    /**
+     * Destroy this grid.
+     *
+     * @param removeEl true to remove the element
+     */
     public native void destroy(boolean removeEl) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.destroy(removeEl);
     }-*/;
 
+    /**
+     * Returns the grid's ColumnModel.
+     *
+     * @return the column model
+     */
     public ColumnModel getColumnModel() {
         return new ColumnModel(getColumnModel(jsObj));
     }
@@ -98,7 +155,11 @@ public class Grid extends BaseExtWidget {
         return grid.getColumnModel();
     }-*/;
 
-    //instead of getDataSource()
+    /**
+     * Returns the Grid's Store
+     *
+     * @return the Grids Store
+     */
     public Store getStore() {
         return new Store(getStore(jsObj));
     }
@@ -107,16 +168,31 @@ public class Grid extends BaseExtWidget {
         return grid.getDataSource();
     }-*/;
 
+    /**
+     * Called to get Grid's drag proxy text.
+     * 
+     * @return the grids drag drop text
+     */
     public native String getDragDropText() /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return grid.getDragDropText();
     }-*/;
 
-    public native void getDragDropText(String text) /*-{
+    /**
+     * Sets the Grid's drag drop text
+     *
+     * @param text the drag drop text
+     */
+    public native void setDragDropText(String text) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.ddText = text;
     }-*/;
 
+    /**
+     * Returns the Grid's row selection model
+     *
+     * @return the selection model
+     */
     public RowSelectionModel getSelectionModel() {
         return new RowSelectionModel(getSelectionModel(jsObj));
     }
@@ -125,6 +201,11 @@ public class Grid extends BaseExtWidget {
         return grid.getSelectionModel();            
     }-*/;
 
+    /**
+     * Returns the grid's GridView object.
+     *
+     * @return grid view
+     */
     public GridView getView() {
         return new GridView(getView(jsObj));
     }
@@ -133,6 +214,12 @@ public class Grid extends BaseExtWidget {
         return grid.getView();
     }-*/;
 
+
+    /**
+     * Hides the specified column.
+     *
+     * @param colID the column ID
+     */
     public void hideColumn(String colID) {
         int colIndex = getColumnModel().getIndexById(colID);
         if(colIndex != -1) {
@@ -140,6 +227,11 @@ public class Grid extends BaseExtWidget {
         }
     }
 
+    /**
+     * Hides the specified column.
+     *
+     * @param colIndex the column index
+     */
     public void hideColumn(int colIndex) {
         getColumnModel().setHidden(colIndex, true);
         if (Ext.isIE()) {
@@ -194,6 +286,12 @@ public class Grid extends BaseExtWidget {
     }-*/;
 
     //http://extjs.com/forum/showthread.php?t=8694&highlight=grid+reconfigure
+    /**
+     * Reconfigures the grid to use a different Store and Column Model. The View will be bound to the new objects and refreshed.
+     * 
+     * @param store the new Store
+     * @param columnModel the new ColumnModel
+     */
     public native void reconfigure(Store store, ColumnModel columnModel) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
@@ -201,11 +299,21 @@ public class Grid extends BaseExtWidget {
         grid.reconfigure(storeJS, columnModelJS);
     }-*/;
 
+    /**
+     *  Sets the load mask message for the grid.
+     * 
+     * @param message the load mask text
+     */
     public native void setLoadMask(String message)/*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         grid.loadMask.msg = message;
     }-*/;
-    
+
+    /**
+     * Show the specified column.
+     *
+     * @param colID the column ID
+     */
     public void showColumn(String colID) {
         int colIndex = getColumnModel().getIndexById(colID);
         if(colIndex != -1) {
@@ -213,6 +321,11 @@ public class Grid extends BaseExtWidget {
         }
     }
 
+    /**
+     * Shows the specified column.
+     *
+     * @param colIndex the column index
+     */
     public void showColumn(int colIndex) {
         getColumnModel().setHidden(colIndex, false);
         if (Ext.isIE()) {
@@ -226,6 +339,11 @@ public class Grid extends BaseExtWidget {
         }
     }
 
+    /**
+     * Add a Grid Cell listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridCellListener(GridCellListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -252,6 +370,11 @@ public class Grid extends BaseExtWidget {
         );
     }-*/;
 
+    /**
+     * Add a Grid Column listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridColumnListener(GridColumnListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -274,6 +397,11 @@ public class Grid extends BaseExtWidget {
         var gridJ = this;
     }-*/;
 
+    /**
+     * Add a Grid Header listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridHeaderListener(GridHeaderListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -299,6 +427,11 @@ public class Grid extends BaseExtWidget {
         );
     }-*/;
 
+    /**
+     * Add a Grid Cell listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridListener(GridListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -349,6 +482,11 @@ public class Grid extends BaseExtWidget {
 
     }-*/;
 
+    /**
+     * Add a Grid mouse listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridMouseListener(GridMouseListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;
@@ -380,6 +518,11 @@ public class Grid extends BaseExtWidget {
         );
     }-*/;
 
+    /**
+     * Add a Grid row listener.
+     *
+     * @param listener the listener
+     */
     public native void addGridRowListener(GridRowListener listener) /*-{
         var grid = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var gridJ = this;

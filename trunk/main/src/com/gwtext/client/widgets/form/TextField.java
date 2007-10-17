@@ -23,12 +23,23 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.form.event.TextFieldListener;
 
+/**
+ * Basic text field.
+ */
 public class TextField extends Field {
 
+    /**
+     * Creates a new TextField.
+     */
     public TextField() {
         setJsObj(create(null));
     }
 
+    /**
+     * Creates a new TextField.
+     *
+     * @param config the TextField configuration
+     */
     public TextField(TextFieldConfig config) {
         super(config);
         if (config.getTextFieldListener() != null) {
@@ -40,6 +51,11 @@ public class TextField extends Field {
         return new $wnd.Ext.form.TextField(jsObj);
     }-*/;
 
+    /**
+     * Add a TextField listener.
+     *
+     * @param listener the listener
+     */
     public native void addTextFieldListener(TextFieldListener listener) /*-{
         var fieldJ = this;
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
@@ -51,26 +67,50 @@ public class TextField extends Field {
         );
     }-*/;
 
+    /**
+     * Automatically grows the field to accomodate the width of the text up to the maximum field width allowed. This only takes effect if grow = true,
+     * and fires the autosize event.
+     */
     public native void autoSize() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.autoSize();
     }-*/;
-    
+
+    /**
+     * Selects text in this field.
+     */
     public native void selectText() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.selectText();
     }-*/;
 
+    /**
+     * Selects text in this field.
+     *
+     * @param start the index where the selection should start 
+     * @param end the index where the selection should end
+     */
     public native void selectText(int start, int end) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         field.selectText(start, end);
     }-*/;
 
+    /**
+     * Validates a value according to the field's validation rules and marks the field as invalid if the validation fails.
+     * 
+     * @param value the value to valdiate
+     * @return true if valid
+     */
     public native boolean validateValue(String value) /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return field.validateValue(value);
     }-*/;
 
+    /**
+     * Returns the value of the text field.
+     * 
+     * @return the text field value
+     */
     public String getText() {
         return getValueAsString();
     }

@@ -22,6 +22,11 @@ package com.gwtext.client.widgets.form;
 
 
 //http://extjs.com/forum/showthread.php?t=4271&highlight=vtype
+/**
+ * Basic pre-created validation types.
+ *
+ * @see com.gwtext.client.widgets.form.TextFieldConfig#setVtype(VType) 
+ */
 public class VType {
 
     private String vType;

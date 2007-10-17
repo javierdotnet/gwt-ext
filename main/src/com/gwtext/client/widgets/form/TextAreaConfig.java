@@ -22,16 +22,36 @@ package com.gwtext.client.widgets.form;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * {@link com.gwtext.client.widgets.form.TextArea} configuration class.
+ *
+ */
 public class TextAreaConfig extends TextFieldConfig {
 
+    /**
+     * The maximum height to allow when grow = true (defaults to 1000).
+     * 
+     * @param growMax the max height
+     */
     public void setGrowMax(int growMax) {
         super.setGrowMax(growMax);
     }
 
+    /**
+     * The minimum height to allow when grow = true (defaults to 60).
+     *
+     * @param growMin the min height
+     */
     public void setGrowMin(int growMin) {
         super.setGrowMin(growMin);
     }
 
+    /**
+     * True to prevent scrollbars from appearing regardless of how much text is in the field (equivalent to setting
+     * overflow: hidden, defaults to false).
+     * 
+     * @param preventScrollbars true to prevent scrollbars
+     */
     public void setPreventScrollbars(boolean preventScrollbars) {
         JavaScriptObjectHelper.setAttribute(jsObj, "preventScrollbars", preventScrollbars);
     }

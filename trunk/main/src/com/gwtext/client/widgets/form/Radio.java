@@ -22,11 +22,20 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Single radio field. Radio grouping is handled automatically by the browser if you give each radio in a group the same name.
+ *
+ */
 public class Radio extends Checkbox {
 
     public Radio() {
     }
 
+    /**
+     * Constructs a Radio box using the specified configuration.
+     *
+     * @param config the Radio box configuration
+     */
     public Radio(CheckboxConfig config) {
         super(config);
     }
@@ -35,6 +44,11 @@ public class Radio extends Checkbox {
         return new $wnd.Ext.form.Radio(config);    
     }-*/;
 
+    /**
+     * If this radio is part of a group, it will return the selected value.
+     * 
+     * @return the group value
+     */
     public native String getGroupValue() /*-{
         var rb = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return rb.getGroupValue();

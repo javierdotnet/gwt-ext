@@ -24,13 +24,27 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.EventObject;
 
 //http://extjs.com/forum/showthread.php?t=3613&highlight=triggerfield
+/**
+ * Provides a convenient wrapper for TextFields that adds a clickable trigger button (looks like a combobox by default).
+ * The trigger has no default action, so you mustimplement the trigger click handler by overriding {@link #onTriggerClick(com.gwtext.client.core.EventObject)}.
+ * You can create a TriggerField directly, as it renders exactly like a combobox for which you can provide a custom implementation.
+ *
+ */
 public abstract class TriggerField extends TextField {
 
+    /**
+     * Construct a new TriggerField.
+     */
     public TriggerField() {
         setJsObj(create(null));
         setup(this, jsObj);
     }
 
+    /**
+     * Construct a new TriggerField using the specified configuration.
+     *
+     * @param config the configuration
+     */
     public TriggerField(TriggerFieldConfig config) {
         super(config);
         setup(this, jsObj);
@@ -47,5 +61,10 @@ public abstract class TriggerField extends TextField {
         return new $wnd.Ext.form.TriggerField(jsObj);
     }-*/;
 
+    /**
+     * Abstract method that must be implmented for custom trigger field behavior.
+     *
+     * @param event the event object
+     */
     protected abstract void onTriggerClick(EventObject event);
 }

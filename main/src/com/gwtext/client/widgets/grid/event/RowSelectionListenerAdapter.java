@@ -28,7 +28,7 @@ public class RowSelectionListenerAdapter implements RowSelectionListener {
         return true;
     }
 
-    public final boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex, boolean keepExisting) {
+    public boolean doBeforeRowSelect(RowSelectionModel sm, int rowIndex, boolean keepExisting) {
         return true;
     }
 

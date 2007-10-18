@@ -36,6 +36,24 @@ public class GridView extends JsObject {
     }
 
     /**
+     * Constructs a new GridView.
+     *
+     */
+    public GridView() {
+        jsObj = create();
+    }
+
+    private native JavaScriptObject create() /*-{
+        var gridJ = this;
+        var gridV = new $wnd.Ext.grid.GridView();
+        gridV.getRowClass = function(record, index) {
+            var recordJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+            return gridJ.@com.gwtext.client.widgets.grid.GridView::getRowClass(Lcom/gwtext/client/data/Record;I)(recordJ, index);
+        }
+        return gridV;
+    }-*/;
+
+    /**
      * Gets a panel in the header of the grid that can be used for toolbars etc. After modifying the contents of
      * this panel a call to {@link com.gwtext.client.widgets.grid.Grid#autoSize()} may be required to register any changes in size.
      *
@@ -82,6 +100,17 @@ public class GridView extends JsObject {
         var view = this.@com.gwtext.client.core.JsObject::jsObj;
         view.refresh(headersToo);
     }-*/;
+
+    /**
+     * Override this function to apply custom css classes to rows during rendering.
+     *
+     * @param record the record for the row
+     * @param index the row index
+     * @return the row CSS class
+     */
+    public String getRowClass(Record record, int index) {
+        return "";
+    }
 
     /**
      * Refresh a row.

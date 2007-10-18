@@ -1,0 +1,126 @@
+body {
+     font-family: verdana, tahoma, helvetica;
+     padding: 20px;
+     padding-top: 32px;
+     font-size: 13px;
+     background-color: #fff !important;
+ }
+
+ .top-30 {
+     margin-top: 30px;
+ }
+
+ p {
+     margin-bottom: 15px !important;
+ }
+
+ h1 {
+     font-size: large !important;
+     margin-bottom: 20px !important;
+ }
+
+ .example-info {
+     width: 150px;
+     border: 1px solid #c3daf9;
+     border-top: 1px solid #DCEAFB;
+     border-left: 1px solid #DCEAFB;
+     background: #ecf5fe url( info-bg.gif ) repeat-x;
+     font-size: 10px;
+     padding: 8px;
+ }
+
+ pre.code {
+     background: #F8F8F8;
+     border: 1px solid #e8e8e8;
+     padding: 10px;
+     margin: 10px;
+     margin-left: 0px;
+     border-left: 5px solid #e8e8e8;
+     font-size: 12px !important;
+     line-height: 14px !important;
+ }
+
+ .msg .x-box-mc {
+     font-size: 14px;
+ }
+
+ #msg-div {
+     position: absolute;
+     left: 35%;
+     top: 10px;
+     width: 250px;
+     z-index: 20000;
+ }
+
+ .x-grid3-row-body p {
+     margin: 5px 5px 10px 5px !important;
+ }
+
+
+     .dd-ct {
+         position:absolute;
+         border: 1px solid silver;
+         width: 180px;
+         height: 180px;
+         top: 32px;
+         background-color: #ffffc0;
+     }
+     #dd1-ct {
+         left: 64px;
+     }
+     #dd2-ct {
+         left: 256px;
+     }
+     .dd-item {
+         height: 18px;
+         border: 1px solid #a0a0a0;
+         background-color: #c4d0ff;
+         vertical-align: middle;
+         cursor: move;
+         padding: 2px;
+         z-index: 1000;
+     }
+     .dd-ct .dd-item {
+         margin: 2px;
+     }
+     .dd-proxy {
+         opacity: 0.4;
+         -moz-opacity: 0.4;
+         filter: alpha(opacity=40);
+     }
+     .dd-over {
+         background-color: #ffff60;
+     }
+
+ .x-btn-pressed.filter-btn .x-btn-text {
+    background-image: url('images/funnel_X.gif');
+ }
+
+ .filter-btn .x-btn-text {
+    background-image: url('images/funnel_plus.gif');
+ }
+
+ .expand-all-btn .x-btn-text {
+    background-image: url('images/expandall.gif');
+ }
+
+ .collapse-all-btn .x-btn-text {
+    background-image: url('images/collapseall.gif');
+ }
+
+
+.yellowClass {
+    background-color:#FFFF88;
+}
+
+.orangeClass {
+    background-color:#FFFF88;
+}
+
+.blueClass {
+    background-color:#C3D9FF;
+}
+
+.greenClass {
+    background-color:#CDEB8B;
+}

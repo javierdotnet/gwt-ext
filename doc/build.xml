@@ -188,6 +188,6 @@
 		</outofdate>
 	</target>
 
-	<target name="build" depends="html, javadoc" />
+	<target name="build" depends="javadoc" />
 </project>
 

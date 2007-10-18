@@ -31,6 +31,7 @@
         <leaf id="remotePagingGrid" title="Grid with Remote Paging"/>
         <leaf id="columnOrderGrid" title="Column Order"/>
         <leaf id="stockTicker" title="Stock Ticker"/>
+        <leaf id="rowRenderingGrid" title="Custom Row Colors"/>
     </node>
 
     <node title="Forms" qtip="Demonstrates Form layout and functionality" icon="images/silk/application_form_add.gif">

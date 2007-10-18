@@ -310,6 +310,15 @@ public class Grid extends BaseExtWidget {
     }-*/;
 
     /**
+     * The {@link GridView} used by the grid.
+     *
+     * @param view the grid view
+     */
+    public void setView(GridView view) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "view", view.getJsObj());
+    }
+
+    /**
      * Show the specified column.
      *
      * @param colID the column ID

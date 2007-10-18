@@ -211,7 +211,14 @@ public class GridConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoExpandMax", autoExpandMax);
     }
 
-    //todo view
+    /**
+     * The {@link GridView} used by the grid.
+     *
+     * @param view the grid view
+     */
+    public void setView(GridView view) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "view", view.getJsObj());
+    }
 
     /**
      * True to mask the grid while loading. Default is false.

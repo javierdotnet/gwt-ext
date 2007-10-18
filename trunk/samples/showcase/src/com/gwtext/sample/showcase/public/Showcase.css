@@ -107,3 +107,20 @@ body {
  .collapse-all-btn .x-btn-text {
     background-image: url('images/collapseall.gif');
  }
+
+
+.yellowClass {
+    background-color:#FFFF88;
+}
+
+.orangeClass {
+    background-color:#FFFF88;
+}
+
+.blueClass {
+    background-color:#C3D9FF;
+}
+
+.greenClass {
+    background-color:#CDEB8B;
+}

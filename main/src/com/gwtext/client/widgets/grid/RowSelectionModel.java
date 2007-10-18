@@ -297,6 +297,9 @@ public class RowSelectionModel extends AbstractSelectionModel {
 
         sm.addListener('beforerowselect',
                 function(source, rowIndex, keepExisting) {
+                    if(keepExisting === undefined) {
+                        keepExisting = false;
+                    }
                     return listener.@com.gwtext.client.widgets.grid.event.RowSelectionListener::doBeforeRowSelect(Lcom/gwtext/client/widgets/grid/RowSelectionModel;IZ)(smJ, rowIndex, keepExisting);
                 }
         );

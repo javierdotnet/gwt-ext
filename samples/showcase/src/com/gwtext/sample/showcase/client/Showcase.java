@@ -451,6 +451,8 @@ public class Showcase implements EntryPoint, HistoryListener {
         screens.put("remotePagingGrid", new RemotePagingGridPanel());
         screens.put("columnOrderGrid", new ColumnOrderGridPanel());
         screens.put("stockTicker", new StockTickerGridPanel());
+        screens.put("rowRenderingGrid", new RowRenderingGridPanel());
+
 
         screens.put("simpleForm", new SimpleFormPanel());
         screens.put("multiColumnForm", new MultiColumnFormPanel());

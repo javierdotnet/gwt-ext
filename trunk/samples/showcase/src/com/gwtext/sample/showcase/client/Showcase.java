@@ -55,6 +55,7 @@ import com.gwtext.sample.showcase.client.dialog.*;
 import com.gwtext.sample.showcase.client.form.*;
 import com.gwtext.sample.showcase.client.grid.*;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
+import com.gwtext.sample.showcase.client.misc.MaskPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
 import com.gwtext.sample.showcase.client.tree.CheckboxTreePanel;
 import com.gwtext.sample.showcase.client.tree.EditableTreePanel;
@@ -170,9 +171,11 @@ public class Showcase implements EntryPoint, HistoryListener {
                 setFolderTag("node");
                 setFolderTitleMapping("@title");
                 setLeafTitleMapping("@title");
+                setAttributeMappings(new String[]{"featured"});
                 setLeafTag("leaf");
             }
         });
+
         AsyncTreeNode root = new AsyncTreeNode("Examples and Demos", new AsyncTreeNodeConfig() {
             {
                 setLoader(loader);
@@ -199,12 +202,14 @@ public class Showcase implements EntryPoint, HistoryListener {
         root.expand();
         menuTree.expandAll();
 
-        final String initToken = History.getToken();
-        if (initToken.length() != 0) {
+
+        final String initScreen = History.getToken();
+
+        if (initScreen.length() != 0) {
             Timer timer = new Timer() {
                 public void run() {
-                    onHistoryChanged(initToken);
-                    menuTree.getNodeById(initToken).select();
+                    onHistoryChanged(initScreen);
+                    menuTree.getNodeById(initScreen).select();
                 }
             };
             timer.schedule(2000);
@@ -235,24 +240,18 @@ public class Showcase implements EntryPoint, HistoryListener {
 
         filterToolbar.addButton(funnelButton);
 
-        searchField = new
-
-                TextField(new TextFieldConfig() {
+        searchField = new TextField(new TextFieldConfig() {
             {
                 setMaxLength(40);
                 setGrow(false);
                 setSelectOnFocus(true);
             }
-        }
-
-        );
+        });
 
         filterToolbar.addField(searchField);
         filterToolbar.addSeparator();
 
-        filterToolbar.addButton(new
-
-                ToolbarButton(new ButtonConfig() {
+        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
             {
                 setCls("x-btn-icon expand-all-btn");
                 setTooltip("Expand All");
@@ -262,13 +261,9 @@ public class Showcase implements EntryPoint, HistoryListener {
                     }
                 });
             }
-        }
+        }));
 
-        ));
-
-        filterToolbar.addButton(new
-
-                ToolbarButton(new ButtonConfig() {
+        filterToolbar.addButton(new ToolbarButton(new ButtonConfig() {
             {
                 setCls("x-btn-icon collapse-all-btn");
                 setTooltip("Collapse All");
@@ -278,9 +273,7 @@ public class Showcase implements EntryPoint, HistoryListener {
                     }
                 });
             }
-        }
-
-        ));
+        }));
 
         ContentPanel cp = new ContentPanel("eg-explorer", "Examples Explorer", new ContentPanelConfig() {
             {
@@ -289,21 +282,15 @@ public class Showcase implements EntryPoint, HistoryListener {
         });
         cp.add(menuTree);
 
-        searchField.getEl().
-
-                addListener("keyup", new EventCallback() {
-                    public void execute
-                            (EventObject
-                                    e) {
-                        delayedTask.delay(500, new Function() {
-                            public void execute() {
-                                onSearchChange(false);
-                            }
-                        });
+        searchField.getEl().addListener("keyup", new EventCallback() {
+            public void execute (EventObject e) {
+                delayedTask.delay(500, new Function() {
+                    public void execute() {
+                        onSearchChange(false);
                     }
-                }
-
-                );
+                });
+            }
+        });
 
         return cp;
     }
@@ -472,5 +459,9 @@ public class Showcase implements EntryPoint, HistoryListener {
 
         screens.put("editableTree", new EditableTreePanel());
         screens.put("checkboxTree", new CheckboxTreePanel());
+
+        //screens.put("resizableGrid", new ResizableGridPanel());
+
+        screens.put("mask", new MaskPanel());
     }
 }

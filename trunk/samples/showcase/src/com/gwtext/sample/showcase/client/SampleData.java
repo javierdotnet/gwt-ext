@@ -211,7 +211,6 @@ public class SampleData {
 
         //create and render grid
         final Grid grid = new Grid(id, width, height, store, columnModel);
-        grid.render();
         return grid;
     }
 }

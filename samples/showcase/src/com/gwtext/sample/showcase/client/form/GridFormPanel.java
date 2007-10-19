@@ -95,6 +95,7 @@ public class GridFormPanel extends ShowcaseExampleVSD {
         Panel gridPanel = DOMUtil.convertDivToPanel("my-form-grid-container");
 
         Grid grid = SampleData.getSampleGrid("my-form-grid", "300px", "300px");
+        grid.render();
 
         //add a grid row selection listener so that when a row is selcted, the corresponding record is loaded into the form
         grid.getSelectionModel().addRowSelectionListener(new RowSelectionListenerAdapter() {

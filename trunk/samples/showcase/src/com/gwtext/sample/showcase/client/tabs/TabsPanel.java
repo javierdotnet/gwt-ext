@@ -143,6 +143,9 @@ public class TabsPanel extends ShowcaseExampleVSD {
         tpi2Panel.add(form);
         tpi2.setContent(tpi2Panel);
 
+        TabPanelItem disabledTab = tp.addTab("tpi3", "Disabled Tab", false);
+        disabledTab.disable();
+        
         tp.activate(0);
 
         Panel vp = createPanel();

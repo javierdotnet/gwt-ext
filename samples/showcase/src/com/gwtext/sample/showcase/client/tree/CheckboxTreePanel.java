@@ -21,6 +21,7 @@
 package com.gwtext.sample.showcase.client.tree;
 
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Panel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.Button;
@@ -56,6 +57,8 @@ public class CheckboxTreePanel extends ShowcaseExampleVSD {
                 setDataUrl("countries-cb.xml");
                 setMethod("get");
                 setRootTag("countries");
+                setFolderIdMapping("@id");
+                setLeafIdMapping("@id");
                 setFolderTitleMapping("@title");
                 setFolderTag("team");
                 setLeafTitleMapping("@title");
@@ -96,12 +99,27 @@ public class CheckboxTreePanel extends ShowcaseExampleVSD {
             }
         });
 
+        Button toggle = new Button(new ButtonConfig() {
+            {
+                setText("Toggle Team A");
+                setButtonListener(new ButtonListenerAdapter() {
+                    public void onClick(Button button, EventObject e) {
+                        treePanel.getNodeById("team-a").getUI().toggleCheck();
+                    }
+                });
+            }
+        });
+
+        HorizontalPanel buttonPanel = new HorizontalPanel();
+        buttonPanel.setSpacing(15);
+        buttonPanel.add(button);
+        buttonPanel.add(toggle);
 
         Panel panel = createPanel();
         panel.add(new HTML("<h1>Checkbox Tree</h1>"));
         panel.add(new HTML("<p>This example shows how to create an Checkbox Tree loaded from XML data</p>"));
         panel.add(treePanel);
-        panel.add(button);
+        panel.add(buttonPanel);
         return panel;
     }
 }

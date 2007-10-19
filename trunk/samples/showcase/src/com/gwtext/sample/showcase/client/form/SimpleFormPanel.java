@@ -25,8 +25,6 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.sample.showcase.client.ShowcaseExampleVSD;
 
-import java.util.Date;
-
 public class SimpleFormPanel extends ShowcaseExampleVSD {
 
     public String getSourceUrl() {
@@ -50,7 +48,6 @@ public class SimpleFormPanel extends ShowcaseExampleVSD {
                 setName("first");
                 setWidth(175);
                 setAllowBlank(false);
-                setMaskRe("[0-9a-z]");
             }
         }));
 

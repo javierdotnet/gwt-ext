@@ -114,7 +114,7 @@ body {
 }
 
 .orangeClass {
-    background-color:#FFFF88;
+    background-color:#FF7400;
 }
 
 .blueClass {
@@ -123,4 +123,8 @@ body {
 
 .greenClass {
     background-color:#CDEB8B;
+}
+
+.yellowClass td {
+    background: yellow !important;
 }

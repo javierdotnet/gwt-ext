@@ -128,7 +128,6 @@ public class RemotePagingGridPanel extends ShowcaseExampleVSD {
             {
                 setEnableColLock(false);
                 setLoadMask(true);
-
             }
         });
 

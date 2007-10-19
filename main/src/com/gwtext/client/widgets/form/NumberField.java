@@ -57,7 +57,7 @@ public class NumberField extends TextField {
     public native Number getValue() /*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var value = field.getValue();
-        return (value == null || value === undefined || value === '') ? null : $wnd.GwtExt.convertToJavaType(value);
+        return (value == null || value === undefined || value === '') ? null : $wnd.GwtExt.convertToJavaType(parseFloat(value));
     }-*/;
 
     /**

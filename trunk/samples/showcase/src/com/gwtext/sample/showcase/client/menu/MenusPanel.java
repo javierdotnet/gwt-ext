@@ -20,6 +20,8 @@
 
 package com.gwtext.sample.showcase.client.menu;
 
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -206,7 +208,11 @@ public class MenusPanel extends ShowcaseExampleVSD {
         VerticalPanel vp = createPanel();
         vp.add(new HTML("<h1>Toolbar with Menus</h1>"));
         vp.setWidth("300px");
-        vp.add(tb);
+
+        FlowPanel container = new FlowPanel();
+        DOM.setElementAttribute(container.getElement(), "id", "container");
+        container.add(tb);
+        vp.add(container);
 
         return vp;
     }

@@ -296,14 +296,18 @@ public class Node extends JsObject {
         return this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(nodeReplaced);
     }-*/;
 
-    //todo test
+    /**
+     * Sorts this nodes children using the supplied sort function.
+     *
+     * @param c the Comparator return 0 if equal, -1 if first node less than second, 1 if first greater than second
+     */
     public native void sort(Comparator c) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJ = this;
         node.sort(function(n1, n2) {
             var n1J = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n1);
             var n2J = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n2);
-            c.@java.util.Comparator::compare(Ljava/lang/Object;Ljava/lang/Object;)(n1J, n2J);
+            return c.@java.util.Comparator::compare(Ljava/lang/Object;Ljava/lang/Object;)(n1J, n2J);
         })
     }-*/;
 

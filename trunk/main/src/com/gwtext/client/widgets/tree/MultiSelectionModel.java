@@ -58,7 +58,7 @@ public class MultiSelectionModel extends JsObject implements TreeSelectionModel 
     }
 
     private native JavaScriptObject getSelectedNodes(JavaScriptObject sm) /*-{
-        var treeNodes = sm.getSelectedNode();
+        var treeNodes = sm.getSelectedNodes();
         return (treeNodes === undefined) ? null : treeNodes;
     }-*/;
 

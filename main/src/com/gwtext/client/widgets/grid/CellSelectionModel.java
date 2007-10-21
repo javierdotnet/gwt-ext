@@ -62,6 +62,17 @@ public class CellSelectionModel extends AbstractSelectionModel {
     }-*/;
 
     /**
+     * Selects a cell.
+     *
+     * @param rowIndex row index of cell
+     * @param cellIndex column index of cell
+     */
+    public native void select(int rowIndex, int cellIndex)/*-{
+        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        sm.select(rowIndex, cellIndex);
+    }-*/;
+
+    /**
      * Adds a Cell Selection model listener.
      *
      * @param listener the listener

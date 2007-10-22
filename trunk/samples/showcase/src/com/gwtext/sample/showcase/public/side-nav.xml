@@ -1,7 +1,9 @@
 <side-nav>
     <node title="Tree" qtip="Tree Examples" icon="images/silk/chart_organisation.gif">
-        <leaf id="editableTree" title="Editable and Sortable"/>
+        <leaf id="editableTree" title="Editable"/>
         <leaf id="checkboxTree" title="Checkbox"/>
+        <leaf id="sortMultiSelectTree" title="Sortable and Multi-Select"/>
+        <leaf id="twoTrees" title="Two Trees Drag &amp; Drop"/>
     </node>
 
     <node title="Dialogs" qtip="Dialog Examples" icon="images/silk/application_cascade.gif">

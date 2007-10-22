@@ -40,7 +40,7 @@ public class TwoTreesPanel extends ShowcaseExampleVSD {
     }
 
     public String getDataUrl() {
-        return "tree/EditableTreePanel.xml.html";
+        return "tree/TwoTreesPanel.xml.html";
     }
 
     public Panel getViewPanel() {

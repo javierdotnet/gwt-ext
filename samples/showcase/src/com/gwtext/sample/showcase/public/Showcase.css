@@ -128,3 +128,290 @@ body {
 .yellowClass td {
     background: yellow !important;
 }
+
+
+/*combos*/
+
+.search-item {
+    font: normal 11px tahoma, arial, helvetica, sans-serif;
+    padding: 3px 10px 3px 10px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #eeeeee;
+    white-space: normal;
+}
+
+.search-item h3 {
+    display: block;
+    font: inherit;
+    font-weight: bold;
+}
+
+.search-item h3 span {
+    float: right;
+    font-weight: normal;
+    margin: 0 0 5px 5px;
+    width: 100px;
+    display: block;
+    clear: none;
+}
+
+/*grids*/
+#topic-grid {
+    border: 1px solid #99bbe8;
+    overflow: hidden;
+    width: 665px;
+    height: 300px;
+}
+
+#grid-example1 {
+    border: 3px solid #C3DAF9;
+}
+
+#grid-example2 {
+    border: 3px solid #C3DAF9;
+}
+
+#grid-example1 .x-grid-col-1 {
+    text-align: right;
+}
+
+#grid-example1 .x-grid-col-2 {
+    text-align: right;
+}
+
+#grid-example1 .x-grid-col-3 {
+    text-align: right;
+}
+
+#grid-example1 .x-grid-col-4 {
+    text-align: right;
+}
+
+#grid-example1.x-grid-mso {
+    border: 1px solid #6593cf;
+}
+
+#grid-example1.x-grid-vista {
+    border: 1px solid #b3bcc0;
+}
+
+#xml-grid-example {
+    border: 1px solid #cbc7b8;
+    left: 0;
+    position: relative;
+    top: 0;
+}
+
+#xml-grid-example.x-grid-mso {
+    border: 1px solid #6593cf;
+}
+
+#xml-grid-example.x-grid-vista {
+    border: 1px solid #b3bcc0;
+}
+
+#editor-grid .x-grid-col-2 {
+    text-align: right;
+}
+
+.x-grid-col-topic b {
+    font-family: tahoma, verdana;
+    color: #333;
+    display: block;
+    padding-left: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    background: transparent url( ./images/topic.gif ) no-repeat left 1px;
+}
+
+.x-grid-col-topic b i {
+    font-weight: normal;
+    font-style: normal;
+    color: #000;
+}
+
+.details .x-btn-text {
+    background-image: url( ./images/details.gif );
+}
+
+.x-resizable-pinned .x-resizable-handle-south {
+    background: url( ./js/ext/resources/images/default/sizer/s-handle-dark.gif );
+    background-position: top;
+}
+
+
+/*menus*/
+#container {
+    width: 600px;
+    height: 300px;
+    border: 3px solid #c3daf9;
+}
+
+.calendar .x-menu-item-icon {
+    background-image: url( ./js/ext/resources/images/default/shared/calendar.gif );
+}
+
+.blist .x-btn-text {
+    background-image: url( ./images/list-items.gif )
+}
+
+.bmenu .x-btn-text {
+    background-image: url( ./images/menu-show.gif )
+}
+
+.menu-title {
+    background: #ebeadb url( ./js/ext/resources/images/aero/grid/grid-hrow.gif ) repeat-x;
+    border-bottom: 1px solid #99bbe8;
+    color: #15428b;
+    font: bold 10px tahoma, arial, verdana, sans-serif;
+    display: block;
+    padding: 3px;
+}
+
+/*basicDD*/
+.dd-demo {
+    position:relative;
+    border:4px solid #666;
+    text-align:center;
+    color:#fff;
+    cursor:move;
+    height:60px;
+    width:60px;
+}
+
+.dd-demo-em {
+    border:4px solid purple;
+}
+
+#dd-demo-1a {
+    background-color:#6D739A;top:0px; left:105px;
+}
+
+#dd-demo-2a {
+    background-color:#566F4E;top:50px; left:245px;
+}
+
+#dd-demo-3a {
+    background-color:#7E5B60;top:-150px; left:385px;
+}
+
+/*ddHandles*/
+.dd-demo {
+    position:relative;
+    border:4px solid #666;
+    text-align:center;
+    color:#fff;
+    height:60px;
+    width:60px;
+}
+
+.dd-demo .dd-handle {
+    height: 0.5 em; background: #003366;
+    cursor:move;
+}
+
+.dd-demo .dd-multi-handle-1 {
+    height: 0.5 em; background: #336699; float: left;
+    cursor:move;
+}
+
+.dd-demo .dd-multi-handle-2 {
+    height: 0.5 em; background: #336699; float: right;
+    cursor:move;
+}
+
+.dd-outer-handle {
+    position:relative;
+    background: red;
+    cursor:move;
+    width: 3em;
+    text-align:center;
+    top:-150px; left:200px;
+}
+
+
+.dd-demo-em {
+    border:4px solid purple;
+}
+
+#dd-demo-1b {
+    background-color:#6D739A;top:0px; left:0px;
+}
+
+#dd-demo-2b {
+    background-color:#566F4E;top:50px; left:100px;
+}
+
+#dd-demo-3b {
+    background-color:#7E5B60;
+    top:-150px; left:200px;
+}
+
+/*ddOntop*/
+.dd-demo {
+    position:relative;
+    border:4px solid #666;
+    text-align:center;
+    color:#fff;
+    cursor:move;
+    height:60px;
+    width:60px;
+}
+
+.dd-demo-em {
+    border:4px solid purple;
+}
+
+#dd-demo-1c {
+    background-color:#6D739A;top:0px; left:0px;
+}
+
+#dd-demo-2c {
+    background-color:#566F4E;top:50px; left:100px;
+}
+
+#dd-demo-3c {
+    background-color:#7E5B60;top:-150px; left:200px;
+}
+
+/*ddProxy*/
+.dd-demo {
+    position:relative;
+    border:4px solid #666;
+    text-align:center;
+    color:#fff;
+    cursor:move;
+    height:60px;
+    width:60px;
+}
+
+.dd-demo-em {
+    border:4px solid purple;
+}
+
+#dd-demo-1d {
+    background-color:#6D739A;top:0px; left:0px;
+}
+
+#dd-demo-2d {
+    background-color:#566F4E;top:50px; left:100px; height: 80px; width: 80px;
+}
+
+#dd-demo-3d {
+    background-color:#7E5B60;top:-150px; left:200px; height: 100px; width: 100px;
+}
+
+#dd-demo-3-proxy {
+    position: absolute;
+    visibility: hidden;
+    color: #fff;
+    text-align:center;
+    background-color:#000;
+    height:100px;
+    width: 100px;
+}
+
+
+#two-trees-panel .tree-flag {
+   height: 13px;
+}

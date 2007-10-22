@@ -61,6 +61,20 @@ public class Form extends BaseExtWidget {
         RootPanel.get().add(this);
     }
 
+
+    /**
+     * Constructs a Form with the specified width.
+     * 
+     * @param width the form width
+     */
+    public Form(final int width) {
+        this(new FormConfig() {
+            {
+                setWidth(width);
+            }
+        });
+    }
+
     /**
      * Constructs a new Form using the specified configuration.
      *

@@ -23,6 +23,7 @@ package com.gwtext.client.widgets.tree.event;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.dd.DD;
 import com.gwtext.client.dd.DragDrop;
+import com.gwtext.client.widgets.tree.DropNodeCallback;
 import com.gwtext.client.widgets.tree.TreeNode;
 import com.gwtext.client.widgets.tree.TreePanel;
 
@@ -83,9 +84,11 @@ public interface TreePanelListener {
      * @param point the point of the drop - append, above or below
      * @param source the drag source
      * @param dropNode drop node provided by the source
+     * @param dropNodeCallback call setDropNode / setDropNodes on this callback to use a custon drop node. Can by used to drop a copy of the originally dropped
+     *              node by cloning the dropped node and calling setDropNode on this callback
      * @return false to cancel the drop
      */
-    boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
+    boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropNodeCallback);
 
     /**
      * Fires when a node with a checkbox's checked property changes.

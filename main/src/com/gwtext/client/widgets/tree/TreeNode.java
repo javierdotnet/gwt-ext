@@ -152,6 +152,28 @@ public class TreeNode extends Node {
         node.unselect();
     }-*/;
 
+    public native TreeNode clone() /*-{
+       var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
+       var copy = new $wnd.Ext.tree.TreeNode(
+                $wnd.Ext.apply({}, nodeJS.attributes)
+            );
+        copy.loader = undefined;
+        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
+        return copyJ;
+    }-*/;
+
+    public native TreeNode clone(TreeNodeConfig config) /*-{
+       var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
+       var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+       var copy = new $wnd.Ext.tree.TreeNode(
+                Ext.apply(configJS, nodeJS.attributes)
+            );
+        copy.loader = undefined;
+        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
+        return copyJ;
+    }-*/;
+
+
     public native void addTreeNodeListener(TreeNodeListener listener)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJ = this;

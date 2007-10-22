@@ -152,7 +152,7 @@ public class TreeNode extends Node {
         node.unselect();
     }-*/;
 
-    public native TreeNode clone() /*-{
+    public native TreeNode cloneNode() /*-{
        var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
        var copy = new $wnd.Ext.tree.TreeNode(
                 $wnd.Ext.apply({}, nodeJS.attributes)
@@ -162,7 +162,7 @@ public class TreeNode extends Node {
         return copyJ;
     }-*/;
 
-    public native TreeNode clone(TreeNodeConfig config) /*-{
+    public native TreeNode cloneNode(TreeNodeConfig config) /*-{
        var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
        var copy = new $wnd.Ext.tree.TreeNode(

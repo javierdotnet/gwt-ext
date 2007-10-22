@@ -25,6 +25,7 @@ import com.gwtext.client.dd.DD;
 import com.gwtext.client.dd.DragDrop;
 import com.gwtext.client.widgets.tree.TreeNode;
 import com.gwtext.client.widgets.tree.TreePanel;
+import com.gwtext.client.widgets.tree.DropNodeCallback;
 
 public class TreePanelListenerAdapter implements TreePanelListener {
 
@@ -49,7 +50,15 @@ public class TreePanelListenerAdapter implements TreePanelListener {
         return true;
     }
 
-    public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
+    public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropNodeCallback) {
+        return true;
+    }
+
+
+    /**
+     * @deprecated Use {@link #doBeforeNodeDrop(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode, com.gwtext.client.widgets.tree.DropNodeCallback)} 
+     */
+    public final boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode) {
         return true;
     }
 

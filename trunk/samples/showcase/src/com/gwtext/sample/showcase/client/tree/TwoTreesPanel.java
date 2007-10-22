@@ -149,7 +149,7 @@ public class TwoTreesPanel extends ShowcaseExampleVSD {
             public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropDropNodeCallback) {
                 if("true".equals(target.getAttribute("trip"))) {
                     if(copyRadio.getValue()) {
-                        TreeNode copyNode = dropNode.clone();
+                        TreeNode copyNode = dropNode.cloneNode();
                         dropDropNodeCallback.setDropNode(copyNode);
                     }
                 }

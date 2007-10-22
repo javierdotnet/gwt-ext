@@ -59,6 +59,8 @@ import com.gwtext.sample.showcase.client.misc.MaskPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
 import com.gwtext.sample.showcase.client.tree.CheckboxTreePanel;
 import com.gwtext.sample.showcase.client.tree.EditableTreePanel;
+import com.gwtext.sample.showcase.client.tree.SortMultiSelectTreePanel;
+import com.gwtext.sample.showcase.client.tree.TwoTreesPanel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -459,6 +461,8 @@ public class Showcase implements EntryPoint, HistoryListener {
 
         screens.put("editableTree", new EditableTreePanel());
         screens.put("checkboxTree", new CheckboxTreePanel());
+        screens.put("sortMultiSelectTree", new SortMultiSelectTreePanel());
+        screens.put("twoTrees", new TwoTreesPanel());
 
         //screens.put("resizableGrid", new ResizableGridPanel());
 

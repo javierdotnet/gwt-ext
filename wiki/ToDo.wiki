@@ -12,7 +12,6 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 
 === General Widgets and support classes ===
 || *Class* || *Status*||
-|| MasterTemplate || ||
 || SplitBar || ||
 
 

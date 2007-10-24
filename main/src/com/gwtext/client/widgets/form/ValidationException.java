@@ -19,8 +19,18 @@
  */
 package com.gwtext.client.widgets.form;
 
+/**
+ * Exception to raise when field validaiton fails.
+ *
+ * @see Validator#validate(String)
+ */
 public class ValidationException extends Exception {
 
+    /**
+     * Create new ValidationException.
+     *
+     * @param message the field validation error message
+     */
     public ValidationException(String message) {
         super(message);
     }

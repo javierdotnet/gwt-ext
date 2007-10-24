@@ -22,12 +22,25 @@ package com.gwtext.client.widgets.form;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * TriggerField config.
+ */
 public class TriggerFieldConfig extends TextFieldConfig {
 
+    /**
+     * True to hide the trigger element and display only the base text field (defaults to false).
+     *
+     * @param hideTrigger true to hide trigger
+     */
     public void setHideTrigger(boolean hideTrigger) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideTrigger", hideTrigger);
     }
 
+    /**
+     * A CSS class to apply to the trigger.
+     *
+     * @param triggerClass the trigger CSS class.
+     */
     public void setTriggerClass(String triggerClass) {
         JavaScriptObjectHelper.setAttribute(jsObj, "triggerClass", triggerClass);
     }

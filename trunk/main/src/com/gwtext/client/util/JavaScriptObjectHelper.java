@@ -27,6 +27,9 @@ import com.gwtext.client.core.JsObject;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Internal helper class.
+ */
 public class JavaScriptObjectHelper {
 
     private JavaScriptObjectHelper() {

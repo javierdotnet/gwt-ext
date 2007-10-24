@@ -18,6 +18,28 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 
 === Utility classes ===
 || *Class* || *Status*||
-|| ClickRepeater || ||
+|| ClickRepeater || *Done 10/23*||
 || TextMetrics || ||
+
+
+=== Javadocs ===
+|| com.gwtext.client.core || 30% ||
+|| com.gwtext.client.core.event|| Done ||
+|| com.gwtext.client.data || 10%  ||
+|| com.gwtext.client.data.event || Done ||
+|| com.gwtext.client.state || 30% ||
+|| com.gwtext.client.util || 80% ||
+|| com.gwtext.client.widgets || 0% ||
+|| com.gwtext.client.widgets.event || Done ||
+|| com.gwtext.client.widgets.form || Done ||
+|| com.gwtext.client.widgets.form.event || Done ||
+|| com.gwtext.client.widgets.grid || Done ||
+|| com.gwtext.client.widgets.grid.event || Done ||
+|| com.gwtext.client.widgets.layout || 0% ||
+|| com.gwtext.client.widgets.layout.event || Done ||
+|| com.gwtext.client.widgets.menu || 0% ||
+|| com.gwtext.client.widgets.menu.event || Done ||
+|| com.gwtext.client.widgets.tree || 0%||
+|| com.gwtext.client.widgets.tree.event || Done  || 
+
  

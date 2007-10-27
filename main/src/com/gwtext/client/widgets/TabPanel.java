@@ -38,7 +38,7 @@ public class TabPanel extends BaseExtWidget {
     }
 
     /**
-     * Creates a tab panel
+     * Creates a tab panel.
      *
      * @param bottom true to create tabs on bottom
      */
@@ -56,7 +56,7 @@ public class TabPanel extends BaseExtWidget {
     }
 
    /**
-    * Creates a tab panel..
+    * Creates a tab panel.
     *
     * @param id tab panel id
     * @param bottom true to create tabs at bottom

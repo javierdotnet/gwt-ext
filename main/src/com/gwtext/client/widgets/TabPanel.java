@@ -30,15 +30,42 @@ import com.gwtext.client.widgets.event.TabPanelListener;
 
 public class TabPanel extends BaseExtWidget {
 
+    /**
+     * Creates a tab panel on top.
+     */
     public TabPanel() {
         this(Ext.generateId());
     }
 
+    /**
+     * Creates a tab panel
+     *
+     * @param bottom true to create tabs on bottom
+     */
+    public TabPanel(boolean bottom) {
+        this(Ext.generateId(), bottom);
+    }
+
+   /**
+    * Creates a tab panel on top.
+    *
+    * @param id tab panel id
+    */
     public TabPanel(String id) {
+        this(id, false);
+    }
+
+   /**
+    * Creates a tab panel..
+    *
+    * @param id tab panel id
+    * @param bottom true to create tabs at bottom
+    */
+    public TabPanel(String id, boolean bottom) {
         RootPanel.get().add(new HTML("<div id='" + id + "'></div>"));
         Element div = DOM.getElementById(id);
 
-        jsObj = create(id);
+        jsObj = create(id, bottom);
         setElement(div);
     }
 
@@ -50,8 +77,8 @@ public class TabPanel extends BaseExtWidget {
         return new TabPanel(jsObj);
     }
 
-    private native JavaScriptObject create(String id) /*-{
-        return new $wnd.Ext.TabPanel(id);
+    private native JavaScriptObject create(String id, boolean bottom) /*-{
+        return new $wnd.Ext.TabPanel(id, bottom);
     }-*/;
 
     public native int getMaxTabWidth() /*-{
@@ -107,11 +134,6 @@ public class TabPanel extends BaseExtWidget {
     public native String getTabPosition() /*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return tp.tabPosition;
-    }-*/;
-
-    public native void setTabPosition(String tabPosition) /*-{
-        var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        tp.tabPosition = tabPosition;
     }-*/;
 
     public native void activate(String tabID) /*-{

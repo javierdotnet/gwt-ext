@@ -29,6 +29,24 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class NumberField extends TextField {
 
+    //tempory fix until fix gets rolled into Ext 1.1.2
+    //see http://extjs.com/forum/showthread.php?p=79055#post79055
+    //see http://code.google.com/p/gwt-ext/issues/detail?id=76&can=1
+    //see http://groups.google.com/group/gwt-ext/browse_thread/thread/36cf6032ad34feeb
+    static {
+        init();
+    }
+
+    private native static void init() /*-{
+        $wnd.Ext.form.NumberField.prototype.fixPrecision = function(value){
+            var nan = isNaN(value);
+            if(!this.allowDecimals || this.decimalPrecision == -1 || nan || !value){
+                return nan ? '' : value;
+            }
+            return parseFloat(parseFloat(value).toFixed(this.decimalPrecision));
+        }
+    }-*/;
+
     /**
      * Creates a new NumberField.
      */

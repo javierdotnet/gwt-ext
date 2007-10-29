@@ -1,0 +1,107 @@
+<html>
+<head>
+    <style type="text/css">
+        #mainContent {
+            margin-left: 20px;
+            margin-bottom: 1em;
+            width: 75%;
+        }
+
+        h1 {
+            font-size: 160%;
+            font-weight: normal;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            border-bottom: 1px solid #CCCCCC;
+            font-family: arial, verdana, sans-serif;
+            margin: 1em 0pt 0.2em;
+        }
+
+        #mainContent, {
+            color: #000000;
+            line-height: 1.3em;
+        }
+
+        pre, code {
+            font-family: monospace;
+            font-size: 115%;
+            font-size-adjust: none;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+        }
+    </style>
+</head>
+<body>
+<div id="mainContent">
+
+
+    <h1>Information on GWT-Plus</h1>
+    <p/>Here are the high level features of the Store / GWT-RPC integration :
+    <ul>
+        <li>Integrates the data returned by a GWT-RPC service call into a GWT-Ext Store</li>
+        <li>Also supports loading a List of local beans into a GWT-Ext Store</li>
+        <li>Transparent and seamless mapping of Store and Record API's with the underlying user JavaBean object</li>
+        <li>Support for read and write of nested JavaBean properties (unlimited nesting)</li>
+        <li>Store#getModifiedRecords() allows you to get a list of modified JavaBean objects which can then be sent to
+            the server
+        </li>
+        <li>Fine grain control of which properties are exposed to the Record API as fields</li>
+        <li>Integration of GWT-RPC exception with associated Store exceptions</li>
+        <li>Propagation of sort / page / filter and user defined parameters to user's RPC call in a flexible way without
+            enforcing a specific API on the RPC call
+        </li>
+    </ul>
+
+    With this functionality you'll be able to specify your GWT-RPC service API that returns a list of domain beans /
+    DTO's and load it into a
+    Store which can be used to display data in a Grid, ComboBox or a Form. If you're using an EditableGrid, any
+    modifications to the data will be
+    reflected in your underlying data beans. You can retrieve the modified beans by calling Store#getModifiedRecords()
+    and then make a GWT-RPC
+    call to persist the changes. Sorting / Paging and Filtering of Grid data is also greatly simplified as the table
+    sort / page / filter
+    parameters are made accessible to your service and you can have your backend return data based on these parameters /
+    criteria.
+    <p/>
+    The GWT-Plus package presently ships with a few samples :
+    <ul>
+        <li>
+            Demo of an EditableGrid which gets data using GWT-RPC and also demonstrates passing back the modified beans
+            to
+            the server. Additionally the table paging parameters (page size , page num) and sorting parameters from the
+            Grid are made available to the
+            RPC call and passed to the server.
+        </li>
+        <li>
+            Same as above except that the data is laoded using a List of local data beans.
+        </li>
+        <li>
+            An example of ComboBox - Form - Grid example where all three widgets are bound to the same underlying data
+            which is retreived using a GWT-RPC call. The ComboBox data is pageable, and a selection
+            dispalys to corresponding Record in the Form and Grid. Selecting a row in the Grid results in the selected
+            Record being dispalyed in the Form. Editing the Record in the Form
+            reflects in the Grid and conversely editing a cell in the Grid reflects in the Form.
+        </li>
+
+        <li>
+            Same as above except that the data is loaded using a List of local data beans.
+        </li>
+    </ul>
+
+    The examples will grow over time to include master - detail tables, related combos etc. and I will post
+    updates.
+
+    <h3>Questions?</h3>
+
+    <p>Please send mail to <a href="mailto:gwt.ext@gmail.com">gwt.plus@gmail.com</a>.
+    </p>
+
+    <hr class="hide"/>
+
+</div>
+</body>
+</html>

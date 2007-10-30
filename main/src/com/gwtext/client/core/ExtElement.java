@@ -943,7 +943,7 @@ public class ExtElement extends BaseElement {
      * Creates an element as the first child of the this element.
      *
      * @param config DomHelper config to create element
-     * @return the new child
+     * @return the new child                                                             i
      */
     public native ExtElement insertFirst(DomConfig config)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;

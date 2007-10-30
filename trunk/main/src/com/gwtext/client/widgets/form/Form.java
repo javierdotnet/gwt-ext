@@ -189,6 +189,7 @@ public class Form extends BaseExtWidget {
     public native void add(Field field) /*-{
        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        var fieldJS = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+       fieldJS.obj = field;
        form.add(fieldJS);
    }-*/;
 
@@ -333,14 +334,10 @@ public class Form extends BaseExtWidget {
      * @param id the field ID to search for
      * @return the field
      */
-    public Field findField(String id) {
-        JavaScriptObject field = findField(getJsObj(), id);
-
-        return field == null ? null : new Field(field);
-    }
-
-    private native JavaScriptObject findField(JavaScriptObject form, String id) /*-{
-        return form.findField(id);
+    public native Field findField(String id) /*-{
+        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var fieldJS =  form.findField(id);
+        return fieldJS.obj;
     }-*/;
 
     //todo add getValues() that returns Map

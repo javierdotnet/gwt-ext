@@ -155,7 +155,8 @@ public class Store extends JsObject {
     }-*/;
 
     /**
-     * Revert to a view of the Record cache with no filtering applied.
+     * Revert to a view of the Record cache / snapshot with no filtering applied.  A snapshot of the data is taken when {@link #filter(String, String)} is called.
+     * Records added to the Store after filter is caleld will be lost if clearFilter is subsequently called.
      */
     public native void clearFilter() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::jsObj;

@@ -29,13 +29,14 @@ import com.gwtext.client.widgets.form.event.FieldListener;
 /**
  * Base class for form fields that provides default event handling, sizing, value handling and other functionality.
  */
-public class Field extends BoxComponent {
+public abstract class Field extends BoxComponent {
 
     /**
      * Creates a new Field.
      */
     public Field() {
         setJsObj(create(null));
+        setRef();
     }
 
     /**
@@ -48,16 +49,18 @@ public class Field extends BoxComponent {
         if (config.getFieldListener() != null) {
             addFieldListener(config.getFieldListener());
         }
+        setRef();
     }
+
+    private native void setRef() /*-{
+        var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        field.obj = this;
+    }-*/;
 
     public Field(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
-    private static Field instance(JavaScriptObject jsObj) {
-        return new Field(jsObj);
-    }
-    
     /**
      * Set the location of the error message target globally.
      *
@@ -67,9 +70,7 @@ public class Field extends BoxComponent {
         $wnd.Ext.form.Field.prototype.msgTarget = msgTarget;
     }-*/;
 
-    protected JavaScriptObject create(JavaScriptObject config) {
-        throw new IllegalArgumentException("must be overridden");
-    }
+    protected abstract JavaScriptObject create(JavaScriptObject config) ;
 
     /**
      * Apply the behaviors of this component to an existing element. This is used instead of render().

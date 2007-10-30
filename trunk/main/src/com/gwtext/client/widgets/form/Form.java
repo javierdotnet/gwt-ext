@@ -189,7 +189,6 @@ public class Form extends BaseExtWidget {
     public native void add(Field field) /*-{
        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        var fieldJS = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-       fieldJS.obj = field;
        form.add(fieldJS);
    }-*/;
 

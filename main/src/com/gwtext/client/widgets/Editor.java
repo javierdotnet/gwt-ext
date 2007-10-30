@@ -154,7 +154,7 @@ public class Editor extends Component {
         editor.addListener('specialkey',
                 function(source, field, e) {
                     var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-                    var fieldJ = @com.gwtext.client.widgets.form.Field::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(field);
+                    var fieldJ = field.obj;
                     listener.@com.gwtext.client.widgets.event.EditorListener::onSpeciakKey(Lcom/gwtext/client/widgets/form/Field;Lcom/gwtext/client/core/EventObject;)(editorJ, fieldJ, eJ);
                 }
         );

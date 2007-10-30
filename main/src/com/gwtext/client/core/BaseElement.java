@@ -21,10 +21,14 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
+import com.gwtext.client.animation.Easing;
 import com.gwtext.client.util.KeyMap;
 import com.gwtext.client.util.KeyMapConfig;
 import com.gwtext.client.widgets.event.KeyListener;
 
+/**
+ * Represents a base Element in the DOM.
+ */
 public class BaseElement extends JsObject implements Fx {
 
     protected BaseElement() {
@@ -34,24 +38,48 @@ public class BaseElement extends JsObject implements Fx {
         super(jsObj);
     }
 
+    /**
+     * Adds a CSS class to the element. Duplicate classes are automatically filtered out.
+     *
+     * @param className The CSS class to add
+     * @return this
+     */
     public native BaseElement addClass(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.addClass(className);
         return this;
     }-*/;
 
+    /**
+     *  Adds CSS classes to the element. Duplicate classes are automatically filtered out.
+     *
+     * @param classNames an array of CSS classes
+     * @return this
+     */
     public native BaseElement addClass(String[] classNames)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.addClass(@com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames));
         return this;
     }-*/;
 
+    /**
+     * Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect).
+     *
+     * @param className The CSS class to add
+     * @return this
+     */
     public native BaseElement addClassOnClick(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.addClassOnClick(className);
         return this;
     }-*/;
 
+    /**
+     * Sets up event handlers to add and remove a css class when this element has the focus
+     *
+     * @param className The CSS class to add
+     * @return this
+     */
     public native BaseElement addClassOnFocus(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.addClassOnFocus(className);
@@ -64,12 +92,26 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets up event handlers to add and remove a css class when the mouse is over this element.
+     * 
+     * @param className The CSS class to add
+     * @param preventFlicker if set to true, it prevents flickering by filtering mouseout events for children elements
+     * @return this
+     */
     public native BaseElement addClassOnOver(String className, boolean preventFlicker)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.addClassOnOver(className, preventFlicker);
         return this;
     }-*/;
 
+    /**
+     * Convenience method for constructing a KeyMap.
+     * 
+     * @param keyCode the numeric key code
+     * @param listener the key listener
+     * @return the KeyMap created
+     */
     public native KeyMap addKeyListener(int keyCode, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var km = elem.addKeyListener(keyCode, function(key, event) {
@@ -79,6 +121,13 @@ public class BaseElement extends JsObject implements Fx {
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
+    /**
+     * Convenience method for constructing a KeyMap.
+     *
+     * @param keyCodes array of key codes
+     * @param listener  the key listener
+     * @return the KeyMap created
+     */
     public native KeyMap addKeyListener(int[] keyCodes, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var keyCodesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(keyCodes);
@@ -89,6 +138,13 @@ public class BaseElement extends JsObject implements Fx {
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
+    /**
+     * Convenience method for constructing a KeyMap.
+     *
+     * @param keys a string with the keys to listen for
+     * @param listener the key listener
+     * @return the KeyMap created
+     */
     public native KeyMap addKeyListener(String keys, KeyListener listener)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var km = elem.addKeyListener(keys, function(key, event) {
@@ -98,6 +154,12 @@ public class BaseElement extends JsObject implements Fx {
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
+    /**
+     * Convenience method for constructing a KeyMap.
+     *
+     * @param config the key map config
+     * @return the KeyMap created
+     */
     public native KeyMap addKeyMap(KeyMapConfig config)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
@@ -105,6 +167,12 @@ public class BaseElement extends JsObject implements Fx {
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
 
+    /**
+     * Appends an event handler.
+     *
+     * @param eventName The type of event to append
+     * @param cb the event callback
+     */
     public native void addListener(String eventName, EventCallback cb) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.addListener(eventName, function(event) {
@@ -114,6 +182,13 @@ public class BaseElement extends JsObject implements Fx {
         );
     }-*/;
 
+    /**
+     * Appends an event handler.
+     *
+     * @param eventName The type of event to append
+     * @param cb the event callback
+     * @param config the listener config
+     */
     public native void addListener(String eventName, EventCallback cb, ListenerConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.addListener(eventName, function(event) {
@@ -123,29 +198,75 @@ public class BaseElement extends JsObject implements Fx {
             null,
             config.@com.gwtext.client.core.JsObject::jsObj
         );
-    }-*/;    
+    }-*/;
 
-    public native BaseElement alignTo(String id, String position)/*-{
+    /**
+     * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
+     * 
+     * @param id The element to align to
+     * @param elementAnchor the element's anchor point
+     * @param targetAnchor the target's anchor point
+     * @return this
+     */
+    public native BaseElement alignTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.alignTo(id, position);
+        var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var positionJS = position1JS = '-' + position2JS;
+        elem.alignTo(id, positionJS);
         return this;
     }-*/;
 
-    public native BaseElement alignTo(String id, String position, int[] offsetXY, boolean animate)/*-{
+    /**
+     * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
+     *
+     * @param id The element to align to
+     * @param elementAnchor the element's anchor point
+     * @param targetAnchor the target's anchor point
+     * @param offsetXY offset the positioning by [x, y]
+     * @param animate true for the default animation
+     * @return this
+     */
+    public native BaseElement alignTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor, int[] offsetXY, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
-        elem.alignTo(id, position, offsetJS, animate);
+        var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var positionJS = position1JS = '-' + position2JS;
+        elem.alignTo(id, positionJS, offsetJS, animate);
         return this;
     }-*/;
 
-    public native BaseElement anchorTo(String id, String position)/*-{
+    /**
+     * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
+     *
+     * @param id The element to align to
+     * @param elementAnchor the element's anchor point
+     * @param targetAnchor the target's anchor point
+     * @return this
+     */
+    public native BaseElement anchorTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.anchorTo(id, position);
+        var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var positionJS = position1JS = '-' + position2JS;
+        elem.anchorTo(id, positionJS);
         return this;
     }-*/;
 
     //todo fix ext inconsistency
-    public native BaseElement anchorTo(String id, String position, int[] offsetXY, boolean animate, int bufferDelay)/*-{
+    /**
+     * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
+     *
+     * @param id The element to align to
+          * @param elementAnchor the element's anchor point
+     * @param targetAnchor the target's anchor point
+     * @param offsetXY offset the positioning by [x, y]
+     * @param animate true for the default animation
+     * @param bufferDelay buffer delay
+     * @return this
+     */
+    public native BaseElement anchorTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor, int[] offsetXY, boolean animate, int bufferDelay)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
         elem.anchorTo(id, position, offsetJS, animate, bufferDelay);
@@ -192,12 +313,23 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * More flexible version of {@link #setStyle} for setting style properties.
+     * 
+     * @param style a style specification string, e.g. "width:100px"
+     * @return this
+     */
     public native BaseElement applyStyles(String style) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.applyStyles(style);
         return this;
     }-*/;
 
+    /**
+     * Measures the element's content height and updates height to match. Note: this function uses setTimeout so the new height may not be available immediately.
+     *
+     * @return this
+     */
     public native BaseElement autoHeight() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.autoHeight();
@@ -205,78 +337,151 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     //todo fix ext inconsisteny
-    public native BaseElement autoHeight(boolean animate, float duration, Function onComplete, String easing)/*-{
+    /**
+     * Measures the element's content height and updates height to match. Note: this function uses setTimeout so the new height may not be available immediately.
+     *
+     * @param animate animate the transition (defaults to false)
+     * @param duration length of the animation in seconds (defaults to .35)
+     * @param onComplete Function to call when animation completes
+     * @param easing
+     * @return
+     */
+    public native BaseElement autoHeight(boolean animate, float duration, Function onComplete, Easing easing)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var easingJS = easing.@com.gwtext.client.animation.Easing::getMethod();
         elem.autoHeight(animate, duration, function() {
             onComplete.@com.gwtext.client.core.Function::execute()();
-        }, easing);
+        }, easingJS);
         return this;
     }-*/;
 
+    /**
+     * Removes worthless text nodes.
+     */
     public native void clean() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.clean();
     }-*/;
 
+    /**
+     * Removes worthless text nodes.
+     *
+     * @param forceClean by default the element keeps track if it has been cleaned already so you can call this over and over. However, if you update the element and need to force a reclean, you can pass true.
+     */
     public native void clean(boolean forceClean) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.clean(forceClean);
     }-*/;
 
+    /**
+     *  Clears any opacity settings from this element. Required in some cases for IE.
+     *
+     * @return this
+     */
     public native BaseElement clearOpacity() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.clearOpacity();
         return this;
     }-*/;
 
+    /**
+     * Store the current overflow setting and clip overflow on the element - use unclip to remove.
+     *
+     * @return this
+     */
     public native BaseElement clip() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.clip();
         return this;
     }-*/;
 
-    public native BaseElement createShim() /*-{
+    /**
+     * Creates an iframe shim for this element to keep selects and other windowed objects from showing through.
+     *
+     * @return The new shim element
+     */
+    public native ExtElement createShim() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.shim();
-        return this;
+        var el = elem.shim();
+        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
+    /**
+     * Convenience method for setVisibilityMode(Element.DISPLAY)
+     *
+     * @return this
+     */
     public native BaseElement enableDisplayMode() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.enableDisplayMode();
         return this;
     }-*/;
 
+    /**
+     * Convenience method for setVisibilityMode(Element.DISPLAY)
+     *
+     * @param display what to set display to when visible
+     * @return this
+     */
     public native BaseElement enableDisplayMode(String display) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.enableDisplayMode(display);
         return this;
     }-*/;
 
+    /**
+     * Sizes this element to its parent element's dimensions performing neccessary box adjustments.
+     *
+     * @return this
+     */
     public native BaseElement fitToParent() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.fitToParent();
         return this;
     }-*/;
 
+    /**
+     * Sizes this element to its parent element's dimensions performing neccessary box adjustments.
+     *
+     * @param monitorResize if true maintains the fit when the browser window is resized
+     * @param targetParent he target parent, default to the parentNode.
+     * @return this
+     */
     public native BaseElement fitToParent(boolean monitorResize, Element targetParent) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.fitToParent(monitorResize, targetParent);
         return this;
     }-*/;
 
+    /**
+     * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
+     *
+     * @return this
+     */
     public native BaseElement hide()/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.hide();
         return this;
     }-*/;
 
+    /**
+     * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
+     *
+     * @param animate true for the default animation
+     * @return this
+     */
     public native BaseElement hide(boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.hide(animate);
         return this;
     }-*/;
 
+    /**
+     * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
+     * 
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement hide(AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -284,50 +489,111 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native BaseElement move(String direction, int distance)/*-{
+    /**
+     * Move this element relative to its current position.
+     *
+     * @param direction the direction
+     * @param distance how far to move the element in pixels
+     * @return this
+     */
+    public native BaseElement move(Direction direction, int distance)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.move(direction, distance);
+        var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
+        elem.move(directionJS, distance);
         return this;
     }-*/;
 
-    public native BaseElement move(String direction, int distance, boolean animate)/*-{
+    /**
+     * Move this element relative to its current position.
+     * 
+     * @param direction the direction
+     * @param distance how far to move the element in pixels
+     * @param animate true for the default animation
+     * @return this
+     */
+    public native BaseElement move(Direction direction, int distance, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.move(direction, distance, animate);
+        var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
+        elem.move(directionJS, distance, animate);
         return this;
     }-*/;
 
-    public native BaseElement move(String direction, int distance, AnimationConfig animateConfig)/*-{
+    /**
+     * Move this element relative to its current position.
+     *
+     * @param direction the direction
+     * @param distance how far to move the element in pixels
+     * @param animateConfig the animation config
+     * @return this
+     */
+    public native BaseElement move(Direction direction, int distance, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
-        elem.move(direction, distance, animateConfigJS);
+        var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
+        elem.move(directionJS, distance, animateConfigJS);
         return this;
     }-*/;
 
-    public native BaseElement moveTo(int x, int y, int distance)/*-{
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @return this
+     */
+    public native BaseElement moveTo(int x, int y)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.moveTo(x, y, distance);
+        elem.moveTo(x, y);
         return this;
     }-*/;
 
-    public native BaseElement moveTo(int x, int y, int distance, boolean animate)/*-{
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param animate true to animate
+     * @return this
+     */
+    public native BaseElement moveTo(int x, int y, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        elem.moveTo(x, y, distance, animate);
+        elem.moveTo(x, y, animate);
         return this;
     }-*/;
 
-    public native BaseElement moveTo(int x, int y, int distance, AnimationConfig animateConfig)/*-{
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param animateConfig the animcation config
+     * @return this
+     */
+    public native BaseElement moveTo(int x, int y, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
-        elem.moveTo(x, y, distance, animateConfigJS);
+        elem.moveTo(x, y, animateConfigJS);
         return this;
     }-*/;
 
+    /**
+     * Adds a CSS class to this element and removes the same class(es) from all siblings.
+     * 
+     * @param className The CSS class to add
+     * @return this
+     */
     public native BaseElement radioClass(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.radioClass(className);
         return this;
     }-*/;
 
+  /**
+     * Adds one or more CSS classes to this element and removes the same class(es) from all siblings.
+     *
+     * @param classNames The CSS classes to add
+     * @return this
+     */
     public native BaseElement radioClass(String[] classNames)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var classNamesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames);
@@ -335,22 +601,40 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Removes this element from the DOM and deletes it from the cache.
+     */
     public native void remove()/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.remove();
     }-*/;
 
+    /**
+     * Removes all previous added listeners from this element.
+     */
     public native void removeAllListeners()/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.removeAllListeners();
     }-*/;
 
+    /**
+     * Removes the CSS classes from the element.
+     * 
+     * @param className The CSS class to remove
+     * @return this
+     */
     public native BaseElement removeClass(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.removeClass(className);
         return this;
     }-*/;
 
+    /**
+     * Removes the CSS classes from the element.
+     *
+     * @param classNames The CSS classes to remove
+     * @return this
+     */
     public native BaseElement removeClass(String[] classNames)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var classNamesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames);
@@ -358,27 +642,57 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Forces the browser to repaint this element.
+     *
+     * @return this
+     */
     public native BaseElement repaint()/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.repaint();
         return this;
     }-*/;
 
+    /**
+     * Replaces a CSS class on the element with another. If the old name does not exist, the new name will simply be added.
+     * 
+     * @param oldClassName The CSS class to replace
+     * @param newClassName The replacement CSS class
+     * @return this
+     */
     public native BaseElement replaceClass(String oldClassName, String newClassName)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.replaceClass(oldClassName, newClassName);
         return this;
     }-*/;
 
-    public native boolean scroll(String direction, int distance, boolean animate)/*-{
+    /**
+     * Scrolls this element the specified direction. Does bounds checking to make sure the scroll is within this element's scrollable range.
+     *
+     * @param direction the direction
+     * @param distance how far to scroll the element in pixels
+     * @param animate true to animate
+     * @return this
+     */
+    public native boolean scroll(Direction direction, int distance, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        return elem.scroll(direction, distance, animate);
+        var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
+        return elem.scroll(directionJS, distance, animate);
     }-*/;
 
-    public native boolean scroll(String direction, int distance, AnimationConfig animateConfig)/*-{
+    /**
+     * Scrolls this element the specified direction. Does bounds checking to make sure the scroll is within this element's scrollable range.
+     *
+     * @param direction the direction
+     * @param distance how far to scroll the element in pixels
+     * @param animateConfig the animation config
+     * @return this
+     */
+    public native boolean scroll(Direction direction, int distance, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
-        return elem.scroll(direction, distance, animateConfigJS);
+        var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
+        return elem.scroll(directionJS, distance, animateConfigJS);
     }-*/;
 
     public native BaseElement scrollTo(String side, int value, boolean animate)/*-{

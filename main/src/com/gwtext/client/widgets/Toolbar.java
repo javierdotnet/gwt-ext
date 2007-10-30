@@ -52,18 +52,20 @@ public class Toolbar extends RequiredElementWidget {
     }-*/;
 
     public void addButton(ToolbarButton button) {
-        addButton(jsObj, button.getJsObj(), button.getId());
+        JavaScriptObject addedButtonJS = addButton(jsObj, button.getJsObj(), button.getId());
         button.registerEventHandlers();
+        button.setJsObj(addedButtonJS);
         button.setRendered(true);
     }
 
     public void addButton(ToolbarMenuButton button) {
-        addButton(jsObj, button.getJsObj(), button.getId());
+        JavaScriptObject addedButtonJS = addButton(jsObj, button.getJsObj(), button.getId());
         button.registerEventHandlers();
+        button.setJsObj(addedButtonJS);
         button.setRendered(true);
     }
 
-    private native void addButton(JavaScriptObject toolbar, JavaScriptObject button, String id) /*-{
+    private native JavaScriptObject addButton(JavaScriptObject toolbar, JavaScriptObject button, String id) /*-{
         var btn = toolbar.addButton(button);
         var btnEl = btn.el.child("button:first");
         //set the button id's now that the buttons have been rendered to the DOM by the toolbar
@@ -71,6 +73,7 @@ public class Toolbar extends RequiredElementWidget {
             btnEl.id = id;
             btnEl.dom.id = id;
         }
+        return btn;
     }-*/;
 
     public native void addElement(String html) /*-{

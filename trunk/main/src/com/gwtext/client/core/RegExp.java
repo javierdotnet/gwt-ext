@@ -21,8 +21,16 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * This class represents a Regular Expression.
+ */
 public class RegExp extends JsObject {
 
+    /**
+     * Constructs a new REgular Expression.
+     *
+     * @param re the regular expression String
+     */
     public RegExp(String re) {
         jsObj = create(re);
     }

@@ -57,6 +57,13 @@ public class ConnectionConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "extraParams", paramObj);
     }
 
+    /**
+     * Sets the method (GET or POST) for the operation.
+     *
+     * @param method the method
+     * @see com.gwtext.client.core.Connection#GET
+     * @see com.gwtext.client.core.Connection#POST
+     */
     public void setMethod(Connection.Method method) {
         JavaScriptObjectHelper.setAttribute(jsObj, "method", method.getMethod());
     }

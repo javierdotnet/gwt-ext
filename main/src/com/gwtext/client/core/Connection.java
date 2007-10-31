@@ -116,6 +116,7 @@ public class Connection extends JsObject {
     /**
      * Determine whether the specified transaction has a request outstanding.
      *
+     * @param transactionId the transaction id
      * @return true if loading
      */
     public native boolean isLoading(long transactionId) /*-{

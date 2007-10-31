@@ -23,8 +23,27 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Small helper class to make creating Stores for JSON data easier. 
+ * <pre>
+ *  <code>
+ *  JsonStore store = new JsonStore("get-images.php", "images",new RecordDef(new FieldDef[]{
+ *          new StringFieldDef("name"),
+ *          new StringFieldDef("url"),
+ *          new FloatFieldDef("size"),
+ *          new DateFieldDef("lastmod")}));
+ *  </code>
+ * </pre>
+ */
 public class JsonStore extends Store {
 
+    /**
+     * Create a new JsonStore.
+     *
+     * @param url the URL that returns the Json data
+     * @param root name of the property which contains the Array of row objects
+     * @param fields the name of the fields
+     */
     public JsonStore(String url, String root, String[] fields) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);
@@ -33,10 +52,31 @@ public class JsonStore extends Store {
         jsObj = create(config);
     }
 
+    /**
+     * Create a new JsonStore.
+     *
+     * @param url the URL that returns the Json data
+     * @param root name of the property which contains the Array of row objects
+     * @param recordDef the record def
+     */
     public JsonStore(String url, String root, RecordDef recordDef) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);
         JavaScriptObjectHelper.setAttribute(config, "root", root);
+        JavaScriptObjectHelper.setAttribute(config, "recordType", recordDef.getJsObj());
+        jsObj = create(config);
+    }
+
+    /**
+     * Create a new JsonStore.
+     *
+     * @param url the URL that returns the Json data
+     * @param jsonConfig the Json reader config
+     * @param recordDef the record def
+     */
+    public JsonStore(String url, JsonReaderConfig jsonConfig, RecordDef recordDef) {
+        JavaScriptObject config = jsonConfig.getJsObj();
+        JavaScriptObjectHelper.setAttribute(config, "url", url);
         JavaScriptObjectHelper.setAttribute(config, "recordType", recordDef.getJsObj());
         jsObj = create(config);
     }

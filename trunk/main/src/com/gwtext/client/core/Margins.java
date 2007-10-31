@@ -22,6 +22,9 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Class that represents the margins of an element.
+ */
 public class Margins {
 
     private int top;
@@ -29,6 +32,14 @@ public class Margins {
     private int right;
     private int bottom;
 
+    /**
+     * Create a new Margins instance.
+     *
+     * @param top the top margin
+     * @param left the left margin
+     * @param right the right margin
+     * @param bottom the bottom margin
+     */
     public Margins(int top, int left, int right, int bottom) {
         this.top = top;
         this.left = left;
@@ -36,7 +47,7 @@ public class Margins {
         this.bottom = bottom;
     }
 
-    public static Margins instance(JavaScriptObject jsObj) {
+    private static Margins instance(JavaScriptObject jsObj) {
         return new Margins(
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "top"),
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "left"),
@@ -45,18 +56,30 @@ public class Margins {
         );
     }
 
+    /**
+     * @return the top margin
+     */
     public int getTop() {
         return top;
     }
 
+    /**
+     * @return the left margin
+     */
     public int getLeft() {
         return left;
     }
 
+    /**
+     * @return the right margin
+     */
     public int getRight() {
         return right;
     }
 
+    /**
+     * @return the bottom margin
+     */
     public int getBottom() {
         return bottom;
     }

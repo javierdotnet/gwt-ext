@@ -19,6 +19,12 @@
  */
 package com.gwtext.client.data;
 
+/**
+ * An HTTP specific {@link com.gwtext.client.data.StoreLoadException} that is raised  when using
+ * the {@link HttpProxy}.
+ *
+ * @see com.gwtext.client.data.event.StoreListener#onLoadException(Throwable)
+ */
 public class HttpStoreLoadException extends StoreLoadException {
 
     private int httpStatus;
@@ -28,6 +34,11 @@ public class HttpStoreLoadException extends StoreLoadException {
         this.httpStatus = httpStatus;
     }
 
+    /**
+     * Returns the http status code.
+     *
+     * @return http status code
+     */
     public int getHttpStatus() {
         return httpStatus;
     }

@@ -86,7 +86,7 @@ public class DomConfig {
         return this;
     }
 
-    public JavaScriptObject getJsObject() {
+    private JavaScriptObject getJsObject() {
         JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
         if (tag != null) JavaScriptObjectHelper.setAttribute(jsObj, "tag", tag);
         if (id != null) JavaScriptObjectHelper.setAttribute(jsObj, "id", id);

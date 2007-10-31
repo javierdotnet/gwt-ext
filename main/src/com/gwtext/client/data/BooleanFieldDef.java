@@ -44,7 +44,7 @@ public class BooleanFieldDef extends FieldDef {
 	 * Construct a new BooleanField
 	 *
 	 * @param name the name of field
-	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
 	 */
 	public BooleanFieldDef(String name, String mapping) {
         this(name, mapping, null);
@@ -54,7 +54,7 @@ public class BooleanFieldDef extends FieldDef {
 	 * Construct a new BooleanField
 	 *
 	 * @param name the field name
-	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
 	 */
 	public BooleanFieldDef(String name, int mapping) {
         this(name, mapping, null);

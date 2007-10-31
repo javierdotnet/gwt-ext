@@ -41,7 +41,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Adds a CSS class to the element. Duplicate classes are automatically filtered out.
      *
-     * @param className The CSS class to add
+     * @param className the CSS class to add
      * @return this
      */
     public native BaseElement addClass(String className)/*-{
@@ -65,7 +65,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect).
      *
-     * @param className The CSS class to add
+     * @param className the CSS class to add
      * @return this
      */
     public native BaseElement addClassOnClick(String className)/*-{
@@ -77,7 +77,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Sets up event handlers to add and remove a css class when this element has the focus
      *
-     * @param className The CSS class to add
+     * @param className the CSS class to add
      * @return this
      */
     public native BaseElement addClassOnFocus(String className)/*-{
@@ -95,7 +95,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Sets up event handlers to add and remove a css class when the mouse is over this element.
      * 
-     * @param className The CSS class to add
+     * @param className the CSS class to add
      * @param preventFlicker if set to true, it prevents flickering by filtering mouseout events for children elements
      * @return this
      */
@@ -170,7 +170,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Appends an event handler.
      *
-     * @param eventName The type of event to append
+     * @param eventName the type of event to append
      * @param cb the event callback
      */
     public native void addListener(String eventName, EventCallback cb) /*-{
@@ -185,7 +185,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Appends an event handler.
      *
-     * @param eventName The type of event to append
+     * @param eventName the type of event to append
      * @param cb the event callback
      * @param config the listener config
      */
@@ -203,7 +203,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
      * 
-     * @param id The element to align to
+     * @param id the element to align to
      * @param elementAnchor the element's anchor point
      * @param targetAnchor the target's anchor point
      * @return this
@@ -220,7 +220,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
      *
-     * @param id The element to align to
+     * @param id the element to align to
      * @param elementAnchor the element's anchor point
      * @param targetAnchor the target's anchor point
      * @param offsetXY offset the positioning by [x, y]
@@ -240,7 +240,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
      *
-     * @param id The element to align to
+     * @param id the element to align to
      * @param elementAnchor the element's anchor point
      * @param targetAnchor the target's anchor point
      * @return this
@@ -258,7 +258,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
      *
-     * @param id The element to align to
+     * @param id the element to align to
           * @param elementAnchor the element's anchor point
      * @param targetAnchor the target's anchor point
      * @param offsetXY offset the positioning by [x, y]
@@ -398,7 +398,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Creates an iframe shim for this element to keep selects and other windowed objects from showing through.
      *
-     * @return The new shim element
+     * @return the new shim element
      */
     public native ExtElement createShim() /*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
@@ -535,7 +535,7 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     /**
-     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      *
      * @param x X value for new position (coordinates are page-based)
      * @param y Y value for new position (coordinates are page-based)
@@ -548,7 +548,7 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     /**
-     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      *
      * @param x X value for new position (coordinates are page-based)
      * @param y Y value for new position (coordinates are page-based)
@@ -562,7 +562,7 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     /**
-     * Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      *
      * @param x X value for new position (coordinates are page-based)
      * @param y Y value for new position (coordinates are page-based)
@@ -579,7 +579,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Adds a CSS class to this element and removes the same class(es) from all siblings.
      * 
-     * @param className The CSS class to add
+     * @param className the CSS class to add
      * @return this
      */
     public native BaseElement radioClass(String className)/*-{
@@ -588,10 +588,10 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-  /**
+    /**
      * Adds one or more CSS classes to this element and removes the same class(es) from all siblings.
      *
-     * @param classNames The CSS classes to add
+     * @param classNames the CSS classes to add
      * @return this
      */
     public native BaseElement radioClass(String[] classNames)/*-{
@@ -620,7 +620,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Removes the CSS classes from the element.
      * 
-     * @param className The CSS class to remove
+     * @param className the CSS class to remove
      * @return this
      */
     public native BaseElement removeClass(String className)/*-{
@@ -632,7 +632,7 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Removes the CSS classes from the element.
      *
-     * @param classNames The CSS classes to remove
+     * @param classNames the CSS classes to remove
      * @return this
      */
     public native BaseElement removeClass(String[] classNames)/*-{
@@ -656,8 +656,8 @@ public class BaseElement extends JsObject implements Fx {
     /**
      * Replaces a CSS class on the element with another. If the old name does not exist, the new name will simply be added.
      * 
-     * @param oldClassName The CSS class to replace
-     * @param newClassName The replacement CSS class
+     * @param oldClassName the CSS class to replace
+     * @param newClassName the replacement CSS class
      * @return this
      */
     public native BaseElement replaceClass(String oldClassName, String newClassName)/*-{
@@ -695,12 +695,28 @@ public class BaseElement extends JsObject implements Fx {
         return elem.scroll(directionJS, distance, animateConfigJS);
     }-*/;
 
+    /**
+     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to a weird value it will try to do it. For auto bounds checking, use scroll().
+     *
+     * @param side Either "left" for scrollLeft values or "top" for scrollTop values.
+     * @param value the new scroll value
+     * @param animate true for the default animation
+     * @return this
+     */
     public native BaseElement scrollTo(String side, int value, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.scrollTo(side, value, animate);
         return this;
     }-*/;
 
+    /**
+     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to a weird value it will try to do it. For auto bounds checking, use scroll().
+     *
+     * @param side Either "left" for scrollLeft values or "top" for scrollTop values.
+     * @param value the new scroll value
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement scrollTo(String side, int value, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -708,38 +724,60 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native BaseElement set(GenericConfig attributes)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var attributesJS = attributesJS.@com.gwtext.client.core.JsObject::jsObj;
-        elem.set(attributesJS);
-        return this;
-    }-*/;
 
-    public native BaseElement set(GenericConfig attributes, boolean useSet)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var attributesJS = attributesJS.@com.gwtext.client.core.JsObject::jsObj;
-        elem.set(attributesJS);
-        return this;
-    }-*/;
-
+    /**
+     * Sets the element's CSS bottom style.
+     *
+     * @param bottom the bottom CSS property value
+     * @return this
+     */
     public native BaseElement setBottom(String bottom)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setBottom(bottom);
         return this;
     }-*/;
 
+    /**
+     * Sets the element's position and size in one shot. 
+     * 
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param width the new width
+     * @param height the new height
+     * @return this
+     */
     public native BaseElement setBounds(int x, int y, int width, int height)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setBounds(x, y, width, height);
         return this;
     }-*/;
 
+    /**
+     * Sets the element's position and size in one shot. If animation is true then width, height, x and y will be animated concurrently.
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param width the new width
+     * @param height the new height
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setBounds(int x, int y, int width, int height, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setBounds(x, y, width, height, animate);
         return this;
     }-*/;
 
+    /**
+     * Sets the element's position and size in one shot. If animation is true then width, height, x and y will be animated concurrently.
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param width the new width
+     * @param height the new height
+     * @param animateConfig the  animation config
+     * @return this
+     */    
     public native BaseElement setBounds(int x, int y, int width, int height, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -747,6 +785,12 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's box. Use getBox() on another element to get a box obj.
+     *
+     * @param box the box to fill {x, y, width, height}
+     * @return this
+     */
     public native BaseElement setBox(Box box)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
@@ -754,6 +798,14 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's box. Use getBox() on another element to get a box obj. If animate is true then width, height, x and y will be animated concurrently.
+     *
+     * @param box the box to fill {x, y, width, height}
+     * @param adjust Whether to adjust for box-model issues automatically
+     * @param animate true for the default animation
+     * @return this
+     */
     public native BaseElement setBox(Box box, boolean adjust, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
@@ -761,6 +813,14 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's box. Use getBox() on another element to get a box obj. If animate is true then width, height, x and y will be animated concurrently.
+     *
+     * @param box the box to fill {x, y, width, height}
+     * @param adjust Whether to adjust for box-model issues automatically
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setBox(Box box, boolean adjust, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
@@ -769,18 +829,38 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.
+     *
+     * @param value Boolean value to display the element using its default display
+     * @return this
+     */
     public native BaseElement setDisplayed(boolean value)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setDisplayed(value);
         return this;
     }-*/;
 
+    /**
+     * Set the height of the element.
+     *
+     * @param height the new height
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setHeight(int height, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setHeight(height, animate);
         return this;
     }-*/;
 
+    /**
+     * Set the height of the element.
+     *
+     * @param height the new height
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setHeight(int height, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -788,24 +868,53 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's left position directly using CSS style (instead of setX).
+     *
+     * @param left the left CSS property value
+     * @return this
+     */
     public native BaseElement setLeft(String left)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setLeft(left);
         return this;
     }-*/;
 
+    /**
+     * Quick set left and top adding default units.
+     *
+     * @param left the left CSS property value
+     * @param top the top CSS property value
+     * @return this
+     */
     public native BaseElement setLeftTop(String left, String top)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setLeft(left);
         return this;
     }-*/;
 
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setLocation(int x, int y, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setLocation(x, y, animate);
         return this;
     }-*/;
 
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X value for new position (coordinates are page-based)
+     * @param y Y value for new position (coordinates are page-based)
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setLocation(int x, int y, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -813,12 +922,26 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Set the opacity of the element.
+     *
+     * @param opacity the new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setOpacity(float opacity, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setOpacity(opacity, animate);
         return this;
     }-*/;
 
+    /**
+     * Set the opacity of the element.
+     *
+     * @param opacity the new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setOpacity(float opacity, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -826,6 +949,12 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Set positioning with an object returned by getPositioning().
+     *
+     * @param posCfg the position config
+     * @return this
+     */
     public native BaseElement setPositioning(PositioningConfig posCfg)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var posCfgJS = posCfg.@com.gwtext.client.core.JsObject::jsObj;
@@ -833,6 +962,13 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's position and size the the specified region. If animation is true then width, height, x and y will be animated concurrently.
+     * 
+     * @param region the region to fill
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setRegion(Region region, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var regionJS = region.@com.gwtext.client.core.JsObject::jsObj;
@@ -840,6 +976,13 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's position and size the the specified region. If animation is true then width, height, x and y will be animated concurrently.
+     *
+     * @param region the region to fill
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setRegion(Region region, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var regionJS = region.@com.gwtext.client.core.JsObject::jsObj;
@@ -848,18 +991,40 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's CSS right style.
+     *
+     * @param right the right CSS property value
+     * @return this
+     */
     public native BaseElement setRight(String right)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setRight(right);
         return this;
     }-*/;
 
+    /**
+     * Set the size of the element. If animation is true, both width an height will be animated concurrently. 
+     *
+     * @param width the new width
+     * @param height the new height
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setSize(int width, int height, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setSize(width, height, animate);
         return this;
     }-*/;
 
+    /**
+     * Set the size of the element. If animation is true, both width an height will be animated concurrently.
+     * 
+     * @param width the new width
+     * @param height the new height
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setSize(int width, int height, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -867,12 +1032,25 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Wrapper for setting style properties.
+     * 
+     * @param style the style property to be set
+     * @param value the value to apply to the given property
+     * @return this
+     */
     public native BaseElement setStyle(String style, String value)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setStyle(style, value);
         return this;
     }-*/;
 
+    /**
+     * Wrapper for setting style properties.
+     *
+     * @param styles the style property to be set
+     * @return this
+     */
     public native BaseElement setStyles(GenericConfig styles)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var stylesJS = styles.@com.gwtext.client.core.JsObject::jsObj;
@@ -880,29 +1058,64 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the element's top position directly using CSS style (instead of setY).
+     *
+     * @param top the top CSS property value
+     * @return this
+     */
     public native BaseElement setTop(String top)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setTop(top);
         return this;
     }-*/;
 
+    /**
+     * Sets the element's visibility mode. When setVisible() is called it will use this to determine whether to set the visibility or the display property.
+     * 
+     * @param useVisibleProperty true to use VISIBILITY, false for DISPLAY
+     * @return this
+     */
     public native BaseElement setVisibilityMode(boolean useVisibleProperty)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setVisibilityMode(useVisibleProperty ? $wnd.Ext.Element.VISIBILITY: $wnd.Ext.Element.DISPLAY);
         return this;
     }-*/;
 
+    /**
+     * Sets the visibility of the element. If the visibilityMode is set to Element.DISPLAY, it will use the display
+     * property to hide the element, otherwise it uses visibility. the default is to hide and show using the visibility property.
+     * 
+     * @param visible Whether the element is visible
+     * @return this
+     */
     public BaseElement setVisible(boolean visible) {
         setVisible(visible, false);
         return this;
     }
 
+    /**
+     * Sets the visibility of the element. If the visibilityMode is set to Element.DISPLAY, it will use the display
+     * property to hide the element, otherwise it uses visibility. the default is to hide and show using the visibility property.
+     *
+     * @param visible Whether the element is visible
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setVisible(boolean visible, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setVisible(visible, animate);
         return this;
     }-*/;
 
+   /**
+     * Sets the visibility of the element. If the visibilityMode is set to Element.DISPLAY, it will use the display
+     * property to hide the element, otherwise it uses visibility. the default is to hide and show using the visibility property.
+     *
+     * @param visible Whether the element is visible
+     * @param animateConfig the animation config 
+     * @return this
+     */
     public native BaseElement setVisible(boolean visible, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -910,12 +1123,26 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Set the width of the element.
+     * 
+     * @param width the new width
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setWidth(int width, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setWidth(width, animate);
         return this;
     }-*/;
 
+    /**
+     * Set the width of the element.
+     *
+     * @param width the new width
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setWidth(int width, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -923,12 +1150,26 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the X position of the element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     * 
+     * @param x X position of the element
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setX(int x, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setX(x, animate);
         return this;
     }-*/;
 
+    /**
+     * Sets the X position of the element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+     *
+     * @param x X position of the element
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setX(int x, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -936,12 +1177,30 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates
+     * (display:none or elements not appended return false).
+     * 
+     * @param x X position of the element
+     * @param y Y position of the element
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setXY(int x, int y, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setXY([x, y], animate);
         return this;
     }-*/;
 
+    /**
+     * Sets the position of the element in page coordinates, regardless of how the element is positioned. the element must be part of the DOM tree to have page coordinates
+     * (display:none or elements not appended return false).
+     *
+     * @param x X position of the element
+     * @param y Y position of the element
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setXY(int x, int y, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -949,12 +1208,28 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Sets the Y position of the element based on page coordinates. Element must be part of the DOM tree to have page
+     *  coordinates (display:none or elements not appended return false).
+     *
+     * @param y Y position of the element
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement setY(int y, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.setY(y, animate);
         return this;
     }-*/;
 
+    /**
+     * Sets the Y position of the element based on page coordinates. Element must be part of the DOM tree to have page
+     *  coordinates (display:none or elements not appended return false).
+     *
+     * @param y Y position of the element
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement setY(int y, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -962,12 +1237,24 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Show this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
+     *
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement show(boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.show(animate);
         return this;
     }-*/;
 
+    /**
+     * Show this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
+     *
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement show(AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -975,24 +1262,49 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Stops the specified event from bubbling and optionally prevents the default action.
+     *
+     * @param eventName the event name
+     * @return this
+     */
     public native BaseElement swallowEvent(String eventName)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.swallowEvent(eventName);
         return this;
     }-*/;
 
+    /**
+     * Stops the specified event from bubbling and optionally prevents the default action.
+     *
+     * @param eventName the event name
+     * @param preventDefault true to prevent the default action too
+     * @return this
+     */
     public native BaseElement swallowEvent(String eventName, boolean preventDefault)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.swallowEvent(eventName, preventDefault);
         return this;
     }-*/;
 
+    /**
+     * Toggles the element's visibility or display, depending on visibility mode.
+     * 
+     * @param animate true to animate
+     * @return this
+     */
     public native BaseElement toggle(boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.toggle(animate);
         return this;
     }-*/;
 
+    /**
+     * Toggles the element's visibility or display, depending on visibility mode.
+     *
+     * @param animateConfig the animation config
+     * @return this
+     */
     public native BaseElement toggle(AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
@@ -1000,26 +1312,53 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
+    /**
+     * Toggles the specified CSS class on this element (removes it if it already exists, otherwise adds it).
+     * 
+     * @param className the CSS class to toggle
+     * @return this
+     */
     public native BaseElement toggleClass(String className)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         elem.toggleClass(className);
         return this;
     }-*/;
 
+    /**
+     * Disables text selection for this element (normalized across browsers).
+     * 
+     */
     public native void unselectable() /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.unselectable();
     }-*/;
 
+    /**
+     * Update the innerHTML of this element.
+     * 
+     * @param html the new HTML
+     */
     public void update(String html) {
         update(html, false);
     }
 
+    /**
+     * Update the innerHTML of this element, optionally searching for and processing scripts.
+     *
+     * @param html the new HTML
+     * @param loadScripts true to look for  and process scripts
+     */
     public native void update(String html, boolean loadScripts) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         el.update(html, loadScripts);
     }-*/;
 
+    /**
+     * Creates and wraps this element with another element.
+     *
+     * @param config DomHelper element config object for the wrapper element
+     * @return this
+     */
     public native Element wrap(DomConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();

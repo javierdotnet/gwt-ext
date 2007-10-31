@@ -718,6 +718,19 @@ public class ExtElement extends BaseElement {
     }-*/;
 
     /**
+     * Set positioning with an object returned by getPositioning().
+     *
+     * @param posCfg the position config
+     * @return this
+     */
+    public native BaseElement setPositioning(PositioningConfig posCfg)/*-{
+        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var posCfgJS = posCfg.@com.gwtext.client.core.JsObject::jsObj;
+        elem.setPositioning(posCfgJS);
+        return this;
+    }-*/;
+
+    /**
      * Gets the previous sibling, skipping text nodes.
      *
      * @return the previous sibling or null

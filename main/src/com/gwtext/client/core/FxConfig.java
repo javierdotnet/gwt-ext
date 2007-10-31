@@ -23,6 +23,13 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class FxConfig extends GenericConfig {
 
+    public FxConfig() {
+    }
+
+    public FxConfig(int duration) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "duration", duration);
+    }
+
     public void setAfterCls(String afterCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterCls", afterCls);
     }
@@ -53,6 +60,10 @@ public class FxConfig extends GenericConfig {
                         };
     }-*/;
 
+    public void setEndOpacity(float endOpacity) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "endOpacity", endOpacity);
+    }            
+        
     public void setDuration(float duration) {
         JavaScriptObjectHelper.setAttribute(jsObj, "duration", duration);
     }

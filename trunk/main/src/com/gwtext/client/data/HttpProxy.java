@@ -44,7 +44,7 @@ public class HttpProxy extends DataProxy {
      * @param url data url, defaults to POST
      */
     public HttpProxy(String url) {
-        this(url, null);
+        this(url, (Connection.Method)null);
     }
 
     /**
@@ -54,11 +54,29 @@ public class HttpProxy extends DataProxy {
      * @param url data url
      * @param method GET or POST
      * @see com.gwtext.client.core.Ajax
+     * @deprecated Use {@link #HttpProxy(String, com.gwtext.client.core.Connection.Method)} instead
      */
     public HttpProxy(String url, String method) {
         JavaScriptObject config = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(config, "url", url);
         if (method != null) JavaScriptObjectHelper.setAttribute(config, "method", method);
+        jsObj = create(config);
+    }
+
+    /**
+     * Construct a new HttpProxy using the specified URL and method. A Singleton Connection object, {@link com.gwtext.client.core.Ajax},  will be used to make the
+     * http request.
+     *
+     * @param url data url
+     * @param method GET or POST
+     * @see com.gwtext.client.core.Ajax
+     * @see Connection#GET
+     * @see Connection#POST
+     */
+    public HttpProxy(String url, Connection.Method method) {
+        JavaScriptObject config = JavaScriptObjectHelper.createObject();
+        JavaScriptObjectHelper.setAttribute(config, "url", url);
+        if (method != null) JavaScriptObjectHelper.setAttribute(config, "method", method.getMethod());
         jsObj = create(config);
     }
 

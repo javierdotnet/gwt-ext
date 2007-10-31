@@ -89,7 +89,6 @@ public interface StoreListener {
      */
     void onRemove(Store store, Record record, int index);
 
-    //todo enum operatiion is Ext.data.Record.EDIT, operation is Ext.data.Record.REJECT or operatiion is Ext.data.Record.COMMIT
     /**
      *  Fires when a Record has been updated.
      * 

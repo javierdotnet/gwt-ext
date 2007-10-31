@@ -22,6 +22,9 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Class that represents the Paddings around an element.
+ */
 public class Paddings {
 
     private int top;
@@ -29,6 +32,14 @@ public class Paddings {
     private int right;
     private int bottom;
 
+    /**
+     * Create a new instance.
+     *
+     * @param top the top padding
+     * @param left the left padding
+     * @param right the right padding
+     * @param bottom the bottom padding
+     */
     public Paddings(int top, int left, int right, int bottom) {
         this.top = top;
         this.left = left;
@@ -36,7 +47,7 @@ public class Paddings {
         this.bottom = bottom;
     }
 
-    public static Paddings instance(JavaScriptObject jsObj) {
+    private static Paddings instance(JavaScriptObject jsObj) {
         return new Paddings(
                 JavaScriptObjectHelper.getIntArrayValue(jsObj, 0),
                 JavaScriptObjectHelper.getIntArrayValue(jsObj, 1),
@@ -45,18 +56,30 @@ public class Paddings {
         );
     }
 
+    /**
+     * @return the top padding
+     */
     public int getTop() {
         return top;
     }
 
+    /**
+     * @return the left padding
+     */
     public int getLeft() {
         return left;
     }
 
+    /**
+     * @return the right padding
+     */
     public int getRight() {
         return right;
     }
 
+    /**
+     * @return the bottom padding
+     */
     public int getBottom() {
         return bottom;
     }

@@ -22,6 +22,11 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * This class represents an Elements Region.
+ *
+ * @see com.gwtext.client.core.ExtElement#setRegion(Region, boolean) 
+ */
 public class Region {
 
     private int top;

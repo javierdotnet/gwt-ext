@@ -23,6 +23,9 @@ package com.gwtext.client.core;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Base class for representing a native Javascript class. <b>Note</b> : For internal use only.
+ */
 public abstract class JsObject {
 
     //Ext global initialization code

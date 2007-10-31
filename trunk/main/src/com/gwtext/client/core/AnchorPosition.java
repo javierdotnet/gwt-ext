@@ -68,8 +68,6 @@ public class AnchorPosition {
      */
     public static AnchorPosition BOTTOM_RIGHT = new AnchorPosition("br");
 
-
-
     private String position;
 
     private AnchorPosition(String position) {

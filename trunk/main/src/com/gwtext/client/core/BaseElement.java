@@ -950,19 +950,6 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     /**
-     * Set positioning with an object returned by getPositioning().
-     *
-     * @param posCfg the position config
-     * @return this
-     */
-    public native BaseElement setPositioning(PositioningConfig posCfg)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var posCfgJS = posCfg.@com.gwtext.client.core.JsObject::jsObj;
-        elem.setPositioning(posCfgJS);
-        return this;
-    }-*/;
-
-    /**
      * Sets the element's position and size the the specified region. If animation is true then width, height, x and y will be animated concurrently.
      * 
      * @param region the region to fill

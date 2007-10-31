@@ -32,7 +32,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 public class BooleanFieldDef extends FieldDef {
 
     /**
-     *  Construct a new BooleanField.
+     *  Construct a new BooleanFieldDef.
 	 *  
      * @param name the name of field
      */
@@ -41,7 +41,7 @@ public class BooleanFieldDef extends FieldDef {
     }
 
 	/**
-	 * Construct a new BooleanField
+	 * Construct a new BooleanFieldDef
 	 *
 	 * @param name the name of field
 	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
@@ -51,7 +51,7 @@ public class BooleanFieldDef extends FieldDef {
     }
 
 	/**
-	 * Construct a new BooleanField
+	 * Construct a new BooleanFieldDef
 	 *
 	 * @param name the field name
 	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
@@ -61,7 +61,7 @@ public class BooleanFieldDef extends FieldDef {
     }
 
 	/**
-	 * Construct a new BooleanField
+	 * Construct a new BooleanFieldDef
 	 *
 	 * @param name the field name
 	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
@@ -72,7 +72,7 @@ public class BooleanFieldDef extends FieldDef {
     }
 
 	/**
-	 * Construct a new BooleanField
+	 * Construct a new BooleanFieldDef
 	 *
 	 * @param name the field name
 	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML

@@ -1411,10 +1411,11 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native Fx ghost(String anchor, FxConfig config) /*-{
+    public native Fx ghost(AnchorPosition anchor, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var anchorJS = anchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-        el.ghost(anchor, configJS);
+        el.ghost(anchorJS, configJS);
         return this;
     }-*/;
 
@@ -1444,8 +1445,12 @@ public class BaseElement extends JsObject implements Fx {
     public native Fx highlight(String color, String attr, String endColor, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-        config['attr'] = attr;
-        config['endColor'] = endColor;
+        if(attr != null) {
+            configJS['attr'] = attr;
+        }
+        if(endColor != null) {
+            configJS['endColor'] = endColor;
+        }
         el.highlight(color, configJS);
         return this;
     }-*/;
@@ -1462,9 +1467,10 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native Fx puff(FxConfig config) /*-{
+    public native Fx puff(boolean remove, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        configJS['remove'] = remove;
         el.puff(configJS);
         return this;
     }-*/;
@@ -1505,10 +1511,11 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native Fx slideIn(String anchor, FxConfig config) /*-{
+    public native Fx slideIn(AnchorPosition anchor, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var anchorJS = anchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-        el.slideIn(anchor, configJS);
+        el.slideIn(anchorJS, configJS);
         return this;
     }-*/;
 
@@ -1518,10 +1525,12 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native Fx slideOut(String anchor, FxConfig config) /*-{
+    public native Fx slideOut(boolean remove, AnchorPosition anchor, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var anchorJS = anchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
-        el.slideOut(anchor, configJS);
+        configJS['remove'] = remove;
+        el.slideOut(anchorJS, configJS);
         return this;
     }-*/;
 
@@ -1537,9 +1546,10 @@ public class BaseElement extends JsObject implements Fx {
         return this;
     }-*/;
 
-    public native Fx switchOff(FxConfig config) /*-{
+    public native Fx switchOff(boolean remove, FxConfig config) /*-{
         var el = this.@com.gwtext.client.core.JsObject::jsObj;
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        configJS['remove'] = remove;
         el.switchOff(configJS);
         return this;
     }-*/;

@@ -281,4 +281,16 @@ public class Ext {
     public static native String generateId(String prefix)/*-{
         return $wnd.Ext.id(null, prefix);
     }-*/;
+
+    /**
+     * Fires when the document is ready (before onload and before images are loaded).
+     * Can alternatively use the GWT entry point mechanism.
+     *
+     * @param cb callback to execute
+     */
+    public static native void onReady(Function cb) /*-{
+        $wnd.Ext.onReady(function() {
+                cb.@com.gwtext.client.core.Function::execute()();
+            });
+    }-*/;
 }

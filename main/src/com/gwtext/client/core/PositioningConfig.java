@@ -21,13 +21,19 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Configuration class that represents an Elements position configuration.
+ *
+ * @see ExtElement#getPositioning()
+ * @see ExtElement#setPositioning(PositioningConfig)
+ */
 public class PositioningConfig extends JsObject {
 
     public PositioningConfig(JavaScriptObject jsObj) {
         this.jsObj = jsObj;
     }
 
-    public static PositioningConfig instance(JavaScriptObject jsObj) {
+    private static PositioningConfig instance(JavaScriptObject jsObj) {
         return new PositioningConfig(jsObj);
     }
 }

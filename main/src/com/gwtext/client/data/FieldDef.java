@@ -27,14 +27,22 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 //todo investigate addition on defaultValue, although it works only with XmlReader
 
 //http://extjs.com/forum/showthread.php?t=4537&page=2
+/**
+ * Base abstract FieldDef class.
+ */
 public abstract class FieldDef extends JsObject {
 
-    protected static native void setConverter(JavaScriptObject config, Converter converter)/*-{
+    static native void setConverter(JavaScriptObject config, Converter converter)/*-{
         config['convert'] = function(s) {
             return converter.@com.gwtext.client.data.Converter::format(Ljava/lang/String;)(s);
         }
    }-*/;
 
+    /**
+     * Return the field name.
+     * 
+     * @return the field name
+     */
     public String getName() {
         return JavaScriptObjectHelper.getAttribute(getJsObj(), "name");
     }

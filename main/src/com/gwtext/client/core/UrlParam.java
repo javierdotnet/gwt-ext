@@ -22,6 +22,10 @@ package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * This calass represents a Request URL parameter.
+ *
+ */
 public class UrlParam extends NameValuePair {
 
     public UrlParam(JavaScriptObject jsObj) {

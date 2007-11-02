@@ -132,8 +132,10 @@ public class FieldConfig extends BaseConfig {
 
     /**
      * The error text to use when marking a field invalid and no message is provided (defaults to "The value in this field is invalid").
+     * This error message is displayed when the used specified validator returns false.
      *
      * @param invalidText invalid text on error
+     * @see TextFieldConfig#setValidator(Validator)
      */
     public void setInvalidText(String invalidText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "invalidText", invalidText);

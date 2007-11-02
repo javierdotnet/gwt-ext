@@ -27,8 +27,16 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Comparator;
 
+/**
+ * A data Node class.
+ */
 public class Node extends JsObject {
-   
+
+    /**
+     * Create a new Node using the passed configuration.
+     *
+     * @param config node configuration
+     */
     public Node(NodeConfig config) {
         jsObj = create(config.getJsObj());
     }
@@ -37,7 +45,7 @@ public class Node extends JsObject {
         super(jsObj);
     }
 
-    public static Node instance(JavaScriptObject node) {
+    private static Node instance(JavaScriptObject node) {
         return new Node(node);
     }
 
@@ -49,11 +57,21 @@ public class Node extends JsObject {
         return new Node(jsNode);
     }
 
+    /**
+     * Associate a user defined Object with the node.
+     *
+     * @param o the user data object
+     */
     public native void setUserObject(Object o) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.attributes._data = o;
     }-*/;
 
+    /**
+     * Return the user defined object associated with the node.
+     *
+     * @return the user defined object , null if not defined
+     */
     public native Object getUserObject() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
 
@@ -74,33 +92,63 @@ public class Node extends JsObject {
        }
     }-*/;
 
+    /**
+     * Sets a attribute on the node.
+     *
+     * @param name the attribute name
+     * @param value the attribute value
+     */
     public native void setAttribute(String name, Object value) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		node.attributes[name] = value;
 	}-*/;
 
+    /**
+     * Sets a attribute on the node.
+     *
+     * @param name the attribute name
+     * @param value the attribute value
+     */
     public native void setAttribute(String name, String value) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		node.attributes[name] = value;
 	}-*/;
-			
-	protected native void setAttribute(String name, JavaScriptObject value) /*-{
+
+    protected native void setAttribute(String name, JavaScriptObject value) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		node.attributes[name] = value;
 	}-*/;
 
-	public native String getAttribute(String name) /*-{
+    /**
+     * Returns a node's attribute as String.
+     *
+     * @param name the attribute name
+     * @return attribute value as String
+     */
+    public native String getAttribute(String name) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		var value = node.attributes[name];
-		return value === undefined ? null : value;
+		return value === undefined ? null : value.toString();
 	}-*/;
 
+    /**
+     * Returns a node's Object attribute.
+     *
+     * @param name the attribute name
+     * @return attribute value
+     * @see #setAttribute(String, Object)
+     */
 	public native Object getAttributeAsObject(String name) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		var value = node.attributes[name];
 		return value === undefined ? null : value;
 	}-*/;
 
+    /**
+     * Returns all child nodes of this node.
+     * 
+     * @return node's child nodes, null if none present
+     */
     public Node[] getChildNodes() {
         JavaScriptObject[] jsNodes = JavaScriptObjectHelper.getAttributeAsJavaScriptObjectArray(jsObj, "childNodes");
         if(jsNodes == null) return null;
@@ -112,6 +160,11 @@ public class Node extends JsObject {
         return nodes;
     }
 
+    /**
+     * Return the first direct child node of this node, or null if this node has no child nodes.
+     *
+     * @return the first child node
+     */
     public native Node getFirstChild() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.firstChild == null || node.firstChild === undefined)  {
@@ -121,17 +174,32 @@ public class Node extends JsObject {
         }
     }-*/;
 
+    /**
+     * Return the node's ID.
+     *
+     * @return the node ID, null if not defined
+     */
     public native String getId() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-        return node.id;
+        return node.id === undefined ? null : node.id;
     }-*/;
 
+    /**
+     * Set the Node's ID.
+     *
+     * @param id the node ID
+     */
     public native void setId(String id) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.id = id;
     }-*/;
 
-	public native Node getLastChild() /*-{
+    /**
+     * return the last direct child node of this node, or null if this node has no child nodes.
+     *
+     * @return the last child node
+     */
+    public native Node getLastChild() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.lastChild == null || node.lastChild === undefined)  {
             return null;
@@ -140,6 +208,11 @@ public class Node extends JsObject {
         }
     }-*/;
 
+    /**
+     * Return the node immediately following this node in the tree, or null if there is no sibling node.
+     *
+     * @return this nodes next sibling
+     */
     public native Node getNextSibling() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.nextSibling == null || node.nextSibling === undefined)  {
@@ -149,6 +222,11 @@ public class Node extends JsObject {
         }
     }-*/;
 
+    /**
+     * The parent node for this node.
+     *
+     * @return the parent node, null if root node
+     */
     public native Node getParentNode() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.parentNode == null || node.parentNode === undefined)  {
@@ -158,6 +236,11 @@ public class Node extends JsObject {
         }
     }-*/;
 
+    /**
+     * Return the node immediately preceding this node in the tree, or null if there is no sibling node.
+     * 
+     * @return this nodes previosu sibling
+     */
     public native Node getPreviousSibling() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         if(node.previousSibling == null || node.previousSibling === undefined)  {
@@ -167,21 +250,38 @@ public class Node extends JsObject {
         }
     }-*/;
 
+    /**
+     * Insert node as the last child node of this node.
+     * 
+     * @param child node to append
+     */
     public native void appendChild(Node child) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var childJS = child.@com.gwtext.client.core.JsObject::jsObj;
         node.appendChild(childJS);
     }-*/;
 
+    /**
+     * Bubbles up the tree from this node, calling the specified function with each node. If the callback method returns false at
+     * any point, the bubble is stopped.
+     * 
+     * @param cb the callback function handle
+     */
     public native void bubble(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
                   var nodeJ = this;
                   node.bubble(function(n) {
                       var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
                       return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-                  });
-              }-*/;
+            });
+    }-*/;
 
+    /**
+     * Cascades down the tree from this node, calling the specified function with each node. If the callback method returns
+     * false at any point, the cascade is stopped on that branch.
+     * 
+     * @param cb the callback function handle
+     */
     public native void cascade(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
              var nodeJ = this;
@@ -189,14 +289,26 @@ public class Node extends JsObject {
                  var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
                  return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
              });
-         }-*/;
+    }-*/;
 
+    /**
+     * Returns true if this node is an ancestor (at any point) of the passed node.
+     *
+     * @param child the node
+     * @return true if contains
+     */
     public native boolean contains(Node child) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var childJS = child.@com.gwtext.client.core.JsObject::jsObj;
         return node.contains(childJS);
     }-*/;
 
+    /**
+     * Interates the child nodes of this node, calling the specified function with each node. If the callback function
+     * returns false at any point, the iteration stops.
+     * 
+     * @param cb the callback function handle
+     */
     public native void eachChild(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
              var nodeJ = this;
@@ -207,42 +319,82 @@ public class Node extends JsObject {
          }-*/;
 
     //skipping findChild in favor of more powerful and flexible findChildBy API
-    public native void findChildBy(NodeTraversalCallback cb)/*-{
+    /**
+     * Finds the first child by a custom callback function. The child matches if the function passed returns true.
+     * 
+     * @param cb the callback function handle
+     */
+    public native Node findChildBy(NodeTraversalCallback cb)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
-             var nodeJ = this;
-             node.findChildBy(function(n) {
+        var nodeJ = this;
+        var nodeC = node.findChildBy(function(n) {
                  var nj = nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(n);
                  return cb.@com.gwtext.client.data.NodeTraversalCallback::execute(Lcom/gwtext/client/data/Node;)(nj);
-             });
-         }-*/;
+        });
+        return nodeC == null ? null : nodeJ.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(nodeC);
+    }-*/;
 
+    /**
+     * Returns depth of this node (the root node has a depth of 0).
+     *
+     * @return the depth of this node
+     */
     public native int getDepth() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.getDepth();
     }-*/;
 
+    /**
+     * Returns the tree this node is in.
+     * 
+     * @return the owner tree
+     */
     public native Tree getOwnerTree()/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var treeJS = node.getOwnerTree();
         return @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(treeJS);
     }-*/;
 
+    /**
+     * Returns the path for this node. The path can be used to expand or select this node programmatically.
+     * 
+     * @return the path
+     */
     public native String getPath() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.getPath();
     }-*/;
 
+    /**
+     * Returns the path for this node. The path can be used to expand or select this node programmatically.
+     *
+     * @param attr the attr to use for the path (defaults to the node's id)
+     * @return the path
+     */
     public native String getPath(String attr) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.getPath(attr);
     }-*/;
 
+    /**
+     * Returns the index of a child node.
+     *
+     * @param child the child node
+     * @return the index of the node or -1 if it was not found
+     */
     public native int indexOf(Node child) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var childJS = child.@com.gwtext.client.core.JsObject::jsObj;
         return node.indexOf(childJS);
     }-*/;
 
+    /**
+     * Inserts the first node before the second node in this nodes childNodes collection.
+     * 
+     * @param node the node to insert
+     * @param nodeRef the node to insert before (if null the node is appended)
+     * @return the inserted node
+     */
     public native Node insertBefore(Node node, Node nodeRef) /*-{
         var self = this.@com.gwtext.client.core.JsObject::jsObj;
         var node1 = node.@com.gwtext.client.core.JsObject::jsObj;
@@ -251,27 +403,54 @@ public class Node extends JsObject {
         return node;
     }-*/;
 
+    /**
+     * Returns true if the passed node is an ancestor (at any point) of this node.
+     *
+     * @param node the node to test
+     * @return true of ancestor
+     */
     public native boolean isAncestor(Node node) /*-{
         var self = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJS = node.@com.gwtext.client.core.JsObject::jsObj;
         return self.isAncestor(nodeJS);
     }-*/;
 
+    /**
+     * Returns true if this node is the first child of its parent.
+     *
+     * @return true if first node
+     */
     public native boolean isFirst() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.isFirst();
     }-*/;
 
+    /**
+     * Returns true if this node is the last child of its parent.
+     *
+     * @return true if last
+     */
     public native boolean isLast() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.isLast();
     }-*/;
 
+    /**
+     * Returns true if this node is a leaf.
+     *
+     * @return true if leaf node
+     */
     public native boolean isLeaf() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.isLeaf();
     }-*/;
 
+    /**
+     * Returns the child node at the specified index.
+     * 
+     * @param index the index
+     * @return the child at index, null if none present
+     */
     public native Node item(int index)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var itemNode = node.item(index);
@@ -279,6 +458,12 @@ public class Node extends JsObject {
         return this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(itemNode);
     }-*/;
 
+    /**
+     * Removes a child node from this node.
+     * 
+     * @param child the node to remove
+     * @return the removed node
+     */
     public native Node removeChild(Node child) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var childJS = child.@com.gwtext.client.core.JsObject::jsObj;
@@ -287,6 +472,13 @@ public class Node extends JsObject {
         return this.@com.gwtext.client.data.Node::createNode(Lcom/google/gwt/core/client/JavaScriptObject;)(nodeRemoved);
     }-*/;
 
+    /**
+     * Replaces one child node in this node with another.
+     * 
+     * @param newChild the replacement node
+     * @param oldChild the node to replace
+     * @return the replaced node
+     */
     public native Node replaceChild(Node newChild, Node oldChild) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var newChildJS = newChild.@com.gwtext.client.core.JsObject::jsObj;
@@ -311,6 +503,11 @@ public class Node extends JsObject {
         })
     }-*/;
 
+    /**
+     * Add a Node listener.
+     *
+     * @param listener the listener
+     */
     public native void addNodeListener(NodeListener listener) /*-{
 	    var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJ = this;

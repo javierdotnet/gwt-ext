@@ -23,24 +23,58 @@ package com.gwtext.client.data;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Field that represents String data.
+ */
 public class StringFieldDef extends FieldDef {
 
+    /**
+     *  Construct a new StringFieldDef.
+	 *
+     * @param name the name of field
+     */
     public StringFieldDef(String name) {
         this(name, null, null);
     }
 
+	/**
+	 * Construct a new StringFieldDef.
+	 *
+	 * @param name the name of field
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
+	 */
     public StringFieldDef(String name, String mapping) {
         this(name, mapping, null);
     }
 
+	/**
+	 * Construct a new StringFieldDef.
+	 *
+	 * @param name the name of field
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when reading from XML
+	 */
     public StringFieldDef(String name, int mapping) {
         this(name, mapping, null);
     }
 
+	/**
+	 * Construct a new StringFieldDef.
+	 *
+	 * @param name the field name
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param converter format the incoming data before processing it
+	 */
     public StringFieldDef(String name, String mapping, Converter converter) {
         jsObj = create(name, mapping, converter);
     }
 
+	/**
+	 * Construct a new StringFieldDef.
+	 *
+	 * @param name the field name
+	 * @param mapping the field mapping. Depending on the Reader used, mapping could be the array index position or an XPath expression when readinf from XML
+	 * @param converter format the incoming data before processing it
+	 */
     public StringFieldDef(String name, int mapping, Converter converter) {
         this(name, String.valueOf(mapping), converter);
     }

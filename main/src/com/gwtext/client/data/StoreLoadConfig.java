@@ -25,12 +25,28 @@ import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * StoreLoad configuration class.
+ *
+ * @see Store#load(StoreLoadConfig)
+ * @see Store#reload(StoreLoadConfig)
+ */
 public class StoreLoadConfig extends BaseConfig {
 
+    /**
+     * True to ppend loaded records rather than replace the current cache.
+     *
+     * @param add true to add
+     */
     public void setAdd(boolean add) {
         JavaScriptObjectHelper.setAttribute(jsObj, "add", add);
     }
 
+    /**
+     * Parameters to pass as HTTP parameters to a remote data source. Used only with HTTP related proxies.
+     * 
+     * @param params url parameters
+     */
     public void setParams(UrlParam[] params) {
         JavaScriptObject paramObj = UrlParam.getJsObj(params);
         JavaScriptObjectHelper.setAttribute(jsObj, "params", paramObj);

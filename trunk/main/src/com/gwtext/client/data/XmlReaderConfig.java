@@ -23,20 +23,46 @@ package com.gwtext.client.data;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * {@link com.gwtext.client.data.XmlReader} configuration class.
+ */
 public class XmlReaderConfig extends BaseConfig {
 
+    /**
+     * The {@link com.gwtext.client.core.DomQuery} path relative from the record element to the element that contains a record identifier value..
+     * The simples case is the tag name in the XML that maps to the Record ID
+     *
+     * @param id the ID
+     */
     public void setId(String id) {
         JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
     }
 
+    /**
+     * The {@link com.gwtext.client.core.DomQuery} path to the repeated element which contains record information. The simples
+     * case is the tag name in the XML that maps to the root tag of what corresponnds to a "record".
+     *
+     * @param record the record mapping
+     */
     public void setRecord(String record) {
         JavaScriptObjectHelper.setAttribute(jsObj, "record", record);
     }
 
+    /**
+     * The {@link com.gwtext.client.core.DomQuery} path to the success attribute used by forms.
+     *
+     * @param success the success {@link com.gwtext.client.core.DomQuery} path.
+     */
     public void setSuccess(String success) {
         JavaScriptObjectHelper.setAttribute(jsObj, "success", success);
     }
 
+    /**
+     * The {@link com.gwtext.client.core.DomQuery} path from which to retrieve the total number of records in the dataset.
+     * This is only needed if the whole dataset is not passed in one go, but is being paged from the remote server.
+     *
+     * @param totalRecords  the totalRecords DomQuery path
+     */
     public void setTotalRecords(String totalRecords) {
         JavaScriptObjectHelper.setAttribute(jsObj, "totalRecords", totalRecords);
     }

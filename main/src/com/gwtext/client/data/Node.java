@@ -33,6 +33,13 @@ import java.util.Comparator;
 public class Node extends JsObject {
 
     /**
+     * Create a new Node instance.
+     */
+    public Node() {
+       jsObj = create(null);
+    }
+
+    /**
      * Create a new Node using the passed configuration.
      *
      * @param config node configuration

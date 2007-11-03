@@ -21,6 +21,50 @@ package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * A paging proxy that supports paging of local array data. Usage :
+ *
+ * <pre>
+ * <code>
+ *
+ *  Object[][] data = new Object[][]{
+ *               new Object[]{"3m Co", new Double(71.72), new Double(0.02), new Double(0.03), "9/1 12:00am", "MMM"},
+ *               new Object[]{"Alcoa Inc", new Double(29.01), new Double(0.42), new Double(1.47), "9/1 12:00am", "AA"}};
+ *
+ *  MemoryProxy proxy = new PagingMemoryProxy(data);
+ *  RecordDef recordDef = new RecordDef(
+ *          new FieldDef[]{
+ *                  new StringFieldDef("company"),
+ *                  new FloatFieldDef("price"),
+ *                  new FloatFieldDef("change"),
+ *                  new FloatFieldDef("pctChange"),
+ *                  new DateFieldDef("lastChanged", "n/j h:ia")
+ *          }
+ *  );
+ *
+ *  ArrayReader reader = new ArrayReader(recordDef);
+ *  final Store store = new Store(proxy, reader);
+ *  store.load();
+ *
+ *  ...
+ *  ComboBox cb = new ComboBox(new ComboBoxConfig() {
+ *        {
+ *          setMinChars(1);
+ *          setFieldLabel("Company");
+ *          setStore(store);
+ *          setDisplayField("company");
+ *          setTriggerAction("all");
+ *          setEmptyText("Enter company");
+ *          setLoadingText("Searching...");
+ *          setTypeAhead(true);
+ *          setSelectOnFocus(true);
+ *          setWidth(250);
+ *          setPageSize(10);
+ *        }
+ *  });
+ * </code>
+ * </pre>
+ */
 public class PagingMemoryProxy extends MemoryProxy {
 
     static {
@@ -111,11 +155,16 @@ public class PagingMemoryProxy extends MemoryProxy {
         });
     }-*/;
 
+    /**
+     * Construct a new paging memory proxy using the data passed.
+     *
+     * @param data the array data
+     */
     public PagingMemoryProxy(Object[][] data) {
         super(data);
     }
 
-    protected native JavaScriptObject create(JavaScriptObject data) /*-{
+    native JavaScriptObject create(JavaScriptObject data) /*-{
         return new $wnd.Ext.data.PagingMemoryProxy(data);
     }-*/;
 }

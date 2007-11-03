@@ -24,8 +24,14 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.data.event.TreeListener;
 
+/**
+ * Represents a tree data structure and bubbles all the events for its nodes. The nodes in the tree have most standard
+ * DOM functionality.
+ */
 public class Tree extends JsObject {
-
+    /**
+     * Create a new Tree instance.
+     */
     public Tree() {
         jsObj = create();
     }
@@ -42,6 +48,12 @@ public class Tree extends JsObject {
         return new $wnd.Ext.data.Tree();
     }-*/;
 
+    /**
+     * Gets a node in this tree by its id.
+     *
+     * @param id the mode ID
+     * @return the node, or null if not found
+     */
     public Node getNodeById(String id) {
         JavaScriptObject node = getNodeById(jsObj, id);
         return node == null ? null : new Node(node);
@@ -51,6 +63,11 @@ public class Tree extends JsObject {
         return tree.getNodeById(id);
     }-*/;
 
+    /**
+     * Returns the root node.
+     *
+     * @return the root node
+     */
     public Node getRootNode() {
         JavaScriptObject root = getRootNode(jsObj);
         return root == null ? null : new Node(root);
@@ -60,12 +77,22 @@ public class Tree extends JsObject {
         return tree.getRootNode();
     }-*/;
 
+    /**
+     * Set the root node.
+     *
+     * @param node the root node
+     */
     public native void setRootNode(Node node) /*-{
         var tree = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJS = node.@com.gwtext.client.core.JsObject::jsObj;
         tree.setRootNode(nodeJS);
     }-*/;
 
+    /**
+     * Add a Tree listener.
+     *
+     * @param listener the listener
+     */
     public native void addNodeListener(TreeListener listener) /*-{
 	    var tree = this.@com.gwtext.client.core.JsObject::jsObj;
         var treeJ = this;

@@ -26,6 +26,7 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 || com.gwtext.client.core.event|| Done ||
 || com.gwtext.client.data || Done  ||
 || com.gwtext.client.data.event || Done ||
+|| com.gwtext.client.dd || 0% ||
 || com.gwtext.client.state || Done ||
 || com.gwtext.client.util || 80% ||
 || com.gwtext.client.widgets || 0% ||

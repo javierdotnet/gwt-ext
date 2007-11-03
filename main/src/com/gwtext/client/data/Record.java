@@ -22,6 +22,7 @@ package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
@@ -287,6 +288,25 @@ public class Record extends JsObject {
             var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(value);
             record.set(field, new $wnd.Date(millis));            
         }
+    }-*/;
+
+    /**
+     * Return the names of the fields that are modified in this record.
+     *
+     * @return modified field names. Returns an empty array if no fields are modified.
+     */
+    public String[] getModifiedFields() {
+        JavaScriptObject nativeArray = getModifiedFeilds(jsObj);        
+        return JavaScriptObjectHelper.convertToJavaStringArray(nativeArray);
+    }
+
+    private native JavaScriptObject getModifiedFeilds(JavaScriptObject record)/*-{
+        if (record.modified === undefined) return  null;
+        var fields = new $wnd.Array();
+        for(var key in record.modified) {
+            fields.push(key);
+        }
+        return fields;
     }-*/;
 
     //see http://extjs.com/forum/showthread.php?t=2834&highlight=validateedit&page=2 for use

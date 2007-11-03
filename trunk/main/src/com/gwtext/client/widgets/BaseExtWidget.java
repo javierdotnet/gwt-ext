@@ -26,6 +26,9 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.ExtElement;
 
+/**
+ * Base abstract Widget class.
+ */
 public abstract class BaseExtWidget extends Widget {
 
     protected JavaScriptObject jsObj;

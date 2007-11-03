@@ -22,16 +22,35 @@ package com.gwtext.client.widgets;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * The {@link com.gwtext.client.widgets.ColorPalette} configuration.
+ */
 public class ColorPaletteConfig extends ComponentConfig {
 
+    /**
+     * If set to true then reselecting a color that is already selected fires the selection event.
+     *
+     * @param allowReselect true to allow reselect
+     */
     public void setAllowReselect(boolean allowReselect) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowReselect", allowReselect);
     }
 
+    /**
+     * The CSS class to apply to the containing element (defaults to "x-color-palette").
+     *
+     * @param itemCls the item CSS class
+     */
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }
 
+    /**
+     * The initial color to highlight (should be a valid 6-digit color hex code without the # symbol).
+     * Note that the hex codes are case-sensitive.
+     *
+     * @param value the initial color
+     */
     public void setValue(String value) {
         JavaScriptObjectHelper.setAttribute(jsObj, "value", value);
     }

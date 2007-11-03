@@ -19,6 +19,11 @@
  */
 package com.gwtext.client.data;
 
+/**
+ * Exception raised when loading data into a Store.
+ *
+ * @see com.gwtext.client.data.event.StoreListener#onLoadException(Throwable)
+ */
 public class StoreLoadException extends Exception {
     
     public StoreLoadException(String message) {

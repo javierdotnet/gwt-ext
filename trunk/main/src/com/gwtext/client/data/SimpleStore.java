@@ -21,15 +21,41 @@
 package com.gwtext.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Convenience class that creates a Store directly using field names and local array data. Usage :
+ *
+ * <pre>
+ * <code>
+ *
+ * Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
+ *                new Object[]{"xtheme-aero.css", "Aero Glass Theme"},
+ *                new Object[]{"xtheme-gray.css", "Gray Theme"},
+ *                new Object[]{"xtheme-vista.css", "Vista Dark Theme"}});
+ * </code>
+ * </pre>
+ */
 public class SimpleStore extends Store {
-    
+
+    /**
+     * Construct a SimpleStore.
+     *
+     * @param fields array of field names
+     * @param data store data. all fields are treated as String's
+     */
     public SimpleStore(String[] fields, Object[][] data) {
         this(-1, fields, data);
     }
 
+    /**
+     * Construct a SimpleStore.
+     *
+     * @param id name of the ID field
+     * @param fields array of field names. All Fields are treated as Strings
+     * @param data store data
+     */
     public SimpleStore(int id, String[] fields, Object[][] data) {
         SimpleStoreConfig config = new SimpleStoreConfig();
         if(id >= 0) config.setId(id);
@@ -38,6 +64,13 @@ public class SimpleStore extends Store {
         jsObj = create(config.getJsObj());
     }
 
+    /**
+     * Construct a SimpleStore.
+     *
+     * @param id name of the ID field
+     * @param fields the field definitions
+     * @param data store data
+     */
     public SimpleStore(int id, FieldDef[] fields, Object[][] data) {
         SimpleStoreConfig config = new SimpleStoreConfig();
         if(id >= 0) config.setId(id);

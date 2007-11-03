@@ -24,7 +24,7 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 === Javadocs ===
 || com.gwtext.client.core || Done ||
 || com.gwtext.client.core.event|| Done ||
-|| com.gwtext.client.data || 80%  ||
+|| com.gwtext.client.data || Done  ||
 || com.gwtext.client.data.event || Done ||
 || com.gwtext.client.state || 30% ||
 || com.gwtext.client.util || 80% ||

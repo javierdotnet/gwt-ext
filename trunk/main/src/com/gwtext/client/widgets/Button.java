@@ -25,8 +25,16 @@ import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.widgets.event.ButtonListener;
 
+/**
+ * Simple Button class.
+ */
 public class Button extends RequiredElementWidget {
 
+    /**
+     * Construct a new Button.
+     *
+     * @param text the button text
+     */
     public Button(final String text) {
         this(new ButtonConfig() {
             {
@@ -35,10 +43,21 @@ public class Button extends RequiredElementWidget {
         });
     }
 
+    /**
+     * Construct a new Button
+     *
+     * @param config the button config
+     */
     public Button(ButtonConfig config) {
         this(Ext.generateId(), config);
     }
 
+    /**
+     * Construct a new Button.
+     *
+     * @param id the button ID
+     * @param config the button config
+     */
     public Button(String id, ButtonConfig config) {
         super(id, config);
         if (config.getButtonListener() != null) {
@@ -50,7 +69,7 @@ public class Button extends RequiredElementWidget {
         super(jsObj);
     }
 
-    public static Button instance(JavaScriptObject jsObj) {
+    private static Button instance(JavaScriptObject jsObj) {
         return new Button(jsObj);
     }
 
@@ -62,41 +81,73 @@ public class Button extends RequiredElementWidget {
         return jsObj;
     }
 
+    /**
+     * Returns true if button is disabled.
+     *
+     * @return true if disabled
+     */
     public native boolean isDisabled() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return button.disabled;
     }-*/;
 
+    /**
+     * Returns true if Button is hidden.
+     *
+     * @return true if hidden
+     */
     public native boolean isHidden() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return button.hidden;
     }-*/;
 
+    /**
+     * True if this button is pressed (only if enableToggle is true)
+     *
+     * @return true if pressed
+     */
     public native boolean isPressed() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return button.pressed;
     }-*/;
 
+    /**
+     * Destroys this Button and removes any listeners.
+     */
     public native void destroy() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.destroy();
     }-*/;
 
+    /**
+     * Disable this button.
+     */
     public native void disable() /*-{
       var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
       button.disable();
     }-*/;
 
+    /**
+     * Enable this button.
+     */
     public native void enable() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.enable();
     }-*/;
 
+    /**
+     * Focus the button.
+     */
     public native void focus() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.focus();
     }-*/;
 
+    /**
+     * Gets the text of this button.
+     *
+     * @return teh button text
+     */
     public native String getText() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return button.getText();
@@ -113,32 +164,55 @@ public class Button extends RequiredElementWidget {
         return but;
     }-*/;
 
+    /**
+     * Hide this button.
+     */
     public native void hide() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.hide();
     }-*/;
 
+    /**
+     * Sets this button's text.
+     *
+     * @param text
+     */
     public native void setText(String text) /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.setText(text);
     }-*/;
 
+    /**
+     * Convenience function for boolean show/hide.
+     *
+     * @param visible true to set visible
+     */
     public native void setVisible(boolean visible) /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.setVisible(visible);
     }-*/;
 
+    /**
+     * Show this button.
+     */
     public native void show() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.show();
     }-*/;
 
-
+    /**
+     * Toggle the current state.
+     */
     public native void toggle() /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.toggle();
     }-*/;
 
+    /**
+     * Toggle the button to the passed state.
+     *
+     * @param state true to toggle pressed
+     */
     public native void toggle(boolean state) /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         button.toggle(state);
@@ -155,6 +229,11 @@ public class Button extends RequiredElementWidget {
         but.qtip = tooltip;
     }-*/;
 
+    /**
+     * Add a Button listener.
+     *
+     * @param listener the listener
+     */
     public native void addButtonListener(ButtonListener listener) /*-{
         var button = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var buttonJ = this;

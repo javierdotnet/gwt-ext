@@ -371,7 +371,7 @@ public class Store extends JsObject {
     /**
      * Gets all records modified since the last commit. Modified records are persisted across load operations (e.g., during paging).
      *
-     * @return the modified Records
+     * @return the modified Records. Returns an empty array if no records were modified
      */
     public Record[] getModifiedRecords() {
         JavaScriptObject nativeArray = getModifiedRecords(jsObj);

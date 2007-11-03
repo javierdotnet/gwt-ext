@@ -365,6 +365,7 @@ public class JavaScriptObjectHelper {
     }
 
     public static String[] convertToJavaStringArray(JavaScriptObject array) {
+        if(array == null) return new String[]{};
         int length = getArrayLength(array);
         String[] arr = new String[length];
         for (int i = 0; i < length; i++) {

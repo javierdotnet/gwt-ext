@@ -32,7 +32,41 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 //todo fireRowsSorted missing?
 
-
+/**
+ * The Store class encapsulates a client side cache of {@link Record} objects which provide input data for widgets such
+ * as the {@link com.gwtext.client.widgets.grid.Grid}, or the {@link com.gwtext.client.widgets.form.ComboBox}.
+ *
+ * A Store object uses an implementation of {@link DataProxy} to access a data object unless you call loadData() directly
+ * and pass in your data. The Store object has no knowledge of the format of the data returned by the Proxy.
+ *
+ * A Store object uses its configured implementation of {@link Reader} to {@link Record} instances from the data object.
+ * These records are cached and made available through accessor functions. Usage : 
+ *
+ * <pre>
+ * <code>
+ *
+ * Object[][] states = new Object[][]{
+ *               new Object[]{"AL", "Alabama"},
+ *               new Object[]{"AK", "Alaska"},
+ *               new Object[]{"AZ", "Arizona"},
+ *               new Object[]{"AR", "Arkansas"},
+ *               new Object[]{"CA", "California"}};
+ *
+ * Reader reader = new ArrayReader(new RecordDef(
+ *                new FieldDef[]{
+ *                       new StringFieldDef("abbr"),
+ *                       new StringFieldDef("state")
+ *               }));
+ *
+ * Store store = new Store(proxy, reader);
+ * </code>
+ * </pre>
+ * 
+ * @see com.gwtext.client.data.XmlReader
+ * @see com.gwtext.client.data.JsonReader
+ * @see com.gwtext.client.data.HttpProxy
+ * @see com.gwtext.client.data.MemoryProxy
+ */
 public class Store extends JsObject {
 
     protected Store() {
@@ -42,31 +76,64 @@ public class Store extends JsObject {
         super(jsObj);
     }
 
-    public static Store instance(JavaScriptObject jsObj) {
+    private static Store instance(JavaScriptObject jsObj) {
         return new Store(jsObj);
     }
 
     //http://extjs.com/forum/showthread.php?t=3564&highlight=memoryproxy
+    /**
+     * Create a Store using the specified {@link RecordDef}. Data can be added to the Store using
+     * {@link #add(Record)}
+     *
+     * @param recordDef the record def
+     */
     public Store(RecordDef recordDef) {
         JavaScriptObject params = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(params, "recordType", recordDef.getJsObj());
         jsObj = create(params);
     }
 
+    /**
+     * Create a Store using the specified {@link Reader}.
+     *
+     * @param reader the reader
+     */
     public Store(Reader reader) {
         JavaScriptObject params = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(params, "reader", reader.getJsObj());
         jsObj = create(params);
     }
 
+    /**
+     * Create a Store using the specified {@link com.gwtext.client.data.DataProxy} and {@link Reader}.
+     *
+     * @param dataProxy the data proxy
+     * @param reader the reader
+     */
     public Store(DataProxy dataProxy, Reader reader) {
         this(dataProxy, reader, false);
     }
 
+    /**
+     * Create a Store using the specified {@link com.gwtext.client.data.DataProxy} and {@link Reader}.
+     *
+     * @param dataProxy the data proxy
+     * @param reader the reader
+     * @param remoteSort true to enable remote sort of the data
+     */
     public Store(DataProxy dataProxy, Reader reader, boolean remoteSort) {
         this(dataProxy, reader, null, null, remoteSort);
     }
 
+    /**
+     * Create a Store using the specified configuration.
+     *
+     * @param dataProxy the data proxy
+     * @param reader the reader
+     * @param baseParams base params which are to be sent as parameters on any HTTP request. Used only for Http based proxies.
+     * @param initialSortState the initial sort field name and direction
+     * @param remoteSort true to enable remote sort
+     */
     public Store(DataProxy dataProxy, Reader reader, UrlParam[] baseParams, SortState initialSortState, boolean remoteSort) {
         JavaScriptObject params = JavaScriptObjectHelper.createObject();
         JavaScriptObjectHelper.setAttribute(params, "proxy", dataProxy.getJsObj());
@@ -93,12 +160,22 @@ public class Store extends JsObject {
         return new $wnd.Ext.data.Store(params);        
     }-*/;
 
+    /**
+     * base params which are to be sent as parameters on any HTTP request. Used only for Http based proxies.
+     *
+     * @param baseParams the base params
+     */
     public native void setBaseParams(UrlParam[] baseParams) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;
         var baseParamsJS = @com.gwtext.client.core.NameValuePair::getJsObj([Lcom/gwtext/client/core/NameValuePair;)(baseParams);
         store.baseParams = baseParamsJS;
     }-*/;
 
+    /**
+     * Return the base params.
+     *
+     * @return the base params
+     */
     public UrlParam[] getBaseParams() {
         JavaScriptObject baseParamsNative = getBaseParams(jsObj);
 

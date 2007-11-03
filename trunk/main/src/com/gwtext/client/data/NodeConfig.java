@@ -23,16 +23,34 @@ package com.gwtext.client.data;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configration class for a {@link Node}.
+ */
 public class NodeConfig extends BaseConfig {
 
+    /**
+     * Associate a user defined Object with the node.
+     *
+     * @param userObject the user data object
+     */
     public void setUserObject(Object userObject) {
         JavaScriptObjectHelper.setObjectAttribute(jsObj, "data", userObject);
     }
 
+    /**
+     * Set the Node's ID.
+     *
+     * @param id the node ID
+     */
     public void setId(String id) {
         JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
     }
 
+    /**
+     * Sets whether the node is a leaf.
+     *
+     * @param leaf true if leaf
+     */
     public void setLeaf(boolean leaf) {
         JavaScriptObjectHelper.setAttribute(jsObj, "leaf", leaf);
     }

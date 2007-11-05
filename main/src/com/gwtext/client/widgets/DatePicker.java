@@ -25,12 +25,20 @@ import com.gwtext.client.widgets.event.DatePickerListener;
 
 import java.util.Date;
 
+/**
+ * Simple date picker class.
+ */
 public class DatePicker extends Component {
 
     public DatePicker(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
+    /**
+     * Create a new Date picker using the specified condifuration.
+     *
+     * @param config the config
+     */
     public DatePicker(DatePickerConfig config) {
         jsObj = create(jsObj, config.getJsObj());
     }
@@ -43,6 +51,11 @@ public class DatePicker extends Component {
         return new DatePicker(jsObj);
     }
 
+    /**
+     * Get the value ofa teh date picker.
+     *
+     * @return null if no value selected
+     */
     public Date getValue() {
         long time = getValueMillis(jsObj);
         return time == -1 ? null : new Date(time);
@@ -53,6 +66,11 @@ public class DatePicker extends Component {
         return (date == '' || date == null) ? -1 : data.getTime();
     }-*/;
 
+    /**
+     * Set the value of the date picker.
+     *
+     * @param date the date
+     */
     public void setValue(Date date) {
         setValueMillis(jsObj, date.getTime());
     }
@@ -63,6 +81,11 @@ public class DatePicker extends Component {
         dp.setValue(date);
     }-*/;
 
+    /**
+     * Add a Date Picker Listener.
+     *
+     * @param listener the listener
+     */
     public native void addDatePickerListener(DatePickerListener listener) /*-{
         var componentJ = this;
         var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

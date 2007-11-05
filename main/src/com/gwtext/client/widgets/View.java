@@ -20,21 +20,37 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.JsObject;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.core.Template;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.widgets.event.ViewListener;
 
-public class View extends JsObject {
+public class View extends BaseExtWidget {
 
-    public View(Element container, String template, ViewConfig config) {
-        jsObj = create(container, template, config.getJsObj());
+    public View(String id, String template, ViewConfig config) {
+        Element div = DOM.getElementById(id);
+        if(div == null) {
+            div = DOM.createDiv();
+            DOM.setElementProperty(div, "id", id);
+        }
+        setElement(div);
+        RootPanel.get().add(this);
+        jsObj = create(div, template, config.getJsObj());
     }
 
-    public View(Element container, Template template, ViewConfig config) {
-        jsObj = create(container, template.getJsObj(), config.getJsObj());
+    public View(String id, Template template, ViewConfig config) {
+        Element div = DOM.getElementById(id);
+        if(div == null) {
+            div = DOM.createDiv();
+            DOM.setElementProperty(div, "id", id);
+        }
+        setElement(div);
+        RootPanel.get().add(this);
+        jsObj = create(div, template.getJsObj(), config.getJsObj());
     }
+
 
     protected native JavaScriptObject create(Element container, String template, JavaScriptObject config) /*-{
         return new $wnd.Ext.View(container, template, config);
@@ -59,11 +75,6 @@ public class View extends JsObject {
         return view.findItemFromChild(node);
     }-*/;
 
-    public native Element getEl() /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
-        var el = view.getEl();
-        return el.dom;
-    }-*/;
 
     public native Element getNode(Element templateNode) /*-{
         var view = this.@com.gwtext.client.core.JsObject::jsObj;

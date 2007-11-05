@@ -19,25 +19,52 @@
  */
 package com.gwtext.client.widgets;
 
+/**
+ * Provides global access to LayoutDialogs that have been created and support for z-indexing (layering) multiple open dialogs.
+ */
 public class DialogManager {
 
+    /**
+     * The starting z-index for BasicDialogs (defaults to 9000)
+     *
+     * @param zseed the z seed
+     */
     public static native void setZseed(int zseed)/*-{
         $wnd.Ext.DialogManager.zseed = zseed;
     }-*/;
 
+    /**
+     * Brings the specified dialog to the front.
+     *
+     * @param id the dialog ID
+     */
     public static native void bringToFront(String id)/*-{
         $wnd.Ext.DialogManager.bringToFront(id);
     }-*/;
 
+    /**
+     * Gets a registered dialog by id.
+     * 
+     * @param id the dialog ID
+     * @return the dialog
+     */
     public static native LayoutDialog get(String id)/*-{
         var dlg = $wnd.Ext.DialogManager.get(id);
         return @com.gwtext.client.widgets.LayoutDialog::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dlg);
     }-*/;
 
+    /**
+     * Hides all dialogs.
+     */
     public static native void hideAll()/*-{
         $wnd.Ext.DialogManager.hideAll();
     }-*/;
 
+    /**
+     * Sends the specified dialog to the back.
+     *
+     * @param id the dialog ID
+     */
     public static native void sendToBack(String id)/*-{
         $wnd.Ext.DialogManager.sendToBack(id);
     }-*/;

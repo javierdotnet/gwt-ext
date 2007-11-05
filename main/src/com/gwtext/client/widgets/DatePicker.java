@@ -52,7 +52,7 @@ public class DatePicker extends Component {
     }
 
     /**
-     * Get the value ofa teh date picker.
+     * Get the value of the date picker.
      *
      * @return null if no value selected
      */

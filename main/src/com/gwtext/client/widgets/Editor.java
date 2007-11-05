@@ -26,15 +26,29 @@ import com.gwtext.client.widgets.form.Field;
 
 import java.util.Date;
 
+/**
+ * A base editor field that handles displaying/hiding on demand and has some built-in sizing and event handling logic.
+ */
 public class Editor extends Component {
 
     protected Editor() {
     }
 
+    /**
+     * Create a new Editor.
+     *
+     * @param field the editor field
+     */
     public Editor(Field field) {
         this(field, null);
     }
 
+    /**
+     * Create a new Editor.
+     *
+     * @param field the editor field
+     * @param config the editor config
+     */
     public Editor(Field field, EditorConfig config) {
         jsObj = create(field.getJsObj(), config == null ? null : config.getJsObj());
     }
@@ -43,22 +57,42 @@ public class Editor extends Component {
         return new $wnd.Ext.Editor(field, config);
     }-*/;
 
+    /**
+     * Cancels the editing process and hides the editor without persisting any changes. The field value will be reverted to the original starting value.
+     *
+     * @param remainVisible override the default behavior and keep the editor visible after cancel (defaults to false)
+     */
     public native void cancelEdit(boolean remainVisible) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.cancelEdit();
     }-*/;
 
+    /**
+     * Ends the editing process, persists the changed value to the underlying field, and hides the editor.
+     *
+     * @param remainVisible Override the default behavior and keep the editor visible after edit (defaults to false)
+     */
     public native void completeEdit(boolean remainVisible) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.completeEdit(true);
     }-*/;
-        
+
+    /**
+     * Gets the data value of the editor.
+     *
+     * @return the value as String
+     */
     public native String getValueAsString() /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var val = editor.getValue();
         return val == null ? null : val.toString();
     }-*/;
 
+    /**
+     * Gets the data value of the editor.
+     *
+     * @return the editor value
+     */
     public native Object getValue()/*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var val = editor.getValue();
@@ -66,36 +100,70 @@ public class Editor extends Component {
         return valJ;
     }-*/;
 
+    /**
+     * Realigns the editor to the bound field based on the current alignment config value.
+     */
     public native void realign() /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.realign();
     }-*/;
 
+    /**
+     * Sets the height and width of this editor.
+     * 
+     * @param width the new width
+     * @param height the new height
+     */
     public native void setSize(int width, int height) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.setSize(width, height);
     }-*/;
 
+    /**
+     * Sets the data value of the editor.
+     *
+     * @param value the value
+     */
     public native void setValue(String value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.setValue(value);
     }-*/;
 
+    /**
+     * Sets the data value of the editor.
+     *
+     * @param value the value
+     */
     public native void setValue(boolean value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.setValue(value);
     }-*/;
 
+    /**
+     * Sets the data value of the editor.
+     *
+     * @param value the value
+     */
     public native void setValue(double value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.setValue(value);
     }-*/;
 
+    /**
+     * Sets the data value of the editor.
+     *
+     * @param value the value
+     */
     public native void setValue(long value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.setValue(value);
     }-*/;
 
+    /**
+     * Sets the data value of the editor.
+     *
+     * @param value the value
+     */
     public native void setValue(Date value)/*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(value);
         var dateJS = new $wnd.Date(millis);
@@ -103,26 +171,53 @@ public class Editor extends Component {
         editor.setValue(dateJS);
     }-*/;
 
+    /**
+     * Starts the editing process and shows the editor.
+     *
+     * @param id the element ID to edit
+     */
     public native void startEdit(String id) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.startEdit(id);
     }-*/;
 
+    /**
+     * Starts the editing process and shows the editor.
+     *
+     * @param id the element ID to edit
+     * @param value A value to initialize the editor with. If a value is not provided, it defaults to the innerHTML of the element.
+     */
     public native void startEdit(String id, String value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.startEdit(id, value);
     }-*/;
 
+    /**
+     * Starts the editing process and shows the editor.
+     *
+     * @param el  the element to edit
+     */
     public native void startEdit(Element el) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.startEdit(el);
     }-*/;
 
+    /**
+     * Starts the editing process and shows the editor.
+     *
+     * @param el  the element to edit
+     * @param value A value to initialize the editor with. If a value is not provided, it defaults to the innerHTML of the element.
+     */
     public native void startEdit(Element el, String value) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         editor.startEdit(el, value);
     }-*/;
 
+    /**
+     * Add an Editor listener.
+     *
+     * @param listener the listener
+     */
     public native void addEditorListener(EditorListener listener) /*-{
         var editor = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var editorJ = this;

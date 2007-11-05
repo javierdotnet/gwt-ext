@@ -28,8 +28,8 @@ import com.gwtext.client.widgets.event.JsonViewListener;
 
 public class JsonView extends View {
 
-    public JsonView(Element container, String template, JsonViewConfig config) {
-        super(container, template, config);
+    public JsonView(String id , String template, JsonViewConfig config) {
+        super(id, template, config);
     }
 
     protected native JavaScriptObject create(Element container, String template, JavaScriptObject config) /*-{

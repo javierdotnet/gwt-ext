@@ -343,7 +343,7 @@ public class XMLTreeLoaderConfig extends TreeLoaderConfig {
     /**
      * Set the node's attribute name(s) mapping.
      *
-     * @return the attribute name mapping
+     * @param attributeMappings attribute name mapping
      */
     public void setAttributeMappings(String[] attributeMappings) {
         this.attributeMappings = attributeMappings;

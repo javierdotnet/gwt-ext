@@ -23,20 +23,40 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.EditorConfig;
 
 public class TreeEditorConfig extends EditorConfig {
-
+	/**
+	 * CSS class to apply to the editor (defaults to "x-small-editor x-tree-editor")
+	 *
+	 * @param cls the CSS class
+	 */
     public void setCls(String cls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "cls", cls);
     }
 
-    public void setMaxWidth(int maxWidth) {
+	/**
+	 * The maximum width in pixels of the editor field (defaults to 250). Note that if the maxWidth would exceed the
+	 * containing tree element's size, it will be automatically limited for you to the container width, taking scroll and client offsets into account prior to each edit.
+	 *
+	 * @param maxWidth the max width
+	 */
+	public void setMaxWidth(int maxWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxWidth", maxWidth);
     }
 
-    public void setEditDelay(int editDelay) {
+	/**
+	 *  The edit delay in milliseconds. Default is 350ms.
+	 * 
+	 * @param editDelay the edit delay
+	 */
+	public void setEditDelay(int editDelay) {
         JavaScriptObjectHelper.setAttribute(jsObj, "editDelay", editDelay);
     }
-        
-    public void setShim(boolean shim) {
+
+	/**
+	 * True to shim the editor if selects/iframes could be displayed beneath it (defaults to false).
+	 * 
+	 * @param shim true to shim
+	 */
+	public void setShim(boolean shim) {
         JavaScriptObjectHelper.setAttribute(jsObj, "shim", shim);
     }
 }

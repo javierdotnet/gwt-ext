@@ -22,6 +22,10 @@ package com.gwtext.client.widgets.tree;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.dd.DragZone;
 
+/**
+ * A TreePanel drag zone.
+ *
+ */
 public class TreeDragZone extends DragZone {
 
     public TreeDragZone(JavaScriptObject jsObj) {

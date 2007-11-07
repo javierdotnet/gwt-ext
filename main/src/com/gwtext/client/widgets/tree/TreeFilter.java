@@ -22,13 +22,27 @@ package com.gwtext.client.widgets.tree;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
+/**
+ * Supports filtering of TreePanel nodes.
+ */
 public class TreeFilter extends JsObject {
 
-    public TreeFilter(TreePanel treePanel) {
+	/**
+	 * Create a new TreeFilter.
+	 *
+	 * @param treePanel the tree panel to filter
+	 */
+	public TreeFilter(TreePanel treePanel) {
         jsObj = create(treePanel.getJsObj(), null);
     }
-    
-    public TreeFilter(TreePanel treePanel, TreeFilterConfig config) {
+
+	/**
+	 * Create a new TreeFilter.
+	 *
+	 * @param treePanel the tree panel to filter
+	 * @param config the TreePanelFilter config
+	 */
+	public TreeFilter(TreePanel treePanel, TreeFilterConfig config) {
         jsObj = create(treePanel.getJsObj(), config == null ? null : config.getJsObj());
     }
 
@@ -36,34 +50,66 @@ public class TreeFilter extends JsObject {
         return new $wnd.Ext.tree.TreeFilter(treePanel, config);
     }-*/;
 
-    public native void clear() /*-{
+	/**
+	 * Clears the current filter. Note: with the "remove" TreeFilterConfig option set a filter cannot be cleared.
+	 */
+	public native void clear() /*-{
         var filter = this.@com.gwtext.client.core.JsObject::jsObj;
         filter.clear();
     }-*/;
 
     //TODO filter based on specific node attributes
-    public native void filter(String value) /*-{
+	/**
+	 *  Filter the data.
+	 * 
+	 * @param value the node's text value
+	 */
+	public native void filter(String value) /*-{
         var filter = this.@com.gwtext.client.core.JsObject::jsObj;
         filter.filter(value);
     }-*/;
 
+	/**
+	 *  Filter the data.
+	 *
+	 * @param value the node's text
+	 * @param startNode the node to start filtering from
+	 */
     public native void filter(String value, TreeNode startNode) /*-{
         var filter = this.@com.gwtext.client.core.JsObject::jsObj;
         var node = startNode.@com.gwtext.client.core.JsObject::jsObj;
         filter.filter(value, null, node);
     }-*/;
 
-    public native void filterRe(String regexp) /*-{
+	/**
+	 *  Filter the data.
+	 *
+	 * @param regexp regexp to test the node value against
+	 */
+	public native void filterRe(String regexp) /*-{
         var filter = this.@com.gwtext.client.core.JsObject::jsObj;
         filter.filter(new $wnd.RegExp(regexp));
     }-*/;
 
+	/**
+	 *  Filter the data.
+	 *
+	 * @param regexp regexp to test the node value against
+	 * @param startNode the node to start filtering from
+	 */
     public native void filterRe(String regexp, TreeNode startNode) /*-{
         var filter = this.@com.gwtext.client.core.JsObject::jsObj;
         var node = startNode.@com.gwtext.client.core.JsObject::jsObj;
         filter.filter(new $wnd.RegExp(regexp), null, node);
     }-*/;
 
+	/**
+	 * Filter by a callback function. The passed function will be called with each node in the tree (or from the startNode).
+	 * If the callback returns true, the node is kept otherwise it is filtered. If a node is filtered, its children are also
+	 * filtered.
+	 *
+	 * @param callback the filter callback
+	 */
    public native void filterBy(TreeTraversalCallback callback) /*-{
        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
        filter.filterBy(function(node) {

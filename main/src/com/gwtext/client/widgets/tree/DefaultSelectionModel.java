@@ -24,8 +24,17 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.widgets.tree.event.DefaultSelectionModelListener;
 
+/**
+ * Default Tree selection model. Using this selection model only a single node can be selected.
+ * To enable selection of multiple nodes, use {@link com.gwtext.client.widgets.tree.MultiSelectionModel}.
+ *
+ * @see com.gwtext.client.widgets.tree.MultiSelectionModel
+ */
 public class DefaultSelectionModel extends JsObject implements TreeSelectionModel {
 
+    /**
+     * Construct a DefaultSelectionModel.
+     */
     public DefaultSelectionModel() {
         jsObj = create();
     }
@@ -38,7 +47,7 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
         super(jsObj);
     }
 
-    public static DefaultSelectionModel instance(JavaScriptObject jsObj) {
+    private static DefaultSelectionModel instance(JavaScriptObject jsObj) {
         return new DefaultSelectionModel(jsObj);
     }
 

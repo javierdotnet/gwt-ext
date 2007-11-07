@@ -21,12 +21,23 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.widgets.tree.event.TreeNodeListener;
 
+/**
+ * TreeNode class.
+ *
+ * @see com.gwtext.client.widgets.tree.TreePanel
+ */
 public class TreeNode extends Node {
 
-    public TreeNode(final String text) {
+	/**
+	 * Create a new TreeNode.
+	 *
+	 * @param text the text / label of the TreeNode
+	 */
+	public TreeNode(final String text) {
         this(new TreeNodeConfig() {
             {
                 setText(text);
@@ -34,6 +45,12 @@ public class TreeNode extends Node {
         });
     }
 
+	/**
+	 * Create a new TreeNode.
+	 *
+	 * @param text the text / label of the TreeNode
+	 * @param config the TreeNode config
+	 */
 	public TreeNode(String text, TreeNodeConfig config) {
         this(config);
 		setText(text);
@@ -43,7 +60,12 @@ public class TreeNode extends Node {
         super(jsObj);
     }
 
-    public TreeNode(TreeNodeConfig config) {
+	/**
+	 * Create a new TreeNode.
+	 *
+	 * @param config the TreeNode config
+	 */
+	public TreeNode(TreeNodeConfig config) {
         super(config);
     }
 
@@ -59,100 +81,195 @@ public class TreeNode extends Node {
         return new TreeNode(jsNode);
     }
 
-    public native void collapse() /*-{
+	/**
+	 * Collapse this node.
+	 */
+	public native void collapse() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.collapse();
     }-*/;
 
-    public native void collapse(boolean deep, boolean anim) /*-{
+	/**
+	 * Collapse this node.
+	 *
+	 * @param deep true to collapse all children as well
+	 * @param anim false to disable the default animation
+	 */
+	public native void collapse(boolean deep, boolean anim) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.collapse(deep, anim);
     }-*/;
 
-    public native void collapseChildNodes(boolean deep) /*-{
-            var node = this.@com.gwtext.client.core.JsObject::jsObj;
-            node.collapseChildNodes(deep);
+	/**
+	 * Collapse all child nodes.
+	 *
+	 * @param deep true if the child nodes should also collapse their child nodes
+	 */
+	public native void collapseChildNodes(boolean deep) /*-{
+       var node = this.@com.gwtext.client.core.JsObject::jsObj;
+       node.collapseChildNodes(deep);
     }-*/;
 
-    public native void disable() /*-{
+	/**
+	 * Disables this node.
+	 */
+	public native void disable() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.disable();
     }-*/;
 
-    public native boolean isDisabled() /*-{
+	/**
+	 * True if this node is disabled.
+	 *
+	 * @return true if disabled
+	 */
+	public native boolean isDisabled() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.disabled;                    
     }-*/;
 
-    public native void enable() /*-{
+	/**
+	 * Enables this node.
+	 */
+	public native void enable() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.enable();
     }-*/;
 
-    public native void ensureVisible() /*-{
+	/**
+	 * Ensures all parent nodes are expanded.
+	 */
+	public native void ensureVisible() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.ensureVisible();
     }-*/;
 
-    public native void expand() /*-{
+	/**
+	 * Expand this node. The tree must be rendered before this method is called.
+	 */
+	public native void expand() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.expand();
     }-*/;
 
     //make sure tree is rendered before expand called
     //todo add callback
-    public native void expand(boolean deep, boolean anim) /*-{
+	/**
+	 * Expand this node. The tree must be rendered before this method is called.
+	 *
+	 * @param deep true to expand all children as well
+	 * @param anim false to cancel the default animation
+	 */
+	public native void expand(boolean deep, boolean anim) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.expand(deep, anim);
     }-*/;
 
-    public native void expandChildNodes(boolean deep) /*-{
+	/**
+	 * Expand this node. The tree must be rendered before this method is called.
+	 *
+	 * @param deep true to expand all children as well
+	 * @param anim false to cancel the default animation
+	 * @param callback a callback to be called when expanding this node completes (does not wait for deep expand to complete)
+	 */
+	public native void expand(boolean deep, boolean anim, Function callback) /*-{
+        var node = this.@com.gwtext.client.core.JsObject::jsObj;
+        node.expand(deep, anim, function(self) {
+			callback.@com.gwtext.client.core.Function::execute()();
+		});
+    }-*/;
+
+	/**
+	 * Expand all child nodes.
+	 * 
+	 * @param deep true if the child nodes should also expand their child nodes
+	 */
+	public native void expandChildNodes(boolean deep) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.expandChildNodes(deep);
     }-*/;
 
-    public native TreeNodeUI getUI() /*-{
+	/**
+	 * Returns the UI object for this node.
+	 *
+	 * @return the TreeNodeUI
+	 */
+	public native TreeNodeUI getUI() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var ui = node.getUI();
         return @com.gwtext.client.widgets.tree.TreeNodeUI::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ui);
     }-*/;
 
-    public native boolean isExpanded() /*-{
+	/**
+	 * Returns true if this node is expanded.
+	 *
+	 * @return true if expanded
+	 */
+	public native boolean isExpanded() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.isExpanded();
     }-*/;
 
-    public native boolean isSelected() /*-{
+	/**
+	 * Returns true if this node is selected.
+	 *
+	 * @return true if selected
+	 */
+	public native boolean isSelected() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.isSelected();
     }-*/;
 
-    public native void select() /*-{
+	/**
+	 * Triggers selection of this node.
+	 */
+	public native void select() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.select();
     }-*/;
 
-    public native void setText(String text) /*-{
+	/**
+	 * Sets the text for this node.
+	 * 
+	 * @param text the node text
+	 */
+	public native void setText(String text) /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.setText(text);
     }-*/;
 
+	/**
+	 * Return the nodes text.
+	 *
+	 * @return the nodes text
+	 */
 	public native String getText() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         return node.text;
     }-*/;
 
-    public native void toggle() /*-{
+	/**
+	 * Toggles expanded/collapsed state of the node.
+	 */
+	public native void toggle() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.toggle();
     }-*/;
 
-    public native void unselect() /*-{
+	/**
+	 * Triggers deselection of this node.
+	 */
+	public native void unselect() /*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         node.unselect();
     }-*/;
 
-    public native TreeNode cloneNode() /*-{
+	/**
+	 * Clones this TreeNode.
+	 *
+	 * @return the cloned node
+	 */
+	public native TreeNode cloneNode() /*-{
        var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
        var copy = new $wnd.Ext.tree.TreeNode(
                 $wnd.Ext.apply({}, nodeJS.attributes)
@@ -162,7 +279,13 @@ public class TreeNode extends Node {
         return copyJ;
     }-*/;
 
-    public native TreeNode cloneNode(TreeNodeConfig config) /*-{
+	/**
+	 * Clones this TreeNode applying the specified configuration to the cloned node.
+	 *
+	 * @param config the cloned node config
+	 * @return the cloned node
+	 */
+	public native TreeNode cloneNode(TreeNodeConfig config) /*-{
        var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
        var copy = new $wnd.Ext.tree.TreeNode(
@@ -173,7 +296,11 @@ public class TreeNode extends Node {
         return copyJ;
     }-*/;
 
-
+	/**
+	 * Adds a TreeNode listener.
+	 *
+	 * @param listener the listener
+	 */
     public native void addTreeNodeListener(TreeNodeListener listener)/*-{
         var node = this.@com.gwtext.client.core.JsObject::jsObj;
         var nodeJ = this;

@@ -24,6 +24,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.widgets.tree.event.MultiSelectionModelListener;
 
+/**
+ * Selection model for multi selecting tree nodes.
+ *
+ * @see com.gwtext.client.widgets.tree.DefaultSelectionModel
+ */
 public class MultiSelectionModel extends JsObject implements TreeSelectionModel {
 
     public MultiSelectionModel() {

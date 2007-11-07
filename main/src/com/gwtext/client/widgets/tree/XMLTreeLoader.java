@@ -4,12 +4,99 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.http.client.*;
 import com.google.gwt.xml.client.*;
 
+/**
+ * Provides the abilty to a TreePanel using remote XML data.This TreeLoader can be configured to load tree data from XML
+ * returned from a remote URL.
+ *<p>
+ * Sample code for loading a TreePanel using AsyncTreeNode and XmltreeLoader :
+ *
+ * <pre>
+ * <code>
+ *
+ *     final TreePanel treePanel = new TreePanel("cb-tree", new TreePanelConfig() {
+ *            {
+ *                setAnimate(true);
+ *                setEnableDD(true);
+ *                setContainerScroll(true);
+ *                setRootVisible(true);
+ *            }
+ *        });
+ *
+ *     final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
+ *            {
+ *                setDataUrl("countries-cb.xml");
+ *                setMethod("get");
+ *                setRootTag("countries");
+ *                setFolderIdMapping("@id");
+ *                setLeafIdMapping("@id");
+ *                setFolderTitleMapping("@title");
+ *                setFolderTag("team");
+ *                setLeafTitleMapping("@title");
+ *                setLeafTag("country");
+ *                setQtipMapping("@qtip");
+ *                setDisabledMapping("@disabled");
+ *                setCheckedMapping("@checked");
+ *                setIconMapping("@icon");
+ *                setAttributeMappings(new String[]{"@rank"});
+ *            }
+ *        });
+ *        AsyncTreeNode root = new AsyncTreeNode("Countries", new AsyncTreeNodeConfig() {
+ *            {
+ *                setLoader(loader);
+ *            }
+ *        });
+ *
+ *        treePanel.setRootNode(root);
+ *        treePanel.render();
+ *
+ *        root.expand();
+ *        treePanel.expandAll();
+ * </code>
+ * </pre>
+ *
+ * The above code loads a Tree using the following XML data - countries-cb.xml
+ *
+ * <pre>
+ * <code>
+ *&lt;countries&gt;
+ *    &lt;team id="team-a" title="Team A" icon="images/silk/flag_yellow.gif" checked="true"&gt;
+ *        &lt;country title="Brazil" qtip="Rank 2" rank="2"  checked="false"/&gt;
+ *        &lt;country title="Canada" qtip="Rank 3" rank="3" checked="false"/&gt;
+ *        &lt;country title="China" qtip="Rank 4" rank="4" checked="false"/&gt;
+ *    &lt;/team&gt;
+ *    &lt;team title="Team B" icon="images/silk/flag_blue.gif"&gt;
+ *        &lt;country title="Germany" qtip="Captain" checked="true" rank="1"/&gt;
+ *        &lt;country title="France" qtip="Rank 2" rank="2" checked="false"/&gt;
+ *        &lt;country title="Canada" qtip="Rank 3" rank="3" checked="false"/&gt;
+ *        &lt;country title="India" qtip="Rank 4" rank="4" checked="false"/&gt;
+ *        &lt;country title="Seychelles" qtip="Rank 5" rank="5" checked="false"/&gt;
+ *    &lt;/team&gt;
+ *
+ *    &lt;team title="Team C" icon="images/silk/flag_green.gif"&gt;
+ *        &lt;country title="United States" qtip="Captain - Rank 1" checked="true" rank="1"/&gt;
+ *        &lt;country title="Japan" qtip="Rank 2" rank="2" checked="false"/&gt;
+ *        &lt;country title="Italy" qtip="Rank 3" rank="3" checked="false"/&gt;
+ *        &lt;country title="Finland" qtip="Rank 4" rank="4" checked="false"/&gt;
+ *    &lt;/team&gt;
+ *  &lt;/countries&gt;
+ * </code>
+ * </pre>
+ *
+ * @see com.gwtext.client.widgets.tree.TreePanel
+ * @see com.gwtext.client.widgets.tree.TreeLoader
+ * @see com.gwtext.client.widgets.tree.AsyncTreeNode
+ */
 public class XMLTreeLoader extends TreeLoader {
 
     static {
         init();
     }
 
+    /**
+     * Construct a new XMLTreeLoader.
+     *
+     * @param config the treeloader config
+     */
     public XMLTreeLoader(XMLTreeLoaderConfig config) {
         jsObj = create(config);
     }
@@ -194,7 +281,7 @@ public class XMLTreeLoader extends TreeLoader {
         return value.equalsIgnoreCase("true") || value.equals("1");
     }
 
-    public static String evaluateNodeValue(Node node, String mapping) {
+    private static String evaluateNodeValue(Node node, String mapping) {
         if (mapping == null) return null;
         String value = null;
         if (mapping.startsWith("@")) {

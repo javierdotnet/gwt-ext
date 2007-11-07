@@ -20,30 +20,64 @@
 package com.gwtext.client.widgets.tree;
 
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.SortDir;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link TreeSorter}.
+ */
 public class TreeSorterConfig extends BaseConfig {
 
+    /**
+     * True for case sensitive sort (defaults to false)
+     * 
+     * @param caseSensitive true for case sensitive sort
+     */
     public void setCaseSensitive(boolean caseSensitive) {
         JavaScriptObjectHelper.setAttribute(jsObj, "caseSensitive", caseSensitive);
     }
 
-    public void setDir(String dir) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "dir", dir);
+    /**
+     * The direction to sort (asc or desc) (defaults to asc).
+     *
+     * @param dir the sort direction
+     */
+    public void setDir(SortDir dir) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "dir", dir.getDirection().toLowerCase());
     }
 
+    /**
+     * True to sort leaf nodes under non leaf nodes.
+     * 
+     * @param folderSort true to sort leaf nodes under non leaf nodes.
+     */
     public void setFolderSort(boolean folderSort) {
         JavaScriptObjectHelper.setAttribute(jsObj, "folderSort", folderSort);
     }
 
+    /**
+     * The attribute used to determine leaf nodes in folder sort (defaults to "leaf")
+     * 
+     * @param leafAttr the leaf attribute
+     */
     public void setLeafAttr(String leafAttr) {
         JavaScriptObjectHelper.setAttribute(jsObj, "leafAttr", leafAttr);
     }
 
+    /**
+     * The named attribute on the node to sort by (defaults to text).
+     * 
+     * @param property the sort property
+     */
     public void setProperty(String property) {
         JavaScriptObjectHelper.setAttribute(jsObj, "property", property);
     }
-    
+
+    /**
+     * A custom function used to convert node values before sorting.
+     * 
+     * @param sortType the sort function
+     */
     public native void setSortType(TreeSortFunction sortType) /*-{
         var config = this.@com.gwtext.client.core.JsObject::jsObj;
         config['sortType'] = function(node) {

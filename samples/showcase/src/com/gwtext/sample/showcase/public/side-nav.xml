@@ -29,7 +29,9 @@
 
     <node title="Grids" qtip="Examples of various Grids" icon="images/silk/table.gif">
         <leaf id="basicArrayGrid" title="Basic Array Grid"/>
+        <leaf id="jsonGrid" title="Json Grid"/>
         <leaf id="editableGrid" title="Editable Grid"/>
+        <leaf id="localPagingGrid" title="Grid with Local Paging"/>
         <leaf id="remotePagingGrid" title="Grid with Remote Paging"/>
         <leaf id="columnOrderGrid" title="Column Order"/>
         <leaf id="stockTicker" title="Stock Ticker"/>

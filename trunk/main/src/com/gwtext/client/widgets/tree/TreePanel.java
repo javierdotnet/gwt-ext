@@ -23,19 +23,32 @@ package com.gwtext.client.widgets.tree;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
-import com.gwtext.client.data.Record;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.RequiredElementWidget;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 
-
+/**
+ * A Tree widget.
+ */
 public class TreePanel extends RequiredElementWidget {
-    private TreeSelectionModel selectionModel;
 
+	private TreeSelectionModel selectionModel;
+
+    /**
+     * Construct a new TreePanel.
+     *
+     * @param id the tree panel ID
+     */
     public TreePanel(String id) {
         this(id, null);
     }
 
+    /**
+     * Construct a new TreePanel.
+     *
+     * @param id the tree panel ID
+     * @param config the tree panel config
+     */
     public TreePanel(String id, TreePanelConfig config) {
         super(id, config);
         this.selectionModel = config.getSelectionModel();
@@ -45,22 +58,42 @@ public class TreePanel extends RequiredElementWidget {
         return new $wnd.Ext.tree.TreePanel(id, config);
     }-*/;
 
+    /**
+     * Return the ID of the TreePanel.
+     *
+     * @return the TreePanel ID
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * The dragZone used by this tree if drag is enabled.
+     *
+     * @return the drag zone, or null if not enabled
+     */
     public native TreeDragZone getDragZone()/*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var dragZone = tp.dragZone;
         return dragZone == null ? null : @com.gwtext.client.widgets.tree.TreeDragZone::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dragZone);
     }-*/;
 
+    /**
+     * The dropZone used by this tree if drop is enabled.
+     * 
+     * @return the drop zone, or null if not enabled
+     */
     public native TreeDropZone getDropZone()/*-{
         var tp = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var dropZone = tp.dropZone;
         return dropZone == null ? null : @com.gwtext.client.widgets.tree.TreeDropZone::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropZone);        
     }-*/;
 
+    /**
+     * Return the underlying Tree data structure backing the TreePanel.
+     *
+     * @return the tree data structure
+     */
     public native Tree getTree()/*-{
         //in Ext TreePanel (UI aspect) extends Tree (dat structure).. kinda strange
         //but lets model it as a contains relationship in GWT-Ext
@@ -68,16 +101,28 @@ public class TreePanel extends RequiredElementWidget {
         return @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);                            
     }-*/;
 
+    /**
+     * Collapse all nodes.
+     */
     public native void collapseAll() /*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         panel.collapseAll();
     }-*/;
 
+    /**
+     * Expand all nodes.
+     */
     public native void expandAll() /*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         panel.expandAll();
     }-*/;
 
+    /**
+     * Expands a specified path in this TreePanel. A path can be retrieved from a node with {@link Node#getPath}
+     * 
+     * @param path the path
+     * @param cb the callback to call when the expand is complete
+     */
     public native void expandPath(String path, NodeExpansionCallback cb) /*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         if(cb == null) {
@@ -90,6 +135,11 @@ public class TreePanel extends RequiredElementWidget {
         }
     }-*/;
 
+    /**
+     * Return an array of checked TreeNodes starting from the root node.
+     *
+     * @return array of checked nodes, empty array if no nodes are checked
+     */
     public TreeNode[] getChecked() {
         JavaScriptObject arr = getChecked(jsObj);
         return convertFromNativeTreeNodeArray(arr);
@@ -111,6 +161,13 @@ public class TreePanel extends RequiredElementWidget {
         return checked === undefined || (checked.length == 1 && checked[0] === undefined) ? null : checked;
     }-*/;
 
+    /**
+     * Return an array of checked TreeNodes starting from the specified startNode.
+     *
+     * @param startNode the node to start from
+     * @return array of checked nodes, empty array if no nodes are checked
+     */
+    
     public TreeNode[] getChecked(TreeNode startNode) {
         JavaScriptObject arr = getChecked(jsObj, startNode.getJsObj());
         return convertFromNativeTreeNodeArray(arr);
@@ -121,11 +178,22 @@ public class TreePanel extends RequiredElementWidget {
         return checked === undefined || (checked.length == 1 && checked[0] === undefined) ? null : checked;
     }-*/;
 
+    /**
+     * Retrun the TreeLoader associated with the TreePanel.
+     *
+     * @return the tree loader
+     */
     public native TreeLoader getLoader() /*-{
         var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return @com.gwtext.client.widgets.tree.TreeLoader::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree.getLoader());
     }-*/;
 
+    /**
+     * Gets a node in this tree by its ID.
+     *
+     * @param id the node ID
+     * @return the node, null if none found
+     */
     public TreeNode getNodeById(String id) {
         JavaScriptObject node = getNodeById(jsObj, id);
         if (node == null) {
@@ -144,6 +212,11 @@ public class TreePanel extends RequiredElementWidget {
         }
     }-*/;
 
+    /**
+     * Returns the root node for this tree.
+     *
+     * @return the root node
+     */
     public TreeNode getRootNode() {
         JavaScriptObject rootJS = getRootNode(jsObj);
         return rootJS == null ? null : new TreeNode(rootJS);
@@ -154,7 +227,13 @@ public class TreePanel extends RequiredElementWidget {
         return root === undefined ? null : root;
     }-*/;
 
-    public native void selectPath(String path, NodeExpansionCallback cb) /*-{
+    /**
+     * Selects the node in this tree at the specified path. A path can be retrieved from a node with {@link Node#getPath}.
+     *
+     * @param path the path
+     * @param cb the callback to call when the selection is complete
+     */
+    public native void selectPath(String path, NodeSelectionCallback cb) /*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         if(cb == null) {
             panel.selectPath(path);
@@ -166,17 +245,30 @@ public class TreePanel extends RequiredElementWidget {
         }
     }-*/;
 
+    /**
+     * Sets the root node for this tree.
+     *
+     * @param node the root node
+     */
     public native void setRootNode(Node node) /*-{
         var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var nodeJS = node.@com.gwtext.client.core.JsObject::jsObj;
         tree.setRootNode(nodeJS);
     }-*/;
 
+    /**
+     * Trigger rendering of this TreePanel. Should only be called once.
+     */
     public native void render() /*-{
         var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tree.render();
     }-*/;
 
+    /**
+     * Return the TreePanel's selection model.
+     *
+     * @return the selection model
+     */
     public TreeSelectionModel getSelectionModel() {
         if(selectionModel == null) {
             return doGetSelectionModel();
@@ -209,11 +301,21 @@ public class TreePanel extends RequiredElementWidget {
         return @com.gwtext.client.widgets.tree.DefaultSelectionModel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(sm);
     }-*/;
 
+    /**
+     * Set the token used to separate sub-paths in path strings (defaults to '/').
+     *
+     * @param separator the path separator
+     */
     public native void setPathSeparator(String separator)/*-{
         var panel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         panel.pathSeparator = separator;
     }-*/;
 
+    /**
+     * Add a TreePanel listener.
+     *
+     * @param listener the listener
+     */
     public native void addTreePanelListener(TreePanelListener listener)/*-{
         var treePanel = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var treePanelJ = this;

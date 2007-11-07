@@ -23,6 +23,9 @@ package com.gwtext.client.widgets.tree;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link AsyncTreeNode}.
+ */
 public class AsyncTreeNodeConfig extends TreeNodeConfig {
 
     public void setLoader(TreeLoader loader) {

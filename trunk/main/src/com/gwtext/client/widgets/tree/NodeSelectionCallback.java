@@ -23,8 +23,7 @@ package com.gwtext.client.widgets.tree;
 /**
  * Node selection callback.
  *
- * @author Sanjiv Jivan
- * @see com.gwtext.client.widgets.tree.TreePanel#selectPath(String, NodeExpansionCallback)
+ * @see com.gwtext.client.widgets.tree.TreePanel#selectPath(String, NodeSelectionCallback)
  */
 public interface NodeSelectionCallback {
 

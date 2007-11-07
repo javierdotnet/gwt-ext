@@ -21,9 +21,29 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Function;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.core.UrlParam;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.tree.event.TreeLoaderListener;
 
+/**
+ * A TreeLoader provides for lazy loading of an {@link TreeNode}'s child nodes from a specified URL.
+ * The response must be a Json array definition who's elements are node definition objects. eg:
+ * <pre>
+ * <code>
+ *
+ * [{ 'id': 1, 'text': 'A folder Node', 'leaf': false },
+ * { 'id': 2, 'text': 'A leaf Node', 'leaf': true }]
+ *
+ * </code>
+ * </pre>
+ *
+ * A server request is sent, and child nodes are loaded only when a node is expanded. The loading node's
+ * id is passed to the server under the parameter name "node" to enable the server to produce the correct
+ * child nodes.
+
+ */
 public class TreeLoader extends JsObject {
 
 	protected TreeLoader() {}
@@ -32,7 +52,12 @@ public class TreeLoader extends JsObject {
         super(jsObj);
     }
 
-    public TreeLoader(TreeLoaderConfig config) {
+	/**
+	 * Create a new TreeLoader.
+	 *
+	 * @param config the TreeLoader config
+	 */
+	public TreeLoader(TreeLoaderConfig config) {
         jsObj = create(config.getJsObj());
     }
 
@@ -44,15 +69,46 @@ public class TreeLoader extends JsObject {
         return new TreeLoader(jsObj);
     }
 
-    //todo add pluggable createNode strategy
+	/**
+	 * Specify HTTP parameters to be passed to each request for child nodes.
+	 * 
+	 * @param params the params
+	 */
+	public void setBaseParams(UrlParam[] params) {
+        JavaScriptObject paramObj = UrlParam.getJsObj(params);
+        JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
+    }
+	
+	//todo add pluggable createNode strategy
     //createNode()
-
+	/**
+	 * Load a TreeNode from the URL specified in the TreeLoader configuration. This is called automatically when a node
+	 * is expanded, but may be used to reload a node (or append new children if the clearOnLoad option is false.)
+	 */
     public native void load() /*-{
         var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tree.load();
     }-*/;
 
-    public native void addTreeLoaderListener(TreeLoaderListener listener)/*-{
+	/**
+	 * Load a TreeNode from the URL specified in the TreeLoader configuration. This is called automatically when a node
+	 * is expanded, but may be used to reload a node (or append new children if the clearOnLoad option is false.)
+	 *
+	 * @param callback the callback to execute on load
+	 */
+    public native void load(Function callback) /*-{
+        var tree = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        tree.load(function() {
+			callback.@com.gwtext.client.core.Function::execute()();
+		});
+    }-*/;
+
+	/**
+	 * Add a TreeLoader listener.
+	 *
+	 * @param listener the listener
+	 */
+	public native void addTreeLoaderListener(TreeLoaderListener listener)/*-{
         var loader = this.@com.gwtext.client.core.JsObject::jsObj;
         var loaderJ = this;
 

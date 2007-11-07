@@ -22,29 +22,75 @@ package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.BaseConfig;
+import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link TreeLoader}.
+ */
 public class TreeLoaderConfig extends BaseConfig {
 
-    //todo baseAttrs
+	/**
+	 * The request parameters to be added to all nodes created by this loader.
+	 * If the attributes sent by the server have an attribute in this object, they take priority.
+	 *
+	 * @param params the url params
+	 */
+	public void setBaseAttrs(UrlParam[] params) {
+		JavaScriptObject paramObj = UrlParam.getJsObj(params);
+		JavaScriptObjectHelper.setAttribute(jsObj, "baseAttrs", paramObj);
+	}
 
+	/**
+	 * The URL from which to request a Json string which specifies an array of node definition object representing the
+	 * child nodes to be loaded.
+	 *
+	 * @param dataUrl the data URL
+	 */
 	public void setDataUrl(String dataUrl) {
 		JavaScriptObjectHelper.setAttribute(jsObj, "dataUrl", dataUrl);
 	}
 
-    public void setMethod(String method) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "requestMethod", method);
-    }
+	/**
+	 * The request method (GET OR POST).
+	 * 
+	 * @param method the request method
+	 * @see com.gwtext.client.core.Connection#GET
+	 * @see com.gwtext.client.core.Connection#POST
+	 */
+	public void setMethod(Connection.Method method) {
+		JavaScriptObjectHelper.setAttribute(jsObj, "requestMethod", method.getMethod());
+	}
 
-    public void setBaseParams(UrlParam[] params) {
-        JavaScriptObject paramObj = UrlParam.getJsObj(params);
-        JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
-    }
+	/**
+	 * The request method (GET OR POST).
+	 *
+	 * @param method the request method
+	 * @deprecated Use {@link #setMethod(com.gwtext.client.core.Connection.Method)}
+	 */
+	public void setMethod(String method) {
+		JavaScriptObjectHelper.setAttribute(jsObj, "requestMethod", method);
+	}
 
-    public void setClearOnLoad(boolean clearOnLoad) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "clearOnLoad", clearOnLoad);
-    }
-    
-    //todo  uiProviders
+	/**
+	 * Request properties which specify HTTP parameters to be passed to each request for child nodes.
+	 * 
+	 * @param params the request params
+	 */
+	public void setBaseParams(UrlParam[] params) {
+		JavaScriptObject paramObj = UrlParam.getJsObj(params);
+		JavaScriptObjectHelper.setAttribute(jsObj, "baseParams", paramObj);
+	}
+
+	/**
+	 * Default to true. Remove previously existing child nodes before loading.
+	 *
+	 * @param clearOnLoad true to clear on load
+	 */
+	public void setClearOnLoad(boolean clearOnLoad) {
+		JavaScriptObjectHelper.setAttribute(jsObj, "clearOnLoad", clearOnLoad);
+	}
+
+	//todo  uiProviders
 }

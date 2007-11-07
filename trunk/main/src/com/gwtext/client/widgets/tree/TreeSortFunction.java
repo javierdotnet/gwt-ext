@@ -19,7 +19,16 @@
  */
 package com.gwtext.client.widgets.tree;
 
+/**
+ * The sort function interface when calling {@link TreeSorterConfig#setSortType(TreeSortFunction)}.
+ */
 public interface TreeSortFunction {
 
+    /**
+     * A custom "casting" function used to convert node values before sorting.
+     *
+     * @param node the tree node
+     * @return thre tree node sort value
+     */
     String sortValue(TreeNode node);
 }

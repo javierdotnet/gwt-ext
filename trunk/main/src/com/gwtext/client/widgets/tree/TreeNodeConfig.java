@@ -27,63 +27,140 @@ import com.gwtext.client.widgets.QuickTipsConfig;
 
 public class TreeNodeConfig extends NodeConfig {
 
-    public void setAllowDrag(boolean allowDrag) {
+	/**
+	 * False to make this node undraggable if DD is on (defaults to true).
+	 *
+	 * @param allowDrag false to disable drag
+	 */
+	public void setAllowDrag(boolean allowDrag) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowDrag", allowDrag);
     }
 
-    public void setAllowDrop(boolean allowDrop) {
+	/**
+	 * False if this node cannot be drop on.
+	 *
+	 * @param allowDrop flase to disable drop
+	 */
+	public void setAllowDrop(boolean allowDrop) {
         JavaScriptObjectHelper.setAttribute(jsObj, "allowDrop", allowDrop);
     }
 
+	/**
+	 * True to render a checked checkbox for this node, false to render an unchecked checkbox
+	 * (defaults to undefined with no checkbox rendered).
+	 * 
+	 * @param checked true for checked checkbox
+	 */
 	public void setChecked(boolean checked) {
         JavaScriptObjectHelper.setAttribute(jsObj, "checked", checked);
     }
 
+	/**
+	 * A CSS class to be added to the node.
+	 * 
+	 * @param cls a CSS class
+	 */
 	public void setCls(String cls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "cls", cls);
     }
 
+	/**
+	 * True to start the node disabled
+	 * 
+	 * @param disabled true to start disabled
+	 */
     public void setDisabled(boolean disabled) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabled", disabled);
     }
 
-    public void setExpanded(boolean expanded) {
+	/**
+	 * True to start the node expanded
+	 *
+	 * @param expanded true to start expanded
+	 */
+	public void setExpanded(boolean expanded) {
         JavaScriptObjectHelper.setAttribute(jsObj, "expanded", expanded);
     }
 
-    public void setHref(String href) {
+	/**
+	 * URL of the link used for the node (defaults to #).
+	 *
+	 * @param href the node href URL
+	 */
+	public void setHref(String href) {
         JavaScriptObjectHelper.setAttribute(jsObj, "href", href);
     }
 
-    public void setHrefTarget(String hrefTarget) {
+	/**
+	 * Target frame for the link
+	 * 
+	 * @param hrefTarget href frame target
+	 */
+	public void setHrefTarget(String hrefTarget) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hrefTarget", hrefTarget);
     }
 
-    public void setIcon(String icon) {
+	/**
+	 * The path to an icon for the node. The preferred way to do this is to use the cls
+	 * or iconCls attributes and add the icon via a CSS background image.
+	 * 
+	 * @param icon the node icon
+	 */
+	public void setIcon(String icon) {
         JavaScriptObjectHelper.setAttribute(jsObj, "icon", icon);
     }
 
-    public void setIconCls(String iconCls) {
+	/**
+	 * A css class to be added to the nodes icon element for applying css background images.
+	 * 
+	 * @param iconCls the icon CSS class
+	 */
+	public void setIconCls(String iconCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "iconCls", iconCls);
     }
 
-    public void setLeaf(Node leaf) {
+	/**
+	 * True if this node is a leaf and does not have children.
+	 *
+	 * @param leaf true if leaf node
+	 */
+	public void setLeaf(Node leaf) {
         JavaScriptObjectHelper.setAttribute(jsObj, "leaf", leaf.getJsObj());
     }
 
-    public void setQtip(String qtip) {
+	/**
+	 * Set a Tree node tooltip.
+	 * 
+	 * @param qtip the tooltip
+	 */
+	public void setQtip(String qtip) {
         JavaScriptObjectHelper.setAttribute(jsObj, "qtip", qtip);
     }
 
-    public void setQtipCfg(QuickTipsConfig qtipCfg) {
+	/**
+	 * Set a Tree node tooltip.
+	 *
+	 * @param qtipCfg the tooltip configuration
+	 */
+	public void setQtipCfg(QuickTipsConfig qtipCfg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "qtipCfg", qtipCfg.getJsObj());
-    }    
+    }
 
-    public void setSingleClickExpand(boolean singleClickExpand) {
+	/**
+	 * True for single click expand on this node.
+	 *
+	 * @param singleClickExpand true for single click expand
+	 */
+	public void setSingleClickExpand(boolean singleClickExpand) {
         JavaScriptObjectHelper.setAttribute(jsObj, "singleClickExpand", singleClickExpand);
     }
 
-    public void setText(String text) {
+	/**
+	 * The text for this node.
+	 *
+	 * @param text the nodes text / label
+	 */
+	public void setText(String text) {
         JavaScriptObjectHelper.setAttribute(jsObj, "text", text);
     }
 

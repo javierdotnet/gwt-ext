@@ -22,6 +22,9 @@ package com.gwtext.client.widgets.tree;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * A TreePanel DropZone configuration.
+ */
 public class TreeDropZoneConfig extends BaseConfig {
 
     public void setAllowParentInsert(boolean allowParentInsert) {

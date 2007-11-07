@@ -24,21 +24,50 @@ import com.gwtext.client.widgets.Editor;
 import com.gwtext.client.widgets.form.Field;
 import com.gwtext.client.widgets.form.FieldConfig;
 
+/**
+ * A support class that allows you to make the nodes of a TreePanel editable. To do this, create an instance of
+ * TreeEditor passing the TreePanel and the {@link Field} that you'd like to use when the user double clicks on a node to
+ * edit it. For example you can assing a {@link com.gwtext.client.widgets.form.TextField} or {@link com.gwtext.client.widgets.form.ComboBox}.
+ *
+ */
 public class TreeEditor extends Editor {
 
-    public TreeEditor(TreePanel treePanel) {
+	/**
+	 * Create an editable tree using a default TextField as the editor.
+	 *
+	 * @param treePanel the TreePanel
+	 */
+	public TreeEditor(TreePanel treePanel) {
         this(treePanel, (FieldConfig)null);
     }
 
+	/**
+	 * Create an editable tree using the specified confguration.
+	 *
+	 * @param treePanel the TreePanel
+	 * @param  config the tree editor configuraiton
+	 */
     public TreeEditor(TreePanel treePanel, TreeEditorConfig config) {
         jsObj = create(treePanel.getJsObj(), config == null ? null : config.getJsObj());
     }
 
     //http://extjs.com/forum/showthread.php?t=10701&highlight=TreeEditor+selectOnFocus
-    public TreeEditor(TreePanel treePanel, FieldConfig config) {
+	/**
+	 * Create an editable tree using the specified FieldConfig to create the editor.
+	 *
+	 * @param treePanel the TreePanel
+	 * @param config the field config
+	 */
+	public TreeEditor(TreePanel treePanel, FieldConfig config) {
         jsObj = create(treePanel.getJsObj(), config == null ? null : config.getJsObj());
     }
 
+	/**
+	 * Create an editable tree using the specified Field as the editor.
+	 *
+	 * @param treePanel the TreePanel
+	 * @param field the field
+	 */
     public TreeEditor(TreePanel treePanel, Field field) {
         jsObj = create(treePanel.getJsObj(), field.getJsObj());
     }

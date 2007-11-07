@@ -19,7 +19,18 @@
  */
 package com.gwtext.client.widgets.tree;
 
+/**
+ * Tree traversal callback interface.
+ *
+ * @see TreeFilter#filterBy(TreeTraversalCallback)
+ */
 public interface TreeTraversalCallback {
 
+    /**
+     * Return true when criteria is met.
+     *
+     * @param node the node being traversed
+     * @return true if criteria is met
+     */
     boolean execute(TreeNode node);
 }

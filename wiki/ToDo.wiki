@@ -39,7 +39,7 @@ Here's a list of known API's that are missing or incomplete. I'll update this pa
 || com.gwtext.client.widgets.layout.event || Done ||
 || com.gwtext.client.widgets.menu || 0% ||
 || com.gwtext.client.widgets.menu.event || Done ||
-|| com.gwtext.client.widgets.tree || 0%||
+|| com.gwtext.client.widgets.tree || Done ||
 || com.gwtext.client.widgets.tree.event || Done  || 
 
  

@@ -1,22 +1,22 @@
 <project name="dist-windows" default="build" basedir=".">
 	<property name="dist.platform" value="windows" />
 	<import file="../common.ant.xml" />
-	<property name="project.dist" location="${gwtplus.build.dist}/${project.distname}.zip" />
+	<property name="project.dist" location="${gwtext.build.dist}/${project.distname}.zip" />
 
 	<target name="build" depends="filter" description="Packages the distro">
 		<!-- TODO: figure out how to share most of this across platforms -->
-		<mkdir dir="${gwtplus.build.dist}" />
+		<mkdir dir="${gwtext.build.dist}" />
 		<zip destfile="${project.dist}">
 			<!-- jars -->
 
-			<zipfileset file="${gwtplus.build.lib}/gwtplus.jar" prefix="${project.distname}" />
+			<zipfileset file="${gwtext.build.lib}/gwtext.jar" prefix="${project.distname}" />
 
 			<!-- raw files -->
 			<zipfileset dir="${project.build}" prefix="${project.distname}" />
 			<zipfileset dir="src" prefix="${project.distname}" />
 
 			<!-- doc -->
-			<zipfileset dir="${gwtplus.build.out}" prefix="${project.distname}">
+			<zipfileset dir="${gwtext.build.out}" prefix="${project.distname}">
 				<include name="doc" />
 				<include name="doc/html/**" />
 				<include name="doc/css/**" />
@@ -24,7 +24,7 @@
 			</zipfileset>
 
 			<!-- samples -->
-			<zipfileset dir="${gwtplus.build.out}" prefix="${project.distname}">
+			<zipfileset dir="${gwtext.build.out}" prefix="${project.distname}">
 				<include name="samples" />
 				<include name="samples/*" />
 				<include name="samples/*/src/**" />
@@ -40,8 +40,8 @@
 		<if>
 			<isset property="build.host.iswindows" />
 			<then>
-				<mkdir dir="${gwtplus.build.staging}" />
-				<unzip src="${project.dist}" dest="${gwtplus.build.staging}" />
+				<mkdir dir="${gwtext.build.staging}" />
+				<unzip src="${project.dist}" dest="${gwtext.build.staging}" />
 			</then>
 		</if>
 	</target>

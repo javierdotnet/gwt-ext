@@ -90,7 +90,7 @@ public class Showcase implements EntryPoint, HistoryListener {
 
         DockPanel dock = new DockPanel();
         dock.setVerticalAlignment(DockPanel.ALIGN_MIDDLE);
-        dock.add(new HTML("<h3><a href='http://code.google.com/p/gwt-ext/' style='color:#333333;text-decoration:none;'>GWT-Ext 0.9.2 Showcase</a>  " +
+        dock.add(new HTML("<h3><a href='http://code.google.com/p/gwt-ext/' style='color:#333333;text-decoration:none;'>GWT-Ext 0.9.3 Showcase</a>  " +
                 "<span style='font-size:10'>(<a href='http://code.google.com/p/gwt-ext/' target='_blank'>http://code.google.com/p/gwt-ext/</a>)</span></h3> "), DockPanel.WEST);
 
         Form themeForm = new Form();
@@ -436,7 +436,9 @@ public class Showcase implements EntryPoint, HistoryListener {
         screens.put("toolbarAndMenus", new MenusPanel());
 
         screens.put("basicArrayGrid", new BasicArrayGridPanel());
+        screens.put("jsonGrid", new JsonGridPanel());
         screens.put("editableGrid", new EditableGridPanel());
+        screens.put("localPagingGrid", new LocalPagingGridPanel());
         screens.put("remotePagingGrid", new RemotePagingGridPanel());
         screens.put("columnOrderGrid", new ColumnOrderGridPanel());
         screens.put("stockTicker", new StockTickerGridPanel());

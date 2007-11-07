@@ -437,7 +437,7 @@ public class ExtElement extends BaseElement {
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
-        var positionJS = position1JS = '-' + position2JS;
+        var positionJS = position1JS + '-' + position2JS;
         var arrJS = elem.getAlignToXY(element, positionJS);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -455,7 +455,7 @@ public class ExtElement extends BaseElement {
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
-        var positionJS = position1JS = '-' + position2JS;
+        var positionJS = position1JS + '-' + position2JS;
         var offsetsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offesets);
         var arrJS = elem.getAlignToXY(element, positionJS, offsetsJS);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);

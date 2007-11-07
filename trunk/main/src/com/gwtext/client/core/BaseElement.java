@@ -212,7 +212,7 @@ public class BaseElement extends JsObject implements Fx {
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
-        var positionJS = position1JS = '-' + position2JS;
+        var positionJS = position1JS + '-' + position2JS;
         elem.alignTo(id, positionJS);
         return this;
     }-*/;
@@ -232,7 +232,7 @@ public class BaseElement extends JsObject implements Fx {
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
-        var positionJS = position1JS = '-' + position2JS;
+        var positionJS = position1JS + '-' + position2JS;
         elem.alignTo(id, positionJS, offsetJS, animate);
         return this;
     }-*/;
@@ -249,7 +249,7 @@ public class BaseElement extends JsObject implements Fx {
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
-        var positionJS = position1JS = '-' + position2JS;
+        var positionJS = position1JS + '-' + position2JS;
         elem.anchorTo(id, positionJS);
         return this;
     }-*/;

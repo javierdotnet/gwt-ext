@@ -20,6 +20,8 @@
 package com.gwtext.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.animation.Easing;
 import com.gwtext.client.util.KeyMap;
@@ -208,7 +210,16 @@ public class BaseElement extends JsObject implements Fx {
      * @param targetAnchor the target's anchor point
      * @return this
      */
-    public native BaseElement alignTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor)/*-{
+    public BaseElement alignTo(final String id, final AnchorPosition elementAnchor, final AnchorPosition targetAnchor) {
+        DeferredCommand.addCommand(new Command() {
+            public void execute() {
+                doAlignTo(id, elementAnchor, targetAnchor);
+            }
+        });
+        return this;
+    }
+
+    private native BaseElement doAlignTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
         var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
@@ -259,7 +270,7 @@ public class BaseElement extends JsObject implements Fx {
      * Aligns this element with another element relative to the specified anchor points. If the other element is the document it aligns it to the viewport.
      *
      * @param id the element to align to
-          * @param elementAnchor the element's anchor point
+      * @param elementAnchor the element's anchor point
      * @param targetAnchor the target's anchor point
      * @param offsetXY offset the positioning by [x, y]
      * @param animate true for the default animation
@@ -269,7 +280,10 @@ public class BaseElement extends JsObject implements Fx {
     public native BaseElement anchorTo(String id, AnchorPosition elementAnchor, AnchorPosition targetAnchor, int[] offsetXY, boolean animate, int bufferDelay)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::jsObj;
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
-        elem.anchorTo(id, position, offsetJS, animate, bufferDelay);
+        var position1JS = elementAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var position2JS = targetAnchor.@com.gwtext.client.core.AnchorPosition::getPosition()();
+        var positionJS = position1JS + '-' + position2JS;
+        elem.anchorTo(id, positionJS, offsetJS, animate, bufferDelay);
         return this;
     }-*/;
 

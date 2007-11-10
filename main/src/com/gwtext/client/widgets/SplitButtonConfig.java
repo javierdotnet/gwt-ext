@@ -23,18 +23,36 @@ package com.gwtext.client.widgets;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.MenuButtonListener;
 
+/**
+ * Configuration class for {@link com.gwtext.client.widgets.SplitButton}.
+ */
 public class SplitButtonConfig extends ButtonConfig {
 
     private MenuButtonListener menuButtonListener;
 
+    /**
+     * The title attribute of the arrow.
+     *
+     * @param arrowTooltip the arrow tooltip
+     */
     public void setArrowTooltip(String arrowTooltip) {
         JavaScriptObjectHelper.setAttribute(jsObj, "arrowTooltip", arrowTooltip);
     }
 
+    /**
+     * Return the menu button listener.
+     *
+     * @return the menu button listenr
+     */
     public MenuButtonListener getMenuButtonListener() {
         return menuButtonListener;
     }
 
+    /**
+     * Set the menu button listener.
+     *
+     * @param menuButtonListener the listener
+     */
     public void setMenuButtonListener(MenuButtonListener menuButtonListener) {
         this.menuButtonListener = menuButtonListener;
     }

@@ -20,38 +20,64 @@
 
 package com.gwtext.client.widgets;
 
+/**
+ * The base class that other classes should extend in order to get some basic common toolbar item functionality.
+ */
 public abstract class ToolbarItem extends BaseExtWidget {
 
+    /**
+     * Removes and destroys this item.
+     */
     public native void destroy()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.destroy();
     }-*/;
 
+    /**
+     * Disables this item.
+     */
     public native void disable()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.disable();
     }-*/;
 
+    /**
+     * Enables this item.
+     */
     public native void enable()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.enable();
     }-*/;
 
+    /**
+     * Try to focus this item.
+     */
     public native void focus()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.focus();
     }-*/;
 
+    /**
+     * Hides this item.
+     */
     public native void hide()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.hide();
     }-*/;
 
+    /**
+     * Shows this item.
+     */
     public native void show()/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.show();
     }-*/;
 
+    /**
+     * Convenience function for boolean show/hide.
+     * 
+     * @param visible true to show
+     */
     public native void setVisible(boolean visible)/*-{
         var tbi = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         tbi.setVisible(visible);

@@ -22,13 +22,19 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Toolbar spacer class.
+ */
 public class ToolbarSpacer extends ToolbarItem {
 
+    /**
+     * Create a new Spacer.
+     */
     public ToolbarSpacer() {
         setJsObj(create());
     }
 
-    public native JavaScriptObject create() /*-{
+    private native JavaScriptObject create() /*-{
         return new $wnd.Ext.Toolbar.Spacer();
     }-*/;
 }

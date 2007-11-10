@@ -22,13 +22,19 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Toolbar separator class.
+ */
 public class ToolbarSeparator extends ToolbarItem {
 
+    /**
+     * Create a new separator.
+     */
     public ToolbarSeparator() {
         setJsObj(create());
     }
 
-    public native JavaScriptObject create() /*-{
+    private native JavaScriptObject create() /*-{
         return new $wnd.Ext.Toolbar.Separator();
     }-*/;
 }

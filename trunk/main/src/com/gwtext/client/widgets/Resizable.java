@@ -28,12 +28,30 @@ import com.gwtext.client.widgets.event.ResizableListener;
 //http://extjs.com/forum/showthread.php?t=339&highlight=Resizable
 
 //todo 'east', 'dd' docs missing from Ext
+/**
+ * Applies drag handles to an element to make it resizable. The drag handles are inserted into the element and
+ * positioned absolute. Some elements, such as a textarea or image, don't support this. To overcome that, you
+ * can wrap the textarea in a div and set "resizeChild" to true (or to the id of the element), or set wrap:true
+ * in your config and the element will be wrapped for you automatically.
+ */
 public class Resizable extends BaseExtWidget {
 
+    /**
+     * Create a new resizable component. The component needs to be attached to the browser DOM.
+     * 
+     * @param id the element ID
+     * @param config the resizable config
+     */
     public Resizable(String id, ResizableConfig config) {
         jsObj = create(id, config.getJsObj());
     }
 
+    /**
+     * Create a new resizable component. The component needs to be attached to the browser DOM.
+     *
+     * @param elem the element
+     * @param config the resizable config
+     */
     public Resizable(Element elem, ResizableConfig config) {
         jsObj = create(elem, config.getJsObj());
     }
@@ -46,6 +64,11 @@ public class Resizable extends BaseExtWidget {
         return new $wnd.Ext.Resizable(elem, config);
     }-*/;
 
+    /**
+     * Add a Resizable listener.
+     *
+     * @param listener the listener
+     */
     public native void addResizableListener(ResizableListener listener) /*-{
         var rz = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var rzJ = this;
@@ -63,4 +86,28 @@ public class Resizable extends BaseExtWidget {
                 }
         );
     }-*/;
+
+
+    public static class  Handle {
+        private String handle;
+
+        private Handle(String handle) {
+            this.handle = handle;
+        }
+
+        public String getHandle() {
+            return handle;
+        }
+    }
+
+    public static Handle NORTH = new Handle("n");
+    public static Handle SOUTH = new Handle("s");
+    public static Handle EAST = new Handle("e");
+    public static Handle WEST = new Handle("w");
+    public static Handle NORTH_WEST = new Handle("nw");
+    public static Handle SOUTH_WEST = new Handle("sw");
+    public static Handle SOUTH_EAST= new Handle("se");
+    public static Handle NORTH_EAST = new Handle("ne");
+    public static Handle ALL = new Handle("all");
+
 }

@@ -23,8 +23,19 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.event.MenuButtonListener;
 
+/**
+ * A split button that provides a built-in dropdown arrow that can fire an event separately from the default click event
+ * of the button. Typically this would be used to display a dropdown menu that provides additional options to the primary
+ * button action, but any custom handler can provide the arrowclick implementation.
+ */
 public class SplitButton extends Button {
 
+    /**
+     * Create a new menu button.
+     * 
+     * @param id The element to append the button to
+     * @param config the config object
+     */
     public SplitButton(String id, SplitButtonConfig config) {
         super(id, config);
         if (config.getMenuButtonListener() != null) {
@@ -36,6 +47,11 @@ public class SplitButton extends Button {
         return new $wnd.Ext.MenuButton(id, config);
     }-*/;
 
+    /**
+     * Add a listener.
+     *
+     * @param listener  the listener
+     */
     public native void addMenuButtonListener(MenuButtonListener listener) /*-{
         var componentJ = this;
         var component = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

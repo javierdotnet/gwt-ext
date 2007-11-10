@@ -22,18 +22,18 @@ package com.gwtext.client.widgets;
 
 import com.gwtext.client.core.Function;
 
+/**
+ * Component manager.
+ */
 public class ComponentMgr {
 
-    public native Component get(String id)/*-{
-        var comp = $wnd.Ext.ComponentMgr.get(id);
-        if(comp == null) {
-            return null;
-        } else {
-            return @com.gwtext.client.widgets.Component::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
-        }
-    }-*/;
-
-    public native void onAvailable(String id, Function fn)/*-{
+	/**
+	 * egisters a function that will be called when a specified component is added to ComponentMgr.
+	 *
+	 * @param id the component ID
+	 * @param fn the function to execute
+	 */
+	public native void onAvailable(String id, Function fn)/*-{
         $wnd.Ext.ComponentMgr.onAvailable(id, function() {
             fn.@com.gwtext.client.core.Function::execute()();
         });

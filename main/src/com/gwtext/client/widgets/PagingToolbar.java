@@ -25,9 +25,19 @@ import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * A specialized toolbar that is bound to a {@link Store} and provides automatic paging controls.
+ */
 public class PagingToolbar extends Toolbar {
 
-    public PagingToolbar(ExtElement container, Store store, PagingToolbarConfig config) {
+	/**
+	 * Construct a new PagingToolbar.
+	 *
+	 * @param container the element that will contain the toolbar
+	 * @param store the underlying data store providing the paged data
+	 * @param config the config object
+	 */
+	public PagingToolbar(ExtElement container, Store store, PagingToolbarConfig config) {
         jsObj = create(container.getJsObj(), store.getJsObj(), config.getJsObj());
     }
 
@@ -35,41 +45,86 @@ public class PagingToolbar extends Toolbar {
         return new $wnd.Ext.PagingToolbar(container, store, config);
     }-*/;
 
-    public native void bind(Store store) /*-{
+	/**
+	 * Binds the paging toolbar to the specified Store.
+	 *
+	 * @param store the Store to bind to
+	 */
+	public native void bind(Store store) /*-{
 		var pagingToolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
 		pagingToolbar.bind(storeJS);
 	}-*/;
 
-    public void setAfterPageText(String afterPageText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "of %0").
+	 *
+	 * @param afterPageText the after page text
+	 */
+	public void setAfterPageText(String afterPageText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "afterPageText", afterPageText);
     }
 
-    public void setBeforePageText(String beforePageText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "Page").
+	 *
+	 * @param beforePageText the before page text
+	 */
+	public void setBeforePageText(String beforePageText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "beforePageText", beforePageText);
     }
 
-    public void setFirstText(String firstText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "First Page").
+	 *
+	 * @param firstText the first text
+	 */
+	public void setFirstText(String firstText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "firstText", firstText);
     }
 
-    public void setLastText(String lastText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "Last Page").
+	 * 
+	 * @param lastText the last text
+	 */
+	public void setLastText(String lastText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "lastText", lastText);
     }
 
-    public void setNextText(String nextText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "Next Page").
+	 * 
+	 * @param nextText the next text
+	 */
+	public void setNextText(String nextText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "nextText", nextText);
     }
 
-    public void setPrevText(String prevText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "Previous Page")
+	 * 
+	 * @param prevText the previous text
+	 */
+	public void setPrevText(String prevText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "prevText", prevText);
     }
 
-    public void setRefreshText(String refreshText) {
+	/**
+	 * Customizable piece of the default paging text (defaults to "Refresh").
+	 * 
+	 * @param refreshText the refresh text
+	 */
+	public void setRefreshText(String refreshText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "refreshText", refreshText);
     }
 
-    public native void unbind(Store store) /*-{
+	/**
+	 *  Unbinds the paging toolbar from the specified Store.
+	 *
+	 * @param store the store 
+	 */
+	public native void unbind(Store store) /*-{
 		var pagingToolbar = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
 		pagingToolbar.unbind(storeJS);

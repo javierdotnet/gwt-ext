@@ -23,21 +23,45 @@ package com.gwtext.client.widgets;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link com.gwtext.client.widgets.PagingToolbar}.
+ *
+ */
 public class PagingToolbarConfig extends BaseConfig {
 
-    public void setDisplayMsg(String displayMsg) {
+	/**
+	 * The paging status message to display (defaults to "Displaying {start} - {end} of {total}")
+	 *
+	 * @param displayMsg the display message
+	 */
+	public void setDisplayMsg(String displayMsg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "displayMsg", displayMsg);
     }
 
-    public void setEmptyMsg(String emptyMsg) {
+	/**
+	 * The message to display when no records are found (defaults to "No data to display").
+	 *
+	 * @param emptyMsg the empty message
+	 */
+	public void setEmptyMsg(String emptyMsg) {
         JavaScriptObjectHelper.setAttribute(jsObj, "emptyMsg", emptyMsg);
     }
 
-    public void setPageSize(int pageSize) {
+	/**
+	 * The number of records to display per page (defaults to 20).
+	 *
+	 * @param pageSize the page size
+	 */
+	public void setPageSize(int pageSize) {
         JavaScriptObjectHelper.setAttribute(jsObj, "pageSize", pageSize);
     }
 
-    public void setDisplayInfo(boolean displayInfo) {
+	/**
+	 * True to display the displayMsg (defaults to false).
+	 *
+	 * @param displayInfo the display message
+	 */
+	public void setDisplayInfo(boolean displayInfo) {
         JavaScriptObjectHelper.setAttribute(jsObj, "displayInfo", displayInfo);
     }
 }

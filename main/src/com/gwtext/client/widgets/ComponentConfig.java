@@ -25,11 +25,21 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ComponentConfig extends BaseConfig {
 
-    public void setId(String id) {
+	/**
+	 * Set the ID of the component.
+	 *
+	 * @param id the component ID
+	 */
+	public void setId(String id) {
         JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
     }
 
-    public void setHideMode(String hideMode) {
+	/**
+	 * The hide mode. "display" or "visibility"
+	 *
+	 * @param hideMode the hide mode
+	 */
+	public void setHideMode(String hideMode) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideMode", hideMode);
     }
 }

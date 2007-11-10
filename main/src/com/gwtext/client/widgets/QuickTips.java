@@ -20,25 +20,48 @@
 
 package com.gwtext.client.widgets;
 
+/**
+ * Provides attractive and customizable tooltips for any element.
+ *
+ */
 public class QuickTips {
 
-    public static native void disable()/*-{
+	/**
+	 * Disable this quick tip.
+	 */
+	public static native void disable()/*-{
         $wnd.Ext.QuickTips.disable();
     }-*/;
 
-    public static native void enable()/*-{
+	/**
+	 * Enable this quick tip.
+	 */
+	public static native void enable()/*-{
         $wnd.Ext.QuickTips.enable();
     }-*/;
 
-    public static native void init()/*-{
+	/**
+	 * Initialize and enable QuickTips for first use. This should be called once before the first attempt to access or display QuickTips in a page.
+	 */
+	public static native void init()/*-{
         $wnd.Ext.QuickTips.init();
     }-*/;
 
-    public static native boolean isEnabled()/*-{
+	/**
+	 * Returns true if the quick tip is enabled, else false.
+	 * 
+	 * @return true if enabled
+	 */
+	public static native boolean isEnabled()/*-{
         return $wnd.Ext.QuickTips.isEnabled();
     }-*/;
 
-    //todo test
+	/**
+	 * Configures a new quick tip instance and assigns it to a target element.
+	 *
+	 * @param id target element id
+	 * @param config the config
+	 */
     public native void register(String id, QuickTipsConfig config) /*-{
         var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
         configJS['target'] = id;

@@ -23,6 +23,9 @@ package com.gwtext.client.widgets;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration for {@link com.gwtext.client.widgets.LayoutDialog}.
+ */
 public class LayoutDialogConfig extends BaseConfig {
 
     private String id;
@@ -38,111 +41,246 @@ public class LayoutDialogConfig extends BaseConfig {
         return id;
     }
 
-    public void setAnimateTarget(String animateTarget) {
+	/**
+	 * ID or element from which the dialog should animate while opening (defaults to null with no animation).
+	 *
+	 * @param animateTarget the animation target
+	 */
+	public void setAnimateTarget(String animateTarget) {
         JavaScriptObjectHelper.setAttribute(jsObj, "animateTarget", animateTarget);
     }
 
-    public void setAutoScroll(boolean autoScroll) {
+	/**
+	 * True to allow the dialog body contents to overflow and display scrollbars (defaults to false).
+	 *
+	 * @param autoScroll true for auto scroll
+	 */
+	public void setAutoScroll(boolean autoScroll) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoScroll", autoScroll);
     }
 
-    public void setAutoTabs(boolean autoTabs) {
+	/**
+	 * If true, all elements with class 'x-dlg-tab' will get automatically converted to tabs (defaults to false).
+	 *
+	 * @param autoTabs true for auto tabs
+	 */
+	public void setAutoTabs(boolean autoTabs) {
         JavaScriptObjectHelper.setAttribute(jsObj, "autoTabs", autoTabs);
     }
 
-    public void setButtonAlign(String buttonAlign) {
+	/**
+	 * Valid values are "left," "center" and "right" (defaults to "right")
+	 * 
+	 * @param buttonAlign the button alignment
+	 */
+	public void setButtonAlign(String buttonAlign) {
         JavaScriptObjectHelper.setAttribute(jsObj, "buttonAlign", buttonAlign);
     }
 
-    public void setClosable(boolean closable) {
+	/**
+	 * False to remove the built-in top-right corner close button (defaults to true).
+	 * 
+	 * @param closable true for closable
+	 */
+	public void setClosable(boolean closable) {
         JavaScriptObjectHelper.setAttribute(jsObj, "closable", closable);
     }
 
-    public void setCollapsible(boolean collapsible) {
+	/**
+	 * False to remove the built-in top-right corner collapse button (defaults to true).
+	 * 
+	 * @param collapsible false to disable collapsible
+	 */
+	public void setCollapsible(boolean collapsible) {
         JavaScriptObjectHelper.setAttribute(jsObj, "collapsible", collapsible);
     }
 
-    public void setConstrainToViewport(boolean constrainttoviewport) {
+	/**
+	 * True to keep the dialog constrained within the visible viewport boundaries (defaults to true).
+	 * 
+	 * @param constrainttoviewport true to constrain to viewport
+	 */
+	public void setConstrainToViewport(boolean constrainttoviewport) {
         JavaScriptObjectHelper.setAttribute(jsObj, "constraintoviewport", constrainttoviewport);
     }
 
-    public void setDraggable(boolean draggable) {
+	/**
+	 * False to disable dragging of the dialog within the viewport (defaults to true).
+	 * 
+	 * @param draggable false to disable dragging
+	 */
+	public void setDraggable(boolean draggable) {
         JavaScriptObjectHelper.setAttribute(jsObj, "draggable", draggable);
     }
 
-    public void setFixedCenter(boolean fixedcenter) {
+	/**
+	 * True to ensure that anytime the dialog is shown or resized it gets centered (defaults to false).
+	 *
+	 * @param fixedcenter true to ensure dialog is centered
+	 */
+	public void setFixedCenter(boolean fixedcenter) {
         JavaScriptObjectHelper.setAttribute(jsObj, "fixedcenter", fixedcenter);
     }
 
-    public void setHeight(int height) {
+	/**
+	 * Height of the dialog in pixels (can also be set via CSS). Determined by browser if unspecified.
+	 * 
+	 * @param height the dialog height
+	 */
+	public void setHeight(int height) {
         JavaScriptObjectHelper.setAttribute(jsObj, "height", height);
     }
 
-    public void setMinButtonWidth(int minButtonWidth) {
+	/**
+	 * Minimum width of all dialog buttons (defaults to 75).
+	 *
+	 * @param minButtonWidth the button min width
+	 */
+	public void setMinButtonWidth(int minButtonWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minButtonWidth", minButtonWidth);
     }
 
-    public void setMinHeight(int minHeight) {
+	/**
+	 * The minimum allowable height for a resizable dialog (defaults to 80).
+	 * 
+	 * @param minHeight the min height of the dialog
+	 */
+	public void setMinHeight(int minHeight) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minHeight", minHeight);
     }
 
-    public void setMinWidth(int minWidth) {
+	/**
+	 * The minimum allowable width for a resizable dialog (defaults to 200).
+	 * 
+	 * @param minWidth the min width of the dialog
+	 */
+	public void setMinWidth(int minWidth) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minWidth", minWidth);
     }
 
-    public void setModal(boolean modal) {
+	/**
+	 * True to show the dialog modally, preventing user interaction with the rest of the page (defaults to false).
+	 * 
+	 * @param modal true for modal
+	 */
+	public void setModal(boolean modal) {
         JavaScriptObjectHelper.setAttribute(jsObj, "modal", modal);
     }
 
-    public void setProxyDrag(boolean proxyDrag) {
+	/**
+	 * True to drag a lightweight proxy element rather than the dialog itself, used when draggable = true (defaults to false).
+	 *
+	 * @param proxyDrag true for proxy display on drag
+	 */
+	public void setProxyDrag(boolean proxyDrag) {
         JavaScriptObjectHelper.setAttribute(jsObj, "proxyDrag", proxyDrag);
     }
 
-    public void setResizable(boolean resizable) {
+	/**
+	 * False to disable manual dialog resizing (defaults to true).
+	 *
+	 * @param resizable false to dissable manual resizing
+	 */
+	public void setResizable(boolean resizable) {
         JavaScriptObjectHelper.setAttribute(jsObj, "resizable", resizable);
     }
 
-    public void setResizeHandles(String resizeHandles) {
+	/**
+	 * Which resize handles to display - see the {@link Resizable} handles config property for valid values (defaults to 'all')
+	 *
+	 * @param resizeHandles the resize handles to display
+	 */
+	public void setResizeHandles(String resizeHandles) {
         JavaScriptObjectHelper.setAttribute(jsObj, "resizeHandles", resizeHandles);
     }
 
-    public void setShadow(boolean shadow) {
+	/**
+	 * True or "sides" for the default effect, "frame" for 4-way shadow, and "drop" for bottom-right shadow (defaults to false).
+	 * 
+	 * @param shadow shadow setting
+	 */
+	public void setShadow(boolean shadow) {
         JavaScriptObjectHelper.setAttribute(jsObj, "shadow", shadow);
     }
 
+	/**
+	 * True or "sides" for the default effect, "frame" for 4-way shadow, and "drop" for bottom-right shadow (defaults to false).
+	 *
+	 * @param shadow shadow setting
+	 */
     public void setShadow(String shadow) {
         JavaScriptObjectHelper.setAttribute(jsObj, "shadow", shadow);
     }
 
-    public void setShadowOffset(int shadowOffset) {
+	/**
+	 * he number of pixels to offset the shadow if displayed (defaults to 5).
+	 *
+	 * @param shadowOffset the shadow offset in pixels
+	 */
+	public void setShadowOffset(int shadowOffset) {
         JavaScriptObjectHelper.setAttribute(jsObj, "shadowOffset", shadowOffset);
     }
 
-    public void setShim(boolean shim) {
+	/**
+	 * True to create an iframe shim that prevents selects from showing through (defaults to false).
+	 * 
+	 * @param shim true to create shim
+	 */
+	public void setShim(boolean shim) {
         JavaScriptObjectHelper.setAttribute(jsObj, "shim", shim);
     }
 
-    public void setSyncHeightBeforeShow(boolean syncHeightBeforeShow) {
+	/**
+	 * True to cause the dimensions to be recalculated before the dialog is shown (defaults to false).
+	 *
+	 * @param syncHeightBeforeShow true to sync height before show
+	 */
+	public void setSyncHeightBeforeShow(boolean syncHeightBeforeShow) {
         JavaScriptObjectHelper.setAttribute(jsObj, "syncHeightBeforeShow", syncHeightBeforeShow);
     }
 
-    public void setTabTag(String tabTag) {
+	/**
+	 * The tag name of tab elements, used when autoTabs = true (defaults to 'div').
+	 *
+	 * @param tabTag the tab tag
+	 */
+	public void setTabTag(String tabTag) {
         JavaScriptObjectHelper.setAttribute(jsObj, "tabTag", tabTag);
     }
 
-    public void setTitle(String title) {
+	/**
+	 * Default text to display in the title bar.
+	 * 
+	 * @param title the dialog title
+	 */
+	public void setTitle(String title) {
         JavaScriptObjectHelper.setAttribute(jsObj, "title", title);
     }
 
-    public void setWidth(int width) {
+	/**
+	 * Width of the dialog in pixels (can also be set via CSS). Determined by browser if unspecified.
+	 *
+	 * @param width the dialog width
+	 */
+	public void setWidth(int width) {
         JavaScriptObjectHelper.setAttribute(jsObj, "width", width);
     }
 
-    public void setX(int x) {
+	/**
+	 * The default left page coordinate of the dialog (defaults to center screen)
+	 *
+	 * @param x the x coordinate
+	 */
+	public void setX(int x) {
         JavaScriptObjectHelper.setAttribute(jsObj, "x", x);
     }
 
-    public void setY(int y) {
+	/**
+	 * The default top page coordinate of the dialog (defaults to center screen).
+	 *
+	 * @param y the y coordinate
+	 */
+	public void setY(int y) {
         JavaScriptObjectHelper.setAttribute(jsObj, "y", y);
     }
 }

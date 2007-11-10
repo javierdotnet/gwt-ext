@@ -23,12 +23,30 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.JsObject;
 
+/**
+ * A simple utility class for generically masking elements while loading data. If the element being masked has an
+ * underlying {@link com.gwtext.client.data.Store}, the masking will be automatically synchronized with the store's
+ * loading process and the mask element will be cached for reuse. For all other elements, this mask will replace the
+ * element's UpdateManager load indicator and will be destroyed after the initial load.
+ */
 public class LoadMask extends JsObject {
 
-    public LoadMask(Element element, LoadMaskConfig config) {
+	/**
+	 * Create a new LoadMask.
+	 *
+	 * @param element the element to mask
+	 * @param config the mask config
+	 */
+	public LoadMask(Element element, LoadMaskConfig config) {
         jsObj = create(element, config.getJsObj());
     }
 
+	/**
+	 * Create a new LoadMask.
+	 *
+	 * @param id the element ID to mask
+	 * @param config the mask config
+	 */
     public LoadMask(String id, LoadMaskConfig config) {
         jsObj = create(id, config.getJsObj());
     }
@@ -41,17 +59,28 @@ public class LoadMask extends JsObject {
         return new $wnd.Ext.LoadMask(id, config);
     }-*/;
 
-    public native void disable() /*-{
+	/**
+	 * Disables the mask to prevent it from being displayed.
+	 */
+	public native void disable() /*-{
         var lm = this.@com.gwtext.client.core.JsObject::jsObj;
         lm.disable();
     }-*/;
 
-    public native void enable() /*-{
+	/**
+	 * Enables the mask so that it can be displayed.
+	 */
+	public native void enable() /*-{
         var lm = this.@com.gwtext.client.core.JsObject::jsObj;
         lm.enable();
     }-*/;
 
-    public native boolean isDisabled() /*-{
+	/**
+	 * True if the mask is currently disabled so that it will not be displayed (defaults to false)
+	 *
+	 * @return true if mask disabled
+	 */
+	public native boolean isDisabled() /*-{
         var lm = this.@com.gwtext.client.core.JsObject::jsObj;
         return lm.disabled;
     }-*/;

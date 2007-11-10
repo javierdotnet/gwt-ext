@@ -25,21 +25,26 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
+/**
+ * {@link com.gwtext.client.widgets.DatePicker} configuration class.
+ */
 public class DatePickerConfig extends ComponentConfig {
 
-    public void setCancelText(String cancelText) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "cancelText", cancelText);
-    }
-
-    public void setConstrainToViewport(boolean constrainToViewport) {
+	/**
+	 * True to constrain the date picker to the viewport (defaults to true).
+	 *
+	 * @param constrainToViewport true to constrain to view port
+	 */
+	public void setConstrainToViewport(boolean constrainToViewport) {
         JavaScriptObjectHelper.setAttribute(jsObj, "constrainToViewport", constrainToViewport);
     }
 
-    public void setDayNames(String[] dayNames) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "dayNames", JavaScriptObjectHelper.convertToJavaScriptArray(dayNames));
-    }
-
-    public void setDisabledDatesRE(String disabledDatesRE) {
+	/**
+	 * Regular expression used to disable a pattern of dates.
+	 * 
+	 * @param disabledDatesRE regular expression to disable dates
+	 */
+	public void setDisabledDatesRE(String disabledDatesRE) {
         doSetDisabledDatesRE(jsObj, disabledDatesRE);
     }
 
@@ -47,67 +52,149 @@ public class DatePickerConfig extends ComponentConfig {
         config['disabledDatesRE'] = new RegExp(disabledDatesRE);
     }-*/;
 
-    public void setDisabledDatesText(String disabledDatesText) {
+	/**
+	 * The tooltip text to display when the date falls on a disabled date (defaults to "").
+	 *
+	 * @param disabledDatesText disabled dates text
+	 */
+	public void setDisabledDatesText(String disabledDatesText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabledDatesText", disabledDatesText);
     }
 
-    public void setDisabledDays(String[] disabledDays) {
+	/**
+	 * An array of days to disable, 0-based. For example, [0, 6] disables Sunday and Saturday.
+	 *
+	 * @param disabledDays dates to disable
+	 */
+	public void setDisabledDays(String[] disabledDays) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabledDays", JavaScriptObjectHelper.convertToJavaScriptArray(disabledDays));
     }
 
-    public void setDisabledDaysText(String disabledDaysText) {
+	/**
+	 * The tooltip to display when the date falls on a disabled day (defaults to "")
+	 *
+	 * @param disabledDaysText disabled days text
+	 */
+	public void setDisabledDaysText(String disabledDaysText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "disabledDaysText", disabledDaysText);
     }
 
-    public void setFormat(String format) {
+	/**
+	 * The default date format string which can be overriden for localization support. The format must be a valid pattern (defaults to 'm/d/y').
+	 *
+	 * 
+	 * @param format the date format
+	 * @see com.gwtext.client.util.DateUtil
+	 */
+	public void setFormat(String format) {
         JavaScriptObjectHelper.setAttribute(jsObj, "format", format);
     }
 
-    public void setMaxDate(Date maxDate) {
+	/**
+	 * Maximum allowable date.
+	 *
+	 * @param maxDate the max date
+	 */
+	public void setMaxDate(Date maxDate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxDate", maxDate);
     }
 
-    public void setMaxText(String maxText) {
+	/**
+	 * The error text to display if the maxDate validation fails (defaults to "This date is after the maximum date").
+	 * 
+	 * @param maxText the max error text
+	 */
+	public void setMaxText(String maxText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "maxText", maxText);
     }
 
-    public void setMinDate(Date minDate) {
+	/**
+	 * Minimum allowable date.
+	 * 
+	 * @param minDate the min date
+	 */
+	public void setMinDate(Date minDate) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minDate", minDate);
     }
 
-    public void setMinText(String minText) {
+	/**
+	 * The error text to display if the minDate validation fails (defaults to "This date is before the minimum date").
+	 *
+	 * @param minText the min error text
+	 */
+	public void setMinText(String minText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "minText", minText);
     }
 
-    public void setMonthNames(String[] monthNames) {
+	/**
+	 * An array of textual month names which can be overriden for localization support.
+	 *
+	 * @param monthNames the month names
+	 */
+	public void setMonthNames(String[] monthNames) {
         JavaScriptObjectHelper.setAttribute(jsObj, "monthNames", JavaScriptObjectHelper.arrayConvert(monthNames));
     }
 
-    public void setMonthYearText(String monthYearText) {
+	/**
+	 * The header month selector tooltip (defaults to 'Choose a month (Control+Up/Down to move years)').
+	 *
+	 * @param monthYearText the header month tooltip text
+	 */
+	public void setMonthYearText(String monthYearText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "monthYearText", monthYearText);
     }
 
-    public void setNextText(String nextText) {
+	/**
+	 * The next month navigation button tooltip (defaults to 'Next Month (Control+Right)').
+	 * 
+	 * @param nextText the next button tooltip text
+	 */
+	public void setNextText(String nextText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "nextText", nextText);
     }
 
-    public void setOkText(String okText) {
+	/**
+	 * The text to display on the ok button.
+	 *
+	 * @param okText the OK text
+	 */
+	public void setOkText(String okText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "okText", okText);
     }
 
-    public void setPrevText(String prevText) {
+	/**
+	 *  The previous month navigation button tooltip (defaults to 'Previous Month (Control+Left)').
+	 *
+	 * @param prevText the previous month tooltip text
+	 */
+	public void setPrevText(String prevText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "prevText", prevText);
     }
 
-    public void setStartDay(int startDay) {
+	/**
+	 * Day index at which the week should begin, 0-based (defaults to 0, which is Sunday).
+	 *
+	 * @param startDay the start day
+	 */
+	public void setStartDay(int startDay) {
         JavaScriptObjectHelper.setAttribute(jsObj, "startDay", startDay);
     }
 
-    public void setTodayText(String todayText) {
+	/**
+	 * The text to display on the button that selects the current date (defaults to "Today").
+	 * 
+	 * @param todayText the today text
+	 */
+	public void setTodayText(String todayText) {
         JavaScriptObjectHelper.setAttribute(jsObj, "todayText", todayText);
     }
 
-    public void setTodayTip(String todayTip) {
+	/**
+	 * The tooltip to display for the button that selects the current date (defaults to "{current date} (Spacebar)").
+	 *                                                                                                               
+	 * @param todayTip the tooltip for current date
+	 */
+	public void setTodayTip(String todayTip) {
         JavaScriptObjectHelper.setAttribute(jsObj, "todayTip", todayTip);
     }
 }

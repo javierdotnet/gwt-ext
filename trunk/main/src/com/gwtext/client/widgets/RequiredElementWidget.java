@@ -27,6 +27,10 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.core.BaseConfig;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Base abstract class for elements that require to be created and attached
+ * to the browser DOM.
+ */
 public abstract class RequiredElementWidget extends BaseExtWidget {
 
     protected String id;
@@ -35,10 +39,21 @@ public abstract class RequiredElementWidget extends BaseExtWidget {
     protected RequiredElementWidget() {
     }
 
+    /**
+     * Create a new instance.
+     *
+     * @param id the element ID
+     */
     public RequiredElementWidget(String id) {
         this(id, null);
     }
 
+    /**
+     * Create a new instance.
+     *
+     * @param id the element ID
+     * @param config the creation configuration
+     */
     protected RequiredElementWidget(String id, BaseConfig config) {
         this.id = id;
         this.config = config;

@@ -20,11 +20,17 @@
 
 package com.gwtext.client.widgets.menu;
 
+/**
+ * Provides a common registry of all menu items on a page.
+ */
 public class MenuMgr {
 
     private MenuMgr() {
     }
 
+    /**
+     * Hides all menus that are currently visible.
+     */
     public static native void hideAll()/*-{
         $wnd.Ext.menu.MenuMgr.hideAll();
     }-*/;

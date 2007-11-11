@@ -72,6 +72,14 @@ public class ColumnConfig extends BaseConfig {
     }
 
     /**
+     *  Adda tooltip to the column header
+     *
+     * @param tooltip the tooltip
+     */
+    public void setTooltip(String tooltip) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "tooltip", tooltip);
+    }
+    /**
      * Sets teh CSS class for the column,
      *
      * @param css the CSS class

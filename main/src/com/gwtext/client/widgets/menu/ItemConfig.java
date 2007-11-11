@@ -22,12 +22,25 @@ package com.gwtext.client.widgets.menu;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link Item}.
+ */
 public class ItemConfig extends BaseItemConfig {
 
+    /**
+     * The item's icon.
+     *
+     * @param icon the icon
+     */
     public void setIcon(String icon) {
         JavaScriptObjectHelper.setAttribute(jsObj, "icon", icon);
     }
 
+    /**
+     * The item's CSS clas.
+     *
+     * @param itemCls the CSS clas
+     */
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }

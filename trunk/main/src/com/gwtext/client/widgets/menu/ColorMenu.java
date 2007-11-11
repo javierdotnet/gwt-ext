@@ -24,8 +24,17 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.ColorPalette;
 import com.gwtext.client.widgets.menu.event.ColorMenuListener;
 
+/**
+ * A menu containing a {@link ColorItem} component (which provides a basic color picker).
+ */
 public class ColorMenu extends Menu {
 
+    /**
+     * Create a new ColorMenu.
+     *
+     * @param id the ColorMenu ID
+     * @param menuConfig the config object
+     */
     public ColorMenu(String id, ColorMenuConfig menuConfig) {
         super(id, menuConfig);
         if (menuConfig.getColorMenuListener() != null) {
@@ -37,6 +46,11 @@ public class ColorMenu extends Menu {
         return new $wnd.Ext.menu.ColorMenu(menuConfig);
     }-*/;
 
+    /**
+     * The ColorPalette instance for this ColorMenu.
+     *
+     * @return the ColorPalette instance
+     */
     public ColorPalette getColorPalette() {
         return new ColorPalette(getColorPalette(jsObj));
     }
@@ -45,7 +59,11 @@ public class ColorMenu extends Menu {
         return colorMenu.palette;    
     }-*/;
 
-
+    /**
+     * Add a ColorPalette listener.
+     *
+     * @param listener the listener
+     */
     public native void addColorMenuListener(ColorMenuListener listener)/*-{
         var colorMenu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var colorMenuJ = this;

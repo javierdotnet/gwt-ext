@@ -23,8 +23,16 @@ package com.gwtext.client.widgets.menu;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.menu.event.CheckItemListener;
 
+/**
+ * Adds a menu item that contains a checkbox by default, but can also be part of a radio group.
+ */
 public class CheckItem extends Item {
 
+    /**
+     * Create a new CheckItem.
+     *
+     * @param config the config object
+     */
     public CheckItem(CheckItemConfig config) {
         super(config);
         if (config.getCheckItemListener() != null) {
@@ -36,11 +44,21 @@ public class CheckItem extends Item {
         return new $wnd.Ext.menu.CheckItem(jsObj);
     }-*/;
 
+    /**
+     * Set the checked state of this item.
+     *
+     * @param checked the checked state
+     */
     public native void setChecked(boolean checked) /*-{
         var checkItem = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         checkItem.setChecked(checked);
     }-*/;
 
+    /**
+     * Add a CheckItemListener.
+     *
+     * @param listener the listener
+     */
     public native void addCheckItemListener(CheckItemListener listener)/*-{
         var checkItem = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var checkItemJ = this;

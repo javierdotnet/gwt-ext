@@ -24,8 +24,17 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.DatePicker;
 import com.gwtext.client.widgets.menu.event.DateMenuListener;
 
+/**
+ * A menu containing a {@link DateItem} component (which provides a date picker).
+ */
 public class DateMenu extends Menu {
 
+    /**
+     * Create a new DateMenu.
+     *
+     * @param id the DateMenu ID
+     * @param menuConfig the config object
+     */
     public DateMenu(String id, DateMenuConfig menuConfig) {
         super(id, menuConfig);
         if (menuConfig.getDateMenuListener() != null) {
@@ -37,6 +46,11 @@ public class DateMenu extends Menu {
         return new $wnd.Ext.menu.DateMenu(menuConfig);
     }-*/;
 
+    /**
+     * The {@link DatePicker} instance for this DateMenu.
+     *
+     * @return the DatePicker instance for this DateMenu
+     */
     public DatePicker getPicker() {
         return new DatePicker(getDatePicker(jsObj));
     }
@@ -45,6 +59,11 @@ public class DateMenu extends Menu {
         return dateMenu.picker;    
     }-*/;
 
+    /**
+     * Add a DateMenu listener.
+     *
+     * @param listener the listener
+     */
     public native void addDateMenuListener(DateMenuListener listener)/*-{
 
         var dateMenu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;

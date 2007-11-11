@@ -22,13 +22,26 @@ package com.gwtext.client.widgets.menu;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Adds a static text string to a menu, usually used as either a heading or group separator.
+ */
 public class TextItem extends Item {
 
-    //can pass html like <b class="menu-title">Choose a Theme</b> for custom styling
+    /**
+     * Create a new TextItem.
+     *
+     * @param text the text. can pass html like <b class="menu-title">Choose a Theme</b> for custom styling
+     */
     public TextItem(String text) {
         setJsObj(create(text, null));
     }
 
+    /**
+     * Create a new TextItem.
+     *
+     * @param text the text. can pass html like <b class="menu-title">Choose a Theme</b> for custom styling
+     * @param config the config object
+     */
     public TextItem(String text, TextItemConfig config) {
         setJsObj(create(text, config.getJsObj()));
     }
@@ -37,11 +50,21 @@ public class TextItem extends Item {
         return new $wnd.Ext.menu.TextItem(text);
     }-*/;
 
+    /**
+     * Return the Item text.
+     *
+     * @return the text
+     */
     public native String getText()/*-{
         var ti = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return ti.el.innerHTML;
     }-*/;
 
+    /**
+     * Sets the text.
+     *
+     * @param text the text
+     */
     public native void setText(String text)/*-{
         var ti = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         ti.el.innerHTML = text;

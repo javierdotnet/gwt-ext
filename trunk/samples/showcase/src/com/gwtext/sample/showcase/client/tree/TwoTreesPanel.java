@@ -76,8 +76,7 @@ public class TwoTreesPanel extends ShowcaseExampleVSD {
         final TreePanel treePanel = new TreePanel("coutries-grouped", new TreePanelConfig() {
             {
                 setAnimate(true);
-                setEnableDrag(true);
-                setEnableDrop(false);
+                setEnableDD(true);
                 setContainerScroll(true);
                 setRootVisible(true);
             }

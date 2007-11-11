@@ -22,14 +22,27 @@ package com.gwtext.client.widgets.menu;
 
 import com.gwtext.client.widgets.menu.event.ColorMenuListener;
 
+/**
+ * Configuration class for {@link com.gwtext.client.widgets.menu.ColorMenu}.
+ */
 public class ColorMenuConfig extends MenuConfig {
 
     private ColorMenuListener colorMenuListener;
 
+    /**
+     * Get the color menu listener.
+     *
+     * @return the listener
+     */
     public ColorMenuListener getColorMenuListener() {
         return colorMenuListener;
     }
 
+    /**
+     * Set the color menu listener.
+     *
+     * @param colorMenuListener the listener
+     */
     public void setColorMenuListener(ColorMenuListener colorMenuListener) {
         this.colorMenuListener = colorMenuListener;
     }

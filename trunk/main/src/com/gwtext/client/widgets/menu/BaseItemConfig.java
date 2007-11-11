@@ -97,7 +97,7 @@ public class BaseItemConfig extends BaseConfig {
     /**
      * Return the BaseItemListener.
      *
-     * @return
+     * @return the listener
      */
     public BaseItemListener getBaseItemListener() {
         return baseItemListener;

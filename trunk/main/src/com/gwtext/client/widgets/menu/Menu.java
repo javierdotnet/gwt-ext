@@ -207,7 +207,12 @@ public class Menu extends RequiredElementWidget {
         showAt(xyPosition);
     }
 
-    private void showAt(int[] xy) {
+    /**
+     * Displays this menu at a specific xy position.
+     *
+     * @param xy the xy position
+     */
+    public void showAt(int[] xy) {
         showAt(jsObj, JavaScriptObjectHelper.convertToJavaScriptArray(xy), null);
     }
 

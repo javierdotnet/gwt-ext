@@ -22,14 +22,27 @@ package com.gwtext.client.widgets.menu;
 
 import com.gwtext.client.widgets.menu.event.DateMenuListener;
 
+/**
+ * Configuration class for {@link DateMenu}.
+ */
 public class DateMenuConfig extends MenuConfig {
 
     private DateMenuListener dateMenuListener;
 
+    /**
+     * Return the DateMenu listener.
+     *
+     * @return the listener
+     */
     public DateMenuListener getDateMenuListener() {
         return dateMenuListener;
     }
 
+    /**
+     * Set the DateMenu listener.
+     *
+     * @param dateMenuListener the listener
+     */
     public void setDateMenuListener(DateMenuListener dateMenuListener) {
         this.dateMenuListener = dateMenuListener;
     }

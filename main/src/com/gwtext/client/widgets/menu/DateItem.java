@@ -23,11 +23,22 @@ package com.gwtext.client.widgets.menu;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.widgets.DatePicker;
 
+/**
+ * A menu item that wraps the {@link DatePicker} component.
+ */
 public class DateItem extends Item {
 
+    /**
+     * Create a new DateItem.
+     */
     public DateItem() {
     }
 
+    /**
+     * Create a new DateItem.
+     *
+     * @param config the config object
+     */
     public DateItem(ItemConfig config) {
         super(config);
     }
@@ -36,6 +47,11 @@ public class DateItem extends Item {
         return new $wnd.Ext.menu.DateItem(config);
     }-*/;
 
+    /**
+     * The {@link DatePicker} object.
+     *
+     * @return the DatePicker object
+     */
     public native DatePicker getPicker()/*-{
         var di = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return @com.gwtext.client.widgets.DatePicker::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(di.picker);

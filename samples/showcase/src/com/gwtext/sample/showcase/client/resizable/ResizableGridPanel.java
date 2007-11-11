@@ -47,7 +47,7 @@ public class ResizableGridPanel extends ShowcaseExampleVSD {
                 setWrap(true);
                 setMinHeight(100);
                 setPinned(true);
-                setHandles("s");
+                setHandles(Resizable.SOUTH);
             }
         });
         resizable.addResizableListener(new ResizableListenerAdapter() {

@@ -21,12 +21,17 @@
 package com.gwtext.client.widgets.menu;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.menu.event.BaseItemListener;
 
 //todo - only reason non abstract because menu item click event returns a base item and need to instanticte
 
 //node baselem return null for getEl()
+/**
+ * The base class for all items that render into menus. BaseItem provides default rendering, activated state management
+ *  and base configuration options shared by all menu components.
+ */
 public class BaseItem extends Component {
 
     public BaseItem() {
@@ -36,10 +41,19 @@ public class BaseItem extends Component {
         super(jsObj);
     }
 
+    /**
+     * BaseItem constructor.
+     *
+     * @param config the config object
+     */
     public BaseItem(BaseItemConfig config) {
         setJsObj(create(config.getJsObj()));
         if (config.getBaseItemListener() != null) {
             addBaseItemListener(config.getBaseItemListener());
+        }
+        String id = config.getId();
+        if(id != null) {
+            JavaScriptObjectHelper.setAttribute(jsObj, "id", id);
         }
     }
 
@@ -47,6 +61,11 @@ public class BaseItem extends Component {
         return new BaseItem(jsObj);
     }
 
+    /**
+     * Adda BaseItem listener.
+     *
+     * @param listener the listener
+     */
     public native void addBaseItemListener(BaseItemListener listener)/*-{
         var baseItem = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var baseItemJ = this;

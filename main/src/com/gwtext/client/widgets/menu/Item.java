@@ -22,16 +22,31 @@ package com.gwtext.client.widgets.menu;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * A base class for all menu items that require menu-related functionality (like sub-menus) and are not static display
+ * items. Item extends the base functionality of {@link BaseItem} by adding menu-specific activation and click handling.
+ */
 public class Item extends BaseItem {
 
     protected Item() {
         setJsObj(create(null));
     }
 
+    /**
+     * Create a new Item.
+     *
+     * @param config the config object
+     */
     public Item(ItemConfig config) {
         super(config);
     }
 
+    /**
+     * Create a new Item.
+     * 
+     * @param text the item text
+     * @param config the config object
+     */
     public Item(String text, ItemConfig config) {
         super(config);
         setText(text);
@@ -41,11 +56,21 @@ public class Item extends BaseItem {
         return new $wnd.Ext.menu.Item(config);
     }-*/;
 
+    /**
+     * Sets teh text of the item.
+     *
+     * @param text the item text
+     */
     public native void setText(String text) /*-{
         var item = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         item.setText(text);
     }-*/;
 
+    /**
+     * Return the item text.
+     *
+     * @return the item text
+     */
     public native String getText() /*-{
         var item = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return item.text;

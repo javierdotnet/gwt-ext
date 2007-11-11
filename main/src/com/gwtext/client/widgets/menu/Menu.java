@@ -26,13 +26,26 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.RequiredElementWidget;
 import com.gwtext.client.widgets.menu.event.MenuListener;
 
-
+/**
+ * A menu object. This is the container to which you add all other menu items.
+ */
 public class Menu extends RequiredElementWidget {
 
+    /**
+     * Createa new Menu.
+     *
+     * @param id the menu ID
+     */
     public Menu(String id) {
         super(id);
     }
 
+    /**
+     * Create a new Menu.
+     *
+     * @param id the menu ID
+     * @param menuConfig the config object
+     */
     public Menu(String id, MenuConfig menuConfig) {
         super(id, menuConfig);
         if (menuConfig.getMenuListener() != null) {
@@ -49,32 +62,61 @@ public class Menu extends RequiredElementWidget {
         return new $wnd.Ext.menu.Menu(menuConfig);
     }-*/;
 
+    /**
+     * Adds an Element object to the menu.
+     * 
+     * @param element the element to add
+     */
     public native void addElement(Element element) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.addElement(element);
     }-*/;
 
+    /**
+     * Adds an Ext.Element object to the menu.
+     *
+     * @param elemID the element ID
+     */
     public native void addElement(String elemID) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.addElement(elemID);
     }-*/;
 
+    /**
+     * Adds an {@link Item} to the menu.
+     *
+     * @param item the item to add
+     */
     public native void addItem(BaseItem item) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var itemJS = item.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.addItem(itemJS);
     }-*/;
 
+    /**
+     * Adds a separator bar to the menu.
+     */
     public native void addSeparator() /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.addSeparator();
     }-*/;
 
+    /**
+     * Creates a new {@link TextItem} with the supplied text and adds it to the menu.
+     *
+     * @param text the text to add
+     */
     public native void addText(String text) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.addText(text);
     }-*/;
 
+    /**
+     * Gets an Item.
+     *
+     * @param itemId the item Id
+     * @return the item
+     */
     public native BaseItem getItem(String itemId) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var item = menu.items.get(itemId);
@@ -85,58 +127,97 @@ public class Menu extends RequiredElementWidget {
         }
     }-*/;
 
+    /**
+     * Hides this menu.
+     */
     public native void hide() /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.hide();
     }-*/;
 
+    /**
+     * Hides this menu and optionally all parent menus.
+     *
+     * @param deep true to hide all parent menus recursively, if any (defaults to false)
+     */
     public native void hide(boolean deep) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.hide(deep);
     }-*/;
 
+    /**
+     * Inserts an e{@link Item} to the menu at a specified index.
+     *
+     * @param index the index to insert
+     * @param item the item to insert
+     */
     public native void insert(int index, BaseItem item) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var itemJS = item.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.insert(index, itemJS);
     }-*/;
 
+    /**
+     * Returns true if the menu is currently displayed, else false.
+     * 
+     * @return true if visible
+     */
     public native boolean isVisible() /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.isVisible();
     }-*/;
 
+    /**
+     * Removes an {@link Item} from the menu and destroys the object.
+     * 
+     * @param item the item to remove
+     */
     public native void remove(BaseItem item) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var itemJS = item.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.remove(itemJS);
     }-*/;
 
+    /**
+     * Removes and destroys all items in the menu
+     */
     public native void removeAll() /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.removeAll();
     }-*/;
 
+    /**
+     * Displays this menu relative to another element.
+     *
+     * @param id the element ID to align to
+     */
     public native void show(String id) /*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         menu.show(id);
     }-*/;
 
-    public native void show(String id, String position, Menu parentMenu) /*-{
-        var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        var parentMenuJS = parentMenu.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        menu.show(id, position, parentMenuJS);
-    }-*/;
-
+    /**
+     * Displays this menu at a specific xy position.
+     *
+     * @param x the X position
+     * @param y the Y position
+     */
     public void showAt(int x, int y) {
         int[] xyPosition = new int[]{x, y};
         showAt(xyPosition);
     }
 
-    public void showAt(int[] xy) {
+    private void showAt(int[] xy) {
         showAt(jsObj, JavaScriptObjectHelper.convertToJavaScriptArray(xy), null);
     }
 
+    /**
+     * Displays this menu at a specific xy position.
+     * 
+     * @param x the X position
+     * @param y the Y position
+     * @param parentMenu the menu's parent menu, if applicable
+     */
     public void showAt(int x, int y, Menu parentMenu) {
         int[] xyPosition = new int[]{x, y};
         showAt(jsObj, JavaScriptObjectHelper.convertToJavaScriptArray(xyPosition), parentMenu.getJsObj());
@@ -146,6 +227,11 @@ public class Menu extends RequiredElementWidget {
         menu.showAt(xyPosition, parentMenu);
     }-*/;
 
+    /**
+     * Add a menu listener.
+     *
+     * @param listener the listener
+     */
     public native void addMenuListener(MenuListener listener)/*-{
         var menu = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var menuJ = this;

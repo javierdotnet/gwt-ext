@@ -22,12 +22,25 @@ package com.gwtext.client.widgets.menu;
 
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
+/**
+ * Configuration class for {@link TextItem}.
+ */
 public class TextItemConfig extends BaseItemConfig {
 
+    /**
+     * True to hide the containing menu after this item is clicked (defaults to false).
+     * 
+     * @param hideOnClick true to hide on click
+     */
     public void setHideOnClick(boolean hideOnClick) {
         JavaScriptObjectHelper.setAttribute(jsObj, "hideOnClick", hideOnClick);
     }
 
+    /**
+     * The default CSS class to use for text items (defaults to "x-menu-text").
+     *
+     * @param itemCls the item CSS class
+     */
     public void setItemCls(String itemCls) {
         JavaScriptObjectHelper.setAttribute(jsObj, "itemCls", itemCls);
     }

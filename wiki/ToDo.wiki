@@ -1,45 +1,6 @@
 #labels Featured
 == Ext API's that have still to be covered ==
 
-*The list has been updated to reflect the API's remaining with the GWT 0.9.2 release. The complete list of API changes from GWT-Ext 0.9.1 to 0.9.2 can be found [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9.1-0.9.2/newdocs/changes.html here].*
-
-*A high level summary of the changes can be viewed [http://gwt-ext.googlecode.com/svn/trunk/site/api-diff/0.9.1-0.9.2/newdocs/changes/jdiff_statistics.html  here].*
-
-Here's a list of known API's that are missing or incomplete. I'll update this page as each item gets complete.
-
-=== Drag and Drop===
-90% complete. Few API's from core Drag and Drop classes (com.gwtext.client.dd) are missing. Also Grid Drag/Drop API's missing.
-
-=== General Widgets and support classes ===
-|| *Class* || *Status*||
-|| SplitBar || ||
-
-
-=== Utility classes ===
-|| *Class* || *Status*||
-|| ClickRepeater || *Done 10/23*||
-|| TextMetrics || ||
-
-
-=== Javadocs ===
-|| com.gwtext.client.core || Done ||
-|| com.gwtext.client.core.event|| Done ||
-|| com.gwtext.client.data || Done  ||
-|| com.gwtext.client.data.event || Done ||
-|| com.gwtext.client.dd || 0% ||
-|| com.gwtext.client.state || Done ||
-|| com.gwtext.client.util || Done ||
-|| com.gwtext.client.widgets || 60% ||
-|| com.gwtext.client.widgets.event || Done ||
-|| com.gwtext.client.widgets.form || Done ||
-|| com.gwtext.client.widgets.form.event || Done ||
-|| com.gwtext.client.widgets.grid || Done ||
-|| com.gwtext.client.widgets.grid.event || Done ||
-|| com.gwtext.client.widgets.layout || 0% ||
-|| com.gwtext.client.widgets.layout.event || Done ||
-|| com.gwtext.client.widgets.menu || 0% ||
-|| com.gwtext.client.widgets.menu.event || Done ||
-|| com.gwtext.client.widgets.tree || Done ||
-|| com.gwtext.client.widgets.tree.event || Done  || 
+Work on Ext 2.0 support has started. This page will be updated to reflect the TODO's with the Ext 2.0 support.
 
  

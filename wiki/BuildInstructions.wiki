@@ -10,6 +10,8 @@ GWT-Ext is hosted on [http://code.google.com/hosting/ Google Code] project hosti
 
 The [http://code.google.com/p/gwt-ext/source project source code access page] has additional instructions for browsing the [http://gwt-ext.googlecode.com/svn/ source online] or [http://subversion.tigris.org/links.html#clients getting a Subversion client] if you don't already have one.
 
+Here's a good writeup if you're using Eclipse : [http://wiki.oreade.nl/Wiki.jsp?page=GwtExtSubversionDownloadCompile].
+
 === Compiling from Source ===
 
 Everything is Java source that can be built with the included GWT-Ext [http://ant.apache.org/ Ant] build files. 

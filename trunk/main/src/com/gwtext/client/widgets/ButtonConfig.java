@@ -172,6 +172,11 @@ public class ButtonConfig extends BaseConfig {
         JavaScriptObjectHelper.setAttribute(jsObj, "config", config.getJsObj());
     }
 
+    /**
+     * Set a DOM tabIndex for this button.
+     * 
+     * @param tabIndex the tab index
+     */
     public void setTabIndex(int tabIndex) {
         JavaScriptObjectHelper.setAttribute(jsObj, "tabIndex", tabIndex);
     }

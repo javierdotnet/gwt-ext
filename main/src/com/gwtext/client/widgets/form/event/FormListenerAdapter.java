@@ -24,10 +24,22 @@ import com.gwtext.client.widgets.form.Form;
 
 public class FormListenerAdapter implements FormListener {
 
-    public void onActionComplete(Form form) {
+    /**
+     * Use {@link #onActionComplete(com.gwtext.client.widgets.form.Form, int, String)}
+     */
+    final public void onActionComplete(Form form) {
     }
 
-    public void onActionFailed(Form form) {
+    /**
+     * User {@link #onActionFailed(com.gwtext.client.widgets.form.Form, int, String)}
+     */
+    final public void onActionFailed(Form form) {
+    }
+
+    public void onActionComplete(Form form, int httpStatus, String responseText) {
+    }
+
+    public void onActionFailed(Form form, int httpStatus, String responseText) {
     }
 
     public boolean doBeforeAction(Form form) {

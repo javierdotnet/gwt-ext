@@ -139,7 +139,9 @@ public class Store extends JsObject {
         JavaScriptObjectHelper.setAttribute(params, "proxy", dataProxy.getJsObj());
         JavaScriptObjectHelper.setAttribute(params, "reader", reader.getJsObj());
 
-        setBaseParams(baseParams, params);
+        if(baseParams != null && baseParams.length > 0) {
+            setBaseParams(baseParams, params);
+        }
         if (initialSortState != null) {
             JavaScriptObject sortStateParamObj = JavaScriptObjectHelper.createObject();
             JavaScriptObjectHelper.setAttribute(sortStateParamObj, "field", initialSortState.getField());

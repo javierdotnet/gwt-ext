@@ -489,14 +489,26 @@ public class Form extends BaseExtWidget {
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 
         form.addListener('actioncomplete',
-                function(frm) {
-                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionComplete(Lcom/gwtext/client/widgets/form/Form;)(formJ);
+                function(frm, action) {
+                    var responseText = '';
+                    var status = 200;
+                    if(action.response && action.response != null) {
+                        responseText = action.response.responseText;
+                        status = action.response.status;
+                    }
+                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionComplete(Lcom/gwtext/client/widgets/form/Form;ILjava/lang/String;)(formJ, status, responseText);
                 }
         );
 
         form.addListener('actionfailed',
-                function(frm) {
-                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionFailed(Lcom/gwtext/client/widgets/form/Form;)(formJ);
+                function(frm, action) {
+                    var responseText = '';
+                    var status = 200;
+                    if(action.response && action.response != null) {
+                        responseText = action.response.responseText;
+                        status = action.response.status;
+                    }
+                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionFailed(Lcom/gwtext/client/widgets/form/Form;ILjava/lang/String;)(formJ, status, '');
                 }
         );
 

@@ -61,7 +61,7 @@ public class ComboBoxConfig extends TriggerFieldConfig {
     }
 
     private native void setFilterColParam(JavaScriptObject store, String displayField) /*-{
-        store.baseParams = {filterCol:displayField};
+        store.baseParams['filterCol'] = displayField;
     }-*/;
 
     /**

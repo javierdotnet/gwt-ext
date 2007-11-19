@@ -28,15 +28,19 @@ public interface FormListener {
      * Fires when an action is completed.
      *
      * @param form this
+     * @param httpStatus the http status code
+     * @param responseText the result html returned by the server
      */
-    void onActionComplete(Form form);
+    void onActionComplete(Form form, int httpStatus, String responseText);
 
     /**
      * Fires when an action fails.
      *
      * @param form this
+     * @param httpStatus the http status code
+     * @param responseText the result html returned by the server
      */
-    void onActionFailed(Form form);
+    void onActionFailed(Form form, int httpStatus, String responseText);
 
     /**
      * Fires before any action is performed. Return false to cancel the action.

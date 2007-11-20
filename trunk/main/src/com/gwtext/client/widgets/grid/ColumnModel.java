@@ -138,17 +138,6 @@ public class ColumnModel extends JsObject {
     }
 
     /**
-     * Returns the tooltip for the specified column.
-     *
-     * @param colIndex the column index
-     * @return the column tooltip
-     */
-    public native String getColumnTooltip(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        return cm.getColumnTooltip(colIndex);
-    }-*/;
-
-    /**
      * Returns the width for the specified column.
      *
      * @param colID the column ID
@@ -172,6 +161,17 @@ public class ColumnModel extends JsObject {
 
     //TODO
     //getColumnsBy(Function fn, [Object scope]) : Array
+
+    /**
+     * Returns the tooltip for the specified column.
+     *
+     * @param colIndex the column index
+     * @return the column tooltip
+     */
+    public native String getColumnTooltip(int colIndex)/*-{
+        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        return cm.getColumnWidth(colIndex);
+    }-*/;
 
     /**
      * Returns the dataIndex for the specified column.
@@ -292,7 +292,9 @@ public class ColumnModel extends JsObject {
      */
     public native boolean isHidden(int colIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
-        return cm.isHidden(colIndex);
+        var hidden = cm.isHidden(colIndex);
+        if(hidden === undefined || hidden == null) return false;
+        return hidden;
     }-*/;
 
 
@@ -414,6 +416,17 @@ public class ColumnModel extends JsObject {
     public native void setColumnWidth(int colIndex, int width) /*-{
         var cm = this.@com.gwtext.client.core.JsObject::jsObj;
         cm.setColumnWidth(colIndex, width);
+    }-*/;
+
+    /**
+     * Sets the tooltip for a column.
+     *
+     * @param colIndex the column index
+     * @param tooltip the tooltip
+     */
+    public native void setColumnTooltip(int colIndex, String tooltip) /*-{
+        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        cm.setColumnTooltip(colIndex, tooltip);
     }-*/;
 
     /**

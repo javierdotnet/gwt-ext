@@ -131,7 +131,8 @@ public class Connection extends JsObject {
      */
     public native long request() /*-{
         var conn = this.@com.gwtext.client.core.JsObject::jsObj;
-        return conn.request();
+        var transId =  conn.request();
+        return transId == null || transId === undefined ? -1 : transId;
     }-*/;
 
     /**
@@ -143,7 +144,8 @@ public class Connection extends JsObject {
     public native long request(RequestParam param) /*-{
         var conn = this.@com.gwtext.client.core.JsObject::jsObj;
         var paramJS = param.@com.gwtext.client.core.JsObject::jsObj;
-        return conn.request(paramJS);
+        var transId = conn.request(paramJS);
+        return transId == null || transId === undefined ? -1 : transId;
     }-*/;
 
     /**

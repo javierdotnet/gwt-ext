@@ -24,11 +24,11 @@ package com.gwtext.client.core;
  */
 public class Position {
 
-    public static Position LEFT = new Position("left");
-    public static Position RIGHT = new Position("right");
-    public static Position TOP = new Position("top");
-    public static Position BOTTOM = new Position("bottom");
-    public static Position AUTO = new Position("auto");
+    public static final Position LEFT = new Position("left");
+    public static final Position RIGHT = new Position("right");
+    public static final Position TOP = new Position("top");
+    public static final Position BOTTOM = new Position("bottom");
+    public static final Position AUTO = new Position("auto");
 
     private String position;
 

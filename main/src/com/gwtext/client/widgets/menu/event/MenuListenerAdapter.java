@@ -26,12 +26,10 @@ import com.gwtext.client.widgets.menu.Menu;
 
 public class MenuListenerAdapter implements MenuListener {
 
-    public boolean doBeforeHide(Menu menu) {
-        return true;
+    public void doBeforeHide(Menu menu) {
     }
 
-    public boolean doBeforeShow(Menu menu) {
-        return true;
+    public void doBeforeShow(Menu menu) {
     }
 
     public void onClick(Menu menu, String menuItemId, EventObject e) {

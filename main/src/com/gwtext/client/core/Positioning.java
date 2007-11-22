@@ -24,9 +24,9 @@ package com.gwtext.client.core;
  */
 public class Positioning {
 
-    public static Positioning RELATIVE = new Positioning("relative");
-    public static Positioning ABSOLUTE = new Positioning("absolute");
-    public static Positioning FIXED = new Positioning("fixed");
+    public static final Positioning RELATIVE = new Positioning("relative");
+    public static final Positioning ABSOLUTE = new Positioning("absolute");
+    public static final Positioning FIXED = new Positioning("fixed");
 
     private String positioning;
 

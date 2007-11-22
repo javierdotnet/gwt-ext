@@ -24,12 +24,12 @@ package com.gwtext.client.core;
  */
 public class Direction {
 
-    public static Direction LEFT = new Direction("left");
-    public static Direction RIGHT = new Direction("right");
-    public static Direction TOP = new Direction("top");
-    public static Direction UP = new Direction("up");
-    public static Direction BOTTOM = new Direction("bottom");
-    public static Direction DOWN = new Direction("down");
+    public static final Direction LEFT = new Direction("left");
+    public static final Direction RIGHT = new Direction("right");
+    public static final Direction TOP = new Direction("top");
+    public static final Direction UP = new Direction("up");
+    public static final Direction BOTTOM = new Direction("bottom");
+    public static final Direction DOWN = new Direction("down");
 
     private String direction;
 

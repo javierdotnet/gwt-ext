@@ -30,17 +30,15 @@ public interface MenuListener {
      * Fires before this menu is hidden.
      *
      * @param menu this
-     * @return false to cancel the hide
      */
-    boolean doBeforeHide(Menu menu);
+    void doBeforeHide(Menu menu);
 
     /**
      * Fires before this menu is displayed.
      *
      * @param menu this
-     * @return false to cancel the show
      */
-    boolean doBeforeShow(Menu menu);
+    void doBeforeShow(Menu menu);
 
     //todo inconsistent order of parms sent my ext, docs say menu item sent, but only id sent
     /**

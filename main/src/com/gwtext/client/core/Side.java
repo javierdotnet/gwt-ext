@@ -24,10 +24,10 @@ package com.gwtext.client.core;
  */
 public class Side {
 
-    public static Side TOP = new Side("t");
-    public static Side LEFT = new Side("l");
-    public static Side RIGHT = new Side("r");
-    public static Side BOTTOM = new Side("b");
+    public static final Side TOP = new Side("t");
+    public static final Side LEFT = new Side("l");
+    public static final Side RIGHT = new Side("r");
+    public static final Side BOTTOM = new Side("b");
 
     private String side;
 

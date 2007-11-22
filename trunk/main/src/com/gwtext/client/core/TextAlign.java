@@ -26,23 +26,23 @@ public class TextAlign {
     /**
      * Aligns the text to the left.
      */
-    public static TextAlign LEFT = new TextAlign("left");
+    public static final TextAlign LEFT = new TextAlign("left");
 
     /**
      * Aligns the text to the right
      */
-    public static TextAlign RIGHT = new TextAlign("right");
+    public static final TextAlign RIGHT = new TextAlign("right");
 
     /**
      * Centers the text.
      */
-    public static TextAlign CENTER = new TextAlign("center");
+    public static final TextAlign CENTER = new TextAlign("center");
 
     /**
      * f the computed value of text-align is 'justify' while the computed value of white-space is 'pre' or 'pre-line',
      * the actual value of text-align is set to the initial value.
      */
-    public static TextAlign JUSTIFY = new TextAlign("justify");
+    public static final TextAlign JUSTIFY = new TextAlign("justify");
 
     private String position;
 

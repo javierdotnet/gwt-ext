@@ -180,8 +180,10 @@ public class TabPanelItem extends BaseExtWidget {
                 }
         );
         tabPanelItem.addListener('beforeclose',
-                function(tpi) {
-                    return listener.@com.gwtext.client.widgets.event.TabPanelItemListener::doBeforeClose(Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelItemJ);
+                function(tpi, e) {
+                    var rv = listener.@com.gwtext.client.widgets.event.TabPanelItemListener::doBeforeClose(Lcom/gwtext/client/widgets/TabPanelItem;)(tabPanelItemJ);
+                    e.cancel = !rv;
+                    return rv;
                 }
         );
         tabPanelItem.addListener('close',

@@ -39,7 +39,7 @@ public class RequestParam extends JsObject {
      *
      * @param url the rul
      */
-    public void setUrl(boolean url) {
+    public void setUrl(String url) {
         JavaScriptObjectHelper.setAttribute(jsObj, "url", url);
     }
 

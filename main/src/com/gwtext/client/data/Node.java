@@ -46,6 +46,9 @@ public class Node extends JsObject {
      */
     public Node(NodeConfig config) {
         jsObj = create(config.getJsObj());
+        if(config.getUserObject() != null) {
+            setUserObject(config.getUserObject());
+        }
     }
 
     public Node(JavaScriptObject jsObj) {

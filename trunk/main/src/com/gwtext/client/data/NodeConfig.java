@@ -28,13 +28,23 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  */
 public class NodeConfig extends BaseConfig {
 
+    private Object userObject;
     /**
      * Associate a user defined Object with the node.
      *
      * @param userObject the user data object
      */
     public void setUserObject(Object userObject) {
-        JavaScriptObjectHelper.setObjectAttribute(jsObj, "data", userObject);
+        this.userObject = userObject;
+    }
+
+    /**
+     * Return the user defined object
+     *
+     * @return the user defined object
+     */
+    public Object getUserObject() {
+        return userObject;
     }
 
     /**

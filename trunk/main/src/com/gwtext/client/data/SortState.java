@@ -20,12 +20,19 @@
 
 package com.gwtext.client.data;
 
+import com.gwtext.client.core.SortDir;
+
 public class SortState {
 
     private String field;
-    private String direction;
+    private SortDir direction;
 
     public SortState(String field, String direction) {
+        this.field = field;
+        this.direction = SortDir.getValue(direction);
+    }
+
+    public SortState(String field, SortDir direction) {
         this.field = field;
         this.direction = direction;
     }
@@ -34,7 +41,7 @@ public class SortState {
         return field;
     }
 
-    public String getDirection() {
+    public SortDir getDirection() {
         return direction;
     }
 }

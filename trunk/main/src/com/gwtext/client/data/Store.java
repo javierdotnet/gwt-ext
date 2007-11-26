@@ -145,7 +145,7 @@ public class Store extends JsObject {
         if (initialSortState != null) {
             JavaScriptObject sortStateParamObj = JavaScriptObjectHelper.createObject();
             JavaScriptObjectHelper.setAttribute(sortStateParamObj, "field", initialSortState.getField());
-            JavaScriptObjectHelper.setAttribute(sortStateParamObj, "direction", initialSortState.getDirection());
+            JavaScriptObjectHelper.setAttribute(sortStateParamObj, "direction", initialSortState.getDirection().getDirection());
             JavaScriptObjectHelper.setAttribute(params, "sortInfo ", sortStateParamObj);
         }
 

@@ -69,6 +69,14 @@ public class View extends BaseExtWidget {
     }
 
 
+	public View(Element container, String template, ViewConfig config) {
+		jsObj = create(container, template, config.getJsObj());
+	}
+	
+	public View(Element container, Template template, ViewConfig config) {
+		jsObj = create(container, template.getJsObj(), config.getJsObj());
+	}	 	
+
     protected native JavaScriptObject create(Element container, String template, JavaScriptObject config) /*-{
         return new $wnd.Ext.View(container, template, config);
     }-*/;
@@ -81,7 +89,7 @@ public class View extends BaseExtWidget {
      * Clear all selections.
      */
     public native void clearSelections() /*-{
-       var view = this.@com.gwtext.client.core.JsObject::jsObj;
+       var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        view.clearSelections();
    }-*/;
 
@@ -91,7 +99,7 @@ public class View extends BaseExtWidget {
      * @param supressEvent true to skip firing of the selectionchange event 
      */
     public native void clearSelections(boolean supressEvent) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         view.clearSelections(supressEvent);
     }-*/;
 
@@ -102,7 +110,7 @@ public class View extends BaseExtWidget {
      * @return the template node
      */
     public native Element findItemFromChild(Element node) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.findItemFromChild(node);
     }-*/;
 
@@ -113,7 +121,7 @@ public class View extends BaseExtWidget {
      * @return the node or null if not found
      */
     public native Element getNode(Element templateNode) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.getNode(templateNode);
     }-*/;
 
@@ -124,7 +132,7 @@ public class View extends BaseExtWidget {
      * @return the node or null if not found
      */
     public native Element getNode(int index) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.getNode(index);
     }-*/;
 
@@ -135,7 +143,7 @@ public class View extends BaseExtWidget {
      * @return the node or null if not found
      */
     public native Element getNode(String id) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.getNode(id);
     }-*/;
 
@@ -147,7 +155,7 @@ public class View extends BaseExtWidget {
      * @return an array of matched nodes
      */
     public native Element[] getNodes(int startIndex, int endIndex) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var nodes = view.getNodes(startIndex, endIndex);
         return @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(nodes);
     }-*/;
@@ -158,7 +166,7 @@ public class View extends BaseExtWidget {
      * @return the indexes of the selected nodes
      */
     public native int[] getSelectedIndexes() /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var selected = view.getSelectedIndexes();
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(selected);
     }-*/;
@@ -169,7 +177,7 @@ public class View extends BaseExtWidget {
      * @return the currently selected nodes
      */
     public native Element[] getSelectedNodes() /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var nodes = view.getSelectedNodes();
         return @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(nodes);
     }-*/;
@@ -180,7 +188,7 @@ public class View extends BaseExtWidget {
      * @return the number of selected nodes
      */
     public native int getSelectionCount() /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.getSelectionCount();
     }-*/;
 
@@ -191,7 +199,7 @@ public class View extends BaseExtWidget {
      * @return the index of node or -1 if not found
      */
     public native int indexOf(Element templateNode) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.indexOf(templateNode);
     }-*/;
 
@@ -202,7 +210,7 @@ public class View extends BaseExtWidget {
      * @return the index of node
      */
     public native int indexOf(int index) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.indexOf(index);
     }-*/;
 
@@ -213,7 +221,7 @@ public class View extends BaseExtWidget {
      * @return the node index
      */
     public native int indexOf(String id) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.indexOf(id);
     }-*/;
 
@@ -224,7 +232,7 @@ public class View extends BaseExtWidget {
      * @return true if node selected
      */
     public native boolean isSelected(Element node) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.isSelected(node);
     }-*/;
 
@@ -235,7 +243,7 @@ public class View extends BaseExtWidget {
      * @return true if node selected
      */
     public native boolean isSelected(int nodeindex) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         return view.isSelected(nodeindex);
     }-*/;
 
@@ -246,7 +254,7 @@ public class View extends BaseExtWidget {
      * Refreshes the view.
      */
     public native void refresh() /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         view.refresh();
     }-*/;
 
@@ -256,7 +264,7 @@ public class View extends BaseExtWidget {
      * @param store the store
      */
     public native void setStore(Store store) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
         view.setStore(storeJS);
     }-*/;
@@ -267,7 +275,7 @@ public class View extends BaseExtWidget {
      * @param template the template
      */
     public native void setTemplate(Template template) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var templateJS = template.@com.gwtext.client.core.JsObject::jsObj;
         view.tpl = templateJS;
     }-*/;
@@ -278,7 +286,7 @@ public class View extends BaseExtWidget {
      * @param selectedClass teh CSS class
      */
     public native void setSelectedClass(String selectedClass) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         view.selectedClass = selectedClass;
     }-*/;
 
@@ -289,7 +297,7 @@ public class View extends BaseExtWidget {
      * @param emptyText the empty text
      */
     public native void setEmptyText(String emptyText) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         view.emptyText = emptyText;
     }-*/;
 
@@ -299,7 +307,7 @@ public class View extends BaseExtWidget {
      * @param listener the listener
      */
     public native void addViewListener(ViewListener listener) /*-{
-        var view = this.@com.gwtext.client.core.JsObject::jsObj;
+        var view = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var viewJ = this;
 
         view.addListener('beforeclick',

@@ -207,17 +207,18 @@ public class ContentPanel extends ComplexPanel {
     }-*/;
 
     public void load(String url, UpdateManagerConfig params, UrlLoadCallback callback, boolean discardUrl) {
-        load(jsObj, url, params.getJsObj(), callback, discardUrl);
+        params.setUrl(url);
+        load(jsObj, params.getJsObj(), callback, discardUrl);
     }
 
-    private static native void load(JavaScriptObject contentPanel, String url, JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
+    private static native void load(JavaScriptObject contentPanel, JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
                 callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
-        contentPanel.load(url, params, cb, discardUrl);
+        contentPanel.load(params, null, cb, discardUrl);
     }-*/;
 
     public native void refresh()/*-{

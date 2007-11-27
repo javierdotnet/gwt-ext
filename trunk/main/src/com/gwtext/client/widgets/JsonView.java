@@ -70,17 +70,18 @@ public class JsonView extends View {
     //todo getNodeData
 
     public void load(String url, UpdateManagerConfig params, UrlLoadCallback callback, boolean discardUrl) {
-        load(jsObj, url, params.getJsObj(), callback, discardUrl);
+        params.setUrl(url);
+        load(jsObj, params.getJsObj(), callback, discardUrl);
     }
 
-    private static native void load(JavaScriptObject jsonView, String url, JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
+    private static native void load(JavaScriptObject jsonView,  JavaScriptObject params, UrlLoadCallback callback, boolean discardUrl)/*-{
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
                 callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             }
         }
-        jsonView.load(url, params, cb, discardUrl);
+        jsonView.load(params, null, cb, discardUrl);
     }-*/;
 
     public native void sort(String property, String direction) /*-{

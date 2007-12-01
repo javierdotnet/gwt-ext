@@ -296,6 +296,23 @@ public class Form extends BaseExtWidget {
     }-*/;
 
     /**
+     * Destroys the form and its fields. Removes the form element from the container.
+     */
+    public native void destroy() /*-{
+        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        form.items.each( $wnd.Ext.destroy, $wnd.Ext );
+        for(var i = 0, len = form.buttons.length; i < len; i++){
+            var btn = form.buttons[i];
+            $wnd.Ext.destroy(btn.el);
+        }
+        $wnd.Ext.destroy(form.el);
+        var formEl = this.@com.gwtext.client.widgets.BaseExtWidget::getEl()();
+        var formElJS = formEl.@com.gwtext.client.core.JsObject::jsObj;
+        $wnd.Ext.destroy(formElJS);
+        $wnd.Ext.Element.garbageCollect();
+    }-*/;
+
+    /**
      * Closes the current open container.
      */
     public native void end() /*-{

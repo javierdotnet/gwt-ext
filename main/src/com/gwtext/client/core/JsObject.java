@@ -38,6 +38,7 @@ public abstract class JsObject {
 
     private static native void init()/*-{
 
+
         @com.gwtext.client.core.EventObject::initConstants()();
 
         Function.prototype.createCallback = function() {
@@ -102,6 +103,25 @@ public abstract class JsObject {
                 }
                 return method.apply(this || window, arguments);
             };
+        };
+
+        $wnd.Ext.Element.prototype.remove = function(){
+             if($wnd.Ext.isIE) {
+                var trash = $wnd.document.getElementById('__trash');
+                if(!trash) {
+                    trash = $wnd.document.createElement('div');
+                    trash.id = '__trash';
+                    trash.style.display = 'none';
+                    $wnd.document.body.appendChild(trash);
+                }
+                trash.appendChild(this.dom);
+                trash.innerHTML = '';
+           } else {
+                if(this.dom.parentNode){
+                    this.dom.parentNode.removeChild(this.dom);
+                }
+            }
+            delete $wnd.Ext.Element.cache[this.dom.id];
         };
 
         $wnd.Ext.namespace("GwtExt");

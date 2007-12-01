@@ -213,6 +213,11 @@ public class Ext {
         return el == null ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
+    public native static void destroy(ExtElement element) /*-{
+        var el = element.@com.gwtext.client.core.JsObject::jsObj;
+        $wnd.Ext.destroy(el);
+    }-*/;
+
     /**
      * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference
      * to this element - the dom node can be overwritten by other code.

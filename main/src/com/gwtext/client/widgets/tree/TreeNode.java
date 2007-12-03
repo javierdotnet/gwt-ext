@@ -289,7 +289,7 @@ public class TreeNode extends Node {
        var nodeJS = this.@com.gwtext.client.core.JsObject::jsObj;
        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
        var copy = new $wnd.Ext.tree.TreeNode(
-                Ext.apply(configJS, nodeJS.attributes)
+                $wnd.Ext.apply(configJS, nodeJS.attributes)
             );
         copy.loader = undefined;
         var copyJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);

@@ -59,6 +59,59 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  *
  * </code>
  * </pre>
+ *
+ * Consider the following code :
+ * </p><pre><code>
+ *  RecordDef recordDef = new RecordDef(new FieldDef[]{
+ *             new StringFieldDef("name", "name"), // "mapping" property not needed if it's the same as "name"
+ *             new StringFieldDef("occupation")    // this field will use "occupation" as the mapping.
+ *     });
+ *
+ *  JsonReader reader = new JsonReader(new JsonReaderConfig() {
+ *      {
+ *          setTotalProperty("results"); // The property which contains the total dataset size (optional)
+ *          setRoot("rows");             // The property which contains an Array of row objects
+ *          setId("id");                 // The property within each row object that provides an ID for the record (optional)
+ *      }}, recordDef);
+ * </code>
+ * </pre>
+ * <p>
+ *
+ * If the data is being server from the same domain, then you don;t need to use ScriptTagProxy but instead need to use
+ * {@link com.gwtext.client.data.HttpProxy} pointing to the URL that returns data in the following format :<br>
+ *
+ * </p><pre><code>{ <em>'results'</em>: 2, <em>'rows'</em>: [
+ *     { <em>'id'</em>: 1, <em>'name'</em>: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },
+ *     { <em>'id'</em>: 2, <em>'name'</em>: <em>'Ben'</em>, occupation: <em>'Horticulturalist'</em> } ]
+ * }</code></pre>
+ *
+ * However if this data is being read from another domain, a couple of things need to be done.<br>
+ *
+ * First, you need to use ScriptTagProxy pointing to the external url. For example
+ * <pre>
+ * <code>
+ * ScriptTagProxy proxy = new ScriptTagProxy("http://externalurl:8023/foo/bar.php");
+ * </code>
+ * </pre>
+ *
+ * Now bar.php cannot return standard Json like the one above when using HttpProxy. Instead it needs to wrap the
+ * Json data in a callback. This is required when reading data from antoher domain. When the ScriptTagProxy tries
+ * for fetch data, it will issue an HTTP request to the specified URL passing the name of the callback function that
+ * it needs the results to be wrapped in. For example http://externalurl:8023/foo/bar.php?start=0&limit=25&sort=nome&dir=DESC&_dc=1196661274168&<b>callback=stcCallback1002</b>
+ * <br>
+ * Notice the request paramter "callback" has a value of "stcCallback1002" in the above example. This means that the
+ * request to http://externalurl:8023/foo/bar.php should return Json data wrapped in the callback funtion "stcCallback1002".
+ *
+ * <br>
+ * </p><pre><code><b>stcCallback1002(</b>{ <em>'results'</em>: 2, <em>'rows'</em>: [
+ *     { <em>'id'</em>: 1, <em>'name'</em>: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },
+ *     { <em>'id'</em>: 2, <em>'name'</em>: <em>'Ben'</em>, occupation: <em>'Horticulturalist'</em> }]<b>);</b>
+ * }</code></pre>
+ * <br>
+ * So for ScriptTagProxy to work, the URL that it is reading data from is responsible to read the "callback" paramter,
+ * and wrap the Json data using the name of the passed callback function. By default the name of the callback
+ * request parameter is "callback" but you can specify a different one using the constructor {@link #ScriptTagProxy(String, int, String)}.
+ *
  */
 public class ScriptTagProxy extends DataProxy {
 

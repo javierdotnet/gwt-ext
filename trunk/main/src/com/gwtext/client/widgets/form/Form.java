@@ -353,7 +353,7 @@ public class Form extends BaseExtWidget {
     public native Field findField(String id) /*-{
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
         var fieldJS =  form.findField(id);
-        return fieldJS.obj;
+        return fieldJS != null ? fieldJS.obj : null;
     }-*/;
 
     //todo add getValues() that returns Map

@@ -138,7 +138,7 @@ public class Node extends JsObject {
     public native String getAttribute(String name) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::jsObj;
 		var value = node.attributes[name];
-		return value === undefined ? null : value.toString();
+		return value == null || value === undefined ? null : value.toString();
 	}-*/;
 
     /**

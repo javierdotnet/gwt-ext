@@ -545,6 +545,56 @@ public class Store extends JsObject {
         store.reload();
 	}-*/;
     
+    /**
+     * Load data from a local Json String
+     *
+     * @param jsonString the Json String
+     * @param append     true to append to the Store
+     */
+    public native void loadJsonData(String jsonString, boolean append) /*-{
+        var json = $wnd.Ext.util.JSON.decode(jsonString);
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.loadData(json, append);
+    }-*/;
+
+    /**
+     * Load data from XML returned from a URL.
+     *
+     * @param url    the url that returns the XML data
+     * @param append true to append records
+     */
+    public native void loadXmlDataFromUrl(String url, boolean append) /*-{
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        $wnd.Ext.Ajax.request( {method:"GET", url: url,
+            callback: function(connection, options, response) {
+                store.loadData(response.responseXML, append);
+            } } );
+    }-*/;
+
+    /**
+     * Load data from a local XML String.
+     *
+     * @param xmlString the XML data
+     * @param append    true to append records
+     */
+    public native void loadXmlData(String xmlString, boolean append) /*-{
+        var doc = function() {
+            var objdoc;
+
+            if (window.ActiveXObject) {
+                objdoc = new ActiveXObject ("Microsoft.XMLDOM");
+                objdoc.async =  "false";
+                objdoc.loadXML(xmlString);
+            }
+            else {
+                objdoc = new DOMParser().parseFromString(xmlString, "text/xml");
+            }
+            return objdoc;
+        }();
+        var store = this.@com.gwtext.client.core.JsObject::jsObj;
+        store.loadData(doc, append);
+    }-*/;
+
     //can be invoked from jsni code passing json object retreived from XHR response
     public native void loadData(JavaScriptObject data, boolean append) /*-{
         var store = this.@com.gwtext.client.core.JsObject::jsObj;

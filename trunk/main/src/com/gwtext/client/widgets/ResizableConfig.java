@@ -204,10 +204,10 @@ public class ResizableConfig extends BaseConfig {
     /**
      * True to preserve the original ratio between height and width during resize (defaults to false).
      *
-     * @param preserveRation true to preserve ratio
+     * @param preserveRatio true to preserve ratio
      */
-    public void setPreserveRation(boolean preserveRation) {
-        JavaScriptObjectHelper.setAttribute(jsObj, "preserveRation", preserveRation);
+    public void setPreserveRatio(boolean preserveRatio) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "preserveRatio", preserveRatio);
     }
 
     /**

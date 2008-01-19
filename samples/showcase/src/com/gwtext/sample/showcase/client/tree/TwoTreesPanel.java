@@ -24,6 +24,8 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Panel;
+import com.gwtext.client.data.Node;
+import com.gwtext.client.dd.DragData;
 import com.gwtext.client.dd.DragDrop;
 import com.gwtext.client.widgets.form.CheckboxConfig;
 import com.gwtext.client.widgets.form.FieldSetConfig;
@@ -145,11 +147,16 @@ public class TwoTreesPanel extends ShowcaseExampleVSD {
 
         //add trip tree listener that handles move / copy logic
         tripTreePanel.addTreePanelListener(new TreePanelListenerAdapter() {
-            public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropDropNodeCallback) {
+            public boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, DragData dragData, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropNodeCallback) {
                 if("true".equals(target.getAttribute("trip"))) {
                     if(copyRadio.getValue()) {
                         TreeNode copyNode = dropNode.cloneNode();
-                        dropDropNodeCallback.setDropNode(copyNode);
+                        Node[] children = copyNode.getChildNodes();
+                        for (int i = 0; i < children.length; i++) {
+                            Node child = children[i];
+                            copyNode.removeChild(child);
+                        }
+                        dropNodeCallback.setDropNode(copyNode);
                     }
                 }
                 return true;

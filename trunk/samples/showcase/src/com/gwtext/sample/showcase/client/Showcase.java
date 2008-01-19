@@ -28,6 +28,7 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
 import com.gwtext.client.core.EventCallback;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.NodeTraversalCallback;
 import com.gwtext.client.data.Record;
@@ -39,6 +40,7 @@ import com.gwtext.client.util.Format;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.event.KeyListener;
 import com.gwtext.client.widgets.form.*;
 import com.gwtext.client.widgets.form.event.ComboBoxListenerAdapter;
 import com.gwtext.client.widgets.layout.*;
@@ -57,10 +59,7 @@ import com.gwtext.sample.showcase.client.grid.*;
 import com.gwtext.sample.showcase.client.menu.MenusPanel;
 import com.gwtext.sample.showcase.client.misc.MaskPanel;
 import com.gwtext.sample.showcase.client.tabs.TabsPanel;
-import com.gwtext.sample.showcase.client.tree.CheckboxTreePanel;
-import com.gwtext.sample.showcase.client.tree.EditableTreePanel;
-import com.gwtext.sample.showcase.client.tree.SortMultiSelectTreePanel;
-import com.gwtext.sample.showcase.client.tree.TwoTreesPanel;
+import com.gwtext.sample.showcase.client.tree.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,6 +75,20 @@ public class Showcase implements EntryPoint, HistoryListener {
     private DelayedTask delayedTask = new DelayedTask();
     private BorderLayout layout;
     private TreePanel menuTree;
+
+    public void onModuleLoad2() {
+        Form form = new Form();
+
+        TextField textField = new TextField();
+        
+        textField.setValue("Hello");
+
+        form.add(textField);
+
+        form.render();
+
+        RootPanel.get().add(form);
+    }
 
     public void onModuleLoad() {
 
@@ -113,6 +126,7 @@ public class Showcase implements EntryPoint, HistoryListener {
                     public void onSelect(ComboBox comboBox, Record record, int index) {
                         String theme = record.getAsString("theme");
                         CSS.swapStyleSheet("theme", "js/ext/resources/css/" + theme);
+                        layout.getRegion(LayoutRegionConfig.WEST).collapse();
                     }
                 });
             }
@@ -187,6 +201,15 @@ public class Showcase implements EntryPoint, HistoryListener {
         //setup a tree listener that reads the content panel associated with the
         //node that is clicked and then displays it in the main / center panel
         TreePanelListener treePanelListener = new TreePanelListenerAdapter() {
+            public void onLoad(TreeNode node) {
+                ExtElement el = new ExtElement(node.getUI().getEl());
+                el.addKeyListener(97, new KeyListener() {
+                    public void onKey(int key, EventObject e) {
+                        MessageBox.alert("asd", "As");
+                    }
+                });
+            }
+
             public void onClick(TreeNode self, EventObject e) {
                 String nodeID = self.getId();
                 showScreen(nodeID);
@@ -465,6 +488,7 @@ public class Showcase implements EntryPoint, HistoryListener {
         screens.put("checkboxTree", new CheckboxTreePanel());
         screens.put("sortMultiSelectTree", new SortMultiSelectTreePanel());
         screens.put("twoTrees", new TwoTreesPanel());
+        screens.put("gridTreeDD", new GridTreeDDPanel());
 
         //screens.put("resizableGrid", new ResizableGridPanel());
 

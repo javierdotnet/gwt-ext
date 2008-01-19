@@ -22,6 +22,7 @@ package com.gwtext.client.widgets.tree.event;
 
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.dd.DD;
+import com.gwtext.client.dd.DragData;
 import com.gwtext.client.dd.DragDrop;
 import com.gwtext.client.widgets.tree.DropNodeCallback;
 import com.gwtext.client.widgets.tree.TreeNode;
@@ -78,17 +79,17 @@ public interface TreePanelListener {
     //todo data?, enum
     /**
      * Fires when a DD object is dropped on a node in this tree for preprocessing. Return false to cancel the drop.
-     * 
-     * @param treePanel this
-     * @param target the node being targeted for the drop
-     * @param point the point of the drop - append, above or below
-     * @param source the drag source
-     * @param dropNode drop node provided by the source
+     *
+     * @param treePanel        this
+     * @param target           the node being targeted for the drop
+     * @param dragData         the drag data
+     * @param point            the point of the drop - append, above or below
+     * @param source           the drag source
+     * @param dropNode         drop node provided by the source
      * @param dropNodeCallback call setDropNode / setDropNodes on this callback to use a custon drop node. Can by used to drop a copy of the originally dropped
-     *              node by cloning the dropped node and calling setDropNode on this callback
-     * @return false to cancel the drop
      */
-    boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropNodeCallback);
+    boolean doBeforeNodeDrop(TreePanel treePanel, TreeNode target, DragData dragData, String point, DragDrop source, TreeNode dropNode, DropNodeCallback dropNodeCallback);
+
 
     /**
      * Fires when a node with a checkbox's checked property changes.
@@ -170,15 +171,15 @@ public interface TreePanelListener {
 
     /**
      * Fires when a tree node is being targeted for a drag drop, return false to signal drop not allowed.
-     * 
+     *
      * @param treePanel this
-     * @param target the node being targeted for the drop
-     * @param point the point of the drop - append, above or below
-     * @param source the drag source
-     * @param dropNode Drop node provided by the source
-     * @return false to cancel
+     * @param target    the node being targeted for the drop
+     * @param dragData the drag data
+     * @param point     the point of the drop - append, above or below
+     * @param source    the drag source
+     * @param dropNode  Drop node provided by the source @return false to cancel
      */
-    boolean onNodeDragOver(TreePanel treePanel, TreeNode target, String point, DragDrop source, TreeNode dropNode);
+    boolean onNodeDragOver(TreePanel treePanel, TreeNode target, DragData dragData, String point, DragDrop source, TreeNode dropNode);
 
     /**
      * Fires after a DD object is dropped on a node in this tree.

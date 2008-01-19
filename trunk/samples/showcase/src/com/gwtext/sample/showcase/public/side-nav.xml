@@ -4,6 +4,7 @@
         <leaf id="checkboxTree" title="Checkbox"/>
         <leaf id="sortMultiSelectTree" title="Sortable and Multi-Select"/>
         <leaf id="twoTrees" title="Two Trees Drag &amp; Drop"/>
+        <leaf id="gridTreeDD" title="Grid to Tree Drag &amp; Drop"/>
     </node>
 
     <node title="Dialogs" qtip="Dialog Examples" icon="images/silk/application_cascade.gif">

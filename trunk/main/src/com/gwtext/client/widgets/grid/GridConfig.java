@@ -129,6 +129,15 @@ public class GridConfig extends BaseConfig {
     }
 
     /**
+     * The DD group this GridPanel belongs to (defaults to 'GridDD').
+     *
+     * @param ddGroup
+     */
+    public void setDdGroup(String ddGroup) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "ddGroup", ddGroup);
+    }
+    
+    /**
      * True to enable drag and drop reorder of columns. Default is true.
      *
      * @param enableColumnMove true to enable column move

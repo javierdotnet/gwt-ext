@@ -60,7 +60,21 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 		));
 
 		final Store store = new Store(proxy, reader);
-        
+
+			SimpleStore cbStore = new SimpleStore("lightTypes", new String[]{
+					"Shade",
+					"Mostly Shady",
+					"Sun or Shade",
+					"Mostly Sunny",
+					"Sunny"
+			});
+
+        ComboBoxConfig cbConfig = new ComboBoxConfig();
+        cbConfig.setDisplayField("lightTypes");
+        cbConfig.setStore(cbStore);
+        final ComboBox cb = new ComboBox(cbConfig);
+
+
         ColumnModel columnModel = new ColumnModel(new ColumnConfig[]{
 				new ColumnConfig() {
 					{
@@ -74,13 +88,14 @@ public class EditableGridPanel extends ShowcaseExampleVSD {
 						})));
 					}
 				},
-				new ColumnConfig() {
-					{
-						setHeader("Light");
-						setDataIndex("light");
-						setWidth(130);
-					}
-				},
+                new ColumnConfig() {
+                    {
+                        setHeader("Light");
+                        setDataIndex("light");
+                        setWidth(130);
+                        setEditor(new GridEditor(cb));
+                    }
+                },
 				new ColumnConfig() {
 					{
 						setHeader("Price");

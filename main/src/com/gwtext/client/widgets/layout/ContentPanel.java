@@ -156,7 +156,14 @@ public class ContentPanel extends ComplexPanel {
         return new $wnd.Ext.ContentPanel(id, config);
     }-*/;
 
-    public void add(Widget w) {
+	public Element getElement() {
+        if (super.getElement() == null) {
+            setElement(getElement(jsObj));
+        }
+        return super.getElement();
+    }
+	
+	public void add(Widget w) {
 		add(w, DOM.getFirstChild(getElement()));
     }
 

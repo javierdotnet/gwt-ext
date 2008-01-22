@@ -40,6 +40,24 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 public class SimpleStore extends Store {
 
     /**
+     * Construct a single field SimpleStore.
+     *
+     * @param field a single field
+     * @param data   store data. all fields are treated as String's
+     */
+    public SimpleStore(String field, Object[] data) {
+        SimpleStoreConfig config = new SimpleStoreConfig();
+        config.setFields(new String[]{field});
+        Object[][] dataArr = new Object[data.length][1];
+        for (int i = 0; i < data.length; i++) {
+            Object dataVal = data[i];
+            dataArr[i][0] = dataVal;
+        }
+        config.setData(dataArr);
+        jsObj = create(config.getJsObj());
+    }
+
+    /**
      * Construct a SimpleStore.
      *
      * @param fields array of field names

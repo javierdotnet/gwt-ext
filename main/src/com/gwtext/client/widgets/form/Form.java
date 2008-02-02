@@ -96,7 +96,7 @@ public class Form extends BaseExtWidget {
         setJsObj(create(config.getJsObj()));
         RootPanel.get().add(this);
         if (config.getFormListener() != null) {
-            addFormListenerListener(config.getFormListener());
+            addFormListener(config.getFormListener());
         }
     }
 
@@ -501,7 +501,7 @@ public class Form extends BaseExtWidget {
      *
      * @param listener the form listener
      */
-    public native void addFormListenerListener(FormListener listener) /*-{
+    public native void addFormListener(FormListener listener) /*-{
         var formJ = this;
         var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 

@@ -1,4 +1,7 @@
-= Introduction =
+* Please go to [http://www.gwt-ext.com/wiki http://www.gwt-ext.com/wiki] for the GWT-Ext 2.0 Getting Started Guide.*
+
+
+= Getting Started with GWT-Ext 0.9 =
 
 A guide to using GWT-Ext in your GWT application. You must be familiar with the basics of how GWT works. If you're new to GWT, please read the GWT [http://code.google.com/webtoolkit/gettingstarted.html Getting Started Guide] first.
 

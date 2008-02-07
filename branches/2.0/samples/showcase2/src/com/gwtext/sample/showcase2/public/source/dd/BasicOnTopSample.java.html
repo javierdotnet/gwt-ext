@@ -1,0 +1,118 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 680px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.widgets.Component;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Viewport;
+
+public class BasicOnTopSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        HorizontalPanel horizontalPanel = new HorizontalPanel();
+        horizontalPanel.setSpacing(15);
+
+        Panel panel1 = new Panel();
+        panel1.setTitle("Panel1");
+        panel1.setBorder(true);
+        panel1.setBodyStyle("background-color:#6D739A");
+        panel1.setWidth(200);
+        panel1.setHtml(getShortBogusMarkup());
+
+        Panel panel2 = new Panel();
+        panel2.setTitle("Panel2");
+        panel2.setBodyStyle("background-color:#566F4E");
+        panel2.setBorder(true);
+        panel2.setWidth(200);
+        panel2.setHtml(getShortBogusMarkup());
+
+        Panel panel3 = new Panel();
+        panel3.setTitle("Panel3");
+        panel3.setBodyStyle("background-color:#7E5B60");
+        panel3.setBorder(true);
+        panel3.setWidth(200);
+        panel3.setHtml(getShortBogusMarkup());
+
+        DD dd1 = new DDOnTop(panel1);
+        DD dd2 = new DDOnTop(panel2);
+        DD dd3 = new DDOnTop(panel3);
+
+        horizontalPanel.add(panel1);
+        horizontalPanel.add(panel2);
+        horizontalPanel.add(panel3);
+
+        panel.add(horizontalPanel);
+
+        //add the panel to the browser viewport / full screen
+        Viewport viewport = new Viewport(panel);
+    }
+
+    private static String getShortBogusMarkup() {
+        return "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh," +
+                " sodales a, porta at, vulputate eget, dui.  In pellentesque nisl non sem." +
+                " Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.";
+    }
+
+    class DDOnTop extends DD {
+        private int origZ = 0;
+
+
+        DDOnTop(Component component) {
+            super(component);
+        }
+
+        public void startDrag(int x, int y) {
+            origZ = DOM.getIntStyleAttribute(this.getEl(), "zIndex");
+            DOM.setIntStyleAttribute(this.getEl(), "zIndex", 999);
+        }
+
+        public void endDrag(EventObject e) {
+            DOM.setIntStyleAttribute(DDOnTop.this.getEl(), "zIndex", origZ);
+        }
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

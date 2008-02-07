@@ -1,0 +1,89 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 680px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.dd.DDProxy;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Viewport;
+
+public class BasicDDSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        HorizontalPanel horizontalPanel = new HorizontalPanel();
+        horizontalPanel.setSpacing(15);
+
+        Panel draggable = new Panel();
+        draggable.setTitle("Draggable");
+        draggable.setBorder(true);
+        draggable.setWidth(200);
+        draggable.setCollapsible(true);
+        draggable.setHtml(getShortBogusMarkup());
+
+        Panel proxy = new Panel();
+        proxy.setTitle("Draggable with Proxy");
+        proxy.setBorder(true);
+        proxy.setWidth(200);
+        proxy.setCollapsible(true);
+        proxy.setHtml(getShortBogusMarkup());
+
+        DD dd = new DD(draggable);
+        DD ddProxy = new DDProxy(proxy);
+
+        horizontalPanel.add(draggable);
+        horizontalPanel.add(proxy);
+
+        panel.add(horizontalPanel);
+
+        //add the panel to the browser viewport / full screen
+        Viewport viewport = new Viewport(panel);
+    }
+
+    private static String getShortBogusMarkup() {
+        return "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh," +
+                " sodales a, porta at, vulputate eget, dui.  In pellentesque nisl non sem." +
+                " Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.";
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <title>GWT-Ext 2.0 Release Notes</title>
+
+      <style>
+         body {
+            background-color: white;
+            color: #333333;
+            font-family: arial,helvetica,sans-serif;
+            font-size: 12px;
+            margin: 20px;
+         }
+
+         li {
+            margin-bottom: 0.5em;
+         }
+
+         li div {
+            margin-top: 0.2em;
+         }
+
+         code {
+            font-size: medium;
+         }
+      </style></head>
+
+   <body>
+      <h1>GWT-Ext Release Notes</h1>
+      <ul>
+            <li><a href="#Release_Notes_Current">@GWTEXT_VERSION@</a></li>
+      </ul>
+
+    <hr/>
+      <a name="Release_Notes_Current"></a>
+      <h2>Release Notes for GWT-Ext 2.0</h2>
+      <p>
+      This release of GWT-Ext is a new and significantly improved major release that is based on Ext 2.0.
+
+      <h3>Overview of changes</h3>
+      <ul>
+        <li><b>Performance</b>
+        <br>The overall perfomance and responsiveness has been significantly improved in this release. All components / widgets
+            support lazy rendering which means that they can be instantiated and managed without any overhead and their
+            rendering is deferred to the point at which they are required to be attached to the DOM.
+        </li>
+      </ul>
+
+      <ul>
+        <li><b>Unified Component model</b>
+        <br>All widgets now follow a consistent hierarchy and are subclasses of a base Component class which manages
+            the creation, rendering and destruction lifecycle operations. Methods common to all Components are now easily
+            accessible in a consistent, intuitive and easy to use manner. Containers, which also extends the Component class,
+            can contain other child components which can be one of the many available widgets or another child Container.
+            Containers only know about the child Components that are added to them, and their layout responsibilities are
+            delegated to the assigned LayoutManager. The Panel class is a subclass of Container and is typically the class
+            users will work with. The Panel class adds a lot of useful features like header, top toolbar, bottom toolbar,
+            and ability to collapse and expand.
+        </li>
+      </ul>
+
+      <ul>
+        <li><b>Improved Layout management</b>
+        <br>Building complex layouts in earlier versions was a little cumbersome but it is now a thing of the past. This version
+            has an architecture that separates the responsibility of Containers, which are only aware of child Components, and the
+            layout of the Components within the Container which is handled by an assigned LayoutManager. There are several
+            powerful yet easy to use layouts available like BorderLayout, AccordionLayout, VerticalLayout, HorizontalLayout,
+            AnchorLayout, TableLayout and others that make building complex layouts quite trivial.
+            The Showcase demo has examples of variouos layouts in action.
+        </li>
+      </ul>
+
+      <ul>
+        <li><b>Bean friendly API's and better support for extension</b>
+        <br>Separate config classes associated with a widget are no longer required. All Components support a default / no-op
+            constructor and getters and setter for various properties. Various Components do have additional relevant convenience
+            constructors that are frequently used during development like assigning a label and an action listener to a Button.
+            In this version users can now extend any Component, add members and methods and it will be passed by reference when
+            accessed through a callback or a lookup. In short, things work as expected in a typical Java environment.
+        </li>
+      </ul>
+
+      <hr/>
+      <h3>Features</h3>
+      Many features of the library are illustrated in the Showcase demo. The Showcase demo is <a href="samples/Showcase2/www/com.gwtext.sample.showcase2.Showcase2/Showcase2.html" target="_blank">bundled</a> with the distribution
+      and can also be accessed online from the <a href="http://www.gwt-ext.com">project page</a>.
+      <ul>
+        <li><b>Grid</b>
+        <br>The performance has been significantly improved in this release and the Grid component can render a large number
+            of rows very fast. The GridPanel now supports Single Level Row Grouping, Grouping of Summary Rows, List box look,
+            drag and drop capabilities, checkbox and row numbered column, context menus and a lot more features.
+            Support for Grid to Tree drag and drop has also been added.
+        </li>
+      </ul>
+      <ul>
+        <li><b>Tree</b>
+        <br>The TreePanel component supports Checkbox nodes, Drag n Drop between trees and from a grid to a tree, sorting,
+            filtering multi select and many other features. It also handles display of large number of nodes efficiently.
+        </li>
+      </ul>
+      <ul>
+        <li><b>Forms</b>
+        <br>Forms have been improved significantly allowing users ultimate flexibility in adding and arranging Fields and
+            other Components. For example multiple fields on a single row, fields displayed across tabs, Grids or even
+            Images in a form and other configurations that were previously not easy to setup.
+
+        </li>
+      </ul>
+      <ul>
+        <li><b>TabPanels</b>
+        <br>TabPanel's now support scrollable tabs (like Firefox) and context menu's. They support deferred tab rendering
+            so that a tab's content is rendered only when the user selects the tab. Adding IFrames to tabs is also supported.
+        </li>
+      </ul>
+      <ul>
+        <li><b>DataView</b>
+        <br>DataView is a powerful class that allows you to specify a template for rendering an given Record. You can
+            then bind the DataView to a Store and it will render the Records using the specified HTML template. It not
+            only renders the content but is also backed by a rich event model which allows you to have full control over
+            user actions like click, context menu, double click etc. The main page of the Showcase demo uses a DataView
+            to display the thumbnail images of the samples.
+        </li>
+      </ul>
+      <ul>
+        <li><b>Windows</b>
+        <br>A Window is a specialized Panel that supports floating, dragging, minimize/maximize/restore. Any other
+            Container or Component can be added to a Window as illustrated by various examples in the Showcase demo.
+        </li>
+      </ul>
+      <h3>New Widgets</h3>
+      <ul>
+        <li><b>Accordion</b>
+        <br>An Accordion is simply a Container that is assigned an AccordionLayout. All child Panel's
+            added to it will be laid out in the form of an Accordion. And since any Contaienr can be added to a Window,
+            creating a floatable Accordion is a breeze. 
+        </li>
+      </ul>
+      <ul>
+        <li><b>ProgressBar</b>
+        <br>Highly configurable ProgressBar and support for custom styling.
+        </li>
+      </ul>
+         <ul>
+        <li><b>Tooltips</b>
+        <br>Powerful and easy to use Tooltips that can be applied to any Component. Also supports loading
+            remote tooltip content using Ajax.
+        </li>
+        </ul>
+         <ul>
+        <li><b>CycleButton</b>
+        <br>This is a specialized Menu Button that contains a menu of CheckItem's. The button automatically cycles
+            through each menu item when clicked.
+        </li>
+        </ul>
+         <ul>
+        <li><b>TimeField</b>
+        <br>A field that has a dropdown with a time picker.
+        </li>
+        </ul>
+         <ul>
+        <li><b>Hidden Field</b>
+        <br>Ability to add a hidden input field to a Form.
+        </li>
+        </ul>
+    <hr/>
+      <h3>GWT-Plus compatibility</h3>
+      <ul>
+        <li><a href="http://gwtplus.gwt-ext.com/">GWT-Plus</a> is fully compatible with GWT-Ext 2.0.
+        </li>
+      </ul>
+   </body></html>
+

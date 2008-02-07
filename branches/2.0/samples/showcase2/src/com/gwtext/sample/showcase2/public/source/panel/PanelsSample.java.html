@@ -1,0 +1,156 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.Function;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.widgets.*;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.layout.FitLayout;
+import com.gwtext.client.widgets.layout.VerticalLayout;
+
+public class PanelsSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+        HorizontalPanel horizontalPanel = new HorizontalPanel();
+        horizontalPanel.setSpacing(15);
+
+        Panel collapsiblePanel = new Panel();
+        collapsiblePanel.setTitle("Collapsible Panel");
+        collapsiblePanel.setWidth(200);
+        collapsiblePanel.setCollapsible(true);
+        collapsiblePanel.setHtml(getShortBogusMarkup());
+
+        Panel iconPanel = new Panel();
+        iconPanel.setTitle("Icon Panel");
+        iconPanel.setIconCls("paste-icon");
+        iconPanel.setWidth(200);
+        iconPanel.setHtml(getShortBogusMarkup());
+        iconPanel.setShadow(true);
+
+        HorizontalPanel horizontalPanel2 = new HorizontalPanel();
+        horizontalPanel2.setSpacing(15);
+
+        Panel draggablePanel = new Panel();
+        draggablePanel.setTitle("Draggable Panel");
+        draggablePanel.setDraggable(true);
+        draggablePanel.setWidth(200);
+        draggablePanel.setHtml(getShortBogusMarkup());
+        draggablePanel.setShadow(true);
+        DD dd = new DD(draggablePanel);
+
+        Panel toolsPanel = new Panel();
+        toolsPanel.setTitle("Tools Panel");
+        toolsPanel.setIconCls("paste-icon");
+        toolsPanel.setWidth(200);
+        toolsPanel.setHtml(getShortBogusMarkup());
+        toolsPanel.setShadow(true);
+        toolsPanel.addTool(new Tool(Tool.GEAR, new Function() {
+            public void execute() {
+                MessageBox.alert("Settings", "The Settings tool was clicked");
+            }
+        }, "Settings"));
+        toolsPanel.addTool(new Tool(Tool.SEARCH, new Function() {
+            public void execute() {
+                MessageBox.alert("Search", "The Search tool was clicked");
+            }
+        }, "Search"));
+
+        Panel windowPanel = new Panel();
+        windowPanel.setHtml(getShortBogusMarkup());
+        windowPanel.setShadow(true);
+
+        final Window window = new Window();
+        window.setTitle("Window Panel");
+        window.setIconCls("paste-icon");
+        window.setMaximizable(true);
+        window.setResizable(true);
+        window.setLayout(new FitLayout());
+        window.setWidth(200);
+        window.setModal(false);
+
+        window.addTool(new Tool(Tool.REFRESH, new Function() {
+            public void execute() {
+                MessageBox.alert("Refresh", "The Refresh tool was clicked");
+            }
+        }, "Refresh"));
+        window.addTool(new Tool(Tool.PIN, new Function() {
+            public void execute() {
+                MessageBox.alert("Pin", "The Pin tool was clicked");
+            }
+        }, "Pin"));
+        window.add(windowPanel);
+
+        Button button = new Button("Show Window Panel", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                window.show();
+            }
+        });
+
+        window.setAnimateTarget(button.getId());
+
+        horizontalPanel.add(collapsiblePanel);
+        horizontalPanel.add(toolsPanel);
+        horizontalPanel2.add(draggablePanel);
+        horizontalPanel2.add(button);
+
+        Panel verticalPanel = new Panel();
+        verticalPanel.setLayout(new VerticalLayout(15));
+        verticalPanel.add(horizontalPanel);
+        verticalPanel.add(horizontalPanel2);
+
+        panel.add(verticalPanel);
+
+        RootPanel.get().add(panel);
+    }
+
+    private static String getShortBogusMarkup() {
+        return "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. " +
+                "Sed metus nibh, sodales a, porta at, vulputate eget, dui.  " +
+                "In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, " +
+                "cursus a, fringilla vel, urna.";
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

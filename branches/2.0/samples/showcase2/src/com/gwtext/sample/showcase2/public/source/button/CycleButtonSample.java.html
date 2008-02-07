@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.widgets.CycleButton;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.event.CycleButtonListenerAdapter;
+import com.gwtext.client.widgets.menu.CheckItem;
+
+public class CycleButtonSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setPaddings(5);
+        panel.setBorder(false);
+
+        //create a CycleButton
+        CycleButton button = new CycleButton();
+        button.setShowText(true);
+        button.setPrependText("View as ");
+
+        //add CheckItem's to the CycleButton
+        button.addItem(new CheckItem("text only", true));
+        button.addItem(new CheckItem("HTML", false));
+
+        //log check item changes
+        button.addListener(new CycleButtonListenerAdapter() {
+            public void onChange(CycleButton self, CheckItem item) {
+                System.out.println(item.getText() + " selected.");
+            }
+        });
+        panel.add(button);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

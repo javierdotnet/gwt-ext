@@ -1,0 +1,63 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushCss.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="css:nogutter:nocontrols" rows="15" cols="120">
+.status {
+    color: #555;
+}
+
+.x-progress-wrap.left-align .x-progress-text {
+    text-align: left;
+}
+
+.x-progress-wrap.custom {
+    height: 17px;
+    border: 1px solid #686868;
+    overflow: hidden;
+    padding: 0 2px;
+}
+
+.ext-ie .x-progress-wrap.custom {
+    height: 19px;
+}
+
+.custom .x-progress-inner {
+    height: 17px;
+    background: #fff;
+}
+
+.custom .x-progress-bar {
+    height: 15px;
+    background: transparent url( images/custom-bar.gif ) repeat-x 0 0;
+    border-top: 1px solid #BEBEBE;
+    border-bottom: 1px solid #EFEFEF;
+    border-right: 0;
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

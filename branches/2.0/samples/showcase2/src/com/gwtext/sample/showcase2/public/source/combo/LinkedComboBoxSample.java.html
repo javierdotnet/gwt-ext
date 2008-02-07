@@ -1,0 +1,128 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 700px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.data.Record;
+import com.gwtext.client.data.SimpleStore;
+import com.gwtext.client.data.Store;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.form.ComboBox;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.event.ComboBoxListenerAdapter;
+
+public class LinkedComboBoxSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        FormPanel form = new FormPanel();
+        form.setTitle("Linked ComboBox");
+        form.setFrame(true);
+        form.setWidth(350);
+
+        // countries store
+        Object[][] countries = new Object[][]{
+                new Object[]{"USA", "United States of America"},
+                new Object[]{"D", "Germany"},
+                new Object[]{"F", "France"},
+                new Object[]{"GB", "Great Britain"},
+        };
+
+        final Store countriesStore = new SimpleStore(new String[]{"cid", "country"}, countries);
+        countriesStore.load();
+
+        //cities store
+        Object[][] cities = new Object[][]{
+                new Object[]{new Integer(1), "USA", "New York"},
+                new Object[]{new Integer(2), "USA", "Cleveland"},
+                new Object[]{new Integer(3), "USA", "Austin"},
+                new Object[]{new Integer(4), "USA", "Los Angeles"},
+                new Object[]{new Integer(5), "D", "Munich"},
+                new Object[]{new Integer(6), "D", "Bonn"},
+                new Object[]{new Integer(7), "F", "Paris"},
+                new Object[]{new Integer(8), "F", "Nice"},
+                new Object[]{new Integer(9), "GB", "London"},
+                new Object[]{new Integer(10), "GB", "Glasgow"},
+                new Object[]{new Integer(11), "GB", "Liverpool"}
+        };
+
+        final Store citiesStore = new SimpleStore(new String[]{"id", "cid", "city"}, cities);
+        citiesStore.load();
+
+        final ComboBox countryCB = new ComboBox();
+        countryCB.setFieldLabel("Select Country");
+        countryCB.setStore(countriesStore);
+        countryCB.setDisplayField("country");
+        countryCB.setMode(ComboBox.LOCAL);
+        countryCB.setTriggerAction(ComboBox.ALL);
+        countryCB.setForceSelection(true);
+        countryCB.setValueField("cid");
+        countryCB.setReadOnly(true);
+
+        final ComboBox cityCB = new ComboBox();
+        cityCB.setFieldLabel("Select City");
+        cityCB.setStore(citiesStore);
+        cityCB.setDisplayField("city");
+        cityCB.setValueField("id");
+        cityCB.setMode(ComboBox.LOCAL);
+        cityCB.setTriggerAction(ComboBox.ALL);
+        cityCB.setLinked(true);
+        cityCB.setForceSelection(true);
+        cityCB.setReadOnly(true);
+
+        countryCB.addListener(new ComboBoxListenerAdapter() {
+
+            public void onSelect(ComboBox comboBox, Record record, int index) {
+                cityCB.setValue("");
+                citiesStore.filter("cid", comboBox.getValue());
+            }
+        });
+
+        form.add(countryCB);
+        form.add(cityCB);
+        panel.add(form);
+
+        RootPanel.get().add(panel);
+    }
+}
+
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

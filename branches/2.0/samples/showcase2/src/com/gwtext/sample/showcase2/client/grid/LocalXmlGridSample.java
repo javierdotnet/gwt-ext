@@ -1,0 +1,118 @@
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ * 
+ * http://www.gwt-ext.com/license
+ */
+package com.gwtext.sample.showcase2.client.grid;
+
+import com.gwtext.client.core.TextAlign;
+import com.gwtext.client.data.*;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.grid.*;
+import com.gwtext.sample.showcase2.client.ShowcasePanel;
+
+public class LocalXmlGridSample extends ShowcasePanel {
+
+   public String getSourceUrl() {
+        return "source/grid/LocalXmlGridSample.java.html";
+    }
+
+    public Panel getViewPanel() {
+        if (panel == null) {
+            panel = new Panel();
+            
+            StringBuffer xml = new StringBuffer();
+            xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            xml.append("<catalog> ");
+
+            xml.append("<plant> ");
+            xml.append("<common>Bloodroot</common> ");
+            xml.append("<botanical>Caltha palustris</botanical> ");
+            xml.append("<zone>4</zone> ");
+            xml.append("<light>Mostly Shady</light> ");
+            xml.append("<price>2.44</price> ");
+            xml.append("<availability>03/15/2006</availability> ");
+            xml.append("<indoor>true</indoor> ");
+            xml.append("</plant> ");
+
+            xml.append("<plant> ");
+            xml.append("<common>Marsh Marigold</common> ");
+            xml.append("<botanical>Sanguinaria canadensis</botanical> ");
+            xml.append("<zone>1</zone> ");
+            xml.append("<light>Mostly Sunny</light> ");
+            xml.append("<price>6.45</price> ");
+            xml.append("<availability>07/12/2007</availability> ");
+            xml.append("<indoor>false</indoor> ");
+            xml.append("</plant> ");
+
+            xml.append("</catalog> ");
+
+            XmlReader reader = new XmlReader("plant", new RecordDef(
+                    new FieldDef[]{
+                            new StringFieldDef("common"),
+                            new StringFieldDef("botanical"),
+                            new StringFieldDef("light"),
+                            new FloatFieldDef("price"),
+                            new DateFieldDef("availDate", "availability", "m/d/Y"),
+                            new BooleanFieldDef("indoor")
+                    }
+            ));
+
+            final Store store = new Store(reader);
+            store.loadXmlData(xml.toString(), true);
+
+            //setup column model
+            ColumnConfig commonCol = new ColumnConfig("Common Name", "common", 120, true, null, "common");
+            ColumnConfig lightCol = new ColumnConfig("Light", "light", 130);
+
+            ColumnConfig priceCol = new ColumnConfig("Price", "price", 70, true);
+            priceCol.setAlign(TextAlign.RIGHT);
+            priceCol.setRenderer(new Renderer() {
+                public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+                    return "$" + value;
+                }
+            });
+            ColumnConfig availableCol = new ColumnConfig("Available", "availDate", 95, true);
+
+            ColumnConfig indoorCol = new ColumnConfig("Indoor?", "indoor", 55);
+            indoorCol.setRenderer(new Renderer() {
+                public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
+                    boolean checked = ((Boolean) value).booleanValue();
+                    return "<img class=\"checkbox\" src=\"js/ext/resources/images/default/menu/" + (checked ? "checked.gif" : "unchecked.gif") + "\"/>";
+                }
+            });
+
+            ColumnConfig[] columnConfigs = {
+                    commonCol,
+                    lightCol,
+                    priceCol,
+                    availableCol,
+                    indoorCol
+            };
+
+            ColumnModel columnModel = new ColumnModel(columnConfigs);
+            columnModel.setDefaultSortable(true);
+
+            GridPanel grid = new GridPanel();
+            grid.setStore(store);
+            grid.setColumnModel(columnModel);
+            grid.setTitle("Local XML Grid");
+            grid.setWidth(500);
+            grid.setHeight(350);
+            grid.stripeRows(true);
+            grid.setFrame(true);
+            grid.setAutoExpandColumn("common");
+            grid.setIconCls("grid-icon");
+
+
+            panel.add(grid);
+        }
+        return panel;
+    }
+
+    public String getIntro() {
+        return "In this example a Grid is loaded using local XML String data.";
+    }
+}

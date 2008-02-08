@@ -1,0 +1,94 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.TextField;
+import com.gwtext.client.widgets.form.TimeField;
+import com.gwtext.client.widgets.form.VType;
+
+public class SimpleFormSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        final FormPanel formPanel = new FormPanel();
+        formPanel.setFrame(true);
+        formPanel.setTitle("Simple Form");
+
+        formPanel.setWidth(350);
+        formPanel.setLabelWidth(75);
+        formPanel.setUrl("save-form.php");
+
+        TextField firstName = new TextField("First Name", "first", 230);
+        firstName.setAllowBlank(false);
+        formPanel.add(firstName);
+
+        TextField lastName = new TextField("Last Name", "last", 230);
+        formPanel.add(lastName);
+
+        TextField company = new TextField("Company", "company", 230);
+        formPanel.add(company);
+
+        TextField email = new TextField("Email", "email", 230);
+        email.setVtype(VType.EMAIL);
+        formPanel.add(email);
+
+        TimeField time = new TimeField("Time", "time", 230);
+        time.setMinValue("8:00am");
+        time.setMaxValue("6:00pm");
+        formPanel.add(time);
+
+        Button save = new Button("Save");
+        formPanel.addButton(save);
+
+        Button cancel = new Button("Cancel");
+        formPanel.addButton(cancel);
+
+        panel.add(formPanel);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

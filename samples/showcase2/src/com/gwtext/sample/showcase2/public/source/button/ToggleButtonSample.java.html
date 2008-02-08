@@ -1,0 +1,107 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+package com.gwtext.tutorials.client;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Toolbar;
+import com.gwtext.client.widgets.ToolbarButton;
+
+public class ToggleButtonSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        Toolbar toolbar = new Toolbar();
+        toolbar.setWidth(400);
+
+        ToolbarButton bold = new ToolbarButton();
+        bold.setEnableToggle(true);
+        bold.setIconCls("text-bold");
+        bold.setTooltip("<b>Bold</b>");
+        toolbar.addButton(bold);
+
+        ToolbarButton italic = new ToolbarButton();
+        italic.setEnableToggle(true);
+        italic.setIconCls("text-italic");
+        italic.setTooltip("<i>Italic</i>");
+        toolbar.addButton(italic);
+
+        ToolbarButton underline = new ToolbarButton();
+        underline.setEnableToggle(true);
+        underline.setIconCls("text-underline");
+        underline.setTooltip("<u>Underline</u>");
+        toolbar.addButton(underline);
+
+        toolbar.addSeparator();
+
+        ToolbarButton left = new ToolbarButton();
+        left.setToggleGroup("alignment");
+        left.setTooltip("Left Align");
+        left.setIconCls("text-align-left");
+        toolbar.addButton(left);
+
+        ToolbarButton right = new ToolbarButton();
+        right.setToggleGroup("alignment");
+        right.setIconCls("text-align-right");
+        right.setTooltip("Right Align");
+        toolbar.addButton(right);
+
+        ToolbarButton center = new ToolbarButton();
+        center.setToggleGroup("alignment");
+        center.setIconCls("text-align-center");
+        center.setTooltip("Center");
+        toolbar.addButton(center);
+
+        ToolbarButton justify = new ToolbarButton();
+        justify.setToggleGroup("alignment");
+        justify.setIconCls("text-align-justify");
+        justify.setTooltip("Justify");
+        toolbar.addButton(justify);
+
+        panel.add(toolbar);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

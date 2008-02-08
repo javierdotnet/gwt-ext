@@ -1,0 +1,126 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 650px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.TabPanel;
+import com.gwtext.client.widgets.Window;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.layout.BorderLayout;
+import com.gwtext.client.widgets.layout.BorderLayoutData;
+
+public class LayoutWindowSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        //center panel
+        TabPanel tabPanel = new TabPanel();
+        tabPanel.setActiveTab(0);
+
+        Panel tab1 = new Panel();
+        tab1.setTitle("Bogus Tab");
+        tab1.setHtml(getBogusMarkup());
+        tab1.setAutoScroll(true);
+
+        Panel tab2 = new Panel();
+        tab2.setTitle("Another Tab");
+        tab2.setHtml(getBogusMarkup());
+        tab2.setAutoScroll(true);
+
+        Panel tab3 = new Panel();
+        tab3.setTitle("Closable Tab");
+        tab3.setHtml(getBogusMarkup());
+        tab3.setAutoScroll(true);
+        tab3.setClosable(true);
+
+        tabPanel.add(tab1);
+        tabPanel.add(tab2);
+        tabPanel.add(tab3);
+
+        //west panel
+        Panel navPanel = new Panel();
+        navPanel.setTitle("Navigation");
+        navPanel.setWidth(200);
+        navPanel.setCollapsible(true);
+
+        BorderLayoutData centerData = new BorderLayoutData(RegionPosition.CENTER);
+        centerData.setMargins(3, 0, 3, 3);
+
+        BorderLayoutData westData = new BorderLayoutData(RegionPosition.WEST);
+        westData.setSplit(true);
+        westData.setMargins(3, 3, 0, 3);
+        westData.setCMargins(3, 3, 3, 3);
+
+        final Window window = new Window();
+        window.setTitle("Layout Window");
+        window.setClosable(true);
+        window.setWidth(600);
+        window.setHeight(350);
+        window.setPlain(true);
+        window.setLayout(new BorderLayout());
+        window.add(tabPanel, centerData);
+        window.add(navPanel, westData);
+        window.setCloseAction(Window.HIDE);
+
+        Button button = new Button("Show Window");
+        button.addListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                window.show(button.getId());
+            }
+        });
+        panel.add(button);
+
+        RootPanel.get().add(panel);
+    }
+
+    private static String getBogusMarkup() {
+        return "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. " +
+                "Sed metus nibh, sodales a, porta at, vulputate eget, dui.  " +
+                "In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, " +
+                "cursus a, fringilla vel, urna.";
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

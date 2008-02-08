@@ -1,0 +1,136 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.form.Checkbox;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.event.CheckboxListenerAdapter;
+import com.gwtext.client.widgets.layout.HorizontalLayout;
+import com.gwtext.client.widgets.menu.Item;
+import com.gwtext.client.widgets.menu.Menu;
+import com.gwtext.client.widgets.menu.MenuItem;
+
+public class MenuButtonSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+
+        //add some extra space on to for the menu to be displayed
+        //top, left, right, bottom
+        panel.setPaddings(120, 15, 0, 0);
+
+        //create the button
+        final Button button = new Button();
+        button.setText("Start");
+        button.setIconCls("office-icon");
+
+        //create the menu we want to assign to the button
+        Menu menu = new Menu();
+
+        Item wordItem = new Item("Word");
+        wordItem.setIconCls("word-icon");
+        menu.addItem(wordItem);
+
+        Item excelItem = new Item("Excel");
+        excelItem.setIconCls("excel-icon");
+        menu.addItem(excelItem);
+
+        //create a sub menu
+        Menu subMenu = new Menu();
+        Item cItem = new Item("C");
+        cItem.setIconCls("c-icon");
+
+        Item cppItem = new Item("C++");
+        cppItem.setIconCls("cpp-icon");
+
+        Item csharpItem = new Item("CSharp");
+        csharpItem.setIconCls("csharp-icon");
+
+        subMenu.addItem(cItem);
+        subMenu.addItem(cppItem);
+        subMenu.addItem(csharpItem);
+
+        //add menu item that has sub menu
+        MenuItem vsItem = new MenuItem("Visual Studio", subMenu);
+        vsItem.setIconCls("visualstudio-icon");
+        menu.addItem(vsItem);
+
+        Item powerPointItem = new Item("PowerPoint");
+        powerPointItem.setIconCls("powerpoint-icon");
+        menu.addItem(powerPointItem);
+
+        //assign the menu to to the button
+        button.setMenu(menu);
+
+        FormPanel form = new FormPanel();
+        form.setBorder(false);
+        Checkbox cb = new Checkbox("Menu on top?");
+
+        //dynamically change the poistion of the menu in relation to the button
+        cb.addListener(new CheckboxListenerAdapter() {
+            public void onCheck(Checkbox field, boolean checked) {
+                System.out.println("Checkbox " +
+                                    (checked ? " checked." : " unchecked."));
+                if (checked) {
+                    //set position to top
+                    button.setMenuAlign("bl-tl");
+                } else {
+                    //set position to bottom
+                    button.setMenuAlign("tl-bl?");
+                }
+            }
+        });
+        form.add(cb);
+
+        Panel horizontalPanel = new Panel();
+        horizontalPanel.setLayout(new HorizontalLayout(15));
+
+        horizontalPanel.add(button);
+        horizontalPanel.add(form);
+
+        panel.add(horizontalPanel);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

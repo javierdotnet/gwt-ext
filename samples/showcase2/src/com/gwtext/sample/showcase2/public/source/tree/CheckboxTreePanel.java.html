@@ -1,0 +1,140 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 650px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.Connection;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.Function;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Tool;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.tree.AsyncTreeNode;
+import com.gwtext.client.widgets.tree.TreeNode;
+import com.gwtext.client.widgets.tree.TreePanel;
+import com.gwtext.client.widgets.tree.XMLTreeLoader;
+
+public class CheckboxTreePanel implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        final TreePanel treePanel = new TreePanel();
+            treePanel.setTitle("Checkbox Tree");
+            treePanel.setCollapsible(true);
+            treePanel.setIconCls("world-icon");
+            treePanel.setHeight(400);
+            treePanel.setWidth(200);
+            treePanel.setAnimate(true);
+            treePanel.setEnableDD(true);
+            treePanel.setContainerScroll(true);
+            treePanel.setAutoScroll(true);
+            treePanel.setRootVisible(true);
+            treePanel.setFrame(true);
+
+
+            XMLTreeLoader loader = new XMLTreeLoader();
+            loader.setDataUrl("countries-cb.xml");
+            loader.setMethod(Connection.GET);
+            loader.setRootTag("countries");
+            loader.setFolderIdMapping("@id");
+            loader.setLeafIdMapping("@id");
+            loader.setFolderTitleMapping("@title");
+            loader.setFolderTag("team");
+            loader.setLeafTitleMapping("@title");
+            loader.setLeafTag("country");
+            loader.setQtipMapping("@qtip");
+            loader.setDisabledMapping("@disabled");
+            loader.setCheckedMapping("@checked");
+            loader.setIconMapping("@icon");
+            loader.setAttributeMappings(new String[]{"@rank"});
+
+
+            final AsyncTreeNode root = new AsyncTreeNode("Countries", loader);
+            treePanel.setRootNode(root);
+
+            root.expand();
+
+            treePanel.addTool(new Tool(Tool.REFRESH, new Function() {
+                public void execute() {
+                    treePanel.getEl().mask("Loading", "x-mask-loading");
+                    root.reload();
+                    root.collapse(true, false);
+                    Timer timer = new Timer() {
+                        public void run() {
+                            treePanel.getEl().unmask();
+                            root.expand(true, true);
+                        }
+                    };
+                    timer.schedule(1000);
+                }
+            }, "Refresh"));
+
+            treePanel.expandAll();
+
+
+            Button button = new Button("Show Checked", new ButtonListenerAdapter() {
+                public void onClick(Button button, EventObject e) {
+                    TreeNode[] checkedNodes = treePanel.getChecked();
+                    String checkedNodesString = "";
+                    for (int i = 0; i < checkedNodes.length; i++) {
+                        TreeNode checkedNode = checkedNodes[i];
+                        checkedNodesString += "<br>" + checkedNode.getText();
+                    }
+                    System.out.println("Checked Nodes :" + checkedNodesString);
+                }
+            });
+
+            Button toggle = new Button("Toggle Team A", new ButtonListenerAdapter() {
+                public void onClick(Button button, EventObject e) {
+                    treePanel.getNodeById("team-a").getUI().toggleCheck();
+                }
+            });
+
+            treePanel.addButton(button);
+            treePanel.addButton(toggle);
+            panel.add(treePanel);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

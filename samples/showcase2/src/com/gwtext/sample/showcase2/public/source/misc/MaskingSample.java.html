@@ -1,0 +1,98 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 700px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.Ext;
+import com.gwtext.client.core.ExtElement;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.form.Checkbox;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.TextField;
+import com.gwtext.client.widgets.form.event.CheckboxListenerAdapter;
+import com.gwtext.client.widgets.layout.HorizontalLayout;
+
+public class MaskingSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+        panel.setLayout(new HorizontalLayout(15));
+
+        FormPanel formPanel = new FormPanel();
+        formPanel.setTitle("Mask Region");
+        formPanel.setBorder(false);
+        formPanel.setFrame(true);
+        formPanel.setWidth(400);
+        formPanel.setLabelWidth(100);
+
+        final TextField maskField = new TextField("Mask Message", "maskMessage", 175);
+        maskField.setSelectOnFocus(true);
+        formPanel.add(maskField);
+
+        Checkbox maskNav = new Checkbox();
+        maskNav.setBoxLabel("Mask Panel");
+        maskNav.addListener(new CheckboxListenerAdapter() {
+            public void onCheck(Checkbox field, boolean checked) {
+                String message = maskField.getText();
+                final ExtElement element = Ext.get("mask-panel");
+                if (checked) {
+                    if (message.trim().equals("")) {
+                        element.mask();
+                    } else {
+                        element.mask(message);
+                    }
+                } else {
+                    element.unmask();
+                }
+            }
+        });
+        formPanel.add(maskNav);
+        panel.add(formPanel);
+
+        Panel maskPanel = new Panel("Mask Me", "Some content here..");
+        maskPanel.setId("mask-panel");
+        maskPanel.setWidth(150);
+        maskPanel.setHeight(150);
+        panel.add(maskPanel);
+
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

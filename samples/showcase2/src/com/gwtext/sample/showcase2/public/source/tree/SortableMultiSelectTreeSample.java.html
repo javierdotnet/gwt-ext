@@ -1,0 +1,167 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 760px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.Connection;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.form.FieldSet;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.Radio;
+import com.gwtext.client.widgets.layout.VerticalLayout;
+import com.gwtext.client.widgets.tree.*;
+
+import java.util.Comparator;
+
+public class SortableMultiSelectTreeSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        final TreePanel treePanel = new TreePanel();
+        treePanel.setTitle("Sort and Multi-Select");
+        treePanel.setAnimate(true);
+        treePanel.setEnableDD(true);
+        treePanel.setContainerScroll(true);
+        treePanel.setRootVisible(true);
+        //this property enables multi-select
+        treePanel.setSelectionModel(new MultiSelectionModel());
+        treePanel.setHeight(360);
+
+        final XMLTreeLoader loader = new XMLTreeLoader();
+        loader.setDataUrl("data/countries.xml");
+        loader.setMethod(Connection.GET);
+        loader.setRootTag("countries");
+        loader.setFolderTitleMapping("@title");
+        loader.setFolderTag("team");
+        loader.setLeafTitleMapping("@title");
+        loader.setLeafTag("country");
+        loader.setQtipMapping("@qtip");
+        loader.setDisabledMapping("@disabled");
+        loader.setCheckedMapping("@checked");
+        loader.setIconMapping("@icon");
+        loader.setAttributeMappings(new String[]{"@rank"});
+
+        AsyncTreeNode root = new AsyncTreeNode("Countries", loader);
+        treePanel.setRootNode(root);
+
+        root.expand();
+        treePanel.expandAll();
+        root.select();
+
+        FormPanel form = new FormPanel();
+        form.setBorder(false);
+        form.setFrame(false);
+        form.setWidth(300);
+
+        FieldSet fieldSet = new FieldSet("Sort Direction");
+        fieldSet.setFrame(false);
+
+        final Radio ascRadio = new Radio();
+        ascRadio.setName("direction");
+        ascRadio.setBoxLabel("Ascending");
+        ascRadio.setChecked(true);
+        fieldSet.add(ascRadio);
+
+        final Radio descRadio = new Radio();
+        descRadio.setName("direction");
+        descRadio.setBoxLabel("Descending");
+        descRadio.setChecked(false);
+        fieldSet.add(descRadio);
+
+        form.add(fieldSet);
+
+        Button selectedButton = new Button("Show Selected", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                MultiSelectionModel selectionModel = (MultiSelectionModel) treePanel.getSelectionModel();
+                TreeNode[] nodes = selectionModel.getSelectedNodes();
+                String nodesString = "";
+                for (int i = 0; i < nodes.length; i++) {
+                    TreeNode node = nodes[i];
+                    nodesString += "<br>" + node.getText();
+                }
+                System.out.println("Selected Nodes :" + nodesString);
+            }
+        });
+
+        Button sortButton = new Button("Sort", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                MultiSelectionModel selectionModel = (MultiSelectionModel) treePanel.getSelectionModel();
+                TreeNode[] nodes = selectionModel.getSelectedNodes();
+                if (nodes.length == 0) {
+                    nodes = new TreeNode[1];
+                    nodes[0] = treePanel.getRootNode();
+                }
+                final boolean asc = ascRadio.getValue();
+                for (int i = 0; i < nodes.length; i++) {
+                    TreeNode node = nodes[i];
+                    node.sort(new Comparator() {
+                        public int compare(Object o1, Object o2) {
+                            TreeNode node0 = (TreeNode) o1;
+                            TreeNode node1 = (TreeNode) o2;
+                            String str1 = node0.getText();
+                            String str2 = node1.getText();
+                            int val = str1.compareTo(str2);
+                            if (!asc) {
+                                val = -1 * val;
+                            }
+                            return val;
+                        }
+                    });
+                }
+            }
+        });
+
+        form.addButton(selectedButton);
+        form.addButton(sortButton);
+
+        Panel verticalPanel = new Panel();
+        verticalPanel.setLayout(new VerticalLayout(15));
+        verticalPanel.add(treePanel);
+        verticalPanel.add(form);
+        panel.add(verticalPanel);
+        RootPanel.get().add(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

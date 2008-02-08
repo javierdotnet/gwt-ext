@@ -1,0 +1,101 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 720px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Window;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.layout.AccordionLayout;
+import com.gwtext.client.widgets.layout.HorizontalLayout;
+
+public class AccordionLayoutSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        panel.setLayout(new HorizontalLayout(15));
+
+        Panel accordionPanel = createAccordionPanel();
+        accordionPanel.setTitle("Accordion Panel");
+        accordionPanel.setHeight(400);
+        accordionPanel.setWidth(200);
+
+        Button button = new Button("Show Accordion in Window", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                Panel accordionPanel = createAccordionPanel();
+                Window window = new Window();
+                window.setTitle("Accordion Window");
+                window.setWidth(200);
+                window.setHeight(400);
+                window.add(accordionPanel);
+                window.show(button.getId());
+            }
+        });
+
+        panel.add(accordionPanel);
+        panel.add(button);
+
+        RootPanel.get().add(panel);
+    }
+
+    private Panel createAccordionPanel() {
+        Panel accordionPanel = new Panel();
+        accordionPanel.setLayout(new AccordionLayout(true));
+
+        Panel panelOne = new Panel("Panel 1", "<p>Panel1 content!</p>");
+        panelOne.setIconCls("settings-icon");
+        accordionPanel.add(panelOne);
+
+        Panel panelTwo = new Panel("Panel 2", "<p>Panel2 content!</p>");
+        panelTwo.setIconCls("folder-icon");
+        accordionPanel.add(panelTwo);
+
+        Panel panelThree = new Panel("Panel 3", "<p>Panel3 content!</p>");
+        panelThree.setIconCls("user-add-icon");
+        accordionPanel.add(panelThree);
+
+        return accordionPanel;
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

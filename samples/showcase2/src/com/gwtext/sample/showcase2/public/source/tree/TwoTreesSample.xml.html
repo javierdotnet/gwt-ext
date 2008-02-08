@@ -1,0 +1,75 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushXml.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 650px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="xml:nogutter:nocontrols" rows="15" cols="120">
+<!--countries-grouped.xml-->
+<countries>
+    <continent title="North America" allowDrag="false">
+        <country title="United States" icon="images/flags/us.gif" iconCls="tree-flag"/>
+        <country title="Canada" icon="images/flags/ca.gif" iconCls="tree-flag" />
+    </continent>
+
+    <continent title="South America" allowDrag="false">
+        <country title="Brazil" icon="images/flags/br.gif" iconCls="tree-flag"/>
+    </continent>
+
+    <continent title="Asia" allowDrag="false">
+        <country title="India" icon="images/flags/in.gif" iconCls="tree-flag"/>
+        <country title="China" icon="images/flags/cn.gif" iconCls="tree-flag"/>
+        <country title="Japan" icon="images/flags/jp.gif" iconCls="tree-flag"/>
+    </continent>
+
+    <continent title="Europe" allowDrag="false">
+        <country title="Germany" icon="images/flags/de.gif" iconCls="tree-flag"/>
+        <country title="France" icon="images/flags/fr.gif" iconCls="tree-flag"/>
+        <country title="Italy" icon="images/flags/ie.gif" iconCls="tree-flag"/>
+        <country title="Finland" icon="images/flags/fi.gif" iconCls="tree-flag"/>
+    </continent>
+
+    <continent title="Africa" allowDrag="false">
+        <country title="Seychelles" icon="images/flags/sc.gif" iconCls="tree-flag"/>
+    </continent>
+
+    <continent title="Australia">
+        <country title="Australia" icon="images/flags/au.gif" iconCls="tree-flag"/>
+    </continent>
+</countries>
+
+<!--trip.xml-->
+
+<vacations>
+    <trip title="Trip1" allowDrag="false" trip="true">
+    </trip>
+    <trip title="Trip2" allowDrag="false" trip="true">
+    </trip>
+    <trip title="Trip3" allowDrag="false" trip="true">
+    </trip>
+</vacations>    
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

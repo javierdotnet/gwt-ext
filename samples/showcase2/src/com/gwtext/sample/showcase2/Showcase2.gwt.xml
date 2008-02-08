@@ -1,0 +1,12 @@
+<module>
+
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.gwtext.GwtExt"/>
+    <inherits name="com.gwtext.MultiSelect"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.user.History"/>
+	<inherits name="com.google.gwt.i18n.I18N"/>
+
+    <entry-point class='com.gwtext.sample.showcase2.client.Showcase2'/>
+
+</module>

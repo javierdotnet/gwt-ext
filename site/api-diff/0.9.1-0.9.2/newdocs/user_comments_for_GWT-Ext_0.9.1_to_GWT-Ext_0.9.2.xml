@@ -1,0 +1,2311 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<comments
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:noNamespaceSchemaLocation='comments.xsd'
+  name="GWT-Ext_0.9.1_to_GWT-Ext_0.9.2"
+  jdversion="1.0.10">
+
+<!-- This file contains comments for a JDiff report. -->
+<!-- It is used only in generating the report, and does not need to ship with the final report. -->
+
+<!-- The id attribute in an identifier element identifies the change as noted in the report. -->
+<!-- An id has the form package[.class[.[ctor|method|field].signature]], where [] indicates optional text. -->
+<!-- A comment element can have multiple identifier elements, which will -->
+<!-- will cause the same text to appear at each place in the report, but -->
+<!-- will be converted to separate comments when the comments file is used. -->
+<!-- HTML tags in the text field will appear in the report. -->
+<!-- You also need to close p HTML elements, used for paragraphs - see the top-level documentation. -->
+<comment>
+  <identifier id="com.gwtext.client.core"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_added(int, com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_added(int[], com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_added(java.lang.String, com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_removed(int, com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_removed(int[], com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addKeyListener_removed(java.lang.String, com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addListener_added(java.lang.String, com.gwtext.client.core.EventCallback)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addListener_added(java.lang.String, com.gwtext.client.core.EventCallback, com.gwtext.client.core.ListenerConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.BaseElement.addListener_removed(java.lang.String, com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.EventManager"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.EventManager.addListener_changed(Element, java.lang.String, com.gwtext.client.core.EventCallback, com.gwtext.client.core.ListenerConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.ExtElement.addListener_removed(java.lang.String, com.gwtext.client.core.Function, com.gwtext.client.core.ListenerConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.GenericConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.GenericConfig.setProperty_added(java.lang.String, com.gwtext.client.core.GenericConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.Paddings"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UpdateManager.setMethod_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlLoadCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.UrlLoadCallback.execute_changed(boolean, int, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.event.ConnectionListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.core.event.ConnectionListener.onRequestException_changed(com.gwtext.client.core.Connection, int, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.BooleanField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.BooleanFieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.DateField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.DateFieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Field"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.FieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.FloatField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.FloatFieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.HttpProxy"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.HttpProxy.ctor_added(com.gwtext.client.core.Connection)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.HttpStoreLoadException"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.IntegerField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.IntegerFieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.equals_added(java.lang.Object)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.getAttribute_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.hashCode_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.setAttribute_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Node.setId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.commitData_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.commit_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.copy_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.copy_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.getDataAsJsObject_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.getDataAsObject_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Record.setId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.RecordDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.RecordDef.createRecord_added(java.lang.String, java.lang.Object[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.RecordDef.ctor_changed(com.gwtext.client.data.FieldDef[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.RecordDef.getFields_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_added(int, com.gwtext.client.data.FieldDef[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.SimpleStore.ctor_removed(int, com.gwtext.client.data.Field[], java.lang.Object[][])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Store"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.Store.instance_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.StoreLoadException"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.StringField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.StringFieldDef"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.event.StoreListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.event.StoreListener.onLoadException_added(java.lang.Throwable)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.event.StoreListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.data.event.StoreListenerAdapter.onLoadException_added(java.lang.Throwable)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.alignElWithMouse_added(Element, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.autoOffset_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.cachePosition_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.isScroll_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.setDelta_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.setDragElPos_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DD.setScroll_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.createFrame_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropProxyConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.initFrame_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.isCenterFrame_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.isResizeFrame_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.setCenterFrame_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDProxy.setResizeFrame_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDTarget"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDTarget.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDTarget.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDTarget.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DDTarget.ctor_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.addInvalidHandleClass_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.addInvalidHandleId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.addInvalidHandleType_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.addToGroup_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.applyConfig_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.clearConstraints_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.clearTicks_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.endDrag_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getDragEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getEl_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getGroups_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getId_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getInvalidHandleClasses_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getInvalidHandleTypes_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getPadding_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getXTicks_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.getYTicks_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.hasOuterHandles_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.initTarget_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.init_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isAvailable_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isLocked_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isMaintainOffset_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isPrimaryButtonOnly_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isTarget_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.isValidHandleChild_added(Element)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.lock_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onAvailable_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragDrop_added(com.gwtext.client.core.EventObject, com.gwtext.client.dd.DragDrop[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragDrop_added(com.gwtext.client.core.EventObject, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragEnter_added(com.gwtext.client.core.EventObject, com.gwtext.client.dd.DragDrop[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragEnter_added(com.gwtext.client.core.EventObject, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragOut_added(com.gwtext.client.core.EventObject, com.gwtext.client.dd.DragDrop[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragOut_added(com.gwtext.client.core.EventObject, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragOver_added(com.gwtext.client.core.EventObject, com.gwtext.client.dd.DragDrop[])"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDragOver_added(com.gwtext.client.core.EventObject, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onDrag_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onInvalidDrop_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onMouseDown_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.onMouseUp_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.removeFromGroup_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.removeInvalidHandleClass_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.removeInvalidHandleId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.removeInvalidHandleType_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.resetConstraints_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setDragElId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setHandleElId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setOuterHandleElId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setPadding_added(int, int, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setXConstraint_added(int, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.setYConstraint_added(int, int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.startDrag_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.toString_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.unlock_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDrop.unreg_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragDropProxyConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragSource"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragSource.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragSource.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragSource.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropProxyConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragSource.ctor_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragZone"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragZone.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragZone.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragZone.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropProxyConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DragZone.ctor_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropTarget"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropTarget.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropTarget.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropTarget.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropTarget.ctor_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropZone"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropZone.create_added(java.lang.String, java.lang.String, JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropZone.ctor_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropZone.ctor_added(java.lang.String, java.lang.String, com.gwtext.client.dd.DragDropConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.dd.DropZone.ctor_removed(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.DelayedTask"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.convertToJavaStringArray_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.setArrayValue_added(JavaScriptObject, int, java.util.Date)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.setAttribute_added(JavaScriptObject, java.lang.String, double)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toDouble_added(double)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.JavaScriptObjectHelper.toLong_added(long)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyMapConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyMapConfig.setCallback_removed(com.gwtext.client.core.Function)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.util.KeyMapConfig.setKeyListener_added(com.gwtext.client.widgets.event.KeyListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget.equals_added(java.lang.Object)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BaseExtWidget.hashCode_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.BoxComponent"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button.getButtonElement_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Button.setTooltip_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Editor"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.EditorConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.JsonView"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.JsonViewConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.addDialogListener_added(com.gwtext.client.widgets.event.DialogListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.isVisible_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialog.moveTo_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.getId_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setConstrainToViewport_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setConstraintToViewport_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.LayoutDialogConfig.setId_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.addTabPanelListener_added(com.gwtext.client.widgets.event.TabPanelListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.TabPanel.addTablPanelListener_removed(com.gwtext.client.widgets.event.TabPanelListener)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.insertButton_removed(int, com.gwtext.client.widgets.ToolbarItem)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.Toolbar.insertItem_added(int, com.gwtext.client.widgets.ToolbarItem)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarTextItem"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarTextItem.getText_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ToolbarTextItem.setText_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.View"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.ViewConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.BoxComponentListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.BoxComponentListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.DialogListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.DialogListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.EditorListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.EditorListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.JsonViewListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.JsonViewListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ViewListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.event.ViewListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.ComboBox"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.ComboBox.onTriggerClick_added(com.gwtext.client.core.EventObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Field"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setLabelSeparator_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setLabelStyle_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setTabIndex_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FieldConfig.setWidth_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig.getWidthStr_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig.setSurrondWithBox_removed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig.setSurroundWithBox_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.FormConfig.setWidth_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.getValue_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.setValue_added(float)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.setValue_added(java.lang.Number)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.validateValue_added(float)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.NumberField.validateValue_added(java.lang.Number)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextArea"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.autoSize_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.autoSize_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.getText_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.selectText_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.selectText_added(int, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.TextField.validateValue_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.ValidationException"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Validator"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.Validator.validate_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event.FieldListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event.FieldListener.onChange_changed(com.gwtext.client.widgets.form.Field, java.lang.Object, java.lang.Object)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event.FieldListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event.FieldListenerAdapter.onChange_added(com.gwtext.client.widgets.form.Field, java.lang.Object, java.lang.Object)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.form.event.FieldListenerAdapter.onChange_changed(com.gwtext.client.widgets.form.Field, java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.CellMetadata"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getColumnHeader_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getColumnTooltip_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getColumnWidth_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getDataIndex_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.getIndexById_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isCellEditable_added(java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isFixed_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isHidden_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isLocked_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isLocked_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isResizable_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.isSortable_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setColumnHeader_added(java.lang.String, java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setColumnWidth_added(java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setDataIndex_added(java.lang.String, int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setEditable_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setEditor_added(java.lang.String, com.gwtext.client.widgets.grid.GridEditor)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setHidden_added(java.lang.String, boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.ColumnModel.setRenderer_added(java.lang.String, com.gwtext.client.widgets.grid.Renderer)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.adjustColumns_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.hideColumn_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.hideColumn_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.reconfigure_added(com.gwtext.client.data.Store, com.gwtext.client.widgets.grid.ColumnModel)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.showColumn_added(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Grid.showColumn_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setEnableColumnResize_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridConfig.setEnableCtxMenu_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.GridView.refresh_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Renderer"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.Renderer.render_changed(java.lang.Object, com.gwtext.client.widgets.grid.CellMetadata, com.gwtext.client.data.Record, int, int, com.gwtext.client.data.Store)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.grid.RowSelectionModel.isSelected_changed(int)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegion.removeAll_changed(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegionConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.layout.LayoutRegionConfig.setHideTabs_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.TextItem"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.TextItem.getText_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.menu.TextItem.setText_changed(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.AsyncTreeNode"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.AsyncTreeNode.ctor_added(java.lang.String, com.gwtext.client.widgets.tree.AsyncTreeNodeConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.AsyncTreeNodeConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.AsyncTreeNodeConfig.setLoader_added(com.gwtext.client.widgets.tree.TreeLoader)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.DefaultSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.DefaultSelectionModel.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.MultiSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.NodeSelectionCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeDragZone"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeDropZone"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeDropZoneConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeEditor"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeEditorConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeFilter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeFilterConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoader"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoader.create_added(JavaScriptObject)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoader.ctor_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoaderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeLoaderConfig.setDataUrl_added(java.lang.String)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNode"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNode.ctor_added(java.lang.String, com.gwtext.client.widgets.tree.TreeNodeConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeConfig.setChecked_added(boolean)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeConfig.setQtipCfg_added(com.gwtext.client.widgets.QuickTipsConfig)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeNodeUI.toggleCheck_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getChecked_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getDragZone_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getDropZone_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getRootNode_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.getSelectionModel_changed()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanel.selectPath_added(java.lang.String, com.gwtext.client.widgets.tree.NodeExpansionCallback)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanelConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanelConfig.getSelectionModel_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanelConfig.setDropConfig_added(com.gwtext.client.widgets.tree.TreeDropZone)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreePanelConfig.setLoader_changed(com.gwtext.client.widgets.tree.TreeLoader)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.clearSelections_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.isSelected_added(com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.selectNext_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.selectPrevious_added()"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.select_added(com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSelectionModel.unselect_added(com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSortFunction"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSorter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeSorterConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.TreeTraversalCallback"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.XMLTreeLoader"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.XMLTreeLoaderConfig"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.MultiSelectionModelListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.doBeforeNodeDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onDragDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, com.gwtext.client.dd.DD)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onEndDrag_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onNodeDragOver_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onNodeDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListener.onStartDrag_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.doBeforeNodeDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onDragDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, com.gwtext.client.dd.DD)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onEndDrag_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onNodeDragOver_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onNodeDrop_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode, java.lang.String, com.gwtext.client.dd.DragDrop, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+<comment>
+  <identifier id="com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter.onStartDrag_added(com.gwtext.client.widgets.tree.TreePanel, com.gwtext.client.widgets.tree.TreeNode)"/>
+  <text>
+    InsertCommentsHere
+  </text>
+</comment>
+
+</comments>

@@ -1,0 +1,72 @@
+<side-nav>
+    <node title="Tree" qtip="Tree Examples" icon="images/silk/chart_organisation.gif">
+        <leaf id="editableTree" title="Editable"/>
+        <leaf id="checkboxTree" title="Checkbox"/>
+        <leaf id="twoTrees" title="Two Trees Drag &amp; Drop"/>
+    </node>
+
+    <node title="Dialogs" qtip="Dialog Examples" icon="images/silk/application_cascade.gif">
+             <leaf id="messageBoxDialog" title="Message Box and Progress"/>
+             <leaf id="basicDialog" title="Basic Dialog"/>
+             <leaf id="layoutDialog" title="Layout Dialog"/>
+             <leaf id="loginDialog" title="Login Dialog"/>
+             <leaf id="multipleDialogs" title="Multiple Dialogs"/>
+         </node>
+
+    <node title="ComboBox" qtip="ComboBox Examples. Checkbox here for fun!" icon="images/silk/script_edit.gif"
+          checked="true">
+        <leaf id="basicComboBox" title="Basic"/>
+        <leaf id="compactComboBox" title="Compact"/>
+        <leaf id="pagingComboBox" title="Paging"/>
+        <leaf id="styledComboBox" title="Styled"/>
+        <leaf id="liveSearch" title="Live Search"/>
+    </node>
+
+    <node title="Toolbar and Menus" qtip="Toolbar &amp; Menu Examples" icon="images/silk/application_view_tile.gif">
+        <leaf id="toolbarAndMenus" title="Toolbar and Menus"/>
+    </node>
+
+    <node title="Grids" qtip="Examples of various Grids" icon="images/silk/table.gif">
+        <leaf id="basicArrayGrid" title="Basic Array Grid"/>
+        <leaf id="jsonGrid" title="Json Grid"/>
+        <leaf id="editableGrid" title="Editable Grid"/>
+        <leaf id="localPagingGrid" title="Grid with Local Paging"/>
+        <leaf id="remotePagingGrid" title="Grid with Remote Paging"/>
+        <leaf id="columnOrderGrid" title="Column Order"/>
+        <leaf id="stockTicker" title="Stock Ticker"/>
+        <leaf id="rowRenderingGrid" title="Custom Row Colors"/>
+    </node>
+
+    <node title="Forms" qtip="Demonstrates Form layout and functionality" icon="images/silk/application_form_add.gif">
+        <leaf id="simpleForm" title="Simple Form"/>
+        <leaf id="multiColumnForm" title="Multi-Column Form"/>
+        <leaf id="multiColumnFieldsetForm" title="Multi-Column Fieldset Form" icon="images/silk/overlays.gif"/>
+        <leaf id="multiColumnLabelsTopForm" title="Multi-Column Labels Top Form"/>
+        <leaf id="loadSubmitXmlForm" title="Load / Submit Xml Form"/>
+        <leaf id="formWithGrid" title="Form with Grid"/>
+    </node>
+
+    <node title="Tab Panel" qtip="Tab Panel Example" icon="images/silk/tab.gif">
+        <leaf id="dynaicTabPanel" title="Dynamic and Events"/>
+    </node>
+
+    <node title="Drag and Drop" qtip="Drag &amp; Drop Examples" icon="images/silk/layers.gif">
+        <leaf id="basicDD" title="Basic"/>
+        <leaf id="handlesDD" title="Handles"/>
+        <leaf id="onTopDD" title="On Top"/>
+        <leaf title="Proxy"/>
+        <leaf id="proxyDD" title="Reorder List" disabled="true"/>
+    </node>
+
+    <node title="Resizable" qtip="Resizable Examples" icon="images/silk/shape_handles.gif">
+         <leaf id="resizableGrid" title="Resizable Grid" disabled="true"/>
+    </node>
+
+    <node title="Miscellaneous" qtip="Various Examples" icon="images/silk/page_white_swoosh.gif">
+        <leaf id="mask" title="Mask Demo" icon="images/silk/shading.gif"/>
+    </node>
+
+    <node title="Animation" qtip="Animation Examples" icon="images/silk/page_white_swoosh.gif">
+        <leaf id="customAnimation" title="Custom"/>
+    </node>
+</side-nav>

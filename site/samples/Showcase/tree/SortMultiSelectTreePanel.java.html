@@ -1,0 +1,131 @@
+
+<textarea name="code" class="java" style="display:none;">
+final TreePanel treePanel = new TreePanel("sort-multiselect-tree", new TreePanelConfig() {
+    {
+        setAnimate(true);
+        setEnableDD(true);
+        setContainerScroll(true);
+        setRootVisible(true);
+        //this property enables multi-select
+        setSelectionModel(new MultiSelectionModel());
+    }
+});
+
+final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
+    {
+        setDataUrl("countries.xml");
+        setMethod("get");
+        setRootTag("countries");
+        setFolderTitleMapping("@title");
+        setFolderTag("team");
+        setLeafTitleMapping("@title");
+        setLeafTag("country");
+        setQtipMapping("@qtip");
+        setDisabledMapping("@disabled");
+        setCheckedMapping("@checked");
+        setIconMapping("@icon");
+        setAttributeMappings(new String[]{"@rank"});
+    }
+});
+AsyncTreeNode root = new AsyncTreeNode("Countries", new AsyncTreeNodeConfig() {
+    {
+        setLoader(loader);
+    }
+});
+
+treePanel.setRootNode(root);
+treePanel.render();
+
+root.expand();
+treePanel.expandAll();
+
+
+Form form = new Form(new FormConfig() {
+    {
+        setWidth(300);
+    }
+});
+form.fieldset(new FieldSetConfig() {
+    {
+        setHideLabels(true);
+        setLegend("Sort Direction");
+    }
+});
+final Radio ascRadio = new Radio(new CheckboxConfig() {
+    {
+        setName("direction");
+        setBoxLabel("Ascending");
+        setChecked(true);
+    }
+});
+form.add(ascRadio);
+
+final Radio descRadio = new Radio(new CheckboxConfig() {
+    {
+        setName("direction");
+        setBoxLabel("Descending");
+    }
+});
+form.add(descRadio);
+form.end();
+
+Button selectedButton = new Button(new ButtonConfig() {
+    {
+        setText("Show Selected");
+        setButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                MultiSelectionModel selectionModel = (MultiSelectionModel) treePanel.getSelectionModel();
+                TreeNode[] nodes = selectionModel.getSelectedNodes();
+                String nodesString = "";
+                for (int i = 0; i < nodes.length; i++) {
+                    TreeNode node = nodes[i];
+                    nodesString += "<br>" + node.getText();
+                }
+                Showcase.showMessage("Selected Nodes", nodesString);
+            }
+        });
+    }
+});
+
+Button sortButton = new Button(new ButtonConfig() {
+    {
+        setText("Sort");
+        setButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                MultiSelectionModel selectionModel = (MultiSelectionModel) treePanel.getSelectionModel();
+                TreeNode[] nodes = selectionModel.getSelectedNodes();
+                if (nodes.length == 0) {
+                    nodes = new TreeNode[1];
+                    nodes[0] = treePanel.getRootNode();
+                }
+                final boolean asc = ascRadio.getValue();
+                for (int i = 0; i < nodes.length; i++) {
+                    TreeNode node = nodes[i];
+                    node.sort(new Comparator() {
+                        public int compare(Object o1, Object o2) {
+                            TreeNode node0 = (TreeNode) o1;
+                            TreeNode node1 = (TreeNode) o2;
+                            String str1 = node0.getText();
+                            String str2 = node1.getText();
+                            int val = str1.compareTo(str2);
+                            if(!asc) {
+                                val = -1* val;
+                            }
+                            return val;
+                        }
+                    });
+                }
+            }
+        });
+    }
+});
+
+form.addButton(selectedButton);
+form.addButton(sortButton);
+form.render();
+</textarea>
+
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

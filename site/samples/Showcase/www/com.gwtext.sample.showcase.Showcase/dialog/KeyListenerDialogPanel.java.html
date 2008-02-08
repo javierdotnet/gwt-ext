@@ -1,0 +1,53 @@
+
+<textarea name="code" class="java" style="display:none;">
+//create and configure dialog
+final LayoutDialog dialog = new LayoutDialog(new LayoutDialogConfig() {
+    {
+        setModal(true);
+        setWidth(500);
+        setHeight(300);
+        setShadow(true);
+        setMinHeight(300);
+        setMinHeight(300);
+        setTitle("Dialog with Key Listeners");
+    }
+}, new LayoutRegionConfig());
+
+dialog.addButton(new Button("Cancel", new ButtonConfig() {
+    {
+        setText("Cancel");
+        setButtonListener(new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                dialog.hide();
+            }
+        });
+    }
+}));
+
+//keycode 13 = Enter, 67 = c
+dialog.addKeyListener(new int[]{13, 67}, new KeyListener() {
+    public void onKey(int key, EventObject e) {
+        MessageBox.alert("Key Listener", "Key with keyCode " + key + " pressed.");
+        //stop event userful to prevent bubbling of enter key
+        e.stopEvent();
+    }
+});
+
+//add content to the center region
+final BorderLayout layout = dialog.getLayout();
+ContentPanel contentPanel = new ContentPanel();
+contentPanel.add(new HTML("<h3>This Dialog has Key Listeners for the 'Enter' key and for the key 'c'. " +
+                            "Try pressing either key to invoke the key listener</h3>"));
+layout.add(LayoutRegionConfig.CENTER, contentPanel);
+
+Button button = new Button("Show Dialog");
+button.addButtonListener(new ButtonListenerAdapter() {
+    public void onClick(Button button, EventObject e) {
+        dialog.show(button.getEl());
+    }
+});
+</textarea>
+
+<script class="javascript">
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>

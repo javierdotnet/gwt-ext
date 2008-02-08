@@ -1,0 +1,10 @@
+<module>
+
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.gwtext.GwtExt'/>
+    <inherits name="com.google.gwt.http.HTTP"/>
+    <inherits name="com.google.gwt.xml.XML"/>
+
+    <entry-point class='com.gwtext.sample.feedviewer.client.FeedViewer'/>
+
+</module>

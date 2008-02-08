@@ -1,8 +1,0 @@
-GWT-Ext @GWTEXT_VERSION@
-Visit Project Page (http://code.google.com/p/gwt-ext/).
-
-This product includes software developed by:
- - The Google Web Toolkit(GWT) project (http://code.google.com/webtoolkit/)
- - The Ext project (http://www.extjs.com/)
-
-For source availability and license information see COPYING.

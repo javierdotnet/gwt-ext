@@ -217,7 +217,7 @@ public class Container extends BoxComponent implements HasWidgets {
     public native Component findByID(String id) /*-{
         var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var comp = container.findById(id);
-		return comp == null | comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
+		return comp == null || comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
 	}-*/;
 
     /**
@@ -258,7 +258,7 @@ public class Container extends BoxComponent implements HasWidgets {
     public native Component getComponent(String id) /*-{
         var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var comp = container.getComponent(id);
-		return comp == null | comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
+		return comp == null || comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
 	}-*/;
 
     /**
@@ -270,7 +270,7 @@ public class Container extends BoxComponent implements HasWidgets {
     public native Component getComponent(int index) /*-{
         var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var comp = container.getComponent(index);
-		return comp == null | comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
+		return comp == null || comp === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
 	}-*/;
 
     /**

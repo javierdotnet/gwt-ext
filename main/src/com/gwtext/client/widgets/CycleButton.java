@@ -177,7 +177,7 @@ public class CycleButton extends SplitButton {
 		var config = this.@com.gwtext.client.widgets.Component::config;
         var itemJS = item.@com.gwtext.client.widgets.Component::config;
         if(!config.items) {
-            config.items = new $wnd.Array();
+            config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.items.push(itemJS);
     }-*/;

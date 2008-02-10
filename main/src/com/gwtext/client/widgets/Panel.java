@@ -123,7 +123,7 @@ public class Panel extends Container {
 		var config = this.@com.gwtext.client.widgets.Component::config;
 
         if (!config.buttons) {
-            config.buttons = new $wnd.Array();
+            config.buttons = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.buttons.push(componentJS);
     }-*/;
@@ -1292,7 +1292,7 @@ public class Panel extends Container {
 
     private native void addToolPreRender(Tool tool) /*-{
         var config = this.@com.gwtext.client.widgets.Component::config;
-        if(!config.tools) config.tools = new $wnd.Array();
+        if(!config.tools) config.tools = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
 		config.tools.push(tool.@com.gwtext.client.widgets.Tool::jsObj);
     }-*/;    
 }

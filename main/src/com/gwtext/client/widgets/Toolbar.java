@@ -48,7 +48,7 @@ public class Toolbar extends BoxComponent {
     }
 
 	protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		if(!config.items) config.items = new $wnd.Array();
+		if(!config.items) config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
 		return new $wnd.Ext.Toolbar(config);
     }-*/;
 
@@ -73,7 +73,7 @@ public class Toolbar extends BoxComponent {
 		var config = this.@com.gwtext.client.widgets.Component::config;
 
         if(!config.items) {
-            config.items = new $wnd.Array();
+            config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.items.push(componentJS);
     }-*/;
@@ -134,7 +134,7 @@ public class Toolbar extends BoxComponent {
 		var config = this.@com.gwtext.client.widgets.Component::config;
 
         if(!config.items) {
-            config.items = new $wnd.Array();
+            config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.items.push(componentJS);
     }-*/;
@@ -176,7 +176,7 @@ public class Toolbar extends BoxComponent {
 		var config = this.@com.gwtext.client.widgets.Component::config;
 
         if(!config.items) {
-            config.items = new $wnd.Array();
+            config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.items.push(componentJS);
     }-*/;

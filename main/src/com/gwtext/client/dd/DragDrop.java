@@ -210,7 +210,7 @@ public class DragDrop extends JsObject {
         var dd = this.@com.gwtext.client.core.JsObject::jsObj;
         var groups = dd.groups;
         var group;
-        var arr = new $wnd.Array();
+        var arr = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         for(group in groups) {
             arr.push(group);
         }

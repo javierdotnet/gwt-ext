@@ -103,6 +103,7 @@ public class ScreenManager {
                 TreeNode root = null;
                 if (treePanel == null) {
                     treePanel = new TreePanel();
+                    treePanel.setAutoScroll(true);
                     treePanel.setId(category + "-acc-tree");
                     treePanel.setRootVisible(false);
                     root = new TreeNode();

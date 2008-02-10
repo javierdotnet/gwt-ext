@@ -198,7 +198,7 @@ public class Container extends BoxComponent implements HasWidgets {
 		var config = this.@com.gwtext.client.widgets.Component::config;
 
         if(!config.items) {
-            config.items = new $wnd.Array();
+            config.items = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         }
         config.items.push(componentJS);
     }-*/;

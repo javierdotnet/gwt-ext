@@ -338,7 +338,7 @@ public class Record extends JsObject {
 
     private native JavaScriptObject getModifiedFeilds(JavaScriptObject record)/*-{
         if (record.modified === undefined) return  null;
-        var fields = new $wnd.Array();
+        var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         for(var key in record.modified) {
             fields.push(key);
         }

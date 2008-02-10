@@ -340,7 +340,11 @@ public class JavaScriptObjectHelper {
         //corrupted array object in the final javascript. The array ends up havign the correct elements
         //but the test (myarr instaneof Array) fails because the jsni created array constructor is different.
         //Need to construct array within the scope of the applications iframe by using new $wnd.Array
-        return new $wnd.Array();
+        //return new $wnd.Array();
+        //to work around safari bug, call funtion in main window that returns new Array
+        //see http://bugs.webkit.org/show_bug.cgi?id=17250
+        //http://extjs.com/forum/showthread.php?t=25874
+        return $wnd.newArray();
     }-*/;
 
     public static void setArrayValue(JavaScriptObject array, int index, Date value) {
@@ -454,7 +458,7 @@ public class JavaScriptObjectHelper {
     }
 
     public static native String[] getProperties(JavaScriptObject jsObj) /*-{
-        var props = new $wnd.Array();
+        var props = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         for(var k in jsObj) {
             props.push(k);
         }

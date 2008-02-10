@@ -298,6 +298,7 @@ public class ScreenManager {
         filterToolbar.addButton(funnelButton);
 
         searchField = new TextField();
+        searchField.setWidth(120);
         searchField.setMaxLength(40);
         searchField.setGrow(false);
         searchField.setSelectOnFocus(true);

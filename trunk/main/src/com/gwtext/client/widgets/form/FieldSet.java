@@ -9,7 +9,6 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.layout.ContainerLayout;
 
@@ -44,15 +43,18 @@ public class FieldSet extends Panel {
      * Creates a new FieldSet.
      */
     public FieldSet() {
+        setAutoHeight(true);
     }
 
     public FieldSet(String title) {
         setTitle(title);
+        setAutoHeight(true);
     }
 
     public FieldSet(String title, int labelWidth) {
         setTitle(title);
         setLabelWidth(labelWidth);
+        setAutoHeight(true);
     }
 
     public FieldSet(JavaScriptObject jsObj) {

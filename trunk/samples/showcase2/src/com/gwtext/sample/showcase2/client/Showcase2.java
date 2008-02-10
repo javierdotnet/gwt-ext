@@ -128,7 +128,9 @@ public class Showcase2 implements EntryPoint, HistoryListener {
         westPanel.setCollapsible(true);
 
         Toolbar toolbar = new Toolbar();
+        toolbar.addFill();
         toolbar.addItem(new ToolbarTextItem("Select Theme "));
+        toolbar.addSpacer();
         toolbar.addField(new ThemeChanger());
         westPanel.setTopToolbar(toolbar);
         

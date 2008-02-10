@@ -30,8 +30,8 @@ public class ThemeChanger extends ComboBox {
     public ThemeChanger() {
 
         final Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
-                new Object[]{"js/ext/resources/css/xtheme-gray.css", "Gray Theme"},
-                new Object[]{"xtheme-default.css", "Aero Glass Theme"}
+                new Object[]{"js/ext/resources/css/xtheme-gray.css", "Gray"},
+                new Object[]{"xtheme-default.css", "Aero Glass"}
         });
         store.load();
 
@@ -41,7 +41,7 @@ public class ThemeChanger extends ComboBox {
         setDisplayField("label");
         setForceSelection(true);
         setTriggerAction(ComboBox.ALL);
-        setValue("Gray Theme");
+        setValue("Gray");
         setFieldLabel("Switch theme");
         addListener(new ComboBoxListenerAdapter() {
             public void onSelect(ComboBox comboBox, Record record, int index) {
@@ -49,6 +49,7 @@ public class ThemeChanger extends ComboBox {
                 CSS.swapStyleSheet("theme", theme);
             }
         });
+        setWidth(100);
     }
 }
 

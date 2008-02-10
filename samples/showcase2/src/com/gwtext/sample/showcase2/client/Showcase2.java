@@ -12,9 +12,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.Margins;
 import com.gwtext.client.core.Position;
@@ -129,6 +127,11 @@ public class Showcase2 implements EntryPoint, HistoryListener {
         westPanel.setWidth(210);
         westPanel.setCollapsible(true);
 
+        Toolbar toolbar = new Toolbar();
+        toolbar.addItem(new ToolbarTextItem("Select Theme "));
+        toolbar.addField(new ThemeChanger());
+        westPanel.setTopToolbar(toolbar);
+        
         TabPanel tabPanel = new TabPanel();
         tabPanel.setActiveTab(0);
         tabPanel.setDeferredRender(true);

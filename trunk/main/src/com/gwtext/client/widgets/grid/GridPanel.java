@@ -24,9 +24,48 @@ import com.gwtext.client.widgets.grid.event.*;
  * <b>Common Problems:</b>
  * <ul>
  * <li>Grid does not resize properly when going smaller: Setting overflow hidden on the container element will correct this</li>
- * <li>If you get el.style[camel]= NaNpx or -2px or something related, be certain you have given your container element dimensions. The grid adapts to your container's size, if your container has no size defined then the results are unpredictable.</li>
- * <li>Do not render the grid into an element with display:none. Try using visibility:hidden. Otherwise there is no way for the grid to calculate dimensions/offsets.</li>
+ * <li>If you get el.style[camel]= NaNpx or -2px or something related, be certain you have given your container element dimensions.
+ * The grid adapts to your container's size, if your container has no size defined then the results are unpredictable.</li>
+ * <li>Do not render the grid into an element with display:none. Try using visibility:hidden. Otherwise there is no way for
+ *  the grid to calculate dimensions/offsets.</li>
  * </ul>
+ *
+ * <br>
+ * CSS can be used to style or customize the behaviour of headers an cells.
+ * <br>
+ * For example, use this to wrap all cell contents globally
+ * <pre>
+ * .x-grid3-cell-inner {
+ *      overflow: visible; white-space: normal !important;
+ * }
+ * </pre> 
+ * To wrap cell contents on a certain table only, set an ID to the Grid panel (say company-grid) and then use the CSS
+ * <pre>
+ * #company-grid  .x-grid3-cell-inner {
+ *      overflow: visible; white-space: normal !important;
+ * }
+ * </pre>
+ * To wrap long header titles
+ * For all grids
+ * <pre>
+ * .x-grid3-hd-inner  {
+ *     overflow: visible; white-space: normal;
+ * }
+ * </pre>
+ *
+ * For specific grid
+ * <pre>
+ * #company-grid .x-grid3-hd-inner  {
+ *     overflow: visible; white-space: normal;
+ * }
+ * </pre>
+ *
+ * For specific column
+ * <pre>
+ * .x-grid3-hd-company {
+ *      overflow: visible; white-space: normal !important;
+ * }
+ * </pre>
  */
 public class GridPanel extends Panel {
 
@@ -88,7 +127,6 @@ public class GridPanel extends Panel {
         return new $wnd.Ext.grid.GridPanel(configJS);
     }-*/;
 
-
     /**
      * Returns the grid's ColumnModel.
      *
@@ -109,7 +147,7 @@ public class GridPanel extends Panel {
      */
     public Store getStore() {
         JavaScriptObject storeJS = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(config, "store");
-        return new Store(storeJS);
+        return storeJS == null ? null : new Store(storeJS);
     }
 
     /**

@@ -1274,7 +1274,7 @@ public abstract class Component extends Widget implements Observable {
         }
     }
 
-    private void error(String message) throws IllegalStateException {
+    protected void error(String message) throws IllegalStateException {
         if (!GWT.isScript()) {
             MessageBox.alert("Error", message);
             throw new IllegalStateException(message);

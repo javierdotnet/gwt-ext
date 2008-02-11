@@ -9,10 +9,10 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.core.UrlParam;
-import com.gwtext.client.core.Connection;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.tree.event.TreeLoaderListener;
 
@@ -103,7 +103,7 @@ public class TreeLoader extends JsObject {
 	 *
 	 * @param listener the listener
 	 */
-	public native void addTreeLoaderListener(TreeLoaderListener listener)/*-{
+	public native void addListener(TreeLoaderListener listener)/*-{
         var loader = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var loaderJ = this;
 

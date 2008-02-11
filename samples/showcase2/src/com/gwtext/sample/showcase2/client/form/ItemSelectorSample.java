@@ -11,9 +11,9 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.FormPanel;
-import com.gwtext.client.widgets.form.ItemSelector;
 import com.gwtext.client.widgets.form.TextField;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
+import com.gwtextux.client.widgets.form.ItemSelector;
 
 public class ItemSelectorSample extends ShowcasePanel {
 

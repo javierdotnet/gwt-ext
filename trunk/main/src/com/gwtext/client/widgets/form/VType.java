@@ -65,7 +65,7 @@ public class VType {
      * @param alphaMask the alpha mask
      */
     public static native void setAlphaMask(RegExp alphaMask)/*-{
-        var re = alphaMask.@com.gwtext.client.core.JsObject::jsObj;
+        var re = alphaMask.@com.gwtext.client.core.JsObject::getJsObj()();
         $wnd.Ext.form.VTypes.alphaMask = re;
     }-*/;
 
@@ -84,7 +84,7 @@ public class VType {
      * @param alphanumMask the alpha num mask
      */
     public static native void setAlphanumMask(RegExp alphanumMask)/*-{
-        var re = alphanumMask.@com.gwtext.client.core.JsObject::jsObj;
+        var re = alphanumMask.@com.gwtext.client.core.JsObject::getJsObj()();
         $wnd.Ext.form.VTypes.alphanumMask = re;
     }-*/;
 
@@ -103,7 +103,7 @@ public class VType {
      * @param emailMask the email mask
      */
     public static native void setEmailMask(RegExp emailMask)/*-{
-        var re = emailMask.@com.gwtext.client.core.JsObject::jsObj;
+        var re = emailMask.@com.gwtext.client.core.JsObject::getJsObj()();
         $wnd.Ext.form.VTypes.emailMask = re;
     }-*/;
 

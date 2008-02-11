@@ -41,7 +41,7 @@ public class AnimationConfig extends BaseConfig {
      * @param callback the callback function
      */
     public native void setCallback(Function callback) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['callback'] = function() {
                             callback.@com.gwtext.client.core.Function::execute()();
                         };

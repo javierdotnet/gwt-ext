@@ -93,7 +93,7 @@ public class Resizable extends JsObject {
     }
 
     private native void addListenerRendered(ResizableListener listener) /*-{
-        var rz = this.@com.gwtext.client.core.JsObject::jsObj;
+        var rz = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var rzJ = this;
 
         rz.addListener('beforeresize',

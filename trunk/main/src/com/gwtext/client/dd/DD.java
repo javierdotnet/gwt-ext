@@ -55,37 +55,37 @@ public class DD extends DragDrop {
     }
 
     public native boolean isScroll() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.scroll ? true : false;
     }-*/;
 
     public native void setScroll(boolean scroll) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.scroll = scroll;
     }-*/;
 
     public native void alignElWithMouse(Element el, int iPageX, int iPageY) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.alignElWithMouse(el, iPageX, iPageY);
     }-*/;
 
     public native void autoOffset(int iPageX, int iPageY) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.autoOffset(iPageX, iPageY);
     }-*/;
 
     public native void cachePosition(int iPageX, int iPageY) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.cachePosition(iPageX, iPageY);
     }-*/;
 
     public native void setDelta(int iPageX, int iPageY) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setDelta(iPageX, iPageY);
     }-*/;
 
     public native void setDragElPos(int iPageX, int iPageY) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setDragElPos(iPageX, iPageY);
     }-*/;
 }

@@ -34,7 +34,7 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement add(String selector) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.add(selector);
         return this;
      }-*/;
@@ -46,7 +46,7 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement add(ExtElement element) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.add(element);
         return this;
      }-*/;
@@ -55,7 +55,7 @@ public class CompositeElement extends BaseElement {
      * Removes all elements.
      */
     public native void clear() /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.clear();
      }-*/;
 
@@ -65,8 +65,8 @@ public class CompositeElement extends BaseElement {
      * @param element true if containts element
      */
     public native void contains(ExtElement element) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
         return ce.contains(elJS);
     }-*/;
 
@@ -79,7 +79,7 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement filter(String selector) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.filter(selector);
         return this;
      }-*/;
@@ -90,7 +90,7 @@ public class CompositeElement extends BaseElement {
      * @return the first element
      */
     public native ExtElement first() /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = ce.first();
         return el == null ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -101,7 +101,7 @@ public class CompositeElement extends BaseElement {
      * @return the element count
      */
     public native int getCount() /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return ce.getCount();
     }-*/;
 
@@ -112,8 +112,8 @@ public class CompositeElement extends BaseElement {
      * @return index of element
      */
     public native int indexOf(ExtElement element) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
         return ce.indexOf(elJS);
     }-*/;
 
@@ -123,7 +123,7 @@ public class CompositeElement extends BaseElement {
      * @return the last element
      */
     public native ExtElement last() /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = ce.last();
         return el == null ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -135,7 +135,7 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement removeElement(int index) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.removeElement(index);
         return this;
      }-*/;
@@ -148,7 +148,7 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement removeElement(int index, boolean removeDom) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.removeElement(index, removeDom);
         return this;
      }-*/;
@@ -160,8 +160,8 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement removeElement(ExtElement element) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.removeElement(elJS);
         return this;
      }-*/;
@@ -174,8 +174,8 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement removeElement(ExtElement element, boolean removeDom) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.removeElement(elJS, removeDom);
         return this;
      }-*/;
@@ -188,8 +188,8 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement replaceElement(int index, ExtElement replacement) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var replacementJS = replacement.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var replacementJS = replacement.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.replaceElement(index, replacementJS);
         return this;
      }-*/;
@@ -203,8 +203,8 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement replaceElement(int index, ExtElement replacement, boolean removeDom) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var replacementJS = replacement.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var replacementJS = replacement.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.replaceElement(index, replacementJS, removeDom);
         return this;
      }-*/;
@@ -217,9 +217,9 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement replaceElement(ExtElement element, ExtElement replacement) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
-        var replacementJS = replacement.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
+        var replacementJS = replacement.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.replaceElement(elJS, replacementJS);
         return this;
      }-*/;
@@ -233,9 +233,9 @@ public class CompositeElement extends BaseElement {
      * @return this
      */
     public native CompositeElement replaceElement(ExtElement element, ExtElement replacement, boolean removeDom) /*-{
-        var ce = this.@com.gwtext.client.core.JsObject::jsObj;
-        var elJS = element.@com.gwtext.client.core.JsObject::jsObj;
-        var replacementJS = replacement.@com.gwtext.client.core.JsObject::jsObj;
+        var ce = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var elJS = element.@com.gwtext.client.core.JsObject::getJsObj()();
+        var replacementJS = replacement.@com.gwtext.client.core.JsObject::getJsObj()();
         ce.replaceElement(elJS, replacementJS, removeDom);
         return this;
      }-*/;

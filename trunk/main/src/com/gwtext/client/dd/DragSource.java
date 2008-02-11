@@ -39,7 +39,7 @@ public class DragSource extends DDProxy {
     }
 
     public native StatusProxy getProxy() /*-{
-        var ds = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ds = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var proxy = ds.getProxy();
         return @com.gwtext.client.dd.StatusProxy::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(proxy);
     }-*/;

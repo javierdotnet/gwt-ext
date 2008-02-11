@@ -35,7 +35,7 @@ public class CSSRule extends JsObject {
      * @return css text
      */
     public native String getCssText() /*-{
-        var rule = this.@com.gwtext.client.core.JsObject::jsObj;
+        var rule = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return rule.cssText;
     }-*/;
 
@@ -45,7 +45,7 @@ public class CSSRule extends JsObject {
      * @return the parent rule
      */
     public native CSSRule getParentRule()/*-{
-        var rule = this.@com.gwtext.client.core.JsObject::jsObj;
+        var rule = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var parentRule = rule.parentRule;
         if(parentRule == null || parentRule === undefined) {
             return null;

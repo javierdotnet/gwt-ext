@@ -256,8 +256,8 @@ public class GridPanel extends Panel {
      */
     public native void reconfigure(Store store, ColumnModel columnModel) /*-{
         var grid = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
-        var columnModelJS = columnModel.@com.gwtext.client.core.JsObject::jsObj;
+        var storeJS = store.@com.gwtext.client.core.JsObject::getJsObj()();
+        var columnModelJS = columnModel.@com.gwtext.client.core.JsObject::getJsObj()();
         grid.reconfigure(storeJS, columnModelJS);
     }-*/;
 

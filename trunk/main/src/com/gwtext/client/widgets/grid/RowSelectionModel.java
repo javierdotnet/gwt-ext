@@ -45,7 +45,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Clears all selections.
      */
     public native void clearSelections() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.clearSelections();
     }-*/;
 
@@ -56,7 +56,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param endRow   the index of the last row in the range
      */
     public native void deselectRange(int startRow, int endRow) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.deselectRange(startRow, endRow);
     }-*/;
 
@@ -66,7 +66,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param row the index of the row to deselect
      */
     public native void deselectRow(int row) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.deselectRow(row);
     }-*/;
 
@@ -76,7 +76,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return the number of selected rows
      */
     public native int getCount() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.getCount();
     }-*/;
 
@@ -86,7 +86,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return the first selected record
      */
     public native Record getSelected() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var selected = sm.getSelected();
         return selected == null ? null : @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(selected);
     }-*/;
@@ -97,7 +97,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return the selected records
      */
     public native Record[] getSelections() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var records = sm.getSelections();
         return records == null ? null : @com.gwtext.client.data.Store::convertFromNativeRecordsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(records);
     }-*/;
@@ -108,7 +108,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return true if there is a selection
      */
     public native boolean hasSelection() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.hasSelection();
     }-*/;
 
@@ -119,7 +119,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return true if selected
      */
     public native boolean isIdSelected(String id) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isIdSelected(id);
     }-*/;
 
@@ -129,7 +129,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return true if selections are locked
      */
     public native boolean isLocked() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isLocked();
     }-*/;
 
@@ -140,7 +140,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return true if selected
      */
     public native boolean isSelected(int row) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isSelected(row);
     }-*/;
 
@@ -151,8 +151,8 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @return true if selected
      */
     public native boolean isSelected(Record record) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        var recordJ = record.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var recordJ = record.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isSelected(recordJ);
     }-*/;
 
@@ -160,7 +160,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Selects all rows.
      */
     public native void selectAll() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectAll();
     }-*/;
 
@@ -168,7 +168,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Selects the first row.
      */
     public native void selectFirstRow() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectFirstRow();
     }-*/;
 
@@ -176,7 +176,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Selects the last row.
      */
     public native void selectLastRow() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectLastRow();
     }-*/;
 
@@ -186,7 +186,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param keepExisting true to keep existing selection
      */
     public native void selectLastRow(boolean keepExisting) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectLastRow(keepExisting);
     }-*/;
 
@@ -194,7 +194,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Selects the row immediately following the last selected row.
      */
     public native void selectNext() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectNext();
     }-*/;
 
@@ -202,7 +202,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * Selects the row that precedes the last selected row.
      */
     public native void selectPrevious() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectPrevious();
     }-*/;
 
@@ -213,7 +213,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param endRow   the index of the last row
      */
     public native void selectRange(int startRow, int endRow) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectRange(startRow, endRow);
     }-*/;
 
@@ -225,7 +225,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param keepExisting keep the existing selection
      */
     public native void selectRange(int startRow, int endRow, boolean keepExisting) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectRange(startRow, endRow, keepExisting);
     }-*/;
 
@@ -235,7 +235,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param row the row index to select
      */
     public native void selectRow(int row) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectRow(row);
     }-*/;
 
@@ -246,7 +246,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param keepExisting keep existing selection
      */
     public native void selectRow(int row, boolean keepExisting) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectRow(row, keepExisting);
     }-*/;
 
@@ -257,7 +257,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param rows array of the indexes of the row to select
      */
     public native void selectRows(int[] rows) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var rowsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(rows);
         sm.selectRows(rowsJS);
     }-*/;
@@ -269,7 +269,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param keepExisting keep the existing selection
      */
     public native void selectRows(int[] rows, boolean keepExisting) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var rowsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(rows);
         sm.selectRows(rowsJS, keepExisting);
     }-*/;
@@ -280,7 +280,7 @@ public class RowSelectionModel extends AbstractSelectionModel {
      * @param listener the listener
      */
     public native void addListener(RowSelectionListener listener) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var smJ = this;
 
         sm.addListener('beforerowselect',

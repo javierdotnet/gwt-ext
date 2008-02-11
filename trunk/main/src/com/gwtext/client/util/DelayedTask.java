@@ -33,7 +33,7 @@ public class DelayedTask extends JsObject {
      * Cancel the last queued timeout.
      */
     public native void cancel() /*-{
-        var dtask = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dtask = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dtask.cancel();
     }-*/;
 
@@ -44,7 +44,7 @@ public class DelayedTask extends JsObject {
      * @param task  the task
      */
     public native void delay(int delay, Function task) /*-{
-        var dtask = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dtask = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dtask.delay(delay, function() {
             task.@com.gwtext.client.core.Function::execute()();
         });

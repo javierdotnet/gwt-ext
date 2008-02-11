@@ -170,7 +170,7 @@ public abstract class JsObject {
     }
 
     public native String[] getProperties() /*-{
-        var jsObj = this.@com.gwtext.client.core.JsObject::jsObj;
+        var jsObj = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return @com.gwtext.client.util.JavaScriptObjectHelper::getProperties(Lcom/google/gwt/core/client/JavaScriptObject;)(jsObj);
     }-*/;
 

@@ -145,8 +145,8 @@ public class KeyMap extends JsObject {
      * @param config new binding config
      */
     public native void addBinding(KeyMapConfig config) /*-{
-        var km = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = this.@com.gwtext.client.core.JsObject::jsObj;
+        var km = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = this.@com.gwtext.client.core.JsObject::getJsObj()();
         km.addBinding(configJS);
     }-*/;
 
@@ -154,7 +154,7 @@ public class KeyMap extends JsObject {
      * Disable this KeyMap.
      */
     public native void disable() /*-{
-        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        var km = this.@com.gwtext.client.core.JsObject::getJsObj()();
         km.disable();
     }-*/;
 
@@ -162,7 +162,7 @@ public class KeyMap extends JsObject {
      * Enable this KeyMap,
      */
     public native void enable() /*-{
-        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        var km = this.@com.gwtext.client.core.JsObject::getJsObj()();
         km.enable();
     }-*/;
 
@@ -172,7 +172,7 @@ public class KeyMap extends JsObject {
      * @return true if enabled
      */
     public native boolean isEnabled() /*-{
-        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        var km = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return km.isEnabled();
     }-*/;
 
@@ -183,7 +183,7 @@ public class KeyMap extends JsObject {
      * @param stopEvent true to stop event bubbling
      */
     public native void setStopEvent(boolean stopEvent) /*-{
-        var km = this.@com.gwtext.client.core.JsObject::jsObj;
+        var km = this.@com.gwtext.client.core.JsObject::getJsObj()();
         km.stopEvent = stopEvent;
     }-*/;
 }

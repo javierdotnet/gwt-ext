@@ -71,8 +71,8 @@ public class Tree extends JsObject {
      * @param node the root node
      */
     public native void setRootNode(Node node) /*-{
-        var tree = this.@com.gwtext.client.core.JsObject::jsObj;
-        var nodeJS = node.@com.gwtext.client.core.JsObject::jsObj;
+        var tree = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var nodeJS = node.@com.gwtext.client.core.JsObject::getJsObj()();
         tree.setRootNode(nodeJS);
     }-*/;
 
@@ -82,7 +82,7 @@ public class Tree extends JsObject {
      * @param listener the listener
      */
     public native void addNodeListener(TreeListener listener) /*-{
-	    var tree = this.@com.gwtext.client.core.JsObject::jsObj;
+	    var tree = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var treeJ = this;
 
 		tree.addListener('append',

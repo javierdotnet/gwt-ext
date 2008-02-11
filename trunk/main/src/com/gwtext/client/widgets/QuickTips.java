@@ -94,7 +94,7 @@ public class QuickTips {
      * @param config the config
      */
     public native void register(String id, QuickTipsConfig config) /*-{
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         configJS['target'] = id;
         $wnd.Ext.QuickTips.register(configJS);
      }-*/;
@@ -106,7 +106,7 @@ public class QuickTips {
      * @param config the quick tip config
      */
     public native void register(Element element, QuickTipsConfig config) /*-{
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         configJS['target'] = element;
         $wnd.Ext.QuickTips.register(configJS);
      }-*/;

@@ -139,7 +139,7 @@ public class UpdateManager extends JsObject {
      * Aborts the executing transaction.
      */
     public native void abort() /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.abort();
     }-*/;
 
@@ -150,7 +150,7 @@ public class UpdateManager extends JsObject {
      * @param cb        the event callback
      */
     public native void addListener(String eventName, EventCallback cb) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.addListener(eventName, function(event) {
                 var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
@@ -165,7 +165,7 @@ public class UpdateManager extends JsObject {
      * @param formID the form ID
      */
     public native void formUpdate(String formID) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.formUpdate(formID);
     }-*/;
 
@@ -177,7 +177,7 @@ public class UpdateManager extends JsObject {
      * @param url    The url to pass the form to. If omitted the action attribute on the form will be used.
      */
     public native void formUpdate(String formID, String url) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.formUpdate(formID, url);
     }-*/;
 
@@ -191,7 +191,7 @@ public class UpdateManager extends JsObject {
      * @param callback callback when transaction is complete
      */
     public native void formUpdate(String formID, String url, boolean reset, UrlLoadCallback callback) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var cb;
         if(callback != null) {
             cb = function(options, success, response) {
@@ -207,7 +207,7 @@ public class UpdateManager extends JsObject {
      * @return the element
      */
     public native ExtElement getEl() /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = um.getEl();
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -218,7 +218,7 @@ public class UpdateManager extends JsObject {
      * @return true if update in progress
      */
     public native boolean isUpdating() /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return um.isUpdating();
     }-*/;
 
@@ -226,7 +226,7 @@ public class UpdateManager extends JsObject {
      * Refresh the element with the last used url or defaultUrl. If there is no url, it returns immediately.
      */
     public native void refresh() /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.refresh();
     }-*/;
 
@@ -236,7 +236,7 @@ public class UpdateManager extends JsObject {
      * @param url the default url
      */
     public native void setDefaultUrl(String url) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.setDefaultUrl(url);
     }-*/;
 
@@ -246,7 +246,7 @@ public class UpdateManager extends JsObject {
      * @param disableCaching true to disable caching
      */
     public native void setDisableCaching(boolean disableCaching) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.disableCaching = disableCaching;
     }-*/;
 
@@ -256,7 +256,7 @@ public class UpdateManager extends JsObject {
      * @param indicatorText the indicator text
      */
     public native void setIndicatorText(String indicatorText) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.indicatorText = indicatorText;
     }-*/;
 
@@ -266,7 +266,7 @@ public class UpdateManager extends JsObject {
      * @param loadScripts true to laod scripts
      */
     public native void setLoadScripts(boolean loadScripts) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.loadScripts = loadScripts;
     }-*/;
 
@@ -277,7 +277,7 @@ public class UpdateManager extends JsObject {
      * @param method the request method
      */
     public native void setMethod(Connection.Method method) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.method = method.@com.gwtext.client.core.Connection$Method::getMethod()();
     }-*/;
 
@@ -287,7 +287,7 @@ public class UpdateManager extends JsObject {
      * @param showIndicator true to show loading indicator
      */
     public native void setShowIndicator(boolean showIndicator) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.showIndicator = showIndicator;
     }-*/;
 
@@ -297,7 +297,7 @@ public class UpdateManager extends JsObject {
      * @param timeout the timeout in seconds
      */
     public native void setTimeout(int timeout) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.timeout = timeout ;
     }-*/;
 
@@ -307,7 +307,7 @@ public class UpdateManager extends JsObject {
      * @param interval how often to update in seconds
      */
     public native void startAutoRefresh(int interval) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.startAutoRefresh(interval);
     }-*/;
 
@@ -318,7 +318,7 @@ public class UpdateManager extends JsObject {
      * @param url      The url for this request or a function to call to get the url (Defaults to the last used url)
      */
     public native void startAutoRefresh(int interval, String url) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.startAutoRefresh(interval, url);
     }-*/;
 
@@ -332,7 +332,7 @@ public class UpdateManager extends JsObject {
      * @param refreshNow whether to execute the refresh now, or wait the interval
      */
     public native void startAutoRefresh(int interval, String url, String params, Function cb, boolean refreshNow) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.startAutoRefresh(interval, url, params, function() {
             cb.@com.gwtext.client.core.Function::execute()();
         }, refreshNow);
@@ -342,7 +342,7 @@ public class UpdateManager extends JsObject {
      * Stop auto refresh on this element.
      */
     public native void stopAutoRefresh() /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.stopAutoRefresh();
     }-*/;
 
@@ -354,7 +354,7 @@ public class UpdateManager extends JsObject {
      * @param params the parameters to pass as a url encoded string "param1=1&param2=2"
      */
     public native void update(String url, String params) /*-{
-        var um = this.@com.gwtext.client.core.JsObject::jsObj;
+        var um = this.@com.gwtext.client.core.JsObject::getJsObj()();
         um.update(url, params);
     }-*/;
 

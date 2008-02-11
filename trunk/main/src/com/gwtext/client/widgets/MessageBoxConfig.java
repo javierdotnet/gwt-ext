@@ -138,7 +138,7 @@ public class MessageBoxConfig extends BaseConfig {
      * @param cb the callback
      */
     public native void setCallback(MessageBox.PromptCallback cb)/*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['fn'] = function(btnID, text) {
                             if(btnID === undefined) btnID = null;
                             if(text === undefined || text == '') text = null;

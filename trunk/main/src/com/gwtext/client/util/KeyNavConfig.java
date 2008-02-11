@@ -21,7 +21,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onEnter(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['enter'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -34,7 +34,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onLeft(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['left'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -47,7 +47,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onRight(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['right'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -60,7 +60,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onUp(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['up'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -73,7 +73,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onDown(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['down'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -86,7 +86,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onTab(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['tab'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -99,7 +99,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onEsc(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['esc'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -112,7 +112,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onPageUp(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['pageUp'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -125,7 +125,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onPageDown(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['pageDown'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -138,7 +138,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onDel(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['del'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -151,7 +151,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onHome(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['home'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);
@@ -164,7 +164,7 @@ public class KeyNavConfig extends BaseConfig {
      * @param cb the key handler
      */
     public native void onEnd(EventCallback cb) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['end'] = function(e) {
             var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
             cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(eJ);

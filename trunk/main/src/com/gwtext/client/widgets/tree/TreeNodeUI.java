@@ -36,7 +36,7 @@ public class TreeNodeUI extends JsObject {
 	 * @param cls the CSS class
 	 */
 	public native void addClass(String cls) /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.addClass(cls);
     }-*/;
 
@@ -46,7 +46,7 @@ public class TreeNodeUI extends JsObject {
 	 * @param cls the CSS class to remove
 	 */
 	public native void removeClass(String cls) /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.removeClass(cls);
     }-*/;
 
@@ -54,7 +54,7 @@ public class TreeNodeUI extends JsObject {
 	 * Hides this node.
 	 */
 	public native void hide() /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.hide();
     }-*/;
 
@@ -62,7 +62,7 @@ public class TreeNodeUI extends JsObject {
 	 * Shows this node.
 	 */
 	public native void show() /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.show();
     }-*/;
 
@@ -71,7 +71,7 @@ public class TreeNodeUI extends JsObject {
 	 * If the node was rendered with no checkbox, this has no effect.
 	 */
 	public native void toggleCheck() /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.toggleCheck();
     }-*/;
 
@@ -82,7 +82,7 @@ public class TreeNodeUI extends JsObject {
 	 * @param value the new checkbox status
 	 */
     public native void toggleCheck(boolean value) /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.toggleCheck(value);
     }-*/;
 
@@ -90,7 +90,7 @@ public class TreeNodeUI extends JsObject {
 	 * Highlight this node.
 	 */
 	public native void highlight() /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ui.highlight();
     }-*/;
 
@@ -103,7 +103,7 @@ public class TreeNodeUI extends JsObject {
      * @return the subtree element
      */
     public native Element getEl() /*-{
-         var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+         var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
          return ui.getEl();
     }-*/;
 
@@ -113,7 +113,7 @@ public class TreeNodeUI extends JsObject {
      * @return the underlying element for this node
      */
     public native Element getElNode()/*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return ui.elNode;
      }-*/;
 
@@ -123,7 +123,7 @@ public class TreeNodeUI extends JsObject {
 	 * @return true if checked
 	 */
 	public native boolean isChecked() /*-{
-        var ui = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return ui.isChecked();
      }-*/;
 }

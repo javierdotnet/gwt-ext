@@ -55,7 +55,7 @@ public class Layer extends ExtElement {
      * @param zindex the z index
      */
     public native void setZIndex(int zindex) /*-{
-        var layer = this.@com.gwtext.client.core.JsObject::jsObj;
+        var layer = this.@com.gwtext.client.core.JsObject::getJsObj()();
         layer.setZIndex(zindex);
     }-*/;
 }

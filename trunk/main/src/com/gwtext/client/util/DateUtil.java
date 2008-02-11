@@ -102,16 +102,17 @@ public class DateUtil {
     }
 
     /**
-     * Formats a date given the supplied format string.
+     * Formats a date given the supplied format string. You can also use GWT's standard {@link com.google.gwt.i18n.client.DateTimeFormat} class.
      *
      * @param date   the date
      * @param format the format string
      * @return the formatted date
+     * @see com.google.gwt.i18n.client.DateTimeFormat
      */
     public static native String format(Date date, String format) /*-{
         if(date == null) return "";
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
-        return new $wnd.Date(millis).format(format);
+        return new $wnd.Date(millis).format(format).toString();
     }-*/;
 
     /**

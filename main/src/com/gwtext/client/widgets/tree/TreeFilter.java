@@ -42,7 +42,7 @@ public class TreeFilter extends JsObject {
 	 * Clears the current filter. Note: with the "remove" TreeFilterConfig option set a filter cannot be cleared.
 	 */
 	public native void clear() /*-{
-        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
+        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
         filter.clear();
     }-*/;
 
@@ -53,7 +53,7 @@ public class TreeFilter extends JsObject {
 	 * @param value the node's text value
 	 */
 	public native void filter(String value) /*-{
-        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
+        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
         filter.filter(value);
     }-*/;
 
@@ -64,8 +64,8 @@ public class TreeFilter extends JsObject {
 	 * @param startNode the node to start filtering from
 	 */
     public native void filter(String value, TreeNode startNode) /*-{
-        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
-        var node = startNode.@com.gwtext.client.core.JsObject::jsObj;
+        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var node = startNode.@com.gwtext.client.core.JsObject::getJsObj()();
         filter.filter(value, null, node);
     }-*/;
 
@@ -75,7 +75,7 @@ public class TreeFilter extends JsObject {
 	 * @param regexp regexp to test the node value against
 	 */
 	public native void filterRe(String regexp) /*-{
-        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
+        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
         filter.filter(new $wnd.RegExp(regexp));
     }-*/;
 
@@ -86,8 +86,8 @@ public class TreeFilter extends JsObject {
 	 * @param startNode the node to start filtering from
 	 */
     public native void filterRe(String regexp, TreeNode startNode) /*-{
-        var filter = this.@com.gwtext.client.core.JsObject::jsObj;
-        var node = startNode.@com.gwtext.client.core.JsObject::jsObj;
+        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var node = startNode.@com.gwtext.client.core.JsObject::getJsObj()();
         filter.filter(new $wnd.RegExp(regexp), null, node);
     }-*/;
 
@@ -99,7 +99,7 @@ public class TreeFilter extends JsObject {
 	 * @param callback the filter callback
 	 */
    public native void filterBy(TreeTraversalCallback callback) /*-{
-       var filter = this.@com.gwtext.client.core.JsObject::jsObj;
+       var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
        filter.filterBy(function(node) {
             var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
             return callback.@com.gwtext.client.widgets.tree.TreeTraversalCallback::execute(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);

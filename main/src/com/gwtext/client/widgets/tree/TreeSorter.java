@@ -36,8 +36,8 @@ public class TreeSorter extends JsObject {
      * @param startNode the start node
      */
     public native void sort(TreeNode startNode) /*-{
-        var sorter = this.@com.gwtext.client.core.JsObject::jsObj;
-        var startNodeJ = startNode.@com.gwtext.client.core.JsObject::jsObj;
+        var sorter = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var startNodeJ = startNode.@com.gwtext.client.core.JsObject::getJsObj()();
         sorter.doSort(startNodeJ);
     }-*/;
 }

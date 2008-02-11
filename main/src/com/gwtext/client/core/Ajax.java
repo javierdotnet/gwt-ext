@@ -108,7 +108,7 @@ public class Ajax extends Connection {
      * @return url encoded String
      */
     public native String serializeForm(String formId) /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return conn.serializeForm(formId);
     }-*/;
 }

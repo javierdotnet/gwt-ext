@@ -105,7 +105,7 @@ public class KeyMapConfig extends BaseConfig {
      * @param listener the listener
      */
     public native void setKeyListener(KeyListener listener) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['fn'] = function(key, event) {
             var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
             listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);

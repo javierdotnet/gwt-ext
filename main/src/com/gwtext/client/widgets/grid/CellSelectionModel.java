@@ -24,7 +24,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
      * Clears all selections.
      */
     public native void clearSelections() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.clearSelections();
     }-*/;
 
@@ -34,7 +34,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
      * @param disableNotifications true to disable notifications to the {@link GridView}
      */
     public native void clearSelections(boolean disableNotifications) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.clearSelections(disableNotifications);
     }-*/;
 
@@ -44,7 +44,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
      * @return array containing rowIndex, colIndex
      */
     public native int[] getSelectedCell() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sc = sm.getSelectedCell();
         return sc == null ? null : @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(sc);
     }-*/;
@@ -56,7 +56,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
      * @param cellIndex column index of cell
      */
     public native void select(int rowIndex, int cellIndex)/*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.select(rowIndex, cellIndex);
     }-*/;
 
@@ -66,7 +66,7 @@ public class CellSelectionModel extends AbstractSelectionModel {
      * @param listener the listener
      */
     public native void addListener(CellSelectionModelListener listener) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var smJ = this;
 
         sm.addListener('beforerowselect',

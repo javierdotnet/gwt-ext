@@ -80,7 +80,7 @@ public class XTemplate extends JsObject {
     }
 
     private native String applyTemplate(JavaScriptObject values) /*-{
-        var template = this.@com.gwtext.client.core.JsObject::jsObj;
+        var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return template.applyTemplate(values);
     }-*/;
 
@@ -88,7 +88,7 @@ public class XTemplate extends JsObject {
      * Compiles the template into an internal function, eliminating the RegEx overhead.
      */
     public native void compile() /*-{
-        var template = this.@com.gwtext.client.core.JsObject::jsObj;
+        var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         template.compile();
     }-*/;
 }

@@ -52,7 +52,7 @@ public class Form extends BaseExtWidget {
     //TODO
     /*public native void applyIfToFields(FieldConfig fieldConfig) *//*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        var configJS = fieldConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = fieldConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         field.applyIfToFields(configJS);
     }-*//*;
 */
@@ -64,7 +64,7 @@ public class Form extends BaseExtWidget {
     //TODO
 /*    public native void applyToFields(FieldConfig fieldConfig) *//*-{
         var field = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-        var configJS = fieldConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var configJS = fieldConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         field.applyToFields(configJS);
     }-*//*;*/
 
@@ -156,7 +156,7 @@ public class Form extends BaseExtWidget {
      */
     public native void loadRecord(Record record) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-		var recordJS  = record.@com.gwtext.client.core.JsObject::jsObj;
+		var recordJS  = record.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.loadRecord(recordJS);
 	}-*/;
 
@@ -248,7 +248,7 @@ public class Form extends BaseExtWidget {
      */
     public native void updateRecord(Record record) /*-{
 		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
-		var recordJS  = record.@com.gwtext.client.core.JsObject::jsObj;
+		var recordJS  = record.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.updateRecord(recordJS);
 	}-*/;
 

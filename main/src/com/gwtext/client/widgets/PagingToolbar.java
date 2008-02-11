@@ -76,7 +76,7 @@ public class PagingToolbar extends Toolbar {
 
     private native void bindCreated(Store store) /*-{
 		var pagingToolbar = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
+		var storeJS = store.@com.gwtext.client.core.JsObject::getJsObj()();
 		pagingToolbar.bind(storeJS);
 	}-*/;
 
@@ -95,7 +95,7 @@ public class PagingToolbar extends Toolbar {
 
     private  native void unbindCreated(Store store) /*-{
 		var pagingToolbar = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-		var storeJS = store.@com.gwtext.client.core.JsObject::jsObj;
+		var storeJS = store.@com.gwtext.client.core.JsObject::getJsObj()();
 		pagingToolbar.unbind(storeJS);
 	}-*/;
 

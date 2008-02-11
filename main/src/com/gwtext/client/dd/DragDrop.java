@@ -188,7 +188,7 @@ public class DragDrop extends JsObject {
     }
 
     public native boolean isAvailable() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.available;
     }-*/;
 
@@ -207,7 +207,7 @@ public class DragDrop extends JsObject {
     }
 
     private native JavaScriptObject doGetGroups() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var groups = dd.groups;
         var group;
         var arr = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
@@ -218,12 +218,12 @@ public class DragDrop extends JsObject {
     }-*/;
 
     public native boolean hasOuterHandles() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.hasOuterHandles;
     }-*/;
 
     public native String getId() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.id;
     }-*/;
 
@@ -232,18 +232,18 @@ public class DragDrop extends JsObject {
     }
 
     public native String getInvalidHandleTypes() /*-{
-       var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+       var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
        return dd.invalidHandleTypes;
    }-*/;
 
     public native boolean isMaintainOffset() /*-{
-       var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+       var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
        var mo = dd.maintainOffset;
        return (mo === undefined || mo == null) ? false : mo; 
    }-*/;
 
     public native boolean isPrimaryButtonOnly() /*-{
-       var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+       var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
        return dd.primaryButtonOnly;
    }-*/;
 
@@ -256,37 +256,37 @@ public class DragDrop extends JsObject {
     }
 
     public native void addInvalidHandleClass(String cssClass) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.addInvalidHandleClass(cssClass);
     }-*/;
 
     public native void addInvalidHandleId(String id) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.addInvalidHandleId(id);
     }-*/;
 
     public native void addInvalidHandleType(String tagName) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.addInvalidHandleType(tagName);
     }-*/;
 
     public native void addToGroup(String sGroup) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.addToGroup(sGroup);
     }-*/;
 
     public native void applyConfig() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.applyConfig();
     }-*/;
 
     public native void clearConstraints() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.clearConstraints();
     }-*/;
 
     public native void clearTicks() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.clearTicks();
     }-*/;
 
@@ -296,44 +296,44 @@ public class DragDrop extends JsObject {
 
 
     public native Element getDragEl() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.getDragEl();
     }-*/;
 
     public native Element getEl() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.getEl();
     }-*/;
 
     public native void init(String id, String sGroup, DragDropConfig config) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        var cfg = config.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var cfg = config.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.init(id, sGroup, cfg);
     }-*/;
 
     public native void initTarget(String id, String sGroup, DragDropConfig config) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
-        var cfg = config.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var cfg = config.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.initTarget(id, sGroup, cfg);
     }-*/;
 
     public native boolean isLocked() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.isLocked();
     }-*/;
 
     public native boolean isTarget() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.isTarget();
     }-*/;
 
     public native boolean isValidHandleChild(Element element) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.isValidHandleChild(element);
     }-*/;
 
     public native void lock() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.lock();
     }-*/;
 
@@ -401,69 +401,69 @@ public class DragDrop extends JsObject {
 
 
     public native Paddings getPadding() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var padding = dd.padding;
         return @com.gwtext.client.core.Paddings::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(padding);
     }-*/;
 
     public native void removeFromGroup(String sGroup) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.removeFromGroup(sGroup);
     }-*/;
 
     public native void removeInvalidHandleClass(String cssClass) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.removeInvalidHandleClass(cssClass);
     }-*/;
 
     public native void removeInvalidHandleId(String id) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.removeInvalidHandleId(id);
     }-*/;
 
     public native void removeInvalidHandleType(String tagName) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.removeInvalidHandleType(tagName);
     }-*/;
 
     public native void resetConstraints(boolean maintainOffset) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.resetConstraints(maintainOffset);
     }-*/;
 
     public native void setDragElId(String id) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setDragElId(id);
     }-*/;
 
     public native void setHandleElId(String id) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setHandleElId(id);
     }-*/;
 
     //in doc but missing from code?
     /*public native void setInitialPosition(int diffX, int diffY) *//*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setInitialPosition(diffX, diffY);
     }-*//*;*/
 
     public native void setOuterHandleElId(String id) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setOuterHandleElId(id);
     }-*/;
 
     public native void setPadding(int iUp, int iDown, int iBottom, int iLeft) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setPadding(iUp, iDown, iBottom, iLeft);
     }-*/;
 
     public native void setXConstraint(int iLeft, int iRight, int iTickSize) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setXConstraint(iLeft, iRight, iTickSize);
     }-*/;
 
     public native void setYConstraint(int iUp, int iDown, int iTickSize) /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.setYConstraint(iUp, iDown, iTickSize);
     }-*/;
 
@@ -472,17 +472,17 @@ public class DragDrop extends JsObject {
     }
 
     public native String toString() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return dd.toString();
     }-*/;
 
     public native void unlock() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.unlock();
     }-*/;
 
     public native void unreg() /*-{
-        var dd = this.@com.gwtext.client.core.JsObject::jsObj;
+        var dd = this.@com.gwtext.client.core.JsObject::getJsObj()();
         dd.unreg();
     }-*/;
 }

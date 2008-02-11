@@ -57,7 +57,7 @@ public class KeyNav extends JsObject {
      * Disable the KeyNav.
      */
     public native void disable() /*-{
-        var kn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var kn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         kn.disable();
     }-*/;
 
@@ -65,7 +65,7 @@ public class KeyNav extends JsObject {
      * Enable the KeyNav.
      */
     public native void enable() /*-{
-        var kn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var kn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         kn.enable();
     }-*/;
 }

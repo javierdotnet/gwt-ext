@@ -30,7 +30,7 @@ public abstract class AbstractSelectionModel extends JsObject {
      * @return true if selections are locked
      */
     public native boolean isLocked() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isLocked();
     }-*/;
 
@@ -38,7 +38,7 @@ public abstract class AbstractSelectionModel extends JsObject {
      * Locks the selections.
      */
     public native void lock() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.lock();
     }-*/;
 
@@ -46,7 +46,7 @@ public abstract class AbstractSelectionModel extends JsObject {
      * Unlocks the selections.
      */
     public native void unlock() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.unlock();
     }-*/;
 }

@@ -98,7 +98,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement appendChild(Element child) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.appendChild(child);
         return this;
     }-*/;
@@ -110,7 +110,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement appendTo(Element el) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.appendTo(el);
         return this;
     }-*/;
@@ -121,7 +121,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement blur() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.blur();
         return this;
     }-*/;
@@ -133,7 +133,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement boxWrap() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var wrap = elem.boxWrap();
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(wrap);
     }-*/;
@@ -147,7 +147,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement boxWrap(String boxClass) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var wrap = elem.boxWrap(boxClass);
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(wrap);
     }-*/;
@@ -158,7 +158,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement center() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.center();
         return this;
     }-*/;
@@ -170,7 +170,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement center(Element centerIn) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.center(centerIn);
         return this;
     }-*/;
@@ -183,7 +183,7 @@ public class ExtElement extends BaseElement {
      * @return child element
      */
     public native Element child(String selector) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.child(selector, true);
     }-*/;
 
@@ -193,7 +193,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement clearPositioning() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.clearPositioning();
         return this;
     }-*/;
@@ -205,7 +205,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement clearPositioning(Position value) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var valueJS = value.@com.gwtext.client.core.Position::getPosition()();
         elem.clearPositioning(valueJS);
         return this;
@@ -218,7 +218,7 @@ public class ExtElement extends BaseElement {
      * @return true if this element is an ancestor of the passed element
      */
     public native boolean contains(Element el) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.contains(el);
     }-*/;
 
@@ -230,7 +230,7 @@ public class ExtElement extends BaseElement {
      */
     public native ExtElement createChild(DomConfig config) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var childJS = elem.createChild(configJS);
         var childJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
         return childJ;
@@ -245,7 +245,7 @@ public class ExtElement extends BaseElement {
      */
     public native ExtElement createChild(DomConfig config, Element insertBefore) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var childJS = elem.createChild(configJS, insertBefore);
         var childJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
         return childJ;
@@ -260,7 +260,7 @@ public class ExtElement extends BaseElement {
      */
     public native ExtElement createProxy(DomConfig config) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var proxy = elem.createProxy(configJS);
         var proxyJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(proxy);
         return proxyJ;
@@ -276,7 +276,7 @@ public class ExtElement extends BaseElement {
      */
     public native ExtElement createProxy(DomConfig config, Element renderTo, boolean matchBox) /*-{
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var proxy = elem.createProxy(configJS, renderTo, matchBox);
         var proxyJ = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(proxy);
         return proxyJ;
@@ -289,7 +289,7 @@ public class ExtElement extends BaseElement {
      * @return the new proxy element
      */
     public native ExtElement createProxy(String cls) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.createProxy(cls);
         return this;
     }-*/;
@@ -303,7 +303,7 @@ public class ExtElement extends BaseElement {
      * @return the new proxy element
      */
     public native ExtElement createProxy(String cls, Element renderTo, boolean matchBox) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.createProxy(cls, renderTo, matchBox);
         return this;
     }-*/;
@@ -316,7 +316,7 @@ public class ExtElement extends BaseElement {
      * @return the child element
      */
     public native Element down(String selector) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.down(selector, true);
     }-*/;
 
@@ -328,7 +328,7 @@ public class ExtElement extends BaseElement {
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.findParent(selector);
     }-*/;
 
@@ -341,7 +341,7 @@ public class ExtElement extends BaseElement {
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector, Element container) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.findParent(selector, container);
     }-*/;
 
@@ -354,7 +354,7 @@ public class ExtElement extends BaseElement {
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector, int maxDepth) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.findParent(selector, maxDepth);
     }-*/;
 
@@ -367,7 +367,7 @@ public class ExtElement extends BaseElement {
      * @return the matching element of null if no node found
      */
     public native Element findParentNode(String selector, Element container) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.findParentNode(selector, container);
     }-*/;
 
@@ -380,7 +380,7 @@ public class ExtElement extends BaseElement {
      * @return the matching element of null if no node found
      */
     public native Element findParentNode(String selector, int maxDepth) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.findParentNode(selector, maxDepth);
     }-*/;
 
@@ -390,7 +390,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement focus() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.focus();
         return this;
     }-*/;
@@ -403,7 +403,7 @@ public class ExtElement extends BaseElement {
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAlignToXY(Element element, String anchorPosition) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var arrJS = elem.getAlignToXY(element, anchorPosition);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -417,7 +417,7 @@ public class ExtElement extends BaseElement {
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAlignToXY(Element element, String anchorPosition, int[] offesets) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var offsetsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offesets);
         var arrJS = elem.getAlignToXY(element, anchorPosition, offsetsJS);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
@@ -429,7 +429,7 @@ public class ExtElement extends BaseElement {
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAnchorXY() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var arrJS = elem.getAnchorXY();
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -444,7 +444,7 @@ public class ExtElement extends BaseElement {
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAnchorXY(String anchorPosition, boolean local, int width, int height) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var arrJS = elem.getAnchorXY(anchorPosition, local, {width: width, height : height});
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -457,7 +457,7 @@ public class ExtElement extends BaseElement {
      * @return the attribute value
      */
     public native String getAttributeNS(String namespace, String name)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getAttributeNS(namespace, name);
     }-*/;
 
@@ -468,7 +468,7 @@ public class ExtElement extends BaseElement {
      * @return width of the side
      */
     public native int getBorderWidth(Side side)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sideJS = side.@com.gwtext.client.core.Side::getSide()();
         return elem.getBorderWidth(sideJS);
     }-*/;
@@ -480,7 +480,7 @@ public class ExtElement extends BaseElement {
      * @return the bottom Y coordinate
      */
     public native int getBottom(boolean local)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getBottom(local);
     }-*/;
 
@@ -490,7 +490,7 @@ public class ExtElement extends BaseElement {
      * @return the box object
      */
     public native Box getBox()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var boxJS = elem.getBox();
         return @com.gwtext.client.core.Box::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(boxJS);
     }-*/;
@@ -503,7 +503,7 @@ public class ExtElement extends BaseElement {
      * @return the box object
      */
     public native Box getBox(boolean contentBox, boolean local)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var boxJS = elem.getBox(contentBox, local);
         return @com.gwtext.client.core.Box::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(boxJS);
     }-*/;
@@ -514,7 +514,7 @@ public class ExtElement extends BaseElement {
      * @return the x, y values [
      */
     public native int[] getCenterXY() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var arrJS = elem.getCenterXY();
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -528,7 +528,7 @@ public class ExtElement extends BaseElement {
      * @return the css color
      */
     public native String getColor(String attr, String defaultValue)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getColor(attr, defaultValue);
     }-*/;
 
@@ -542,7 +542,7 @@ public class ExtElement extends BaseElement {
      * @return the css color
      */
     public native String getColor(String attr, String defaultValue, String prefix)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getColor(attr, defaultValue, prefix);
     }-*/;
 
@@ -554,7 +554,7 @@ public class ExtElement extends BaseElement {
      * @return the computed height
      */
     public native int getComputedHeight()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getComputedHeight();
     }-*/;
 
@@ -566,7 +566,7 @@ public class ExtElement extends BaseElement {
      * @return the computed width
      */
     public native int getComputedWidth()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getComputedWidth();
     }-*/;
 
@@ -576,7 +576,7 @@ public class ExtElement extends BaseElement {
      * @return the DOM element
      */
     public native Element getDOM()/*-{
-        var element = this.@com.gwtext.client.core.JsObject::jsObj;
+        var element = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return element.dom;
     }-*/;
 
@@ -587,7 +587,7 @@ public class ExtElement extends BaseElement {
      * @return sum of padding and border for the side
      */
     public native int getFrameWidth(Side side)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sideJS = side.@com.gwtext.client.core.Side::getSide()();
         return elem.getFrameWidth(sideJS);
     }-*/;
@@ -598,7 +598,7 @@ public class ExtElement extends BaseElement {
      * @return the element's height
      */
     public native int getHeight()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getHeight();
     }-*/;
 
@@ -609,7 +609,7 @@ public class ExtElement extends BaseElement {
      * @return the element's height
      */
     public native int getHeight(boolean contentHeight)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getHeight(contentHeight);
     }-*/;
 
@@ -619,7 +619,7 @@ public class ExtElement extends BaseElement {
      * @return the left coordinate.
      */
     public native int getLeft()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getLeft();
     }-*/;
 
@@ -630,7 +630,7 @@ public class ExtElement extends BaseElement {
      * @return the X cooridinate
      */
     public native int getLeft(boolean local)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getLeft(local);
     }-*/;
 
@@ -640,7 +640,7 @@ public class ExtElement extends BaseElement {
      * @return the margin
      */
     public native Margins getMargins()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var marginsJS = elem.getMargins();
         return @com.gwtext.client.core.Margins::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(marginsJS);
     }-*/;
@@ -651,7 +651,7 @@ public class ExtElement extends BaseElement {
      * @return the next sibling or null
      */
     public native Element next()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.next(null, true);
     }-*/;
 
@@ -662,7 +662,7 @@ public class ExtElement extends BaseElement {
      * @return the next sibling or null
      */
     public native Element next(String selector)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.next(selector, true);
     }-*/;
 
@@ -673,7 +673,7 @@ public class ExtElement extends BaseElement {
      * @return padding
      */
     public native int getPadding(Side side)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sideJS = side.@com.gwtext.client.core.Side::getSide()();
         return elem.getPadding(sideJS);
     }-*/;
@@ -685,7 +685,7 @@ public class ExtElement extends BaseElement {
      * @return positioning config object
      */
     public native PositioningConfig getPositioning()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var posJS = elem.getPositioning();
         return @com.gwtext.client.core.PositioningConfig::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(posJS);
     }-*/;
@@ -697,8 +697,8 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native BaseElement setPositioning(PositioningConfig posCfg)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var posCfgJS = posCfg.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var posCfgJS = posCfg.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setPositioning(posCfgJS);
         return this;
     }-*/;
@@ -709,7 +709,7 @@ public class ExtElement extends BaseElement {
      * @return the previous sibling or null
      */
     public native Element prev()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.prev(null, true);
     }-*/;
 
@@ -720,7 +720,7 @@ public class ExtElement extends BaseElement {
      * @return the previous sibling or null
      */
     public native Element prev(String selector)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.prev(selector, true);
     }-*/;
     /**
@@ -730,7 +730,7 @@ public class ExtElement extends BaseElement {
      * @return region of the element
      */
     public native Region getRegion()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var regionJS = elem.getRegion();
         return @com.gwtext.client.core.Region::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(regionJS);
     }-*/;
@@ -742,7 +742,7 @@ public class ExtElement extends BaseElement {
      * @return array of left and top scroll position
      */
     public native int[] getScroll()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var scroll = elem.getScroll();
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)([scroll.left, scroll.top]);
     }-*/;
@@ -753,7 +753,7 @@ public class ExtElement extends BaseElement {
      * @return element size
      */
     public native Size getSize()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sizeJS = elem.getSize();
         return @com.gwtext.client.core.Size::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(sizeJS);
     }-*/;
@@ -765,7 +765,7 @@ public class ExtElement extends BaseElement {
      * @return the current value of the style property for this element
      */
     public native String getStyle(String property)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getStyle(property);
     }-*/;
 
@@ -775,7 +775,7 @@ public class ExtElement extends BaseElement {
      * @return the Y coordinate
      */
     public native int getTop()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getTop();
     }-*/;
 
@@ -786,7 +786,7 @@ public class ExtElement extends BaseElement {
      * @return the top Y coordinate
      */
     public native int getTop(boolean local)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getTop(local);
     }-*/;
 
@@ -796,7 +796,7 @@ public class ExtElement extends BaseElement {
      * @return the UpdateManager
      */
     public native UpdateManager getUpdateManager()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var umJS = elem.getUpdateManager();
         return @com.gwtext.client.core.UpdateManager::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(umJS);
     }-*/;
@@ -807,7 +807,7 @@ public class ExtElement extends BaseElement {
      * @return the value
      */
     public native String getValue()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getValue();
     }-*/;
 
@@ -817,7 +817,7 @@ public class ExtElement extends BaseElement {
      * @return tried to parse the value as number
      */
     public native float getValueAsNumber()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getValue();
     }-*/;
 
@@ -827,7 +827,7 @@ public class ExtElement extends BaseElement {
      * @return the viewport's Size
      */
     public native Size getViewSize()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var sizeJS = elem.getViewSize();
         return @com.gwtext.client.core.Size::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(sizeJS);
     }-*/;
@@ -838,7 +838,7 @@ public class ExtElement extends BaseElement {
      * @return the elements width
      */
     public native int getWidth()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getWidth();
     }-*/;
 
@@ -849,7 +849,7 @@ public class ExtElement extends BaseElement {
      * @return the elemetns width
      */
     public native int getWidth(boolean contentWidth)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getWidth(contentWidth);
     }-*/;
 
@@ -860,7 +860,7 @@ public class ExtElement extends BaseElement {
      * @return the X position of the element
      */
     public native int getX()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getX();
     }-*/;
 
@@ -871,7 +871,7 @@ public class ExtElement extends BaseElement {
      * @return the XY position of the element
      */
     public native int[] getXY() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var arrJS = elem.getXY();
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
@@ -883,7 +883,7 @@ public class ExtElement extends BaseElement {
      * @return the Y position of the element
      */
     public native int getY()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.getY();
     }-*/;
 
@@ -894,7 +894,7 @@ public class ExtElement extends BaseElement {
      * @return true if the class exists, else false
      */
     public native boolean hasClass(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.hasClass(className);
     }-*/;
 
@@ -906,7 +906,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement insertAfter(Element el)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.insertAfter(el);
         return this;
     }-*/;
@@ -918,7 +918,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement insertBefore(Element el)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.insertBefore(el);
         return this;
     }-*/;
@@ -930,7 +930,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement insertFirst(Element el)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.insertFirst(el);
         return this;
     }-*/;
@@ -942,7 +942,7 @@ public class ExtElement extends BaseElement {
      * @return the new child                                                             i
      */
     public native ExtElement insertFirst(DomConfig config)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         var el = elem.insertFirst(configJS);
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
@@ -955,7 +955,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlBeforeBegin(String html)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.insertHtml('beforeBegin', html, true);
     }-*/;
 
@@ -966,7 +966,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlAfterBegin(String html)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.insertHtml('afterBegin', html, true);
     }-*/;
 
@@ -977,7 +977,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlBeforeEnd(String html)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.insertHtml('beforeEnd', html, true);
     }-*/;
 
@@ -988,7 +988,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlAfterEnd(String html)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.insertHtml('afterEnd', html, true);
     }-*/;
 
@@ -999,7 +999,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted element
      */
     public native Element insertSibling(Element el)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.insertSibling(el, 'before', true);
     }-*/;
 
@@ -1011,7 +1011,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted element
      */
     public native ExtElement insertSibling(Element el, boolean before)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var where = before ? 'before':'after';
         return elem.insertSibling(el, where, true);
     }-*/;
@@ -1023,7 +1023,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted element
      */
     public native Element insertSibling(DomConfig config)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         return elem.insertSibling(configJS, 'before', true);
     }-*/;
@@ -1036,7 +1036,7 @@ public class ExtElement extends BaseElement {
      * @return the inserted element
      */
     public native ExtElement insertSibling(DomConfig config, boolean before)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         var where = before ? 'before':'after';
         elem.insertSibling(configJS, where);
@@ -1050,7 +1050,7 @@ public class ExtElement extends BaseElement {
      * @return true if this element matches the selector, else false
      */
     public native boolean is(String selector)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.is(selector);
     }-*/;
 
@@ -1060,7 +1060,7 @@ public class ExtElement extends BaseElement {
      * @return true is element uses border box
      */
     public native boolean isBorderBox()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isBorderBox();
     }-*/;
 
@@ -1070,7 +1070,7 @@ public class ExtElement extends BaseElement {
      * @return true if display is not "none"
      */
     public native boolean isDisplayed()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isDisplayed();
     }-*/;
 
@@ -1080,7 +1080,7 @@ public class ExtElement extends BaseElement {
      * @return true if this element is masked
      */
     public native boolean isMasked()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isMasked();
     }-*/;
 
@@ -1090,7 +1090,7 @@ public class ExtElement extends BaseElement {
      * @return true if this element is scrollable
      */
     public native boolean isScrollable()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isScrollable();
     }-*/;
 
@@ -1100,7 +1100,7 @@ public class ExtElement extends BaseElement {
      * @return true if visible
      */
     public native boolean isVisible()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isVisible();
     }-*/;
 
@@ -1111,7 +1111,7 @@ public class ExtElement extends BaseElement {
      * @return true if visible
      */
     public native boolean isVisible(boolean deep)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.isVisible(deep);
     }-*/;
 
@@ -1121,7 +1121,7 @@ public class ExtElement extends BaseElement {
      * @return the mask element
      */
     public native ExtElement mask()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var me = elem.mask();
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(me);
     }-*/;
@@ -1163,7 +1163,7 @@ public class ExtElement extends BaseElement {
      * @return the mask element
      */
     public native ExtElement mask(String msg, String msgClass) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var me = el.mask(msg, msgClass);
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(me);
     }-*/;
@@ -1172,7 +1172,7 @@ public class ExtElement extends BaseElement {
      * Initializes positioning on this element. The element will be positioned relative IF it is not already positioned
      */
     public native void position()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.position();
     }-*/;
 
@@ -1185,7 +1185,7 @@ public class ExtElement extends BaseElement {
      * @param y      set the page Y position
      */
     public native void position(Positioning pos, int zIndex, int x, int y)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var posJS = pos.@com.gwtext.client.core.Positioning::getPositioning()();
         elem.position(posJS, zIndex, x, y);
     }-*/;
@@ -1197,7 +1197,7 @@ public class ExtElement extends BaseElement {
      * @return an array of the matched nodes
      */
     public static native Element[] query(String selector)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var elemsJS = elem.query(selector);
         return @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(elemsJS);
     }-*/;
@@ -1210,7 +1210,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement replace(Element el)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.replace(el);
         return this;
     }-*/;
@@ -1221,7 +1221,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement scrollIntoView()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.scrollIntoView();
         return this;
     }-*/;
@@ -1234,7 +1234,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement scrollIntoView(Element container, boolean hscroll)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.scrollIntoView(container, hscroll);
         return this;
     }-*/;
@@ -1246,7 +1246,7 @@ public class ExtElement extends BaseElement {
      * @return the CompositeElement
      */
     public native CompositeElement select(String selector)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var ceJS = elem.select(selector);
         return @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
     }-*/;
@@ -1259,7 +1259,7 @@ public class ExtElement extends BaseElement {
      * @return the CompositeElement
      */
     public native CompositeElement select(String selector, boolean unique)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var ceJS = elem.select(selector, unique);
         if(unique) {
             return @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
@@ -1277,7 +1277,7 @@ public class ExtElement extends BaseElement {
      * @return array of left, top values
      */
     public native int[] translatePoints(int x, int y)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var leftTopJS = elem.translatePoints(x, y);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)([leftTopJS.left, leftTopJS.top]);
     }-*/;
@@ -1288,7 +1288,7 @@ public class ExtElement extends BaseElement {
      * @return this
      */
     public native ExtElement unclip() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.unclip();
         return this;
     }-*/;
@@ -1297,7 +1297,7 @@ public class ExtElement extends BaseElement {
      * Removes a previously applied mask. If removeEl is true the mask overlay is destroyed, otherwise it is cached for reuse.
      */
     public native void unmask() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.unmask();
     }-*/;
 
@@ -1309,7 +1309,7 @@ public class ExtElement extends BaseElement {
      * @param callback    for async script loading you can be notified when the update completes
      */
     public native void update(String html, boolean loadScripts, Function callback) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.update(html, loadScripts, callback  == null ? null : function() {
             callback.@com.gwtext.client.core.Function::execute()();
         });
@@ -1323,7 +1323,7 @@ public class ExtElement extends BaseElement {
      * @return the matching DOM or null if no match was found
      */
     public native ExtElement up(String selector, Element container) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = elem.up(selector, container);
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -1336,7 +1336,7 @@ public class ExtElement extends BaseElement {
      * @return the matching DOM or null if no match was found
      */
     public native ExtElement up(String selector, int maxDepth) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = elem.up(selector, maxDepth);
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -1347,7 +1347,7 @@ public class ExtElement extends BaseElement {
      * @return the first child
      */
     public native Element getFirstChild() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.dom.firstChild;
     }-*/;
 
@@ -1357,7 +1357,7 @@ public class ExtElement extends BaseElement {
      * @return the parent node
      */
     public native Element getParentNode() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.dom.parentNode;
     }-*/;
 
@@ -1368,7 +1368,7 @@ public class ExtElement extends BaseElement {
      * @return the client width
      */
     public native int getClientWidth() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return elem.dom.clientWidth;
     }-*/;
 

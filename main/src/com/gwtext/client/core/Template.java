@@ -72,7 +72,7 @@ public class Template extends JsObject {
      * @param disable true to disable format functions
      */
     public native void setDisableFormats(boolean disable) /*-{
-        var template = this.@com.gwtext.client.core.JsObject::jsObj;
+        var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         template.disableFormats = disable;
     }-*/;
 
@@ -99,7 +99,7 @@ public class Template extends JsObject {
     }
 
     private native String applyTemplate(JavaScriptObject values) /*-{
-        var template = this.@com.gwtext.client.core.JsObject::jsObj;
+        var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return template.applyTemplate(values);
     }-*/;
 
@@ -107,7 +107,7 @@ public class Template extends JsObject {
      * Compiles the template into an internal function, eliminating the RegEx overhead.
      */
     public native void compile() /*-{
-        var template = this.@com.gwtext.client.core.JsObject::jsObj;
+        var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         template.compile();
     }-*/;
 }

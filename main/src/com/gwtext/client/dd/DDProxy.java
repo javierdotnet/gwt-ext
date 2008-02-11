@@ -51,32 +51,32 @@ public class DDProxy extends DD {
     }-*/;
 
     public native boolean isCenterFrame() /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return ddProxy.centerFrame ? true : false;
     }-*/;
 
     public native void setCenterFrame(boolean centerFrame) /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ddProxy.centerFrame = centerFrame;
     }-*/;
 
     public native boolean isResizeFrame() /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return ddProxy.resizeFrame ? true : false;
     }-*/;
 
     public native void setResizeFrame(boolean resizeFrame) /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ddProxy.resizeFrame = resizeFrame;
     }-*/;
 
     public native void createFrame() /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ddProxy.createFrame();
     }-*/;
 
     public native void initFrame() /*-{
-        var ddProxy = this.@com.gwtext.client.core.JsObject::jsObj;
+        var ddProxy = this.@com.gwtext.client.core.JsObject::getJsObj()();
         ddProxy.initFrame();
     }-*/;
 }

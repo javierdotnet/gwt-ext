@@ -40,12 +40,12 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
     }
 
     public native void clearSelections() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.clearSelections();
     }-*/;
 
     public native TreeNode getSelectedNode() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var treeNode = sm.getSelectedNode();
         if(treeNode == null || treeNode === undefined) {
             return null;
@@ -55,35 +55,35 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
     }-*/;
 
     public native boolean isSelected(TreeNode treeNode) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        var tn = treeNode.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var tn = treeNode.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.isSelected(tn);
     }-*/;
 
     public native void select(TreeNode treeNode) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        var tn = treeNode.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var tn = treeNode.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.select(tn);
     }-*/;
 
     public native void selectNext() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectNext();
     }-*/;
 
     public native void selectPrevious() /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         sm.selectPrevious();
     }-*/;
 
     public native void unselect(TreeNode treeNode) /*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
-        var tn = treeNode.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var tn = treeNode.@com.gwtext.client.core.JsObject::getJsObj()();
         return sm.unselect(tn);
     }-*/;
 
     public native void addSelectionModelListener(DefaultSelectionModelListener listener)/*-{
-        var sm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var smJ = this;
         sm.addListener('beforeselect',
                  function(self, newNode, oldNode) {

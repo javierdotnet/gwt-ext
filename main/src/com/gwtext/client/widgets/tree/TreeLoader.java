@@ -81,7 +81,7 @@ public class TreeLoader extends JsObject {
 	 * is expanded, but may be used to reload a node (or append new children if the clearOnLoad option is false.)
 	 */
     public native void load() /*-{
-        var tree = this.@com.gwtext.client.core.JsObject::jsObj;
+        var tree = this.@com.gwtext.client.core.JsObject::getJsObj()();
         tree.load();
     }-*/;
 
@@ -92,7 +92,7 @@ public class TreeLoader extends JsObject {
 	 * @param callback the callback to execute on load
 	 */
     public native void load(Function callback) /*-{
-        var tree = this.@com.gwtext.client.core.JsObject::jsObj;
+        var tree = this.@com.gwtext.client.core.JsObject::getJsObj()();
         tree.load(function() {
 			callback.@com.gwtext.client.core.Function::execute()();
 		});
@@ -104,7 +104,7 @@ public class TreeLoader extends JsObject {
 	 * @param listener the listener
 	 */
 	public native void addTreeLoaderListener(TreeLoaderListener listener)/*-{
-        var loader = this.@com.gwtext.client.core.JsObject::jsObj;
+        var loader = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var loaderJ = this;
 
          loader.addListener('beforeload',

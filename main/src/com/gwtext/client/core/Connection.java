@@ -77,7 +77,7 @@ public class Connection extends JsObject {
      * Aborts the last outstanding request.
      */
     public native void abort() /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         conn.abort();
     }-*/;
 
@@ -87,7 +87,7 @@ public class Connection extends JsObject {
      * @param transactionId the transaction to abort
      */
     public native void abort(long transactionId) /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         conn.abort(transactionId);
     }-*/;
 
@@ -97,7 +97,7 @@ public class Connection extends JsObject {
      * @return true if loading
      */
     public native boolean isLoading() /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return conn.isLoading();
     }-*/;
 
@@ -108,7 +108,7 @@ public class Connection extends JsObject {
      * @return true if loading
      */
     public native boolean isLoading(long transactionId) /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return conn.isLoading(transactionId);
     }-*/;
 
@@ -118,7 +118,7 @@ public class Connection extends JsObject {
      * @return the transaction id
      */
     public native long request() /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var transId =  conn.request();
         return transId == null || transId === undefined ? -1 : transId;
     }-*/;
@@ -130,8 +130,8 @@ public class Connection extends JsObject {
      * @return the transaction id
      */
     public native long request(RequestParam param) /*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
-        var paramJS = param.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var paramJS = param.@com.gwtext.client.core.JsObject::getJsObj()();
         var transId = conn.request(paramJS);
         return transId == null || transId === undefined ? -1 : transId;
     }-*/;
@@ -142,7 +142,7 @@ public class Connection extends JsObject {
      * @param listener the connection listener
      */
     public native void addListener(ConnectionListener listener)/*-{
-        var conn = this.@com.gwtext.client.core.JsObject::jsObj;
+        var conn = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var connJ = this;
 
         conn.addListener('beforerequest',

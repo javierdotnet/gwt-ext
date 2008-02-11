@@ -101,7 +101,7 @@ public class LoadMask extends JsObject {
      * Disables the mask to prevent it from being displayed.
      */
     public native void disable() /*-{
-        var lm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var lm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         lm.disable();
     }-*/;
 
@@ -109,7 +109,7 @@ public class LoadMask extends JsObject {
      * Enables the mask so that it can be displayed.
      */
     public native void enable() /*-{
-        var lm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var lm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         lm.enable();
     }-*/;
 
@@ -119,7 +119,7 @@ public class LoadMask extends JsObject {
      * @return true if mask disabled
      */
     public native boolean isDisabled() /*-{
-        var lm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var lm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return lm.disabled;
     }-*/;
 

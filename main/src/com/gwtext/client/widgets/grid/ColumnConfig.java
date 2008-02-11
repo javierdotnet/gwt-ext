@@ -191,7 +191,7 @@ public class ColumnConfig extends BaseColumnConfig {
      * @param renderer the column renderer
      */
     public native void setRenderer(Renderer renderer) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
 
         config['renderer'] = function(val, cell, r, rowIndex, colNum, store) {
             var valJ = (val  == null || val === undefined || val === '') ? null : $wnd.GwtExt.convertToJavaType(val);

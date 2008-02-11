@@ -35,7 +35,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement addClass(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClass(className);
         return this;
     }-*/;
@@ -47,7 +47,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement addClass(String[] classNames)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClass(@com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames));
         return this;
     }-*/;
@@ -59,7 +59,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement addClassOnClick(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClassOnClick(className);
         return this;
     }-*/;
@@ -71,13 +71,13 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement addClassOnFocus(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClassOnFocus(className);
         return this;
     }-*/;
 
     public native BaseElement addClassOnOver(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClassOnOver(className);
         return this;
     }-*/;
@@ -90,7 +90,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement addClassOnOver(String className, boolean preventFlicker)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.addClassOnOver(className, preventFlicker);
         return this;
     }-*/;
@@ -103,7 +103,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return the KeyMap created
      */
     public native KeyMap addKeyListener(int keyCode, KeyListener listener)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var km = elem.addKeyListener(keyCode, function(key, event) {
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
@@ -119,7 +119,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return the KeyMap created
      */
     public native KeyMap addKeyListener(int[] keyCodes, KeyListener listener)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var keyCodesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(keyCodes);
         var km = elem.addKeyListener(keyCodesJS, function(key, event) {
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
@@ -136,7 +136,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return the KeyMap created
      */
     public native KeyMap addKeyListener(String keys, KeyListener listener)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var km = elem.addKeyListener(keys, function(key, event) {
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 listener.@com.gwtext.client.widgets.event.KeyListener::onKey(ILcom/gwtext/client/core/EventObject;)(key, e);
@@ -151,8 +151,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return the KeyMap created
      */
     public native KeyMap addKeyMap(KeyMapConfig config)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         var km = elem.addKeyMap(configJS);
         return @com.gwtext.client.util.KeyMap::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(km);
     }-*/;
@@ -164,7 +164,7 @@ public class BaseElement extends JsObject implements Fx {
      * @param cb        the event callback
      */
     public native void addListener(String eventName, EventCallback cb) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.addListener(eventName, function(event) {
                 var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
@@ -180,7 +180,7 @@ public class BaseElement extends JsObject implements Fx {
      * @param config    the listener config
      */
     public native void addListener(String eventName, EventCallback cb, ListenerConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.addListener(eventName, function(event) {
                 var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 cb.@com.gwtext.client.core.EventCallback::execute(Lcom/gwtext/client/core/EventObject;)(e);
@@ -238,7 +238,7 @@ public class BaseElement extends JsObject implements Fx {
     }
 
     private native BaseElement doAlignTo(String id, String anchorPosition)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.alignTo(id, anchorPosition);
         return this;
     }-*/;
@@ -284,7 +284,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement alignTo(String id, String anchorPosition, int[] offsetXY, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
         elem.alignTo(id, anchorPosition, offsetJS, animate);
         return this;
@@ -298,7 +298,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement anchorTo(String id, String anchorPosition)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.anchorTo(id, anchorPosition);
         return this;
     }-*/;
@@ -315,7 +315,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement anchorTo(String id, String anchorPosition, int[] offsetXY, boolean animate, int bufferDelay)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var offsetJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([I)(offsetXY);
         elem.anchorTo(id, anchorPosition, offsetJS, animate, bufferDelay);
         return this;
@@ -336,8 +336,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement animate(GenericConfig args)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.animate(argsJS);
         return this;
     }-*/;
@@ -353,8 +353,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement animate(GenericConfig args, float duration, Function onComplete, Easing easing, String animType)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var argsJS = args == null ? null : args.@com.gwtext.client.core.JsObject::getJsObj()();
         var easingJS = easing.@com.gwtext.client.animation.Easing::getMethod();
         elem.animate(argsJS, duration, onComplete == null ? null : function() {
             onComplete.@com.gwtext.client.core.Function::execute()();
@@ -369,7 +369,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement applyStyles(String style) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.applyStyles(style);
         return this;
     }-*/;
@@ -380,7 +380,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement autoHeight() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.autoHeight();
         return this;
     }-*/;
@@ -396,7 +396,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement autoHeight(boolean animate, float duration, Function onComplete, Easing easing)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var easingJS = easing.@com.gwtext.client.animation.Easing::getMethod();
         elem.autoHeight(animate, duration, function() {
             onComplete.@com.gwtext.client.core.Function::execute()();
@@ -408,7 +408,7 @@ public class BaseElement extends JsObject implements Fx {
      * Removes worthless text nodes.
      */
     public native void clean() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.clean();
     }-*/;
 
@@ -418,7 +418,7 @@ public class BaseElement extends JsObject implements Fx {
      * @param forceClean by default the element keeps track if it has been cleaned already so you can call this over and over. However, if you update the element and need to force a reclean, you can pass true.
      */
     public native void clean(boolean forceClean) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.clean(forceClean);
     }-*/;
 
@@ -428,7 +428,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement clearOpacity() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.clearOpacity();
         return this;
     }-*/;
@@ -439,7 +439,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement clip() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.clip();
         return this;
     }-*/;
@@ -450,7 +450,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return the new shim element
      */
     public native ExtElement createShim() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = elem.shim();
         return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
@@ -461,7 +461,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement enableDisplayMode() /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.enableDisplayMode();
         return this;
     }-*/;
@@ -473,7 +473,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement enableDisplayMode(String display) /*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.enableDisplayMode(display);
         return this;
     }-*/;
@@ -484,7 +484,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement hide()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.hide();
         return this;
     }-*/;
@@ -496,7 +496,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement hide(boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.hide(animate);
         return this;
     }-*/;
@@ -508,8 +508,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement hide(AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.hide(animateConfigJS);
         return this;
     }-*/;
@@ -522,7 +522,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement move(Direction direction, int distance)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
         elem.move(directionJS, distance);
         return this;
@@ -537,7 +537,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement move(Direction direction, int distance, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
         elem.move(directionJS, distance, animate);
         return this;
@@ -552,8 +552,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement move(Direction direction, int distance, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
         elem.move(directionJS, distance, animateConfigJS);
         return this;
@@ -567,7 +567,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement moveTo(int x, int y)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.moveTo(x, y);
         return this;
     }-*/;
@@ -581,7 +581,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement moveTo(int x, int y, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.moveTo(x, y, animate);
         return this;
     }-*/;
@@ -595,8 +595,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement moveTo(int x, int y, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.moveTo(x, y, animateConfigJS);
         return this;
     }-*/;
@@ -608,7 +608,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement radioClass(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.radioClass(className);
         return this;
     }-*/;
@@ -620,7 +620,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement radioClass(String[] classNames)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var classNamesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames);
         elem.radioClass(classNamesJS);
         return this;
@@ -630,7 +630,7 @@ public class BaseElement extends JsObject implements Fx {
      * Removes this element from the DOM and deletes it from the cache.
      */
     public native void remove()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.remove();
     }-*/;
 
@@ -638,7 +638,7 @@ public class BaseElement extends JsObject implements Fx {
      * Removes all previous added listeners from this element.
      */
     public native void removeAllListeners()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.removeAllListeners();
     }-*/;
 
@@ -649,7 +649,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement removeClass(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.removeClass(className);
         return this;
     }-*/;
@@ -661,7 +661,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement removeClass(String[] classNames)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var classNamesJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(classNames);
         elem.removeClass(classNamesJS);
         return this;
@@ -673,7 +673,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement repaint()/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.repaint();
         return this;
     }-*/;
@@ -686,7 +686,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement replaceClass(String oldClassName, String newClassName)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.replaceClass(oldClassName, newClassName);
         return this;
     }-*/;
@@ -700,7 +700,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native boolean scroll(Direction direction, int distance, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
         return elem.scroll(directionJS, distance, animate);
     }-*/;
@@ -714,8 +714,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native boolean scroll(Direction direction, int distance, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
         return elem.scroll(directionJS, distance, animateConfigJS);
     }-*/;
@@ -729,7 +729,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement scrollTo(String side, int value, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.scrollTo(side, value, animate);
         return this;
     }-*/;
@@ -743,8 +743,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement scrollTo(String side, int value, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.scrollTo(side, value, animateConfigJS);
         return this;
     }-*/;
@@ -757,7 +757,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBottom(String bottom)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBottom(bottom);
         return this;
     }-*/;
@@ -772,7 +772,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBounds(int x, int y, int width, int height)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBounds(x, y, width, height);
         return this;
     }-*/;
@@ -788,7 +788,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBounds(int x, int y, int width, int height, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBounds(x, y, width, height, animate);
         return this;
     }-*/;
@@ -804,8 +804,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBounds(int x, int y, int width, int height, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBounds(x, y, width, height, animateConfigJS);
         return this;
     }-*/;
@@ -817,8 +817,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBox(Box box)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var boxJS = box.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBox(boxJS);
         return this;
     }-*/;
@@ -832,8 +832,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBox(Box box, boolean adjust, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var boxJS = box.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBox(boxJS, adjust, animate);
         return this;
     }-*/;
@@ -847,9 +847,9 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setBox(Box box, boolean adjust, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var boxJS = box.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setBox(boxJS, adjust, animateConfigJS);
         return this;
     }-*/;
@@ -861,7 +861,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setDisplayed(boolean value)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setDisplayed(value);
         return this;
     }-*/;
@@ -874,7 +874,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setHeight(int height, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setHeight(height, animate);
         return this;
     }-*/;
@@ -887,8 +887,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setHeight(int height, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setHeight(height, animateConfigJS);
         return this;
     }-*/;
@@ -900,7 +900,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setLeft(String left)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setLeft(left);
         return this;
     }-*/;
@@ -913,7 +913,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setLeftTop(String left, String top)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setLeft(left);
         return this;
     }-*/;
@@ -927,7 +927,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setLocation(int x, int y, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setLocation(x, y, animate);
         return this;
     }-*/;
@@ -941,8 +941,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setLocation(int x, int y, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setLocation(x, y, animateConfigJS);
         return this;
     }-*/;
@@ -955,7 +955,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setOpacity(float opacity, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setOpacity(opacity, animate);
         return this;
     }-*/;
@@ -968,8 +968,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setOpacity(float opacity, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setOpacity(opacity, animateConfigJS);
         return this;
     }-*/;
@@ -982,8 +982,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setRegion(Region region, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var regionJS = region.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var regionJS = region.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setRegion(regionJS, animate);
         return this;
     }-*/;
@@ -996,9 +996,9 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setRegion(Region region, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var regionJS = region.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var regionJS = region.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setRegion(regionJS, animateConfigJS);
         return this;
     }-*/;
@@ -1010,7 +1010,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setRight(String right)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setRight(right);
         return this;
     }-*/;
@@ -1024,7 +1024,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setSize(int width, int height, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setSize(width, height, animate);
         return this;
     }-*/;
@@ -1038,8 +1038,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setSize(int width, int height, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setSize(width, height, animateConfigJS);
         return this;
     }-*/;
@@ -1052,7 +1052,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setStyle(String style, String value)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setStyle(style, value);
         return this;
     }-*/;
@@ -1064,8 +1064,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setStyles(GenericConfig styles)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var stylesJS = styles.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var stylesJS = styles.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setStyle(stylesJS);
         return this;
     }-*/;
@@ -1077,7 +1077,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setTop(String top)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setTop(top);
         return this;
     }-*/;
@@ -1089,7 +1089,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setVisibilityMode(boolean useVisibleProperty)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setVisibilityMode(useVisibleProperty ? $wnd.Ext.Element.VISIBILITY: $wnd.Ext.Element.DISPLAY);
         return this;
     }-*/;
@@ -1115,7 +1115,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setVisible(boolean visible, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setVisible(visible, animate);
         return this;
     }-*/;
@@ -1129,8 +1129,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setVisible(boolean visible, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setVisible(visible, animateConfigJS);
         return this;
     }-*/;
@@ -1143,7 +1143,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setWidth(int width, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setWidth(width, animate);
         return this;
     }-*/;
@@ -1156,7 +1156,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setWidth(String width, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setWidth(width, animate);
         return this;
     }-*/;
@@ -1169,8 +1169,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setWidth(int width, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setWidth(width, animateConfigJS);
         return this;
     }-*/;
@@ -1183,7 +1183,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setX(int x, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setX(x, animate);
         return this;
     }-*/;
@@ -1196,8 +1196,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setX(int x, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setX(x, animateConfigJS);
         return this;
     }-*/;
@@ -1212,7 +1212,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setXY(int x, int y, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setXY([x, y], animate);
         return this;
     }-*/;
@@ -1227,8 +1227,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setXY(int x, int y, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setXY([x, y], animateConfigJS);
         return this;
     }-*/;
@@ -1242,7 +1242,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setY(int y, boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setY(y, animate);
         return this;
     }-*/;
@@ -1256,8 +1256,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement setY(int y, AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.setY(y, animateConfigJS);
         return this;
     }-*/;
@@ -1269,7 +1269,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement show(boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.show(animate);
         return this;
     }-*/;
@@ -1281,8 +1281,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement show(AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.show(animateConfigJS);
         return this;
     }-*/;
@@ -1294,7 +1294,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement swallowEvent(String eventName)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.swallowEvent(eventName);
         return this;
     }-*/;
@@ -1307,7 +1307,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement swallowEvent(String eventName, boolean preventDefault)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.swallowEvent(eventName, preventDefault);
         return this;
     }-*/;
@@ -1319,7 +1319,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement toggle(boolean animate)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.toggle(animate);
         return this;
     }-*/;
@@ -1331,8 +1331,8 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement toggle(AnimationConfig animateConfig)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
-        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.toggle(animateConfigJS);
         return this;
     }-*/;
@@ -1344,7 +1344,7 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native BaseElement toggleClass(String className)/*-{
-        var elem = this.@com.gwtext.client.core.JsObject::jsObj;
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         elem.toggleClass(className);
         return this;
     }-*/;
@@ -1353,7 +1353,7 @@ public class BaseElement extends JsObject implements Fx {
      * Disables text selection for this element (normalized across browsers).
      */
     public native void unselectable() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.unselectable();
     }-*/;
 
@@ -1373,7 +1373,7 @@ public class BaseElement extends JsObject implements Fx {
      * @param loadScripts true to look for  and process scripts
      */
     public native void update(String html, boolean loadScripts) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.update(html, loadScripts);
     }-*/;
 
@@ -1384,90 +1384,90 @@ public class BaseElement extends JsObject implements Fx {
      * @return this
      */
     public native Element wrap(DomConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var configJS = config.@com.gwtext.client.core.DomConfig::getJsObject()();
         return el.wrap(configJS, true);
     }-*/;
 
     //Ext Fx API's
     public native Fx fadeIn() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.fadeIn();
         return this;
     }-*/;
 
     public native Fx fadeIn(FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.fadeIn(configJS);
         return this;
     }-*/;
 
     public native Fx fadeOut() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.fadeOut();
         return this;
     }-*/;
 
     public native Fx fadeOut(FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.fadeOut(configJS);
     return this;
     }-*/;
 
     public native Fx frame() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.frame();
         return this;
     }-*/;
 
     public native Fx frame(String color, int count, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.frame(color, count, configJS);
         return this;
     }-*/;
 
     public native Fx ghost() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.ghost();
         return this;
     }-*/;
 
     public native Fx ghost(String anchorPosition, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.ghost(anchorPosition, configJS);
         return this;
     }-*/;
 
     public native boolean hasActiveFx() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return el.hasActiveFx();
     }-*/;
 
     public native boolean hasFxBlock() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return el.hasFxBlock();
     }-*/;
 
     public native Fx highlight() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.highlight();
         return this;
     }-*/;
 
     public native Fx highlight(String color, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.highlight(color, configJS);
         return this;
     }-*/;
 
     public native Fx highlight(String color, String attr, String endColor, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         if(attr != null) {
             configJS['attr'] = attr;
         }
@@ -1479,47 +1479,47 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     public native Fx pause(int seconds) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.pause(seconds);
         return this;
     }-*/;
 
     public native Fx puff() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.puff();
         return this;
     }-*/;
 
     public native Fx puff(boolean remove, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         configJS['remove'] = remove;
         el.puff(configJS);
         return this;
     }-*/;
 
     public native Fx scale(int width, int height) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.scale(width <=0 ? null : width, height <= 0 ? null : height);
         return this;
     }-*/;
 
     public native Fx scale(int width, int height, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.scale(width <=0 ? null : width, height <= 0 ? null : height, configJS);
         return this;
     }-*/;
 
     public native Fx sequenceFx() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.sequenceFx();
         return this;
     }-*/;
 
     public native Fx shift(int x, int y, int width, int height, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         if(x > 0) configJS['x'] = x;
         if(y > 0) configJS['y'] = y;
         if(width > 0) configJS['width'] = width;
@@ -1529,54 +1529,54 @@ public class BaseElement extends JsObject implements Fx {
     }-*/;
 
     public native Fx slideIn() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.slideIn();
         return this;
     }-*/;
 
     public native Fx slideIn(String anchorPosition, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         el.slideIn(anchorPosition, configJS);
         return this;
     }-*/;
 
     public native Fx slideOut() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.slideOut();
         return this;
     }-*/;
 
     public native Fx slideOut(boolean remove, String anchorPosition, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         configJS['remove'] = remove;
         el.slideOut(anchorPosition, configJS);
         return this;
     }-*/;
 
     public native Fx stopFx() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.stopFx();
         return this;
     }-*/;
 
     public native Fx switchOff() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.switchOff();
         return this;
     }-*/;
 
     public native Fx switchOff(boolean remove, FxConfig config) /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
-        var configJS = config.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var configJS = config.@com.gwtext.client.core.JsObject::getJsObj()();
         configJS['remove'] = remove;
         el.switchOff(configJS);
         return this;
     }-*/;
 
     public native Fx syncFx() /*-{
-        var el = this.@com.gwtext.client.core.JsObject::jsObj;
+        var el = this.@com.gwtext.client.core.JsObject::getJsObj()();
         el.syncFx();
         return this;
     }-*/;

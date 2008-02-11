@@ -38,7 +38,7 @@ public class ClickRepeater extends JsObject {
      * @param listener the listener
      */
     public native void addListener(ClickRepeaterListener listener)/*-{
-        var cr = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cr = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var crJ = this;
 
         cr.addListener('click',

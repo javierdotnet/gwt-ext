@@ -222,7 +222,7 @@ public class Ext {
      * @param element the element to destroy
      */
     public static native void destroy(ExtElement element) /*-{
-        var el = element.@com.gwtext.client.core.JsObject::jsObj;
+        var el = element.@com.gwtext.client.core.JsObject::getJsObj()();
         $wnd.Ext.destroy(el);
     }-*/;
 

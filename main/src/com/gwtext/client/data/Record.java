@@ -67,7 +67,7 @@ public class Record extends JsObject {
      * @return ID of the record
      */
     public native String getId() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var id = record.id;
         return (id == null || id === undefined) ? null : id.toString();
     }-*/;
@@ -78,7 +78,7 @@ public class Record extends JsObject {
      * @return true if this record has been modified
      */
     public native boolean isDirty() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return record.dirty;
     }-*/;
 
@@ -86,7 +86,7 @@ public class Record extends JsObject {
      * Begin an edit. While in edit mode, no events are relayed to the containing store.
      */
     public native void beginEdit() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.beginEdit();
     }-*/;
 
@@ -94,7 +94,7 @@ public class Record extends JsObject {
      * Cancels all changes made in the current edit operation.
      */
     public native void cancelEdit() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.cancelEdit();
     }-*/;
 
@@ -105,7 +105,7 @@ public class Record extends JsObject {
      * @return copy of this Record
      */
     public native Record copy() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var record2 = record.copy();
         return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record2);
     }-*/;
@@ -117,7 +117,7 @@ public class Record extends JsObject {
      * @return copy of this Record
      */
     public native Record copy(String id) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var record2 = record.copy(id);
         return @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(record2);
     }-*/;
@@ -128,7 +128,7 @@ public class Record extends JsObject {
      * to have their code notified of commit operations.
      */
     public native void commit() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.commit();
     }-*/;
 
@@ -140,7 +140,7 @@ public class Record extends JsObject {
      * @param silent true to skip notification of the owning store of the change (defaults to false)
      */
     public native void commit(boolean silent) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.commit(silent);
     }-*/;
 
@@ -148,7 +148,7 @@ public class Record extends JsObject {
      * End an edit. If any data was modified, the containing store is notified.
      */
     public native void endEdit() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.endEdit();
     }-*/;
 
@@ -161,7 +161,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native String getAsString(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
         //todo?
         //if (value === undefined) throw new Error("Invalid field " + field);
@@ -175,7 +175,7 @@ public class Record extends JsObject {
      * @return the filed value
      */
     public native Object getAsObject(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
         return (value === undefined || value == null || value == '') ? null : value;
     }-*/;
@@ -187,7 +187,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, String value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.set(field, value);
     }-*/;
 
@@ -198,7 +198,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native int getAsInteger(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value =  record.get(field);
         return (value === undefined || value == null ) ? 0 : parseInt(value);
     }-*/;
@@ -210,7 +210,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, int value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.set(field, value);
     }-*/;
 
@@ -221,7 +221,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native float getAsFloat(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
         return (value === undefined || value == null ) ? null : parseFloat(value);
     }-*/;
@@ -233,7 +233,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, float value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.set(field, value);
     }-*/;
 
@@ -244,7 +244,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native double getAsDouble(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
         return (value === undefined || value == null ) ? null : parseFloat(value);
     }-*/;
@@ -256,7 +256,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, double value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.set(field, value);
     }-*/;
 
@@ -268,7 +268,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native boolean getAsBoolean(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
         return (value === undefined || value == null) ? false : Boolean(value);
     }-*/;
@@ -280,7 +280,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, boolean value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.set(field, value);
     }-*/;
 
@@ -290,7 +290,7 @@ public class Record extends JsObject {
      * @param id the record ID
      */
     public native void setId(String id) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.id = id;
     }-*/;
 
@@ -301,7 +301,7 @@ public class Record extends JsObject {
      * @return the field value
      */
     public native Date getAsDate(String field) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var val = record.get(field);
         if(val == null || val === undefined || val == '') {
             return null;
@@ -317,7 +317,7 @@ public class Record extends JsObject {
      * @param value the field value
      */
     public native void set(String field, Date value) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         if(value == null) {
             record.set(field, null);
         } else {
@@ -353,7 +353,7 @@ public class Record extends JsObject {
      * to have their code notified of reject operations.
      */
     public native void reject() /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.reject();
     }-*/;
 
@@ -366,7 +366,7 @@ public class Record extends JsObject {
      * @param silent true to skip notification of the owning store of the change (defaults to false)
      */
     public native void reject(boolean silent) /*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         record.reject(silent);
     }-*/;
 
@@ -376,7 +376,7 @@ public class Record extends JsObject {
      * @return the data object
      */
     public native Object getDataAsObject()/*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return record.bean === undefined ? null : record.bean ;
     }-*/;
 
@@ -386,7 +386,7 @@ public class Record extends JsObject {
      * @return data as native object
      */
     public native JavaScriptObject getDataAsJsObject()/*-{
-        var record = this.@com.gwtext.client.core.JsObject::jsObj;
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var val = record.json || record.node;
         return val === undefined ? null : val;             
     }-*/;

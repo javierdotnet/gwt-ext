@@ -173,7 +173,7 @@ public class BoxComponent extends Component {
 	 */
 	public native void updateBox(Box box)/*-{
         var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        var boxJS = box.@com.gwtext.client.core.JsObject::jsObj;
+        var boxJS = box.@com.gwtext.client.core.JsObject::getJsObj()();
         component.updateBox(boxJS);                    
     }-*/;
 

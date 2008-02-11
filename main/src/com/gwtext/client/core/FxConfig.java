@@ -64,7 +64,7 @@ public class FxConfig extends GenericConfig {
      * @param fn the style specification function
      */
     public native void setAfterStyle(Function fn) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['afterStyle'] = function() {
                             fn.@com.gwtext.client.core.Function::execute()();
                         };
@@ -85,7 +85,7 @@ public class FxConfig extends GenericConfig {
      * @param callback the callback function
      */
     public native void setCallback(Function callback) /*-{
-        var config = this.@com.gwtext.client.core.JsObject::jsObj;
+        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['callback'] = function() {
                             callback.@com.gwtext.client.core.Function::execute()();
                         };

@@ -21,7 +21,7 @@ public abstract class Provider extends JsObject {
      * @param name the key name
      */
     public native void clear(String name) /*-{
-        var provider = this.@com.gwtext.client.core.JsObject::jsObj;
+        var provider = this.@com.gwtext.client.core.JsObject::getJsObj()();
         provider.clear(name);
     }-*/;
 
@@ -33,7 +33,7 @@ public abstract class Provider extends JsObject {
      * @return the key valeu as String
      */
     public native String getAsString(String name) /*-{
-        var provider = this.@com.gwtext.client.core.JsObject::jsObj;
+        var provider = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var val = provider.get(name);
         return val === undefined ? null : val.toString();
     }-*/;
@@ -45,7 +45,7 @@ public abstract class Provider extends JsObject {
      * @param value the key value
      */
     public native void set(String name, String value) /*-{
-        var provider = this.@com.gwtext.client.core.JsObject::jsObj;
+        var provider = this.@com.gwtext.client.core.JsObject::getJsObj()();
         provider.set(name, value);
     }-*/;
 }

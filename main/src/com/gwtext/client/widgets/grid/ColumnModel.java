@@ -61,7 +61,7 @@ public class ColumnModel extends JsObject {
      * @param defaultSortable true to enable sortable for all columns
      */
     public native void setDefaultSortable(boolean defaultSortable)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.defaultSortable = defaultSortable;
     }-*/;
 
@@ -71,7 +71,7 @@ public class ColumnModel extends JsObject {
      * @param defaultWidth the default column width
      */
     public native void setDefaultWidth(int defaultWidth)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.defaultWidth = defaultWidth;
     }-*/;
 
@@ -86,7 +86,7 @@ public class ColumnModel extends JsObject {
      * @return the number of columns
      */
     public native int getColumnCount()/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getColumnCount();
     }-*/;
 
@@ -108,7 +108,7 @@ public class ColumnModel extends JsObject {
      * @return the column header
      */
     public native String getColumnHeader(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getColumnHeader(colIndex);
     }-*/;
 
@@ -120,7 +120,7 @@ public class ColumnModel extends JsObject {
      *         user did not set the id for the column, then the column position is returned as a String.
      */
     public native String getColumnId(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getColumnId(colIndex).toString();
     }-*/;
 
@@ -142,7 +142,7 @@ public class ColumnModel extends JsObject {
      * @return the column tooltip
      */
     public native String getColumnTooltip(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getColumnTooltip(colIndex);
     }-*/;
 
@@ -164,7 +164,7 @@ public class ColumnModel extends JsObject {
      * @return the column width
      */
     public native int getColumnWidth(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getColumnWidth(colIndex);
     }-*/;
 
@@ -189,7 +189,7 @@ public class ColumnModel extends JsObject {
      * @return the data index of the Store
      */
     public native String getDataIndex(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getDataIndex(colIndex).toString();
     }-*/;
 
@@ -201,14 +201,14 @@ public class ColumnModel extends JsObject {
      * @see ColumnConfig#setId(String)
      */
     public native int getIndexById(String id) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getIndexById(id);
     }-*/;
 
     //TODO getRenderer is required??
 
     public native int getTotalWidth()/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getTotalWidth();
     }-*/;
 
@@ -219,7 +219,7 @@ public class ColumnModel extends JsObject {
      * @return total width
      */
     public native int getTotalWidth(boolean includeHidden)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.getTotalWidth(includeHidden);
     }-*/;
 
@@ -245,7 +245,7 @@ public class ColumnModel extends JsObject {
      * @return true if editable
      */
     public native boolean isCellEditable(int colIndex, int rowIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.isCellEditable(colIndex, rowIndex);
     }-*/;
 
@@ -267,7 +267,7 @@ public class ColumnModel extends JsObject {
      * @return true if fixed
      */
     public native boolean isFixed(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.isFixed(colIndex);
     }-*/;
 
@@ -289,7 +289,7 @@ public class ColumnModel extends JsObject {
      * @return true if hidden
      */
     public native boolean isHidden(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var hidden = cm.isHidden(colIndex);
         if(hidden === undefined || hidden == null) return false;
         return hidden;
@@ -314,7 +314,7 @@ public class ColumnModel extends JsObject {
      * @return locked
      */
     public native boolean isLocked(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
 
         var locked = null;
         try {
@@ -343,7 +343,7 @@ public class ColumnModel extends JsObject {
      * @return true if resizable
      */
     public native boolean isResizable(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.isResizable(colIndex);
     }-*/;
 
@@ -365,7 +365,7 @@ public class ColumnModel extends JsObject {
      * @return true if sortable
      */
     public native boolean isSortable(int colIndex)/*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return cm.isSortable(colIndex);
     }-*/;
 
@@ -389,7 +389,7 @@ public class ColumnModel extends JsObject {
      * @param header   the column header
      */
     public native void setColumnHeader(int colIndex, String header) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setColumnHeader(colIndex, header);
     }-*/;
 
@@ -413,7 +413,7 @@ public class ColumnModel extends JsObject {
      * @param width    the column width
      */
     public native void setColumnWidth(int colIndex, int width) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setColumnWidth(colIndex, width);
     }-*/;
 
@@ -437,7 +437,7 @@ public class ColumnModel extends JsObject {
      * @param dataIndex the data index
      */
     public native void setDataIndex(int colIndex, int dataIndex) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setDataIndex(colIndex, dataIndex);
     }-*/;
 
@@ -461,7 +461,7 @@ public class ColumnModel extends JsObject {
      * @param dataIndex the data index
      */
     public native void setDataIndex(int colIndex, String dataIndex) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setDataIndex(colIndex, dataIndex);
     }-*/;
 
@@ -485,7 +485,7 @@ public class ColumnModel extends JsObject {
      * @param editable true if editable
      */
     public native void setEditable(int colIndex, boolean editable) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setEditable(colIndex, editable);
     }-*/;
 
@@ -509,7 +509,7 @@ public class ColumnModel extends JsObject {
      * @param editor   the editor
      */
     public native void setEditor(int colIndex, GridEditor editor) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setEditor(colIndex, editor.@com.gwtext.client.core.JsObject::jsObj);
     }-*/;
 
@@ -533,7 +533,7 @@ public class ColumnModel extends JsObject {
      * @param hidden   true if hidden
      */
     public native void setHidden(int colIndex, boolean hidden) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setHidden(colIndex, hidden);
     }-*/;
 
@@ -569,7 +569,7 @@ public class ColumnModel extends JsObject {
      * @param renderer the column renderer
      */
     public native void setRenderer(int colIndex, Renderer renderer) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         cm.setRenderer(colIndex, function(val, cell, r, rowIndex, colNum, store) {
             var valJ = (val  == null || val === undefined ) ? null : $wnd.GwtExt.convertToJavaType(val);
             var recJ = @com.gwtext.client.data.Record::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
@@ -585,7 +585,7 @@ public class ColumnModel extends JsObject {
      * @param listener the listener
      */
     public native void addListener(ColumnModelListener listener) /*-{
-        var cm = this.@com.gwtext.client.core.JsObject::jsObj;
+        var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var cmJ = this;
 
         cm.addListener('columnlockchange',

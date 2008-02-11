@@ -127,6 +127,14 @@ public class GridPanel extends Panel {
         return new $wnd.Ext.grid.GridPanel(configJS);
     }-*/;
 
+
+    protected void initComponent() {
+        super.initComponent();
+        Store store = getStore();
+        if(store == null) {
+            error("A Store must be assigned to the GridPanel. See setStore(..)");
+        }
+    }
     /**
      * Returns the grid's ColumnModel.
      *

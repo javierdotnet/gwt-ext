@@ -106,9 +106,8 @@ public class ToolbarSample extends ShowcasePanel {
             menu.addItem(item);
             menu.addItem(item2);
 
-            ToolbarMenuButton menuButton = new ToolbarMenuButton("Button w/ Menu");
-            menuButton.setMenu(menu);
-            menuButton.setArrowTooltip("Arrow Tooltip");
+            ToolbarButton menuButton = new ToolbarButton("Button w/ Menu");
+            menuButton.setMenu(menu);            
             menuButton.setIconCls("bmenu");
             toolbar.addButton(menuButton);
             toolbar.addSeparator();

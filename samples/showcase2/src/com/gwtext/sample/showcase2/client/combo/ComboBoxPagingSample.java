@@ -13,6 +13,7 @@ import com.gwtext.client.widgets.form.ComboBox;
 import com.gwtext.client.widgets.form.FormPanel;
 import com.gwtext.sample.showcase2.client.SampleData;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
+import com.gwtextux.client.data.PagingMemoryProxy;
 
 /**
  * ComboBox with paging dropdown.

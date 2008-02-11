@@ -19,6 +19,7 @@ import com.gwtext.client.widgets.grid.GridPanel;
 import com.gwtext.sample.showcase2.client.SampleData;
 import com.gwtext.sample.showcase2.client.SampleGrid;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
+import com.gwtextux.client.data.PagingMemoryProxy;
 
 public class LocalPagingSample extends ShowcasePanel {
 

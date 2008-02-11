@@ -84,22 +84,8 @@ public class Panel extends Container {
 		return new $wnd.Ext.Panel(config);
     }-*/;
 
-    /**
-     * Wraps the passed Panel with a shell Panel having the specified padding values.
-     *
-     * @param panel the panel the wrap
-     * @param top the top padding
-     * @param left the left padding
-     * @param right the right padding
-     * @param bottom the bottom padding
-     * @return the wrapped panel
-     */
-    public static Panel wrapWithPadding(Panel panel, int top, int left, int right, int bottom) {
-        Panel wrap = new Panel();
-        wrap.setBaseCls("x-plain");
-        wrap.setPaddings(top, left, right, bottom);
-        wrap.add(panel);
-        return wrap;
+    public void setStyleName(String style) {
+        setBodyStyle(style);
     }
 
     /**

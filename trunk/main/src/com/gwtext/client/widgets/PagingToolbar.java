@@ -230,4 +230,137 @@ public class PagingToolbar extends Toolbar {
     public Store getStore() {
         return store;
     }
+
+    /**
+     * The before page paging text tooltip (defaults to "First Page")
+     *
+     * @param beforePageText the before page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setBeforePageText(String beforePageText) throws IllegalStateException{
+        setAttribute("beforePageText", beforePageText, true);
+    }
+
+    /**
+     * The before page paging text tooltip (defaults to "First Page")
+     *
+     * @return the before text tooltip
+     */
+    public String getBeforePageText() {
+        return JavaScriptObjectHelper.getAttribute(config, "beforePageText");
+    }
+
+    /**
+     * The after page paging text tooltip (defaults to "of %0")
+     *
+     * @param afterPageText the before page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setAfterPageText(String afterPageText) throws IllegalStateException {
+        setAttribute("afterPageText", afterPageText, true);
+    }
+
+    /**
+     * The after page paging text tooltip (defaults to "of %0")
+     *
+     * @return the after page tooltip
+     */
+    public String getAfterPageText() {
+        return getAttribute("afterPageText");
+    }
+
+    /**
+     * The first page paging text tooltip (defaults to "First Page")
+     *
+     * @param firstText the first page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setFirstText(String firstText) throws IllegalStateException {
+        setAttribute("firstText", firstText, true);
+    }
+
+    /**
+     * The first page paging text tooltip (defaults to "First Page")
+     *
+     * @return the after page tooltip
+     */
+    public String getFirstText() {
+        return getAttribute("firstText");
+    }
+
+    /**
+     * The previous page paging text tooltip (defaults to "Previous Page")
+     *
+     * @param prevText the first page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setPrevText(String prevText) throws IllegalStateException {
+        setAttribute("prevText", prevText, true);
+    }
+
+    /**
+     * The previous page paging text tooltip (defaults to "Previous Page")
+     *
+     * @return the previous page tooltip
+     */
+    public String getPrevText() {
+        return getAttribute("prevText");
+    }
+
+    /**
+     * The next page paging text tooltip (defaults to "Next Page")
+     *
+     * @param nextText the first page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setNextText(String nextText) throws IllegalStateException {
+        setAttribute("nextText", nextText, true);
+    }
+
+    /**
+     * The next page paging text tooltip (defaults to "Next Page")
+     *
+     * @return the next page tooltip
+     */
+    public String getNextText() {
+        return getAttribute("nextText");
+    }
+
+    /**
+     * The last page paging text tooltip (defaults to "Last Page")
+     *
+     * @param lastText the first page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setLastText(String lastText) throws IllegalStateException {
+        setAttribute("lastText", lastText, true);
+    }
+
+    /**
+     * The last page paging text tooltip (defaults to "Last Page")
+     *
+     * @return the after page tooltip
+     */
+    public String getLastText() {
+        return getAttribute("lastText");
+    }
+
+    /**
+     * The refrest page paging text tooltip (defaults to "Refresh")
+     *
+     * @param refreshText the first page tooltip
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setRefreshText(String refreshText) throws IllegalStateException {
+        setAttribute("refreshText", refreshText, true);
+    }
+
+    /**
+     * The refresh page paging text tooltip (defaults to "Refresh")
+     *
+     * @return the after page tooltip
+     */
+    public String getRefreshText() {
+        return getAttribute("refreshText");
+    }
 }

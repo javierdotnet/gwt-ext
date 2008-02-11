@@ -14,9 +14,9 @@ import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.FormPanel;
-import com.gwtext.client.widgets.form.MultiSelect;
 import com.gwtext.client.widgets.form.TextField;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
+import com.gwtextux.client.widgets.form.MultiSelect;
 
 public class MultiSelectSample extends ShowcasePanel {
 

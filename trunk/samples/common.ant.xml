@@ -37,6 +37,7 @@
 			<classpath>
 				<pathelement location="${gwt.user.jar}" />
 				<pathelement location="${gwt.dev.jar}" />
+				<pathelement location="${gwtextux.jar}" />
 				<pathelement location="${gwtext.dev.jar}" />
 			</classpath>
 		</gwt.javac>

@@ -46,7 +46,15 @@ public class TreePanel extends Panel {
 	public TreePanel() {
 	}
 
-	/**
+    protected void initComponent() {
+        JavaScriptObject root = getAttributeAsJavaScriptObject("root");
+        super.initComponent();
+        if(root == null) {
+            error("TreePanel root node must be assigned. See setRootNode(..)");
+        }
+    }
+
+    /**
 	 * Construct a new TreePanel.
 	 *
 	 * @param id the tree panel ID

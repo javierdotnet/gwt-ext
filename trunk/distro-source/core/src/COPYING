@@ -23,15 +23,3 @@ The GWT-Ext library relies on the following third party software. Below is the l
   License: Ext has several licensing options available to fit a variety of needs. LGPL 3.0 is one of them.
     See http://extjs.com/license for more information
     http://extjs.com/download
-
-* PagingMemoryProxy
-	License : LGPL
-	http://extjs.com/learn/Extention:PagingMemoryProxy
-
-* RowLayout
-	License : LGPL
-	Author : Kirill Hryapin
-
-* MultiSelect
-	License : LGPL / Ext License
-	http://extjs.com/learn/Extension:Multiselect2

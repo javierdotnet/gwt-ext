@@ -7,6 +7,7 @@ import com.gwtext.client.core.Position;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Reader;
 import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.QuickTips;
 import com.gwtext.client.widgets.form.event.FormListener;
 import com.gwtext.client.widgets.layout.ContainerLayout;
 
@@ -23,7 +24,13 @@ public class FormPanel extends Panel {
 		init();
 	}
 
-	private static native void init()/*-{
+    private static void init() {
+        QuickTips.init();
+        Field.setMsgTarget("side");
+        doInit();
+    }
+
+    private static native void doInit()/*-{
 			var c = new $wnd.Ext.form.FormPanel();
 			@com.gwtext.client.widgets.form.FormPanel::configPrototype = c.initialConfig;
 		}-*/;

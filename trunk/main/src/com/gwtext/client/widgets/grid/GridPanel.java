@@ -557,13 +557,13 @@ public class GridPanel extends Panel {
     }
 
     /**
-     * True to enable Grid context menus.
+     * True to enable the drop down button for menu in the headers.
      *
-     * @param enableCtxMenu true to enable context menu
+     * @param enableHdMenu true to enable the drop down button for menu in the headers.
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
-    public void setEnableCtxMenu(boolean enableCtxMenu) throws IllegalStateException {
-        setAttribute("enableCtxMenu", enableCtxMenu, true);
+    public void setEnableHdMenu(boolean enableHdMenu) throws IllegalStateException {
+        setAttribute("enableHdMenu", enableHdMenu, true);
     }
 
     /**

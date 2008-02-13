@@ -161,7 +161,7 @@ public class MessageBox {
      * @return true if visible
      */
     public static native boolean isVisible() /*-{
-        $wnd.Ext.MessageBox.isVisible();
+        return $wnd.Ext.MessageBox.isVisible();
     }-*/;
 
     /**

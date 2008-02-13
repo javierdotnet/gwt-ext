@@ -25,7 +25,7 @@ public class Separator extends BaseItem {
 	}
 	
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-        return new $wnd.Ext.menu.TextItem(config['text'] ||'');
+        return new $wnd.Ext.menu.Separator();
     }-*/;
 
     /**

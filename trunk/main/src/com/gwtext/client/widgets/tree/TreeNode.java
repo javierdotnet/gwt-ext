@@ -129,7 +129,12 @@ public class TreeNode extends Node {
     }-*/;
 
 	public boolean isRendered() {
-		return getUI().getEl() == null;
+		TreeNodeUI treeNodeUI = getUI();
+		if(treeNodeUI == null) {
+			return false;
+		} else {
+			return treeNodeUI.getEl() != null;	
+		}
 	}
 
 	/**
@@ -209,7 +214,7 @@ public class TreeNode extends Node {
     public native TreeNodeUI getUI() /*-{
         var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var ui = node.getUI();
-        return @com.gwtext.client.widgets.tree.TreeNodeUI::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ui);
+        return ui === undefined || ui == null ? null : @com.gwtext.client.widgets.tree.TreeNodeUI::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ui);
     }-*/;
 
     /**

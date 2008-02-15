@@ -104,8 +104,9 @@ public class TreeNodeUI extends JsObject {
      */
     public native Element getEl() /*-{
          var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
-         return ui.getEl();
-    }-*/;
+         var el =  ui.getEl();
+		 return el === undefined ? null : el;
+	}-*/;
 
     /**
      * Element for 'this' node.

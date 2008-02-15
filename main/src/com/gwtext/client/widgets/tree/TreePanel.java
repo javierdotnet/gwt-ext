@@ -57,10 +57,10 @@ public class TreePanel extends Panel {
     /**
 	 * Construct a new TreePanel.
 	 *
-	 * @param id the tree panel ID
+	 * @param id the tree panel title
 	 */
-	public TreePanel(String id) {
-		setId(id);
+	public TreePanel(String title) {
+		setTitle(title);
 	}
 
 

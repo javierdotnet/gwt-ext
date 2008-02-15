@@ -38,7 +38,18 @@ public class TreeNode extends Node {
         setText(text);
     }
 
-    TreeNode(JavaScriptObject jsObj) {
+	/**
+	 * Create a new TreeNode.
+	 *
+	 * @param text the text / label of the TreeNode
+	 * @param iconCls the tree node icon CSS class
+	 */
+	public TreeNode(String text, String iconCls){
+		setText(text);
+		setIconCls(iconCls);
+	}
+
+	TreeNode(JavaScriptObject jsObj) {
         super(jsObj);
     }
 
@@ -117,15 +128,27 @@ public class TreeNode extends Node {
         node.ensureVisible();
     }-*/;
 
-    /**
+	public boolean isRendered() {
+		return getUI().getEl() == null;
+	}
+
+	/**
      * Expand this node. The tree must be rendered before this method is called.
      */
-    public native void expand() /*-{
+    public void expand(){
+		if(isRendered()) {
+			doExpand();
+		} else {
+			setExpanded(true);
+	}
+}
+    private native void doExpand() /*-{
         var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
         node.expand();
     }-*/;
 
-    //make sure tree is rendered before expand called
+
+	//make sure tree is rendered before expand called
     //todo add callback
     /**
      * Expand this node. The tree must be rendered before this method is called.
@@ -133,7 +156,15 @@ public class TreeNode extends Node {
      * @param deep true to expand all children as well
      * @param anim false to cancel the default animation
      */
-    public native void expand(boolean deep, boolean anim) /*-{
+    public void expand(boolean deep, boolean anim){
+	    if(isRendered()){
+			doExpand(deep, anim);
+		} else {
+			setExpanded(true);
+		}
+	}
+
+	private native void doExpand(boolean deep, boolean anim) /*-{
         var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
         node.expand(deep, anim);
     }-*/;
@@ -145,7 +176,15 @@ public class TreeNode extends Node {
      * @param anim     false to cancel the default animation
      * @param callback a callback to be called when expanding this node completes (does not wait for deep expand to complete)
      */
-    public native void expand(boolean deep, boolean anim, Function callback) /*-{
+    public void expand(boolean deep, boolean anim, Function callback) {
+		if(isRendered()) {
+			doExpand(deep, anim, callback);
+		} else {
+			setExpanded(true);
+		}
+	}
+
+	private native void doExpand(boolean deep, boolean anim, Function callback) /*-{
         var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
         node.expand(deep, anim, function(self) {
 			callback.@com.gwtext.client.core.Function::execute()();

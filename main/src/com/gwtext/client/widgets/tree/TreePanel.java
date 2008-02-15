@@ -9,6 +9,8 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Command;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
@@ -105,17 +107,38 @@ public class TreePanel extends Panel {
 	/**
 	 * Collapse all nodes.
 	 */
-	public native void collapseAll() /*-{
+	public void collapseAll() {
+		if (!isRendered()) {
+			addListener("render", new Function() {
+                public void execute() {
+					DeferredCommand.addCommand(new Command() {
+						public void execute() {
+							collapseAll();
+						}
+					});
+                }
+            });
+		} else {
+			collapseAllRendered();
+		}
+	}
+	private native void collapseAllRendered() /*-{
         var panel = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         panel.collapseAll();
     }-*/;
 
-
+	/**
+	 * Expand all nodes.
+	 */
 	public void expandAll() {
 		if (!isRendered()) {
 			addListener("render", new Function() {
                 public void execute() {
-                    expandAll();
+					DeferredCommand.addCommand(new Command() {
+						public void execute() {
+							expandAll();
+						}
+					});
                 }
             });
 		} else {
@@ -123,10 +146,7 @@ public class TreePanel extends Panel {
 		}
 	}
 
-	/**
-	 * Expand all nodes.
-	 */
-	public native void expandAllRendered() /*-{
+	private native void expandAllRendered() /*-{
         var panel = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         panel.expandAll();
     }-*/;

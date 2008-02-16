@@ -31,6 +31,23 @@ public class Hidden extends Field {
         return "hidden";
     }
 
+    /**
+     * Create a new hidden field.
+     */
+    public Hidden() {
+    }
+
+    /**
+     * Create a new hidden field.
+     *
+     * @param name the field name
+     * @param value the field value
+     */
+    public Hidden(String name, String value) {
+        setName(name);
+        setValue(value);
+    }
+
     public Hidden(JavaScriptObject jsObj) {
         super(jsObj);
     }

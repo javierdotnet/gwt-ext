@@ -1,6 +1,7 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.GWT;
 import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.core.Position;
@@ -8,6 +9,7 @@ import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Reader;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.QuickTips;
+import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.form.event.FormListener;
 import com.gwtext.client.widgets.layout.ContainerLayout;
 
@@ -48,6 +50,16 @@ public class FormPanel extends Panel {
 	 * Create a new FormPanel.
 	 */
 	public FormPanel() {
+	}
+
+	protected void initComponent() {
+		super.initComponent();
+		if (!GWT.isScript()) {
+			Component[] items = getItems();
+			if(items.length == 0) {
+				error("FormPanel must contain atleast one field.");
+			}
+		}
 	}
 
 	/**

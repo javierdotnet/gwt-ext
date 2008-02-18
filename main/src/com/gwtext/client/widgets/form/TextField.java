@@ -11,6 +11,11 @@ package com.gwtext.client.widgets.form;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.TextFieldListener;
+import com.gwtext.client.widgets.event.KeyListener;
+import com.gwtext.client.core.Function;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.EventCallback;
+import com.gwtext.client.core.ListenerConfig;
 
 /**
  * Basic text field.
@@ -94,7 +99,96 @@ public class TextField extends Field {
         return new $wnd.Ext.form.TextField(jsObj);
     }-*/;
 
+	/**
+	 * Add a key listener.
+	 *
+	 * @param keyCode the numeric key code
+	 * @param listener the key listener
+	 */
+	public void addKeyListener(final int keyCode, final KeyListener listener) {
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					addKeyListener(keyCode, listener);
+				}
+			});
+		} else {
+			getEl().addKeyListener(keyCode, listener);
+		}
+	}
+
     /**
+     * Add a key listener.
+     *
+     * @param keyCodes  array of key codes
+     * @param listener the key listener
+     */
+	public void addKeyListener(final int[] keyCodes, final KeyListener listener) {
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					addKeyListener(keyCodes, listener);
+				}
+			});
+		} else {
+			getEl().addKeyListener(keyCodes, listener);
+		}
+	}
+
+    /**
+     * Add a key listener.
+     *
+     * @param keys  a string with the keys to listen for
+     * @param listener the key listener
+     */
+	public void addKeyListener(final String keys, final KeyListener listener) {
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					addKeyListener(keys, listener);
+				}
+			});
+		} else {
+			getEl().addKeyListener(keys, listener);
+		}
+	}
+
+	/**
+	 * Add a key press listener
+	 *
+	 * @param listener the key press listener
+	 */
+	public void addKeyPressListener(final EventCallback listener) {
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					addKeyPressListener(listener);
+				}
+			});
+		} else {
+			getEl().addListener("keypress", listener);
+		}
+	}
+	
+	/**
+	 * Add a key press listener
+	 *
+	 * @param listener the key press listener
+	 * @param listenerConfig the listener config
+	 */
+	public void addKeyPressListener(final EventCallback listener, final ListenerConfig listenerConfig) {
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					addKeyPressListener(listener, listenerConfig);
+				}
+			});
+		} else {
+			getEl().addListener("keypress", listener, listenerConfig);
+		}
+	}
+
+	/**
      * Add a TextField listener.
      *
      * @param listener the listener

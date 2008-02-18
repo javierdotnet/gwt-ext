@@ -362,12 +362,13 @@ public class Container extends BoxComponent implements HasWidgets {
      * @return child components
      */
     public native Component[] getComponents()/*-{
-        var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+		var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var items = container.items;
         if(items === undefined || items == null) {
             items = null;
         } else {
-            items = container.items.items;
+			//FormPanel doesn't use MixedCollection
+			items = container.items.items || container.items;
         }
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaComponentArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
     }-*/;

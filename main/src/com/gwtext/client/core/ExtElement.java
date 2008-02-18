@@ -577,8 +577,9 @@ public class ExtElement extends BaseElement {
      */
     public native Element getDOM()/*-{
         var element = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        return element.dom;
-    }-*/;
+        var dom = element.dom;
+		return dom === undefined ? null : dom;
+	}-*/;
 
     /**
      * Returns the sum width of the padding and borders for the passed side.

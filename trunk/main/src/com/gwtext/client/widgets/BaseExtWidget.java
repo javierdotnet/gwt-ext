@@ -38,9 +38,12 @@ public abstract class BaseExtWidget extends Widget {
     }
 
     public ExtElement getEl() {
-        return jsObj == null ? null : new ExtElement(getElement());
+        if(jsObj == null || getElement() == null) {
+			return   null;
+		} else {
+			 return new ExtElement(getElement());
+		}
     }
-
     
     //jsObj is JS object representing the UI Widget
     //jsObj.el is the ExtElement of the Widget

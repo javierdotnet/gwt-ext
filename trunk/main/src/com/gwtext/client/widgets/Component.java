@@ -179,23 +179,38 @@ public abstract class Component extends Widget implements Observable {
 
         addListener("beforedestroy", new Function() {
             public void execute() {
-                JavaScriptObjectHelper.setAttribute(Component.this.getConfig(), "__compJ", (String)null);
+
                 if(isRendered()) {
                     doBeforeDestroy(Component.this.getJsObj());
                 }
                 beforeDestroy();
-            }
-            private native void doBeforeDestroy(JavaScriptObject jsObj) /*-{
+			}
+
+			private native void doBeforeDestroy(JavaScriptObject jsObj) /*-{
+
+            }-*/;
+        });
+		
+		addListener("destroy", new Function() {
+            public void execute() {
+                onDestroy();
+				JavaScriptObjectHelper.setAttribute(Component.this.getConfig(), "__compJ", (String)null);
+				//add clearing of reference in DeferredCommand because in the case of TabPanel.remove, the remove event
+				//is called after the component has been destroyed, and we want to make sure that the onremove event is passed
+				//the real user object
+				DeferredCommand.addCommand(new Command() {
+					public void execute() {
+						doOnDestroy(Component.this.getJsObj());
+					}
+				});
+			}
+
+			private native void doOnDestroy(JavaScriptObject jsObj) /*-{
                 if(jsObj != null && jsObj.__compJ) {
                     jsObj.__compJ = null;
                 }
             }-*/;
-        });
-        addListener("destroy", new Function() {
-            public void execute() {
-                onDestroy();
-            }
-        });
+		});
     }
 
     /**

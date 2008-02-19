@@ -519,12 +519,13 @@ public class ComboBox extends TextField {
 		if(store instanceof SimpleStore) {
 			setTriggerAction(ALL);
 			if(!isCreated()) setMode(LOCAL);
+			store.load();
 		}
 		setAttribute("store", store.getJsObj(), true);
         if (displayField != null) {
             setFilterColParam(store.getJsObj(), displayField);
         }
-    }
+	}
 
     /**
      * If supplied, a header element is created containing this text and added into the top of the dropdown list

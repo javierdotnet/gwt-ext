@@ -25,44 +25,33 @@ import com.gwtext.client.widgets.tree.event.AsyncTreeNodeListener;
  * <pre>
  * <code>
  *
- *     final TreePanel treePanel = new TreePanel("cb-tree", new TreePanelConfig() {
- *            {
- *                setAnimate(true);
- *                setEnableDD(true);
- *                setContainerScroll(true);
- *                setRootVisible(true);
- *            }
- *        });
+ *     final TreePanel treePanel = new TreePanel();
+ *     treePanel.setAnimate(true);
+ *     treePanel.setEnableDD(true);
+ *     treePanel.setContainerScroll(true);
+ *     treePanel.setRootVisible(true);
  *
- *     final XMLTreeLoader loader = new XMLTreeLoader(new XMLTreeLoaderConfig() {
- *            {
- *                setDataUrl("countries-cb.xml");
- *                setMethod("get");
- *                setRootTag("countries");
- *                setFolderIdMapping("@id");
- *                setLeafIdMapping("@id");
- *                setFolderTitleMapping("@title");
- *                setFolderTag("team");
- *                setLeafTitleMapping("@title");
- *                setLeafTag("country");
- *                setQtipMapping("@qtip");
- *                setDisabledMapping("@disabled");
- *                setCheckedMapping("@checked");
- *                setIconMapping("@icon");
- *                setAttributeMappings(new String[]{"@rank"});
- *            }
- *        });
- *        AsyncTreeNode root = new AsyncTreeNode("Countries", new AsyncTreeNodeConfig() {
- *            {
- *                setLoader(loader);
- *            }
- *        });
+ *     final XMLTreeLoader loader = new XMLTreeLoader();
+ *     loader.setDataUrl("countries-cb.xml");
+ *     loader.setMethod(Connection.GET);
+ *     loader.setRootTag("countries");
+ *     loader.setFolderIdMapping("@id");
+ *     loader.setLeafIdMapping("@id");
+ *     loader.setFolderTitleMapping("@title");
+ *     loader.setFolderTag("team");
+ *     loader.setLeafTitleMapping("@title");
+ *     loader.setLeafTag("country");
+ *     loader.setQtipMapping("@qtip");
+ *     loader.setDisabledMapping("@disabled");
+ *     loader.setCheckedMapping("@checked");
+ *     loader.setIconMapping("@icon");
+ *     loader.setAttributeMappings(new String[]{"@rank"});
  *
- *        treePanel.setRootNode(root);
- *        treePanel.render();
+ *     AsyncTreeNode root = new AsyncTreeNode("Countries", loader);
+ *     treePanel.setRootNode(root);
  *
- *        root.expand();
- *        treePanel.expandAll();
+ *     root.expand();
+ *     treePanel.expandAll();
  * </code>
  * </pre>
  *

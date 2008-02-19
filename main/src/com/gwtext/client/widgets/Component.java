@@ -337,7 +337,35 @@ public abstract class Component extends Widget implements Observable {
         component.addEvents(events);
     }-*/;
 
-    /**
+	/**
+	 * Removes all listeners for this Component.
+	 */
+	public native void purgeListeners() /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.purgeListeners();
+    }-*/;	
+
+	/**
+	 * Resume firing events.
+	 *
+	 * @see #suspendEvents() 
+	 */
+	public native void resumeEvents() /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.resumeEvents();
+    }-*/;
+
+	/**
+	 * Suspend the firing of all events.
+	 *
+	 * @see #resumeEvents() 
+	 */
+	public native void suspendEvents() /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.suspendEvents();
+    }-*/;
+	
+	/**
 	 * True if this component is disabled.
 	 *
 	 * @return true if disabled

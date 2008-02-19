@@ -42,8 +42,8 @@ public class Margins extends JsObject {
 
     private static Margins instance(JavaScriptObject jsObj) {
         return new Margins(
-                JavaScriptObjectHelper.getAttributeAsInt(jsObj, "left"),
-                JavaScriptObjectHelper.getAttributeAsInt(jsObj, "top"),
+				JavaScriptObjectHelper.getAttributeAsInt(jsObj, "top"),
+				JavaScriptObjectHelper.getAttributeAsInt(jsObj, "left"),
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "right"),
                 JavaScriptObjectHelper.getAttributeAsInt(jsObj, "bottom")
         );

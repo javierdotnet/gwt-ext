@@ -281,7 +281,7 @@ public class Form extends BaseExtWidget {
                         responseText = action.response.responseText;
                         status = action.response.status;
                     }
-                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionFailed(Lcom/gwtext/client/widgets/form/Form;ILjava/lang/String;)(formJ, status, '');
+                    listener.@com.gwtext.client.widgets.form.event.FormListener::onActionFailed(Lcom/gwtext/client/widgets/form/Form;ILjava/lang/String;)(formJ, status, responseText);
                 }
         );
 

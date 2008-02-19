@@ -16,6 +16,7 @@ import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.layout.ContainerLayout;
 import com.gwtext.client.widgets.tree.event.TreePanelListener;
 
 /**
@@ -245,6 +246,10 @@ public class TreePanel extends Panel {
             return node;
         }
     }-*/;
+
+	public void setLayout(ContainerLayout layout) {
+        throw new IllegalArgumentException("The layout of TreePanel should not be changed.");
+    }
 
 	/**
 	 * Returns the root node for this tree.

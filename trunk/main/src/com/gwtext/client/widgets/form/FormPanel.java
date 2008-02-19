@@ -135,7 +135,7 @@ public class FormPanel extends Panel {
 	 * @param listener the listener
 	 */
 	public native void addListener(FormPanelListener listener) /*-{
-        this.@com.gwtext.client.widgets.Panel::addListener(Lcom/gwtext/client/widgets/event/ContainerListener;)(listener);
+        this.@com.gwtext.client.widgets.Panel::addListener(Lcom/gwtext/client/widgets/event/PanelListener;)(listener);
         var formPanelJ = this;
 
        this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('clientvalidation',

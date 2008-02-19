@@ -15,7 +15,7 @@ import com.gwtext.sample.showcase2.client.ShowcasePanel;
 public class ToolTipTypesSample extends ShowcasePanel {
 
     public String getSourceUrl() {
-        return "source/tooltip/ToolTipTypesSample.java.html";
+        return "source/tooltip/TooltipTypesSample.java.html";
     }
 
     public Panel getViewPanel() {

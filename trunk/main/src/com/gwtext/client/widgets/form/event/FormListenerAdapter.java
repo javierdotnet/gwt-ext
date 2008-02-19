@@ -12,14 +12,6 @@ import com.gwtext.client.widgets.form.Form;
 
 public class FormListenerAdapter implements FormListener {
 
-    /**
-     * Use {@link #onActionComplete(com.gwtext.client.widgets.form.Form, int, String)}
-     *
-     * @param form this
-     */
-    final public void onActionComplete(Form form) {
-    }
-
     public void onActionComplete(Form form, int httpStatus, String responseText) {
     }
 
@@ -28,8 +20,5 @@ public class FormListenerAdapter implements FormListener {
 
     public boolean doBeforeAction(Form form) {
         return true;
-    }
-
-    public void onClientValidation(Form form, boolean valid) {
     }
 }

@@ -11,6 +11,7 @@ import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.QuickTips;
 import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.form.event.FormListener;
+import com.gwtext.client.widgets.form.event.FormPanelListener;
 import com.gwtext.client.widgets.layout.ContainerLayout;
 
 /**
@@ -128,7 +129,24 @@ public class FormPanel extends Panel {
         }
     }
 
-    // -- config properties ---
+	/**
+	 * Add a Form Panel Listener.
+	 *
+	 * @param listener the listener
+	 */
+	public native void addListener(FormPanelListener listener) /*-{
+        this.@com.gwtext.client.widgets.Panel::addListener(Lcom/gwtext/client/widgets/event/ContainerListener;)(listener);
+        var formPanelJ = this;
+
+       this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('clientvalidation',
+                function(form, valid) {
+					var v = valid == null | valid === undefined ? false : valid;
+					listener.@com.gwtext.client.widgets.form.event.FormPanelListener::onClientValidation(Lcom/gwtext/client/widgets/form/FormPanel;Z)(formPanelJ, v);
+                }
+        );
+    }-*/;
+
+	// -- config properties ---
 
 	//http://extjs.com/forum/showthread.php?t=4814&highlight=doAction
 	//acts like hidden form fields

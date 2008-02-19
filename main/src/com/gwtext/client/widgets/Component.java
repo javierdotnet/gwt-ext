@@ -12,6 +12,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.Ext;
@@ -533,14 +535,20 @@ public abstract class Component extends Widget implements Observable {
 	/**
 	 * Try to focus this component.
 	 */
-    public  void focus() {
+    public void focus() {
         if(!isRendered()) {
             addListener("render", new Function() {
                 public void execute() {
-                    focusRendered();
+					DeferredCommand.addCommand(new Command() {
+						public void execute() {
+							focusRendered();
+						}
+					});					
                 }
             });
-        }
+        } else {
+			focusRendered();
+		}
     }
 
     private native void focusRendered() /*-{

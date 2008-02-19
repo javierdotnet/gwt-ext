@@ -109,9 +109,6 @@ public class FormPanel extends Panel {
 		return @com.gwtext.client.widgets.form.Form::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(formJS);
 	}-*/;
 
-    public void setLayout(ContainerLayout layout) {
-        throw new IllegalArgumentException("The layout of FormPanel should not be changed.");
-    }
 
     /**
      * Add a Form listener. Although you can add this listener on the {@link com.gwtext.client.widgets.form.Form}

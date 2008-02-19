@@ -184,7 +184,25 @@ public class PagingToolbar extends Toolbar {
         return pagingToolbar.pageSize;
     }-*/;
 
-    /**
+	/**
+	 * Return the current page number.
+	 *
+	 * @return the current page. The first page starts at 1
+	 */
+	public int getCurrentPage() {
+        if(isRendered()) {
+           return getCurrentPageRendered();
+        } else {
+            return 1;
+        }
+    }
+
+    private native int getCurrentPageRendered() /*-{
+		var pagingToolbar = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        return pagingToolbar.getPageData().activePage;
+    }-*/;
+
+	/**
      * True to display the displayMsg (defaults to false).
      *
      * @param displayInfo the display message

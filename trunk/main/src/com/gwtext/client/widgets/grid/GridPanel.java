@@ -9,6 +9,7 @@
 package com.gwtext.client.widgets.grid;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Timer;
 import com.gwtext.client.core.Ext;
@@ -128,14 +129,17 @@ public class GridPanel extends Panel {
     }-*/;
 
 
-    protected void initComponent() {
-        super.initComponent();
-        Store store = getStore();
-        if(store == null) {
-            error("A Store must be assigned to the GridPanel. See setStore(..)");
-        }
-    }
-    /**
+	protected void initComponent() {
+		super.initComponent();
+		if (!GWT.isScript()) {
+			Store store = getStore();
+			if (store == null && !(this instanceof PropertyGridPanel)) {
+				error("A Store must be assigned to the GridPanel. See setStore(..)");
+			}
+		}
+	}
+	
+	/**
      * Returns the grid's ColumnModel.
      *
      * @return the column model

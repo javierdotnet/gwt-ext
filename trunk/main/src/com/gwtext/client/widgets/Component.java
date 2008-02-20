@@ -10,10 +10,10 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.Ext;
@@ -1471,14 +1471,22 @@ public abstract class Component extends Widget implements Observable {
     }
 
     public boolean equals(Object obj) {
-        if (obj instanceof BaseExtWidget) {
-            return getElement().equals(((BaseExtWidget) obj).getElement());
+        if (obj instanceof Component) {
+            if(obj == this) {
+                return true;
+            } else {
+                Component other = (Component)obj;
+                if(other.getId().equals(getId())) {
+                    return true;
+                }
+            }
+            return false;
         } else {
             return false;
         }
     }
 
     public int hashCode() {
-        return getElement().hashCode();
+        return getId().hashCode();
     }
 }

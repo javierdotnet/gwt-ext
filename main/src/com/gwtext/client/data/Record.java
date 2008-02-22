@@ -181,6 +181,17 @@ public class Record extends JsObject {
     }-*/;
 
     /**
+     * Sets the fields Object value.
+     *
+     * @param field the field name
+     * @param value the fiedl value
+     */
+    public native void set(String field, Object value) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        record.set(field, value);
+    }-*/;
+
+    /**
      * Sets the fields value.
      *
      * @param field the field name

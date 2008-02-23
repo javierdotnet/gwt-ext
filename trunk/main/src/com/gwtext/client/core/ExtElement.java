@@ -1197,7 +1197,7 @@ public class ExtElement extends BaseElement {
      * @param selector the CSS selector
      * @return an array of the matched nodes
      */
-    public static native Element[] query(String selector)/*-{
+    public native Element[] query(String selector)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var elemsJS = elem.query(selector);
         return @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(elemsJS);

@@ -98,7 +98,7 @@ public class Template extends JsObject {
         return applyTemplate(NameValuePair.getJsObj(values));
     }
 
-    private native String applyTemplate(JavaScriptObject values) /*-{
+    public native String applyTemplate(JavaScriptObject values) /*-{
         var template = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return template.applyTemplate(values);
     }-*/;

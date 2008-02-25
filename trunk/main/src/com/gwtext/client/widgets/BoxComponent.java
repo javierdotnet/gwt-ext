@@ -296,9 +296,14 @@ public class BoxComponent extends Component {
                 setAttribute("height", height, true);
             }
         } else {
-            super.setHeight(height + "px");
+           setHeightRendered(height);
         }
     }
+
+	private native void setHeightRendered(int height) /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.setHeight(height);
+    }-*/;
 
     /**
      * Set the height in pixels or auto. Note that setting percentage based heights will lead to unpredictable
@@ -318,7 +323,12 @@ public class BoxComponent extends Component {
                 setAttribute("height", height, true);
             }
         } else {
-            super.setHeight(height);
+            if(height.indexOf("px") != -1) {
+                height = height.replaceAll("px","").trim();
+                setHeightRendered(Integer.parseInt(height));
+            } else {
+                super.setHeight(height);
+            }
         }
     }
 
@@ -353,9 +363,14 @@ public class BoxComponent extends Component {
                 setAttribute( "width", width, true);
             }
         } else {
-            super.setWidth(width +"px");
+            setWidthRendered(width);
         }
     }
+
+	private native void setWidthRendered(int width) /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.setWidth(width);
+    }-*/;
 
     /**
      * Set the width in pixels or auto. Note that setting percentage based widths will lead to unpredictable
@@ -375,7 +390,12 @@ public class BoxComponent extends Component {
                 setAttribute("width", width, true);
             }
         } else {
-            super.setWidth(width);
+            if(width.indexOf("px") != -1) {
+                width = width.replaceAll("px","").trim();
+                setWidthRendered(Integer.parseInt(width));
+            } else {
+                super.setWidth(width);
+            }
         }
     }
 

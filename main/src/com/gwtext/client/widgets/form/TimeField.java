@@ -9,14 +9,13 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
 /**
  * Basic text field.
  */
-public class TimeField extends Field {
+public class TimeField extends ComboBox {
 
     private static JavaScriptObject configPrototype;
 

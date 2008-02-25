@@ -320,7 +320,11 @@ public abstract class Field extends BoxComponent {
      * @param disabled true to disable
      */
     public void setDisabled(boolean disabled) {
-        setAttribute("disabled", disabled, true, true);
+        if(!isRendered()) {
+            setAttribute("disabled", disabled, true, true);
+        } else {
+            super.setDisabled(disabled);
+        }
     }
 
 	/**

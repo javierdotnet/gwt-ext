@@ -54,4 +54,12 @@ public class GenericConfig extends BaseConfig {
     public void setProperty(String property, GenericConfig value) {
         JavaScriptObjectHelper.setAttribute(jsObj, property, value.getJsObj());
     }
+
+    public void setProperty(String property, Object value) {
+        JavaScriptObjectHelper.setAttribute(jsObj, property, value);
+    }
+
+    public Object getPropertyAsObject(String property) {
+        return JavaScriptObjectHelper.getAttributeAsObject(jsObj, property);
+    }
 }

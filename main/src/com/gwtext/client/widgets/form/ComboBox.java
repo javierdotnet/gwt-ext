@@ -14,8 +14,8 @@ import com.gwtext.client.core.Template;
 import com.gwtext.client.data.SimpleStore;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.form.event.ComboBoxListener;
 import com.gwtext.client.widgets.Shadow;
+import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
 public class ComboBox extends TextField {
 
@@ -28,8 +28,9 @@ public class ComboBox extends TextField {
     private String displayField;
 
     private static JavaScriptObject configPrototype;
+    private Store store;
 
-	static {
+    static {
 		init();
 	}
 
@@ -70,7 +71,12 @@ public class ComboBox extends TextField {
         return new $wnd.Ext.form.ComboBox(jsObj);
     }-*/;
 
-	protected native Element getElement(JavaScriptObject jsObj) /*-{
+    protected void onDestroy() {
+        super.onDestroy();
+        this.store = null;
+    }
+
+    protected native Element getElement(JavaScriptObject jsObj) /*-{
         //for trigger fields, we want the text area as well as the trigger button to be treated as the element
         //unit
         var extEl = jsObj.wrap;
@@ -525,7 +531,17 @@ public class ComboBox extends TextField {
         if (displayField != null) {
             setFilterColParam(store.getJsObj(), displayField);
         }
-	}
+        this.store = store;
+    }
+
+    /**
+     * The Store associated with the combobox.
+     *
+     * @return the store
+     */
+    public Store getStore() {
+        return store;
+    }
 
     /**
      * If supplied, a header element is created containing this text and added into the top of the dropdown list

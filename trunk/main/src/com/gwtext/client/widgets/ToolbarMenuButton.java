@@ -9,7 +9,6 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.widgets.event.ButtonListener;
 import com.gwtext.client.widgets.event.SplitButtonListener;
 import com.gwtext.client.widgets.menu.Menu;
 
@@ -72,6 +71,19 @@ public class ToolbarMenuButton extends SplitButton {
     public ToolbarMenuButton(String text, Menu menu) {
         if (text != null) setText(text);
         setMenu(menu);
+    }
+
+    /**
+     * Create a new ToolbarMenuButton.
+     *
+     * @param text the button text
+     * @param menu the button menu
+     * @param listener the button listener
+     */
+    public ToolbarMenuButton(String text, Menu menu, SplitButtonListener listener) {
+        if (text != null) setText(text);
+        setMenu(menu);
+        addListener(listener);
     }
 
     public ToolbarMenuButton(JavaScriptObject jsObj) {

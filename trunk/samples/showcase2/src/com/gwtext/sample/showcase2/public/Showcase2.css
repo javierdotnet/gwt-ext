@@ -473,42 +473,6 @@
     margin: 10px;
 }
 
-/*portal example*/
-
-.x-portal .x-panel-dd-spacer {
-    margin-bottom:10px;
-}
-
-.x-portlet {
-    margin-bottom:10px;
-}
-
-/* Clean up the look of the portlets */
-.x-portlet .x-panel-ml {
-    padding-left:2px;
-}
-.x-portlet .x-panel-mr {
-    padding-right:2px;
-}
-.x-portlet .x-panel-bl {
-    padding-left:2px;
-}
-
-.x-portlet .x-panel-br {
-    padding-right:2px;
-}
-.x-portlet .x-panel-body {
-    background:white;
-}
-.x-portlet .x-panel-mc {
-    padding-top:2px;
-}
-.x-portlet .x-panel-bc .x-panel-footer {
-    padding-bottom:2px;
-}
-.x-portlet .x-panel-nofooter .x-panel-bc {
-    height:2px;
-}
 
 /*forums remote grid*/
 .x-grid3-td-topic b {
@@ -626,3 +590,4 @@
     background:transparent url(images/download.gif) no-repeat top left !important;
     height:36px;
 }
+

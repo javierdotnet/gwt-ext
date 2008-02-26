@@ -1362,8 +1362,17 @@ public class ExtElement extends BaseElement {
         return elem.dom.parentNode;
     }-*/;
 
+	/**
+	 * Remove the specified child.
+	 *
+	 * @param child the child
+	 */
+	public native void removeChild(Element child) /*-{
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        elem.dom.removeChild(child);
+    }-*/;
 
-    /**
+	/**
      * Return the client width of the element.
      *
      * @return the client width
@@ -1373,5 +1382,14 @@ public class ExtElement extends BaseElement {
         return elem.dom.clientWidth;
     }-*/;
 
+	/**
+	 * Set the scroll top position.
+	 *
+	 * @param scrollTop the scroll top position
+	 */
+	public native void setScrollTop(int scrollTop) /*-{
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        elem.dom.scrolltop = scrollTop;
+    }-*/;
 }
 

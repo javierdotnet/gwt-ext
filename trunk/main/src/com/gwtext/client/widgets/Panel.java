@@ -653,7 +653,7 @@ public class Panel extends Container {
         if (bodyStyle == null) {
             setBodyStyle(style);
         } else {
-            setBodyStyle(style + bodyStyle);
+            setBodyStyle(bodyStyle + style);
         }
     }
 

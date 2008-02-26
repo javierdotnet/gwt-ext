@@ -38,10 +38,7 @@ import com.gwtext.sample.showcase2.client.dd.BasicOnTopSample;
 import com.gwtext.sample.showcase2.client.form.*;
 import com.gwtext.sample.showcase2.client.grid.*;
 import com.gwtext.sample.showcase2.client.layout.*;
-import com.gwtext.sample.showcase2.client.misc.ColorPaletteSample;
-import com.gwtext.sample.showcase2.client.misc.DatePickerSample;
-import com.gwtext.sample.showcase2.client.misc.MaskingSample;
-import com.gwtext.sample.showcase2.client.misc.ProgressBarSample;
+import com.gwtext.sample.showcase2.client.misc.*;
 import com.gwtext.sample.showcase2.client.panel.PanelsSample;
 import com.gwtext.sample.showcase2.client.tabs.BottomTabPanelSample;
 import com.gwtext.sample.showcase2.client.tabs.TabPanelSample;
@@ -458,6 +455,7 @@ public class ScreenManager {
                 new Object[]{"datePicker", "misc-category", "Date Picker", "datepicker-nav-icon", null, null, new DatePickerSample()},
                 new Object[]{"tooltips", "misc-category", "Tooltips", null, "images/thumbnails/misc/tooltip.gif", null, new ToolTipTypesSample()},
                 new Object[]{"mask", "misc-category", "Mask Demo", "mask-nav-icon", "images/thumbnails/misc/mask.gif", null, new MaskingSample()},
+                new Object[]{"portal", "misc-category", "Portal Demo", null, null, null, new PortalSample()},
 
                 new Object[]{"user-category", null, "User Contributions", "user-icon", null, "User Contributions", null},
                 new Object[]{"imageChooser", "user-category", "Image Chooser", null, "images/thumbnails/combination/chooser.gif", null, new ImageChooserSample()}

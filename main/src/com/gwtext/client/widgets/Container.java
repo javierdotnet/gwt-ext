@@ -447,6 +447,17 @@ public class Container extends BoxComponent implements HasWidgets {
     }-*/;
 
 	/**
+	 * Force this container's layout to be recalculated. A call to this function is required after adding a new component
+	 * to an already rendered container. If you are not dynamically adding and removing components after render, this function will generally not need to be called.
+     *
+     * @param shallow True to only calculate the layout of this component, and let child components auto calculate layouts as required
+	 */
+	public native void doLayout(boolean shallow) /*-{
+		var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        container.doLayout();
+    }-*/;
+
+    /**
 	 * Add a Container listener.
 	 *
 	 * @param listener the listener

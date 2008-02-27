@@ -37,7 +37,8 @@ public class Tool {
     public static ToolType HELP = new ToolType("help");
     public static ToolType SEARCH = new ToolType("search");
     public static ToolType SAVE = new ToolType("save");
-    
+    public static ToolType PRINT = new ToolType("print");
+
     private JavaScriptObject jsObj = JavaScriptObjectHelper.createObject();
 
     /**

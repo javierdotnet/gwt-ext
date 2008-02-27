@@ -90,7 +90,7 @@ public class DateFieldDef extends FieldDef {
      * @param dateFormat the date format
      */
     public DateFieldDef(String name, int mapping, String dateFormat) {
-        this(name, dateFormat, String.valueOf(mapping));
+        this(name, String.valueOf(mapping), dateFormat);
     }
 
     private static JavaScriptObject create(String name, String mapping, String dateFormat) {

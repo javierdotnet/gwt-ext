@@ -24,3 +24,11 @@
 #loading-msg {
     font: normal 10px arial, tahoma, sans-serif;
 }
+
+.x-portlet {
+    margin-bottom:10px;
+}
+
+.x-portal .x-panel-dd-spacer {
+    margin-bottom:10px;
+}

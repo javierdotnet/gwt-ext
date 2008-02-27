@@ -513,7 +513,8 @@ public abstract class Component extends Widget implements Observable {
 	public void disable() {
         if(!isRendered()) {
             initDisabled = true;
-            addListener("render", new Function() {
+			setAttribute("disabled", true, true);
+			addListener("render", new Function() {
                 public void execute() {
                     disableRendered();
                 }
@@ -533,7 +534,8 @@ public abstract class Component extends Widget implements Observable {
 	 */
 	public void enable() {
         if(!isRendered()) {
-            addListener("render", new Function() {
+			setAttribute("disabled", false, true);
+			addListener("render", new Function() {
                 public void execute() {
                     enableRendered();
                 }

@@ -298,7 +298,7 @@ public class TreePanel extends Panel {
 	 *
 	 * @param node the root node
 	 */
-	public native void setRootNodeRendered(Node node) /*-{
+	private native void setRootNodeRendered(Node node) /*-{
         var tree = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var nodeJS = node.@com.gwtext.client.core.JsObject::getJsObj()();
         tree.setRootNode(nodeJS);

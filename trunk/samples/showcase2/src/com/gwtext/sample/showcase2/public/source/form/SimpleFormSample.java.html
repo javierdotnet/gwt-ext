@@ -56,6 +56,12 @@ public class SimpleFormSample implements EntryPoint {
         formPanel.setLabelWidth(75);
         formPanel.setUrl("save-form.php");
 
+        Label label = new Label();
+        label.setHtml("<p>This is an example of a Form Label. This can have any <b>HTML</b> content.</p>");
+        label.setCls("simple-form-label");
+        label.setWidth(350);
+        label.setHeight(20);
+
         TextField firstName = new TextField("First Name", "first", 230);
         firstName.setAllowBlank(false);
         formPanel.add(firstName);

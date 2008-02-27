@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <groupId>com.gwtext</groupId>
+  <artifactId>gwtext</artifactId>
+  <version>SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20080227.195142</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20080227195142</lastUpdated>
+  </versioning>
+</metadata>

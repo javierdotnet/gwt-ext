@@ -46,15 +46,16 @@ public class DateMenu extends Menu {
      * @param listener the listener
      */
     public native void addListener(DateMenuListener listener)/*-{
+        var menu = this.@com.gwtext.client.widgets.menu.Menu::getOrCreateJsObj()();
+        var menuJ = this;
 
-        var dateMenuJ = this;
-
-        this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('select',
+        menu.addListener('select',
                 function(dm, date) {
                     var dateJS = @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
-                    return listener.@com.gwtext.client.widgets.menu.event.DateMenuListener::onSelect(Lcom/gwtext/client/widgets/menu/DateMenu;Ljava/util/Date;)(dateMenuJ, dateJS);
+                    return listener.@com.gwtext.client.widgets.menu.event.DateMenuListener::onSelect(Lcom/gwtext/client/widgets/menu/DateMenu;Ljava/util/Date;)(menuJ, dateJS);
                 }
         );
+
     }-*/;
 
     // --- config properties --

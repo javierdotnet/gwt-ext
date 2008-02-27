@@ -1206,6 +1206,27 @@ public class Panel extends Container {
     }
 
     /**
+     * Set the tab CSS Class. This method is only applicable it the PAnel is being added to a TabPanel. This CSS class
+     * is applied to the &lt;li&gt; elements of the tab in the tabpanel.
+     *
+     * @param tabCls the tabCls
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setTabCls(String tabCls) {
+        setAttribute("tabCls", tabCls, true);
+    }
+
+    /**
+     * Return the tab CSS Class.
+     *
+     * @return the tabCls
+     */
+    public String getTabCls() {
+        return getAttribute("tabCls");
+    }
+
+
+    /**
      * The title text to display in the panel header. When a title is specified the header
      * element will automatically be created and displayed unless header is explicitly set to false. If you don't
      * want to specify a title at config time, but you may want one later, you must either specify a non-empty

@@ -150,6 +150,25 @@ public class Button extends Component {
     }-*/;
 
     /**
+     * The Button's owner Panel, null before rendered.
+     *
+     * @return the Button's owner Panel, null before rendered.
+     */
+    public Panel getOwnerCt() {
+        if(!isRendered()) {
+            return null;
+        } else {
+            return getOwnerCtRendered();
+        }
+    }
+
+   private native Panel getOwnerCtRendered() /*-{
+        var button = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        var panel = button.ownerCt;
+        return panel == null || panel === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
+    }-*/;
+
+    /**
      * Returns true if the button has a menu and it is visible.
      *
      * @return true if menu visible

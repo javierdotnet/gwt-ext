@@ -22,7 +22,7 @@ public abstract class FieldDef extends JsObject {
 
     static native void setConverter(JavaScriptObject config, Converter converter)/*-{
         config['convert'] = function(s) {
-            return converter.@com.gwtext.client.data.Converter::format(Ljava/lang/String;)(s);
+            return converter.@com.gwtext.client.data.Converter::format(Ljava/lang/String;)(s.toString());
         }
    }-*/;
 

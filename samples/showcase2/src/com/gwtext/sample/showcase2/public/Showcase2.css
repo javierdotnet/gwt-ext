@@ -591,3 +591,10 @@
     height:36px;
 }
 
+/*simple form */
+.simple-form-label {
+    padding:5px;
+    background-color: #CDEB8B;    
+    margin-bottom:15px;
+    border:#666666;
+}

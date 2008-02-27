@@ -8,7 +8,6 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.widgets.event.ButtonListener;
 import com.gwtext.client.widgets.event.CycleButtonListener;
 import com.gwtext.client.widgets.menu.CheckItem;
 
@@ -182,6 +181,30 @@ public class CycleButton extends SplitButton {
         config.items.push(itemJS);
     }-*/;
 
+    /**
+     * A css class which sets an image to be used as the static icon for this button. This icon will always be displayed
+     * regardless of which item is selected in the dropdown list. This overrides the default behavior of changing the
+     * button's icon to match the selected item's icon on change.
+     *
+     * @param forceIcon the forceIcon
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setForceIcon(String forceIcon) {
+        setAttribute("forceIcon", forceIcon, true);
+    }
+
+    /**
+     * A css class which sets an image to be used as the static icon for this button. This icon will always be displayed
+     * regardless of which item is selected in the dropdown list. This overrides the default behavior of changing the
+     * button's icon to match the selected item's icon on change.
+     *
+     * @return the forceIcon
+     */
+    public String getForceIcon() {
+        return getAttribute("forceIcon");
+    }
+
+    
     /**
      * A static string to prepend before the active item's text when displayed as the button's text
      * (only applies when showText = true, defaults to '').

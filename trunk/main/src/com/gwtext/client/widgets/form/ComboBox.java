@@ -421,6 +421,26 @@ public class ComboBox extends TextField {
     }
 
     /**
+     * Set the min height.
+     *
+     * @param minHeight the minHeight
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setMinHeight(int minHeight) {
+        setAttribute("minHeight", minHeight, true);
+    }
+
+    /**
+     * Return the min height.
+     *
+     * @return the minHeight
+     */
+    public int getMinHeight() {
+        return getAttributeAsInt("minHeight");
+    }
+
+
+    /**
      * The minimum width of the dropdown list in pixels (defaults to 70, will be
      * ignored if listWidth has a higher value).
 	 *

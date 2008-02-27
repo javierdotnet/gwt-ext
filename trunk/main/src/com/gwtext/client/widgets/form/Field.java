@@ -644,23 +644,4 @@ public abstract class Field extends BoxComponent {
         }
     }
 
-    /**
-     * Set the width of the field.
-	 *
-     * @param width the field width
-     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
-     */
-    public void setWidth(int width) throws IllegalStateException {
-        setAttribute("width", width, true);
-    }
-
-    /**
-     * Set the width of the field.
-	 *
-     * @param width the field width
-     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
-     */
-	public void setWidth(String width) throws IllegalStateException {
-        setAttribute("width", width, true);
-    }
 }

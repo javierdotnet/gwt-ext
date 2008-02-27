@@ -413,10 +413,10 @@ public class Container extends BoxComponent implements HasWidgets {
         var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         if(container.items){
             var cs = container.items.items;
-
-            for(var i = 0, len = cs.length; i < len; i++) {
-                cs[i].hide();
-                container.remove(cs[i], false);
+            var len = cs.length;
+            for(var i = 0; i < len; i++) {
+                cs[0].hide();
+                container.remove(cs[0], false);
             }
         }
     }-*/;
@@ -431,8 +431,10 @@ public class Container extends BoxComponent implements HasWidgets {
         var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         if(container.items){
             var cs = container.items.items;
-            for(var i = 0, len = cs.length; i < len; i++) {
-                container.remove(cs[i], autoDestroy);
+            var len = cs.length
+            for(var i = 0; i < len; i++) {
+                if(!autoDestroy) cs[0].hide();
+                container.remove(cs[0], autoDestroy);
             }
         }
     }-*/;

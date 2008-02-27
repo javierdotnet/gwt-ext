@@ -92,6 +92,8 @@ public class ComponentFactory {
             return new Checkbox(jsObj);
         } else if (xtype.equalsIgnoreCase("combo")) {
             return new ComboBox(jsObj);
+        } else if (xtype.equalsIgnoreCase("label")) {
+            return new Label(jsObj);
         } else if (xtype.equalsIgnoreCase("datefield")) {
             return new DateField(jsObj);
         } else if (xtype.equalsIgnoreCase("fieldset")) {

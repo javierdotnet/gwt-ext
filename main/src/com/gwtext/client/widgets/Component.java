@@ -16,6 +16,7 @@ import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtext.client.core.DomConfig;
 import com.gwtext.client.core.Ext;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.core.Function;
@@ -547,7 +548,35 @@ public abstract class Component extends Widget implements Observable {
         component.enable();
     }-*/;
 
-	/**
+    /**
+     * Find a container above this component at any level by a custom function. If the passed function returns true, the container will be returned.
+     *
+     * @param cb the ContainerTraversalCallback
+     * @return the Container or null if none found
+     */
+    public native Container findParentBy(ContainerTraversalCallback cb)/*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        var componentJ = this;
+        var container = component.findParentBy(function(container) {
+            var containerJ = @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(container);
+            return cb.@com.gwtext.client.widgets.ContainerTraversalCallback::execute(Lcom/gwtext/client/widgets/Container;)(containerJ);
+        });
+        return container == null || container === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(container);
+    }-*/;
+
+    /**
+     * Find a container above this component at any level by xtype.
+     *
+     * @param xtype the container xtype
+     * @return the container or null if not found
+     */
+    public native Container findParentByType(String xtype) /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        var container = component.findParentByType(xtype);
+		return container == null || container === undefined ? null : @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(container);
+	}-*/;
+    
+    /**
 	 * Try to focus this component.
 	 */
     public void focus() {
@@ -989,10 +1018,25 @@ public abstract class Component extends Widget implements Observable {
 		return JavaScriptObjectHelper.getAttributeAsElement(config, "applyTo");
 	}
 
+    /**
+     * A tag name to create an element with. This is intended to create shorthand utility components. It should not be used
+     * for higher level components which already create their own elements.
+     *
+     * @param autoEl the tag name
+     */
     public void setAutoEl(String autoEl) {
         setAttribute("autoEl", autoEl, true);
     }
 
+    /**
+     * A DomConfig specification to create an element with. This is intended to create shorthand utility components. It should not be used
+     * for higher level components which already create their own elements.
+     *
+     * @param domConfig the DomConfig specification
+     */
+    public void setAutoEl(DomConfig domConfig) {
+        setAttribute("autoEl", domConfig.getJsObject(), true);
+    }
     
     /**
 	 * True if the component should check for hidden classes (e.g. 'x-hidden' or 'x-hide-display') and remove them on render (defaults to false).

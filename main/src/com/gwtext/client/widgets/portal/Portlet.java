@@ -28,7 +28,6 @@ import com.gwtext.client.widgets.Tool;
 //credits : this class has been adapted from the Ext portal sample
 public class Portlet extends Panel {
 
-	private int spacing = 10;
 
 	public Portlet() {
 		setFrame(true);
@@ -48,28 +47,5 @@ public class Portlet extends Panel {
 		setTitle(title);
 		setHtml(html);
 		setTools(tools);
-	}
-
-	/**
-	 * The vertical spacing between Portlets in a PortalColumn.
-	 *
-	 * @return the spacing
-	 */
-	public int getSpacing() {
-		return spacing;
-	}
-
-	/**
-	 * The vertical spacing between Portlets in a PortalColumn.
-	 *
-	 * @param spacing the spacing
-	 */
-	public void setSpacing(int spacing) {
-		this.spacing = spacing;
-	}
-
-	protected void afterRender() {
-		super.afterRender();
-		getEl().setStyle("margin-bottom", spacing + "px");
 	}
 }

@@ -132,6 +132,8 @@ public class EditableGridSample extends ShowcasePanel {
                 }
             });
 
+            toolbar.addButton(button);
+
             grid = new EditorGridPanel();
             grid.setStore(store);
             grid.setColumnModel(columnModel);

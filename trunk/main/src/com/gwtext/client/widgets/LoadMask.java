@@ -114,6 +114,22 @@ public class LoadMask extends JsObject {
     }-*/;
 
     /**
+     * Show this LoadMask over the configured Element.
+     */
+    public native void show() /*-{
+        var lm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        lm.show();
+    }-*/;
+
+    /**
+     * Hide this LoadMask.
+     */
+    public native void hide() /*-{
+        var lm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        lm.hide();
+    }-*/;
+
+    /**
      * True if the mask is currently disabled so that it will not be displayed (defaults to false)
      *
      * @return true if mask disabled

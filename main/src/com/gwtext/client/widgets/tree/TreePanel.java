@@ -9,8 +9,8 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.DeferredCommand;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.data.Tree;
@@ -60,7 +60,7 @@ public class TreePanel extends Panel {
     /**
 	 * Construct a new TreePanel.
 	 *
-	 * @param id the tree panel title
+	 * @param title the tree panel title
 	 */
 	public TreePanel(String title) {
 		setTitle(title);
@@ -797,4 +797,23 @@ public class TreePanel extends Panel {
 	public void setSingleExpand(boolean singleExpand) throws IllegalStateException {
 		setAttribute("singleExpand", singleExpand, true);
 	}
+
+    /**
+     * True to use Vista-style arrows in the tree (defaults to false)
+     *
+     * @param useArrows true to use Vista-style arrows in the tree (defaults to false)
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setUseArrows(boolean useArrows) {
+        setAttribute("useArrows", useArrows, true);
+    }
+
+    /**
+     * True to use Vista-style arrows in the tree (defaults to false)
+     *
+     * @return the useArrows
+     */
+    public boolean getUseArrows() {
+        return getAttributeAsBoolean("useArrows");
+    }
 }

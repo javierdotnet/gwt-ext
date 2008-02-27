@@ -18,10 +18,6 @@ public class SimpleFormSample extends ShowcasePanel {
         return "source/form/SimpleFormSample.java.html";
     }
 
-    public String getCssUrl() {
-        return "source/form/SimpleFormSample.css.html";
-    }
-
     public Panel getViewPanel() {
         if (panel == null) {
             panel = new Panel();
@@ -36,9 +32,7 @@ public class SimpleFormSample extends ShowcasePanel {
 
             Label label = new Label();
             label.setHtml("<p>This is an example of a Form Label. This can have any <b>HTML</b> content.</p>");
-            label.setCls("simple-form-label");
             label.setWidth(350);
-            label.setHeight(20);
 
             formPanel.add(label);
 
@@ -49,7 +43,7 @@ public class SimpleFormSample extends ShowcasePanel {
             TextField lastName = new TextField("Last Name", "last", 230);
             formPanel.add(lastName);
 
-            TextField company = new TextField("Company", "company", 230);
+            final TextField company = new TextField("Company", "company", 230);
             formPanel.add(company);
 
             TextField email = new TextField("Email", "email", 230);

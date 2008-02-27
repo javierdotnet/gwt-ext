@@ -140,6 +140,20 @@ public class Ext {
     }-*/;
 
     /**
+     * @return true if Safari 2
+     */
+    public static native boolean isSafari2()/*-{
+        return $wnd.Ext.isSafari2;
+    }-*/;
+
+    /**
+     * @return true if Safari 2
+     */
+    public static native boolean isSafari3()/*-{
+        return $wnd.Ext.isSafari3;
+    }-*/;
+
+    /**
      * @return true if the page is running over SSL
      */
     public static native boolean isSecure()/*-{

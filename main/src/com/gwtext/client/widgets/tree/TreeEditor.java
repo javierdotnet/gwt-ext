@@ -8,6 +8,7 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.widgets.Editor;
 import com.gwtext.client.widgets.form.Field;
 import com.gwtext.client.util.JavaScriptObjectHelper;
@@ -43,11 +44,25 @@ public class TreeEditor extends Editor {
 
 
     protected native JavaScriptObject create(JavaScriptObject treePanel, JavaScriptObject field)/*-{
-        return new $wnd.Ext.tree.TreeEditor(treePanel, field);
+		var te =  new $wnd.Ext.tree.TreeEditor(treePanel, field);
+		var id = te.getId();
+		this.@com.gwtext.client.widgets.Component::id = id;
+		return te;
+	}-*/;
+
+
+    /**
+     * Starts the editing process and shows the editor.
+     *
+     * @param node the tree node to edit
+     */
+    public native void startEdit(TreeNode node) /*-{
+		var editor = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+		var nodeJS = node.@com.gwtext.client.core.JsObject::getJsObj()();
+		editor.triggerEdit(nodeJS);
     }-*/;
 
-
-    // --- config options ---
+	// --- config options ---
 
     /**
 	 * CSS class to apply to the editor (defaults to "x-small-editor x-tree-editor")
@@ -55,7 +70,7 @@ public class TreeEditor extends Editor {
 	 * @param cls the CSS class
 	 */
     public void setCls(String cls) {
-        JavaScriptObjectHelper.setAttribute(config, "cls", cls);
+        setAttribute("cls", cls, true, true);
     }
 
 	/**
@@ -65,7 +80,7 @@ public class TreeEditor extends Editor {
 	 * @param maxWidth the max width
 	 */
 	public void setMaxWidth(int maxWidth) {
-        JavaScriptObjectHelper.setAttribute(config, "maxWidth", maxWidth);
+        setAttribute("maxWidth", maxWidth, true, true);
     }
 
 	/**
@@ -74,7 +89,7 @@ public class TreeEditor extends Editor {
 	 * @param editDelay the edit delay
 	 */
 	public void setEditDelay(int editDelay) {
-        JavaScriptObjectHelper.setAttribute(config, "editDelay", editDelay);
+        setAttribute("editDelay", editDelay, true, true);
     }
 
 	/**
@@ -83,6 +98,6 @@ public class TreeEditor extends Editor {
 	 * @param shim true to shim
 	 */
 	public void setShim(boolean shim) {
-        JavaScriptObjectHelper.setAttribute(config, "shim", shim);
+        setAttribute("shim", shim, true, true);
     }
 }

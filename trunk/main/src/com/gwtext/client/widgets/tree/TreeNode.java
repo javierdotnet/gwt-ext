@@ -94,7 +94,15 @@ public class TreeNode extends Node {
        node.collapseChildNodes(deep);
     }-*/;
 
-    /**
+	/**
+	 * Destroy this node.
+	 */
+	public native void destroy() /*-{
+		var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
+		node.destroy();
+    }-*/;
+
+	/**
      * Disables this node.
      */
     public native void disable() /*-{

@@ -53,7 +53,7 @@ public class ColorMenu extends Menu {
         menu.addListener('select',
                 function(palette, color) {
                     var palleteJ = @com.gwtext.client.widgets.ColorPalette::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(palette);
-                    return listener.@com.gwtext.client.widgets.menu.event.ColorMenuListener::onSelect(Lcom/gwtext/client/widgets/ColorPalette;Ljava/lang/String;)(menuJ, color);
+                    return listener.@com.gwtext.client.widgets.menu.event.ColorMenuListener::onSelect(Lcom/gwtext/client/widgets/ColorPalette;Ljava/lang/String;)(palleteJ, color);
                 }
         );
      }-*/;

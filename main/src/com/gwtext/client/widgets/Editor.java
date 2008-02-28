@@ -49,8 +49,11 @@ public class Editor extends Component {
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
         var field = this.@com.gwtext.client.widgets.Editor::field;
         var fieldJS = field.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        return new $wnd.Ext.Editor(fieldJS, config);
-    }-*/;
+        var ed =  new $wnd.Ext.Editor(fieldJS, config);
+		var id = ed.getId();
+		this.@com.gwtext.client.widgets.Component::id = id;
+		return ed;
+	}-*/;
 
     /**
      * Create a new Editor.
@@ -211,7 +214,7 @@ public class Editor extends Component {
      * @param el the element to edit
      */
     public native void startEdit(Element el) /*-{
-        var editor = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+		var editor = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         editor.startEdit(el);
     }-*/;
 

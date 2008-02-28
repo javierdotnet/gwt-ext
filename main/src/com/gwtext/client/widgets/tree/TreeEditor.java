@@ -22,9 +22,13 @@ public class TreeEditor extends Editor {
 
 
     //http://extjs.com/forum/showthread.php?t=10701&highlight=TreeEditor+selectOnFocus
-
+	/**
+	 * Create an editable tree using the default Field editor.
+	 *
+	 * @param treePanel the TreePanel
+	 */
     public TreeEditor(TreePanel treePanel) {
-        create(treePanel.getJsObj(), null);
+        create(treePanel.getOrCreateJsObj(), null);
     }
     
     /**

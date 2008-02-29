@@ -546,15 +546,27 @@ public abstract class Field extends BoxComponent {
      * True to mark the field as readOnly in HTML (defaults to false) -- Note: this only sets the element's readOnly DOM attribute.
      *
      * @param readOnly true to mark field read only
-     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
-    public void setReadOnly(boolean readOnly) throws IllegalStateException {
-        setAttribute("readOnly", readOnly, true);
+    public void setReadOnly(boolean readOnly)  {
+        if(!isRendered()) {
+            setAttribute("readOnly", readOnly, true);
+        } else {
+            DOM.setElementPropertyBoolean(getElement(), "readOnly", readOnly);
+        }
     }
 
-	public boolean isReadOnly() {
-		return getAttributeAsBoolean("readOnly");
-	}
+    /**
+     * True if read only.
+     *
+     * @return true if read only.
+     */
+    public boolean isReadOnly() {
+        if(!isRendered()) {
+            return getAttributeAsBoolean("readOnly");
+        } else {
+            return DOM.getElementPropertyBoolean(getElement(), "readOnly");
+        }
+    }
 
 	/**
      * The tabIndex for this field. Note this only applies to fields that are rendered, not those which are built via applyTo.

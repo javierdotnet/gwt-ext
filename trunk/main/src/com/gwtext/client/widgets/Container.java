@@ -625,7 +625,7 @@ public class Container extends BoxComponent implements HasWidgets {
         }
         setAttribute("layout", layout.getJsObj(), true);
 		if (layout.getContainerAttributes() != null) {
-			JavaScriptObjectHelper.apply(layout.getContainerAttributes(), isCreated()  ? config : getJsObj());
+			JavaScriptObjectHelper.apply(layout.getContainerAttributes(), isCreated()  ? getJsObj() : config);
 		}
 	}
 

@@ -1149,7 +1149,7 @@ public class ExtElement extends BaseElement {
      */
     public ExtElement mask(String msg, boolean animatedIcon) {
         if(animatedIcon) {
-            return mask(msg, animatedIcon);
+            return mask(msg, "x-mask-loading");
         } else {
             return mask(msg, null);
         }

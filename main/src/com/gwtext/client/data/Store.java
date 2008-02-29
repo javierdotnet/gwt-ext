@@ -863,11 +863,7 @@ public class Store extends JsObject {
     private static HttpStoreLoadException createHttpStoreLoadExeption(int httpStatus, String message) {
         return new HttpStoreLoadException(httpStatus, message);
     }
-
-    private static boolean isThrowable(Object object) {
-        return object instanceof Throwable;
-    }
-
+    
     /**
      * Add a Store listener.
      *
@@ -933,19 +929,23 @@ public class Store extends JsObject {
 
         store.addListener('loadexception',
             function(proxy, arg1, response, e) {
+                
                 var err = null;
                 var isException = false;
                 if(e != null && e !== undefined) {
-                    isException = @com.gwtext.client.data.Store::isThrowable(Ljava/lang/Object;)(e);
+                    isException = e.je != null && e.je !== undefined;
                 }
+
                 if(isException) {
-                    err = e;
+                    err = e.je;
                 } else if(e !== undefined && e.message != null && e.message !== undefined) {
                     err = @com.gwtext.client.data.Store::createStoreLoadException(Ljava/lang/String;)(e.message);
                 } else if(response != null && response.responseText != null && response.responseText !== undefined) {
                     err = err = @com.gwtext.client.data.Store::createHttpStoreLoadExeption(ILjava/lang/String;)(response.status, response.responseText);
                 } else if (response != null) {
                     err = @com.gwtext.client.data.Store::createStoreLoadException(Ljava/lang/String;)(response.toString());
+                } else {
+                    err = @com.gwtext.client.data.Store::createStoreLoadException(Ljava/lang/String;)('Unknown error.');
                 }
                 listener.@com.gwtext.client.data.event.StoreListener::onLoadException(Ljava/lang/Throwable;)(err);
             }

@@ -54,14 +54,14 @@ public class Window extends Panel {
     /**
      * Create a new Window.
      *
-     * @param title     the title
-     * @param minWidth  the min width
-     * @param minHeight the min height
+     * @param title  the title
+     * @param width  the width
+     * @param height the height
      */
-    public Window(String title, int minWidth, int minHeight) {
+    public Window(String title, int width, int height) {
         setTitle(title);
-        setWidth(minWidth);
-        setHeight(minHeight);
+        setWidth(width);
+        setHeight(height);
     }
 
     /**
@@ -81,15 +81,15 @@ public class Window extends Panel {
      * Create a new Window.
      *
      * @param title     the title
-     * @param minWidth  the min width
-     * @param minHeight the min height
+     * @param width  the width
+     * @param height the height
      * @param modal     true for modal
      * @param resizable true for resizable
      */
-    public Window(String title, int minWidth, int minHeight, boolean modal, boolean resizable) {
+    public Window(String title, int width, int height, boolean modal, boolean resizable) {
         setTitle(title);
-        setWidth(minWidth);
-        setHeight(minHeight);
+        setWidth(width);
+        setHeight(height);
         setModal(modal);
         setResizable(resizable);
     }
@@ -535,8 +535,8 @@ public class Window extends Panel {
      *
      * @return  maximizable Defaults to false
      */
-    public boolean isMazimizable() {
-        return JavaScriptObjectHelper.getAttributeAsBoolean(config, "mazimizable");
+    public boolean isMaximizable() {
+        return JavaScriptObjectHelper.getAttributeAsBoolean(config, "maximizable");
     }
 
     /**

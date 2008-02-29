@@ -9,7 +9,6 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.form.event.CheckboxListener;
 
 /**
@@ -49,17 +48,34 @@ public class Checkbox extends Field {
 	public Checkbox() {
 	}
 
-    public Checkbox(String label) {
-        if (label != null) setBoxLabel(label);
+    /**
+	 * Creates a new Checkbox field.
+     *
+     * @param boxLabel the box label
+	 */
+    public Checkbox(String boxLabel) {
+        if (boxLabel != null) setBoxLabel(boxLabel);
     }
 
-    public Checkbox(String fieldLabel, String name) {
-        setBoxLabel(fieldLabel);
+    /**
+     * Creates a new Checkbox field.
+     *
+     * @param boxLabel the box label
+     * @param name the field name
+     */
+    public Checkbox(String boxLabel, String name) {
+        setBoxLabel(boxLabel);
         setName(name);
     }
 
-    public Checkbox(String label, CheckboxListener listener) {
-        if (label != null) setBoxLabel(label);
+    /**
+     * Creates a new Checkbox field.
+     *
+     * @param boxLabel the box label
+     * @param listener the checkbox listener
+     */
+    public Checkbox(String boxLabel, CheckboxListener listener) {
+        if (boxLabel != null) setBoxLabel(boxLabel);
         addListener(listener);
     }
 

@@ -50,7 +50,7 @@ public class RecordDef extends JsObject {
     public RecordDef(FieldDef[] fields) {
         this.fields = fields;
         int numFields = fields.length;
-        Object[] jsObjs = new Object[numFields];
+        JavaScriptObject[] jsObjs = new JavaScriptObject[numFields];
         for (int i = 0; i < numFields; i++) {
             JavaScriptObject jsObj = fields[i].getJsObj();
             jsObjs[i] = jsObj;

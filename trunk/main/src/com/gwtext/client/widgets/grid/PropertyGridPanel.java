@@ -151,9 +151,8 @@ public class PropertyGridPanel extends EditorGridPanel {
      * </pre>    
      * 
      * @param customEditors custom editors
-     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
-    public void setCustomEditors(Map customEditors) throws IllegalStateException {
-        JavaScriptObjectHelper.setAttribute(config, "customEditors", customEditors);
+    public void setCustomEditors(Map customEditors) {
+        setAttribute("customEditors", customEditors, true, true);
     }
 }

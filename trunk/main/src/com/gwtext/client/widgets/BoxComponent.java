@@ -144,12 +144,33 @@ public class BoxComponent extends Component {
 	 * @param width  the new width
 	 * @param height the new height
 	 */
-	private void setSize(int width, int height) {
+	public void setSize(int width, int height) {
 		if (!isRendered()) {
 			setWidth(width);
 			setHeight(height);
 		} else {
 			setSizeRendered(width, height);
+		}
+	}
+
+	public void setSize(String width, String height) {
+		if (!isRendered()) {
+			setWidth(width);
+			setHeight(height);
+		} else {
+			if(width.indexOf("px") != -1 && height.indexOf("px") != -1) {
+				int intWidth = 0;
+				int intHeight = 0;
+				width = width.replaceAll("px","").trim();
+                intWidth = Integer.parseInt(width);
+
+                height = height.replaceAll("px","").trim();
+                intHeight = Integer.parseInt(height);
+				setSizeRendered(intWidth, intHeight);
+			} else {
+				setWidth(width);
+				setHeight(height);
+			}
 		}
 	}
 

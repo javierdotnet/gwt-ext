@@ -1392,6 +1392,21 @@ public abstract class Component extends Widget implements Observable {
 		}
     }
 
+	protected void setAttribute(String attribute, Map value, boolean allowPostCreate) {
+		setAttribute(attribute, value, allowPostCreate, false);
+	}
+
+	protected void setAttribute(String attribute, Map value, boolean allowPostCreate, boolean allowPostRendered) {
+        if(!isCreated()) {
+			JavaScriptObjectHelper.setAttribute(config, attribute, value);
+        } else if(!isRendered() && allowPostCreate || allowPostRendered) {
+            JavaScriptObjectHelper.setAttribute(getJsObj(),  attribute, value);
+        } else {
+			error(attribute, value.toString(), allowPostCreate);
+		}
+    }
+
+
 	protected void setAttribute(String attribute, int[] value, boolean allowPostCreate) {
 		setAttribute(attribute, value, allowPostCreate, false);
 	}

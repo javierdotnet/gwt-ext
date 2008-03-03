@@ -188,7 +188,18 @@ public class GridPanel extends Panel {
      * @return the selection model
      */
     public RowSelectionModel getSelectionModel() {
-        return new RowSelectionModel(getSelectionModel(getOrCreateJsObj()));
+    	if(isCreated()) {
+    		return new RowSelectionModel(getSelectionModel(getJsObj()));
+    	} else {
+    		JavaScriptObject smObj = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(config, "sm");
+    		if(smObj != null) {
+    			return new RowSelectionModel(smObj);
+    		} else {
+    			RowSelectionModel sm = new RowSelectionModel();
+    			setSelectionModel(sm);
+    			return sm;
+    		}
+    	}
     }
 
     private native JavaScriptObject getSelectionModel(JavaScriptObject grid) /*-{

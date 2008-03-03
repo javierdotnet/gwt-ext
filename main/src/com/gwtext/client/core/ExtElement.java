@@ -184,8 +184,9 @@ public class ExtElement extends BaseElement {
      */
     public native Element child(String selector) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        return elem.child(selector, true);
-    }-*/;
+        var e = elem.child(selector, true);
+		return e == null || e === undefined ? null : e;
+	}-*/;
 
     /**
      * Clear positioning back to the default when the document was loaded.
@@ -1200,7 +1201,7 @@ public class ExtElement extends BaseElement {
     public native Element[] query(String selector)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var elemsJS = elem.query(selector);
-        return @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(elemsJS);
+        return elemsJS == null || elemsJS === undefined ? null : @com.gwtext.client.util.JavaScriptObjectHelper::toElementArray(Lcom/google/gwt/core/client/JavaScriptObject;)(elemsJS);
     }-*/;
 
     //todo removeListener
@@ -1249,7 +1250,7 @@ public class ExtElement extends BaseElement {
     public native CompositeElement select(String selector)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var ceJS = elem.select(selector);
-        return @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
+        return ceJS == null || ceJS === undefined ? null : @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
     }-*/;
 
     /**
@@ -1263,9 +1264,9 @@ public class ExtElement extends BaseElement {
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var ceJS = elem.select(selector, unique);
         if(unique) {
-            return @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
+            return ceJS == null || ceJS === undefined ? null : @com.gwtext.client.core.CompositeElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
         } else {
-            return @com.gwtext.client.core.CompositeElementLite::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
+            return ceJS == null || ceJS === undefined ? null : @com.gwtext.client.core.CompositeElementLite::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(ceJS);
         }
     }-*/;
 
@@ -1326,7 +1327,7 @@ public class ExtElement extends BaseElement {
     public native ExtElement up(String selector, Element container) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = elem.up(selector, container);
-        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
+        return el == null || el === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
     /**
@@ -1339,7 +1340,7 @@ public class ExtElement extends BaseElement {
     public native ExtElement up(String selector, int maxDepth) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var el = elem.up(selector, maxDepth);
-        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
+        return el == null || el === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
     /**

@@ -294,7 +294,7 @@ public class ComboBox extends TextField {
     }
 
     /**
-     * The underlying data field name to bind to this ComboBox (defaults to undefined if mode = 'remote' or 'text' if mode = 'local').
+     * The underlying data field name to bind to this ComboBox (defaults to undefined).
      *
      * @param displayField the display field
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered
@@ -714,7 +714,7 @@ public class ComboBox extends TextField {
     }
 
     /**
-     * The underlying data value name to bind to this CombBox (defaults to undefined if mode = 'remote' or 'value' if mode = 'local').
+     * The underlying data value name to bind to this CombBox (defaults to undefined).
      * Note: use of a valueField requires the user make a selection in order for a value to be mapped.
      *
      * @param valueField the value field

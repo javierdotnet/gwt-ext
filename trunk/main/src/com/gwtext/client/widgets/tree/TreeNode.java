@@ -366,9 +366,9 @@ public class TreeNode extends Node {
 			    }
           );
 
-        node.addListener('beforecheckchange',
+        node.addListener('checkchange',
                  function(source, checked) {
-                    return listener.@com.gwtext.client.widgets.tree.event.TreeNodeListener::doBeforeCheckChanged(Lcom/gwtext/client/data/Node;Z)(nodeJ, checked);
+                    listener.@com.gwtext.client.widgets.tree.event.TreeNodeListener::onCheckChanged(Lcom/gwtext/client/data/Node;Z)(nodeJ, checked);
 			    }
           );
 

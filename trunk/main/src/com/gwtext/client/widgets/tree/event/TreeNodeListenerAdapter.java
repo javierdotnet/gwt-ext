@@ -30,8 +30,7 @@ public class TreeNodeListenerAdapter extends NodeListenerAdapter implements Tree
         return true;
     }
 
-    public boolean doBeforeCheckChanged(Node node, boolean checked) {
-        return true;
+    public void onCheckChanged(Node node, boolean checked) {
     }
 
     public void onClick(Node node, EventObject e) {

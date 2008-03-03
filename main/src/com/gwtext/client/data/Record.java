@@ -53,7 +53,14 @@ public class Record extends JsObject {
     public static Operation REJECT = new Operation("reject");
     public static Operation COMMIT = new Operation("commit");
 
-    public Record(JavaScriptObject jsObj) {
+	/**
+	 * This constructor is for internal / special uses only. Do not use this to create a new Record instance.
+	 * You should use the factory method {@link com.gwtext.client.data.RecordDef#createRecord(String, Object[])} to create
+	 * new Records.
+	 *
+	 * @param jsObj a native record object.
+	 */
+	public Record(JavaScriptObject jsObj) {
         super(jsObj);
     }
 

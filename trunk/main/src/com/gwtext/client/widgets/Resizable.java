@@ -12,6 +12,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.core.JsObject;
+import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.widgets.event.ResizableListener;
 
 //http://extjs.com/forum/showthread.php?t=1138&highlight=Resizable
@@ -75,7 +76,64 @@ public class Resizable extends JsObject {
         return new $wnd.Ext.Resizable(elem, config);
     }-*/;
 
-    /**
+	/**
+	 * Destroys this resizable. If the element was wrapped and removeEl is not true then the element remains.
+	 */
+	public native void destroy() /*-{
+        var resizable = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        resizable.destroy();
+    }-*/;	
+
+	/**
+	 * Destroys this resizable. If the element was wrapped and removeEl is not true then the element remains.
+	 *
+	 * @param removeEL true to remove the element from the DOM
+	 */
+	public native void destroy(boolean removeEL) /*-{
+        var resizable = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        resizable.destroy(removeEL);
+    }-*/;
+
+	/**
+	 * Returns the element this component is bound to.
+	 *
+	 * @return the element this component is bound to.
+	 */
+	public native ExtElement getEl() /*-{
+        var resizable = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var el = resizable.getEl();
+		return el == null || el === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el); 
+	}-*/;
+
+	/**
+	 * Perform a manual resize.
+	 * 
+	 * @param width the width
+	 * @param height the height
+	 */
+	public native void resizeTo(int width, int height) /*-{
+        var resizable = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        resizable.resizeTo(width, height);
+	}-*/;
+
+	/**
+	 * Sets the visibilty of a given handle. The Resizable must be configured with this handle for this method to apply.
+	 *
+	 * @param handle the handle
+	 * @param visible visibility of handle
+	 */
+	public native void setVisibility(Handle handle, boolean visible) /*-{
+        var resizable = this.@com.gwtext.client.core.JsObject::getJsObj()();
+
+		var handleVal = handle.@com.gwtext.client.widgets.Resizable.Handle::getHandle()();
+		var pos = $wnd.Ext.Resizable.positions[handleVal];
+		var h = resizable[pos];
+		if(h != null && h !== undefined) {
+			h.el.setDisplayed(visible);
+		}
+	}-*/;
+
+	/**
      * Add a Resizable listener.
      *
      * @param listener the listener

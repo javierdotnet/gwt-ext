@@ -158,7 +158,7 @@ public class GridPanel extends Panel {
      * @return the Grids Store
      */
     public Store getStore() {
-        JavaScriptObject storeJS = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(config, "store");
+        JavaScriptObject storeJS = getAttributeAsJavaScriptObject("store");
         return storeJS == null ? null : new Store(storeJS);
     }
 

@@ -18,8 +18,8 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  */
 public class Size {
 
-    private float height;
-    private float width;
+    private int height;
+    private int width;
 
     public Size() {
     }
@@ -45,28 +45,28 @@ public class Size {
     /**
      * @return the height
      */
-    public float getHeight() {
+    public int getHeight() {
         return height;
     }
 
     /**
      * @param height the height
      */
-    public void setHeight(float height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
     /**
      * @return the width
      */
-    public float getWidth() {
+    public int getWidth() {
         return width;
     }
 
     /**
      * @param width the width
      */
-    public void setWidth(float width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 }

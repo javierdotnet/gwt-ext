@@ -126,17 +126,20 @@ public class EditorGridPanel extends GridPanel {
     }-*/;
 
     /**
-     * Get the Grids Cell selection model
+     * Returns the grid's cell selection model
      *
      * @return the cell selection model
+     * @throws IllegalStateException if called before grid creation or before calling setSelectionModel(...)
      */
-    public CellSelectionModel getCellSelectionModel() {
-        return new CellSelectionModel(getSelectionModel(getOrCreateJsObj()));
+    public CellSelectionModel getCellSelectionModel() throws IllegalStateException {
+    	JavaScriptObject smObj = getSelectionModelAsJavaScriptObject();
+    	if(smObj != null) {
+    		return new CellSelectionModel(smObj);
+    	} else {
+    		throw new IllegalStateException("getCellSelectionModel() cannot be called" +
+    				" unless the grid has been created or setSelectionModel(...) has been called");
+    	}
     }
-
-    private native JavaScriptObject getSelectionModel(JavaScriptObject grid) /*-{
-        return grid.getSelectionModel();
-    }-*/;
 
     // --- config proeprties ---
     /**

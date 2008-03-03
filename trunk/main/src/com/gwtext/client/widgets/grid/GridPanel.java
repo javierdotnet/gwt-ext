@@ -188,17 +188,27 @@ public class GridPanel extends Panel {
      * @return the selection model
      */
     public RowSelectionModel getSelectionModel() {
-    	if(isCreated()) {
-    		return new RowSelectionModel(getSelectionModel(getJsObj()));
+    	JavaScriptObject smObj = getSelectionModelAsJavaScriptObject();
+    	if(smObj != null) {
+    		return new RowSelectionModel(smObj);
     	} else {
-    		JavaScriptObject smObj = JavaScriptObjectHelper.getAttributeAsJavaScriptObject(config, "sm");
-    		if(smObj != null) {
-    			return new RowSelectionModel(smObj);
-    		} else {
-    			RowSelectionModel sm = new RowSelectionModel();
-    			setSelectionModel(sm);
-    			return sm;
-    		}
+    		RowSelectionModel sm = new RowSelectionModel();
+    		setSelectionModel(sm);
+    		return sm;
+    	}
+    }
+    
+    /**
+     * Returns the Grid's selection model, as a raw JavaScriptObject
+     *
+     * @return the selection model's raw JavaScriptObject (null if called before
+     * grid creation or calling setSelectionModel(...) )
+     */
+    public JavaScriptObject getSelectionModelAsJavaScriptObject() {
+    	if(isCreated()) {
+    		return getSelectionModel(getJsObj());
+    	} else {
+    		return JavaScriptObjectHelper.getAttributeAsJavaScriptObject(config, "sm");
     	}
     }
 

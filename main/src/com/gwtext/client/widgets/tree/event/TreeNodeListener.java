@@ -58,7 +58,7 @@ public interface TreeNodeListener extends NodeListener {
      * @param checked the new checked value
      * @return false to cancel
      */
-    boolean doBeforeCheckChanged(Node node, boolean checked);
+    void onCheckChanged(Node node, boolean checked);
 
     /**
      * Fires when this node is clicked.

@@ -17,6 +17,9 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Shadow;
 import com.gwtext.client.widgets.form.event.ComboBoxListener;
 
+/**
+ * A combobox control with support for autocomplete, remote-loading, paging and many other features.
+ */
 public class ComboBox extends TextField {
 
     public static Mode REMOTE = new Mode("remote");
@@ -51,14 +54,32 @@ public class ComboBox extends TextField {
     public ComboBox() {
     }
 
+	/**
+	 * Create a new ComboBox.
+	 *
+	 * @param fieldLabel the field label
+	 */
 	public ComboBox(String fieldLabel) {
 		super(fieldLabel);
 	}
 
+	/**
+	 * Create a new ComboBox.
+	 *
+	 * @param fieldLabel the field label
+	 * @param name the field name
+	 */
 	public ComboBox(String fieldLabel, String name) {
 		super(fieldLabel, name);
 	}
 
+	/**
+	 * Create a new ComboBox.
+	 *
+	 * @param fieldLabel the field label
+	 * @param name the field name
+	 * @param width the field width
+	 */
 	public ComboBox(String fieldLabel, String name, int width) {
 		super(fieldLabel, name, width);
 	}
@@ -96,43 +117,84 @@ public class ComboBox extends TextField {
         }
     }-*/;
 
-    public native void clearValue() /*-{
+	/**
+	 * Clears any text/value currently set in the field
+	 */
+	public native void clearValue() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.clearValue();
     }-*/;
 
-    public native void collapse() /*-{
+	/**
+	 * Hides the dropdown list if it is currently expanded. Fires the 'collapse' event on completion.
+	 */
+	public native void collapse() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.collapse();
     }-*/;
 
-    public native void doQuery(String query, boolean forceAll) /*-{
+	/**
+	 * Execute a query to filter the dropdown list. Fires the beforequery event prior to performing the query allowing the query action to be canceled if needed.
+	 * 
+	 * @param query the query to execute
+	 * @param forceAll true to force the query to execute even if there are currently fewer characters in the field than the minimum specified by the minChars config option.
+	 * It also clears any filter previously saved in the current store (defaults to false)
+	 */
+	public native void doQuery(String query, boolean forceAll) /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.doQuery(query, forceAll);
     }-*/;
 
-    public native void expand() /*-{
+	/**
+	 * Expands the dropdown list if it is currently hidden. Fires the 'expand' event on completion.
+	 */
+	public native void expand() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.expand();
     }-*/;
 
-    public native String getValue() /*-{
+	/**
+	 * Returns the currently selected field value or null if no value is set.
+	 *
+	 * @return the value 
+	 */
+	public native String getValue() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var val = cb.getValue();
         return val === '' ? null : val.toString();
     }-*/;
 
-    public native boolean isExpanded() /*-{
+	/**
+	 * Returns true if the dropdown list is expanded, else false.
+	 *
+	 * @return true if dropdown list is expanded
+	 */
+	public native boolean isExpanded() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         return cb.isExpanded();
     }-*/;
 
-    public native void select(int index, boolean scrollIntoView) /*-{
+	/**
+	 * Select an item in the dropdown list by its numeric index in the list. This function does NOT cause the select event to fire.
+	 * The store must be loaded and the list expanded for this function to work, otherwise use setValue.
+	 * 
+	 * @param index the zero-based index of the list item to select
+	 * @param scrollIntoView false to prevent the dropdown list from autoscrolling to display the selected item if it is
+	 * not currently in view (defaults to true)
+	 */
+	public native void select(int index, boolean scrollIntoView) /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.select(index, scrollIntoView);
     }-*/;
 
-    public native void selectByValue(String value, boolean scrollIntoView) /*-{
+	/**
+	 * Select an item in the dropdown list by its data value. This function does NOT cause the select event to fire.
+	 * The store must be loaded and the list expanded for this function to work, otherwise use setValue.
+	 * 
+	 * @param value the data value of the item to select
+	 * @param scrollIntoView false to prevent the dropdown list from autoscrolling to display the selected item if it is not currently in view (defaults to true)
+	 */
+	public native void selectByValue(String value, boolean scrollIntoView) /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         cb.selectByValue(value, scrollIntoView);
     }-*/;
@@ -150,7 +212,12 @@ public class ComboBox extends TextField {
         super.setValue(value);
     }
 
-    public native void addListener(ComboBoxListener listener) /*-{
+	/**
+	 * Add a Combobox listener.
+	 *
+	 * @param listener the listener
+	 */
+	public native void addListener(ComboBoxListener listener) /*-{
 		this.@com.gwtext.client.widgets.form.Field::addListener(Lcom/gwtext/client/widgets/form/event/FieldListener;)(listener);
 
 		var fieldJ = this;		

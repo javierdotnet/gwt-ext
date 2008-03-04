@@ -187,7 +187,18 @@ public class Record extends JsObject {
         return (value === undefined || value == null || value == '') ? null : value;
     }-*/;
 
-    /**
+	/**
+	 * Return true if specified field has been modified.
+	 *
+	 * @param fieldName the field name
+	 * @return true if modified
+	 */
+	public native boolean isModified(String fieldName) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        return record.isModified(fieldName);
+    }-*/;
+
+	/**
      * Sets the fields Object value.
      *
      * @param field the field name

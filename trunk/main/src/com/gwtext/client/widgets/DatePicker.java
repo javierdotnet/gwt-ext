@@ -90,13 +90,13 @@ public class DatePicker extends Component {
                     setValue(date);
                 }
             });
-        }
-        setValueMillis(getOrCreateJsObj(), date.getTime());
+        } else {
+			setValueMillis(getOrCreateJsObj(), date.getTime());
+		}        
     }
 
     private native void setValueMillis(JavaScriptObject dp, long time) /*-{
-        var date = new $wnd.Date();
-        date.setTime(time);
+        var date = new $wnd.Date(time);
         dp.setValue(date);
     }-*/;
 

@@ -13,7 +13,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * This is a multi-pane, application-oriented UI layout style that supports multiple nested panels, automatic split bars
  * between regions and built-in expanding and collapsing of regions.
  *
- * @see com.gwtext.client.widgets.layout.BorderLayoutData 
+ * <b>Note that when using BorderLayout, you must have a Panel assigned to the CENTER region.</b>
+ *
+ * @see com.gwtext.client.widgets.layout.BorderLayoutData
+ * @see com.gwtext.client.core.RegionPosition
  */
 public class BorderLayout extends ContainerLayout {
 

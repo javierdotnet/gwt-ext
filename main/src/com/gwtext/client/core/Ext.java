@@ -10,6 +10,7 @@ package com.gwtext.client.core;
 
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.widgets.Component;
+import com.gwtext.client.widgets.ComponentMgr;
 
 /**
  * Ext core utilities and functions.
@@ -270,8 +271,18 @@ public class Ext {
         return el == null ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
-    /**
-     * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference
+	/**
+	 * Shorthand for {@link ComponentMgr#getComponent(String)}
+	 *
+	 * @param id the component ID
+	 * @return the Component
+	 */
+	public static Component getCmp(String id) {
+		return ComponentMgr.getComponent(id);
+	}
+
+	/**
+	 * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference
      * to this element - the dom node can be overwritten by other code.
      *
      * @param id the element ID

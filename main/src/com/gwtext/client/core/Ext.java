@@ -272,13 +272,33 @@ public class Ext {
     }-*/;
 
 	/**
-	 * Shorthand for {@link ComponentMgr#getComponent(String)}
+	 * Returns a component by id. Shorthand for {@link ComponentMgr#getComponent(String)}.
 	 *
 	 * @param id the component ID
 	 * @return the Component
 	 */
 	public static Component getCmp(String id) {
 		return ComponentMgr.getComponent(id);
+	}
+
+	/**
+	 * Returns a component that the passed element represents. Shorthand for {@link ComponentMgr#getComponent(Element)}.
+	 *
+	 * @param id the component ID
+	 * @return the Component
+	 */
+	public static Component getCmp(Element element) {
+		return ComponentMgr.getComponent(element);
+	}
+
+	/**
+	 * Returns a component that the passed element represents. Shorthand for {@link ComponentMgr#getComponent(ExtElement)}.
+	 *
+	 * @param id the component ID
+	 * @return the Component
+	 */
+	public static Component getCmp(ExtElement element) {
+		return ComponentMgr.getComponent(element);
 	}
 
 	/**

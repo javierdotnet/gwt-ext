@@ -9,6 +9,8 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Command;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.DatePickerListener;
@@ -91,7 +93,11 @@ public class DatePicker extends Component {
                 }
             });
         } else {
-			setValueMillis(getOrCreateJsObj(), date.getTime());
+			DeferredCommand.addCommand(new Command() {
+				public void execute() {
+					setValueMillis(getOrCreateJsObj(), date.getTime());
+				}
+			});
 		}        
     }
 

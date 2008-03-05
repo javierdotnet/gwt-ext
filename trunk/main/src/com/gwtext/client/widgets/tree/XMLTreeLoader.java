@@ -235,6 +235,7 @@ public class XMLTreeLoader extends TreeLoader {
                 final String id = evaluateNodeValue(child, treeLoader.getLeafIdMapping());
                 final String title = evaluateNodeValue(child, treeLoader.getLeafTitleMapping());
                 TreeNode treeNode = createNode(child, treeLoader, id, title);
+                treeNode.setLeaf(true);
                 currentNode.appendChild(treeNode);
             }
         }

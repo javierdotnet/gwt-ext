@@ -516,15 +516,6 @@ public class TreeNode extends Node {
     public String getIconCls() {
         return JavaScriptObjectHelper.getAttribute(configJS, "iconCls");
     }
-        
-    /**
-     * True if this node is a leaf and does not have children.
-     *
-     * @param leaf true if leaf node
-     */
-    public void setLeaf(Node leaf) {
-        JavaScriptObjectHelper.setAttribute(configJS, "leaf", leaf.getJsObj());
-    }
 
     /**
      * Set a Tree node tooltip.

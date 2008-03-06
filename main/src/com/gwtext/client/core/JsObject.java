@@ -116,6 +116,42 @@ public abstract class JsObject {
             };
         };
 
+$wnd.Ext.extend=function() {
+        var io = function(o) {
+            for (var m in o) {
+                this[m] = o[m]
+            }
+        };
+        var oc = Object.prototype.constructor;
+        return function(sb, sp, overrides) {
+            if (typeof sp == "object") {
+                overrides = sp;
+                sp = sb;
+                sb = function() {
+                    sp.apply(this, arguments)
+                }
+            }
+            var F = function() {
+            },sbp,spp = sp.prototype;
+            F.prototype = spp;
+            sbp = sb.prototype = new F();
+            sbp.constructor = sb;
+            sb.superclass = spp;
+            if (spp.constructor == oc) {
+                spp.constructor = sp
+            }
+            sb.override = function(o) {
+                Ext.override(sb, o)
+            };
+            sbp.override = io;
+            $wnd.Ext.override(sb, overrides);
+            sb.extend = function(o) {
+                $wnd.Ext.extend(sb, o)
+            };
+            return sb
+        }
+    }();
+
         $wnd.Ext.namespace("GwtExt");
 
         //convert javascript data types into corresponding Java wrapper types

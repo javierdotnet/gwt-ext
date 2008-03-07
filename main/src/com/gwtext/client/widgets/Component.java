@@ -16,10 +16,7 @@ import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtext.client.core.DomConfig;
-import com.gwtext.client.core.Ext;
-import com.gwtext.client.core.ExtElement;
-import com.gwtext.client.core.Function;
+import com.gwtext.client.core.*;
 import com.gwtext.client.util.DOMUtil;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.ComponentListener;
@@ -86,10 +83,13 @@ public abstract class Component extends Widget implements Observable {
 	protected JavaScriptObject config;
     private boolean initHidden = false;
     private boolean initDisabled = false;
+    private static JsObject js;
 
     static {
-		init();
-	}
+        //force initialization of JsObject
+        js = new JsObject(null){};
+        init();
+    }
 
 	protected native JavaScriptObject cloneConfig(JavaScriptObject config)/*-{
         var clone = {};

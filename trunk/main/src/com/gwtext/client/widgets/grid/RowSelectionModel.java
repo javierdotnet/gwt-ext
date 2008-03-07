@@ -230,6 +230,26 @@ public class RowSelectionModel extends AbstractSelectionModel {
     }-*/;
 
     /**
+     * Select a Record.
+     *
+     * @param record the record to select
+     */
+    public void selectRecords(Record record) {
+       selectRecords(new Record[]{record});
+    }
+
+    /**
+     * Select records.
+     *
+     * @param records the records to select
+     */
+    public native void selectRecords(Record[] records) /*-{
+        var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var recordsJS = @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaScriptArray([Ljava/lang/Object;)(records);
+        sm.selectRecords(recordsJS);
+    }-*/;
+    
+    /**
      * Selects a row.
      *
      * @param row the row index to select

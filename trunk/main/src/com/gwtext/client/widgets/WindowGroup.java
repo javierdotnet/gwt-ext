@@ -27,7 +27,7 @@ public class WindowGroup extends JsObject {
     }
 
     private native JavaScriptObject create() /*-{
-        return new $wnd.WindowGroup();
+        return new $wnd.Ext.WindowGroup();
     }-*/;
 
     /**

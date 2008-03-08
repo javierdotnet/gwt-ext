@@ -131,7 +131,7 @@ public class PagingToolbar extends Toolbar {
         if (!isRendered()) {
             error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
         } else {
-            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "previous"));
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "prev"));
         }
         return null;
     }
@@ -179,7 +179,7 @@ public class PagingToolbar extends Toolbar {
         if (!isRendered()) {
             error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
         } else {
-            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "refresh"));
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "loading"));
         }
         return null;
     }

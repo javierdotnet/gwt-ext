@@ -197,7 +197,7 @@ public class Form extends JsObject {
      * <ul>
      * <li>Explicitly specify your own errorReader</li>
      * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
-     * to submit the form and you can process the return data yourself.</li>
+     * or GWT-RPC to submit the form values and you can process the return data yourself in the callback.</li>
      * <ul>
      */
     public native void submit() /*-{
@@ -219,7 +219,7 @@ public class Form extends JsObject {
      * <ul>
      * <li>Explicitly specify your own errorReader</li>
      * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
-     * to submit the form and you can process the return data yourself.</li>
+     * or GWT-RPC to submit the form values and you can process the return data yourself in the callback.</li>
      * <ul>
      *
      * @param url the url to sumbit to
@@ -244,7 +244,7 @@ public class Form extends JsObject {
      * <ul>
      * <li>Explicitly specify your own errorReader</li>
      * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
-     * to submit the form and you can process the return data yourself.</li>
+     * or GWT-RPC to submit the form values and you can process the return data yourself in the callback.</li>
      * <ul>
      *
      *

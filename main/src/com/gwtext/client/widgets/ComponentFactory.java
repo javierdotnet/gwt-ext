@@ -82,6 +82,8 @@ public class ComponentFactory {
         //toolbar components - tbitem, tbseparator, tbspacer, tbfill, tbtext, tbbutton, tbsplit?
         else if (xtype.equalsIgnoreCase("toolbar")) {
             return new Toolbar(jsObj);
+        } else if (xtype.equalsIgnoreCase("tbbutton")) {
+            return new ToolbarButton(jsObj);
         }
         //menu items
         else if (xtype.equalsIgnoreCase("menu-item")) {

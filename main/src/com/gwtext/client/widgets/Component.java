@@ -207,7 +207,7 @@ $wnd.Ext.extend=function() {
             }
         }
         configListeners.clear();
-        configListeners = null;
+        
         initComponent();
         addListener("render", new Function() {
             public void execute() {

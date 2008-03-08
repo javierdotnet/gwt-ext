@@ -10,16 +10,16 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.Connection;
+import com.gwtext.client.core.JsObject;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.BaseExtWidget;
 import com.gwtext.client.widgets.form.event.FormListener;
 
 /**
  * Form widget.
  */
-public class Form extends BaseExtWidget {
+public class Form extends JsObject {
 
     public Form(JavaScriptObject jsObj) {
         super(jsObj);
@@ -39,7 +39,7 @@ public class Form extends BaseExtWidget {
      * @param field the field to add
      */
     public native void add(Field field) /*-{
-       var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+       var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
        var fieldJS = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
        form.add(fieldJS);
    }-*/;
@@ -72,7 +72,7 @@ public class Form extends BaseExtWidget {
      * Clears all invalid messages in this form.
      */
     public native void clearInvalid() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         form.clearInvalid();
     }-*/;
 
@@ -83,7 +83,7 @@ public class Form extends BaseExtWidget {
      * @return the field
      */
      public native Field findField(String id)/*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var fieldJS =  form.findField(id);
         return fieldJS != null ? @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(fieldJS) : null;
     }-*/;
@@ -95,7 +95,7 @@ public class Form extends BaseExtWidget {
      * @return form vield values as String
      */
     public native String getValues() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return form.getValues(true);
     }-*/;
 
@@ -105,7 +105,7 @@ public class Form extends BaseExtWidget {
      * @return true if dirty
      */
     public native boolean isDirty() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return form.isDirty();
     }-*/;
 
@@ -115,7 +115,7 @@ public class Form extends BaseExtWidget {
      * @return true if valid
      */
     public native boolean isValid() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return form.isValid();
     }-*/;
 
@@ -144,7 +144,7 @@ public class Form extends BaseExtWidget {
     }
     
     private native void load(JavaScriptObject configJS) /*-{
-		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.load(configJS);
 	}-*/;
 
@@ -155,7 +155,7 @@ public class Form extends BaseExtWidget {
      * @param record the Record to load
      */
     public native void loadRecord(Record record) /*-{
-		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		var recordJS  = record.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.loadRecord(recordJS);
 	}-*/;
@@ -168,7 +168,7 @@ public class Form extends BaseExtWidget {
      * @param field the field to remove
      */
     public native void remove(Field field) /*-{
-	    var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+	    var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		var fieldJS  = field.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
 		form.remove(fieldJS);
 	}-*/;
@@ -177,7 +177,7 @@ public class Form extends BaseExtWidget {
      * Resets this form.
      */
     public native void reset() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         form.reset();
     }-*/;
 
@@ -185,14 +185,42 @@ public class Form extends BaseExtWidget {
 
     /**
      * Shortcut to do a submit action.
+     * <br/>
+     * <b>Note</b> When calling this method to submit the form and have registered a {@link com.gwtext.client.widgets.form.event.FormListener}
+     * to process the return value, the rerun value <b>must</b> conform the to format specified by the {@link com.gwtext.client.widgets.form.FormPanel#setErrorReader(com.gwtext.client.data.Reader)}.
+     * The {@link com.gwtext.client.widgets.form.event.FormListener}'s onActionComplete and onActionFailed callbacks are invoked based on what the errorReader
+     * translated the return value. The default errorReader is a JSONReader which expects the return value to be in the format
+     * <pre>
+     * <code>
+     * {"success":false,"errors":[{"id":"email","msg":"Already exists"}, {"id":"username","msg":"Already taken"}]}
+     * </code></pre>. If your return data format is different, you have two options :
+     * <ul>
+     * <li>Explicitly specify your own errorReader</li>
+     * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
+     * to submit the form and you can process the return data yourself.</li>
+     * <ul>
      */
     public native void submit() /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
         form.submit();
     }-*/;
 
     /**
      * Submit the form.
+     * <br/>
+     * <b>Note</b> When calling this method to submit the form and have registered a {@link com.gwtext.client.widgets.form.event.FormListener}
+     * to process the return value, the rerun value <b>must</b> conform the to format specified by the {@link com.gwtext.client.widgets.form.FormPanel#setErrorReader(com.gwtext.client.data.Reader)}.
+     * The {@link com.gwtext.client.widgets.form.event.FormListener}'s onActionComplete and onActionFailed callbacks are invoked based on what the errorReader
+     * translated the return value. The default errorReader is a JSONReader which expects the return value to be in the format
+     * <pre>
+     * <code>
+     * {"success":false,"errors":[{"id":"email","msg":"Already exists"}, {"id":"username","msg":"Already taken"}]}
+     * </code></pre>. If your return data format is different, you have two options :
+     * <ul>
+     * <li>Explicitly specify your own errorReader</li>
+     * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
+     * to submit the form and you can process the return data yourself.</li>
+     * <ul>
      *
      * @param url the url to sumbit to
      */
@@ -204,6 +232,22 @@ public class Form extends BaseExtWidget {
 
     /**
      * Subit the form.
+     * <br/>
+     * <b>Note</b> When calling this method to submit the form and have registered a {@link com.gwtext.client.widgets.form.event.FormListener}
+     * to process the return value, the rerun value <b>must</b> conform the to format specified by the {@link com.gwtext.client.widgets.form.FormPanel#setErrorReader(com.gwtext.client.data.Reader)}.
+     * The {@link com.gwtext.client.widgets.form.event.FormListener}'s onActionComplete and onActionFailed callbacks are invoked based on what the errorReader
+     * translated the return value. The default errorReader is a JSONReader which expects the return value to be in the format
+     * <pre>
+     * <code>
+     * {"success":false,"errors":[{"id":"email","msg":"Already exists"}, {"id":"username","msg":"Already taken"}]}
+     * </code></pre>. If your return data format is different, you have two options :
+     * <ul>
+     * <li>Explicitly specify your own errorReader</li>
+     * <li>Do not call this method to submit the form. Instead, call {@link #getValues()} to fetch the form values, and then use GWT's {@link com.google.gwt.http.client.RequestBuilder}
+     * to submit the form and you can process the return data yourself.</li>
+     * <ul>
+     *
+     *
      * @param url the url to submit to
      * @param params additional params to submit
      * @param method the submit method
@@ -236,8 +280,8 @@ public class Form extends BaseExtWidget {
      *
      * @param configJS form submit config
      */
-    public native void submit(JavaScriptObject configJS) /*-{
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+    private native void submit(JavaScriptObject configJS) /*-{
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.submit(configJS);
 	}-*/;
 
@@ -247,7 +291,7 @@ public class Form extends BaseExtWidget {
      * @param record the record to edit
      */
     public native void updateRecord(Record record) /*-{
-		var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+		var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		var recordJS  = record.@com.gwtext.client.core.JsObject::getJsObj()();
 		form.updateRecord(recordJS);
 	}-*/;
@@ -259,7 +303,7 @@ public class Form extends BaseExtWidget {
      */
     public native void addListener(FormListener listener) /*-{
         var formJ = this;
-        var form = this.@com.gwtext.client.widgets.BaseExtWidget::jsObj;
+        var form = this.@com.gwtext.client.core.JsObject::getJsObj()();
 
         form.addListener('actioncomplete',
                 function(frm, action) {

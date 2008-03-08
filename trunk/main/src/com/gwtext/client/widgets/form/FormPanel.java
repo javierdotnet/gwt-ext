@@ -1,18 +1,17 @@
 package com.gwtext.client.widgets.form;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.Connection;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.core.Position;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Reader;
+import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.QuickTips;
-import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.form.event.FormListener;
 import com.gwtext.client.widgets.form.event.FormPanelListener;
-import com.gwtext.client.widgets.layout.ContainerLayout;
 
 /**
  * FormPanel uses a {@link com.gwtext.client.widgets.layout.FormLayout} internally, and that is required for fields and labels
@@ -173,9 +172,45 @@ public class FormPanel extends Panel {
 
 	/**
 	 * A {@link com.gwtext.client.data.Reader} (e.g. {@link com.gwtext.client.data.XmlReader}) to be used to read data when reading validation errors on "submit" actions.
-	 * This is completely optional as there is built-in support for processing JSON.
-	 *
-	 * @param errorReader the error reader
+	 * This is completely optional as there is built-in support for processing JSON. The default JSON error reader expects the return value to be in the format
+     *
+     * <pre>
+     * <code>
+     * {"success":false,"errors":[{"id":"email","msg":"Already exists"}, {"id":"username","msg":"Already taken"}]}
+     * </code></pre>
+     *
+     * If the response is in XML format, one can set an XMLReader.
+     * <pre><code>
+     * //setup error reader to process from submit response from server
+     * RecordDef errorRecordDef = new RecordDef(new FieldDef[]{
+     *     new StringFieldDef("id"),
+     *     new StringFieldDef("msg")
+     * });
+     *
+     * XmlReader errorReader = new XmlReader("field", errorRecordDef);
+     * errorReader.setSuccess("@success");
+     * </code></pre>
+     * and the corresponding XML return value must be in the format :
+     * <pre></code>
+     * &lt;response success="false"&gt;
+     *     &lt;errors&gt;
+     *         &lt;field&gt;
+     *             &lt;id&gt;email&lt;/id&gt;
+     *             &lt;msg&gt;&lt;![CDATA[
+     *             Invalid email. &lt;br /&gt;&lt;i&gt;Already exists &lt;/i&gt;
+     *          ]]&gt;&lt;/msg&gt;
+     *         &lt;/field&gt;
+     *         &lt;field&gt;
+     *             &lt;id&gt;username&lt;/id&gt;
+     *             &lt;msg&gt;&lt;![CDATA[
+     *             Invalid Username. &lt;br /&gt;&lt;i&gt;Already taken &lt;/i&gt;
+     *          ]]&gt;&lt;/msg&gt;
+     *         &lt;/field&gt;
+     *     &lt;/errors&gt;
+     * &lt;/response&gt;
+     * </code></pre>
+
+     * @param errorReader the error reader
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered
 	 */
 	public void setErrorReader(Reader errorReader) throws IllegalStateException {

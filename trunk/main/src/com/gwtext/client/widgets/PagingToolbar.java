@@ -67,7 +67,7 @@ public class PagingToolbar extends Toolbar {
      * @param store the Store to bind to
      */
     public void bind(Store store) {
-        if(!isCreated()) {
+        if (!isCreated()) {
             setStore(store);
         } else {
             bindCreated(store);
@@ -85,15 +85,15 @@ public class PagingToolbar extends Toolbar {
      *
      * @param store the store
      */
-    public void unbind(Store store)  {
-        if(!isCreated()) {
+    public void unbind(Store store) {
+        if (!isCreated()) {
             setStore(null);
         } else {
             unbindCreated(store);
         }
     }
 
-    private  native void unbindCreated(Store store) /*-{
+    private native void unbindCreated(Store store) /*-{
 		var pagingToolbar = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
 		var storeJS = store.@com.gwtext.client.core.JsObject::getJsObj()();
 		pagingToolbar.unbind(storeJS);
@@ -104,6 +104,86 @@ public class PagingToolbar extends Toolbar {
 		pagingToolbar.updateInfo();
 	}-*/;
 
+    /**
+     * Return the "First" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
+     * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
+     *
+     * @return the ToolbarButton
+     * @throws IllegalStateException when this method is called before the PagingToolbar has been rendered.
+     */
+    public ToolbarButton getFirstButton() throws IllegalStateException {
+        if (!isRendered()) {
+            error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
+        } else {
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "first"));
+        }
+        return null;
+    }
+
+    /**
+     * Return the "Previous" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
+     * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
+     *
+     * @return the ToolbarButton
+     * @throws IllegalStateException when this method is called before the PagingToolbar has been rendered.
+     */
+    public ToolbarButton getPreviousButton() throws IllegalStateException {
+        if (!isRendered()) {
+            error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
+        } else {
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "previous"));
+        }
+        return null;
+    }
+
+    /**
+     * Return the "Next" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
+     * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
+     *
+     * @return the ToolbarButton
+     * @throws IllegalStateException when this method is called before the PagingToolbar has been rendered.
+     */
+    public ToolbarButton getNextButton() throws IllegalStateException {
+        if (!isRendered()) {
+            error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
+        } else {
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "next"));
+        }
+        return null;
+    }
+
+    /**
+     * Return the "Last" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
+     * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
+     *
+     * @return the ToolbarButton
+     * @throws IllegalStateException when this method is called before the PagingToolbar has been rendered.
+     */
+    public ToolbarButton getLastButton() throws IllegalStateException {
+        if (!isRendered()) {
+            error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
+        } else {
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "last"));
+        }
+        return null;
+    }
+    
+    /**
+     * Return the "Refresh" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
+     * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
+     *
+     * @return the ToolbarButton
+     * @throws IllegalStateException when this method is called before the PagingToolbar has been rendered.
+     */
+    public ToolbarButton getRefreshButton() throws IllegalStateException {
+        if (!isRendered()) {
+            error("This method can be called only after the PagingToolbar has been rendered. You can setup your logic in the onRender() event, or in doOnRender(..)");
+        } else {
+            return (ToolbarButton) ComponentFactory.getComponent(JavaScriptObjectHelper.getAttributeAsJavaScriptObject(getJsObj(), "refresh"));
+        }
+        return null;
+    }
+
     // --- config properties ---
 
     /**
@@ -111,7 +191,7 @@ public class PagingToolbar extends Toolbar {
      *
      * @param displayMsg the display message
      */
-    public void setDisplayMsg(String displayMsg)  {
+    public void setDisplayMsg(String displayMsg) {
         setAttribute("displayMsg", displayMsg, true, true);
     }
 
@@ -159,8 +239,8 @@ public class PagingToolbar extends Toolbar {
      * @return the page size
      */
     public int getPageSize() {
-        if(isRendered()) {
-           return getPageSizeRendered();
+        if (isRendered()) {
+            return getPageSizeRendered();
         } else {
             return JavaScriptObjectHelper.getAttributeAsInt(config, "pageSize");
         }
@@ -184,14 +264,14 @@ public class PagingToolbar extends Toolbar {
         return pagingToolbar.pageSize;
     }-*/;
 
-	/**
-	 * Return the current page number.
-	 *
-	 * @return the current page. The first page starts at 1
-	 */
-	public int getCurrentPage() {
-        if(isRendered()) {
-           return getCurrentPageRendered();
+    /**
+     * Return the current page number.
+     *
+     * @return the current page. The first page starts at 1
+     */
+    public int getCurrentPage() {
+        if (isRendered()) {
+            return getCurrentPageRendered();
         } else {
             return 1;
         }
@@ -202,7 +282,7 @@ public class PagingToolbar extends Toolbar {
         return pagingToolbar.getPageData().activePage;
     }-*/;
 
-	/**
+    /**
      * True to display the displayMsg (defaults to false).
      *
      * @param displayInfo the display message
@@ -227,16 +307,16 @@ public class PagingToolbar extends Toolbar {
      * @param store the store
      */
     public void setStore(Store store) {
-		if(this.store != null) {
-			if(isCreated()) {
-				unbind(this.store);
-				bind(store);
-			}
-			this.store = store;
-		} else {
-			this.store = store;
-        	setAttribute("store", store.getJsObj(), false);	
-		}
+        if (this.store != null) {
+            if (isCreated()) {
+                unbind(this.store);
+                bind(store);
+            }
+            this.store = store;
+        } else {
+            this.store = store;
+            setAttribute("store", store.getJsObj(), false);
+        }
 
     }
 
@@ -255,7 +335,7 @@ public class PagingToolbar extends Toolbar {
      * @param beforePageText the before page tooltip
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
-    public void setBeforePageText(String beforePageText) throws IllegalStateException{
+    public void setBeforePageText(String beforePageText) throws IllegalStateException {
         setAttribute("beforePageText", beforePageText, true);
     }
 

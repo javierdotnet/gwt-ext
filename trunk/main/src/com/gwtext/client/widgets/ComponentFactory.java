@@ -79,7 +79,7 @@ public class ComponentFactory {
         } else if(xtype.equalsIgnoreCase("gwtwidget")) {
             return new WidgetComponent(jsObj);
         }
-        //toolbar components - tbitem, tbseparator, tbspacer, tbfill, tbtext, tbbutton, tbsplit?
+        //toolbar components - tbitem, tbseparator, tbspacer, tbfill, tbtext, tbsplit?
         else if (xtype.equalsIgnoreCase("toolbar")) {
             return new Toolbar(jsObj);
         } else if (xtype.equalsIgnoreCase("tbbutton")) {

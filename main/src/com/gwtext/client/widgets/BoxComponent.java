@@ -361,7 +361,9 @@ public class BoxComponent extends Component {
     public int getHeight() {
         if(!isRendered()) {
             String height = getAttribute("height");
-            if(height.equals("auto")) {
+            if(height == null || height.equals("")) {
+                return 0;
+            } else if(height.equals("auto")) {
                 return -1;
             } else {
                 return Integer.parseInt(height);
@@ -430,7 +432,9 @@ public class BoxComponent extends Component {
             return getEl().getWidth();
         } else {
             String width = getAttribute("width");
-            if(width.equals("auto")) {
+            if(width == null || width.equals("")) {
+                return 0;
+            } else if(width.equals("auto")) {
                 return -1;
             } else {
                 return Integer.parseInt(width);

@@ -62,7 +62,7 @@ public class ExtElement extends BaseElement {
      */
     public static native ExtElement fly(String id)/*-{
         var elem = $wnd.Ext.fly(id);
-        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
+        return elem == null || elem === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
     }-*/;
 
     /**
@@ -75,7 +75,7 @@ public class ExtElement extends BaseElement {
      */
     public static native ExtElement fly(String id, String named)/*-{
         var elem = $wnd.Ext.fly(id, named);
-        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
+        return elem == null || elem === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
     }-*/;
 
     /**
@@ -87,7 +87,7 @@ public class ExtElement extends BaseElement {
      */
     public static native ExtElement get(String id)/*-{
         var elem = $wnd.Ext.get(id);
-        return @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
+        return elem == null || elem === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(elem);
     }-*/;
 
     //todo support CompositeElements

@@ -228,20 +228,19 @@ public class XMLTreeLoader extends TreeLoader {
             if (name.equals(folderTag)) {
                 final String id = evaluateNodeValue(child, treeLoader.getFolderIdMapping());
                 final String title = evaluateNodeValue(child, treeLoader.getFolderTitleMapping());
-                TreeNode treeNode = createNode(child, treeLoader, id, title);
+                TreeNode treeNode = createNode(child, treeLoader, id, title, false);
                 currentNode.appendChild(treeNode);
                 load(treeLoader, treeNode, child.getChildNodes());
             } else if (name.equals(leafTag)) {
                 final String id = evaluateNodeValue(child, treeLoader.getLeafIdMapping());
                 final String title = evaluateNodeValue(child, treeLoader.getLeafTitleMapping());
-                TreeNode treeNode = createNode(child, treeLoader, id, title);
-                treeNode.setLeaf(true);
+                TreeNode treeNode = createNode(child, treeLoader, id, title, true);
                 currentNode.appendChild(treeNode);
             }
         }
     }
 
-    private static TreeNode createNode(Node child, XMLTreeLoader treeLoader, final String id, String title) {
+    private static TreeNode createNode(Node child, XMLTreeLoader treeLoader, final String id, String title, final boolean isLeaf) {
         final String icon = evaluateNodeValue(child, treeLoader.getIconMapping());
         final String iconCls = evaluateNodeValue(child, treeLoader.getIconClsMapping());
         final String qtip = evaluateNodeValue(child, treeLoader.getQtipMapping());
@@ -265,6 +264,7 @@ public class XMLTreeLoader extends TreeLoader {
                 setExpanded(expanded == null || booleanValue(expanded));
                 setHref(href);
                 setHrefTarget(hrefTarget);
+                setLeaf(isLeaf);
             }
         };
         if (checked != null) {

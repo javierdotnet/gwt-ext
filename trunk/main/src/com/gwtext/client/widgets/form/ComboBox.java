@@ -525,7 +525,7 @@ public class ComboBox extends TextField {
      * @param mode local or remote mode
      */
     public void setMode(ComboBox.Mode mode) {
-        setAttribute("mode", mode.getMode(), false);
+        setAttribute("mode", mode.getMode(), true, true);
     }
 
     /**

@@ -361,11 +361,11 @@ public class Record extends JsObject {
      * @return modified field names. Returns an empty array if no fields are modified.
      */
     public String[] getModifiedFields() {
-        JavaScriptObject nativeArray = getModifiedFeilds(jsObj);
+        JavaScriptObject nativeArray = getModifiedFields(jsObj);
         return JavaScriptObjectHelper.convertToJavaStringArray(nativeArray);
     }
 
-    private native JavaScriptObject getModifiedFeilds(JavaScriptObject record)/*-{
+    private native JavaScriptObject getModifiedFields(JavaScriptObject record)/*-{
         if (record.modified === undefined) return  null;
         var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         for(var key in record.modified) {

@@ -207,7 +207,7 @@ public class GridView extends JsObject {
      * @param emptyText default text to display in the grid body when no rows are available (defaults to '').
      */
     public void setEmptyText(String emptyText) {
-		JavaScriptObjectHelper.setAttribute(configJS, "emptyText", emptyText);
+		JavaScriptObjectHelper.setAttribute(isCreated() ? getJsObj() : configJS, "emptyText", emptyText);
 	}
 
     /**

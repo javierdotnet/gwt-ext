@@ -380,6 +380,11 @@ $wnd.Ext.extend=function() {
 		return super.getElement();
 	}
 
+/**
+     * Allow the component to fire these events.
+     *
+     * @param event the events
+     */
     public void addEvents(String[] events) {
         for (int i = 0; i < events.length; i++) {
             String event = events[i];
@@ -387,12 +392,27 @@ $wnd.Ext.extend=function() {
         }
     }
 
-    public native void addEvent(String events) /*-{
+    /**
+     * Allow the component to fire this event.
+     *
+     * @param event the event
+     */
+    public native void addEvent(String event) /*-{
         var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        component.addEvents(events);
+        component.addEvents(event);
     }-*/;
 
-	/**
+    /**
+     * Fires the specified event.
+     *
+     * @param event the event
+     */
+    public native void fireEvent(String event) /*-{
+        var component  = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+        component.fireEvent(event);
+    }-*/;
+           
+    /**
 	 * Removes all listeners for this Component.
 	 */
 	public native void purgeListeners() /*-{

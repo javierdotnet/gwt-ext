@@ -209,6 +209,15 @@ public class GridView extends JsObject {
     public void setEmptyText(String emptyText) {
 		JavaScriptObjectHelper.setAttribute(isCreated() ? getJsObj() : configJS, "emptyText", emptyText);
 	}
+    
+    /**
+     * Returns the default text to display in the grid body when no rows are available (defaults to '').
+     * 
+     * @return emptyText
+     */
+    public String getEmptyText() {
+		return JavaScriptObjectHelper.getAttribute(isCreated() ? getJsObj() : configJS, "emptyText");
+	}
 
     /**
      * True to add a second TR element per row that can be used to provide a row body that spans beneath the data row.

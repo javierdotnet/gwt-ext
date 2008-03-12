@@ -29,6 +29,17 @@ public class ColumnConfig extends BaseColumnConfig {
      *
      * @param header the column header
      * @param dataIndex the data index (the field name pf the Store associated with the Grid)
+     */
+    public ColumnConfig(String header, String dataIndex) {
+        setHeader(header);
+        setDataIndex(dataIndex);
+    }
+    
+    /**
+     * Create a new ColumnConfig.
+     *
+     * @param header the column header
+     * @param dataIndex the data index (the field name pf the Store associated with the Grid)
      * @param width the column width
      */
     public ColumnConfig(String header, String dataIndex, int width) {

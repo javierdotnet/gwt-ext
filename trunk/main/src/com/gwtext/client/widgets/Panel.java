@@ -84,10 +84,6 @@ public class Panel extends Container {
 		return new $wnd.Ext.Panel(config);
     }-*/;
 
-    public void setStyleName(String style) {
-        setBodyStyle(style);
-    }
-
     /**
      * Adds a button to this panel. Note that this method must be called prior to rendering. The preferred approach is to
      * add buttons via the buttons config.

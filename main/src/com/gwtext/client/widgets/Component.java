@@ -363,9 +363,17 @@ $wnd.Ext.extend=function() {
 	protected abstract JavaScriptObject create(JavaScriptObject config);
 
 	public Element getElement() {
+    	return getElement(true);
+	}
+	
+	public Element getElement(boolean allowPreRender) {
 		if (super.getElement() == null) {
 			JavaScriptObject jsObj = getComponentJS(id);
 			if (!isRendered()) {
+		    	if(!allowPreRender) {
+		    		error("This method should only be called after the component has been rendered");
+		    	}
+				
 				if (jsObj == null) {
 					jsObj = create(config);
 				}
@@ -1317,7 +1325,7 @@ $wnd.Ext.extend=function() {
 	public void setStyle(String style) throws IllegalStateException {
 		if(!isRendered()) {
 			setAttribute("style", style, true);
-		}else {
+		} else {
             Ext.get(getId()).applyStyles(style);
         }
     }
@@ -1328,24 +1336,81 @@ $wnd.Ext.extend=function() {
     public String getStyle() {
 		return getAttribute("style");
 	}
+    
+    /**
+     * Just calls setCls(cls). It is recommended that this method not be used, to avoid confusion.
+     * 
+     * @param cls the CSS class
+     * 
+     * @see com.gwtext.client.widgets.Component#setCls(String)
+     */
+    public void setStyleName(String cls) {
+        setCls(cls);
+    }
+    
+    /**
+     * Just calls addClass(cls). It is recommended that this method not be used, to avoid confusion.
+     * 
+     * @param cls the CSS class
+     * 
+     * @see com.gwtext.client.widgets.Component#addClass(String)
+     */
+    public void addStyleName(String cls) {
+        addClass(cls);
+    }
+    
+    /**
+     * Just calls removeClass(cls). It is recommended that this method not be used, to avoid confusion.
+     * 
+     * @param cls the CSS class
+     * 
+     * @see com.gwtext.client.widgets.Component#removeClass(String)
+     */
+    public void removeStyleName(String cls) {
+        removeClass(cls);
+    }
+    
+    /**
+     * @deprecated use setCls(...) or setCtCls(...) instead
+     */
+    public void setStylePrimaryName(String style) {
+    	throw new UnsupportedOperationException("This method should not be called on GWT-Ext components." +
+    			" Use setCls(...) or setCtCls(...) instead.");
+    }
+    
+    /**
+     * @deprecated use addClass(...) instead
+     */
+    public void addStyleDependentName(String clsSuffix) {
+    	throw new UnsupportedOperationException("This method should not be called on GWT-Ext components." +
+    			" Use addClass(...) instead.");
+    }
+    
+    /**
+     * @deprecated use removeClass(...) instead
+     */
+    public void removeStyleDependentName(String clsSuffix) {
+    	throw new UnsupportedOperationException("This method should not be called on GWT-Ext components." +
+    			" Use removeClass(...) instead.");
+    }
 
 
     //fix GWT code for element access by using accessor and not member reference, this bug is fixed
     //in GWT 1.5
     public int getOffsetHeight() {
-        return DOM.getElementPropertyInt(getElement(), "offsetHeight");
+        return DOM.getElementPropertyInt(getElement(false), "offsetHeight");
     }
 
     public int getOffsetWidth() {
-        return DOM.getElementPropertyInt(getElement(), "offsetWidth");
+        return DOM.getElementPropertyInt(getElement(false), "offsetWidth");
     }
 
     protected Element getStyleElement() {
-        return getElement();
+        return getElement(false);
     }
 
     public String getTitle() {
-        return DOM.getElementProperty(getElement(), "title");
+        return DOM.getElementProperty(getElement(false), "title");
     }
 
     public void setHeight(String height) {
@@ -1353,7 +1418,7 @@ $wnd.Ext.extend=function() {
         // it won't accept negative numbers in length measurements
         assert extractLengthValue(height.trim().toLowerCase()) >= 0 :
                 "CSS heights should not be negative";
-        DOM.setStyleAttribute(getElement(), "height", height);
+        DOM.setStyleAttribute(getElement(false), "height", height);
     }
 
     private native double extractLengthValue(String s) /*-{
@@ -1585,7 +1650,7 @@ $wnd.Ext.extend=function() {
         // it won't accept negative numbers in length measurements
         assert extractLengthValue(width.trim().toLowerCase()) >= 0 :
                 "CSS widths should not be negative";
-        DOM.setStyleAttribute(getElement(), "width", width);
+        DOM.setStyleAttribute(getElement(false), "width", width);
     }
 
     public boolean equals(Object obj) {

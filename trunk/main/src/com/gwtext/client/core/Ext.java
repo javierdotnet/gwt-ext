@@ -284,7 +284,7 @@ public class Ext {
 	/**
 	 * Returns a component that the passed element represents. Shorthand for {@link ComponentMgr#getComponent(Element)}.
 	 *
-	 * @param id the component ID
+	 * @param element the component's element
 	 * @return the Component
 	 */
 	public static Component getCmp(Element element) {
@@ -294,7 +294,7 @@ public class Ext {
 	/**
 	 * Returns a component that the passed element represents. Shorthand for {@link ComponentMgr#getComponent(ExtElement)}.
 	 *
-	 * @param id the component ID
+	 * @param element the component's element
 	 * @return the Component
 	 */
 	public static Component getCmp(ExtElement element) {

@@ -9,7 +9,6 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 
 /**
  * Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing.
@@ -88,4 +87,27 @@ public class TextArea extends TextField {
     public void setPreventScrollbars(boolean preventScrollbars) throws IllegalStateException {
         setAttribute("preventScrollbars", preventScrollbars, true);
     }
+
+    /**
+     * Set the enterIsSpecial. By default the ENTER key is not treated as a special key. Set to true to override this setting.
+     *
+     * @param enterIsSpecial the enterIsSpecial
+     * @see {@link com.gwtext.client.widgets.form.event.FieldListener#onSpecialKey(Field, com.gwtext.client.core.EventObject)} 
+     */
+    public void setEnterIsSpecial(boolean enterIsSpecial) {
+        setAttribute("enterIsSpecial", enterIsSpecial, true, true);
+    }
+
+    /**
+     * Return the enterIsSpecial.
+     *
+     * @return the enterIsSpecial
+     */
+    public boolean getEnterIsSpecial() {
+        return getAttributeAsBoolean("enterIsSpecial");
+    }
+
+
+
+
 }

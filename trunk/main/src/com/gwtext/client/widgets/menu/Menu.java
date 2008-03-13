@@ -12,6 +12,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.Ext;
+import com.gwtext.client.data.Record;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.menu.event.MenuListener;
 
@@ -170,12 +171,29 @@ public class Menu extends Widget {
 		}
     }-*/;
 
-    //TODO
-    public native BaseItem[] getItems() /*-{
-        var menu = this.@com.gwtext.client.widgets.menu.Menu::getOrCreateJsObj()();
-        var item = menu.items.items;
-        return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaComponentArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
-    }-*/;
+    /**
+     * Gets all of this menu's items
+     * 
+     * @return the items
+     */
+    public BaseItem[] getItems() {
+        JavaScriptObject nativeArray = getItems(getOrCreateJsObj());
+        return convertFromNativeBaseItemsArray(nativeArray);
+    };
+    
+    private static BaseItem[] convertFromNativeBaseItemsArray(JavaScriptObject nativeArray) {
+        JavaScriptObject[] itemsj = JavaScriptObjectHelper.toArray(nativeArray);
+        BaseItem[] items = new BaseItem[itemsj.length];
+        for (int i = 0; i < itemsj.length; i++) {
+            JavaScriptObject item = itemsj[i];
+            items[i] = new BaseItem(item);
+        }
+        return items;
+    }
+    
+    private native JavaScriptObject getItems(JavaScriptObject menu) /*-{
+	    return menu.items.items;
+	}-*/;
 
     /**
 	 * Hides this menu.

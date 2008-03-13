@@ -12,7 +12,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtext.client.core.Ext;
-import com.gwtext.client.data.Record;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.menu.event.MenuListener;
 

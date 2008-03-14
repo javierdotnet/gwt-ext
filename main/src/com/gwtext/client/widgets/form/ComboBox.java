@@ -606,20 +606,28 @@ public class ComboBox extends TextField {
      * The data store to which this combo is bound (defaults to undefined)
      *
      * @param store the combobox store
-     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
     public void setStore(Store store) throws IllegalStateException {
-		if(store instanceof SimpleStore) {
-			setTriggerAction(ALL);
-			if(!isCreated()) setMode(LOCAL);
-			store.load();
-		}
-		setAttribute("store", store.getJsObj(), true);
-        if (displayField != null) {
-            setFilterColParam(store.getJsObj(), displayField);
-        }
-        this.store = store;
+    	if(!isRendered()) {
+			if(store instanceof SimpleStore) {
+				setTriggerAction(ALL);
+				if(!isCreated()) setMode(LOCAL);
+				store.load();
+			}
+			setAttribute("store", store.getJsObj(), true);
+	        if (displayField != null) {
+	            setFilterColParam(store.getJsObj(), displayField);
+	        }
+	        this.store = store;
+    	} else {
+    		setStoreRendered(store.getJsObj());
+    	}
     }
+    
+    private native void setStoreRendered(JavaScriptObject storeJS) /*-{
+	    var cb  = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+	    cb.bindStore(storeJS);
+	}-*/;
 
     /**
      * The Store associated with the combobox.

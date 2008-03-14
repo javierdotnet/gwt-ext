@@ -111,7 +111,8 @@ public class CheckItem extends Item {
 
 
     /**
-     * True to initialize this checkbox as checked (defaults to false). Note that if this checkbox is part of a radio group (group = true) only the last item in the group that is initialized with checked = true will be rendered as checked.
+     * True to mark the checkbox as checked (defaults to false). Note that if this checkbox is part of a radio group (group = true)
+     * only the last item in the group that is initialized with checked = true will be rendered as checked.
      *
      * @param checked true to set as checked
      */
@@ -122,6 +123,15 @@ public class CheckItem extends Item {
             setCheckedRendered(checked);
         }
 
+    }
+
+    /**
+     * True if checked.
+     *
+     * @return true if checked
+     */
+    public boolean isChecked() {
+        return getAttributeAsBoolean("checked");
     }
 
     /**

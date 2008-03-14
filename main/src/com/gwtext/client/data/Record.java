@@ -197,6 +197,18 @@ public class Record extends JsObject {
         var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return record.isModified(fieldName);
     }-*/;
+	
+	/**
+	 * Return true if specified field is null (or undefined)
+	 *
+	 * @param fieldName the field name
+	 * @return true if null or undefined
+	 */
+	public native boolean isNull(String fieldName) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var value = record.get(fieldName);
+        return value === undefined || value == null;
+    }-*/;
 
 	/**
      * Sets the fields Object value.

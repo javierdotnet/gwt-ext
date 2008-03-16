@@ -87,7 +87,7 @@ public class Button extends Component {
     public Button(String text, ButtonListener listener, String icon) {
         if (text != null) setText(text);
         if(icon != null) setIcon(icon);
-        addListener(listener);
+        if(listener != null) addListener(listener);
 
         if(text == null && icon != null) {
             setCls("x-btn-icon");

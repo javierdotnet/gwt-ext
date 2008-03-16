@@ -69,7 +69,7 @@ public class CycleButton extends SplitButton {
      * @param listener the button listener
      */
     public CycleButton(CycleButtonListener listener) {
-        super(null, listener);
+        addListener(listener);
     }
 
     /**
@@ -79,7 +79,8 @@ public class CycleButton extends SplitButton {
      * @param icon icon image path
      */
     public CycleButton(CycleButtonListener listener, String icon) {
-        super(null, listener, icon);
+        setIcon(icon);
+        addListener(listener);
     }
 
     public CycleButton(JavaScriptObject jsObj) {

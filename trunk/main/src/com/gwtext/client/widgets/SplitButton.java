@@ -10,7 +10,6 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.event.ButtonListener;
 import com.gwtext.client.widgets.event.SplitButtonListener;
 
 /**
@@ -62,7 +61,8 @@ public class SplitButton extends Button {
      * @param listener the button listener
      */
     public SplitButton(String text, SplitButtonListener listener) {
-        super(text, listener);
+        super(text);
+        addListener(listener);
     }
 
     /**
@@ -73,7 +73,8 @@ public class SplitButton extends Button {
      * @param icon the button icon image path
      */
     public SplitButton(String text, SplitButtonListener listener, String icon) {
-        super(text, listener, icon);
+        super(text, null, icon);
+        addListener(listener);
     }
 
     public SplitButton(JavaScriptObject jsObj) {

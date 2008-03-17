@@ -53,8 +53,11 @@ public class MenuItem extends BaseItem {
         setMenu(submenu);
     }
 
+	public MenuItem(JavaScriptObject jsObj) {
+		super(jsObj);
+	}
 
-    protected native JavaScriptObject create(JavaScriptObject config)/*-{
+	protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.menu.Item(config);
     }-*/;
 

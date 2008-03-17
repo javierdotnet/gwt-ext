@@ -56,7 +56,11 @@ public class TextItem extends BaseItem {
         addListener(listener);
     }
 
-    protected native JavaScriptObject create(JavaScriptObject config) /*-{
+	public TextItem(JavaScriptObject jsObj) {
+		super(jsObj);
+	}
+
+	protected native JavaScriptObject create(JavaScriptObject config) /*-{
         return new $wnd.Ext.menu.TextItem(config['text'] ||'');
     }-*/;
 

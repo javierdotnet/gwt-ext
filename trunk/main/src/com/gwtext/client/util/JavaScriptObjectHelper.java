@@ -232,9 +232,9 @@ public class JavaScriptObjectHelper {
 
     private static native JavaScriptObject newJSArray(int length) /*-{
 	    if (length < 0) {
-	        return new Array();
+	        return new $wnd.Array();
 	    } else {
-	        return new Array(length);
+	        return new $wnd.Array(length);
 	    }
     }-*/;
 

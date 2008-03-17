@@ -1072,4 +1072,40 @@ public class Store extends JsObject {
             JavaScriptObjectHelper.setAttribute(configJS, "sortInfo ", sortStateParamObj);
         }
     }
+
+    public native JavaScriptObject getRecordsAsJS() /*-{
+        var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var records = store.getRange();
+        var cnt = records.length;
+        var data = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
+        for(var i = 0; i < cnt; i++) {
+            var record = records[i];
+            var items = record.fields.items
+            var cnt2=items.length;
+            var o = {};
+            for ( var j=0; j<cnt2; ++j ){
+                var fname = items[j].name;
+                o[fname] = record.get(fname);
+            }
+            data.push(o);
+        }
+        return data;
+    }-*/;
+
+    public String[] getFields() {
+        JavaScriptObject nativeArray = getFields(jsObj);
+        return JavaScriptObjectHelper.convertToJavaStringArray(nativeArray);
+    }
+
+    private native JavaScriptObject getFields(JavaScriptObject store)/*-{
+        debugger;
+        var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
+        var items = store.fields.items
+        var cnt=items.length;
+        for ( var i=0; i<cnt; ++i ){
+            fields.push(items[i].name);
+        }
+
+        return fields;
+    }-*/;
 }

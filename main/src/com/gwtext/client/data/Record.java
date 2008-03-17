@@ -377,6 +377,23 @@ public class Record extends JsObject {
         return JavaScriptObjectHelper.convertToJavaStringArray(nativeArray);
     }
 
+    public String[] getFields() {
+        JavaScriptObject nativeArray = getFields(jsObj);
+        return JavaScriptObjectHelper.convertToJavaStringArray(nativeArray);
+    }
+
+    private native JavaScriptObject getFields(JavaScriptObject record)/*-{
+        debugger;
+        var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
+        var items = record.fields.items
+        var cnt=items.length;
+        for ( var i=0; i<cnt; ++i ){
+            fields.push(items[i].name);
+        }
+          
+        return fields;
+    }-*/;
+
     private native JavaScriptObject getModifiedFields(JavaScriptObject record)/*-{
         if (record.modified === undefined) return  null;
         var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();

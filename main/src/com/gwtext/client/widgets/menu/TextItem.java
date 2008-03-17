@@ -75,7 +75,16 @@ public class TextItem extends BaseItem {
 		setAttribute("text", text, true);
 	}
 
-    /**
+	/**
+	 * Return the items text.
+	 *
+	 * @return the item text
+	 */
+	public String getText() {
+		return getAttribute("text");
+	}
+
+	/**
      * The default CSS class to use for text items (defaults to "x-menu-text").
      *
      * @param itemCls the item CSS class

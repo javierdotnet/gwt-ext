@@ -22,7 +22,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
  */
 public class WidgetComponent extends BoxComponent {
 
-    private static final String hiddenDivID = "__gwtext_hidden";
+    public static final String hiddenDivID = "__gwtext_hidden";
 
     static {
         init();
@@ -56,14 +56,18 @@ $wnd.Ext.reg('gwtwidget', $wnd.Ext.ux.WidgetComponent);
     }-*/;
 
     public WidgetComponent(Widget widget) {
+        createHiddenDiv();
+        setWidget(widget);
+        setId(DOMUtil.getID(widget));
+    }
+
+    public static void createHiddenDiv() {
         ExtElement hiddenDiv = Ext.get(hiddenDivID);
         if (hiddenDiv == null) {
             DomConfig domConfig = new DomConfig("div", hiddenDivID, null);
             domConfig.setStyle("display:none;");
             DomHelper.append(RootPanel.getBodyElement(), domConfig);
         }
-        setWidget(widget);
-        setId(DOMUtil.getID(widget));
     }
 
     public WidgetComponent(JavaScriptObject jsObj) {

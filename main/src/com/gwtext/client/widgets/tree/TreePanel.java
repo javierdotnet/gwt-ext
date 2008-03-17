@@ -49,7 +49,11 @@ public class TreePanel extends Panel {
 	public TreePanel() {
 	}
 
-    protected void initComponent() {
+	public TreePanel(JavaScriptObject jsObj) {
+		super(jsObj);
+	}
+
+	protected void initComponent() {
         JavaScriptObject root = getAttributeAsJavaScriptObject("root");
         super.initComponent();
         if(root == null) {

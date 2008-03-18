@@ -1,0 +1,5 @@
+<project name="showcase" default="build" basedir=".">
+	<property name="sample.root" value="charts" />
+	<property name="sample.module" value="Charts" />
+	<import file="../common.ant.xml" />
+</project>

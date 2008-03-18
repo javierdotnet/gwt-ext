@@ -1098,7 +1098,6 @@ public class Store extends JsObject {
     }
 
     private native JavaScriptObject getFields(JavaScriptObject store)/*-{
-        debugger;
         var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         var items = store.fields.items
         var cnt=items.length;

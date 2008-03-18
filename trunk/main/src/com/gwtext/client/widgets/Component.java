@@ -212,9 +212,9 @@ $wnd.Ext.extend=function() {
         initComponent();
         addListener("render", new Function() {
             public void execute() {
+                Component.this.afterRender();
                 DeferredCommand.addCommand(new Command() {
                     public void execute() {
-                        Component.this.afterRender();
                         fireEvent(POST_RENDER);
                     }
                 });

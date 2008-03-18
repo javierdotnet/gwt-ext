@@ -135,6 +135,15 @@ public class Checkbox extends Field {
         }
     }
 
+    /**
+     * The box label.
+     *
+     * @return the box label
+     */
+    public String getBoxLabel() {
+        return getAttribute("boxLabel");
+    }
+
     private native boolean setFieldLabelRendered(String fieldLabel, String fieldId) /*-{
         var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var label = $wnd.Ext.DomQuery.select($wnd.String.format('label[for="{0}"]', fieldId));

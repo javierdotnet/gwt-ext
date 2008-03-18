@@ -375,6 +375,15 @@ public abstract class Field extends BoxComponent {
         }
     }
 
+    /**
+     * The field label.
+     *
+     * @return the field label
+     */
+    public String getFieldLabel() {
+        return getAttribute("fieldLabel");
+    }
+
     private native boolean setFieldLabelRendered(String fieldLabel, String fieldId) /*-{
         var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var label = $wnd.Ext.DomQuery.select($wnd.String.format('label[for="{0}"]', fieldId));

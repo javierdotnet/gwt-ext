@@ -1,0 +1,23 @@
+.paste-icon {
+    background-image: url( images/silk/page_paste.gif ) !important;
+}
+
+.line-chart-icon {
+    background-image: url( images/silk/chart_curve.gif ) !important;
+}
+
+.bar-chart-icon {
+    background-image: url( images/silk/chart_bar.gif ) !important;
+}
+
+.pie-chart-icon {
+    background-image: url( images/silk/chart_pie.gif ) !important;
+}
+
+image-icon {
+    background-image: url( images/silk/image.gif ) !important;
+}
+
+.add-icon {
+    background-image: url( images/silk/add.gif ) !important;
+}

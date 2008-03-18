@@ -1,0 +1,9 @@
+<module>
+
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.gwtext.GwtExt"/>
+
+    <!-- Specify the app entry point class.                   -->
+    <entry-point class='com.gwtext.sample.charts.client.Charts'/>
+
+</module>

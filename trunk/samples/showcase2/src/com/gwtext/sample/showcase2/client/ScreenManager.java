@@ -48,6 +48,8 @@ import com.gwtext.sample.showcase2.client.tree.*;
 import com.gwtext.sample.showcase2.client.view.DataViewSample;
 import com.gwtext.sample.showcase2.client.window.LayoutWindowSample;
 import com.gwtext.sample.showcase2.client.window.MessageBoxSample;
+import com.gwtext.sample.showcase2.client.resizable.ResizablePanelSample;
+import com.gwtext.sample.showcase2.client.resizable.ResizableGridSample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -370,6 +372,9 @@ public class ScreenManager {
                 new Object[]{"sortMultiSelectTree", "tree-category", "Sort &amp; Multi-Select", null, null, null, new SortableMultiSelectTreeSample()},
                 new Object[]{"twoTrees", "tree-category", "Tree to Tree Drag &amp; Drop", null, "images/thumbnails/tree/two-tree.gif", null, new TwoTreesSample()},
                 new Object[]{"gridDD", "tree-category", "Grid - Tree Drag &amp; Drop", null, "images/thumbnails/tree/grid-tree.gif", null, new GridTreeDDSample()},
+                new Object[]{"treeAppearance", "tree-category", "Tree Appearance", null, null, null, new TreeAppearanceSample()},
+                new Object[]{"treeContextMenu", "tree-category", "Tree Context Menu", null, null, null, new TreeContextMenuSample()},
+                new Object[]{"treeDD", "tree-category", "Tree Drag &amp; Drop", null, null, null, new TreeDragDropSample()},
 
                 new Object[]{"buttons-category", null, "Buttons", "buttons-category-icon", null, null, null},
                 new Object[]{"buttons", "buttons-category", "Simple Buttons", null, null, null, new ButtonsSample()},
@@ -444,7 +449,10 @@ public class ScreenManager {
                 new Object[]{"combination-category", null, "Combination Samples", "combination-category-icon", null, null, null},
                 new Object[]{"chartGenerator", "combination-category", "Dion's Chart Generator", null, "images/thumbnails/combination/chart-generator.gif", null, new ChartGeneratorSample()},
 
-                new Object[]{"dd-category", null, "Drag & Drop", "dd-category-icon", null, null, null},
+				new Object[]{"resizable-category", null, "Resizable", "misc-category-icon", null, "Resizable", null},
+                new Object[]{"resizablePanel", "resizable-category", "Resizable Panel", "dataview-nav-icon", null, null, new ResizablePanelSample()},
+
+				new Object[]{"dd-category", null, "Drag & Drop", "dd-category-icon", null, null, null},
                 new Object[]{"basicDD", "dd-category", "Basic", null, null, null, new BasicDDSample()},
                 new Object[]{"onTopDD", "dd-category", "On Top", null, null, null, new BasicOnTopSample()},
 

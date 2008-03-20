@@ -706,7 +706,17 @@ public class GridPanel extends Panel {
         setAttribute("autoExpandMax", autoExpandMax, true);
     }
 
-    /**
+	/**
+	 * True to disable selections in the grid (defaults to false). - ignored a SelectionModel is specified
+	 *
+	 * @param disableSelection true to disable selections in the grid (defaults to false). - ignored a SelectionModel is specified
+	 * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+	 */
+	public void setDisableSelection(boolean disableSelection) throws IllegalStateException {
+		setAttribute("disableSelection", disableSelection, true);
+	}
+
+	/**
      * Hides the column header of the grid if passed true.
      *
      * @param hideColumnHeader true to hide the column headers

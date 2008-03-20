@@ -374,9 +374,8 @@ public class ScreenManager {
                 new Object[]{"gridDD", "tree-category", "Grid - Tree Drag &amp; Drop", null, "images/thumbnails/tree/grid-tree.gif", null, new GridTreeDDSample()},
                 new Object[]{"treeAppearance", "tree-category", "Tree Appearance", null, null, null, new TreeAppearanceSample()},
                 new Object[]{"treeContextMenu", "tree-category", "Tree Context Menu", null, null, null, new TreeContextMenuSample()},
-                new Object[]{"treeDD", "tree-category", "Tree Drag &amp; Drop", null, null, null, new TreeDragDropSample()},
-
-                new Object[]{"buttons-category", null, "Buttons", "buttons-category-icon", null, null, null},
+				
+				new Object[]{"buttons-category", null, "Buttons", "buttons-category-icon", null, null, null},
                 new Object[]{"buttons", "buttons-category", "Simple Buttons", null, null, null, new ButtonsSample()},
                 new Object[]{"cycleButton", "buttons-category", "Cycle Button", null, null, null, new CycleButtonSample()},
                 new Object[]{"menuButton", "buttons-category", "Menu Button", null, "images/thumbnails/button/button-menu.gif", null, new MenuButtonSample()},

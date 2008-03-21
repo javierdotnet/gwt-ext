@@ -1460,6 +1460,10 @@ $wnd.Ext.extend=function() {
             });
         }
     }
+    
+    public void addPlugin(ComponentPlugin plugin) {
+    	setAttribute("plugins", plugin.getJsObj(), false);
+    }
 
     protected String getAttribute(String attribute) {
         if (isCreated()) {

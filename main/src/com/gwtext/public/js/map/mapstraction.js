@@ -669,10 +669,10 @@ if(this.iconShadowUrl) { icon.shadow = this.iconShadowUrl; if(this.iconShadowSiz
 }
 options.icon = icon;}
 if(this.draggable){ options.draggable = this.draggable;}
-this.gmarker = new GMarker( this.location.toGoogle(),options); if(this.infoBubble) { var theInfo = this.infoBubble; var event_action; if(this.hover) { event_action = "mouseover";}
+this.gmarker = new GMarker( this.location.toGoogle(),options); var gmarker = this.gmarker; if(this.infoBubble) { var theInfo = this.infoBubble; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
-GEvent.addListener(this.gmarker, event_action, function() { this.gmarker.openInfoWindowHtml(theInfo, {maxWidth: 100});});}
-if(this.hoverIconUrl) { GEvent.addListener(this.gmarker, "mouseover", function() { this.gmarker.setImage(this.hoverIconUrl);}); GEvent.addListener(this.gmarker, "mouseout", function() { this.gmarker.setImage(this.iconUrl);});}
+GEvent.addListener(this.gmarker, event_action, function() { gmarker.openInfoWindowHtml(theInfo, {maxWidth: 100});});}
+if(this.hoverIconUrl) { GEvent.addListener(this.gmarker, "mouseover", function() { gmarker.setImage(this.hoverIconUrl);}); GEvent.addListener(this.gmarker, "mouseout", function() {gmarker.setImage(this.iconUrl);});}
 if(this.infoDiv){ var theInfo = this.infoDiv; var div = this.div; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
 GEvent.addListener(this.gmarker, event_action, function() { document.getElementById(div).innerHTML = theInfo;});}

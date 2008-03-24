@@ -671,11 +671,11 @@ options.icon = icon;}
 if(this.draggable){ options.draggable = this.draggable;}
 this.gmarker = new GMarker( this.location.toGoogle(),options); if(this.infoBubble) { var theInfo = this.infoBubble; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
-GEvent.addListener(gmarker, event_action, function() { gmarker.openInfoWindowHtml(theInfo, {maxWidth: 100});});}
-if(this.hoverIconUrl) { GEvent.addListener(gmarker, "mouseover", function() { gmarker.setImage(this.hoverIconUrl);}); GEvent.addListener(gmarker, "mouseout", function() { gmarker.setImage(this.iconUrl);});}
+GEvent.addListener(this.gmarker, event_action, function() { this.gmarker.openInfoWindowHtml(theInfo, {maxWidth: 100});});}
+if(this.hoverIconUrl) { GEvent.addListener(this.gmarker, "mouseover", function() { this.gmarker.setImage(this.hoverIconUrl);}); GEvent.addListener(this.gmarker, "mouseout", function() { this.gmarker.setImage(this.iconUrl);});}
 if(this.infoDiv){ var theInfo = this.infoDiv; var div = this.div; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
-GEvent.addListener(gmarker, event_action, function() { document.getElementById(div).innerHTML = theInfo;});}
+GEvent.addListener(this.gmarker, event_action, function() { document.getElementById(div).innerHTML = theInfo;});}
 return this.gmarker;}
 Marker.prototype.toOpenLayers = function() { if(this.iconSize) { var size = new OpenLayers.Size(this.iconSize[0], this.iconSize[1]);}
 else

@@ -613,7 +613,7 @@ this.sw.lat = point.lat; if(this.sw.lon > point.lon)
 this.sw.lon = point.lon; if(this.ne.lat < point.lat)
 this.ne.lat = point.lat; if(this.ne.lon < point.lon)
 this.ne.lon = point.lon; return;}
-function Marker(point) { this.location = point; this.onmap = false; this.proprietary_marker = false; this.attributes = new Array(); this.pinID = "mspin-"+new Date().getTime()+'-'+(Math.floor(Math.random()*Math.pow(2,16)));}
+function Marker(point) { this.gmarker=null; this.location = point; this.onmap = false; this.proprietary_marker = false; this.attributes = new Array(); this.pinID = "mspin-"+new Date().getTime()+'-'+(Math.floor(Math.random()*Math.pow(2,16)));}
 Marker.prototype.setChild = function(some_proprietary_marker) { this.proprietary_marker = some_proprietary_marker; this.onmap = true
 }
 Marker.prototype.setLabel = function(labelText) { this.labelText = labelText;}
@@ -661,7 +661,7 @@ if(this.infoDiv) { var theInfo = this.infoDiv; var div = this.div; var event_div
 else { event_action = EventsList.MouseClick;}
 YEvent.Capture(ymarker, event_action, function() { document.getElementById(div).innerHTML = theInfo;});}
 return ymarker;}
-Marker.prototype.toGoogle = function() { var options = new Object(); if(this.labelText) { options.title = this.labelText;}
+Marker.prototype.toGoogle = function() { if(this.gmarker) {return this.gmarker;} var options = new Object(); if(this.labelText) { options.title = this.labelText;}
 if(this.iconUrl){ var icon = new GIcon(G_DEFAULT_ICON,this.iconUrl); if(this.iconSize) { icon.iconSize = new GSize(this.iconSize[0], this.iconSize[1]); var anchor; if(this.iconAnchor) { anchor = new GPoint(this.iconAnchor[0], this.iconAnchor[1]);}
 else { anchor = new GPoint(this.iconSize[0]/2, this.iconSize[1]/2);}
 icon.iconAnchor = anchor;}
@@ -669,14 +669,14 @@ if(this.iconShadowUrl) { icon.shadow = this.iconShadowUrl; if(this.iconShadowSiz
 }
 options.icon = icon;}
 if(this.draggable){ options.draggable = this.draggable;}
-var gmarker = new GMarker( this.location.toGoogle(),options); if(this.infoBubble) { var theInfo = this.infoBubble; var event_action; if(this.hover) { event_action = "mouseover";}
+this.gmarker = new GMarker( this.location.toGoogle(),options); if(this.infoBubble) { var theInfo = this.infoBubble; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
 GEvent.addListener(gmarker, event_action, function() { gmarker.openInfoWindowHtml(theInfo, {maxWidth: 100});});}
 if(this.hoverIconUrl) { GEvent.addListener(gmarker, "mouseover", function() { gmarker.setImage(this.hoverIconUrl);}); GEvent.addListener(gmarker, "mouseout", function() { gmarker.setImage(this.iconUrl);});}
 if(this.infoDiv){ var theInfo = this.infoDiv; var div = this.div; var event_action; if(this.hover) { event_action = "mouseover";}
 else { event_action = "click";}
 GEvent.addListener(gmarker, event_action, function() { document.getElementById(div).innerHTML = theInfo;});}
-return gmarker;}
+return this.gmarker;}
 Marker.prototype.toOpenLayers = function() { if(this.iconSize) { var size = new OpenLayers.Size(this.iconSize[0], this.iconSize[1]);}
 else
 { var size = new OpenLayers.Size(15,20);}

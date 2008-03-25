@@ -49,7 +49,6 @@ import com.gwtext.sample.showcase2.client.view.DataViewSample;
 import com.gwtext.sample.showcase2.client.window.LayoutWindowSample;
 import com.gwtext.sample.showcase2.client.window.MessageBoxSample;
 import com.gwtext.sample.showcase2.client.resizable.ResizablePanelSample;
-import com.gwtext.sample.showcase2.client.resizable.ResizableGridSample;
 
 import java.util.ArrayList;
 import java.util.List;

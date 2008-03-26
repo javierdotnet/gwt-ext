@@ -167,7 +167,7 @@ public class PagingToolbar extends Toolbar {
         }
         return null;
     }
-    
+
     /**
      * Return the "Refresh" ToolbarButton on the PagingTaoolbar. Note that this method must be called only after the PagingToolbar has been rendered.
      * You can setup your logic in the {@link com.gwtext.client.widgets.event.ComponentListener#onRender(Component)}  event, or in {@link BoxComponent#doOnRender(com.gwtext.client.core.Function)} method.
@@ -453,7 +453,7 @@ public class PagingToolbar extends Toolbar {
         setAttribute("refreshText", refreshText, true);
     }
 
-    /**
+	/**
      * The refresh page paging text tooltip (defaults to "Refresh")
      *
      * @return the after page tooltip
@@ -461,4 +461,17 @@ public class PagingToolbar extends Toolbar {
     public String getRefreshText() {
         return getAttribute("refreshText");
     }
+
+	/**
+	 * Parameter names during data load.
+	 *
+	 * @param start defaults to "start"
+	 * @param limit defaults to "limit"
+	 */
+	public void setPagingParamNames(String start, String limit) {
+		JavaScriptObject params = JavaScriptObjectHelper.createObject();
+		JavaScriptObjectHelper.setAttribute(params, "start", start);
+		JavaScriptObjectHelper.setAttribute(params, "limit", limit);
+		setAttribute("paramNames", params, true);
+	}
 }

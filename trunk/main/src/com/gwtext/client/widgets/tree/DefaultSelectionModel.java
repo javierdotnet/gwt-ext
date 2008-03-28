@@ -63,7 +63,7 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
     public native void select(TreeNode treeNode) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var tn = treeNode.@com.gwtext.client.core.JsObject::getJsObj()();
-        return sm.select(tn);
+        sm.select(tn);
     }-*/;
 
     public native void selectNext() /*-{
@@ -79,7 +79,7 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
     public native void unselect(TreeNode treeNode) /*-{
         var sm = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var tn = treeNode.@com.gwtext.client.core.JsObject::getJsObj()();
-        return sm.unselect(tn);
+        sm.unselect(tn);
     }-*/;
 
     public native void addSelectionModelListener(DefaultSelectionModelListener listener)/*-{

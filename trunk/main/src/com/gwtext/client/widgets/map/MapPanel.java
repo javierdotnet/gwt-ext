@@ -162,17 +162,16 @@ public abstract class MapPanel extends Panel {
 		if (!mapRendered) {
 			addListener(MAP_RENDERED_EVENT, new Function() {
 				public void execute() {
-					doAddFilter(field, operator, value);
+					doAddFilter(field, operator.getOperator(), value);
 				}
 			});
 		} else {
-			doAddFilter(field, operator, value);
+			doAddFilter(field, operator.getOperator(), value);
 		}
 	}
 
-	private native void doAddFilter(String field, FilterOperator operator, String value) /*-{
+	private native void doAddFilter(String field, String op, String value) /*-{
         var map = this.@com.gwtext.client.widgets.map.MapPanel::mapJS;
-        var op = operator.@com.gwtext.client.widgets.map.Map.FilterOperator::getOperator()();
         map.addFilter(field, op, value);
     }-*/;
 
@@ -187,17 +186,16 @@ public abstract class MapPanel extends Panel {
 		if (!mapRendered) {
 			addListener(MAP_RENDERED_EVENT, new Function() {
 				public void execute() {
-					doAddFilter(field, operator, value);
+					doAddFilter(field, operator.getOperator(), value);
 				}
 			});
 		} else {
-			doAddFilter(field, operator, value);
+			doAddFilter(field, operator.getOperator(), value);
 		}
 	}
 
-	private native void doAddFilter(String field, FilterOperator operator, int value) /*-{
+	private native void doAddFilter(String field, String op, int value) /*-{
         var map = this.@com.gwtext.client.widgets.map.MapPanel::mapJS;
-        var op = operator.@com.gwtext.client.widgets.map.Map.FilterOperator::getOperator()();
         map.addFilter(field, op, value);
     }-*/;
 
@@ -212,17 +210,16 @@ public abstract class MapPanel extends Panel {
 		if (!mapRendered) {
 			addListener(MAP_RENDERED_EVENT, new Function() {
 				public void execute() {
-					doAddFilter(field, operator, value);
+					doAddFilter(field, operator.getOperator(), value);
 				}
 			});
 		} else {
-			doAddFilter(field, operator, value);
+			doAddFilter(field, operator.getOperator(), value);
 		}
 	}
 
-	private native void doAddFilter(String field, FilterOperator operator, double value) /*-{
+	private native void doAddFilter(String field, String op, double value) /*-{
         var map = this.@com.gwtext.client.widgets.map.MapPanel::mapJS;
-        var op = operator.@com.gwtext.client.widgets.map.Map.FilterOperator::getOperator()();
         map.addFilter(field, op, value);
     }-*/;
 

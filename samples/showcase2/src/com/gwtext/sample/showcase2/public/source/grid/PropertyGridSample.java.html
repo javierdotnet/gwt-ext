@@ -58,21 +58,23 @@ public class PropertyGridSample implements EntryPoint {
         grid.setNameText("Properties Grid");
         grid.setWidth(300);
         grid.setAutoHeight(true);
+        grid.setSorted(false);	
 
-        GridView view = new GridView();
+		GridView view = new GridView();
         view.setForceFit(true);
         view.setScrollOffset(2); // the grid will never have scrollbars
         grid.setView(view);
 
-        Map source = new HashMap();
-        source.put("(name)", "Properties Grid");
-        source.put("grouping", Boolean.FALSE);
-        source.put("autoFitColumns", Boolean.TRUE);
-        source.put("productionQuality", Boolean.FALSE);
-        source.put("created", new Date());
-        source.put("tested", Boolean.FALSE);
-        source.put("version", new Float(0.1f));
-        source.put("borderWidth", new Integer(1));
+        NameValuePair[] source = new NameValuePair[9];
+        source[0] = new NameValuePair("(name)", "Properties Grid");
+        source[1] = new NameValuePair("grouping", Boolean.FALSE);
+        source[2] = new NameValuePair("autoFitColumns", Boolean.TRUE);
+        source[3] = new NameValuePair("productionQuality", Boolean.FALSE);
+        source[4] = new NameValuePair("created", new Date());
+        source[5] = new NameValuePair("Edit Time", new Date());
+        source[6] = new NameValuePair("tested", Boolean.FALSE);
+        source[7] = new NameValuePair("version", new Float(0.1f));
+        source[8] = new NameValuePair("borderWidth", new Integer(1));
 
         Map customEditors = new HashMap();
         GridEditor timeEditor = new GridEditor(new TimeField());

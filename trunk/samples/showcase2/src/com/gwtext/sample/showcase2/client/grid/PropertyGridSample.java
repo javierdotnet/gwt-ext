@@ -9,11 +9,16 @@ package com.gwtext.sample.showcase2.client.grid;
 
 import com.gwtext.client.util.Format;
 import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.TimeField;
+import com.gwtext.client.widgets.form.DateField;
 import com.gwtext.client.widgets.grid.GridEditor;
 import com.gwtext.client.widgets.grid.GridView;
 import com.gwtext.client.widgets.grid.PropertyGridPanel;
 import com.gwtext.client.widgets.grid.event.PropertyGridPanelListener;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.NameValuePair;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 import java.util.Date;
@@ -30,28 +35,30 @@ public class PropertyGridSample extends ShowcasePanel {
         if (panel == null) {
             panel = new Panel();
 
-            PropertyGridPanel grid = new PropertyGridPanel();
+            final PropertyGridPanel grid = new PropertyGridPanel();
             grid.setId("props-grid");
             grid.setNameText("Properties Grid");
             grid.setWidth(300);
             grid.setAutoHeight(true);
+			grid.setSorted(false);
 
-            GridView view = new GridView();
+			GridView view = new GridView();
             view.setForceFit(true);
             view.setScrollOffset(2); // the grid will never have scrollbars
             grid.setView(view);
 
-            Map source = new HashMap();
-            source.put("(name)", "Properties Grid");
-            source.put("grouping", Boolean.FALSE);
-            source.put("autoFitColumns", Boolean.TRUE);
-            source.put("productionQuality", Boolean.FALSE);
-            source.put("created", new Date());
-            source.put("tested", Boolean.FALSE);
-            source.put("version", new Float(0.1f));
-            source.put("borderWidth", new Integer(1));
+			NameValuePair[] source = new NameValuePair[9];
+			source[0] = new NameValuePair("(name)", "Properties Grid");
+			source[1] = new NameValuePair("grouping", Boolean.FALSE);
+			source[2] = new NameValuePair("autoFitColumns", Boolean.TRUE);
+			source[3] = new NameValuePair("productionQuality", Boolean.FALSE);
+			source[4] = new NameValuePair("created", new Date());
+			source[5] = new NameValuePair("Edit Time", new Date());
+			source[6] = new NameValuePair("tested", Boolean.FALSE);
+			source[7] = new NameValuePair("version", new Float(0.1f));
+			source[8] = new NameValuePair("borderWidth", new Integer(1));
 
-            Map customEditors = new HashMap();
+			Map customEditors = new HashMap();
             GridEditor timeEditor = new GridEditor(new TimeField());
 
             customEditors.put("Edit Time", timeEditor);
@@ -68,7 +75,18 @@ public class PropertyGridSample extends ShowcasePanel {
                     log(EVENT, Format.format("Property '{0}' changed from {1} to {2}.", recordID, String.valueOf(oldValue), String.valueOf(value)));
                 }
             });
-            panel.add(grid);
+
+			Button butt = new Button("dsfds", new ButtonListenerAdapter() {
+				public void onClick(Button button, EventObject e) {
+					Map customEditors = new HashMap();
+            		GridEditor timeEditor = new GridEditor(new DateField());
+
+            		customEditors.put("Edit Time", timeEditor);
+            		grid.setCustomEditors(customEditors);
+				}
+			});
+			panel.add(grid);
+			panel.add(butt);
 
         }
         return panel;

@@ -59,7 +59,7 @@ public class Store extends JsObject {
 
     protected JavaScriptObject configJS = JavaScriptObjectHelper.createObject();
 
-    protected Store() {
+	protected Store() {
     }
 
     public Store(JavaScriptObject jsObj) {
@@ -223,16 +223,30 @@ public class Store extends JsObject {
     public native void addSorted(Record record) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		var recordJ = record.@com.gwtext.client.core.JsObject::getJsObj()();
-		return store.addSorted(recordJ);
+		store.addSorted(recordJ);
     }-*/;
 
-    /**
+
+	/**
+	 * Clears the Stores internal sort state.
+	 *
+	 * @param reload true to reload the store after clearing the sort state
+	 */
+	public native void clearSortState(boolean reload) /*-{
+		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
+		delete store.sortInfo;
+		if(reload) {
+			store.reload();
+		}
+    }-*/;
+
+	/**
      * Revert to a view of the Record cache / snapshot with no filtering applied.  A snapshot of the data is taken when {@link #filter(String, String)} is called.
      * Records added to the Store after filter is caleld will be lost if clearFilter is subsequently called.
      */
     public native void clearFilter() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
-		return store.clearFilter();
+		store.clearFilter();
     }-*/;
 
     /**
@@ -242,7 +256,7 @@ public class Store extends JsObject {
      */
     public native void clearFilter(boolean suppressEvent) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
-		return store.clearFilter(suppressEvent);
+		store.clearFilter(suppressEvent);
     }-*/;
 
     /**
@@ -251,7 +265,7 @@ public class Store extends JsObject {
      */
     public native void commitChanges() /*-{
 		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
-		return store.commitChanges();
+		store.commitChanges();
     }-*/;
 
     //todo add collect() method

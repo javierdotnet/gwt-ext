@@ -138,7 +138,24 @@ public class GridPanel extends Panel {
 			}
 		}
 	}
-	
+
+	/**
+	 * Clear the sort state of the grid. This resets the sort arrow indicators on the Grid
+	 *
+	 * @param reload true to reload the store after clearing the sort state
+	 */
+	public native void clearSortState(boolean reload) /*-{
+		var grid = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+		var view = grid.getView();
+		var sc = view.sortClasses;
+        var hds = view.mainHd.select('td').removeClass(sc);
+		var store = grid.store;
+		delete store.sortInfo;
+		if(reload) {
+			store.reload();
+		}
+	}-*/;
+
 	/**
      * Returns the grid's ColumnModel.
      *

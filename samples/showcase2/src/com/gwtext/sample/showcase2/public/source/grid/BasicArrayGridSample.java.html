@@ -90,7 +90,17 @@ public class BasicArrayGridSample implements EntryPoint {
         grid.setHeight(350);
         grid.setWidth(600);
         grid.setTitle("Array Grid");
-        panel.add(grid);
+
+        Toolbar bottomToolbar = new Toolbar();
+        bottomToolbar.addFill();
+        bottomToolbar.addButton(new ToolbarButton("Clear Sort", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                grid.clearSortState(true);
+            }
+        }));
+        grid.setBottomToolbar(bottomToolbar);
+
+		panel.add(grid);
 
         RootPanel.get().add(panel);
     }

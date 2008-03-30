@@ -136,7 +136,8 @@ public class NameValuePair extends JsObject {
                 }
                 case DATE: {
                     JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValueAsDate());
-                }
+					break;
+				}
                 default: {
                     JavaScriptObjectHelper.setAttribute(paramObj, param.getName(), param.getValue());
                 }

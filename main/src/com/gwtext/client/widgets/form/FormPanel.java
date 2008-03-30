@@ -7,11 +7,14 @@ import com.gwtext.client.core.Function;
 import com.gwtext.client.core.Position;
 import com.gwtext.client.core.UrlParam;
 import com.gwtext.client.data.Reader;
-import com.gwtext.client.widgets.Component;
-import com.gwtext.client.widgets.Panel;
-import com.gwtext.client.widgets.QuickTips;
+import com.gwtext.client.data.Record;
+import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.form.event.FormListener;
 import com.gwtext.client.widgets.form.event.FormPanelListener;
+import com.gwtext.client.util.JavaScriptObjectHelper;
+
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * FormPanel uses a {@link com.gwtext.client.widgets.layout.FormLayout} internally, and that is required for fields and labels
@@ -109,8 +112,26 @@ public class FormPanel extends Panel {
 		return @com.gwtext.client.widgets.form.Form::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(formJS);
 	}-*/;
 
+	/**
+	 * Return all fields added to the FormPanel.
+	 *
+	 * @return the fields
+	 */
+	public Field[] getFields() {
+		Component[] components = findBy(new ComponentTraversalCallback() {
+			public boolean execute(Component component) {
+				return (component instanceof Field);
+			}
+		});
 
-    /**
+		Field[] fields = new Field[components.length];
+		for (int i = 0; i < components.length; i++) {
+			fields[i] = (Field)components[i];
+		}
+		return fields;
+	}
+
+	/**
      * Add a Form listener. Although you can add this listener on the {@link com.gwtext.client.widgets.form.Form}
      * directly, this method is useful to call when you would like to add a FormListener prior to the FormPaanel being rendered.
      *

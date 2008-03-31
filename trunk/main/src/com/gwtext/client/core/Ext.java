@@ -389,4 +389,25 @@ public class Ext {
 	public static native void debugger()/*-{
         debugger;
     }-*/;
+
+	/**
+	 * Return true if Firebug is enabled.
+	 *
+	 * @return true if firebug is enabled
+	 */
+	public static native boolean isFirebug() /*-{
+		return (window.console) ? ( window.console.firebug) : false;
+    }-*/;
+
+	/**
+	 * Disable firebug.
+	 */
+	public static native void disableFirebug()/*-{
+		var consoleMethods = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
+		window.console = {};
+
+     	for(var i=consoleMethods.length-1; i > -1; i--) {
+			window .console[consoleMethods[i]] = function(){};
+     	}
+	}-*/;
 }

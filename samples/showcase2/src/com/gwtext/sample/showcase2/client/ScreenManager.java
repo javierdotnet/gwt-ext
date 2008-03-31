@@ -49,9 +49,12 @@ import com.gwtext.sample.showcase2.client.view.DataViewSample;
 import com.gwtext.sample.showcase2.client.window.LayoutWindowSample;
 import com.gwtext.sample.showcase2.client.window.MessageBoxSample;
 import com.gwtext.sample.showcase2.client.resizable.ResizablePanelSample;
+import com.gwtext.sample.showcase2.client.main.TocPanel;
+import com.gwtext.sample.showcase2.client.main.CreditsPanel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class ScreenManager {
 
@@ -61,8 +64,10 @@ public class ScreenManager {
     private TreeFilter treeFilter;
     private TreePanel treePanel;
     private DelayedTask delayedTask = new DelayedTask();
+	private static ArrayReader reader;
+	private static MemoryProxy proxy;
 
-    public ScreenManager(TabPanel tabPanel) {
+	public ScreenManager(TabPanel tabPanel) {
         this.appTabPanel = tabPanel;
     }
 
@@ -196,7 +201,23 @@ public class ScreenManager {
         TreeNode root = new TreeNode("Showcase Explorer");
         treePanel.setRootNode(root);
 
-        Store store = getStore();
+		TocPanel tocPanel = new TocPanel(this);
+		
+		TreeNode tocNode = new TreeNode("Table of Contents");
+		tocNode.setIconCls("toc-icon");
+		tocNode.setId("toc");
+		root.appendChild(tocNode);
+		addNodeClickListener(tocNode, tocPanel, "toc-icon");
+
+		CreditsPanel creditsPanel = new CreditsPanel();
+
+		TreeNode creditsNode = new TreeNode("Credits");
+		creditsNode.setIconCls("credits-icon");
+		creditsNode.setId("credits");
+		root.appendChild(creditsNode);
+		addNodeClickListener(creditsNode, creditsPanel, "credits-icon");
+
+		Store store = getStore();
 
         Record[] records = store.getRecords();
         for (int i = 0; i < records.length; i++) {
@@ -343,7 +364,7 @@ public class ScreenManager {
 
     public static Store getStore() {
         if (store == null) {
-            MemoryProxy proxy = new MemoryProxy(getData());
+            proxy = new MemoryProxy(getData());
 
             RecordDef recordDef = new RecordDef(new FieldDef[]{
                     new StringFieldDef("id"),
@@ -352,119 +373,131 @@ public class ScreenManager {
                     new StringFieldDef("iconCls"),
                     new StringFieldDef("thumbnail"),
                     new StringFieldDef("qtip"),
-                    new ObjectFieldDef("screen")
-            });
+                    new ObjectFieldDef("screen"),
+					new DateFieldDef("dateAdded")
+			});
 
-            ArrayReader reader = new ArrayReader(0, recordDef);
+            reader = new ArrayReader(0, recordDef);
             store = new Store(proxy, reader);
             store.load();
         }
         return store;
     }
 
-    private static Object[][] getData() {
+	public static ArrayReader getReader() {
+		getStore();
+		return reader;
+	}
+
+	public static MemoryProxy getProxy() {
+		getStore();
+		return proxy;
+	}
+
+	private static Object[][] getData() {
         return new Object[][]{
 
-                new Object[]{"tree-category", null, "Tree", "tree-category-icon", null, null, null},
-                new Object[]{"editableTree", "tree-category", "Editable Tree", null, "images/thumbnails/tree/editable.gif", null, new EditableTreePanel()},
-                new Object[]{"checkboxTree", "tree-category", "Checkbox Tree", null, null, null, new CheckboxTreePanel()},
-                new Object[]{"sortMultiSelectTree", "tree-category", "Sort &amp; Multi-Select", null, null, null, new SortableMultiSelectTreeSample()},
-                new Object[]{"twoTrees", "tree-category", "Tree to Tree Drag &amp; Drop", null, "images/thumbnails/tree/two-tree.gif", null, new TwoTreesSample()},
-                new Object[]{"gridDD", "tree-category", "Grid - Tree Drag &amp; Drop", null, "images/thumbnails/tree/grid-tree.gif", null, new GridTreeDDSample()},
-                new Object[]{"treeAppearance", "tree-category", "Tree Appearance", null, null, null, new TreeAppearanceSample()},
-                new Object[]{"treeContextMenu", "tree-category", "Tree Context Menu", null, null, null, new TreeContextMenuSample()},
+				new Object[]{"tree-category", null, "Tree", "tree-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"editableTree", "tree-category", "Editable Tree", null, "images/thumbnails/tree/editable.gif", null, new EditableTreePanel(), new Date(108, 1, 7)},
+                new Object[]{"checkboxTree", "tree-category", "Checkbox Tree", null, null, null, new CheckboxTreePanel() , new Date(108, 1, 7)},
+                new Object[]{"sortMultiSelectTree", "tree-category", "Sort &amp; Multi-Select", null, null, null, new SortableMultiSelectTreeSample(), new Date(108, 1, 7)},
+                new Object[]{"twoTrees", "tree-category", "Tree to Tree Drag &amp; Drop", null, "images/thumbnails/tree/two-tree.gif", null, new TwoTreesSample(), new Date(108, 1, 7)},
+                new Object[]{"gridDD", "tree-category", "Grid - Tree Drag &amp; Drop", null, "images/thumbnails/tree/grid-tree.gif", null, new GridTreeDDSample(), new Date(108, 1, 7)},
+                new Object[]{"treeAppearance", "tree-category", "Tree Appearance", null, null, null, new TreeAppearanceSample(), new Date(108, 3, 10)},
+                new Object[]{"treeContextMenu", "tree-category", "Tree Context Menu", null, null, null, new TreeContextMenuSample(), new Date(108, 3, 10)},
 				
-				new Object[]{"buttons-category", null, "Buttons", "buttons-category-icon", null, null, null},
-                new Object[]{"buttons", "buttons-category", "Simple Buttons", null, null, null, new ButtonsSample()},
-                new Object[]{"cycleButton", "buttons-category", "Cycle Button", null, null, null, new CycleButtonSample()},
-                new Object[]{"menuButton", "buttons-category", "Menu Button", null, "images/thumbnails/button/button-menu.gif", null, new MenuButtonSample()},
-                new Object[]{"toggleButtons", "buttons-category", "Toggle Buttons", null, null, null, new ToggleButtonSample()},
+				new Object[]{"buttons-category", null, "Buttons", "buttons-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"buttons", "buttons-category", "Simple Buttons", null, null, null, new ButtonsSample(), new Date(108, 1, 7)},
+                new Object[]{"cycleButton", "buttons-category", "Cycle Button", null, null, null, new CycleButtonSample(), new Date(108, 1, 7)},
+                new Object[]{"menuButton", "buttons-category", "Menu Button", null, "images/thumbnails/button/button-menu.gif", null, new MenuButtonSample(), new Date(108, 1, 7)},
+                new Object[]{"toggleButtons", "buttons-category", "Toggle Buttons", null, null, null, new ToggleButtonSample(), new Date(108, 1, 7)},
 
-                new Object[]{"layouts-category", null, "Layouts", "layout-category-icon", null, null, null},
-                new Object[]{"horizontalLayout", "layouts-category", "Horizontal Layout", null, null, null, new HorizontalLayoutSample()},
-                new Object[]{"verticalLayout", "layouts-category", "Vertical Layout", null, null, null, new VerticalLayoutSample()},
-                new Object[]{"hvLayout", "layouts-category", "Horizontal &amp Vertical Layout", null, null, null, new HorizontalVerticalLayoutSample()},
-                new Object[]{"accordionLayout", "layouts-category", "Accordion Layout", null, "images/thumbnails/layout/accordion.gif", null, new AccordionLayoutSample()},
-                new Object[]{"anchorLayout", "layouts-category", "Anchor Layout", null, null, null, new AnchorSample()},
-                new Object[]{"columnPctLayout", "layouts-category", "Column Layout - Pct Only", null, null, null, new ColumnPctSample()},
-                new Object[]{"columnMixedLayout", "layouts-category", "Column Layout - Mixed", null, null, null, new ColumnMixedSample()},
-                new Object[]{"combinedLayout", "layouts-category", "Combined Layouts", null, null, null, new CombinedLayoutSample()},
-                new Object[]{"complexLayout", "layouts-category", "Complex Layout", null, "images/thumbnails/layout/complex.gif", null, new ComplexSample()},
-                new Object[]{"tableLayout", "layouts-category", "Table Layout", null, null, null, new TableSample()},
-                new Object[]{"cardLayout", "layouts-category", "Wizard w/ CardLayout", null, null, null, new CardLayoutSample()},
-                new Object[]{"rowLayout", "layouts-category", "Row Layout", null, null, null, new RowLayoutSample()},
+                new Object[]{"layouts-category", null, "Layouts", "layout-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"horizontalLayout", "layouts-category", "Horizontal Layout", null, null, null, new HorizontalLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"verticalLayout", "layouts-category", "Vertical Layout", null, null, null, new VerticalLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"hvLayout", "layouts-category", "Horizontal &amp Vertical Layout", null, null, null, new HorizontalVerticalLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"borderLayout", "layouts-category", "Basic Border Layout", null, null, null, new BorderLayoutSample(), new Date(108, 2, 30)},
+                new Object[]{"accordionLayout", "layouts-category", "Accordion Layout", null, "images/thumbnails/layout/accordion.gif", null, new AccordionLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"anchorLayout", "layouts-category", "Anchor Layout", null, null, null, new AnchorSample(), new Date(108, 1, 7)},
+                new Object[]{"columnPctLayout", "layouts-category", "Column Layout - Pct Only", null, null, null, new ColumnPctSample(), new Date(108, 1, 7)},
+                new Object[]{"columnMixedLayout", "layouts-category", "Column Layout - Mixed", null, null, null, new ColumnMixedSample(), new Date(108, 1, 7)},
+                new Object[]{"combinedLayout", "layouts-category", "Combined Layouts", null, null, null, new CombinedLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"complexLayout", "layouts-category", "Complex Layout", null, "images/thumbnails/layout/complex.gif", null, new ComplexSample(), new Date(108, 1, 7)},
+                new Object[]{"tableLayout", "layouts-category", "Table Layout", null, null, null, new TableSample(), new Date(108, 1, 7)},
+                new Object[]{"cardLayout", "layouts-category", "Wizard w/ CardLayout", null, null, null, new CardLayoutSample(), new Date(108, 1, 7)},
+                new Object[]{"rowLayout", "layouts-category", "Row Layout", null, null, null, new RowLayoutSample(), new Date(108, 1, 7)},
 
-                new Object[]{"panels-category", null, "Panels", "panels-category-icon", null, null, null},
-                new Object[]{"panels", "panels-category", "Panels", null, "images/thumbnails/panels/panel.gif", null, new PanelsSample()},
+                new Object[]{"panels-category", null, "Panels", "panels-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"panels", "panels-category", "Panels", null, "images/thumbnails/panels/panel.gif", null, new PanelsSample(), new Date(108, 1, 7)},
 
-                new Object[]{"windows-category", null, "Windows", "windows-category-icon", null, null, null},
-                new Object[]{"messageBox", "windows-category", "MessageBox &amp Progress", null, "images/thumbnails/windows/msg-box.gif", null, new MessageBoxSample()},
-                new Object[]{"layoutWindow", "windows-category", "Layout Window", null, "images/thumbnails/windows/layout-window.gif", null, new LayoutWindowSample()},
+                new Object[]{"windows-category", null, "Windows", "windows-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"messageBox", "windows-category", "MessageBox &amp Progress", null, "images/thumbnails/windows/msg-box.gif", null, new MessageBoxSample(), new Date(108, 1, 7)},
+                new Object[]{"layoutWindow", "windows-category", "Layout Window", null, "images/thumbnails/windows/layout-window.gif", null, new LayoutWindowSample(), new Date(108, 1, 7)},
 
-                new Object[]{"combo-category", null, "Combobox", "combo-category-icon", null, null, null},
-                new Object[]{"basicComboBox", "combo-category", "Basic ComboBox", null, "images/thumbnails/combo/combo.gif", null, new BasicComboBoxSample()},
-                new Object[]{"linkedComboBox", "combo-category", "Linked ComboBox", null, "images/thumbnails/combo/combo-linked.gif", null, new LinkedComboBoxSample()},
-                new Object[]{"compactComboBox", "combo-category", "Compact ComboBox", null, null, null, new ComboBoxCompactSample()},
-                new Object[]{"pagingComboBox", "combo-category", "Paging ComboBox", null, "images/thumbnails/combo/combo-paging.gif", null, new ComboBoxPagingSample()},
-                new Object[]{"styledComboBox", "combo-category", "Styled ComboBox", null, "images/thumbnails/combo/combo-styled.gif", null, new ComboBoxStyledSample()},
-                new Object[]{"liveSearch", "combo-category", "Live Search", null, "images/thumbnails/combo/combo-custom.gif", null, new LiveSearchSample()},
+                new Object[]{"combo-category", null, "Combobox", "combo-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"basicComboBox", "combo-category", "Basic ComboBox", null, "images/thumbnails/combo/combo.gif", null, new BasicComboBoxSample(), new Date(108, 1, 7)},
+                new Object[]{"linkedComboBox", "combo-category", "Linked ComboBox", null, "images/thumbnails/combo/combo-linked.gif", null, new LinkedComboBoxSample(), new Date(108, 1, 7)},
+                new Object[]{"compactComboBox", "combo-category", "Compact ComboBox", null, null, null, new ComboBoxCompactSample(), new Date(108, 1, 7)},
+                new Object[]{"pagingComboBox", "combo-category", "Paging ComboBox", null, "images/thumbnails/combo/combo-paging.gif", null, new ComboBoxPagingSample(), new Date(108, 1, 7)},
+                new Object[]{"styledComboBox", "combo-category", "Styled ComboBox", null, "images/thumbnails/combo/combo-styled.gif", null, new ComboBoxStyledSample(), new Date(108, 1, 7)},
+                new Object[]{"liveSearch", "combo-category", "Live Search", null, "images/thumbnails/combo/combo-custom.gif", null, new LiveSearchSample(), new Date(108, 1, 7)},
 
-                new Object[]{"toolbar-category", null, "Toolbar & Menu Examples", "toolbar-category-icon", null, null, null},
-                new Object[]{"toolbarAndMenus", "toolbar-category", "Toolbar & Menus", null, "images/thumbnails/toolbar/toolbar.gif", null, new ToolbarSample()},
+                new Object[]{"toolbar-category", null, "Toolbar & Menu Examples", "toolbar-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"toolbarAndMenus", "toolbar-category", "Toolbar & Menus", null, "images/thumbnails/toolbar/toolbar.gif", null, new ToolbarSample(), new Date(108, 1, 7)},
 
-                new Object[]{"grids-category", null, "Grids", "grids-category-icon", null, null, null},
-                new Object[]{"basicArrayGrid", "grids-category", "Basic Array Grid", null, "images/thumbnails/grid/grid-array.gif", null, new BasicArrayGridSample()},
-                new Object[]{"propertyGrid", "grids-category", "Property Grid", null, "images/thumbnails/grid/property.gif", null, new PropertyGridSample()},
-                new Object[]{"gridGrouping", "grids-category", "Grid Grouping", null, "images/thumbnails/grid/grid-grouping.gif", null, new GridGroupingSample()},
-                new Object[]{"checkboxSelectionGrid", "grids-category", "Checkbox Row Selection", null, null, null, new CheckboxSelectionSample()},
-                new Object[]{"numberedRowsGrid", "grids-category", "Numbered Rows", null, "images/thumbnails/grid/grid-numbered.gif", null, new NumberedRowsSample()},
-                new Object[]{"jsonGrid", "grids-category", "Json Grid", null, null, null, new JsonGridSample()},
-                new Object[]{"localJsonGrid", "grids-category", "Local Json Grid", null, null, null, new LocalJsonGridSample()},
-                new Object[]{"localXmlGrid", "grids-category", "Local XML Grid", null, "images/thumbnails/grid/grid-xml.gif", null, new LocalXmlGridSample()},
-                new Object[]{"editableGrid", "grids-category", "Editable Grid", null, "images/thumbnails/grid/grid-edit.gif", null, new EditableGridSample()},
-                new Object[]{"localPagingGrid", "grids-category", "Grid with Local Paging", null, "images/thumbnails/grid/grid-local-paging.gif", null, new LocalPagingSample()},
-                new Object[]{"remotePagingGrid", "grids-category", "Grid with Remote Paging", null, "images/thumbnails/grid/grid-paging.gif", null, new RemotePagingSample()},
-                new Object[]{"gridEvents", "grids-category", "Grid Events", null, null, null, new GridEventsSample()},
-                new Object[]{"listGrid", "grids-category", "Grid as List box", null, null, null, new ListGridSample()},
-                new Object[]{"largeGrid", "grids-category", "Large Grid", null, null, null, new LargeGridSample()},
+                new Object[]{"grids-category", null, "Grids", "grids-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"basicArrayGrid", "grids-category", "Basic Array Grid", null, "images/thumbnails/grid/grid-array.gif", null, new BasicArrayGridSample(), new Date(108, 1, 7)},
+                new Object[]{"propertyGrid", "grids-category", "Property Grid", null, "images/thumbnails/grid/property.gif", null, new PropertyGridSample(), new Date(108, 1, 7)},
+                new Object[]{"gridGrouping", "grids-category", "Grid Grouping", null, "images/thumbnails/grid/grid-grouping.gif", null, new GridGroupingSample(), new Date(108, 1, 7)},
+                new Object[]{"checkboxSelectionGrid", "grids-category", "Checkbox Row Selection", null, null, null, new CheckboxSelectionSample(), new Date(108, 1, 7)},
+                new Object[]{"numberedRowsGrid", "grids-category", "Numbered Rows", null, "images/thumbnails/grid/grid-numbered.gif", null, new NumberedRowsSample(), new Date(108, 1, 7)},
+                new Object[]{"jsonGrid", "grids-category", "Json Grid", null, null, null, new JsonGridSample(), new Date(108, 1, 7)},
+                new Object[]{"localJsonGrid", "grids-category", "Local Json Grid", null, null, null, new LocalJsonGridSample(), new Date(108, 1, 7)},
+                new Object[]{"localXmlGrid", "grids-category", "Local XML Grid", null, "images/thumbnails/grid/grid-xml.gif", null, new LocalXmlGridSample(), new Date(108, 1, 7)},
+                new Object[]{"editableGrid", "grids-category", "Editable Grid", null, "images/thumbnails/grid/grid-edit.gif", null, new EditableGridSample(), new Date(108, 1, 7)},
+                new Object[]{"localPagingGrid", "grids-category", "Grid with Local Paging", null, "images/thumbnails/grid/grid-local-paging.gif", null, new LocalPagingSample(), new Date(108, 1, 7)},
+                new Object[]{"remotePagingGrid", "grids-category", "Grid with Remote Paging", null, "images/thumbnails/grid/grid-paging.gif", null, new RemotePagingSample(), new Date(108, 1, 7)},
+                new Object[]{"gridEvents", "grids-category", "Grid Events", null, null, null, new GridEventsSample(), new Date(108, 1, 7)},
+                new Object[]{"listGrid", "grids-category", "Grid as List box", null, null, null, new ListGridSample(), new Date(108, 1, 7)},
+                new Object[]{"largeGrid", "grids-category", "Large Grid", null, null, null, new LargeGridSample(), new Date(108, 1, 7)},
 
-                new Object[]{"forms-category", null, "Forms", "forms-category-icon", null, null, null},
-                new Object[]{"anchoringForm", "forms-category", "Anchoring", null, null, null, new AnchoringSample()},
-                new Object[]{"simpleForm", "forms-category", "Simple", null, null, null, new SimpleFormSample()},
-                new Object[]{"fieldSetForm", "forms-category", "FieldSet", null, "images/thumbnails/forms/form-fieldset.gif", null, new FieldSetsSample()},
-                new Object[]{"multiColumnForm", "forms-category", "Multi Column", null, "images/thumbnails/forms/form-multi-column.gif", null, new MultiColumnFormPanel()},
-                new Object[]{"loadSubmitXmlForm", "forms-category", "Load / Submit", null, "images/thumbnails/forms/form-xml.gif", null, new XmlFormSample()},
-                new Object[]{"multipleFieldForm", "forms-category", "Multiple Fields on Row", null, "images/thumbnails/forms/form-multi-field.gif", null, new MultiFieldFormSample()},
-                new Object[]{"formAsTab", "forms-category", "Form as Tab", null, null, null, new FormAsTabSample()},
-                new Object[]{"formWithTab", "forms-category", "Form with Tab", null, "images/thumbnails/forms/form-tabs.gif", null, new FormWithTabSample()},
-                new Object[]{"formGrid", "forms-category", "Form Grid Binding", null, "images/thumbnails/forms/form-grid.gif", null, new FormGridSample()},
-                new Object[]{"itemSelectorForm", "forms-category", "Dual Item Selector", null, "images/thumbnails/forms/item-selector.gif", null, new ItemSelectorSample()},
+                new Object[]{"forms-category", null, "Forms", "forms-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"anchoringForm", "forms-category", "Anchoring", null, null, null, new AnchoringSample(), new Date(108, 1, 7)},
+                new Object[]{"simpleForm", "forms-category", "Simple", null, null, null, new SimpleFormSample(), new Date(108, 1, 7)},
+                new Object[]{"fieldSetForm", "forms-category", "FieldSet", null, "images/thumbnails/forms/form-fieldset.gif", null, new FieldSetsSample(), new Date(108, 1, 7)},
+                new Object[]{"multiColumnForm", "forms-category", "Multi Column", null, "images/thumbnails/forms/form-multi-column.gif", null, new MultiColumnFormPanel(), new Date(108, 1, 7)},
+                new Object[]{"loadSubmitXmlForm", "forms-category", "Load / Submit", null, "images/thumbnails/forms/form-xml.gif", null, new XmlFormSample(), new Date(108, 1, 7)},
+                new Object[]{"multipleFieldForm", "forms-category", "Multiple Fields on Row", null, "images/thumbnails/forms/form-multi-field.gif", null, new MultiFieldFormSample(), new Date(108, 1, 7)},
+                new Object[]{"formAsTab", "forms-category", "Form as Tab", null, null, null, new FormAsTabSample(), new Date(108, 1, 7)},
+                new Object[]{"formWithTab", "forms-category", "Form with Tab", null, "images/thumbnails/forms/form-tabs.gif", null, new FormWithTabSample(), new Date(108, 1, 7)},
+                new Object[]{"formGrid", "forms-category", "Form Grid Binding", null, "images/thumbnails/forms/form-grid.gif", null, new FormGridSample(), new Date(108, 1, 7)},
+                new Object[]{"itemSelectorForm", "forms-category", "Dual Item Selector", null, "images/thumbnails/forms/item-selector.gif", null, new ItemSelectorSample(), new Date(108, 1, 7)},
 
-                new Object[]{"tabs-category", null, "Tab Panels", "tabs-category-icon", null, null, null},
-                new Object[]{"dynamicTabPanel", "tabs-category", "Dynamic Tabs", null, "images/thumbnails/tabs/tabs-adv.gif", null, new TabPanelSample()},
-                new Object[]{"bottomTabPanel", "tabs-category", "Bottom Tabs", null, "images/thumbnails/tabs/tabs-bottom.gif", null, new BottomTabPanelSample()},
+                new Object[]{"tabs-category", null, "Tab Panels", "tabs-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"dynamicTabPanel", "tabs-category", "Dynamic Tabs", null, "images/thumbnails/tabs/tabs-adv.gif", null, new TabPanelSample(), new Date(108, 1, 7)},
+                new Object[]{"bottomTabPanel", "tabs-category", "Bottom Tabs", null, "images/thumbnails/tabs/tabs-bottom.gif", null, new BottomTabPanelSample(), new Date(108, 1, 7)},
 
-                new Object[]{"combination-category", null, "Combination Samples", "combination-category-icon", null, null, null},
-                new Object[]{"chartGenerator", "combination-category", "Dion's Chart Generator", null, "images/thumbnails/combination/chart-generator.gif", null, new ChartGeneratorSample()},
+                new Object[]{"combination-category", null, "Combination Samples", "combination-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"chartGenerator", "combination-category", "Dion's Chart Generator", null, "images/thumbnails/combination/chart-generator.gif", null, new ChartGeneratorSample(), new Date(108, 1, 7)},
 
-				new Object[]{"resizable-category", null, "Resizable", "misc-category-icon", null, "Resizable", null},
-                new Object[]{"resizablePanel", "resizable-category", "Resizable Panel", "dataview-nav-icon", null, null, new ResizablePanelSample()},
+				new Object[]{"resizable-category", null, "Resizable", "misc-category-icon", null, "Resizable", null, new Date(108, 1, 7)},
+                new Object[]{"resizablePanel", "resizable-category", "Resizable Panel", "dataview-nav-icon", null, null, new ResizablePanelSample(), new Date(108, 1, 7)},
 
-				new Object[]{"dd-category", null, "Drag & Drop", "dd-category-icon", null, null, null},
-                new Object[]{"basicDD", "dd-category", "Basic", null, null, null, new BasicDDSample()},
-                new Object[]{"onTopDD", "dd-category", "On Top", null, null, null, new BasicOnTopSample()},
+				new Object[]{"dd-category", null, "Drag & Drop", "dd-category-icon", null, null, null, new Date(108, 1, 7)},
+                new Object[]{"basicDD", "dd-category", "Basic", null, null, null, new BasicDDSample(), new Date(108, 1, 7)},
+                new Object[]{"onTopDD", "dd-category", "On Top", null, null, null, new BasicOnTopSample(), new Date(108, 1, 7)},
 
-                new Object[]{"misc-category", null, "Miscellaneous", "misc-category-icon", null, "Miscellaneous", null},
-                new Object[]{"dataView", "misc-category", "Data View", "dataview-nav-icon", null, null, new DataViewSample()},
-                new Object[]{"progressBar", "misc-category", "Progress Bar", "progressbar-nav-icon", "images/thumbnails/misc/progressbar.gif", null, new ProgressBarSample()},
-                new Object[]{"colorPicker", "misc-category", "Color Picker", "colorpicker-nav-icon", null, null, new ColorPaletteSample()},
-                new Object[]{"datePicker", "misc-category", "Date Picker", "datepicker-nav-icon", null, null, new DatePickerSample()},
-                new Object[]{"tooltips", "misc-category", "Tooltips", null, "images/thumbnails/misc/tooltip.gif", null, new ToolTipTypesSample()},
-                new Object[]{"mask", "misc-category", "Mask Demo", "mask-nav-icon", "images/thumbnails/misc/mask.gif", null, new MaskingSample()},
-                new Object[]{"portal", "misc-category", "Portal Demo", null, null, null, new PortalSample()},
+                new Object[]{"misc-category", null, "Miscellaneous", "misc-category-icon", null, "Miscellaneous", null, new Date(108, 1, 7)},
+                new Object[]{"dataView", "misc-category", "Data View", "dataview-nav-icon", null, null, new DataViewSample(), new Date(108, 1, 7)},
+                new Object[]{"progressBar", "misc-category", "Progress Bar", "progressbar-nav-icon", "images/thumbnails/misc/progressbar.gif", null, new ProgressBarSample(), new Date(108, 1, 7)},
+                new Object[]{"colorPicker", "misc-category", "Color Picker", "colorpicker-nav-icon", null, null, new ColorPaletteSample(), new Date(108, 1, 7)},
+                new Object[]{"datePicker", "misc-category", "Date Picker", "datepicker-nav-icon", null, null, new DatePickerSample(), new Date(108, 1, 7)},
+                new Object[]{"tooltips", "misc-category", "Tooltips", null, "images/thumbnails/misc/tooltip.gif", null, new ToolTipTypesSample(), new Date(108, 1, 7)},
+                new Object[]{"mask", "misc-category", "Mask Demo", "mask-nav-icon", "images/thumbnails/misc/mask.gif", null, new MaskingSample(), new Date(108, 1, 7)},
+                new Object[]{"portal", "misc-category", "Portal Demo", null, "images/thumbnails/misc/portal.gif", null, new PortalSample(), new Date(108, 2, 10)},
 
-                new Object[]{"user-category", null, "User Contributions", "user-icon", null, "User Contributions", null},
-                new Object[]{"imageChooser", "user-category", "Image Chooser", null, "images/thumbnails/combination/chooser.gif", null, new ImageChooserSample()}
+                new Object[]{"user-category", null, "User Contributions", "user-icon", null, "User Contributions", null, new Date(108, 1, 7)},
+                new Object[]{"imageChooser", "user-category", "Image Chooser", null, "images/thumbnails/combination/chooser.gif", null, new ImageChooserSample(), new Date(108, 1, 7)}
 
         };
     }

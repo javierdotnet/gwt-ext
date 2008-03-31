@@ -618,35 +618,35 @@
 /*outlook icons*/
 
 .inbox-icon {
-	background-image: url( images/silk/folder_table.png ) !important;
+	background-image: url( images/silk/folder_table.gif ) !important;
 }
 
 .drafts-icon {
-	background-image: url( images/silk/folder_edit.png ) !important;
+	background-image: url( images/silk/folder_edit.gif ) !important;
 }
 
 .sent-icon {
-	background-image: url( images/silk/folder_go.png ) !important;
+	background-image: url( images/silk/folder_go.gif ) !important;
 }
 
 .folders-icon {
-	background-image: url( images/silk/folder_database.png ) !important;
+	background-image: url( images/silk/folder_database.gif ) !important;
 }
 
 .trash-icon {
-	background-image: url( images/silk/basket_delete.png ) !important;
+	background-image: url( images/silk/basket_delete.gif ) !important;
 }
 
 .chat-icon {
-	background-image: url( images/silk/comment.png ) !important;
+	background-image: url( images/silk/comment.gif ) !important;
 }
 
 .spam-icon {
-	background-image: url( images/silk/basket_delete.png ) !important;
+	background-image: url( images/silk/basket_delete.gif ) !important;
 }
 
 .email-icon {
-	background-image: url( images/silk/email.png ) !important;
+	background-image: url( images/silk/email.gif ) !important;
 }
 
 /* remove the default left,center and right images from the button border*/

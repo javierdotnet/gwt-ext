@@ -153,4 +153,8 @@ public class TreeContextMenuSample extends ShowcasePanel {
 		}
 		menu.showAt(e.getXY());
 	}
+
+    public String getIntro() {
+        return "Right click on the tree and a context menu will appear that allows you to edit / disable / rename and clone the tree nodes.";
+    }
 }

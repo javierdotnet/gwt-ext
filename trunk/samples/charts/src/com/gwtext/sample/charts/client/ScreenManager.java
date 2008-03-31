@@ -12,6 +12,7 @@ import com.gwtext.client.widgets.tree.event.TreeNodeListenerAdapter;
 import com.gwtext.sample.charts.client.yui.ColumnChartSkinnedSample;
 import com.gwtext.sample.charts.client.yui.IncomeChartSample;
 import com.gwtext.sample.charts.client.yui.LineChartSample;
+import com.gwtext.sample.charts.client.yui.PieChartSample;
 
 public class ScreenManager {
     private static Store store;
@@ -129,6 +130,7 @@ public class ScreenManager {
             addNodeClickListener(node, panel, iconCls);
         }
         treeFilter = new TreeFilter(treePanel);
+        treePanel.expandAll();
         return treePanel;
     }
 
@@ -156,12 +158,11 @@ public class ScreenManager {
 
     private static Object[][] getData() {
         return new Object[][]{
-
-                new Object[]{"yui-charts-category", null, "YUI Charts", null, null, null, null},
-                new Object[]{"lineChart", "yui-charts-category", "Line Chart", null, null, null, new LineChartSample()},
-                new Object[]{"incomeChart", "yui-charts-category", "Income Chart Sample", null, null, null, new IncomeChartSample()},
-                new Object[]{"pieChart", "yui-charts-category", "Pie Chart", null, null, null, new IncomeChartSample()},
-                new Object[]{"columnChart", "yui-charts-category", "Column Chart Skinned", null, null, null, new ColumnChartSkinnedSample()}
+                new Object[]{"yui-charts-category", null, "YUI Charts", "chart-icon", null, null, null},
+                new Object[]{"lineChart", "yui-charts-category", "Line Chart", "line-chart-icon", null, null, new LineChartSample()},
+                new Object[]{"incomeChart", "yui-charts-category", "Income Chart Sample", "income-chart-icon", null, null, new IncomeChartSample()},
+                new Object[]{"pieChart", "yui-charts-category", "Pie Chart", "pie-chart-icon", null, null, new PieChartSample()},
+                new Object[]{"columnChart", "yui-charts-category", "Column Chart Skinned", "bar-chart-icon", null, null, new ColumnChartSkinnedSample()}
         };
     }
 }

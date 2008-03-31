@@ -1,5 +1,5 @@
-.paste-icon {
-    background-image: url( images/silk/page_paste.gif ) !important;
+.chart-icon {
+    background-image: url( images/silk/chart_organisation.gif) !important;
 }
 
 .line-chart-icon {
@@ -14,10 +14,7 @@
     background-image: url( images/silk/chart_pie.gif ) !important;
 }
 
-image-icon {
-    background-image: url( images/silk/image.gif ) !important;
+.income-chart-icon {
+    background-image: url( images/silk/chart_curve.gif ) !important;
 }
 
-.add-icon {
-    background-image: url( images/silk/add.gif ) !important;
-}

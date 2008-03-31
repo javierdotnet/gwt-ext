@@ -8,6 +8,7 @@
 package com.gwtext.sample.showcase2.client.toolbar;
 
 import com.gwtext.client.widgets.*;
+import com.gwtext.client.widgets.form.TextField;
 import com.gwtext.client.widgets.menu.*;
 import com.gwtext.client.widgets.menu.event.CheckItemListenerAdapter;
 import com.gwtext.sample.showcase2.client.Showcase2;
@@ -36,6 +37,7 @@ public class ToolbarSample extends ShowcasePanel {
 
             final CheckItemListenerAdapter listener = new CheckItemListenerAdapter() {
                 public void onCheckChange(CheckItem item, boolean checked) {
+                    boolean checked2 = item.isChecked();
                     Showcase2.showMessage("Event: checkchange", "'" + item.getText() + "' is now " + (checked ? "checked" : "unchecked"));
                 }
             };
@@ -100,6 +102,10 @@ public class ToolbarSample extends ShowcasePanel {
 
             Item item = new Item();
             item.setText("Dynamically added");
+
+            TextField textField = new TextField();
+            Adapter adapter = new Adapter(textField);           
+            menu.addItem(adapter);
 
             Item item2 = new Item("Disabled");
             item2.setDisabled(true);

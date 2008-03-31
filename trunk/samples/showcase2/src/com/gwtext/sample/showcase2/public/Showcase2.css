@@ -16,6 +16,15 @@
 }
 
 /*side nav*/
+
+.toc-icon {
+	background-image: url( images/silk/report.gif ) !important;
+}
+
+.credits-icon {
+	background-image: url( images/silk/photo.gif) !important;
+}
+
 .tree-category-icon {
 	background-image: url( images/silk/chart_organisation.gif ) !important;
 }
@@ -664,4 +673,12 @@
 	padding-right: 0px;
 	height: 32px;
 	width: 32px;
+}
+
+#toc-grid .x-grid3-cell-inner {
+     overflow: visible; white-space: normal !important;
+}
+
+.bug-icon {
+	background-image: url( images/silk/bug.gif) !important;
 }

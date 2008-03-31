@@ -17,11 +17,7 @@ import com.gwtext.sample.showcase2.client.ShowcasePanel;
 public class ResizablePanelSample extends ShowcasePanel {
 
 	public String getSourceUrl() {
-		return "source/panel/PanelsSample.java.html";
-	}
-
-	public String getCssUrl() {
-		return "source/panel/PanelsSample.css.html";
+		return "source/panel/ResizablePanelSample.java.html";
 	}
 
 	public Panel getViewPanel() {
@@ -30,7 +26,7 @@ public class ResizablePanelSample extends ShowcasePanel {
 
 
 			final Panel resizablePanel = new Panel();
-			resizablePanel.setTitle("Collapsible Panel");
+			resizablePanel.setTitle("Ressizable Panel");
 			resizablePanel.setIconCls("paste-icon");
 			resizablePanel.setWidth(200);
 			resizablePanel.setCollapsible(true);
@@ -52,6 +48,6 @@ public class ResizablePanelSample extends ShowcasePanel {
 	}
 
 	public String getIntro() {
-		return "A demonstration of a resizable panel with handles on the south-east corner. Resizable Handles ";
+		return "A demonstration of a resizable panel with handles on the south-east corner.";
 	}
 }

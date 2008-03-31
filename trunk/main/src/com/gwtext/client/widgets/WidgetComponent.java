@@ -10,6 +10,7 @@ package com.gwtext.client.widgets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.DOM;
 import com.gwtext.client.core.*;
 import com.gwtext.client.util.DOMUtil;
 import com.gwtext.client.util.JavaScriptObjectHelper;
@@ -59,7 +60,9 @@ $wnd.Ext.reg('gwtwidget', $wnd.Ext.ux.WidgetComponent);
 		addListener("beforedestroy", new Function() {
 			public void execute() {
 				Widget widget =  (Widget)JavaScriptObjectHelper.getAttributeAsObject(config, "widget");
-				widget.removeFromParent();
+				if(DOM.getParent(widget.getElement()) != null) {
+					widget.removeFromParent();
+				}
 			}
 		});
 	}

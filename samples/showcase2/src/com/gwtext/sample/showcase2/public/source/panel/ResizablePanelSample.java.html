@@ -1,0 +1,88 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 600px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ */
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.Function;
+import com.gwtext.client.dd.DD;
+import com.gwtext.client.widgets.*;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.layout.FitLayout;
+import com.gwtext.client.widgets.layout.VerticalLayout;
+
+public class ResizablePanelSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+		final Panel resizablePanel = new Panel();
+		resizablePanel.setTitle("Ressizable Panel");
+		resizablePanel.setIconCls("paste-icon");
+		resizablePanel.setWidth(200);
+		resizablePanel.setCollapsible(true);
+		resizablePanel.setHtml(SampleData.getShortBogusMarkup());
+
+		ResizableConfig config = new ResizableConfig();
+		config.setHandles(Resizable.SOUTH_EAST);
+
+		final Resizable resizable = new Resizable(resizablePanel, config);
+		resizable.addListener(new ResizableListenerAdapter() {
+			public void onResize(Resizable self, int width, int height) {
+				resizablePanel.setWidth(width);
+				resizablePanel.setHeight(height);
+			}
+		});
+
+        panel.add(resizablePanel);
+
+        RootPanel.get().add(panel);
+    }
+
+    private static String getShortBogusMarkup() {
+        return "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. " +
+                "Sed metus nibh, sodales a, porta at, vulputate eget, dui.  " +
+                "In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, " +
+                "cursus a, fringilla vel, urna.";
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

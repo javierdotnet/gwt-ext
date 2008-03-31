@@ -17,6 +17,10 @@ import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 public class TreeAppearanceSample extends ShowcasePanel {
 
+	public String getSourceUrl() {
+		return "source/tree/TreeAppearanceSample.java.html";
+	}
+
 	public Panel getViewPanel() {
 		if (panel == null) {
 			panel = new Panel();
@@ -26,14 +30,12 @@ public class TreeAppearanceSample extends ShowcasePanel {
 			treePanel.setWidth(190);
 			treePanel.setHeight(400);
 
-			//create source countries tree
 			final TreePanel treePanelNoLines = new SampleTree();
 			treePanelNoLines.setTitle("No Lines");
 			treePanelNoLines.setWidth(190);
 			treePanelNoLines.setHeight(400);
 			treePanelNoLines.setLines(false);
 
-			//create target vacation tree
 			final TreePanel treePanelVistaArrows = new SampleTree();
 			treePanelVistaArrows.setTitle("Vista Arrows");
 			treePanelVistaArrows.setWidth(190);

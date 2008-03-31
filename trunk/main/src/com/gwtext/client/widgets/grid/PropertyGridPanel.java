@@ -2,6 +2,7 @@ package com.gwtext.client.widgets.grid;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.NameValuePair;
+import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.grid.event.PropertyGridPanelListener;
 
@@ -13,7 +14,9 @@ import java.util.Map;
  */
 public class PropertyGridPanel extends EditorGridPanel {
 
-    static {
+	private boolean sorted;
+
+	static {
         init();
     }
 
@@ -30,7 +33,20 @@ public class PropertyGridPanel extends EditorGridPanel {
      * Create a new PropertGridPanel.
      */
     public PropertyGridPanel() {
-    }
+		addListener("render", new Function() {
+			public void execute() {
+				if(!sorted) {
+					clearSortState(false);
+					doClearSort(getJsObj());
+				}
+			}
+
+			private native void doClearSort(JavaScriptObject propGrid)/*-{
+				propGrid.store.sortInfo = null;
+				propGrid.setSource(propGrid.getSource());
+			}-*/;
+		});
+	}
 
     public PropertyGridPanel(JavaScriptObject jsObj) {
         super(jsObj);
@@ -133,7 +149,25 @@ public class PropertyGridPanel extends EditorGridPanel {
         setAttribute("nameText", nameText, true);
     }
 
-    /**
+	/**
+	 * True to render with properties initially sorted.
+	 *
+	 * @return true to render with properties initially sorted.
+	 */
+	public boolean isSorted() {
+		return sorted;
+	}
+
+	/**
+	 * True to render with properties initially sorted. Defaults to false.
+	 *
+	 * @param sorted true to render with properties initially sorted.
+	 */
+	public void setSorted(boolean sorted) {
+		this.sorted = sorted;
+	}
+
+	/**
      * An object containing name/value pairs of custom editor type definitions that allow the grid to support additional
      * types of editable fields. By default, the grid supports strongly-typed editing of strings, dates, numbers and booleans
      * using built-in form editors, but any custom type can be supported and associated with a custom input control by specifying
@@ -154,5 +188,5 @@ public class PropertyGridPanel extends EditorGridPanel {
      */
     public void setCustomEditors(Map customEditors) {
         setAttribute("customEditors", customEditors, true, true);
-    }
+    }	
 }

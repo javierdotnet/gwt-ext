@@ -345,9 +345,10 @@ public class ScreenManager {
 				new Object[]{"maps-category", null, "Maps", "maps-category-icon", null, null, null},
 				new Object[]{"multipleMaps", "maps-category", "Multiple Maps", null, null, null, new MultiMapsSample()},
 				new Object[]{"geoRSS", "maps-category", "Geo RSS Sample", null, null, null, new GeoRSSSample()},
-				new Object[]{"imageOverLay", "maps-category", "Image Overlay", null, null, null, new ImageOverlaySample()},
-				new Object[]{"markerFilters", "maps-category", "Marker Filter", null, null, null, new MarkerFiltersSample()},
-				new Object[]{"polylneMap", "maps-category", "Polylines", null, null, null, new PolylineSample()}
+				//new Object[]{"imageOverLay", "maps-category", "Image Overlay", null, null, null, new ImageOverlaySample()},
+				new Object[]{"markerFilters", "maps-category", "Markes", null, null, null, new MarkerFiltersSample()},
+				new Object[]{"polylneMap", "maps-category", "Polylines", null, null, null, new PolylineSample()},
+				new Object[]{"markerPolyline", "maps-category", "Markers and Polylines", null, null, null, new MarkersAndPolylinesPanel()}
 		};
 	}
 }

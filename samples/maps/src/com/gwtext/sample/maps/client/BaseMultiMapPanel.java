@@ -86,7 +86,7 @@ public abstract class BaseMultiMapPanel extends ShowcasePanel {
 		button.addItem(yahooItem);
 		button.addItem(msItem);
 		button.addItem(osmItem);
-		button.addItem(mat24Item);
+		//button.addItem(mat24Item);
 
 		button.setStyle("position:absolute;right:" + 5 + "px;top:" + 5 + "px;z-index:1000000;");
 

@@ -209,7 +209,8 @@ public class ScreenManager {
 			addNodeClickListener(node, panel, iconCls);
 		}
 		treeFilter = new TreeFilter(treePanel);
-		return treePanel;
+        treePanel.expandAll();
+        return treePanel;
 	}
 
 	private void onSearchChange(final boolean filteredOnly) {

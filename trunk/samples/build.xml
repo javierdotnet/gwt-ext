@@ -12,7 +12,10 @@
 	<target name="charts" description="Build Charts Showcase">
 		<gwt.ant dir="charts" />
 	</target>
-	
+
+	<target name="maps" description="Build Maps Showcase">
+		<gwt.ant dir="maps" />
+	</target>
 	<!--
 	<target name="feedviewer" description="Build feedviewer">
 		<gwt.ant dir="feedviewer" />
@@ -38,7 +41,7 @@
 		<gwt.ant dir="simplexml" />
 	</target>-->
 
-	<target name="-do" depends="showcase2,charts" description="Run all subprojects" />
+	<target name="-do" depends="showcase2,charts,maps" description="Run all subprojects" />
 	<!--<target name="-do" depends="dynatable, hello, i18n, json, kitchensink, mail, simplexml" description="Run all subprojects" />-->
 
 	<target name="build" description="Builds GWT">

@@ -11,23 +11,25 @@ package com.gwtext.sample.showcase2.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PopupPanel;
-import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.Margins;
-import com.gwtext.client.core.Position;
-import com.gwtext.client.core.RegionPosition;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.*;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.PanelListenerAdapter;
 import com.gwtext.client.widgets.event.TabPanelListenerAdapter;
-import com.gwtext.client.widgets.layout.BorderLayout;
-import com.gwtext.client.widgets.layout.BorderLayoutData;
-import com.gwtext.client.widgets.layout.FitLayout;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.event.DataViewListenerAdapter;
+import com.gwtext.client.widgets.layout.*;
 import com.gwtext.client.widgets.menu.BaseItem;
 import com.gwtext.client.widgets.menu.Item;
 import com.gwtext.client.widgets.menu.Menu;
 import com.gwtext.client.widgets.menu.event.BaseItemListenerAdapter;
 import com.gwtext.client.widgets.tree.TreePanel;
+import com.gwtext.client.data.*;
+import com.gwtext.client.util.Format;
 
 public class Showcase2 implements EntryPoint, HistoryListener {
 
@@ -36,7 +38,7 @@ public class Showcase2 implements EntryPoint, HistoryListener {
     private ScreenManager screenManager;
     private Menu menu;
 
-    public void onModuleLoad() {
+	public void onModuleLoad() {
 
         //create the main panel and assign it a BorderLayout
         Panel mainPanel = new Panel();
@@ -128,7 +130,33 @@ public class Showcase2 implements EntryPoint, HistoryListener {
         westPanel.setCollapsible(true);
 
         Toolbar toolbar = new Toolbar();
-        toolbar.addFill();
+
+		if(Ext.isFirebug()) {
+			ToolbarButton button = new ToolbarButton();
+			button.setIconCls("bug-icon");
+			QuickTipsConfig qtipsConfig = new QuickTipsConfig();
+			qtipsConfig.setText("Firebug can make the demo run slow.");
+			qtipsConfig.setWidth(100);
+			qtipsConfig.setMaxWidth(100);
+			button.setTooltip(qtipsConfig);
+			button.addListener(new ButtonListenerAdapter() {
+				public void onClick(Button button, EventObject e) {
+					Panel fb = new Panel();
+					fb.setAutoScroll(true);
+					fb.setAutoLoad("firebug.html");
+					final Window window = new Window("Firebug");
+					window.setIconCls("bug-icon");
+					window.setWidth(550);
+					window.setHeight(260);
+					window.add(fb);
+					window.setCloseAction(Window.CLOSE);
+					window.show(button.getElement());
+
+				}
+			});
+			toolbar.addButton(button);
+		}
+		toolbar.addFill();
         toolbar.addItem(new ToolbarTextItem("Select Theme "));
         toolbar.addSpacer();
         toolbar.addField(new ThemeChanger());

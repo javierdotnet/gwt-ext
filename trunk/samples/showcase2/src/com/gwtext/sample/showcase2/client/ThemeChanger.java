@@ -17,39 +17,42 @@ import com.gwtext.client.widgets.form.event.ComboBoxListenerAdapter;
 /**
  * A simple dynamic Theme Changer ComboBox. You must have the Ext theme stylesheet declared in your host html page
  * using the id "theme".
- *
+ * <p/>
  * For example
- *
+ * <p/>
  * &lt;link id="theme" rel="stylesheet" type="text/css" href="js/ext/resources/css/xtheme-gray.css"/&gt;
  * or
  * &lt;link id="theme" rel="stylesheet" type="text/css" href="xtheme-default.css"/&gt;
- *
  */
 public class ThemeChanger extends ComboBox {
 
-    public ThemeChanger() {
+	public ThemeChanger() {
 
-        final Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
-                new Object[]{"js/ext/resources/css/xtheme-gray.css", "Gray"},
-                new Object[]{"xtheme-default.css", "Aero Glass"}
-        });
-        store.load();
+		final Store store = new SimpleStore(new String[]{"theme", "label"}, new Object[][]{
+				new Object[]{"js/ext/resources/css/xtheme-gray.css", "Gray"},
+				new Object[]{"xtheme-default.css", "Aero Glass"},
+				new Object[]{"themes/green/css/xtheme-green.css", "Green"},
+				new Object[]{"themes/slate/css/xtheme-slate.css", "Slate"},
+				new Object[]{"themes/indigo/css/xtheme-indigo.css", "Indigo"},
+				new Object[]{"themes/silverCherry/css/xtheme-silverCherry.css", "Silver Cherry"}
+		});
+		store.load();
 
-        setFieldLabel("Select Theme");
-        setEditable(false);
-        setStore(store);
-        setDisplayField("label");
-        setForceSelection(true);
-        setTriggerAction(ComboBox.ALL);
-        setValue("Gray");
-        setFieldLabel("Switch theme");
-        addListener(new ComboBoxListenerAdapter() {
-            public void onSelect(ComboBox comboBox, Record record, int index) {
-                String theme = record.getAsString("theme");
-                CSS.swapStyleSheet("theme", theme);
-            }
-        });
-        setWidth(100);
-    }
+		setFieldLabel("Select Theme");
+		setEditable(false);
+		setStore(store);
+		setDisplayField("label");
+		setForceSelection(true);
+		setTriggerAction(ComboBox.ALL);
+		setValue("Gray");
+		setFieldLabel("Switch theme");
+		addListener(new ComboBoxListenerAdapter() {
+			public void onSelect(ComboBox comboBox, Record record, int index) {
+				String theme = record.getAsString("theme");
+				CSS.swapStyleSheet("theme", theme);
+			}
+		});
+		setWidth(100);
+	}
 }
 

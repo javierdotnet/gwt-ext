@@ -30,6 +30,10 @@ public class TreeContextMenuSample extends ShowcasePanel {
 	private TreeNode ctxNode;
 	private TreeEditor treeEditor;
 
+	public String getSourceUrl() {
+		return "source/tree/TreeContextMenuSample.java.html";
+	}
+
 	public Panel getViewPanel() {
 		if (panel == null) {
 			panel = new Panel();
@@ -115,7 +119,7 @@ public class TreeContextMenuSample extends ShowcasePanel {
 			});
 			deleteItem.setId("delete-item");
 			deleteItem.setIconCls("delete-icon");
-			menu.addItem(deleteItem);
+			//menu.addItem(deleteItem);
 
 			Item newFolderItem = new Item("New Folder", new BaseItemListenerAdapter() {
 				public void onClick(BaseItem item, EventObject e) {
@@ -133,11 +137,12 @@ public class TreeContextMenuSample extends ShowcasePanel {
 		}
 		ctxNode = node;
 
+		/*
 		if (ctxNode.getDepth() < 2) {
 			menu.getItem("delete-item").disable();
 		} else {
 			menu.getItem("delete-item").enable();
-		}
+		}*/
 
 		if (ctxNode.isDisabled()) {
 			menu.getItem("disable-item").disable();

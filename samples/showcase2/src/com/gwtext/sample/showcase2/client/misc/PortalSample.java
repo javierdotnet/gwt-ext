@@ -16,6 +16,10 @@ import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 public class PortalSample extends ShowcasePanel {
 
+	public String getSourceUrl() {
+		return "source/misc/PortalSample.java.html";
+	}
+
 	public Panel getViewPanel() {
 
 		if (panel == null) {

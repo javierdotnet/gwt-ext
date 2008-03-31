@@ -118,6 +118,10 @@ public class ToolbarSample implements EntryPoint {
         Item item = new Item();
         item.setText("Dynamically added");
 
+        TextField textField = new TextField();
+        Adapter adapter = new Adapter(textField);
+        menu.addItem(adapter);
+
         Item item2 = new Item("Disabled");
         item2.setDisabled(true);
         menu.addItem(item);

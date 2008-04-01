@@ -234,7 +234,8 @@ public class Store extends JsObject {
 	 */
 	public native void clearSortState(boolean reload) /*-{
 		var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
-		delete store.sortInfo;
+		store.sortInfo = null;
+		store.lastOptions = null;
 		if(reload) {
 			store.reload();
 		}

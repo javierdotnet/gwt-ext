@@ -150,9 +150,10 @@ public class GridPanel extends Panel {
 		var sc = view.sortClasses;
         var hds = view.mainHd.select('td').removeClass(sc);
 		var store = grid.store;
-		delete store.sortInfo;
+		store.sortInfo = null;
+		store.lastOptions = null;
 		if(reload) {
-			store.reload();
+			store.reload({});
 		}
 	}-*/;
 

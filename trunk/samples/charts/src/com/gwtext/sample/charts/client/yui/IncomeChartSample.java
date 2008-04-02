@@ -46,7 +46,8 @@ public class IncomeChartSample extends ShowcasePanel {
             //currencyAxis.setLabelFunction("formatCurrencyAxisLabel");
 
             final BarChart chart = new BarChart();
-            chart.setStore(store);
+			chart.setWMode("transparent");
+			chart.setStore(store);
             chart.setSeries(seriesDef);
             chart.setYField("year");
             chart.setXAxis(currencyAxis);

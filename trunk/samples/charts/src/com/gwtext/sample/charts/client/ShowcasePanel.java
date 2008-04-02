@@ -36,8 +36,8 @@ public abstract class ShowcasePanel extends Panel {
     protected ShowcasePanel() {
         setTitle(getTitle());
         setClosable(true);
-        //setTopToolbar(new Toolbar());
-        //setPaddings(20);
+        setTopToolbar(new Toolbar());
+        setPaddings(20);
         setLayout(new FitLayout());
         setBorder(false);
         setAutoScroll(true);
@@ -72,10 +72,10 @@ public abstract class ShowcasePanel extends Panel {
         if (getSourceUrl() == null) {
             sourceButton.setDisabled(true);
         }
-        /*toolbar = getTopToolbar();
+        toolbar = getTopToolbar();
 
         toolbar.addFill();
-        toolbar.addButton(sourceButton);*/
+        toolbar.addButton(sourceButton);
 
         addViewPanel();
     }

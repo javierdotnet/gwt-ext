@@ -13,10 +13,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PopupPanel;
-import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.Margins;
-import com.gwtext.client.core.Position;
-import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.core.*;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.PanelListenerAdapter;
 import com.gwtext.client.widgets.event.TabPanelListenerAdapter;
@@ -57,18 +54,50 @@ public class Charts implements EntryPoint, HistoryListener {
         centerPanel = new TabPanel();
         centerPanel.setBodyBorder(false);
         centerPanel.setEnableTabScroll(true);
-        centerPanel.setAutoScroll(true);
         centerPanel.setAutoDestroy(false);
         centerPanel.setActiveTab(0);
 
-        //hide the panel when the tab is closed
+		//required for flash charts
+		centerPanel.setDefaults(new DefaultsHandler() {
+			public void apply(Component component) {
+				if(!Ext.isIE()) {
+					component.setHideMode("visibility");
+					GenericConfig config = new GenericConfig();
+					config.setProperty("position", "absolute");
+					component.setStyle(config);
+				}
+			}
+		});
+
+		//hide the panel when the tab is closed
         centerPanel.addListener(new TabPanelListenerAdapter() {
-            public boolean doBeforeTabChange(TabPanel source, Panel newPanel, Panel oldPanel) {
-                WindowMgr.hideAll();
-                return true;
+
+
+			public void onTabChange(TabPanel source, Panel tab) {
+				if(tab instanceof ShowcasePanel) {
+					ShowcasePanel p = (ShowcasePanel) tab;
+					p.moveChartIn();
+				}
+			}
+
+			public boolean doBeforeTabChange(TabPanel source, Panel newPanel, Panel oldPanel) {
+				if(oldPanel != null && oldPanel instanceof ShowcasePanel) {
+					ShowcasePanel old = (ShowcasePanel)oldPanel;
+					old.moveChartOut();
+					WindowMgr.hideAll();
+				}
+				return true;
             }
 
-            public void onRemove(Container self, Component component) {
+			public boolean doBeforeRemove(Container self, Component component) {
+				if(component instanceof ShowcasePanel) {
+					ShowcasePanel old = (ShowcasePanel)component;
+					old.moveChartOut();
+				}
+				return super.doBeforeRemove(self, component);
+			}
+
+			public void onRemove(Container self, Component component) {
                 component.hide();
             }
 

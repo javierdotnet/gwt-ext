@@ -52,7 +52,7 @@ public class ColumnChartSkinnedSample extends ShowcasePanel {
 
 
             final ColumnChart chart = new ColumnChart();
-
+			chart.setWMode("transparent");
             chart.setStore(store);
             chart.setSeries(seriesDef);
             chart.setXField("month");

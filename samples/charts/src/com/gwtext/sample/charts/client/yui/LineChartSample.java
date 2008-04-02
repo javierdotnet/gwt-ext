@@ -45,7 +45,8 @@ public class
             currencyAxis.setMinimum(800);
             currencyAxis.setLabelFunction("formatCurrencyAxisLabel");
             final LineChart chart = new LineChart();
-            chart.setStore(store);
+			chart.setWMode("transparent");
+			chart.setStore(store);
             chart.setSeries(seriesDef);
             chart.setXField("month");
             chart.setYAxis(currencyAxis);

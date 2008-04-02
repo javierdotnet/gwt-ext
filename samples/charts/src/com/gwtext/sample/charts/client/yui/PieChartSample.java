@@ -38,7 +38,8 @@ public class PieChartSample extends ShowcasePanel {
 
 
             final PieChart chart = new PieChart();
-            chart.setStore(store);
+			chart.setWMode("transparent");
+			chart.setStore(store);
             chart.setDataField("count");
             chart.setCategoryField("response");
             chart.setSeries(seriesDef);

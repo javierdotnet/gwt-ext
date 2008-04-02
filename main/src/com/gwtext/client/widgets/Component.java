@@ -16,10 +16,7 @@ import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtext.client.core.DomConfig;
-import com.gwtext.client.core.Ext;
-import com.gwtext.client.core.ExtElement;
-import com.gwtext.client.core.Function;
+import com.gwtext.client.core.*;
 import com.gwtext.client.util.DOMUtil;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.ComponentListener;
@@ -1342,18 +1339,25 @@ $wnd.Ext.extend=function() {
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
     public void setStyle(String style) throws IllegalStateException {
-        if (!isRendered()) {
+		 if (!isRendered()) {
             setAttribute("style", style, true);
         } else {
             Ext.get(getId()).applyStyles(style);
         }
-    }
-
-    /**
-     * @return the custom style specification applied to the element
+	}
+	
+	/**
+     * A custom style specification to be applied to this component's Element.
+     *
+     * @param style the CSS style specification
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
      */
-    public String getStyle() {
-        return getAttribute("style");
+	public void setStyle(GenericConfig style) throws IllegalStateException {
+        if (!isRendered()) {
+            setAttribute("style", style.getJsObj(), true);
+        } else {
+            Ext.get(getId()).setStyles(style);
+        }
     }
 
     /**

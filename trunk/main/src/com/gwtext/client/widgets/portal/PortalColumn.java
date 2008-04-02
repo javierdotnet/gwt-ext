@@ -53,7 +53,7 @@ public class PortalColumn extends Container {
 	public void setPaddings(int top, int left, int right, int bottom) throws IllegalStateException {
         Paddings paddings = new Paddings(top, left, right, bottom);
         String style = paddings.getStyleString();
-        String bodyStyle = getStyle();
+        String bodyStyle = "";
         if (bodyStyle == null) {
             setStyle(style);
         } else {

@@ -394,7 +394,18 @@ public abstract class Field extends BoxComponent {
         }
     }-*/;
 
-	/**
+
+    public void hide() {
+        super.hide();
+        getEl().up(".x-form-item").setDisplayed(false);
+    }
+
+    public void show() {
+        super.show();
+        getEl().up(".x-form-item").setDisplayed(true);
+    }
+
+    /**
 	 * True to completely hide the label element (defaults to false).
 	 *
 	 * @param hideLabel true to completely hide the label element (defaults to false)

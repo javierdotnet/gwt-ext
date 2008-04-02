@@ -32,7 +32,7 @@ public abstract class ChartPanel extends Panel {
     protected Store store;
 
 
-    public void afterRender() {
+	public void afterRender() {
         Element element = getBody().getDOM();
         String id = DOMUtil.getID(element);
         if (id == null) {

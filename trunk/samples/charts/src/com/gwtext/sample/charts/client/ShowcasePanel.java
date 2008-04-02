@@ -2,16 +2,14 @@ package com.gwtext.sample.charts.client;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Frame;
-import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.Ext;
-import com.gwtext.client.core.Function;
-import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.core.*;
 import com.gwtext.client.data.*;
 import com.gwtext.client.util.Format;
 import com.gwtext.client.widgets.*;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.event.PanelListenerAdapter;
 import com.gwtext.client.widgets.event.WindowListenerAdapter;
+import com.gwtext.client.widgets.event.ContainerListenerAdapter;
 import com.gwtext.client.widgets.grid.*;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.BorderLayoutData;
@@ -38,8 +36,8 @@ public abstract class ShowcasePanel extends Panel {
     protected ShowcasePanel() {
         setTitle(getTitle());
         setClosable(true);
-        setTopToolbar(new Toolbar());
-        setPaddings(20);
+        //setTopToolbar(new Toolbar());
+        //setPaddings(20);
         setLayout(new FitLayout());
         setBorder(false);
         setAutoScroll(true);
@@ -48,9 +46,11 @@ public abstract class ShowcasePanel extends Panel {
                 ShowcasePanel.this.onActivate();
             }
         });
-    }
 
-    protected void onActivate() {
+	}
+
+
+	protected void onActivate() {
         Panel viewPanel = getViewPanel();
         if (viewPanel instanceof Window) {
             ((Window) viewPanel).show();
@@ -72,10 +72,10 @@ public abstract class ShowcasePanel extends Panel {
         if (getSourceUrl() == null) {
             sourceButton.setDisabled(true);
         }
-        toolbar = getTopToolbar();
+        /*toolbar = getTopToolbar();
 
         toolbar.addFill();
-        toolbar.addButton(sourceButton);
+        toolbar.addButton(sourceButton);*/
 
         addViewPanel();
     }
@@ -314,4 +314,10 @@ public abstract class ShowcasePanel extends Panel {
     }
 
     public abstract Panel getViewPanel();
+
+	public void moveChartOut() {
+	}
+
+	public void moveChartIn() {
+	}
 }

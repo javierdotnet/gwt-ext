@@ -1318,6 +1318,19 @@ public class ExtElement extends BaseElement {
     }-*/;
 
     /**
+     * Walks up the dom looking for a parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
+     * The max depth to search defaults to 10 or document.body. This is a shortcut for findParentNode() that always returns an ExtElement
+     *
+     * @param selector  the simple selector to test
+     * @return the matching DOM or null if no match was found
+     */
+    public native ExtElement up(String selector) /*-{
+        var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var el = elem.up(selector);
+        return el == null || el === undefined ? null : @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
+    }-*/;
+
+    /**
      * Walks up the dom looking for a parent node that matches the passed simple selector (e.g. div.some-class or span:first-child). This is a shortcut for findParentNode() that always returns an ExtElement
      *
      * @param selector  the simple selector to test

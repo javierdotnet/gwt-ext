@@ -159,10 +159,10 @@ public class ScreenManager {
     private static Object[][] getData() {
         return new Object[][]{
                 new Object[]{"yui-charts-category", null, "YUI Charts", "chart-icon", null, null, null},
-                new Object[]{"lineChart", "yui-charts-category", "Line Chart", "line-chart-icon", null, null, new LineChartSample()},
-                new Object[]{"incomeChart", "yui-charts-category", "Income Chart Sample", "income-chart-icon", null, null, new IncomeChartSample()},
-                new Object[]{"pieChart", "yui-charts-category", "Pie Chart", "pie-chart-icon", null, null, new PieChartSample()},
-                new Object[]{"columnChart", "yui-charts-category", "Column Chart Skinned", "bar-chart-icon", null, null, new ColumnChartSkinnedSample()}
+                new Object[]{"lineChart", "yui-charts-category", "Line Chart", "line-chart-icon", "images/thumbnails/line-chart.gif", null, new LineChartSample()},
+                new Object[]{"incomeChart", "yui-charts-category", "Income Chart Sample", "income-chart-icon", "images/thumbnails/income-chart.gif", null, new IncomeChartSample()},
+                new Object[]{"pieChart", "yui-charts-category", "Pie Chart", "pie-chart-icon", "images/thumbnails/pie-chart.gif", null, new PieChartSample()},
+                new Object[]{"columnChart", "yui-charts-category", "Column Chart Skinned", "bar-chart-icon", "images/thumbnails/column-chart.gif", null, new ColumnChartSkinnedSample()}
         };
     }
 }

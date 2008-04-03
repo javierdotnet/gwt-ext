@@ -383,7 +383,6 @@ public class Record extends JsObject {
     }
 
     private native JavaScriptObject getFields(JavaScriptObject record)/*-{
-        debugger;
         var fields = @com.gwtext.client.util.JavaScriptObjectHelper::createJavaScriptArray()();
         var items = record.fields.items
         var cnt=items.length;

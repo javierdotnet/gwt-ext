@@ -7,18 +7,13 @@
  */
 package com.gwtext.client.widgets.chart.yui;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.Element;
-import com.gwtext.client.core.Ext;
-import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Store;
-import com.gwtext.client.util.DOMUtil;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.Panel;
 
+/**
+ * CartesianChart class for the YUI Charts widget.
+ */
 public abstract class CartesianChart extends ChartPanel {
-
-
 
     public CartesianChart() {
     }
@@ -84,5 +79,4 @@ public abstract class CartesianChart extends ChartPanel {
     public String getYField() {
         return JavaScriptObjectHelper.getAttribute(chartConfig, "yField");
     }
-
 }

@@ -1,0 +1,32 @@
+.book-icon {
+	background-image: url( images/silk/book_open.gif ) !important;
+}
+
+.x-panel-body p {
+	margin: 10px;
+	line-height: 1.25;
+}
+
+.source-icon {
+	background-image: url( images/silk/script_edit.gif ) !important;
+}
+
+.java-icon {
+	background-image: url( images/silk/page_white_code.gif ) !important;
+}
+
+.css-icon {
+	background-image: url( images/silk/css.gif ) !important;
+}
+
+.html-icon {
+	background-image: url( images/silk/html.gif ) !important;
+}
+
+.xml-icon {
+	background-image: url( images/silk/script_gear.gif ) !important;
+}
+
+.json-icon {
+	background-image: url( images/silk/script_code.gif ) !important;
+}

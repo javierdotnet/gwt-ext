@@ -38,8 +38,11 @@ import com.gwtext.sample.showcase2.client.dd.BasicOnTopSample;
 import com.gwtext.sample.showcase2.client.form.*;
 import com.gwtext.sample.showcase2.client.grid.*;
 import com.gwtext.sample.showcase2.client.layout.*;
+import com.gwtext.sample.showcase2.client.main.CreditsPanel;
+import com.gwtext.sample.showcase2.client.main.TocPanel;
 import com.gwtext.sample.showcase2.client.misc.*;
 import com.gwtext.sample.showcase2.client.panel.PanelsSample;
+import com.gwtext.sample.showcase2.client.resizable.ResizablePanelSample;
 import com.gwtext.sample.showcase2.client.tabs.BottomTabPanelSample;
 import com.gwtext.sample.showcase2.client.tabs.TabPanelSample;
 import com.gwtext.sample.showcase2.client.toolbar.ToolbarSample;
@@ -48,13 +51,10 @@ import com.gwtext.sample.showcase2.client.tree.*;
 import com.gwtext.sample.showcase2.client.view.DataViewSample;
 import com.gwtext.sample.showcase2.client.window.LayoutWindowSample;
 import com.gwtext.sample.showcase2.client.window.MessageBoxSample;
-import com.gwtext.sample.showcase2.client.resizable.ResizablePanelSample;
-import com.gwtext.sample.showcase2.client.main.TocPanel;
-import com.gwtext.sample.showcase2.client.main.CreditsPanel;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class ScreenManager {
 
@@ -91,6 +91,8 @@ public class ScreenManager {
             String qtip = record.getAsString("qtip");
 
             final ShowcasePanel panel = (ShowcasePanel) record.getAsObject("screen");
+
+            record.set("screen", panel);
 
             if (category == null) {
                 Panel categoryPanel = new Panel();
@@ -252,6 +254,34 @@ public class ScreenManager {
             }
             addNodeClickListener(node, panel, iconCls);
         }
+
+        TreeNode charts = new TreeNode("Charts Showcase", "bar-chart-icon");
+        charts.addListener(new TreeNodeListenerAdapter() {
+            public void onClick(Node node, EventObject e) {
+                com.google.gwt.user.client.Window.open("http://www.gwt-ext.com/demo-charts", "charts", "");
+                e.stopEvent();
+            }
+        });
+        root.appendChild(charts);
+
+        TreeNode maps = new TreeNode("Maps Showcase", "map-icon");
+        maps.addListener(new TreeNodeListenerAdapter() {
+            public void onClick(Node node, EventObject e) {
+                com.google.gwt.user.client.Window.open("http://www.gwt-ext.com/demo-maps", "maps", "");
+                e.stopEvent();
+            }
+        });
+        root.appendChild(maps);
+
+        TreeNode ux = new TreeNode("User Extensions Showcase", "credits-icon");
+        ux.addListener(new TreeNodeListenerAdapter() {
+            public void onClick(Node node, EventObject e) {
+                com.google.gwt.user.client.Window.open("http://www.gwt-ext.com/demo-ux", "user_extensions", "");
+                e.stopEvent();
+            }
+        });
+        root.appendChild(ux);
+        
         treeFilter = new TreeFilter(treePanel);
         return treePanel;
     }
@@ -487,6 +517,9 @@ public class ScreenManager {
                 new Object[]{"basicDD", "dd-category", "Basic", null, null, null, new BasicDDSample(), new Date(108, 1, 7)},
                 new Object[]{"onTopDD", "dd-category", "On Top", null, null, null, new BasicOnTopSample(), new Date(108, 1, 7)},
 
+                new Object[]{"portal-category", null, "Portal", "windows-category-icon", null, "Portal", null, new Date(108, 1, 7)},
+                new Object[]{"portal", "portal-category", "Portal Demo", null, "images/thumbnails/misc/portal.gif", null, new PortalSample(), new Date(108, 2, 10)},
+
                 new Object[]{"misc-category", null, "Miscellaneous", "misc-category-icon", null, "Miscellaneous", null, new Date(108, 1, 7)},
                 new Object[]{"dataView", "misc-category", "Data View", "dataview-nav-icon", null, null, new DataViewSample(), new Date(108, 1, 7)},
                 new Object[]{"progressBar", "misc-category", "Progress Bar", "progressbar-nav-icon", "images/thumbnails/misc/progressbar.gif", null, new ProgressBarSample(), new Date(108, 1, 7)},
@@ -494,7 +527,7 @@ public class ScreenManager {
                 new Object[]{"datePicker", "misc-category", "Date Picker", "datepicker-nav-icon", null, null, new DatePickerSample(), new Date(108, 1, 7)},
                 new Object[]{"tooltips", "misc-category", "Tooltips", null, "images/thumbnails/misc/tooltip.gif", null, new ToolTipTypesSample(), new Date(108, 1, 7)},
                 new Object[]{"mask", "misc-category", "Mask Demo", "mask-nav-icon", "images/thumbnails/misc/mask.gif", null, new MaskingSample(), new Date(108, 1, 7)},
-                new Object[]{"portal", "misc-category", "Portal Demo", null, "images/thumbnails/misc/portal.gif", null, new PortalSample(), new Date(108, 2, 10)},
+
 
                 new Object[]{"user-category", null, "User Contributions", "user-icon", null, "User Contributions", null, new Date(108, 1, 7)},
                 new Object[]{"imageChooser", "user-category", "Image Chooser", null, "images/thumbnails/combination/chooser.gif", null, new ImageChooserSample(), new Date(108, 1, 7)}

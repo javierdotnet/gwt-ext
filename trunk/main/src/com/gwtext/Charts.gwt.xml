@@ -9,11 +9,6 @@
 
 <module>
     <inherits name='com.gwtext.GwtExt'/>
-
-    <script src="js/yui/yahoo-dom-event/yahoo-dom-event.js"/>
-    <script src="js/yui/element/element-beta-min.js"/>
-    <script src="js/yui/datasource/datasource-beta-min.js"/>
-    <script src="js/yui/json/json-min.js"/>
-    <script src="js/yui/charts/charts-experimental-min.js"/>
+    <script src="js/yui/charts/yui-chart.js"/>
 
 </module>

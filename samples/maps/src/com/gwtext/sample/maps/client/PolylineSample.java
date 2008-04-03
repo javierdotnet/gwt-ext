@@ -6,7 +6,11 @@ import com.gwtext.client.widgets.map.Polyline;
 
 public class PolylineSample extends BaseMultiMapPanel {
 
-	protected void generateMap() {
+    public String getSourceUrl() {
+        return "source/PolylineSample.java.html";
+    }
+
+    protected void generateMap() {
 
 		mapPanel.setWidth(500);
 		mapPanel.setHeight(500);
@@ -32,5 +36,7 @@ public class PolylineSample extends BaseMultiMapPanel {
 
 	}
 
-
+    public String getIntro() {
+        return "An example of polylines.";
+    }
 }

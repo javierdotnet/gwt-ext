@@ -89,11 +89,11 @@ public class Maps implements EntryPoint, HistoryListener {
 		mainPanel.add(westPanel, westLayoutData);
 
 		final com.gwtext.client.widgets.Panel introPanel = new com.gwtext.client.widgets.Panel();
-		introPanel.setTitle("GWT-Ext 2.0 Showcase");
+		introPanel.setTitle("GWT-Ext 2.0 Maps Showcase");
 		introPanel.setPaddings(10);
 		introPanel.setLayout(new FitLayout());
-		//final ShowcaseView showcaseView = new ShowcaseView(screenManager);
-		//introPanel.add(showcaseView);
+		final ShowcaseView showcaseView = new ShowcaseView(screenManager);
+		introPanel.add(showcaseView);
 
 		centerPanel.add(introPanel, centerLayoutData);
 		centerPanelWrappper.add(centerPanel);

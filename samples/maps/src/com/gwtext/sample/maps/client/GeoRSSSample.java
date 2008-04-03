@@ -19,6 +19,8 @@ public class GeoRSSSample extends BaseMultiMapPanel {
 	}
 
     public String getIntro() {
-        return "An example of GeoRSS markers.";
+        return "An example of GeoRSS markers. GeoRSS is a location-aware news feed. There are many types of GeoRSS feeds: homes for sale, " +
+				" USGS Earthquakes, flickr location-tagged photos, etc. I can imagine so many more excellent applications for it--how about best fishing holes, " +
+				"animal migration patterns, disease monitoring, best places to drink beer, ...";
     }
 }

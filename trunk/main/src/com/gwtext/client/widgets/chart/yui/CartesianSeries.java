@@ -12,7 +12,7 @@ import com.gwtext.client.core.JsObject;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
 /**
- * Defines a CartesianChart's vertical or horizontal axis.
+ * CartesianSeries class for the YUI Charts widget. Defines a CartesianChart's vertical or horizontal axis.
  */
 public class CartesianSeries extends JsObject {
 

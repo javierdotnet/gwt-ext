@@ -59,8 +59,6 @@ public class Axis extends JsObject {
         JavaScriptObjectHelper.setAttribute(jsObj, "labelFunction", labelFunction);
     }
 
-
-
     /**
      * Return the orientation.
      *
@@ -107,7 +105,4 @@ public class Axis extends JsObject {
         String type = JavaScriptObjectHelper.getAttribute(jsObj, "type");
         return ChartType.getInstance(type);
     }
-
-    
-
 }

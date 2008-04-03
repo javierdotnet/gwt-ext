@@ -12,6 +12,11 @@ import com.gwtext.client.data.*;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.chart.yui.ColumnChart;
 import com.gwtext.client.widgets.chart.yui.SeriesDefY;
+import com.gwtext.client.widgets.form.NumberField;
+import com.gwtext.client.widgets.form.TextField;
+import com.gwtext.client.widgets.grid.*;
+import com.gwtext.client.widgets.grid.event.EditorGridListenerAdapter;
+import com.gwtext.client.widgets.layout.VerticalLayout;
 import com.gwtext.sample.charts.client.ShowcasePanel;
 
 public class ColumnChartSkinnedSample extends ShowcasePanel {
@@ -19,6 +24,8 @@ public class ColumnChartSkinnedSample extends ShowcasePanel {
     public Panel getViewPanel() {
         if (panel == null) {
             panel = new Panel();
+
+            panel.setLayout(new VerticalLayout(15));
 
             MemoryProxy proxy = new MemoryProxy(getData());
             RecordDef recordDef = new RecordDef(
@@ -63,6 +70,45 @@ public class ColumnChartSkinnedSample extends ShowcasePanel {
 
             panel.add(chart);
 
+            ColumnConfig monthConfig = new ColumnConfig("Month", "month", 60, true);
+            monthConfig.setId("monthCol");
+            TextField textField = new TextField();
+            textField.setSelectOnFocus(true);
+            monthConfig.setEditor(new GridEditor(textField));
+
+            NumberField numberField = new NumberField();
+            numberField.setSelectOnFocus(true);
+
+            NumberField numberField2 = new NumberField();
+            numberField2.setSelectOnFocus(true);
+
+            ColumnConfig porkConfig = new ColumnConfig("Pork", "pork", 150, true);
+            porkConfig.setEditor(new GridEditor(numberField));
+
+            ColumnConfig beefConfig = new ColumnConfig("Beef", "beef", 150, true);
+            beefConfig.setEditor(new GridEditor(numberField2));
+
+            ColumnModel columnModel = new ColumnModel(new ColumnConfig[] {
+                    monthConfig,
+                    porkConfig,
+                    beefConfig
+            });
+
+            EditorGridPanel grid = new EditorGridPanel();
+            grid.setStore(store);
+            grid.setClicksToEdit(1);
+            grid.setColumnModel(columnModel);
+            grid.setWidth(500);
+            grid.setAutoExpandColumn("monthCol");
+
+            grid.addEditorGridListener(new EditorGridListenerAdapter() {
+                public void onAfterEdit(GridPanel grid, Record record, String field, Object newValue, Object oldValue, int rowIndex, int colIndex) {
+                    store.commitChanges();
+                    chart.refresh();
+                }
+            });
+
+            panel.add(grid);
         }
         return panel;
     }
@@ -75,5 +121,10 @@ public class ColumnChartSkinnedSample extends ShowcasePanel {
                 new Object[]{"Jan", new Integer(1387), new Integer(1597)},
                 new Object[]{"Feb", new Integer(1376), new Integer(1603)}
         };
+    }
+
+    public String getIntro() {
+        return "<p>This is an example of a Column Chart. This example demonstrates how to modify the YUI Charts Control's styles to give it a custom appearance.</p>" +
+                "<p>The Chart and Grid are based on the same underlying Store. Try updating the values in the Grid and the changes will be reflected in the Chart.</p>";
     }
 }

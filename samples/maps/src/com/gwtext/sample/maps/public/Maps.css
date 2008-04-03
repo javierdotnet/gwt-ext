@@ -48,6 +48,14 @@
 	background-image: url( images/silk/script_code.gif ) !important;
 }
 
+.map-icon {
+	background-image: url( images/silk/map.gif ) !important;
+}
+
+.world-icon {
+	background-image: url( images/silk/world.gif) !important;
+}
+
 /*showcase view*/
 #showcase-view .x-panel-body {
 	background: white;

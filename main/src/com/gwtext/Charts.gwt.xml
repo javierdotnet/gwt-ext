@@ -1,0 +1,19 @@
+<!--
+ * GWT-Ext Widget Library
+ * Copyright(c) 2007-2008, GWT-Ext.
+ * licensing@gwt-ext.com
+ *
+ * http://www.gwt-ext.com/license
+ *
+-->
+
+<module>
+    <inherits name='com.gwtext.GwtExt'/>
+
+    <script src="js/yui/yahoo-dom-event/yahoo-dom-event.js"/>
+    <script src="js/yui/element/element-beta-min.js"/>
+    <script src="js/yui/datasource/datasource-beta-min.js"/>
+    <script src="js/yui/json/json-min.js"/>
+    <script src="js/yui/charts/charts-experimental-min.js"/>
+
+</module>

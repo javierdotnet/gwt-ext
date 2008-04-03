@@ -93,14 +93,23 @@ public class MultiMapsSample extends ShowcasePanel {
 			msPortlet.add(microsoft);
 			secondCol.add(msPortlet);
 
-			Portlet map24Portlet = new Portlet();
+			/*Portlet map24Portlet = new Portlet();
 			map24Portlet.setTitle("Map24 Map");
 			map24Portlet.setLayout(new FitLayout());
 			map24Portlet.setTools(tools);
 			MapPanel map24 = new Map24Map();
 			drawMap(map24);
 			map24Portlet.add(map24);
-			secondCol.add(map24Portlet);
+			secondCol.add(map24Portlet);*/
+
+			Portlet mapQuestPortlet = new Portlet();
+			mapQuestPortlet.setTitle("MapQuest Map");
+			mapQuestPortlet.setLayout(new FitLayout());
+			mapQuestPortlet.setTools(tools);
+			MapPanel mapquest = new YahooMap();
+			drawMap(mapquest);
+			mapQuestPortlet.add(mapquest);
+			secondCol.add(mapQuestPortlet);
 
 			Portlet multiMapPortlet = new Portlet();
 			multiMapPortlet.setTitle("MultiMap");
@@ -117,14 +126,6 @@ public class MultiMapsSample extends ShowcasePanel {
 			PortalColumn thirdCol = new PortalColumn();
 			thirdCol.setPaddings(10, 10, 0, 10);
 
-			Portlet mapQuestPortlet = new Portlet();
-			mapQuestPortlet.setTitle("MapQuest Map");
-			mapQuestPortlet.setLayout(new FitLayout());
-			mapQuestPortlet.setTools(tools);
-			MapPanel mapquest = new YahooMap();
-			drawMap(mapquest);
-			mapQuestPortlet.add(mapquest);
-			thirdCol.add(mapQuestPortlet);
 
 			Portlet fePortlet = new Portlet();
 			fePortlet.setTitle("Free Earth Map");

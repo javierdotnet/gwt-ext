@@ -343,13 +343,13 @@ public class ScreenManager {
 	private static Object[][] getData() {
 		return new Object[][]{
 
-				new Object[]{"maps-category", null, "Maps", "maps-category-icon", null, null, null},
-				new Object[]{"multipleMaps", "maps-category", "Multiple Maps", null, null, null, new MultiMapsSample()},
-				new Object[]{"geoRSS", "maps-category", "Geo RSS Sample", null, null, null, new GeoRSSSample()},
+				new Object[]{"maps-category", null, "Maps", "world-icon", null, null, null},
+				new Object[]{"multipleMaps", "maps-category", "Multiple Maps", "map-icon", "images/thumbnails/multi-map.gif", null, new MultiMapsSample()},
+				new Object[]{"geoRSS", "maps-category", "Geo RSS Sample", "map-icon", "images/thumbnails/geo-rss.gif", null, new GeoRSSSample()},
 				//new Object[]{"imageOverLay", "maps-category", "Image Overlay", null, null, null, new ImageOverlaySample()},
-				new Object[]{"markerFilters", "maps-category", "Markes", null, null, null, new MarkerFiltersSample()},
-				new Object[]{"polylneMap", "maps-category", "Polylines", null, null, null, new PolylineSample()},
-				new Object[]{"markerPolyline", "maps-category", "Markers and Polylines", null, null, null, new MarkersAndPolylinesPanel()}
+				new Object[]{"markerFilters", "maps-category", "Markes", "map-icon", "images/thumbnails/markers.gif", null, new MarkerFiltersSample()},
+				new Object[]{"polylneMap", "maps-category", "Polylines", "map-icon", "images/thumbnails/polylines.gif", null, new PolylineSample()},
+				new Object[]{"markerPolyline", "maps-category", "Markers and Polylines", "map-icon", "images/thumbnails/markers-polylines.gif", null, new MarkersAndPolylinesPanel()}
 		};
 	}
 }

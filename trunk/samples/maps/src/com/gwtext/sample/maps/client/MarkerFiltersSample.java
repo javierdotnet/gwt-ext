@@ -11,7 +11,11 @@ import java.util.Date;
 
 public class MarkerFiltersSample extends BaseMultiMapPanel {
 
-	protected void generateMap() {
+    public String getSourceUrl() {
+        return "source/MarkerFiltersSample.java.html";
+    }
+
+    protected void generateMap() {
 
 		mapPanel.setWidth(500);
 		mapPanel.setHeight(500);
@@ -45,7 +49,9 @@ public class MarkerFiltersSample extends BaseMultiMapPanel {
 			marker.setAttribute("date", d);
 			mapPanel.addMarker(marker);
 		}
-
-
 	}
+
+    public String getIntro() {
+        return "An example of creating markers.";
+    }
 }

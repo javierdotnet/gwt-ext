@@ -17,7 +17,11 @@ import com.gwtext.client.widgets.portal.Portlet;
 
 public class MultiMapsSample extends ShowcasePanel {
 
-	public Panel getViewPanel() {
+    public String getSourceUrl() {
+        return "source/MultiMapsSample.java.html";
+    }
+
+    public Panel getViewPanel() {
 
 		if (panel == null) {
 			panel = new Panel();
@@ -164,4 +168,5 @@ public class MultiMapsSample extends ShowcasePanel {
 
 		map.add(button);
 	}
+        
 }

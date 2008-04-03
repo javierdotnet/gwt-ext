@@ -296,8 +296,10 @@ public class Window extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('resize',
                 function(source, width, height) {
-                    if(width == null | width === undefined) width = 0;
-                    if(height == null | height === undefined) height = 0;
+                    if(width == null || width === undefined) width = 0;
+                    if(width == "auto") width = -1;
+                    if(height == null || height === undefined) height = 0;
+                    if(height == "auto") height = -1;
                     listener.@com.gwtext.client.widgets.event.WindowListener::onResize(Lcom/gwtext/client/widgets/Window;II)(windowJ, width, height);
                 }
         );

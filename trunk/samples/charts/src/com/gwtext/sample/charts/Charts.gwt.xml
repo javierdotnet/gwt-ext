@@ -2,6 +2,7 @@
 
     <inherits name='com.google.gwt.user.User'/>
     <inherits name="com.gwtext.GwtExt"/>
+    <inherits name="com.gwtext.Charts"/>
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.gwtext.sample.charts.client.Charts'/>

@@ -11,7 +11,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
 /**
- * Defines a CartesianChart's vertical or horizontal axis.
+ * BarSeries class for the YUI Charts widget.
  */
 public class BarSeries extends JsObject {
 

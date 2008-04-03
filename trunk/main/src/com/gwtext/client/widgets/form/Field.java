@@ -12,6 +12,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.DomConfig;
+import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.widgets.BoxComponent;
 import com.gwtext.client.widgets.form.event.FieldListener;
 
@@ -397,12 +398,14 @@ public abstract class Field extends BoxComponent {
 
     public void hide() {
         super.hide();
-        getEl().up(".x-form-item").setDisplayed(false);
+        ExtElement elem = getEl().up(".x-form-item");
+        if(elem != null) elem.setDisplayed(false);
     }
 
     public void show() {
         super.show();
-        getEl().up(".x-form-item").setDisplayed(true);
+        ExtElement elem = getEl().up(".x-form-item");
+        if(elem != null) elem.setDisplayed(true);
     }
 
     /**

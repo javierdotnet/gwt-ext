@@ -21,7 +21,11 @@ import com.gwtext.sample.charts.client.ShowcasePanel;
 
 public class ColumnChartSkinnedSample extends ShowcasePanel {
 
-    public Panel getViewPanel() {
+	public String getSourceUrl() {
+		return "source/yui/ColumnChartSkinnedSample.java.html";
+	}
+
+	public Panel getViewPanel() {
         if (panel == null) {
             panel = new Panel();
 

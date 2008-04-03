@@ -19,7 +19,11 @@ import com.gwtext.sample.charts.client.ShowcasePanel;
 
 public class PieChartSample extends ShowcasePanel {
 
-    public Panel getViewPanel() {
+	public String getSourceUrl() {
+		return "source/yui/PieChartSample.java.html";
+	}
+
+	public Panel getViewPanel() {
         if (panel == null) {
             panel = new Panel();
             panel.setLayout(new VerticalLayout(15));

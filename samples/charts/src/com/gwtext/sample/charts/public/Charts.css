@@ -1,3 +1,20 @@
+/*nav filter*/
+.x-btn-pressed.filter-btn .x-btn-text {
+	background-image: url( 'images/funnel_X.gif' );
+}
+
+.filter-btn .x-btn-text {
+	background-image: url( 'images/funnel_plus.gif' );
+}
+
+.expand-all-btn .x-btn-text {
+	background-image: url( 'images/expandall.gif' );
+}
+
+.collapse-all-btn .x-btn-text {
+	background-image: url( 'images/collapseall.gif' );
+}
+
 .book-icon {
 	background-image: url( images/silk/book_open.gif ) !important;
 }

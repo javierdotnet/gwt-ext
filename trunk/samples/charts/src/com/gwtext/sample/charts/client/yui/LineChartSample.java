@@ -22,7 +22,11 @@ import com.gwtext.sample.charts.client.ShowcasePanel;
 
 public class LineChartSample extends ShowcasePanel {
 
-    public Panel getViewPanel() {
+	public String getSourceUrl() {
+		return "source/yui/LineChartSample.java.html";
+	}
+
+	public Panel getViewPanel() {
         if (panel == null) {
             panel = new Panel();
             panel.setLayout(new VerticalLayout(15));

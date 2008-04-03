@@ -127,7 +127,9 @@ public class Charts implements EntryPoint, HistoryListener {
         introPanel.setTitle("GWT-Ext 2.0 Charting Showcase");
         introPanel.setPaddings(10);
         introPanel.setLayout(new FitLayout());
-
+        
+        final ShowcaseView showcaseView = new ShowcaseView(screenManager);
+        introPanel.add(showcaseView);
 
         centerPanel.add(introPanel, centerLayoutData);
         centerPanelWrappper.add(centerPanel);

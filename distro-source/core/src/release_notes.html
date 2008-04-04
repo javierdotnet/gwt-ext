@@ -28,11 +28,51 @@
    <body>
       <h1>GWT-Ext Release Notes</h1>
       <ul>
-            <li><a href="#2_0_2">@GWTEXT_VERSION@</a></li>
+            <li><a href="#2_0_3">2.0.3</a></li>
+            <li><a href="#2_0_2">2.0.2</a></li>
             <li><a href="#2_0_1">2.0.1</a></li>
             <li><a href="#2_0">2.0</a></li>
       </ul>
     <hr/>
+<a name="2_0_3"></a>
+      <h2>Release Notes for GWT-Ext 2.0.3</h2>
+      <p>
+
+      <h3>Features</h3>
+      <ul>
+        <li><b>Charts</b>
+        <br>Supports  for Charting via YUI charts. Line, Bar, Pie, Column charts are all available as a standard GWT-Ext Panel subclass. Charts
+            use the standard Store as thier underlying data source. See demo <a href="http://www.gwt-ext.com/demo-charts">here</a>.
+        </li>
+      </ul>
+        <ul>
+        <li><b>Mapping API</b>
+            <br>Supports for Mapping API via Mapstraction. The supported Map providers include OpenStreetMap, Yahoo, Google, Microsoft, Map24,
+            MultiMap, MapQuest, FreeEarth and OpenLayers.
+            <br/>
+            Various Maps are now available as a standard GWT-Ext Panel subclass. The motivation for the GWT-Ext Mapping API is not to compete with the other
+            GWT Google Maps API's which are far more feature rich and complete. This API is over mapstraction which provides several
+            commonly used features such as markers, polylines, GeoRSS and such using the same API.
+            <br/>The desired map provider can be instantiated by a factory, and the rest of the code remains the same and works across various map providers (some free, and others commercial). This gives users more flexibilty to pick a map provider that meets their needs and license requirements.. See demo <a href="http://www.gwt-ext.com/demo-maps">here</a>.
+        </li>
+      </ul>
+        <ul>
+        <li><b>Portal</b>
+            <br>Initial Portal support. See demo here   <a href="http://www.gwt-ext.com/demo/#portal">here</a>
+        </li>
+      </ul>
+
+      <h3>Changes</h3>
+      <ul>
+          <li>Various Bug Fixes</li>
+          <li>Ext.isFirebug() to detect if Firebug is enabled</li>
+          <li>GridPanel.clearSortState()</li>
+          <li>Support for preserving ordering in PropertyGridPanel</li>
+          <li>com.gwtext.client.widgets.menu.Adapter class to allow and Component (like TextField) to be added to a Menu</li>
+          <li>API's to access various Button's on PagingToolbar</li>
+      </ul>
+    <hr/>
+
     <a name="2_0_2"></a>
       <h2>Release Notes for GWT-Ext 2.0.2</h2>
       <p>

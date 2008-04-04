@@ -67,24 +67,24 @@ public class DropTarget extends DDTarget {
         super(jsObj);
     }
 
-    public DropTarget(String id, String sGroup, DragDropConfig config) {
-        super(id, sGroup, config);
+    public DropTarget(String id,  DropTargetConfig config) {
+        super(id, null, config);
     }
 
-    public DropTarget(Element element, String sGroup, DragDropConfig config) {
-        super(element, sGroup, config);
+    public DropTarget(Element element, DropTargetConfig config) {
+        super(element, null, config);
     }
 
-    public DropTarget(Component component, String sGroup, DragDropConfig config) {
-        super(component, sGroup, config);
+    public DropTarget(Component component, DropTargetConfig config) {
+        super(component, null, config);
     }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DropTarget(id, sGroup, config);
+        return new $wnd.Ext.dd.DropTarget(id, config);
     }-*/;
 
     protected native JavaScriptObject create(Element element, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DropTarget(element, sGroup, config);
+        return new $wnd.Ext.dd.DropTarget(element, config);
     }-*/;
 
     /**

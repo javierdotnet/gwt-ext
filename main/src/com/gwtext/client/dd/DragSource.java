@@ -18,20 +18,20 @@ public class DragSource extends DDProxy {
         super(jsObj);
     }
 
-    public DragSource(String id, String sGroup, DragDropProxyConfig config) {
-        super(id, sGroup, config);
+    public DragSource(String id,  DragSourceConfig config) {
+        super(id, null, config);
     }
 
-    public DragSource(Component component, String sGroup, DragDropConfig config) {
-        super(component, sGroup, config);
+    public DragSource(Component component, DragSourceConfig config) {
+        super(component, null, config);
     }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DragSource(id, sGroup, config);
+        return new $wnd.Ext.dd.DragSource(id, config);
     }-*/;
 
     protected native JavaScriptObject create(Element element, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DragSource(element, sGroup, config);
+        return new $wnd.Ext.dd.DragSource(element, config);
     }-*/;
 
     private static DragSource instance(JavaScriptObject jsObj) {

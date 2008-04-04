@@ -18,20 +18,20 @@ public class DropZone extends DropTarget {
         super(jsObj);
     }
 
-    public DropZone(String id, String sGroup, DragDropConfig config) {
-        super(id, sGroup, config);
+    public DropZone(String id, DropTargetConfig config) {
+        super(id, config);
     }
 
-    public DropZone(Component component, String sGroup, DragDropConfig config) {
-        super(component, sGroup, config);
+    public DropZone(Component component, DropTargetConfig config) {
+        super(component, config);
     }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DropTarget(id, sGroup, config);
+        return new $wnd.Ext.dd.DropTarget(id, config);
     }-*/;
 
    protected native JavaScriptObject create(Element element, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DropTarget(element, sGroup, config);
+        return new $wnd.Ext.dd.DropTarget(element, config);
     }-*/;
 
 }

@@ -18,19 +18,19 @@ public class DragZone extends DragSource {
         super(jsObj);
     }
 
-    public DragZone(String id, String sGroup, DragDropProxyConfig config) {
-        super(id, sGroup, config);
+    public DragZone(String id, DragSourceConfig config) {
+        super(id, config);
     }
 
-    public DragZone(Component component, String sGroup, DragDropConfig config) {
-        super(component, sGroup, config);
+    public DragZone(Component component, DragSourceConfig config) {
+        super(component, config);
     }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DragZone(id, sGroup, config);
+        return new $wnd.Ext.dd.DragZone(id, config);
     }-*/;
 
     protected native JavaScriptObject create(Element element, String sGroup, JavaScriptObject config)/*-{
-        return new $wnd.Ext.dd.DragZone(element, sGroup, config);
+        return new $wnd.Ext.dd.DragZone(element, config);
     }-*/;
 }

@@ -140,7 +140,7 @@ public class DragDrop extends JsObject {
     }
 
     public DragDrop(Component component, String sGroup) {
-        this(component, null, null);
+        this(component, sGroup, null);
     }
 
     public DragDrop(String id, String sGroup, DragDropConfig config) {

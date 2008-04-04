@@ -173,7 +173,15 @@ public class ScreenManager {
 		TreeNode root = new TreeNode("Showcase Explorer");
 		treePanel.setRootNode(root);
 
-		Store store = getStore();
+        CreditsPanel creditsPanel = new CreditsPanel();
+
+		TreeNode creditsNode = new TreeNode("Credits");
+		creditsNode.setIconCls("credits-icon");
+		creditsNode.setId("credits");
+		root.appendChild(creditsNode);
+		addNodeClickListener(creditsNode, creditsPanel, "credits-icon");
+
+        Store store = getStore();
 
 		Record[] records = store.getRecords();
 		for (int i = 0; i < records.length; i++) {

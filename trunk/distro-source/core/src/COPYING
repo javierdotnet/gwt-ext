@@ -23,3 +23,12 @@ The GWT-Ext library relies on the following third party software. Below is the l
   License: Ext has several licensing options available to fit a variety of needs. LGPL 3.0 is one of them.
     See http://extjs.com/license for more information
     http://extjs.com/download
+
+* Yahoo! User Interface Library (YUI)
+  License : BSD
+  http://developer.yahoo.com/yui/
+
+* Mapstraction
+  License : BSD
+  http://mapstraction.com/
+  

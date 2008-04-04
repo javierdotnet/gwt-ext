@@ -7,9 +7,9 @@
  */
 package com.gwtext.sample.showcase2.client;
 
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.XTemplate;
 import com.gwtext.client.data.Record;
@@ -65,8 +65,8 @@ public class ShowcaseView extends Panel {
             public void onClick(DataView source, int index, Element node, EventObject e) {
                 String id = DOMUtil.getID(node);
                 String screenName = id.substring(0, id.length() - 3);
-                Record[] records = store.query("id", screenName);
-                Record record = records[0];
+                Record record = store.getById(screenName);
+
                 final ShowcasePanel panel = (ShowcasePanel) record.getAsObject("screen");
                 if (panel != null) {
                     String title = record.getAsString("title");

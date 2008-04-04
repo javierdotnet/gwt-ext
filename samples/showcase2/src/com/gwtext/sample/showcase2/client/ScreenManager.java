@@ -501,7 +501,6 @@ public class ScreenManager {
                 new Object[]{"formAsTab", "forms-category", "Form as Tab", null, null, null, new FormAsTabSample(), new Date(108, 1, 7)},
                 new Object[]{"formWithTab", "forms-category", "Form with Tab", null, "images/thumbnails/forms/form-tabs.gif", null, new FormWithTabSample(), new Date(108, 1, 7)},
                 new Object[]{"formGrid", "forms-category", "Form Grid Binding", null, "images/thumbnails/forms/form-grid.gif", null, new FormGridSample(), new Date(108, 1, 7)},
-                new Object[]{"itemSelectorForm", "forms-category", "Dual Item Selector", null, "images/thumbnails/forms/item-selector.gif", null, new ItemSelectorSample(), new Date(108, 1, 7)},
 
                 new Object[]{"tabs-category", null, "Tab Panels", "tabs-category-icon", null, null, null, new Date(108, 1, 7)},
                 new Object[]{"dynamicTabPanel", "tabs-category", "Dynamic Tabs", null, "images/thumbnails/tabs/tabs-adv.gif", null, new TabPanelSample(), new Date(108, 1, 7)},

@@ -19,7 +19,7 @@
  */
 package com.gwtext.client.widgets.portal;
 
-import com.gwtext.client.dd.DragDropConfig;
+import com.gwtext.client.dd.DropTargetConfig;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.layout.ColumnLayout;
 
@@ -33,7 +33,7 @@ import com.gwtext.client.widgets.layout.ColumnLayout;
 //credits : this class has been adapted from the Ext portal sample
 public class Portal extends Panel {
 
-    private DragDropConfig ddConfig;
+    private DropTargetConfig ddConfig;
 
     public Portal() {
         setLayout(new ColumnLayout());
@@ -41,12 +41,12 @@ public class Portal extends Panel {
         setCls("x-portal");
     }
 
-    public Portal(DragDropConfig ddConfig) {
+    public Portal(DropTargetConfig ddConfig) {
         this();
         this.ddConfig = ddConfig;
     }
 
     protected void afterRender() {    
-        PortalDropZone dropZone = new PortalDropZone(this, null, ddConfig);
+        PortalDropZone dropZone = new PortalDropZone(this, ddConfig);
     }
 }

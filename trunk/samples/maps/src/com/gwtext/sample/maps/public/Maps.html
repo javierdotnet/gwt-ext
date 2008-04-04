@@ -33,6 +33,23 @@
 	</style>
     <link rel="stylesheet" href="Maps.css">
     
+
+
+</head>
+<body>
+
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+<!--add loading indicator while the app is being loaded-->
+<div id="loading">
+	<div class="loading-indicator">
+		<img src="js/ext/resources/images/default/shared/large-loading.gif" width="32" height="32"
+			 style="margin-right:8px;float:left;vertical-align:top;"/>GWT-Ext<br/>
+		<span id="loading-msg">Loading styles and images...</span></div>
+</div>
+
+    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Map APIs...';</script>
+
     <script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/v3/mapcontrol.js"></script>
 	<script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=MapstractionDemo"></script>
 
@@ -51,20 +68,6 @@
     <!--include the Ext CSS, and use the gray theme-->
     <link rel="stylesheet" type="text/css" href="js/ext/resources/css/ext-all.css"/>
     <link id="theme" rel="stylesheet" type="text/css" href="themes/silverCherry/css/xtheme-silverCherry.css"/>
-
-</head>
-<body>
-
-<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
-
-<!--add loading indicator while the app is being loaded-->
-<div id="loading">
-	<div class="loading-indicator">
-		<img src="js/ext/resources/images/default/shared/large-loading.gif" width="32" height="32"
-			 style="margin-right:8px;float:left;vertical-align:top;"/>GWT-Ext<br/>
-		<span id="loading-msg">Loading styles and images...</span></div>
-</div>
-
 
 <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Core API...';</script>
 

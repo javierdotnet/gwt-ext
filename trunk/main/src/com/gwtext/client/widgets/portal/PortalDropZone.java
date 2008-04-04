@@ -28,8 +28,8 @@ public class PortalDropZone extends DropTarget {
 	private int pos = -1;
 	private int[] scrollPos;
 
-	public PortalDropZone(Portal portal, String sGroup, DragDropConfig config) {
-		super(portal.getBodyWrap().getDOM(), sGroup, config);
+	public PortalDropZone(Portal portal,  DropTargetConfig config) {
+		super(portal.getBodyWrap().getDOM(), config);
 		ScrollManager.register(portal.getBody().getDOM());
 		this.portal = portal;
 	}

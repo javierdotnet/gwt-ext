@@ -109,3 +109,7 @@
 	padding-left: 20px;
 	margin: 10px;
 }
+
+.credits-icon {
+	background-image: url( images/silk/photo.gif) !important;
+}

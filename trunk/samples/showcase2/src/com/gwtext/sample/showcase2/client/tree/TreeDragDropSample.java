@@ -123,7 +123,9 @@ public class TreeDragDropSample extends ShowcasePanel {
 
 			gridPanel.doOnRender(new Function() {
 				public void execute() {
-					DropTarget dropTarget = new DropTarget(gridPanel.getElement(), "treeDD", new DragDropConfig()) {
+                    DropTargetConfig config = new DropTargetConfig();
+                    config.setdDdGroup("treeDD");
+                    DropTarget dropTarget = new DropTarget(gridPanel.getElement(), config) {
 						public void onDragOver(EventObject e, String id) {
 							super.onDragOver(e, id);
 						}

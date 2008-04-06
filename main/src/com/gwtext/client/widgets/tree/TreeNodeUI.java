@@ -118,7 +118,37 @@ public class TreeNodeUI extends JsObject {
         return ui.elNode;
      }-*/;
 
-	/**
+    /**
+     * Returns the &lt;a> element that provides focus for the node's UI.
+     *
+     * @return the DOM anchor element
+     */
+    public native Element getAnchor()/*-{
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        return ui.getAnchor();
+     }-*/;
+
+    /**
+     * Returns the text node.
+     *
+     * @return the text node.
+     */
+    public native Element getTextEl()/*-{
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        return ui.getTextEl();
+     }-*/;
+
+    /**
+     * Returns the icon &lt;img> element.
+     *
+     * @return the DOM image element
+     */
+    public native Element getIconEl()/*-{
+        var ui = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        return ui.getIconEl();
+     }-*/;
+
+    /**
 	 * Returns the checked status of the node. If the node was rendered with no checkbox, it returns false.
 	 *
 	 * @return true if checked

@@ -697,12 +697,13 @@ public class BaseElement extends JsObject implements Fx {
      * @param direction the direction
      * @param distance  how far to scroll the element in pixels
      * @param animate   true to animate
-     * @return this
+     * @return true if a scroll was triggered or false if the element was scrolled as far as it could go.
      */
     public native boolean scroll(Direction direction, int distance, boolean animate)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
-        return elem.scroll(directionJS, distance, animate);
+        var ret =  elem.scroll(directionJS, distance, animate);
+        return ret === undefined || ret == null ? false : ret;
     }-*/;
 
     /**
@@ -711,13 +712,14 @@ public class BaseElement extends JsObject implements Fx {
      * @param direction     the direction
      * @param distance      how far to scroll the element in pixels
      * @param animateConfig the animation config
-     * @return this
+     * @return true if a scroll was triggered or false if the element was scrolled as far as it could go.
      */
     public native boolean scroll(Direction direction, int distance, AnimationConfig animateConfig)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var animateConfigJS = animateConfig.@com.gwtext.client.core.JsObject::getJsObj()();
         var directionJS = direction.@com.gwtext.client.core.Direction::getDirection()();
-        return elem.scroll(directionJS, distance, animateConfigJS);
+        var ret = elem.scroll(directionJS, distance, animateConfigJS);
+        return ret === undefined || ret == null ? false : ret;
     }-*/;
 
     /**

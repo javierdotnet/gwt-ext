@@ -9,12 +9,13 @@
 package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
-import com.gwtext.client.widgets.tree.event.TreeNodeListener;
-import com.gwtext.client.widgets.QuickTipsConfig;
-import com.gwtext.client.widgets.QuickTip;
 import com.gwtext.client.util.JavaScriptObjectHelper;
+import com.gwtext.client.widgets.QuickTipsConfig;
+import com.gwtext.client.widgets.tree.event.TreeNodeListener;
 
 /**
  * TreeNode class.
@@ -501,7 +502,14 @@ public class TreeNode extends Node {
      * @param icon the node icon
      */
     public void setIcon(String icon) {
-        JavaScriptObjectHelper.setAttribute(configJS, "icon", icon);
+        if(!isRendered()) {
+            JavaScriptObjectHelper.setAttribute(configJS, "icon", icon);
+        } else {
+            Element el = getUI().getIconEl();
+            if(el != null) {
+                DOM.setElementAttribute(el, "src", icon);
+            }
+        }
     }
 
     /**
@@ -510,7 +518,14 @@ public class TreeNode extends Node {
      * @param iconCls the icon CSS class
      */
     public void setIconCls(String iconCls) {
-        JavaScriptObjectHelper.setAttribute(configJS, "iconCls", iconCls);
+        if (!isRendered()) {
+            JavaScriptObjectHelper.setAttribute(configJS, "iconCls", iconCls);
+        } else {
+            Element el = getUI().getIconEl();
+            if (el != null) {
+                DOM.setElementAttribute(el, "className", "x-tree-node-icon " + iconCls);
+            }
+        }
     }
 
     public String getIconCls() {

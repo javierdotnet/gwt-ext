@@ -7,18 +7,14 @@
  */
 package com.gwtext.sample.showcase2.client.grid;
 
+import com.gwtext.client.core.NameValuePair;
 import com.gwtext.client.util.Format;
 import com.gwtext.client.widgets.Panel;
-import com.gwtext.client.widgets.Button;
-import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.form.TimeField;
-import com.gwtext.client.widgets.form.DateField;
 import com.gwtext.client.widgets.grid.GridEditor;
 import com.gwtext.client.widgets.grid.GridView;
 import com.gwtext.client.widgets.grid.PropertyGridPanel;
 import com.gwtext.client.widgets.grid.event.PropertyGridPanelListener;
-import com.gwtext.client.core.EventObject;
-import com.gwtext.client.core.NameValuePair;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 import java.util.Date;
@@ -76,17 +72,7 @@ public class PropertyGridSample extends ShowcasePanel {
                 }
             });
 
-			Button butt = new Button("dsfds", new ButtonListenerAdapter() {
-				public void onClick(Button button, EventObject e) {
-					Map customEditors = new HashMap();
-            		GridEditor timeEditor = new GridEditor(new DateField());
-
-            		customEditors.put("Edit Time", timeEditor);
-            		grid.setCustomEditors(customEditors);
-				}
-			});
 			panel.add(grid);
-			panel.add(butt);
 
         }
         return panel;

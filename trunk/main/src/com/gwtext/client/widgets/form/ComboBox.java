@@ -38,8 +38,8 @@ public class ComboBox extends TextField {
 	}
 
     private static native void init()/*-{
-			var c = new $wnd.Ext.form.Checkbox();
-			@com.gwtext.client.widgets.form.Checkbox::configPrototype = c.initialConfig;
+			var c = new $wnd.Ext.form.ComboBox();
+			@com.gwtext.client.widgets.form.ComboBox::configPrototype = c.initialConfig;
 		}-*/;
 
 

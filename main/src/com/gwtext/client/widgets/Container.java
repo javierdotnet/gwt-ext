@@ -456,7 +456,7 @@ public class Container extends BoxComponent implements HasWidgets {
 	 */
 	public native void doLayout(boolean shallow) /*-{
 		var container = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        container.doLayout();
+        container.doLayout(shallow);
     }-*/;
 
     /**

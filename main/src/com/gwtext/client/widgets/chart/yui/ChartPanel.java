@@ -26,7 +26,7 @@ public abstract class ChartPanel extends Panel {
     }
 
     private static native void init()/*-{
-        $wnd.YAHOO.widget.Chart.SWFURL = "js/yui/charts/assets/charts.swf";
+        $wnd.YAHOO.widget.Chart.SWFURL = $moduleBase + "js/yui/charts/assets/charts.swf";
     }-*/;
 
     protected JavaScriptObject chartJS;
@@ -35,8 +35,11 @@ public abstract class ChartPanel extends Panel {
 
     protected Store store;
 
+    protected ChartPanel() {
+        setExpressInstall("js/yui/assets/expressinstall.swf");
+    }
 
-	public void afterRender() {
+    public void afterRender() {
         Element element = getBody().getDOM();
         String id = DOMUtil.getID(element);
         if (id == null) {

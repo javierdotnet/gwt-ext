@@ -6,7 +6,7 @@
 	<property name="sample.package" value="${sample.root}" />
 	<property name="sample.main" value="${sample.module}" />
 
-    <property name="gwtextux.version" value="0.1" />
+    <property name="gwtextux.version" value="0.2.1" />
     <property name="gwtextux.jar" location="${gwtext.tools.lib}/gwt-ext-ux/${gwtextux.version}/gwtextux.jar" />
 
 

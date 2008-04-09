@@ -102,10 +102,6 @@ public abstract class BaseExtWidget extends Widget {
         return DOM.getElementPropertyInt(getElement(), "offsetWidth");
     }
 
-    protected Element getStyleElement() {
-        return getElement();
-    }
-
     public String getTitle() {
         return DOM.getElementProperty(getElement(), "title");
     }

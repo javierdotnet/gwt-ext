@@ -49,6 +49,9 @@ public abstract class JsObject {
         @com.gwtext.client.core.EventObject::UP = $wnd.Ext.EventObject.UP;
     }-*/;
 
+    /**
+     *
+     */
     private static native void init()/*-{
         @com.gwtext.client.core.JsObject::initConstants()();
 
@@ -129,7 +132,7 @@ public abstract class JsObject {
                         if(obj <= @java.lang.Integer::MAX_VALUE) {
                             return @com.gwtext.client.util.JavaScriptObjectHelper::toInteger(I)(obj);
                         } else {
-                          return @com.gwtext.client.util.JavaScriptObjectHelper::toLong(J)(obj);
+                          return @com.gwtext.client.util.JavaScriptObjectHelper::toLong(D)(obj);
                         }
                     } else {
                         if(obj <= @java.lang.Float::MAX_VALUE) {
@@ -141,7 +144,7 @@ public abstract class JsObject {
                 } else if(typeof obj == 'boolean') {
                     return @com.gwtext.client.util.JavaScriptObjectHelper::toBoolean(Z)(obj);
                 } else if(obj instanceof $wnd.Date) {
-                    return @com.gwtext.client.util.JavaScriptObjectHelper::toDate(J)(obj.getTime());
+                    return @com.gwtext.client.util.JavaScriptObjectHelper::toDate(D)(obj.getTime());
                 } else {
                     throw 'Unrecognized type ' + (typeof obj) + ' for value ' + obj.toString();
                 }

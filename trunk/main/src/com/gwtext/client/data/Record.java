@@ -347,7 +347,7 @@ public class Record extends JsObject {
         if(val == null || val === undefined || val == '') {
             return null;
         } else {
-            return @com.gwtext.client.util.DateUtil::create(J)(val.getTime());
+            return @com.gwtext.client.util.DateUtil::create(D)(val.getTime());
         }
     }-*/;
 

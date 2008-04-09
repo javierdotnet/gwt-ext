@@ -9,8 +9,8 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.DeferredCommand;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.DatePickerListener;
@@ -69,12 +69,12 @@ public class DatePicker extends Component {
         if(!isRendered()) {
             return initDate;
         } else {
-            long time = getValueMillis(getOrCreateJsObj());
-            return time == -1 ? null : new Date(time);
+            double time = getValueMillis(getOrCreateJsObj());
+            return time == -1 ? null : new Date((long)time);
         }
     }
 
-    private native long getValueMillis(JavaScriptObject dp)/*-{
+    private native double getValueMillis(JavaScriptObject dp)/*-{
         var date = dp.getValue();
         return (date == '' || date == null) ? -1 : date.getTime();
     }-*/;
@@ -101,7 +101,7 @@ public class DatePicker extends Component {
 		}        
     }
 
-    private native void setValueMillis(JavaScriptObject dp, long time) /*-{
+    private native void setValueMillis(JavaScriptObject dp, double time) /*-{
         var date = new $wnd.Date(time);
         dp.setValue(date);
     }-*/;
@@ -117,7 +117,7 @@ public class DatePicker extends Component {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('select',
                 function(datePicker, date) {
-                    var d = @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
+                    var d = @com.gwtext.client.util.DateUtil::create(D)(date.getTime());
                     listener.@com.gwtext.client.widgets.event.DatePickerListener::onSelect(Lcom/gwtext/client/widgets/DatePicker;Ljava/util/Date;)(componentJ, d);
                 }
         );

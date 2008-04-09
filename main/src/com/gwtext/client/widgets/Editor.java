@@ -9,7 +9,6 @@ package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.event.EditorListener;
 import com.gwtext.client.widgets.form.Field;
 
@@ -160,17 +159,7 @@ public class Editor extends Component {
      *
      * @param value the value
      */
-    public native void setValueRendered(double value) /*-{
-        var editor = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        editor.setValue(value);
-    }-*/;
-
-    /**
-     * Sets the data value of the editor.
-     *
-     * @param value the value
-     */
-    public native void setValueRendered(long value) /*-{
+    private native void setValueRendered(double value) /*-{
         var editor = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         editor.setValue(value);
     }-*/;

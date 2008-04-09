@@ -87,8 +87,8 @@ public class DateUtil {
      * @param time the time in milliseconds
      * @return date
      */
-    public static Date create(long time) {
-        return new Date(time);
+    public static Date create(double time) {
+        return new Date((long)time);
     }
 
     /**
@@ -97,7 +97,7 @@ public class DateUtil {
      * @param date the date
      * @return time in milliseconds
      */
-    public static long getTime(Date date) {
+    public static double getTime(Date date) {
         return date.getTime();
     }
 
@@ -127,7 +127,7 @@ public class DateUtil {
      */
     public static native Date parseDate(String input, String format)/*-{
         var date = $wnd.Date.parseDate(input, format);
-        return @com.gwtext.client.util.DateUtil::create(J)(date.getTime());
+        return @com.gwtext.client.util.DateUtil::create(D)(date.getTime());
     }-*/;
 
     /**
@@ -144,7 +144,7 @@ public class DateUtil {
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
         var newDate = dateJS.add(intervalJS, value);
-        return  @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+        return  @com.gwtext.client.util.DateUtil::create(D)(newDate.getTime());
     }-*/;
 
     /**
@@ -157,7 +157,7 @@ public class DateUtil {
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
         var newDate = date.clearTime();
-        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+        return @com.gwtext.client.util.DateUtil::create(D)(newDate.getTime());
     }-*/;
 
     /**
@@ -194,7 +194,7 @@ public class DateUtil {
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
         var newDate = dateJS.getFirstDateOfMonth();
-        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+        return @com.gwtext.client.util.DateUtil::create(D)(newDate.getTime());
     }-*/;
 
     /**
@@ -231,7 +231,7 @@ public class DateUtil {
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
         var newDate = dateJS.getLastDateOfMonth();
-        return @com.gwtext.client.util.DateUtil::create(J)(newDate.getTime());
+        return @com.gwtext.client.util.DateUtil::create(D)(newDate.getTime());
     }-*/;
 
     /**

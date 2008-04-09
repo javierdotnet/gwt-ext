@@ -92,7 +92,7 @@ public class Format {
      * @param size the numeric value to format
      * @return the formatted file size
      */
-    public static native String fileSize(long size)/*-{
+    public static native String fileSize(double size)/*-{
         return $wnd.Ext.util.Format.fileSize(size);
     }-*/;
 

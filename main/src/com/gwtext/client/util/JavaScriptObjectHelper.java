@@ -119,7 +119,7 @@ public class JavaScriptObjectHelper {
         }
     }
 
-    private static native void setDateAttribute(JavaScriptObject elem, String attr, long time) /*-{
+    private static native void setDateAttribute(JavaScriptObject elem, String attr, double time) /*-{
         elem[attr] = new $wnd.Date(time);
     }-*/;
 
@@ -140,7 +140,7 @@ public class JavaScriptObjectHelper {
 
     public static native Date getAttributeAsDate(JavaScriptObject elem, String attr) /*-{
 	    var ret = elem[attr];
-	    return (ret === undefined || ret == null) ? null: @com.gwtext.client.util.JavaScriptObjectHelper::toDate(J)(ret.getTime());
+	    return (ret === undefined || ret == null) ? null: @com.gwtext.client.util.JavaScriptObjectHelper::toDate(D)(ret.getTime());
     }-*/;
 
     public static native float getAttributeAsFloat(JavaScriptObject elem, String attr) /*-{
@@ -315,8 +315,13 @@ public class JavaScriptObjectHelper {
         return new Integer(value);
     }
 
-    public static Long toLong(long value) {
-        return new Long(value);
+    /**
+     *  
+     * @param value
+     * @return
+     */
+    public static Long toLong(double value) {
+        return new Long((long)value);
     }
 
     public static Float toFloat(float value) {
@@ -327,8 +332,8 @@ public class JavaScriptObjectHelper {
         return new Double(value);
     }
 
-    public static Date toDate(long millis) {
-        return new Date(millis);
+    public static Date toDate(double millis) {
+        return new Date((long)millis);
     }
 
     public static Boolean toBoolean(boolean value) {
@@ -347,7 +352,7 @@ public class JavaScriptObjectHelper {
         setArrayDateValue(array, index, value.getTime());
     }
 
-    private static native void setArrayDateValue(JavaScriptObject array, int index, long time) /*-{
+    private static native void setArrayDateValue(JavaScriptObject array, int index, double time) /*-{
         array[index] = new $wnd.Date(time);
     }-*/;
 

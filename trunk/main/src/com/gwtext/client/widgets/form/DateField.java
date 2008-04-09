@@ -10,7 +10,6 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
-import com.gwtext.client.util.JavaScriptObjectHelper;
 
 import java.util.Date;
 
@@ -61,8 +60,8 @@ public class DateField extends TextField {
      * @return the date value
      */
     public Date getValue() {
-        long date = getTime(getOrCreateJsObj());
-        return date == -1 ? null : new Date(date);
+        double date = getTime(getOrCreateJsObj());
+        return date == -1 ? null : new Date((long)date);
     }
 
 
@@ -96,11 +95,11 @@ public class DateField extends TextField {
         setTime(getOrCreateJsObj(), time);
     }
 
-    private native void setTime(JavaScriptObject df, long time)/*-{
+    private native void setTime(JavaScriptObject df, double time)/*-{
         df.setValue(new $wnd.Date(time));
     }-*/;
 
-    private native long getTime(JavaScriptObject df)/*-{
+    private native double getTime(JavaScriptObject df)/*-{
         //ext 1.1rc1 returns empty string.
         var val = df.getValue();
         return (val == '' || val == null || val === undefined)? -1 : df.getValue().getTime();

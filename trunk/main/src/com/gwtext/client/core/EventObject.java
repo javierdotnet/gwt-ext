@@ -84,7 +84,7 @@ public class EventObject extends JsObject {
         return el === undefined ? null : el;
     }-*/;
 
-    public native long getTime() /*-{
+    public native double getTime() /*-{
         var e = this.@com.gwtext.client.core.JsObject::getJsObj()();
         return e.getTime();
     }-*/;

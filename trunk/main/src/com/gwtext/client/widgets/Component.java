@@ -1425,10 +1425,6 @@ $wnd.Ext.extend=function() {
         return DOM.getElementPropertyInt(getElement(false), "offsetWidth");
     }
 
-    protected Element getStyleElement() {
-        return getElement(false);
-    }
-
     public String getTitle() {
         return DOM.getElementProperty(getElement(false), "title");
     }

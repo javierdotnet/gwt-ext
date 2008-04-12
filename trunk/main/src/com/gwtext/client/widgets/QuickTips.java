@@ -117,7 +117,7 @@ public class QuickTips {
      * @param elementID the element ID
      */
     public native void unregister(String elementID) /*-{
-        $wnd.Ext.QuickTips.register(elementID);
+        $wnd.Ext.QuickTips.unregister(elementID);
     }-*/;
 
     /**
@@ -126,7 +126,7 @@ public class QuickTips {
      * @param element the element
      */
     public native void unregister(Element element) /*-{
-        $wnd.Ext.QuickTips.register(element);
+        $wnd.Ext.QuickTips.unregister(element);
     }-*/;
 
 

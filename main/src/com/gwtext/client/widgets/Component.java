@@ -1673,6 +1673,22 @@ $wnd.Ext.extend=function() {
         DOM.setStyleAttribute(getElement(false), "width", width);
     }
 
+    public String toString() {
+        if(!isRendered()) {
+            return "<<Lazy Component>>::" + getXType() + ", ID:" + getId();
+        } else {
+            return super.toString();
+        }
+    }
+
+    public static native String getConfigAsString(JavaScriptObject jsObj) /*-{
+        var props = '{';
+        for(var k in jsObj) {
+            props += '\n[' + k + '=>' + jsObj[k] + ']' ;
+        }
+        return props + '}';
+    }-*/;
+
     public boolean equals(Object obj) {
         if (obj instanceof Component) {
             if (obj == this) {

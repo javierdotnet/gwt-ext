@@ -29,11 +29,11 @@ public class CardLayout extends FitLayout {
     /**
      * Construct a new CardLayout.
      *
-     * @param deferredRenderer true to render each contained item at the time it becomes active, false to render all contained items as soon as
+     * @param deferredRender true to render each contained item at the time it becomes active, false to render all contained items as soon as
      *                         the layout is rendered (defaults to false).
      */
-    public CardLayout(boolean deferredRenderer) {
-        setDeferredRenderer(deferredRenderer);
+    public CardLayout(boolean deferredRender) {
+        setDeferredRender(deferredRender);
     }
 
     /**
@@ -41,10 +41,10 @@ public class CardLayout extends FitLayout {
      * the layout is rendered (defaults to false). If there is a significant amount of content or a lot of heavy controls
      * being rendered into panels that are not displayed by default, setting this to true might improve performance.
      *
-     * @param deferredRenderer true to render each contained item at the time it becomes active
+     * @param deferredRender true to render each contained item at the time it becomes active
      */
-    public void setDeferredRenderer(boolean deferredRenderer) {
-        JavaScriptObjectHelper.setAttribute(configJS, "deferredRenderer", deferredRenderer);
+    public void setDeferredRender(boolean deferredRender) {
+        JavaScriptObjectHelper.setAttribute(configJS, "deferredRender", deferredRender);
     }
 
     protected native JavaScriptObject create(JavaScriptObject config) /*-{

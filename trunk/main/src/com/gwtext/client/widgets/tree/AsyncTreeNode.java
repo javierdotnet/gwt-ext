@@ -92,6 +92,14 @@ public class AsyncTreeNode extends TreeNode {
 	/**
 	 * Construct a new AsyncTreeNode
 	 *
+	 * @param jsObj
+	 */
+	public AsyncTreeNode(JavaScriptObject jsObj) {
+		super(jsObj);
+	}
+	/**
+	 * Construct a new AsyncTreeNode
+	 *
 	 * @param treeLoader the tree loader
 	 */
 	public AsyncTreeNode(TreeLoader treeLoader) {

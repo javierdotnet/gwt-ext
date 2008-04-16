@@ -85,7 +85,9 @@ public abstract class Component extends Widget implements Observable {
     private boolean initDisabled = false;
     private static final String POST_RENDER = "post-render";
 
-    static {
+	private boolean isElementSet = false;
+
+	static {
         init();
     }
 
@@ -373,25 +375,28 @@ $wnd.Ext.extend=function() {
     }
 
     public Element getElement(boolean allowPreRender) {
-        if (super.getElement() == null) {
-            JavaScriptObject jsObj = getComponentJS(id);
-            if (!isRendered()) {
-                if (!allowPreRender) {
-                    error("This method should only be called after the component has been rendered");
-                }
+		if(!isElementSet) {
+			if (super.getElement() == null) {
+				JavaScriptObject jsObj = getComponentJS(id);
+				if (!isRendered()) {
+					if (!allowPreRender) {
+						error("This method should only be called after the component has been rendered");
+					}
 
-                if (jsObj == null) {
-                    jsObj = create(config);
-                }
-                if (getParent() != null && getParent().getElement() != null) {
-                    render(getParent().getElement());
-                } else {
-                    render(RootPanel.getBodyElement());
-                }
-            }
-            setElement(getElement(jsObj));
-        }
-        return super.getElement();
+					if (jsObj == null) {
+						jsObj = create(config);
+					}
+					if (getParent() != null && getParent().getElement() != null) {
+						render(getParent().getElement());
+					} else {
+						render(RootPanel.getBodyElement());
+					}
+				}
+				setElement(getElement(jsObj));
+			}
+			isElementSet = true;
+		}
+		return super.getElement();
     }
 
     /**

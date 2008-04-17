@@ -176,7 +176,7 @@ public class Node extends JsObject {
      */
     public native String getId() /*-{
         var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        return node.id === undefined ? null : node.id;
+        return node.id === undefined ? null : node.id.toString();
     }-*/;
 
     /**

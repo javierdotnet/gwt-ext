@@ -376,24 +376,22 @@ $wnd.Ext.extend=function() {
 
     public Element getElement(boolean allowPreRender) {
 		if(!isElementSet) {
-			if (super.getElement() == null) {
-				JavaScriptObject jsObj = getComponentJS(id);
-				if (!isRendered()) {
-					if (!allowPreRender) {
-						error("This method should only be called after the component has been rendered");
-					}
+            JavaScriptObject jsObj = getComponentJS(id);
+            if (!isRendered()) {
+                if (!allowPreRender) {
+                    error("This method should only be called after the component has been rendered");
+                }
 
-					if (jsObj == null) {
-						jsObj = create(config);
-					}
-					if (getParent() != null && getParent().getElement() != null) {
-						render(getParent().getElement());
-					} else {
-						render(RootPanel.getBodyElement());
-					}
-				}
-				setElement(getElement(jsObj));
-			}
+                if (jsObj == null) {
+                    jsObj = create(config);
+                }
+                if (getParent() != null && getParent().getElement() != null) {
+                    render(getParent().getElement());
+                } else {
+                    render(RootPanel.getBodyElement());
+                }
+            }
+            setElement(getElement(jsObj));
 			isElementSet = true;
 		}
 		return super.getElement();

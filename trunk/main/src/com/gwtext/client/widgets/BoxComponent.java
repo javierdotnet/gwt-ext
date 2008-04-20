@@ -99,7 +99,7 @@ public class BoxComponent extends Component {
      */
     public native int[] getPosition(boolean local) /*-{
         var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-        var arrJS = component.getPosition();
+        var arrJS = component.getPosition(local);
         return @com.gwtext.client.util.JavaScriptObjectHelper::convertToJavaIntArray(Lcom/google/gwt/core/client/JavaScriptObject;)(arrJS);
     }-*/;
 

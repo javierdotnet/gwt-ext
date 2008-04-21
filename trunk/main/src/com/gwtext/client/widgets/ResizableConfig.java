@@ -230,7 +230,7 @@ public class ResizableConfig extends BaseConfig {
      *
      * @param widthIncrement the width increment
      */
-    public void setWidthIncrement(boolean widthIncrement) {
+    public void setWidthIncrement(int widthIncrement) {
         JavaScriptObjectHelper.setAttribute(jsObj, "widthIncrement", widthIncrement);
     }
 

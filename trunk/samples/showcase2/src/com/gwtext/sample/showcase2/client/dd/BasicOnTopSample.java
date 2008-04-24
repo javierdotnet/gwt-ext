@@ -13,10 +13,6 @@ import com.gwtext.client.core.EventObject;
 import com.gwtext.client.dd.DD;
 import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.Panel;
-import com.gwtext.client.widgets.layout.HorizontalLayout;
-import com.gwtext.client.widgets.layout.FitLayout;
-import com.gwtext.client.widgets.layout.TableLayout;
-import com.gwtext.client.widgets.layout.ColumnLayout;
 import com.gwtext.sample.showcase2.client.SampleData;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
@@ -76,7 +72,10 @@ public class BasicOnTopSample extends ShowcasePanel {
         }
 
         public void startDrag(int x, int y) {
-            origZ = DOM.getIntStyleAttribute(this.getEl(), "zIndex");
+            String zIndex = DOM.getStyleAttribute(this.getEl(), "zIndex");
+            if(zIndex != null && !"".equals(zIndex)) {
+                origZ = Integer.parseInt(zIndex);
+            }
             DOM.setIntStyleAttribute(this.getEl(), "zIndex", 999);
         }
 

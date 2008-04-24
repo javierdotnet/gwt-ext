@@ -9,7 +9,10 @@ package com.gwtext.sample.showcase2.client.form;
 
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.Panel;
-import com.gwtext.client.widgets.form.*;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtext.client.widgets.form.TextField;
+import com.gwtext.client.widgets.form.TimeField;
+import com.gwtext.client.widgets.form.VType;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 public class SimpleFormSample extends ShowcasePanel {
@@ -29,12 +32,6 @@ public class SimpleFormSample extends ShowcasePanel {
             formPanel.setWidth(350);
             formPanel.setLabelWidth(75);
             formPanel.setUrl("save-form.php");
-
-            Label label = new Label();
-            label.setHtml("<p>This is an example of a Form Label. This can have any <b>HTML</b> content.</p>");
-            label.setWidth(350);
-
-            formPanel.add(label);
 
             TextField firstName = new TextField("First Name", "first", 230);
             firstName.setAllowBlank(false);

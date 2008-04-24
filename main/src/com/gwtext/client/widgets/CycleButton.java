@@ -161,7 +161,8 @@ public class CycleButton extends SplitButton {
     //--- config properties  ---
 
     /**
-     * Add a CheckItem config object to be used when creating the button's menu items.
+     * Add a CheckItem config object to be used when creating the button's menu items. Note that when initially creating the CycleButton,
+     * one CheckItem must be checked ie new CheckItem(s, true).
      *
      * @param item check item config
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered

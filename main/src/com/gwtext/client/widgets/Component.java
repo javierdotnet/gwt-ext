@@ -374,6 +374,11 @@ $wnd.Ext.extend=function() {
         return getElement(true);
     }
 
+    protected void setElement(Element elem) {
+        super.setElement(elem);
+        isElementSet = true;
+    }
+
     public Element getElement(boolean allowPreRender) {
 		if(!isElementSet) {
             JavaScriptObject jsObj = getComponentJS(id);
@@ -392,7 +397,6 @@ $wnd.Ext.extend=function() {
                 }
             }
             setElement(getElement(jsObj));
-			isElementSet = true;
 		}
 		return super.getElement();
     }

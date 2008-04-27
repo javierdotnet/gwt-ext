@@ -334,6 +334,21 @@ public class Store extends JsObject {
     }-*/;
 
     /**
+     * Finds the index of the first matching record in this store by a specific property/value.
+     *
+     * @param propname the property name
+     * @param value the string that the property value should begin with
+     * @param startIndex the index to start searching at
+     * @param anymatch true to match any part of the string, not just the beginning
+     * @param casesensitive true for case sensitive comparison
+     * @return the matched index or -1
+     */
+    public native int find(String propname, String value, int startIndex, boolean anymatch, boolean casesensitive)/*-{
+        var store = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        return store.find(propname, value, startIndex, anymatch, casesensitive);
+    }-*/;
+
+    /**
      * Returns the record at the specified index. This method is functionally equivalent to {@link #getAt(int)}.
      *
      * @param index the Store index

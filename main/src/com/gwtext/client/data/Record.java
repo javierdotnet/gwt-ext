@@ -172,7 +172,7 @@ public class Record extends JsObject {
         var value = record.get(field);
         //todo?
         //if (value === undefined) throw new Error("Invalid field " + field);
-        return (value === undefined || value == null || value == '') ? null : value.toString();
+        return (value === undefined || value == null || value === '') ? null : value.toString();
     }-*/;
 
     /**
@@ -184,7 +184,7 @@ public class Record extends JsObject {
     public native Object getAsObject(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
-        return (value === undefined || value == null || value == '') ? null : value;
+        return (value === undefined || value == null || value === '') ? null : value;
     }-*/;
 
 	/**
@@ -264,7 +264,7 @@ public class Record extends JsObject {
     public native float getAsFloat(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
-        return (value === undefined || value == null ) ? null : parseFloat(value);
+        return (value === undefined || value == null ) ? 0 : parseFloat(value);
     }-*/;
 
     /**
@@ -287,7 +287,7 @@ public class Record extends JsObject {
     public native double getAsDouble(String field) /*-{
         var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
         var value = record.get(field);
-        return (value === undefined || value == null ) ? null : parseFloat(value);
+        return (value === undefined || value == null ) ? 0 : parseFloat(value);
     }-*/;
 
     /**

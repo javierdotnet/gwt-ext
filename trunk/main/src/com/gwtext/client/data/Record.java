@@ -211,6 +211,18 @@ public class Record extends JsObject {
     }-*/;
 
 	/**
+	 * Return true if the specified field is null(or undefined) or an empty string
+	 *
+	 * @param fieldName the field name
+	 * @return true if empty
+	 */
+	public native boolean isEmpty(String fieldName) /*-{
+        var record = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        var value = record.get(fieldName);
+        return value === undefined || value == null || value === '';
+    }-*/;
+
+	/**
      * Sets the fields Object value.
      *
      * @param field the field name

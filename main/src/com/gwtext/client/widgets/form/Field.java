@@ -9,7 +9,9 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.DomConfig;
 import com.gwtext.client.core.ExtElement;
@@ -398,14 +400,30 @@ public abstract class Field extends BoxComponent {
 
     public void hide() {
         super.hide();
-        ExtElement elem = getEl().up(".x-form-item");
-        if(elem != null) elem.setDisplayed(false);
+        if(!isRendered()) {
+            DeferredCommand.addCommand(new Command() {
+                public void execute() {
+                    hide();
+                }
+            });
+        } else {
+            ExtElement elem = getEl().up(".x-form-item");
+            if(elem != null) elem.setDisplayed(false);
+        }
     }
 
     public void show() {
         super.show();
-        ExtElement elem = getEl().up(".x-form-item");
-        if(elem != null) elem.setDisplayed(true);
+        if(!isRendered()) {
+            DeferredCommand.addCommand(new Command() {
+                public void execute() {
+                    show();
+                }
+            });
+        } else {
+            ExtElement elem = getEl().up(".x-form-item");
+            if(elem != null) elem.setDisplayed(true);
+        }
     }
 
     /**

@@ -258,7 +258,6 @@ public class DateUtil {
         return dateJS.getTimezone();
     }-*/;
 
-    //todo ext function incorrect : see http://extjs.com/forum/showthread.php?t=9727
     /**
      * Get the string representation of the numeric week number of the year.
      *
@@ -268,9 +267,7 @@ public class DateUtil {
     public static native int getWeekOfYear(Date date) /*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
-        //returns string
-        var woy = dateJS.getWeekOfYear();
-        return @java.lang.Integer::parseInt(Ljava/lang/String;)(woy);
+        return dateJS.getWeekOfYear();
     }-*/;
 
     /**

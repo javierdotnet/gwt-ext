@@ -24,6 +24,8 @@ package com.gwtext.client.widgets.portal;
 
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.DeferredCommand;
+import com.google.gwt.user.client.Command;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.dd.*;
@@ -144,15 +146,14 @@ public class PortalDropZone extends DropTarget {
 		lastPosC.doLayout();
 
 		final int scrollTop = scrollPos[0];
-		new Timer() {
-			public void run() {
-
+		DeferredCommand.addCommand(new Command() {
+			public void execute() {
 				if (scrollPos != null) {
 					portal.getBody().setScrollTop(scrollTop);
 				}
-				proxyPanel.doLayout();
+				portal.doLayout();
 			}
-		}.schedule(10);
+		});
 
 		lastPosC = null;
 		return true;

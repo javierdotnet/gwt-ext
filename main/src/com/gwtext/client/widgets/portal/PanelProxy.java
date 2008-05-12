@@ -9,6 +9,8 @@ import com.google.gwt.user.client.Element;
 
 /**
  * This is an internal class.
+ *
+ * @author Sanjiv Jivan
  */
 public class PanelProxy extends JsObject {
 

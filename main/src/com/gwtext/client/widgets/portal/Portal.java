@@ -29,6 +29,8 @@ import com.gwtext.client.widgets.layout.ColumnLayout;
  *
  * <br>
  * To each PortalColumn, a Portlet is added.
+ *
+ * @author Sanjiv Jivan
  */
 //credits : this class has been adapted from the Ext portal sample
 public class Portal extends Panel {

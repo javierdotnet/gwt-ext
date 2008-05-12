@@ -14,6 +14,7 @@ import com.gwtext.client.core.ExtElement;
 import com.gwtext.client.dd.*;
 import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.Container;
+import com.gwtext.client.widgets.Panel;
 
 //credits : this class has been adapted from the Ext portal sample
 public class PortalDropZone extends DropTarget {
@@ -112,6 +113,8 @@ public class PortalDropZone extends DropTarget {
 
 		PanelProxy proxy = new PanelProxy(source.getProxy().getJsObj());
 		proxy.getProxy().remove();
+		final Panel proxyPanel = proxy.getPanel();
+
 		Element parentNode = proxy.getPanel().getEl().getParentNode();
 		new ExtElement(parentNode).removeChild(proxy.getPanel().getElement());
 		if (pos != -1) {
@@ -121,15 +124,17 @@ public class PortalDropZone extends DropTarget {
 		}
 		lastPosC.doLayout();
 
-		if (scrollPos != null) {
-			final int scrollTop = scrollPos[0];
-			new Timer() {
-				public void run() {
+		final int scrollTop = scrollPos[0];
+		new Timer() {
+			public void run() {
+
+				if (scrollPos != null) {
 					portal.getBody().setScrollTop(scrollTop);
 				}
-			}.schedule(10);
+				proxyPanel.doLayout();
+			}
+		}.schedule(10);
 
-		}
 		lastPosC = null;
 		return true;
 	}

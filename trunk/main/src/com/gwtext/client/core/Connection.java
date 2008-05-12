@@ -1,10 +1,25 @@
 /*
  * GWT-Ext Widget Library
- * Copyright(c) 2007-2008, GWT-Ext.
- * licensing@gwt-ext.com
- * 
- * http://www.gwt-ext.com/license
+ * Copyright 2007 - 2008, GWT-Ext LLC., and individual contributors as indicated
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
+ 
 
 package com.gwtext.client.core;
 
@@ -16,6 +31,8 @@ import com.gwtext.client.core.event.ConnectionListener;
  * Requests made by this class are asynchronous, and will return immediately. No data from the server will be available to the statement immediately following the request call. To process returned data, use a callback in the request options object, or an event listener.
  * Note: If you are doing a file upload, you will not get a normal response object sent back to your callback or event handler. Since the upload is handled via in IFRAME, there is no XMLHttpRequest. The response object is created using the innerHTML of the IFRAME's document as the responseText property and, if present, the IFRAME's XML document as the responseXML property.
  * This means that a valid XML or HTML document must be returned. If JSON data is required, it is suggested that it be placed either inside a &lt;textarea&gt; in an HTML document and retrieved from the responseText using a regex, or inside a CDATA section in an XML document and retrieved from the responseXML using standard DOM methods.
+ *
+ * @author Sanjiv Jivan
  */
 public class Connection extends JsObject {
 

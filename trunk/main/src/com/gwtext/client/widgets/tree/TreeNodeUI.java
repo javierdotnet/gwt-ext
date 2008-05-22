@@ -38,8 +38,30 @@ import com.gwtext.client.core.JsObject;
  */
 public class TreeNodeUI extends JsObject {
 
+	/**
+	 * This method is called by the constructor to fix issues in the toggleCheck.
+	 * Ideally, this should be fixed by a patch to extjs but in the interim,
+	 * we are fixing them in jsni...
+	 * 
+	 * This method should be removed once this is fixed by the extjs patch
+	 */
+	private native void overwrite()/*-{
+	    //EXTJS_FIX_NEEDED   
+		$wnd.Ext.override($wnd.Ext.tree.TreeNodeUI,{
+		    toggleCheck : function(value){
+		        var cb = this.checkbox;
+		        if(cb){
+		            var checkvalue = (value === undefined ? !cb.checked : value);
+		            cb.checked = checkvalue;
+		            this.node.attributes.checked = checkvalue;
+		        }
+		    },
+		}); 
+	}-*/;	
+	
     public TreeNodeUI(JavaScriptObject jsObj) {
         super(jsObj);
+        overwrite();
     }
 
     private static TreeNodeUI instance(JavaScriptObject jsObj) {

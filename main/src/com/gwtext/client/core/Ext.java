@@ -413,7 +413,16 @@ public class Ext {
 	 * @return true if firebug is enabled
 	 */
 	public static native boolean isFirebug() /*-{
-		return (window.console) ? ( window.console.firebug) : false;
+		if($wnd.Ext.isGecko && window.console) {
+			var fb =  window.console.firebug;
+			if(fb ==null || fb === undefined) {
+				return false;
+			} else {
+				return fb;
+			}
+		} else {
+			return false;
+		}
     }-*/;
 
 	/**

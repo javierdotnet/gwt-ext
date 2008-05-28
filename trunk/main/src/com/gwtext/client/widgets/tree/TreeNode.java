@@ -493,7 +493,25 @@ public class TreeNode extends Node {
         JavaScriptObjectHelper.setAttribute(configJS, "expanded", expanded);
     }
 
-    /**
+	/**
+	 * Returns true if this node is expandable.
+	 *
+	 * @return true if expandable
+	 */
+	public  boolean isExpandable() {
+        return JavaScriptObjectHelper.getAttributeAsBoolean(configJS, "expandable");
+    };
+
+	/**
+	 * True to mark the node as expandable. If set to true, the node will always show a plus/minus icon, even when empty
+	 *
+	 * @param expandable true to start expandable
+	 */
+	public void setExpandable(boolean expandable) {
+		JavaScriptObjectHelper.setAttribute(configJS, "expandable", expandable);
+	}
+
+	/**
      * URL of the link used for the node (defaults to #).
      *
      * @param href the node href URL

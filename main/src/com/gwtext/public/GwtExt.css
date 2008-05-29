@@ -32,3 +32,10 @@
 .x-portal .x-panel-dd-spacer {
     margin-bottom:10px;
 }
+
+/*
+ * Fix grid rendering under FF3
+ */
+.x-grid3 table {
+    table-layout:fixed;
+}

@@ -803,7 +803,11 @@ public class Panel extends Container {
      * @return true to render the panel expanded, false to render it collapsed
      */
     public boolean isCollapsed() {
-        return getAttributeAsBoolean("collapsed");
+        if(!isRendered()) {
+            return getAttributeAsBoolean("collapsed");
+        } else {
+            return JavaScriptObjectHelper.getAttributeAsBoolean(getJsObj(), "collapsed");
+        }
     }
 
     /**

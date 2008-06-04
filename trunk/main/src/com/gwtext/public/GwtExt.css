@@ -34,8 +34,15 @@
 }
 
 /*
- * Fix grid rendering under FF3
+ * FF3 grid support
  */
 .x-grid3 table {
     table-layout:fixed;
+}
+
+/*
+ * FF3 calendar support
+ */
+div.x-date-picker {
+    width:10px;
 }

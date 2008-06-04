@@ -39,7 +39,7 @@ public class Menu extends Widget {
 	protected String id;
 	protected JavaScriptObject config;
 	protected JavaScriptObject jsObj;
-
+    private boolean isElementSet = false;
 
 
     public Menu() {
@@ -60,7 +60,12 @@ public class Menu extends Widget {
 		setElement(getElement(jsObj));
 	}
 
-	protected native Element getElement(JavaScriptObject jsObj) /*-{
+    protected void setElement(Element elem) {
+        super.setElement(elem);
+        isElementSet = true;
+    }
+
+    protected native Element getElement(JavaScriptObject jsObj) /*-{
         //var el = jsObj.el;
         var el = jsObj.getEl().dom;
         if(el == null || el === undefined) {
@@ -77,7 +82,7 @@ public class Menu extends Widget {
     }-*/;
 
 	public Element getElement() {
-		if (super.getElement() == null) {
+		if (!isElementSet) {
 
 			if (jsObj == null) {
 				jsObj = create(config);

@@ -154,7 +154,8 @@ public class TreeNode extends Node {
     }-*/;
 
 	public boolean isRendered() {
-		TreeNodeUI treeNodeUI = getUI();
+        if(jsObj == null) return false;
+        TreeNodeUI treeNodeUI = getUI();
 		if(treeNodeUI == null) {
 			return false;
 		} else {
@@ -500,7 +501,7 @@ public class TreeNode extends Node {
 	 */
 	public  boolean isExpandable() {
         return JavaScriptObjectHelper.getAttributeAsBoolean(configJS, "expandable");
-    };
+    }
 
 	/**
 	 * True to mark the node as expandable. If set to true, the node will always show a plus/minus icon, even when empty

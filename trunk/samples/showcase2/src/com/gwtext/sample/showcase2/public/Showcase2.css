@@ -253,6 +253,14 @@
 	background-image: url( images/silk/page_white_excel.gif ) !important;
 }
 
+.publish-icon {
+	background-image: url( images/silk/server_go.png ) !important;
+}
+
+.subscribe-icon {
+	background-image: url( images/silk/server_connect.png ) !important;
+}
+
 .powerpoint-icon {
 	background-image: url( images/silk/page_white_powerpoint.gif ) !important;
 }

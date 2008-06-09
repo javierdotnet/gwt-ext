@@ -173,7 +173,7 @@ public class DateUtil {
     public static native Date clearTime(Date date)/*-{
         var millis = @com.gwtext.client.util.DateUtil::getTime(Ljava/util/Date;)(date);
         var dateJS = new $wnd.Date(millis);
-        var newDate = date.clearTime();
+        var newDate = dateJS.clearTime();
         return @com.gwtext.client.util.DateUtil::create(D)(newDate.getTime());
     }-*/;
 

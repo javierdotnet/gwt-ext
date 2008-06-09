@@ -542,7 +542,7 @@ public class ScreenManager {
                 new Object[]{"datePicker", "misc-category", "Date Picker", "datepicker-nav-icon", null, null, new DatePickerSample(), new Date(108, 1, 7)},
                 new Object[]{"tooltips", "misc-category", "Tooltips", null, "images/thumbnails/misc/tooltip.gif", null, new ToolTipTypesSample(), new Date(108, 1, 7)},
                 new Object[]{"mask", "misc-category", "Mask Demo", "mask-nav-icon", "images/thumbnails/misc/mask.gif", null, new MaskingSample(), new Date(108, 1, 7)},
-                new Object[]{"pubsub", "misc-category", "Publish Subscribe", null, null, null, new PubSubSample(), new Date(108, 5, 9)},
+                new Object[]{"pubsub", "misc-category", "Publish Subscribe", "publish-icon", null, null, new PubSubSample(), new Date(108, 5, 9)},
 
 
                 new Object[]{"user-category", null, "User Contributions", "user-icon", null, "User Contributions", null, new Date(108, 1, 7)},

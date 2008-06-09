@@ -6,7 +6,8 @@
 	<inherits name="com.google.gwt.core.Core"/>
 	<inherits name="com.google.gwt.user.History"/>
 	<inherits name="com.google.gwt.i18n.I18N"/>
+	<inherits name="com.gwtext.Pagebus"/>
 
-    <entry-point class='com.gwtext.sample.showcase2.client.Showcase2'/>
+	<entry-point class='com.gwtext.sample.showcase2.client.Showcase2'/>
 
 </module>

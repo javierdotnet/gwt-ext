@@ -105,10 +105,24 @@ public abstract class Component extends Widget implements Observable {
 	private boolean isElementSet = false;
 
 	static {
-        init();
-    }
+		if(!checkExtVer()) {
+			String errMsg = "Version of Ext in use not compatible with GWT-Ext.\nGWT-Ext only supports Ext v2.0.2.";
+			com.google.gwt.user.client.Window.alert(errMsg);
+			throw new IllegalArgumentException(errMsg);
+		};
+		init();
 
-    protected native JavaScriptObject cloneConfig(JavaScriptObject config)/*-{
+	}
+
+	protected native static boolean checkExtVer()/*-{
+		if($wnd.Ext.StatusBar) {
+			return false;
+		} else {
+			return true;
+		}
+    }-*/;
+
+	protected native JavaScriptObject cloneConfig(JavaScriptObject config)/*-{
         var clone = {};
         var id = $wnd.Ext.id();
         var cfg = $wnd.Ext.applyIf(clone, config);

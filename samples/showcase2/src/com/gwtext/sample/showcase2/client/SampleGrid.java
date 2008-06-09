@@ -81,8 +81,9 @@ public class SampleGrid extends GridPanel {
     );
 
     private int[] columnIndexes;
+	protected Store store;
 
-    public SampleGrid() {
+	public SampleGrid() {
         this(false);
     }
 
@@ -97,7 +98,7 @@ public class SampleGrid extends GridPanel {
         MemoryProxy proxy = new MemoryProxy(data);
 
         ArrayReader reader = new ArrayReader(recordDef);
-        Store store = new Store(proxy, reader);
+        store = new Store(proxy, reader);
         store.load();
         setStore(store);
 

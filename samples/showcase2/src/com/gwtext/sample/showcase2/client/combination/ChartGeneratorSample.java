@@ -318,8 +318,3 @@ public class ChartGeneratorSample extends ShowcasePanel {
         return form.findField("title").getValueAsString();
     }
 }
-
-abstract class ChartPanel extends Panel {
-
-    public abstract String getChartURL();
-}

@@ -26,6 +26,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.JsObject;
 
 /**
+ * Subscription handle.
+ *
+ * @see com.gwtext.client.pagebus.PageBus.subscribe()
+ * @see com.gwtext.client.pagebus.PageBus.unsubscribe();
+ * 
  * @author Sanjiv Jivan
  */
 public class Subscription extends JsObject {

@@ -48,7 +48,7 @@
 	<property name="javac.debug" value="true" />
 	<property name="javac.debuglevel" value="lines,vars,source" />
 	<property name="javac.encoding" value="utf-8" />
-	<property name="javac.source" value="1.4" />
+	<property name="javac.source" value="1.5" />
 	<property name="javac.nowarn" value="true" />
 	<property name="junit.out" location="${project.build}/test" />
     <property name="gwt.doctool.jar" location="${gwtext.tools.lib}/gwt-build-tools/gwt-doctool.jar" />
@@ -94,7 +94,7 @@
 	</condition>
     
     <!--GWT jars location-->
-    <property name="gwt.version" value="1.4.60" />
+    <property name="gwt.version" value="1.5RC1" />
     <property name="gwt.user.jar" location="${gwtext.tools.lib}/gwt/${gwt.version}/${build.host.platform}/gwt-user.jar" />
 	<property name="gwt.dev.jar" location="${gwtext.tools.lib}/gwt/${gwt.version}/${build.host.platform}/gwt-dev-${build.host.platform}.jar" />
 

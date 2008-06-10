@@ -23,6 +23,10 @@
 package com.gwtext.client.pagebus;
 
 /**
+ * A subscription callback that is invoked when a message is received by a subscriber.
+ *
+ * @see com.gwtext.client.pagebus.PageBus.subscribe()
+ *
  * @author Sanjiv Jivan
  */
 public interface SubscriptionCallback {

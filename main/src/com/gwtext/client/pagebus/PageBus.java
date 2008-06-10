@@ -25,14 +25,31 @@ package com.gwtext.client.pagebus;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * The PageBus class can be use to publish objects to any topic and have other (decoupled) components subscribe to these topics.
+ * It is a powerful mechanism for inter component communication and state management.
+ *
  * @author Sanjiv  Jivan
  */
 public class PageBus {
 
+	/**
+	 * Publish an object / message to the specified topic.
+	 *
+	 * @param subject the subject to publish the message to
+	 * @param message the message to publish
+	 */
 	public static native void publish(String subject, Object message)/*-{
         $wnd.PageBus.publish(subject, message);
     }-*/;
 
+	/**
+	 * Subscribe to the specified topic.
+	 *
+	 * @param subject the topic to subscribe to
+	 * @param callback the callback to invoke when a message is received on the subscribed topic
+	 *
+	 * @return handle to the subscription. useful to unsubscribe to topic. {@link #unsubscribe(Subscription)}
+	 */
 	public static native Subscription subscribe(String subject, SubscriptionCallback callback)/*-{
           var sub = $wnd.PageBus.subscribe(subject, this, function(subject, message, subscriberData){
 			  callback.@com.gwtext.client.pagebus.SubscriptionCallback::execute(Ljava/lang/String;Ljava/lang/Object;)(subject, message);
@@ -43,7 +60,12 @@ public class PageBus {
 	private static Subscription createSubscription(JavaScriptObject sub) {
 		return new Subscription(sub);
 	}
-	
+
+	/**
+	 * Unsubscribe previous subscription.
+	 *
+	 * @param subscription the subscription to unsubscribe
+	 */
 	public static native void unsubscribe(Subscription subscription)/*-{
         var sub = subscription.@com.gwtext.client.core.JsObject::jsObj;
 		$wnd.PageBus.unsubscribe(sub);

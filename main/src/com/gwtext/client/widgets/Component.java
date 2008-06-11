@@ -725,13 +725,24 @@ $wnd.Ext.extend=function() {
      * Try to focus this component.
      *
      * @param selectText True to also select the text in this component (if applicable)
-     * @param delay      delay the focus this number of milliseconds (true for 10 milliseconds)
+     * @param delay delay the focus this number of milliseconds
      */
     public native void focus(boolean selectText, int delay) /*-{
         var component = this.@com.gwtext.client.widgets.Component::getJsObj()();
-        if(component != null) component.focus(selectText);
+        if(component != null) component.focus(selectText, delay);
 	}-*/;
 
+    /**
+     * Try to focus this component.
+     *
+     * @param selectText True to also select the text in this component (if applicable)
+     * @param defaultDelay  true for 10 milliseconds delay
+     */
+    public native void focus(boolean selectText, boolean defaultDelay) /*-{
+        var component = this.@com.gwtext.client.widgets.Component::getJsObj()();
+        if(component != null) component.focus(selectText, defaultDelay);
+	}-*/;
+    
     public native ExtElement getEl() /*-{
         var component = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var el = component.getEl();

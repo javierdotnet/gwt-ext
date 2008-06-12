@@ -40,7 +40,8 @@ import com.gwtext.client.core.ListenerConfig;
 public class TextField extends Field {
 
 	private static JavaScriptObject configPrototype;
-
+	private Validator validator;
+	
 	static {
 		init();
 	}
@@ -452,9 +453,20 @@ public class TextField extends Field {
      * @param validator the field validator
      */
     public void setValidator(Validator validator) {
-        setValidator(config, validator);
+        this.validator = validator;
+    	setValidator(config, validator);
     }
 
+    /**
+     * Get the validator set for this field (if any).
+     * Returns null if user hasn't called setValidator() on this TextField instance.
+     * 
+     * @return the validator
+     */
+    public Validator getValidator() {
+    	return this.validator;
+    }
+    
     private static String doValidate(Validator validator, String value) {
         try {
             return validator.validate(value) ? "true-val" : "false-val";

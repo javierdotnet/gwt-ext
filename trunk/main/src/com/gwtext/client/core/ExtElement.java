@@ -1422,7 +1422,7 @@ public class ExtElement extends BaseElement {
 	 */
 	public native void setScrollTop(int scrollTop) /*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        elem.dom.scrolltop = scrollTop;
+        elem.dom.scrollTop = scrollTop;
     }-*/;
 }
 

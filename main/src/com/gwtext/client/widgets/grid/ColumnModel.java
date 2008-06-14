@@ -36,7 +36,42 @@ import com.gwtext.client.widgets.grid.event.ColumnModelListener;
 public class ColumnModel extends JsObject {
 
 	private BaseColumnConfig[] columnConfigs;
+	
+	static {
+		extendFunctionality();
+	}
 
+	/**
+	 * Extend the functionality of this method in extjs to accomodate
+	 * for overwriting the getCellEditor using a custom one for different
+	 * GridEditors per cell.
+	 */
+	private static native void extendFunctionality()/*-{
+		
+		$wnd.Ext.override($wnd.Ext.grid.ColumnModel,{
+			userCustomCellEditor : null,
+			
+			setUserCustomCellEditor : function(editor){
+				this.userCustomCellEditor = editor;
+			},
+			
+			isUserCustomCellEditable : function(colIndex, rowIndex){
+				if(this.userCustomCellEditor == null ) return false;
+				return this.userCustomCellEditor.isUserCustomCellEditable(colIndex, rowIndex);
+			},
+						
+		    getCellEditor : function(colIndex, rowIndex){
+				if(this.userCustomCellEditor == null ) return this.config[colIndex].editor;
+				
+				var custEd = this.userCustomCellEditor.getUserCustomCellEditor(colIndex, rowIndex);
+				if(custEd == null) return this.config[colIndex].editor;
+				
+				return custEd;
+		    }
+		}); 		
+
+	}-*/;	
+	
 	/**
      * Construct a new ColumnModel using a native object.
      *
@@ -92,11 +127,33 @@ public class ColumnModel extends JsObject {
         cm.defaultWidth = defaultWidth;
     }-*/;
 
-    //TODO
-    //http://extjs.com/forum/showthread.php?t=6025&highlight=getCellEditor
-    //need to support way to allow user to plug in logic based cell editors
-    //public GridEditor getCellEditor(int colIndex, int rowIndex)
-
+    /**
+     * This method will allow to set custom editors.  By default, extjs uses
+     * the column index to find a GridEditor; however, if different rows
+     * required different data from a ComboBox or different editors depending
+     * on other data, the default behavior is not enough.  This method sets
+     * a UserCustomCellEditor that is called whenever extjs needs the GridEditor
+     * to display in the grid.
+     * @param ucce The UserCustomCellEditor that overwrites getCellEditor
+     */
+    public native void setUserCustomCellEditor(UserCustomCellEditor ucce)/*-{
+    	var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+    	var ucceJ = ucce.@com.gwtext.client.core.JsObject::getJsObj()();
+    	cm.setUserCustomCellEditor(ucceJ);
+    }-*/;
+    
+    /**
+     * gets the GridEditor for a specific column index and row index.  Only column
+     * index is used if setUserCustomCellEditor is not called.  
+     * @param colIndex Column index to identify the column selected
+     * @param rowIndex Row index to identify the column selected
+     * @return the GridEditor for that column and row index
+     */
+    public native GridEditor getCellEditor(int colIndex, int rowIndex) /*-{
+	    var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
+	    return cm.getCellEditor(colIndex, rowIndex);
+	}-*/;
+    	
     /**
      * Returns the number of columns.
      *
@@ -263,7 +320,12 @@ public class ColumnModel extends JsObject {
      */
     public native boolean isCellEditable(int colIndex, int rowIndex)/*-{
         var cm = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        return cm.isCellEditable(colIndex, rowIndex);
+        var editable = cm.isCellEditable(colIndex, rowIndex);
+        
+        if(editable == false)
+        	editable = cm.isUserCustomCellEditable(colIndex, rowIndex);
+        	
+        return editable;
     }-*/;
 
     /**

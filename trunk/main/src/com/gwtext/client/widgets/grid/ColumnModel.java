@@ -309,8 +309,6 @@ public class ColumnModel extends JsObject {
         return colIndex != -1 && isCellEditable(colIndex, rowIndex);
     }
 
-    //TODO support pluggable strategy for logic of editable cells
-
     /**
      * Returns true if the cell is editable.
      *

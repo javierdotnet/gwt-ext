@@ -79,10 +79,12 @@ public class UrlLoadConfig extends BaseConfig {
      * @param callback callback when transaction is complete
      */
     public native void setCallback(UrlLoadCallback callback)/*-{
-        var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        config['callback'] = function(options, success, response) {
-                callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
+    	if (callback != null) {
+        	var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        	config['callback'] = function(options, success, response) {
+            		callback.@com.gwtext.client.core.UrlLoadCallback::execute(ZILjava/lang/String;)(success, response.status, response.responseText);
             };
+		}
     }-*/;
 
     /**

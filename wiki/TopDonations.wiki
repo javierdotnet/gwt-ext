@@ -7,7 +7,7 @@ You can make a donation by visiting [http://gwt-ext.googlecode.com/svn/donate.ht
 ||*User / Company*|| Company / Application Summary (optional) ||
 
 || A Poddar || - ||
-|| Dennis Becton || - ||
+|| Thierry Ruiz || - ||
 || Jason Horman || - ||
 || Mathias Bogaert || - ||
 || M. Dodd || - ||

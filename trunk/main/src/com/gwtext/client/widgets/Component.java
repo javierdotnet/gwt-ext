@@ -1511,7 +1511,15 @@ $wnd.Ext.extend=function() {
     }
     
     public void addPlugin(ComponentPlugin plugin) {
-    	setAttribute("plugins", plugin.getJsObj(), false);
+    	JavaScriptObject pluginA = getAttributeAsJavaScriptObject("plugins");
+    	if(pluginA == null){
+    		pluginA = JavaScriptObjectHelper.createJavaScriptArray();
+    		JavaScriptObjectHelper.arraySet(pluginA, 0, plugin.getJsObj());
+    	}else{
+    		int index = JavaScriptObjectHelper.arrayLength(pluginA);
+    		JavaScriptObjectHelper.arraySet(pluginA, index, plugin.getJsObj());
+    	}
+    	setAttribute("plugins", pluginA, false);
     }
 
     protected String getAttribute(String attribute) {

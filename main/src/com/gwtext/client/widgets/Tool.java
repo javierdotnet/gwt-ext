@@ -23,6 +23,7 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Window;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
@@ -82,12 +83,39 @@ public class Tool {
         JavaScriptObjectHelper.setAttribute(jsObj, "qtip", qtip);
     }
 
+    
+    /**
+     * Type of tool to be displayed in the upper right corner of panels.
+     * For using stock tools, use the static variables defined in Tool class. <br/>
+     * You need to create ToolType instances only to display your own icons (which should be 15x15 pixels). <br/>
+     * <p/>
+     * Sample usage (for custom tool icons):
+     * <pre>
+     * <code>
+     * Java
+     * ----
+     * // string passed to constructor should be part of the CSS class names
+     * Tool.ToolType flagType = new Tool.ToolType("<b>flag</b>");
+     * panel.addTool(new Tool(flagType, new Function() {
+     * 	public void execute() {
+     * 		Window.alert("Flag tool clicked");
+     * 	}
+     * }));
+     * 
+     * 
+     * CSS
+     * ---
+     * .x-tool-<b>flag</b>{background-image:url(images/flag.gif)}
+     * .x-tool-<b>flag</b>-over{background-image:url(images/flag-over.gif)}
+     * </code>
+     * </pre> 
+     */
     public static class ToolType {
 
         private String type;
 
 
-        private ToolType(String type) {
+        public ToolType(String type) {
             this.type = type;
         }
 

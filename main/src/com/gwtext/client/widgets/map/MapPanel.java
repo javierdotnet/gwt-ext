@@ -104,7 +104,10 @@ public abstract class MapPanel extends Panel {
 		});
 	}
 
-
+	public boolean isMapRendered() {
+		return mapRendered;
+	}
+	
 	protected void afterRender() {
 		DeferredCommand.addCommand(new Command() {
 			public void execute() {

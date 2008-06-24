@@ -507,4 +507,141 @@ public class TextField extends Field {
         setAttribute("vtypeText", vtypeText, true);
     }
 
+    /** 
+     * This method return the position of the caret as a
+     * int array.  Two values are provided: start of highlight
+     * and end of highlight.  If there is nothing highlighted,
+     * the two values are the same.
+     * @return the position of the caret: start and end position
+     */
+    public int[] getCaretPosition(){
+    	int retval[] = new int[2];
+    	JavaScriptObject jsob = getCaretPositionJs();
+    	retval[0] = JavaScriptObjectHelper.getAttributeAsInt(jsob, "start");
+    	retval[1] = JavaScriptObjectHelper.getAttributeAsInt(jsob, "end");
+    	
+    	return retval;    	
+    }
+    
+    private native JavaScriptObject getCaretPositionJs()  /*-{
+    	var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+    	var el = $doc.getElementById(field.getId());
+	    var result = { start: 0, end: 0 };
+	    
+		// IE Support
+		if ($doc.selection) {
+			if (el.type === 'text') // textbox
+			{
+				var range = $doc.selection.createRange();
+				var r2 = range.duplicate();
+				result.start = 0 - r2.moveStart('character', -100000);
+				result.end = result.start + range.text.length;
+			}
+			else // textarea
+			{
+				if (el.value.charCodeAt(el.value.length-1) < 14) {
+					el.value=el.value.replace(/\034/g,'')+String.fromCharCode(28);
+				}
+				var oRng = $doc.selection.createRange();
+				var oRng2 = oRng.duplicate();
+				oRng2.moveToElementText(el);
+				oRng2.setEndPoint('StartToEnd', oRng);
+				result.end = el.value.length-oRng2.text.length;
+				oRng2.setEndPoint('StartToStart', oRng);
+				result.start = el.value.length-oRng2.text.length;
+
+			}
+		}
+		// Firefox support
+		else if (el.selectionStart || el.selectionStart == '0')
+		{
+			result.start = input.selectionStart;
+			result.end = input.selectionEnd;
+		}
+		return result;
+	}-*/;	
+
+    /**
+     * This method sets the caret position
+     * @param caretPos the caret position
+     */
+    public native void setCaretPosition(int caretStart, int numToSelect) /*-{
+    	var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+    	var el = $doc.getElementById(field.getId());
+
+		if ($doc.selection) // IE
+		{
+			var range = $doc.selection.createRange();
+			if (el.type == 'text') // textbox
+			{
+				range.moveStart ('character', -el.value.length);
+				range.moveEnd ('character', -el.value.length);
+				range.moveStart ('character', caretStart);
+				range.moveEnd ('character', numToSelect);
+				range.select();	
+			}
+			else // textarea
+			{
+				var sel = textArea.createTextRange();
+				sel.collapse(true);
+				sel.moveStart("character", caretStart);
+				sel.moveEnd("character", numToSelect);
+				sel.select();
+			}
+		}
+		else if (el.selectionStart || el.selectionStart == '0') // Firefox
+		{
+			el.setSelectionRange(caretStart, numToSelect);
+		}
+		
+    }-*/;
+    
+    
+    public native void insertAtCaret(String text) /*-{
+        var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
+    	var el = $doc.getElementById(field.getId());
+    	
+		if($doc.selection) {
+			el.focus();
+			var orig = el.value.replace(/\r\n/g, "\n");
+			var range = $doc.selection.createRange();
+
+			if(range.parentElement() != el) {
+				return false;
+			}
+
+			range.text = text;
+			var actual, tmp;
+			
+			actual = tmp = el.value.replace(/\r\n/g, "\n");
+
+			for(var diff = 0; diff < orig.length; diff++) {
+				if(orig.charAt(diff) != actual.charAt(diff)) break;
+			}
+
+			for(var index = 0, start = 0; 
+				tmp.match(text) 
+					&& (tmp = tmp.replace(text, "")) 
+					&& index <= diff; 
+				index = start + text.length
+			) {
+				start = actual.indexOf(text, index);
+			}
+		} else if(el.selectionStart) {
+			var start = el.selectionStart;
+			var end   = el.selectionEnd;
+
+			el.value = el.value.substr(0, start) 
+				+ text 
+				+ el.value.substr(end, el.value.length);
+		}
+		
+		if(start != null) {
+		    var textend = start + text.length;
+		    this.@com.gwtext.client.widgets.form.TextField::setCaretPosition(II)(textend,textend);
+		} else {
+			el.value += text;
+		}
+    }-*/;
+    
 }

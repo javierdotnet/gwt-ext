@@ -783,7 +783,7 @@ public class ExtElement extends BaseElement {
      * Normalizes currentStyle and computedStyle.
      *
      * @param property the style property whose value is returned
-     * @return the current value of the style property for this element
+     * @return the current value of the style property for this element, "undefined" if the style is not applied to the element
      */
     public native String getStyle(String property)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();

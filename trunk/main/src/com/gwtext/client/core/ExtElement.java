@@ -787,7 +787,7 @@ public class ExtElement extends BaseElement {
      */
     public native String getStyle(String property)/*-{
         var elem = this.@com.gwtext.client.core.JsObject::getJsObj()();
-        return elem.getStyle(property);
+        return String(elem.getStyle(property));
     }-*/;
 
     /**

@@ -23,6 +23,7 @@
 package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtext.client.core.Function;
 
 /**
  * Numeric text field that provides automatic keystroke filtering and numeric validation.
@@ -31,22 +32,30 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class NumberField extends TextField {
 
-    //tempory fix until fix gets rolled into Ext 1.1.2
-    //see http://extjs.com/forum/showthread.php?p=79055#post79055
-    //see http://code.google.com/p/gwt-ext/issues/detail?id=76&can=1
-    //see http://groups.google.com/group/gwt-ext/browse_thread/thread/36cf6032ad34feeb
+    //Seems that the whole precision and set value is all messed up...This fix
+	// should take care of it...
     static {
-        init();
+        fix();
     }
 
-    private native static void init() /*-{
+    private native static void fix() /*-{
+        //EXTJS_FIX_NEEDED   
         $wnd.Ext.form.NumberField.prototype.fixPrecision = function(value){
             var nan = isNaN(value);
             if(!this.allowDecimals || this.decimalPrecision == -1 || nan || !value){
                 return nan ? '' : value;
             }
-            return parseFloat(parseFloat(value).toFixed(this.decimalPrecision));
+            //return parseFloat(parseFloat(value).toFixed(this.decimalPrecision));  // <-- old
+            return (parseFloat(value)).toFixed(this.decimalPrecision);	// <-- new
         }
+ 
+        $wnd.Ext.form.NumberField.prototype.setValue = function(v){
+    			//v = parseFloat(v);	// <-- old
+    			v=this.fixPrecision(v); // <-- new
+    			v = isNaN(v) ? '' : String(v).replace(".", this.decimalSeparator);
+        		$wnd.Ext.form.NumberField.superclass.setValue.call(this, v);
+        } 
+        		
     }-*/;
 
     /**
@@ -92,11 +101,22 @@ public class NumberField extends TextField {
     }-*/;
 
     /**
-     * Sets the fields value.
-     *
-     * @param value the field value
+     * Sets the fields value regardless if the field is rendered or not
+     * @param value the value to set the field
      */
-    public native void setValue(float value) /*-{
+    public void setValue(final float value){
+		if(!isRendered()) {
+			addListener("render", new Function() {
+				public void execute() {
+					setValueJ(value);
+				}
+			});
+		} else {
+			setValueJ(value);
+		}
+    }
+    
+    private native void setValueJ(float value) /*-{
         var field = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         field.setValue(value);
     }-*/;

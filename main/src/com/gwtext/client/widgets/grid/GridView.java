@@ -25,6 +25,7 @@ package com.gwtext.client.widgets.grid;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
+import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.JsObject;
 import com.gwtext.client.data.Record;
 import com.gwtext.client.data.Store;
@@ -208,6 +209,42 @@ public class GridView extends JsObject {
         var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
         view.updateHeaderSortState();
     }-*/;
+
+    /**
+     * To find a row index for a specific target for drag and drop
+     * @param t the target grid object
+     * @return the index on the grid
+     */
+    public native int findRowIndex(JavaScriptObject t)/*-{
+    	var index = -1;
+    	var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
+    	
+    	try{    	
+        	index = view.grid.getView().findRowIndex(t);
+        	if(index === false) index = -1;
+        }catch(e){}
+        
+        return index;
+	}-*/;
+
+    /**
+     * To find a row index for a specific target for drag and drop
+     * @param evtObj the event object
+     * @return the index on the grid
+     */
+    public native int findRowIndex(EventObject evtObj)/*-{
+		var index = -1;
+		var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
+		var jsObj = evtObj.@com.gwtext.client.core.JsObject::getJsObj()();
+		
+		try{    	
+	    	var t = $wnd.Ext.lib.Event.getTarget(jsObj);
+	    	index = view.grid.getView().findRowIndex(t);
+	    	if(index === false) index = -1;
+	    }catch(e){}
+	    
+	    return index;
+	}-*/;
 
     /**
      * True to auto expand the columns to fit the grid <b>when the grid is created</b>.

@@ -29,8 +29,10 @@ import com.gwtext.client.data.SimpleStore;
 import com.gwtext.client.data.Store;
 import com.gwtext.client.dd.DragData;
 import com.gwtext.client.dd.DragDrop;
+import com.gwtext.client.dd.DragSource;
+import com.gwtext.client.dd.DropTarget;
+import com.gwtext.client.dd.DropTargetConfig;
 import com.gwtext.client.util.Format;
-import com.gwtext.client.widgets.Component;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.form.FieldSet;
 import com.gwtext.client.widgets.form.FormPanel;
@@ -42,6 +44,7 @@ import com.gwtext.client.widgets.tree.*;
 import com.gwtext.client.widgets.tree.event.TreePanelListenerAdapter;
 import com.gwtext.sample.showcase2.client.SampleData;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
+import com.gwtext.client.core.EventObject;
 
 public class GridTreeDDSample extends ShowcasePanel {
 
@@ -75,6 +78,9 @@ public class GridTreeDDSample extends ShowcasePanel {
             //create source countries grid
             final Store store = new SimpleStore(new String[]{"abbr", "country"}, SampleData.getCountries());
             store.load();
+            
+            final Store store2 = new SimpleStore(new String[]{"abbr", "country"}, new String[][]{});
+            store.load();
 
             ColumnConfig[] columns = {
                     new ColumnConfig("Flag", "abbr", 45, true, new Renderer() {
@@ -87,7 +93,7 @@ public class GridTreeDDSample extends ShowcasePanel {
             };
 
             ColumnModel columnModel = new ColumnModel(columns);
-            GridPanel countriesGrid = new GridPanel();
+            final GridPanel countriesGrid = new GridPanel();
 			countriesGrid.setTitle("Countries");
 			countriesGrid.setStore(store);
             countriesGrid.setColumnModel(columnModel);
@@ -106,7 +112,8 @@ public class GridTreeDDSample extends ShowcasePanel {
             tripTreePanel.setContainerScroll(true);
             tripTreePanel.setRootVisible(true);
             tripTreePanel.setWidth(200);
-            tripTreePanel.setHeight(390);            
+            tripTreePanel.setHeight(390);  
+            tripTreePanel.setEnableDD(true);
 
             final XMLTreeLoader tripLoader = new XMLTreeLoader();
             tripLoader.setDataUrl("data/trip.xml");
@@ -133,7 +140,9 @@ public class GridTreeDDSample extends ShowcasePanel {
                         TreeNode[] copyNodes = new TreeNode[records.length];
                         for (int i = 0; i < records.length; i++) {
                             Record record = records[i];
-                            TreeNode copyNode = new TreeNode(record.getAsString("country"));
+                            String country = record.getAsString("country");
+                            TreeNode copyNode = new TreeNode(country);
+                            copyNode.setId(country);
                             copyNode.setIcon("images/flags/" + record.getAsString("abbr") + ".gif");
                             copyNodes[i] = copyNode;
                             target.appendChild(copyNode);
@@ -142,12 +151,57 @@ public class GridTreeDDSample extends ShowcasePanel {
                                 Store store = grid.getStore();
                                 store.remove(record);
                                 store.commitChanges();
+                                
+                                store2.add(record);
+                                store2.commitChanges();
                             }
                         }
                     }
                     return true;
                 }
             });
+            
+            DropTargetConfig cfg = new DropTargetConfig();
+            cfg.setdDdGroup("myDDGroup");
+            
+            DropTarget tg = new DropTarget(countriesGrid, cfg) {
+                public boolean notifyDrop(DragSource source, EventObject e,
+                      DragData data) {
+                	if(data instanceof GridDragData) return false;
+                	
+                	TreeDragData treeDragData = (TreeDragData) data;
+                	TreeNode treeNode = treeDragData.getTreeNode();
+                	String country = treeNode.getText();
+                	
+                	GridView view = countriesGrid.getView();
+                	int droppedRow = view.findRowIndex(e);
+                	
+                	int index = store2.find("country", country, 0, true, true);
+                	Record record = store2.getAt(index);
+                	
+                	if(record != null){
+                        if (moveRadio.getValue()) {
+                        	if(droppedRow == -1){
+                        		store.add(record);
+                        	}else{
+                        		store.insert(droppedRow, record);
+                        	}
+                            store.commitChanges();
+                        }
+                        store2.remove(record);
+                        store2.commitChanges();
+                	}
+                    
+                    TreeNode node = tripTreePanel.getNodeById(country);
+                    tripRoot.removeChild(node);
+                    return true;
+                }
+
+                public String notifyOver(DragSource source, EventObject e,
+                      DragData data) {
+                   return "x-dd-drop-ok";
+                }
+             };
 
             Panel horizontalPanel = new Panel();
             horizontalPanel.setLayout(new HorizontalLayout(25));

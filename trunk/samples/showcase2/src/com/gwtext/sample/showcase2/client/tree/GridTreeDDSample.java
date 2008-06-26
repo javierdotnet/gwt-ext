@@ -221,6 +221,6 @@ public class GridTreeDDSample extends ShowcasePanel {
     }
 
     public String getIntro() {
-        return "This example demonstrates Drag & Drop from a Grid to a Tree";
+        return "This example demonstrates Drag & Drop from a Grid to a Tree and vice-versa";
     }
 }

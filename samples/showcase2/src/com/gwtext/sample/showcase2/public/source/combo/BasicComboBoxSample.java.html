@@ -98,7 +98,7 @@ public class BasicComboBoxSample implements EntryPoint {
 
             public boolean doBeforeSelect(ComboBox comboBox, Record record, int index) {
                 System.out.println("ComboBox::doBeforeSelect(" +
-                                        record.getAsString("states") + ")");
+                                        record.getAsString("state") + ")");
                 return super.doBeforeSelect(comboBox, record, index);
             }
 
@@ -111,7 +111,7 @@ public class BasicComboBoxSample implements EntryPoint {
             }
 
             public void onSelect(ComboBox comboBox, Record record, int index) {
-                System.out.println("ComboBox::onSelect('" + record.getAsString("states") + "')");
+                System.out.println("ComboBox::onSelect('" + record.getAsString("state") + "')");
             }
 
             public void onBlur(Field field) {

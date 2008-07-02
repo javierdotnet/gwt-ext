@@ -82,7 +82,7 @@ public class BasicComboBoxSample extends ShowcasePanel {
 				}
 
 				public boolean doBeforeSelect(ComboBox comboBox, Record record, int index) {
-					log(EVENT, "ComboBox::doBeforeSelect('" + record.getAsString("states") + "')");
+					log(EVENT, "ComboBox::doBeforeSelect('" + record.getAsString("state") + "')");
 					return super.doBeforeSelect(comboBox, record, index);
 				}
 
@@ -95,7 +95,7 @@ public class BasicComboBoxSample extends ShowcasePanel {
 				}
 
 				public void onSelect(ComboBox comboBox, Record record, int index) {
-					log(EVENT, "ComboBox::onSelect('" + record.getAsString("states") + "')");
+					log(EVENT, "ComboBox::onSelect('" + record.getAsString("state") + "')");
 				}
 
 				public void onBlur(Field field) {

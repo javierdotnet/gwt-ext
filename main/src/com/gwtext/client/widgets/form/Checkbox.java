@@ -41,7 +41,6 @@ public class Checkbox extends Field {
 
 	private static native void init()/*-{
 		var c = new $wnd.Ext.form.Checkbox();
-		var c = new $wnd.Ext.form.Checkbox();
 		@com.gwtext.client.widgets.form.Checkbox::configPrototype = c.initialConfig;
 	}-*/;
 

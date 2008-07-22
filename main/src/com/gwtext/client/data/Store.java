@@ -97,7 +97,9 @@ public class Store extends JsObject {
     }
 
     /**
-     * Create a Store using the specified {@link Reader}.
+     * Create a Store using the specified {@link Reader}. Use this constructor when you're loading data using
+	 * {@link #loadXmlData}. When calling {@link #load}, you need to provide a DataProxy so use Store(DataProxy dataProxy, Reader reader)
+	 * constructor.
      *
      * @param reader the reader
      */

@@ -582,7 +582,7 @@ public class TextField extends Field {
 			}
 			else // textarea
 			{
-				var sel = textArea.createTextRange();
+				var sel = el.createTextRange();
 				sel.collapse(true);
 				sel.moveStart("character", caretStart);
 				sel.moveEnd("character", numToSelect);

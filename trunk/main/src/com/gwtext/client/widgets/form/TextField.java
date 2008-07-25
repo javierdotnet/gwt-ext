@@ -530,6 +530,7 @@ public class TextField extends Field {
 	    
 		// IE Support
 		if ($doc.selection) {
+		    el.focus();
 			if (el.type === 'text') // textbox
 			{
 				var range = $doc.selection.createRange();
@@ -555,8 +556,8 @@ public class TextField extends Field {
 		// Firefox support
 		else if (el.selectionStart || el.selectionStart == '0')
 		{
-			result.start = input.selectionStart;
-			result.end = input.selectionEnd;
+			result.start = el.selectionStart;
+			result.end = el.selectionEnd;
 		}
 		return result;
 	}-*/;	
@@ -591,7 +592,7 @@ public class TextField extends Field {
 		}
 		else if (el.selectionStart || el.selectionStart == '0') // Firefox
 		{
-			el.setSelectionRange(caretStart, numToSelect);
+			el.setSelectionRange(caretStart, caretStart+numToSelect);
 		}
 		
     }-*/;

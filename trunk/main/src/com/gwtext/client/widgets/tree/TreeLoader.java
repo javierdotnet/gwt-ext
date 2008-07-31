@@ -220,6 +220,13 @@ public class TreeLoader extends JsObject {
 	}
 
 	//todo  uiProviders
-
+	/**
+	 * Sets a new TreeNodeUI
+	 *
+	 * @param uiProvider the new UI Provider
+	 */
+	public void setUiProviders(JavaScriptObject uiProvider) {
+		JavaScriptObjectHelper.setAttribute(configJS, "uiProviders", uiProvider);
+	}
 
 }

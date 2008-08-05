@@ -132,6 +132,15 @@ public class GridView extends JsObject {
     }-*/;
 
     /**
+     * Scrolls the grid to the position passed as parameter
+     * @param scrollTop a positive integer to scroll to
+     */
+    public native void scrollTo(int scrollTop) /*-{
+		var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
+		view.scroller.dom.scrollTop = scrollTop; 
+	}-*/;
+    
+    /**
      * Return the header cell.
      *
      * @param index header index

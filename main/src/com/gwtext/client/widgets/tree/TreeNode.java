@@ -610,4 +610,12 @@ public class TreeNode extends Node {
     //http://extjs.com/forum/showthread.php?t=4460&highlight=uiProvider
     //TODO
     //uiProvider
+	/**
+	 * Sets a new TreeNodeUI
+	 *
+	 * @param uiProvider the new UI Provider
+	 */
+	public void setUiProviders(JavaScriptObject uiProvider) {
+		JavaScriptObjectHelper.setAttribute(configJS, "uiProviders", uiProvider);
+	}    
 }

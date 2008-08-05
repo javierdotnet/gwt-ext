@@ -132,12 +132,18 @@ public class GridView extends JsObject {
     }-*/;
 
     /**
-     * Scrolls the grid to the position passed as parameter
-     * @param scrollTop a positive integer to scroll to
+     * Scrolls the grid to the horizontal and vertical positions passed as parameters
+     * @param scrollLeft horizontal scroll position. Pass a -ve int to leave the current horizontal scroll position unchanged.
+     * @param scrollTop vertical scroll position. Pass a -ve int to leave the current vertical scroll value unchanged. 
      */
-    public native void scrollTo(int scrollTop) /*-{
+    public native void scrollToPosition(int scrollLeft, int scrollTop) /*-{
 		var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
-		view.scroller.dom.scrollTop = scrollTop; 
+		
+		if(scrollLeft >= 0)
+			view.scroller.dom.scrollLeft = scrollLeft;
+		
+		if(scrollTop >= 0)
+			view.scroller.dom.scrollTop = scrollTop; 
 	}-*/;
     
     /**

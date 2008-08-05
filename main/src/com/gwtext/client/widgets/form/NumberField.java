@@ -48,10 +48,27 @@ public class NumberField extends TextField {
             //return parseFloat(parseFloat(value).toFixed(this.decimalPrecision));  // <-- old
             return (parseFloat(value)).toFixed(this.decimalPrecision);	// <-- new
         }
+
+		$wnd.Ext.form.NumberField.prototype.removeTrailingZeros = function(value) {
+			var decPos=value.indexOf(".");
+			if (decPos>-1){
+				var first=value.substring(0,decPos);
+				var second=value.substring(decPos,value.length);
+				while (second.charAt(second.length-1)=="0")
+					second=second.substring(0,second.length-1);
+				if (second.length>1)
+					return first+second;
+				else
+					return first;
+			}
+			return value;
+		}        
  
         $wnd.Ext.form.NumberField.prototype.setValue = function(v){
     			//v = parseFloat(v);	// <-- old
     			v=this.fixPrecision(v); // <-- new
+    			if(this.removeTrailZeros && this.removeTrailZeros === true)
+    				v=this.removeTrailingZeros(v); // <-- new
     			v = isNaN(v) ? '' : String(v).replace(".", this.decimalSeparator);
         		$wnd.Ext.form.NumberField.superclass.setValue.call(this, v);
         } 
@@ -209,6 +226,18 @@ public class NumberField extends TextField {
         setAttribute("decimalPrecision", decimalPrecision, true);
     }
 
+    /**
+     * This method removes trailing zeros after the last non-zero 
+     * after the decimal point.  This check is done after the 
+     * precision is calculated (defaults to false).
+	 *
+     * @param removeTrailZeros true to remove trailing zeros
+     * @throws IllegalStateException this property cannot be changed after the Component has been rendered
+     */
+    public void setRemoveTrailingZeros(boolean removeTrailZeros) throws IllegalStateException {
+        setAttribute("removeTrailZeros", removeTrailZeros, true);
+    }
+    
     /**
      *  Character(s) to allow as the decimal separator (defaults to '.').
 	 *

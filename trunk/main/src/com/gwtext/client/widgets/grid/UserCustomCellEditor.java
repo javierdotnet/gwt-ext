@@ -59,7 +59,7 @@ public class UserCustomCellEditor extends JsObject {
 			},	
 			isUserCustomCellEditable : function(colIndex, rowIndex){
 				return pluginIsEditable(colIndex, rowIndex);
-			},		
+			}
 		}
 	}-*/;
 	

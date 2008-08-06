@@ -50,6 +50,11 @@ public class NumberField extends TextField {
         }
 
 		$wnd.Ext.form.NumberField.prototype.removeTrailingZeros = function(value) {
+			var nan = isNaN(value);
+            if(!this.allowDecimals || this.decimalPrecision == -1 || nan || !value){
+              return nan ? '' : value;
+            }		
+            
 			var decPos=value.indexOf(".");
 			if (decPos>-1){
 				var first=value.substring(0,decPos);

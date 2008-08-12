@@ -188,7 +188,7 @@ public class Record extends JsObject {
         var value = record.get(field);
         //todo?
         //if (value === undefined) throw new Error("Invalid field " + field);
-        return (value === undefined || value == null) ? null : value.toString();
+        return (value === undefined || value == null || value === '') ? null : value.toString();
     }-*/;
 
     /**

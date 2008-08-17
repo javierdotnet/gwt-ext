@@ -615,7 +615,11 @@ public class TreeNode extends Node {
 	 *
 	 * @param uiProvider the new UI Provider
 	 */
-	public void setUiProviders(JavaScriptObject uiProvider) {
-		JavaScriptObjectHelper.setAttribute(configJS, "uiProviders", uiProvider);
-	}    
+	public void setUiProvider(JavaScriptObject uiProvider) {
+		JavaScriptObjectHelper.setAttribute(configJS, "uiProvider", uiProvider);
+	} 
+	
+    public void setTreeAttribute(String name, Object value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
 }

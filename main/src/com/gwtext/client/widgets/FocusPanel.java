@@ -42,7 +42,6 @@ public class FocusPanel extends Panel {
 
 	public FocusPanel() {
 		super();
-		setAttribute("tabindex", 0, true);
 		setStyle("visibility: visible");
 	}
 
@@ -53,7 +52,6 @@ public class FocusPanel extends Panel {
 	 */
 	public FocusPanel(String title) {
 		super(title);
-		setAttribute("tabindex", 0, true);
 		setStyle("visibility: visible");
 	}
 
@@ -64,7 +62,6 @@ public class FocusPanel extends Panel {
 	 */
 	public FocusPanel(String title, String html) {
 		super(title, html);
-		setAttribute("tabindex", 0, true);
 		setStyle("visibility: visible");
 	}
 
@@ -77,7 +74,6 @@ public class FocusPanel extends Panel {
 	 */
 	public FocusPanel(String title, int width, int height) {
 		super(title, width, height);
-		setAttribute("tabindex", 0, true);
 		setStyle("visibility: visible");
 	}
 
@@ -155,9 +151,11 @@ public class FocusPanel extends Panel {
 
 				// Chaining the renderer from the caller...
 				listener.onRender(component);
+				
+				// Setting a tab index of 0 so that firefox can set focus on it.
+				setTabIndex(0);
 			}
 		});
-
 		//wheel... http://adomas.org/javascript-mouse-wheel/
 	}
 

@@ -73,6 +73,10 @@ public class TreeNode extends Node {
     public static Node instance(JavaScriptObject jsObj) {
         return new TreeNode(jsObj);
     }
+    
+    public static TreeNode treeNodeInstance(JavaScriptObject jsObj){
+    	return new TreeNode(jsObj);
+    }
 
     protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.tree.TreeNode(config);

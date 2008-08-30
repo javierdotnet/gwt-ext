@@ -124,19 +124,86 @@ public class PanelsSample extends ShowcasePanel {
 
             window.setAnimateTarget(button.getId());
 
+            HorizontalPanel horizontalPanel3 = new HorizontalPanel();
+            horizontalPanel3.setSpacing(15);
+            HorizontalPanel horizontalPanel4 = new HorizontalPanel();
+            horizontalPanel4.setSpacing(15);
+            
+            SyntaxHighlightPanel shPanelXml = new SyntaxHighlightPanel(getXmlData(), SyntaxHighlightPanel.SYNTAX_XML);
+            shPanelXml.setWidth(400);
+            shPanelXml.setTitle("SyntaxHighlightPanel XML");
+            shPanelXml.setShadow(true);
+            SyntaxHighlightPanel shPanelJava = new SyntaxHighlightPanel(getJavaData(), SyntaxHighlightPanel.SYNTAX_JAVA);
+            shPanelJava.setWidth(400);
+            shPanelJava.setTitle("SyntaxHighlightPanel Java");
+            shPanelJava.setShadow(true);
+            shPanelJava.setShowGutter(false);
+            shPanelJava.setShowControls(false);
+            shPanelJava.setShowColumns(false);
+            shPanelJava.setBorder(true);
+
             horizontalPanel.add(collapsiblePanel);
             horizontalPanel.add(toolsPanel);
             horizontalPanel2.add(draggablePanel);
             horizontalPanel2.add(button);
+            horizontalPanel3.add(shPanelXml);
+            horizontalPanel4.add(shPanelJava);
 
             Panel verticalPanel = new Panel();
             verticalPanel.setLayout(new VerticalLayout(15));
             verticalPanel.add(horizontalPanel);
             verticalPanel.add(horizontalPanel2);
+            verticalPanel.add(horizontalPanel3);
+            verticalPanel.add(horizontalPanel4);
 
             panel.add(verticalPanel);
         }
         return panel;
+    }
+    
+    public String getXmlData(){
+    	StringBuffer sb = new StringBuffer();
+    	
+    	sb.append("<countries>\n");
+    	sb.append("  <team title=\"Iceland\">\n");
+    	sb.append("    <country title=\"Australia\">\n");
+    	sb.append("    <country title=\"Brazil\">\n");
+    	sb.append("    <country title=\"Canada\">\n");
+    	sb.append("    <country title=\"China\">\n");
+    	sb.append("  </team>\n");
+    	sb.append("  <team title=\"Finland\">\n");
+    	sb.append("    <country title=\"Germany\">\n");
+    	sb.append("    <country title=\"France\">\n");
+    	sb.append("    <country title=\"Canada\">\n");
+    	sb.append("    <country title=\"India\">\n");
+    	sb.append("    <country title=\"Seychelles\">\n");
+    	sb.append("  </team>\n\n");
+
+    	sb.append("  <team title=\"Switzerland\">\n");
+    	sb.append("    <country title=\"United States\">\n");
+    	sb.append("    <country title=\"Japan\">\n");
+    	sb.append("    <country title=\"Italy\">\n");
+    	sb.append("    <country title=\"Finland\">\n");
+    	sb.append("  </team>\n");
+    	sb.append("</countries>\n");
+    	
+    	return sb.toString();
+    }
+    
+    public String getJavaData(){
+    	StringBuffer sb = new StringBuffer();
+    	
+    	sb.append("public class foo{\n");
+    	sb.append("	 private int i = 0;\n");
+    	sb.append("	 public foo(){\n");
+    	sb.append("	   i = 1;\n");
+    	sb.append("	 }\n\n");
+    	sb.append("	 public void print(){\n");
+    	sb.append("	   System.out.println(\"counter = \" + i++);\n");
+    	sb.append("	 }\n");
+    	sb.append("}\n");
+    	
+    	return sb.toString();
     }
 
     public String getIntro() {

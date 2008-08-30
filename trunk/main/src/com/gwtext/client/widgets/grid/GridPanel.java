@@ -88,7 +88,8 @@ import com.gwtext.client.widgets.grid.event.*;
 public class GridPanel extends Panel {
 
     private static JavaScriptObject configPrototype;
-
+    private Store store = null;
+    
     static {
         init();
     }
@@ -193,8 +194,7 @@ public class GridPanel extends Panel {
      * @return the Grids Store
      */
     public Store getStore() {
-        JavaScriptObject storeJS = getAttributeAsJavaScriptObject("store");
-        return storeJS == null ? null : new Store(storeJS);
+        return store;
     }
 
     /**
@@ -805,6 +805,7 @@ public class GridPanel extends Panel {
      */
     public void setStore(Store store) throws IllegalStateException {
         setAttribute("store", store.getJsObj(), true);
+        this.store = store;
     }
 
     /**

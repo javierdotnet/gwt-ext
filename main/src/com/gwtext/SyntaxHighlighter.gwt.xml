@@ -1,0 +1,21 @@
+
+<module>
+    <inherits name='com.gwtext.GwtExt'/>
+    <script src="js/sh/shCore.js"/>
+
+    <script src="js/sh/shBrushCpp.js"/>
+    <script src="js/sh/shBrushCSharp.js"/>
+    <script src="js/sh/shBrushCss.js"/>
+    <script src="js/sh/shBrushDelphi.js"/>
+    <script src="js/sh/shBrushJava.js"/>
+    <script src="js/sh/shBrushJScript.js"/>
+    <script src="js/sh/shBrushPhp.js"/>
+    <script src="js/sh/shBrushPython.js"/>
+    <script src="js/sh/shBrushRuby.js"/>
+    <script src="js/sh/shBrushSql.js"/>
+    <script src="js/sh/shBrushVb.js"/>
+    <script src="js/sh/shBrushXml.js"/>
+
+    <stylesheet src="js/sh/SyntaxHighlighter.css"/>
+
+</module>

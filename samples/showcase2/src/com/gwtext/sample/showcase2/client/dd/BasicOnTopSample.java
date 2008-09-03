@@ -87,9 +87,9 @@ public class BasicOnTopSample extends ShowcasePanel {
         }
 
         public void startDrag(int x, int y) {
-            String zIndex = DOM.getStyleAttribute(this.getEl(), "zIndex");
-            if(zIndex != null && !"".equals(zIndex)) {
-                origZ = Integer.parseInt(zIndex);
+            int zIndex = DOM.getIntStyleAttribute(this.getEl(), "zIndex");
+            if(zIndex != 0) {
+                origZ = zIndex;
             }
             DOM.setIntStyleAttribute(this.getEl(), "zIndex", 999);
         }

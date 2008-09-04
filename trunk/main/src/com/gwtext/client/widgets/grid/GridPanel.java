@@ -124,6 +124,16 @@ public class GridPanel extends Panel {
         setStore(store);
         setColumnModel(columnModel);
     }
+    
+    /**
+     * Static method which returns the GridPanel instance based
+     * on the JavaScriptObject
+     * @param jsObj the JavaScript Object that represents the GridPanel
+     * @return The GridPanel instance based on the JavaScriptObject passed in
+     */
+    public static GridPanel instance(JavaScriptObject jsObj) {
+        return new GridPanel(jsObj);
+    }
 
     /**
      * Creates a new Grid.

@@ -73,7 +73,7 @@ public class DatePicker extends Component {
         return new $wnd.Ext.DatePicker(config);    
     }-*/;
 
-    private static DatePicker instance(JavaScriptObject jsObj) {
+    public static DatePicker instance(JavaScriptObject jsObj) {
         return new DatePicker(jsObj);
     }
 

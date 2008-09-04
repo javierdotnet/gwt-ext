@@ -25,6 +25,7 @@ package com.gwtext.client.widgets.form;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
+import com.gwtext.client.widgets.event.DatePickerListener;
 
 import java.util.Date;
 
@@ -35,6 +36,33 @@ import java.util.Date;
  */
 public class DateField extends TextField {
 
+	/**
+	 * Fixes issues with the normal DateField...
+	 */
+	static {
+		fix();
+	}
+	
+	/**
+	 * This method is called once when the DateField is instantiated.  
+	 * This method currently fixes the fire of event on select!
+	 */
+	private static native void fix()/*-{
+		$wnd.Ext.ux.DateFieldEx = $wnd.Ext.extend($wnd.Ext.form.DateField, {
+			initComponent: function () {
+				$wnd.Ext.ux.DateFieldEx.superclass.initComponent.call(this);
+				this.addEvents(
+			    	'select'
+				);
+			    this.menuListeners.select = function (m, d) {
+			    	if (this.fireEvent("select", this, d) !== false)
+			        	this.setValue(d);
+			    };
+			}
+		});
+		$wnd.Ext.reg('datefieldex', $wnd.Ext.ux.DateFieldEx);
+	}-*/;
+	
     /**
      * Construct a new DateField.
      */
@@ -68,7 +96,7 @@ public class DateField extends TextField {
     }
 
     protected native JavaScriptObject create(JavaScriptObject jsObj) /*-{
-        return new $wnd.Ext.form.DateField(jsObj);
+        return new $wnd.Ext.ux.DateFieldEx(jsObj);
     }-*/;
 
     /**
@@ -81,7 +109,23 @@ public class DateField extends TextField {
         return date == -1 ? null : new Date((long)date);
     }
 
+    /**
+     * Add a Date Picker Listener.
+     *
+     * @param listener the listener
+     */
+    public native void addListener(DatePickerListener listener) /*-{
+        this.@com.gwtext.client.widgets.Component::addListener(Lcom/gwtext/client/widgets/event/ComponentListener;)(listener);
 
+        this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('select',
+                function(datePicker, date) {
+                    var d = @com.gwtext.client.util.DateUtil::create(D)(date.getTime());
+                    var componentJ = @com.gwtext.client.widgets.DatePicker::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(datePicker);
+                    listener.@com.gwtext.client.widgets.event.DatePickerListener::onSelect(Lcom/gwtext/client/widgets/DatePicker;Ljava/util/Date;)(componentJ, d);
+                }
+        );
+    }-*/;
+    
 	protected native Element getElement(JavaScriptObject jsObj) /*-{
         //for trigger fields, we want the text area as well as the trigger button to be treated as the element
         //unit
@@ -125,7 +169,7 @@ public class DateField extends TextField {
     //-- config properties ---
 
     public String getXType() {
-        return "datefield";
+        return "datefieldex";
     }
 
     public void setAltFormats(String altFormats) {

@@ -85,4 +85,18 @@ public class Radio extends Checkbox {
         var rb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         return rb.getGroupValue();
     }-*/;
+    
+    /**
+     * A value to initialize this field with.
+     *
+     * @param value the field value
+     */
+    public void setValue(String value) {
+        if(!isRendered()) {
+            setAttribute("inputValue", value, true);
+        }else {
+            super.setValue(value);
+        }
+    }
+
 }

@@ -68,7 +68,7 @@ public class SyntaxHighlightPanel extends HTMLPanel {
      * Create a new SyntaxHighlightPanel.
      */
     public SyntaxHighlightPanel() {
-        setBorder(true);
+    	this(null, SYNTAX_XML);
     }
 
     /**
@@ -120,6 +120,30 @@ public class SyntaxHighlightPanel extends HTMLPanel {
     }
     
     /**
+     * This method can be called after the component is rendered
+     * so that it can update the code
+     * @param html the code fragment to hightlight
+     * @param syntaxType the syntax type
+     */
+    public void updateHtml(String html, String syntaxType)
+    {
+        this.html = html;
+        this.syntaxType = syntaxType;
+        setSuperHtml(setSyntaxHighlight());
+        executeSh(name, showGutter, showControls, collapseAll, firstLine, showColumns);
+    }
+    
+    /**
+     * This method can be called after the component is rendered
+     * so that it can update the code
+     * @param html the code fragment to hightlight
+     */
+    public void updateHtml(String html)
+    {
+    	updateHtml(html, syntaxType);
+    }
+    
+    /**
      * used internally to call the super method for setHtml...
      * @param html the html to set for the panel
      */
@@ -135,7 +159,7 @@ public class SyntaxHighlightPanel extends HTMLPanel {
      */
     protected String  setSyntaxHighlight(){
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("<textarea name=\"");
+		buffer.append("<textarea style='width:100%;height:100%;' name=\"");
 		buffer.append(name);
 		buffer.append("\" class=\"");
 		buffer.append(syntaxType);

@@ -185,7 +185,7 @@ public class TreePanel extends Panel {
             panel.expandPath(path);
         } else {
             panel.expandPath(path, null, function(success, node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 cb.@com.gwtext.client.widgets.tree.NodeExpansionCallback::onExpand(ZLcom/gwtext/client/widgets/tree/TreeNode;)(success, nodeJ);
             });
         }
@@ -299,7 +299,7 @@ public class TreePanel extends Panel {
             panel.selectPath(path);
         } else {
             panel.selectPath(path, null, function(success, node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 cb.@com.gwtext.client.widgets.tree.NodeSelectionCallback::onSelect(ZLcom/gwtext/client/widgets/tree/TreeNode;)(success, nodeJ);
             });
         }
@@ -388,8 +388,8 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('append',
             function(tree, parent, node, index) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onAppend(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(treeJ, parentJ, nodeJ, index);
             }
         );
@@ -397,8 +397,8 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeappend',
             function(tree, parent, node, index) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeAppend(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ);
             }
         );
@@ -406,9 +406,9 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeinsert',
             function(tree, parent, node, refNode) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ, refNodeJ);
             }
         );
@@ -416,9 +416,9 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('insert',
             function(tree, parent, node, refNode) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ, refNodeJ);
             }
         );
@@ -426,8 +426,8 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeremove',
             function(tree, parent, node) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeRemove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ);
             }
         );
@@ -435,22 +435,22 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('remove',
             function(tree, parent, node) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onRemove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforechildrenrendered',
             function(node, event) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeChildrenRendered(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeclick',
             function(node, event) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeClick(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/core/EventObject;)(nodeJ, e);
             }
@@ -458,7 +458,7 @@ public class TreePanel extends Panel {
               
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforecollapsenode',
             function(node, deep, anim) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 if(deep === undefined || deep == null) deep = false;
                 if(anim === undefined || anim == null) anim = false;
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeCollapseNode(Lcom/gwtext/client/widgets/tree/TreeNode;ZZ)(nodeJ, deep, anim);
@@ -467,7 +467,7 @@ public class TreePanel extends Panel {
     
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeexpandnode',
             function(node, deep, anim) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 if(deep === undefined || deep == null) deep = false;
                 if(anim === undefined || anim == null) anim = false;
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeExpandNode(Lcom/gwtext/client/widgets/tree/TreeNode;ZZ)(nodeJ, deep, anim);
@@ -485,10 +485,10 @@ public class TreePanel extends Panel {
                 var dropNode = e.dropNode;
 
 
-                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
+                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                 var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
+                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 var dropNodeCB = @com.gwtext.client.widgets.tree.TreePanel::createDropNodeCB(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeNodeDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/DropNodeCallback;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ, dropNodeCB);
             }
@@ -496,14 +496,14 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforeload',
             function(node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeLoad(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
             }
         );
     
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('checkchange',
             function(node, checked) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 if(checked === undefined || checked == null) checked = false;
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onCheckChange(Lcom/gwtext/client/widgets/tree/TreeNode;Z)(nodeJ, checked);
             }
@@ -511,7 +511,7 @@ public class TreePanel extends Panel {
     
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('click',
             function(node, event) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onClick(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/core/EventObject;)(nodeJ, e);
             }
@@ -519,14 +519,14 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('collapsenode',
             function(node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onCollapseNode(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('contextmenu',
             function(node, event) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onContextMenu(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/core/EventObject;)(nodeJ, e);
             }
@@ -534,7 +534,7 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('dblclick',
             function(node, event) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onDblClick(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/core/EventObject;)(nodeJ, e);
             }
@@ -542,7 +542,7 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('disabledchange',
             function(node, disabled) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 if(disabled === undefined || disabled == null) disabled = false;
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onDisabledChange(Lcom/gwtext/client/widgets/tree/TreeNode;Z)(nodeJ, disabled);
             }
@@ -550,7 +550,7 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('dragdrop',
             function(treePanel, node, dd, e) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var ddJ = @com.gwtext.client.dd.DD::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dd);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onDragDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DD;)(treePanelJ, nodeJ, ddJ);
             }
@@ -558,21 +558,21 @@ public class TreePanel extends Panel {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('enddrag',
             function(treePanel, node, e) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onEndDrag(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('expandnode',
             function(node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onExpandNode(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('load',
             function(node) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onLoad(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
             }
         );
@@ -588,10 +588,10 @@ public class TreePanel extends Panel {
                 var rawEvent = e.rawEvent;
                 var dropNode = e.dropNode;
 
-                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
+                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                 var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
+                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onNodeDragOver(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ);
             }
         );
@@ -606,10 +606,10 @@ public class TreePanel extends Panel {
                 var rawEvent = e.rawEvent;
                 var dropNode = e.dropNode;
 
-                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
+                var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                 var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
+                var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onNodeDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ);
             }
         );
@@ -617,9 +617,9 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforemovenode',
             function(tree, node, oldParent, newParent, index) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                var oldParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
-                var newParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var oldParentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
+                var newParentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeMoveNode(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(treeJ, nodeJ, oldParentJ, newParentJ, index);
             }
         );
@@ -627,23 +627,23 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('movenode',
             function(tree, node, oldParent, newParent, index) {
                 var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                var oldParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
-                var newParentJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var oldParentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldParent);
+                var newParentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(newParent);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onMoveNode(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(treeJ, nodeJ, oldParentJ, newParentJ, index);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('startdrag',
             function(treePanel, node, e) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onStartDrag(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, nodeJ);
             }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('textchange',
             function(node, newText, oldText) {
-                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 if(newText === undefined) newText = null;
                 if(oldText === undefined) oldText = null;
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onTextChange(Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;Ljava/lang/String;)(nodeJ, newText, oldText);

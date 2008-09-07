@@ -86,7 +86,7 @@ public class TreeSorterConfig extends BaseConfig {
     public native void setSortType(TreeSortFunction sortType) /*-{
         var config = this.@com.gwtext.client.core.JsObject::getJsObj()();
         config['sortType'] = function(node) {
-            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
             return sortType.@com.gwtext.client.widgets.tree.TreeSortFunction::sortValue(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
         }
     }-*/;

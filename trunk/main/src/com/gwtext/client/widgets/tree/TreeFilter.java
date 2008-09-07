@@ -118,7 +118,7 @@ public class TreeFilter extends JsObject {
    public native void filterBy(TreeTraversalCallback callback) /*-{
        var filter = this.@com.gwtext.client.core.JsObject::getJsObj()();
        filter.filterBy(function(node) {
-            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
             return callback.@com.gwtext.client.widgets.tree.TreeTraversalCallback::execute(Lcom/gwtext/client/widgets/tree/TreeNode;)(nodeJ);
         });
    }-*/;

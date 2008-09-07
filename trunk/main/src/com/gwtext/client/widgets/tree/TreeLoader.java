@@ -124,21 +124,21 @@ public class TreeLoader extends JsObject {
 
          loader.addListener('beforeload',
                  function(loader, node) {
-                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                     return listener.@com.gwtext.client.widgets.tree.event.TreeLoaderListener::doBeforeLoad(Lcom/gwtext/client/widgets/tree/TreeLoader;Lcom/gwtext/client/widgets/tree/TreeNode;)(loaderJ, nodeJ)
 			    }
           );
 
          loader.addListener('load',
                  function(loader, node, response) {
-                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
 					if(response.responseText) response = response.responseText;
 					return listener.@com.gwtext.client.widgets.tree.event.TreeLoaderListener::onLoad(Lcom/gwtext/client/widgets/tree/TreeLoader;Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;)(loaderJ, nodeJ, response);
 			    }
           );
             loader.addListener('loadexception',
                  function(loader, node, response) {
-                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
 
 					if(response.responseText) response = response.responseText;
 					return listener.@com.gwtext.client.widgets.tree.event.TreeLoaderListener::onLoadException(Lcom/gwtext/client/widgets/tree/TreeLoader;Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;)(loaderJ, nodeJ, response);

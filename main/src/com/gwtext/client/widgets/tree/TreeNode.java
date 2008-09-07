@@ -70,7 +70,7 @@ public class TreeNode extends Node {
         super(jsObj);
     }
 
-    public static Node instance(JavaScriptObject jsObj) {
+    public static TreeNode instance(JavaScriptObject jsObj) {
         return new TreeNode(jsObj);
     }
     
@@ -328,7 +328,7 @@ public class TreeNode extends Node {
                 $wnd.Ext.apply({}, nodeJS.attributes)
             );
         copy.loader = undefined;
-        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
+        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
         return copyJ;
     }-*/;
 
@@ -345,7 +345,7 @@ public class TreeNode extends Node {
                 $wnd.Ext.apply(nodeJS.attributes, configJS)
             );
         copy.loader = undefined;
-        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
+        var copyJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(copy);
         return copyJ;
     }-*/;
 

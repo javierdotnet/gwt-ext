@@ -154,7 +154,7 @@ public class XMLTreeLoader extends TreeLoader {
 
               requestData : function(node, callback){
                    if(this.fireEvent("beforeload", this, node, callback) !== false){
-                       var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                       var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                        var params = this.getParams(node);
                        @com.gwtext.client.widgets.tree.XMLTreeLoader::requestData(Lcom/google/gwt/core/client/JavaScriptObject;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/XMLTreeLoader;Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Ljava/lang/String;)(this, nodeJ, this.selfJ, this.requestMethod, this.dataUrl||this.url, this.handleResponse, this.handleFailure, callback, params);
 

@@ -66,7 +66,7 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
         if(treeNode == null || treeNode === undefined) {
             return null;
         } else  {
-            return @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(treeNode);
+            return @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(treeNode);
         }
     }-*/;
 
@@ -103,15 +103,15 @@ public class DefaultSelectionModel extends JsObject implements TreeSelectionMode
         var smJ = this;
         sm.addListener('beforeselect',
                  function(self, newNode, oldNode) {
-                    var newNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
-                    var oldNodeJ = @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldNode);
+                    var newNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(newNode);
+                    var oldNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(oldNode);
                     return listener.@com.gwtext.client.widgets.tree.event.DefaultSelectionModelListener::doBeforeSelect(Lcom/gwtext/client/widgets/tree/DefaultSelectionModel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(smJ, newNodeJ, oldNodeJ);
 			    }
           );
 
         sm.addListener('selectionchange',
                  function(self, node) {                     
-                    var nodeJ = node == null ? null : @com.gwtext.client.widgets.tree.TreeNode::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+                    var nodeJ = node == null ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                     listener.@com.gwtext.client.widgets.tree.event.DefaultSelectionModelListener::onSelectionChange(Lcom/gwtext/client/widgets/tree/DefaultSelectionModel;Lcom/gwtext/client/widgets/tree/TreeNode;)(smJ, nodeJ);
 			    }
           );    

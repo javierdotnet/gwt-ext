@@ -204,7 +204,13 @@ public class GridPanel extends Panel {
      * @return the Grids Store
      */
     public Store getStore() {
-        return store;
+        if(store != null) {
+			return store;
+		} else {
+			//handle case where java Grid reference is not held locally but constructed by new Grid(jsObj)
+			JavaScriptObject storeJS = getAttributeAsJavaScriptObject("store");
+        	return storeJS == null ? null : new Store(storeJS);
+		}
     }
 
     /**

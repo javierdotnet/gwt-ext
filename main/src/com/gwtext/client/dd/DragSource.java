@@ -49,7 +49,7 @@ public class DragSource extends DDProxy {
         return new $wnd.Ext.dd.DragSource(element, config);
     }-*/;
 
-    private static DragSource instance(JavaScriptObject jsObj) {
+    private static DragSource dragSourceInstance(JavaScriptObject jsObj) {
         return new DragSource(jsObj);
     }
 

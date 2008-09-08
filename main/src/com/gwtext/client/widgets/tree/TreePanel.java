@@ -487,7 +487,7 @@ public class TreePanel extends Panel {
 
                 var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
-                var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                var sourceJ = @com.gwtext.client.dd.DragDrop::dragDropInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                 var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 var dropNodeCB = @com.gwtext.client.widgets.tree.TreePanel::createDropNodeCB(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::doBeforeNodeDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/DropNodeCallback;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ, dropNodeCB);
@@ -551,7 +551,7 @@ public class TreePanel extends Panel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('dragdrop',
             function(treePanel, node, dd, e) {
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                var ddJ = @com.gwtext.client.dd.DD::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(dd);
+                var ddJ = @com.gwtext.client.dd.DD::ddInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dd);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onDragDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DD;)(treePanelJ, nodeJ, ddJ);
             }
         );
@@ -590,7 +590,7 @@ public class TreePanel extends Panel {
 
                 var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
-                var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                var sourceJ = @com.gwtext.client.dd.DragDrop::dragDropInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                 var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 return listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onNodeDragOver(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ);
             }
@@ -608,7 +608,7 @@ public class TreePanel extends Panel {
 
                 var targetNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(targetNode);
                 var dragDataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
-                var sourceJ = @com.gwtext.client.dd.DragDrop::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                var sourceJ = @com.gwtext.client.dd.DragDrop::dragDropInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                 var dropNodeJ = dropNode == null || dropNode === undefined ? null : @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(dropNode);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onNodeDrop(Lcom/gwtext/client/widgets/tree/TreePanel;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/dd/DragData;Ljava/lang/String;Lcom/gwtext/client/dd/DragDrop;Lcom/gwtext/client/widgets/tree/TreeNode;)(treePanelJ, targetNodeJ, dragDataJ, point, sourceJ, dropNodeJ);
             }

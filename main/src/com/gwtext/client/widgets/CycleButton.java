@@ -120,7 +120,7 @@ public class CycleButton extends SplitButton {
     public native CheckItem getActiveItem() /*-{
         var button = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var item = button.getActiveItem();
-        var itemJ = @com.gwtext.client.widgets.menu.CheckItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+        var itemJ = @com.gwtext.client.widgets.menu.CheckItem::checkItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
         return itemJ;
     }-*/;
 
@@ -169,7 +169,7 @@ public class CycleButton extends SplitButton {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('change',
                 function(source, item) {
-					var itemJ = @com.gwtext.client.widgets.menu.CheckItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+					var itemJ = @com.gwtext.client.widgets.menu.CheckItem::checkItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
                     listener.@com.gwtext.client.widgets.event.CycleButtonListener::onChange(Lcom/gwtext/client/widgets/CycleButton;Lcom/gwtext/client/widgets/menu/CheckItem;)(buttonJ, itemJ);
                 }
         );

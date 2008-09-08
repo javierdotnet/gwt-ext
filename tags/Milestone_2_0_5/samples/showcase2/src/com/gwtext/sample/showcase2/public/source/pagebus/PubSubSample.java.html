@@ -1,0 +1,237 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 740px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright 2007 - 2008, GWT-Ext LLC., and individual contributors as indicated
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+ 
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.data.*;
+import com.gwtext.client.pagebus.PageBus;
+import com.gwtext.client.pagebus.SubscriptionCallback;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.grid.ColumnConfig;
+import com.gwtext.client.widgets.grid.ColumnModel;
+import com.gwtext.client.widgets.grid.GridPanel;
+import com.gwtext.client.widgets.layout.HorizontalLayout;
+import com.gwtext.client.widgets.layout.VerticalLayout;
+
+/**
+ * Publish Subscribe example. You must inheit the module com.gwtext.Pagebus in order to use messaging functionality.
+ */
+public class PubSubSample implements EntryPoint {
+
+	private static int count = 1;
+	public static String PUBLISH_TOPIC = "recordAdded";
+
+	private RecordDef recordDef = new RecordDef(
+			new FieldDef[]{
+					new StringFieldDef("company"),
+					new FloatFieldDef("price"),
+					new FloatFieldDef("change"),
+					new FloatFieldDef("pctChange"),
+					new DateFieldDef("lastChanged", "n/j h:ia"),
+					new StringFieldDef("symbol"),
+					new StringFieldDef("industry")
+			}
+	);
+
+	public void onModuleLoad() {
+		Panel panel = new Panel();
+		panel.setBorder(false);
+		panel.setPaddings(15);
+		panel.setLayout(new VerticalLayout(15));
+
+		Panel first = new Panel();
+		first.setLayout(new HorizontalLayout(15));
+
+		SubscriberGrid sGrid1 = new SubscriberGrid();
+		sGrid1.setTitle("Subscriber1");
+		sGrid1.setHeight(200);
+		sGrid1.setWidth(200);
+		sGrid1.setIconCls("subscribe-icon");
+		first.add(sGrid1);
+
+		Button button = new Button("Pubhish Company Record", new ButtonListenerAdapter() {
+			public void onClick(Button button, EventObject e) {
+				Object[] data = new Object[]{"Company - " + (count++), new Double(40.48), new Double(0.51), new Double(1.28), "9/1 12:00am", "DD", "Manufacturing"};
+				Record record = recordDef.createRecord(data);
+				PageBus.publish(PUBLISH_TOPIC, record);
+			}
+		});
+		button.setIconCls("publish-icon");
+		first.add(button);
+
+		panel.add(first);
+
+		Panel second = new Panel();
+		second.setLayout(new HorizontalLayout(15));
+
+		SubscriberGrid sGrid2 = new SubscriberGrid();
+		sGrid2.setTitle("Subscriber2");
+		sGrid2.setHeight(200);
+		sGrid2.setWidth(200);
+		sGrid2.setIconCls("subscribe-icon");
+		second.add(sGrid2);
+
+		SubscriberPanel sPanel = new SubscriberPanel();
+		sPanel.setTitle("Subscriber Panel");
+		sPanel.setHeight(200);
+		sPanel.setWidth(300);
+		sPanel.setAutoScroll(true);
+		sPanel.setIconCls("subscribe-icon");
+		second.add(sPanel);
+
+		panel.add(second);
+
+		RootPanel.get().add(panel);
+	}
+}
+
+class SubscriberPanel extends Panel {
+
+	public SubscriberPanel() {
+		PageBus.subscribe(GridPanelTest.PUBLISH_TOPIC, new SubscriptionCallback() {
+			public void execute(String subject, Object message) {
+				Record record = (Record) message;
+				getBody().update("Received Company update " + record.getAsString("company"));
+			}
+		});
+	}
+}
+
+class SubscriberGrid extends SampleGrid {
+
+	public SubscriberGrid() {
+		PageBus.subscribe(GridPanelTest.PUBLISH_TOPIC, new SubscriptionCallback() {
+			public void execute(String subject, Object message) {
+				Record record = (Record) message;
+				store.insert(0, record);
+			}
+		});
+	}
+}
+
+class SampleGrid extends GridPanel {
+
+
+	protected Store store;
+
+	SampleGrid() {
+		RecordDef recordDef = new RecordDef(
+				new FieldDef[]{
+						new StringFieldDef("company"),
+						new FloatFieldDef("price"),
+						new FloatFieldDef("change"),
+						new FloatFieldDef("pctChange"),
+						new DateFieldDef("lastChanged", "n/j h:ia"),
+						new StringFieldDef("symbol"),
+						new StringFieldDef("industry")
+				}
+		);
+
+		Object[][] data = getCompanyData();
+		MemoryProxy proxy = new MemoryProxy(data);
+
+		ArrayReader reader = new ArrayReader(recordDef);
+		store = new Store(proxy, reader);
+		store.load();
+
+		setStore(store);
+
+		ColumnConfig[] columns = new ColumnConfig[]{
+				//column ID is company which is later used in setAutoExpandColumn
+				new ColumnConfig("Company", "company", 160, true, null, "company"),
+				new ColumnConfig("Price", "price", 35),
+				new ColumnConfig("Change", "change", 45),
+				new ColumnConfig("% Change", "pctChange", 65),
+				new ColumnConfig("Last Updated", "lastChanged", 65),
+				new ColumnConfig("Industry", "industry", 60, true)
+		};
+
+		ColumnModel columnModel = new ColumnModel(columns);
+		setColumnModel(columnModel);
+
+		setFrame(true);
+		setStripeRows(true);
+		setAutoExpandColumn("company");
+	}
+
+	private Object[][] getCompanyData() {
+		return new Object[][]{
+				new Object[]{"3m Co", new Double(71.72), new Double(0.02),
+						new Double(0.03), "9/1 12:00am", "MMM", "Manufacturing"},
+				new Object[]{"Alcoa Inc", new Double(29.01), new Double(0.42),
+						new Double(1.47), "9/1 12:00am", "AA", "Manufacturing"},
+				new Object[]{"Altria Group Inc", new Double(83.81), new Double(0.28),
+						new Double(0.34), "9/1 12:00am", "MO", "Manufacturing"},
+				new Object[]{"American Express Company", new Double(52.55), new Double(0.01),
+						new Double(0.02), "9/1 12:00am", "AXP", "Finance"},
+				new Object[]{"American International Group, Inc.", new Double(64.13), new Double(0.31),
+						new Double(0.49), "9/1 12:00am", "AIG", "Services"},
+				new Object[]{"AT&T Inc.", new Double(31.61), new Double(-0.48),
+						new Double(-1.54), "9/1 12:00am", "T", "Services"},
+				new Object[]{"Boeing Co.", new Double(75.43), new Double(0.53),
+						new Double(0.71), "9/1 12:00am", "BA", "Manufacturing"},
+				new Object[]{"Caterpillar Inc.", new Double(67.27), new Double(0.92),
+						new Double(1.39), "9/1 12:00am", "CAT", "Services"},
+				new Object[]{"Citigroup, Inc.", new Double(49.37), new Double(0.02),
+						new Double(0.04), "9/1 12:00am", "C", "Finance"},
+				new Object[]{"E.I. du Pont de Nemours and Company", new Double(40.48), new Double(0.51),
+						new Double(1.28), "9/1 12:00am", "DD", "Manufacturing"}
+		};
+	}
+}
+
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

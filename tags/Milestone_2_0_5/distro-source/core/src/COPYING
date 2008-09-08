@@ -1,0 +1,34 @@
+           GWT-Ext LICENSE INFORMATION
+
+
+The GWT-Ext software and sample code is licensed under the GNU Lesser General Public Licence (LGPL), v 3.0.
+
+http://www.gnu.org/licenses/lgpl.html
+
+Source code for software included in this distribution is available from the GWT-Ext
+project (http://www.gwt-ext.com/) or as otherwise indicated at the bottom of this page.
+
+Questions? licensing@gwt-ext.com
+
+LICENSE INFORMATION REGARDING RELATED THIRD-PARTY SOFTWARE
+
+The GWT-Ext library relies on the following third party software. Below is the location and license information :
+
+* Google Web Toolkit (GWT)
+  License: Apache License v. 2.0 (above)
+  http://code.google.com/webtoolkit/
+
+
+* Ext
+  License: Ext has several licensing options available to fit a variety of needs. LGPL 3.0 is one of them.
+    See http://extjs.com/license for more information
+    http://extjs.com/download
+
+* Yahoo! User Interface Library (YUI)
+  License : BSD
+  http://developer.yahoo.com/yui/
+
+* Mapstraction
+  License : BSD
+  http://mapstraction.com/
+  

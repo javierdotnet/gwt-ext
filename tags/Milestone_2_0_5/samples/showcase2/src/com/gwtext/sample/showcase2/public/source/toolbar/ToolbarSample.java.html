@@ -1,0 +1,219 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 650px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright 2007 - 2008, GWT-Ext LLC., and individual contributors as indicated
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+ 
+
+import com.google.gwt.core.client.EntryPoint;
+import com.gwtext.client.widgets.*;
+import com.gwtext.client.widgets.menu.*;
+import com.gwtext.client.widgets.menu.event.CheckItemListenerAdapter;
+
+public class ToolbarSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+        //create a toolbar and various menu items
+        Toolbar toolbar = new Toolbar();
+
+        Menu menu = new Menu();
+        menu.setShadow(true);
+        menu.setMinWidth(10);
+
+        final CheckItemListenerAdapter listener = new CheckItemListenerAdapter() {
+            public void onCheckChange(CheckItem item, boolean checked) {
+                System.out.println("'" + item.getText() + "' is now " +
+                        (checked ? "checked" : "unchecked"));
+            }
+        };
+
+        CheckItem checkItem = new CheckItem();
+        checkItem.setText("I like Ext");
+        checkItem.setChecked(true);
+        checkItem.addListener(listener);
+        menu.addItem(checkItem);
+
+        CheckItem checkItem2 = new CheckItem();
+        checkItem2.setText("I also like GWT-Ext :)");
+        checkItem2.setChecked(true);
+        checkItem2.addListener(listener);
+        menu.addItem(checkItem2);
+
+        CheckItem checkItem3 = new CheckItem();
+        checkItem3.setText("I donated");
+        checkItem3.setChecked(false);
+        checkItem3.addListener(listener);
+        menu.addItem(checkItem3);
+
+        menu.addSeparator();
+
+        Menu submenu = new Menu();
+        submenu.setShadow(true);
+        submenu.setMinWidth(10);
+        submenu.addItem(new TextItem("<b class=\"menu-title\">Choose a Theme</b>"));
+
+        CheckItem checkItem4 = new CheckItem();
+        checkItem4.setText("Aero Glass");
+        checkItem4.setChecked(true);
+        checkItem4.setGroup("theme");
+        checkItem4.addListener(listener);
+        submenu.addItem(checkItem4);
+
+        CheckItem checkItem5 = new CheckItem();
+        checkItem5.setText("Vista Black");
+        checkItem5.setGroup("theme");
+        checkItem5.addListener(listener);
+        submenu.addItem(checkItem5);
+
+        CheckItem checkItem7 = new CheckItem();
+        checkItem7.setText("Gray Theme");
+        checkItem7.setGroup("theme");
+        checkItem7.addListener(listener);
+        submenu.addItem(checkItem7);
+
+        CheckItem checkItem8 = new CheckItem();
+        checkItem8.setText("Default Theme");
+        checkItem8.setGroup("theme");
+        checkItem8.addListener(listener);
+        submenu.addItem(checkItem8);
+
+        MenuItem menuItem = new MenuItem("Radio Options", submenu);
+        MenuItem dateMenuItem = new MenuItem("Choose a Date", new DateMenu());
+        MenuItem colorMenuItem = new MenuItem("Choose a Color", new ColorMenu());
+        menu.addItem(menuItem);
+        menu.addItem(dateMenuItem);
+        menu.addItem(colorMenuItem);
+        menu.addSeparator();
+
+        Item item = new Item();
+        item.setText("Dynamically added");
+
+        TextField textField = new TextField();
+        Adapter adapter = new Adapter(textField);
+        menu.addItem(adapter);
+
+        Item item2 = new Item("Disabled");
+        item2.setDisabled(true);
+        menu.addItem(item);
+        menu.addItem(item2);
+
+        ToolbarButton menuButton = new ToolbaruButton("Button w/ Menu");
+        menuButton.setMenu(menu);
+        menuButton.setIconCls("bmenu");
+        toolbar.addButton(menuButton);
+        toolbar.addSeparator();
+
+        Menu splitMenu = new Menu();
+        Item bi = new Item();
+        bi.setText("<b>Bold</b>");
+        splitMenu.addItem(bi);
+
+        Item ii = new Item();
+        ii.setText("<i>Italic</i>");
+        splitMenu.addItem(ii);
+
+        Item ui = new Item();
+        ui.setText("<u>Underline</u>");
+        splitMenu.addItem(ui);
+
+        splitMenu.addSeparator();
+
+        Menu colorMenu = new Menu();
+        colorMenu.addItem(new ColorItem());
+        colorMenu.addSeparator();
+        Item moreColors = new Item();
+        moreColors.setText("More Colors...");
+        colorMenu.addItem(moreColors);
+
+        MenuItem colorMI = new MenuItem("Pic a Color", colorMenu);
+        splitMenu.addItem(colorMI);
+        Item excellent = new Item();
+        excellent.setText("Excellent");
+        splitMenu.addItem(excellent);
+
+        ToolbarMenuButton button2 = new ToolbarMenuButton("Split Button", splitMenu);
+
+        toolbar.addButton(button2);
+        toolbar.addSeparator();
+
+        ToolbarButton toggleButton = new ToolbarButton("Toggle Me");
+        toggleButton.setEnableToggle(true);
+        toggleButton.setPressed(true);
+        QuickTipsConfig tipsConfig = new QuickTipsConfig();
+        tipsConfig.setText("This is a quicktip with a title");
+        tipsConfig.setTitle("Tip Title");
+        toggleButton.setTooltip(tipsConfig);
+
+        ToolbarButton iconOnly = new ToolbarButton();
+        iconOnly.setIcon("images/add-feed.gif");
+        iconOnly.setCls("x-btn-icon");
+        iconOnly.setTooltip("<b>Quick Tips</b><br/>Icon only button with tooltip");
+
+        toolbar.addButton(iconOnly);
+        toolbar.addSeparator();
+        toolbar.addButton(toggleButton);
+
+        toolbar.addSeparator();
+        ToolbarTextItem ti = new ToolbarTextItem("Text Item");
+        toolbar.addItem(ti);
+
+        Panel toolbarPanel = new Panel();
+        toolbarPanel.setWidth(500);
+        toolbarPanel.setHeight(400);
+        toolbarPanel.setTopToolbar(toolbar);
+        panel.add(toolbar);
+
+        Viewport viewport = new Viewport(panel);
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 700px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright 2007 - 2008, GWT-Ext LLC., and individual contributors as indicated
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+ 
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.data.*;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.form.ComboBox;
+import com.gwtext.client.widgets.form.FormPanel;
+import com.gwtextux.client.data.PagingMemoryProxy;
+
+public class ComboBoxPagingSample implements EntryPoint {
+
+    public void onModuleLoad() {
+        Panel panel = new Panel();
+        panel.setBorder(false);
+        panel.setPaddings(15);
+
+        MemoryProxy proxy = new PagingMemoryProxy(getCompanyData());
+        RecordDef recordDef = new RecordDef(
+                new FieldDef[]{
+                        new StringFieldDef("company"),
+                        new FloatFieldDef("price"),
+                        new FloatFieldDef("change"),
+                        new FloatFieldDef("pctChange"),
+                        new DateFieldDef("lastChanged", "n/j h:ia")
+                }
+        );
+
+        ArrayReader reader = new ArrayReader(recordDef);
+        final Store store = new Store(proxy, reader);
+        store.load();
+
+        ComboBox cb = new ComboBox();
+        cb.setMinChars(1);
+        cb.setFieldLabel("Company");
+        cb.setStore(store);
+        cb.setDisplayField("company");
+        cb.setMode(ComboBox.REMOTE);
+        cb.setTriggerAction(ComboBox.ALL);
+        cb.setEmptyText("Enter company");
+        cb.setLoadingText("Searching...");
+        cb.setTypeAhead(true);
+        cb.setSelectOnFocus(true);
+        cb.setWidth(250);
+        cb.setPageSize(10);
+
+        FormPanel form = new FormPanel();
+        form.setLabelWidth(70);
+        form.setBorder(false);
+        form.add(cb);
+        panel.add(form);
+
+        RootPanel.get().add(panel);
+    }
+
+    private Object[][] getCompanyData() {
+        return new Object[][]{
+                new Object[]{"3m Co", new Double(71.72), new Double(0.02),
+                        new Double(0.03), "9/1 12:00am", "MMM", "Manufacturing"},
+                new Object[]{"Alcoa Inc", new Double(29.01), new Double(0.42),
+                        new Double(1.47), "9/1 12:00am", "AA", "Manufacturing"},
+                new Object[]{"Altria Group Inc", new Double(83.81), new Double(0.28),
+                        new Double(0.34), "9/1 12:00am", "MO", "Manufacturing"},
+                new Object[]{"American Express Company", new Double(52.55), new Double(0.01),
+                        new Double(0.02), "9/1 12:00am", "AXP", "Finance"},
+                new Object[]{"American International Group, Inc.", new Double(64.13),
+                        new Double(0.31), new Double(0.49), "9/1 12:00am", "AIG", "Services"},
+                new Object[]{"AT&T Inc.", new Double(31.61), new Double(-0.48),
+                        new Double(-1.54), "9/1 12:00am", "T", "Services"},
+                new Object[]{"Boeing Co.", new Double(75.43), new Double(0.53),
+                        new Double(0.71), "9/1 12:00am", "BA", "Manufacturing"},
+                new Object[]{"Caterpillar Inc.", new Double(67.27), new Double(0.92),
+                        new Double(1.39), "9/1 12:00am", "CAT", "Services"},
+                new Object[]{"Citigroup, Inc.", new Double(49.37), new Double(0.02),
+                        new Double(0.04), "9/1 12:00am", "C", "Finance"},
+                new Object[]{"E.I. du Pont de Nemours and Company", new Double(40.48),
+                            new Double(0.51),new Double(1.28), "9/1 12:00am", "DD",
+                            "Manufacturing"},
+                new Object[]{"Exxon Mobil Corp", new Double(68.1), new Double(-0.43), 
+                			new Double(-0.64), "9/1 12:00am", "XOM", "Manufacturing"},
+                new Object[]{"General Electric Company", new Double(34.14), new Double(-0.08), 
+                			new Double(-0.23), "9/1 12:00am", "GE", "Manufacturing"},
+                new Object[]{"General Motors Corporation", new Double(30.27), new Double(1.09), 
+                			new Double(3.74), "9/1 12:00am", "GM", "Automotive"},
+                new Object[]{"Hewlett-Packard Co.", new Double(36.53), new Double(-0.03), 
+                			new Double(-0.08), "9/1 12:00am", "HPQ", "Computer"},
+                new Object[]{"Honeywell Intl Inc", new Double(38.77), new Double(0.05), 
+                			new Double(0.13), "9/1 12:00am", "HON", "Manufacturing"},
+                new Object[]{"Intel Corporation", new Double(19.88), new Double(0.31), 
+                			new Double(1.58), "9/1 12:00am", "INTC", "Computer"},
+                new Object[]{"International Business Machines", new Double(81.41), 
+                			new Double(0.44), new Double(0.54), "9/1 12:00am", "IBM", 
+                			"Computer"},
+                new Object[]{"Johnson & Johnson", new Double(64.72), new Double(0.06), 
+                			new Double(0.09), "9/1 12:00am", "JNJ", "Medical"},
+                new Object[]{"JP Morgan & Chase & Co", new Double(45.73), new Double(0.07), 
+                			new Double(0.15), "9/1 12:00am", "JPM", "Finance"},
+                new Object[]{"McDonald\"s Corporation", new Double(36.76), new Double(0.86), 
+                			new Double(2.40), "9/1 12:00am", "MCD", "Food"},
+                new Object[]{"Merck & Co., Inc.", new Double(40.96), new Double(0.41), 
+                			new Double(1.01), "9/1 12:00am", "MRK", "Medical"},
+                new Object[]{"Microsoft Corporation", new Double(25.84), new Double(0.14), 
+                			new Double(0.54), "9/1 12:00am", "MSFT", "Computer"},
+                new Object[]{"Pfizer Inc", new Double(27.96), new Double(0.4), 
+                			new Double(1.45), "9/1 12:00am", "PFE", "Medical"},
+                new Object[]{"The Coca-Cola Company", new Double(45.07), new Double(0.26), 
+                			new Double(0.58), "9/1 12:00am", "KO", "Food"},
+                new Object[]{"The Home Depot, Inc.", new Double(34.64), new Double(0.35), 
+                			new Double(1.02), "9/1 12:00am", "HD", "Retail"},
+                new Object[]{"The Procter & Gamble Company", new Double(61.91), 
+                			new Double(0.01), new Double(0.02), "9/1 12:00am", "PG", 
+                			"Manufacturing"},
+                new Object[]{"United Technologies Corporation", new Double(63.26), 
+                			new Double(0.55), new Double(0.88), "9/1 12:00am", "UTX", 
+                			"Computer"},
+                new Object[]{"Verizon Communications", new Double(35.57), new Double(0.39), 
+                			new Double(1.11), "9/1 12:00am", "VZ", "Services"},
+                new Object[]{"Wal-Mart Stores, Inc.", new Double(45.45), new Double(0.73), 
+                			new Double(1.63), "9/1 12:00am", "WMT", "Retail"},
+                new Object[]{"Walt Disney Company (The) (Holding Company)", new Double(29.89), 
+                			new Double(0.24), new Double(0.81), "9/1 12:00am", "DIS", 
+                			"Services"}
+
+        };
+    }
+    }
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

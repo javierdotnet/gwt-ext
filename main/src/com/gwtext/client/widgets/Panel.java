@@ -100,6 +100,10 @@ public class Panel extends Container {
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
 		return new $wnd.Ext.Panel(config);
     }-*/;
+    
+	private static Panel instance(JavaScriptObject jsObj) {
+		return new Panel(jsObj);
+	}
 
     /**
      * Adds a button to this panel. Note that this method must be called prior to rendering. The preferred approach is to

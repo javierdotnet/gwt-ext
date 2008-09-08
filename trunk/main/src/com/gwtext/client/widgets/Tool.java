@@ -23,7 +23,6 @@
 package com.gwtext.client.widgets;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.Window;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 
@@ -74,6 +73,17 @@ public class Tool {
      * Create a new Tool.
      *
      * @param type    the tool type
+     * @param handler the handler
+     */
+    public Tool(ToolType type, ToolHandler handler) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "id", type.getType());
+        setAttribute(jsObj, "handler", handler);
+    }
+    
+    /**
+     * Create a new Tool.
+     *
+     * @param type    the tool type
      * @param handler the tool handler
      * @param qtip    the quick tip
      */
@@ -83,6 +93,33 @@ public class Tool {
         JavaScriptObjectHelper.setAttribute(jsObj, "qtip", qtip);
     }
 
+    /**
+     * Create a new Tool.
+     *
+     * @param type    the tool type
+     * @param handler the tool handler
+     * @param qtip    the quick tip
+     */
+    public Tool(ToolType type, ToolHandler handler, String qtip) {
+        JavaScriptObjectHelper.setAttribute(jsObj, "id", type.getType());
+        setAttribute(jsObj, "handler", handler);
+        JavaScriptObjectHelper.setAttribute(jsObj, "qtip", qtip);
+    }
+    
+    /**
+     * Sets internal Attribute for a ToolHandler
+     * @param elem
+     * @param attr
+     * @param handler
+     */
+    private native void setAttribute(JavaScriptObject elem, String attr, ToolHandler handler) /*-{
+	    elem[attr] = function(event, toolEl, panel) {
+	    	var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
+			var extEl = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(toolEl);
+			var panelJ = @com.gwtext.client.widgets.Panel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
+	        handler.@com.gwtext.client.widgets.ToolHandler::onClick(Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/core/ExtElement;Lcom/gwtext/client/widgets/Panel;)(e, extEl, panelJ);
+	    };
+	}-*/;
     
     /**
      * Type of tool to be displayed in the upper right corner of panels.

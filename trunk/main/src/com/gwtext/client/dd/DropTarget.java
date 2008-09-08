@@ -44,7 +44,7 @@ public class DropTarget extends DDTarget {
              var ddJ = this.ddJ;
              if(ddJ != null) {
                  var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-                 var sourceJ = @com.gwtext.client.dd.DragSource::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                 var sourceJ = @com.gwtext.client.dd.DragSource::dragSourceInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                  var dataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                  return ddJ.@com.gwtext.client.dd.DropTarget::notifyDrop(Lcom/gwtext/client/dd/DragSource;Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/dd/DragData;)(sourceJ, eJ, dataJ);
              }
@@ -54,7 +54,7 @@ public class DropTarget extends DDTarget {
              var ddJ = this.ddJ;
              if(ddJ != null) {
                  var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-                 var sourceJ = @com.gwtext.client.dd.DragSource::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                 var sourceJ = @com.gwtext.client.dd.DragSource::dragSourceInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                  var dataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                  return ddJ.@com.gwtext.client.dd.DropTarget::notifyEnter(Lcom/gwtext/client/dd/DragSource;Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/dd/DragData;)(sourceJ, eJ, dataJ);
              }
@@ -64,7 +64,7 @@ public class DropTarget extends DDTarget {
              var ddJ = this.ddJ;
              if(ddJ != null) {
                  var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-                 var sourceJ = @com.gwtext.client.dd.DragSource::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                 var sourceJ = @com.gwtext.client.dd.DragSource::dragSourceInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                  var dataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                  ddJ.@com.gwtext.client.dd.DropTarget::notifyOut(Lcom/gwtext/client/dd/DragSource;Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/dd/DragData;)(sourceJ, eJ, dataJ);
              }
@@ -74,7 +74,7 @@ public class DropTarget extends DDTarget {
              var ddJ = this.ddJ;
              if(ddJ != null) {
                  var eJ = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-                 var sourceJ = @com.gwtext.client.dd.DragSource::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+                 var sourceJ = @com.gwtext.client.dd.DragSource::dragSourceInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
                  var dataJ = data == null || data == undefined ? null : @com.gwtext.client.dd.DragData::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(data);
                  return ddJ.@com.gwtext.client.dd.DropTarget::notifyOver(Lcom/gwtext/client/dd/DragSource;Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/dd/DragData;)(sourceJ, eJ, dataJ);
              }

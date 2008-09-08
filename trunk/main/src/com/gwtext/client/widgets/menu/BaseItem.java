@@ -51,7 +51,7 @@ public class BaseItem extends Component {
 	}
 
 	//todo2 -- ext 2 doesnt have xtype for base item so need this
-	private static BaseItem instance(JavaScriptObject jsObj) {
+	private static BaseItem baseItemInstance(JavaScriptObject jsObj) {
 		return new BaseItem(jsObj);
 	}
 	/**

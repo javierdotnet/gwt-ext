@@ -68,7 +68,7 @@ public class DD extends DragDrop {
         return new $wnd.Ext.dd.DD(element, sGroup, config);
     }-*/;
 
-    private static DD instance(JavaScriptObject jsObj) {
+    private static DD ddInstance(JavaScriptObject jsObj) {
         return new DD(jsObj);
     }
 

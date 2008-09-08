@@ -112,7 +112,7 @@ public class Menu extends Widget {
 		}
 	}-*/;
 
-	private static Menu instance(JavaScriptObject jsObj) {
+	private static Menu menuInstance(JavaScriptObject jsObj) {
 		return new Menu(jsObj);
 	}
 
@@ -188,7 +188,7 @@ public class Menu extends Widget {
         } else {
 			//todo2 ext2 doesnt have xtypes for baseitem and subclasses
 			var itemJ = @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
-			return itemJ =! null ? itemJ : @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+			return itemJ =! null ? itemJ : @com.gwtext.client.widgets.menu.BaseItem::baseItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
 		}
     }-*/;
 
@@ -360,7 +360,7 @@ public class Menu extends Widget {
                 function(item, event) {
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     //var itemJ = @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
-                    var itemJ = @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+                    var itemJ = @com.gwtext.client.widgets.menu.BaseItem::baseItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
                     return listener.@com.gwtext.client.widgets.menu.event.MenuListener::onItemClick(Lcom/gwtext/client/widgets/menu/BaseItem;Lcom/gwtext/client/core/EventObject;)(itemJ, e);
                 }
         );
@@ -372,7 +372,7 @@ public class Menu extends Widget {
                     var menuItemJ = null;
                     if(menuItem != null && !(menuItem === undefined)) {
                        // menuItemJ = @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
-                        menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem)
+                        menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::baseItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem)
                     }
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     return listener.@com.gwtext.client.widgets.menu.event.MenuListener::onMouseOut(Lcom/gwtext/client/widgets/menu/Menu;Lcom/gwtext/client/widgets/menu/BaseItem;Lcom/gwtext/client/core/EventObject;)(menuJ, menuItemJ, e);
@@ -385,7 +385,7 @@ public class Menu extends Widget {
                     var menuItemJ = null;
                     if(menuItem != null && !(menuItem === undefined)) {
                         //menuItemJ = @com.gwtext.client.widgets.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
-                        menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
+                        menuItemJ = @com.gwtext.client.widgets.menu.BaseItem::baseItemInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menuItem);
                     }
                     var e = @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
                     return listener.@com.gwtext.client.widgets.menu.event.MenuListener::onMouseOver(Lcom/gwtext/client/widgets/menu/Menu;Lcom/gwtext/client/widgets/menu/BaseItem;Lcom/gwtext/client/core/EventObject;)(menuJ, menuItemJ, e);

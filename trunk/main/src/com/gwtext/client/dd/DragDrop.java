@@ -202,7 +202,7 @@ public class DragDrop extends JsObject {
         return new $wnd.Ext.dd.DragDrop(element, sGroup, config);
     }-*/;
 
-    private static DragDrop instance(JavaScriptObject jsObj) {
+    private static DragDrop dragDropInstance(JavaScriptObject jsObj) {
         return new DragDrop(jsObj);
     }
 

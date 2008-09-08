@@ -89,7 +89,7 @@ public class CheckItem extends Item {
         return new $wnd.Ext.menu.CheckItem(jsObj);
     }-*/;
 
-    private static CheckItem instance(JavaScriptObject jsObj) {
+    private static CheckItem checkItemInstance(JavaScriptObject jsObj) {
         return new CheckItem(jsObj);
     }
     /**

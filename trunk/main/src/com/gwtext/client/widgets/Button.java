@@ -285,14 +285,14 @@ public class Button extends Component {
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('menuhide',
                 function(source, menu) {
-                    var menuJ = @com.gwtext.client.widgets.menu.Menu::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
+                    var menuJ = @com.gwtext.client.widgets.menu.Menu::menuInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onMenuHide(Lcom/gwtext/client/widgets/Button;Lcom/gwtext/client/widgets/menu/Menu;)(buttonJ, menuJ);
                 }
         );
 
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('menushow',
                 function(source, menu) {
-                    var menuJ = @com.gwtext.client.widgets.menu.Menu::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
+                    var menuJ = @com.gwtext.client.widgets.menu.Menu::menuInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onMenuShow(Lcom/gwtext/client/widgets/Button;Lcom/gwtext/client/widgets/menu/Menu;)(buttonJ, menuJ);
                 }
         );
@@ -300,7 +300,7 @@ public class Button extends Component {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('menutriggerout',
                 function(source, menu, event) {
                     var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
-                    var menuJ = @com.gwtext.client.widgets.menu.Menu::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
+                    var menuJ = @com.gwtext.client.widgets.menu.Menu::menuInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onMenuTriggerOut(Lcom/gwtext/client/widgets/Button;Lcom/gwtext/client/widgets/menu/Menu;Lcom/gwtext/client/core/EventObject;)(buttonJ, menuJ, e);
                 }
         );
@@ -308,7 +308,7 @@ public class Button extends Component {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('menutriggerover',
                 function(source, menu, event) {
                     var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
-                    var menuJ = @com.gwtext.client.widgets.menu.Menu::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
+                    var menuJ = @com.gwtext.client.widgets.menu.Menu::menuInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(menu);
                     listener.@com.gwtext.client.widgets.event.ButtonListener::onMenuTriggerOver(Lcom/gwtext/client/widgets/Button;Lcom/gwtext/client/widgets/menu/Menu;Lcom/gwtext/client/core/EventObject;)(buttonJ, menuJ, e);
                 }
         );    

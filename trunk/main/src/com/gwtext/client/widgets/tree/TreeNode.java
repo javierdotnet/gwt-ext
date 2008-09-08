@@ -69,10 +69,6 @@ public class TreeNode extends Node {
 	TreeNode(JavaScriptObject jsObj) {
         super(jsObj);
     }
-
-    public static TreeNode instance(JavaScriptObject jsObj) {
-        return new TreeNode(jsObj);
-    }
     
     public static TreeNode treeNodeInstance(JavaScriptObject jsObj){
     	return new TreeNode(jsObj);

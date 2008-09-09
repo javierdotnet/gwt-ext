@@ -39,12 +39,11 @@ public class FieldSet extends Panel {
 	static {
 		init();
 	}
-
+	
 	private static native void init()/*-{
         var c = new $wnd.Ext.form.FieldSet();
         @com.gwtext.client.widgets.form.FieldSet::configPrototype = c.initialConfig;
     }-*/;
-
 
 	protected JavaScriptObject getConfigPrototype() {
 		return configPrototype;
@@ -155,39 +154,4 @@ public class FieldSet extends Panel {
         setAttribute("legend", legend, true);
     }
 	
-	/**
-	 * Overwriting this method so that the labels are taken care of.  This
-	 * method will call the super method when the removeAll is called
-	 */
-	public void removeAll(){
-		super.removeAll();
-		removeLabels(false);
-	}
-	
-	/**
-	 * Overwriting this method so that the labels are taken care of.  This
-	 * method will call the super method when the removeAll is called
-	 */
-	public void removeAll(boolean autoDestroy){
-		super.removeAll(autoDestroy);
-		removeLabels(autoDestroy);
-	}
-	
-	/**
-	 * Private method that will remove the labels in the fieldSet after
-	 * the field itself has been removed.
-	 * @param autoDestroy to destroy the label or not.
-	 */
-	private native void removeLabels(boolean autoDestroy) /*-{
-		var fieldset = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
-		if(autoDestroy){
-			fieldset.getEl().update("");
-		}
-		else{
-			// don't know what to do since the superclass just hides the fields...
-			// for now, it's the same as autoDestroy but if someone has a better
-			// idea, they we should change here!!!
-			fieldset.getEl().update("");
-		}
-	}-*/;
 }

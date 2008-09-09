@@ -41,26 +41,46 @@ import com.gwtext.client.widgets.form.event.FieldListener;
 public abstract class Field extends BoxComponent {
 
 	public Field() {
+		setDestroy();
     }
 
 	public Field(String fieldLabel) {
 		setFieldLabel(fieldLabel);
+		setDestroy();
 	}
 
 	public Field(String fieldLabel, String name) {
 		setFieldLabel(fieldLabel);
 		setName(name);
+		setDestroy();
 	}
 	
 	public Field(String fieldLabel, String name, int width) {
 		setFieldLabel(fieldLabel);
 		setName(name);
 		setWidth(width);
+		setDestroy();
 	}
 
 	public Field(JavaScriptObject jsObj) {
         super(jsObj);
     }
+	
+	/**
+	 * This method will go back to a FieldSet or FormLayout are remove the 
+	 * form labels.  Otherwise, removing the just remove the field and
+	 * not the label.
+	 */
+	private native void setDestroy()/*-{
+	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforedestroy',
+		    function(item) {
+    			if (item.isFormField) {
+        			$wnd.Ext.destroy(item.container.up('.x-form-item'));
+    			}
+		    }
+        );
+
+	}-*/;
 
     /**
      * Set the location of the error message target globally.

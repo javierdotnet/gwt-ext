@@ -204,13 +204,15 @@ public class GridPanel extends Panel {
      * @return the Grids Store
      */
     public Store getStore() {
-        if(store != null) {
-			return store;
-		} else {
-			//handle case where java Grid reference is not held locally but constructed by new Grid(jsObj)
-			JavaScriptObject storeJS = getAttributeAsJavaScriptObject("store");
-        	return storeJS == null ? null : new Store(storeJS);
-		}
+    	// use the store returned by Extj.
+    	// if not return the one we store locally.
+    	JavaScriptObject storeJS = getAttributeAsJavaScriptObject("store");
+    	
+    	if(storeJS != null){
+    		store = new Store(storeJS);
+    	}
+    	
+        return store;
     }
 
     /**
@@ -338,7 +340,12 @@ public class GridPanel extends Panel {
      * @param store       the new Store
      * @param columnModel the new ColumnModel
      */
-    public native void reconfigure(Store store, ColumnModel columnModel) /*-{
+    public void reconfigure(Store newStore, ColumnModel columnModel){
+    	store = newStore;
+    	reconfigureJ(store, columnModel);
+    }
+    
+    private native void reconfigureJ(Store store, ColumnModel columnModel) /*-{
         var grid = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var storeJS = store.@com.gwtext.client.core.JsObject::getJsObj()();
         var columnModelJS = columnModel.@com.gwtext.client.core.JsObject::getJsObj()();

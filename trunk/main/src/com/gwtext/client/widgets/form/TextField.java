@@ -620,12 +620,23 @@ public class TextField extends Field {
 				if(orig.charAt(diff) != actual.charAt(diff)) break;
 			}
 
+			var macthTxt;
+			if ((text == "\\") || (text == "(") || 
+			   (text == ")") || (text == "*") || 
+			   (text == "?") || (text == "+") || 
+			   (text == ".") || (text == "[") || 
+			   (text == "]")) 
+			{
+				macthTxt="\\"+text;
+			} else {
+				macthTxt=text;
+			}
 			for(var index = 0, start = 0; 
-				tmp.match(text) 
-					&& (tmp = tmp.replace(text, "")) 
+				tmp.match(macthTxt) 
+					&& (tmp = tmp.replace(macthTxt, "")) 
 					&& index <= diff; 
-				index = start + text.length
-			) {
+				index = start + text.length)
+			{
 				start = actual.indexOf(text, index);
 			}
 		} else if(el.selectionStart) {

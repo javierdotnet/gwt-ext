@@ -116,7 +116,7 @@ public class Tool {
 	    elem[attr] = function(event, toolEl, panel) {
 	    	var e = (event === undefined || event == null) ? null : @com.gwtext.client.core.EventObject::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
 			var extEl = @com.gwtext.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(toolEl);
-			var panelJ = @com.gwtext.client.widgets.Panel::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
+			var panelJ = @com.gwtext.client.widgets.Panel::panelInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(panel);
 	        handler.@com.gwtext.client.widgets.ToolHandler::onClick(Lcom/gwtext/client/core/EventObject;Lcom/gwtext/client/core/ExtElement;Lcom/gwtext/client/widgets/Panel;)(e, extEl, panelJ);
 	    };
 	}-*/;

@@ -111,7 +111,7 @@ public class Showcase2 implements EntryPoint, HistoryListener {
         mainPanel.add(westPanel, westLayoutData);
 
         final Panel introPanel = new Panel();
-        introPanel.setTitle("GWT-Ext 2.0.4 Showcase");
+        introPanel.setTitle("GWT-Ext 2.0.5 Showcase");
         introPanel.setPaddings(10);
         introPanel.setLayout(new FitLayout());
         final ShowcaseView showcaseView = new ShowcaseView(screenManager);

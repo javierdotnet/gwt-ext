@@ -49,7 +49,7 @@ public class Panel extends Container {
         var c = new $wnd.Ext.Panel();
         @com.gwtext.client.widgets.Panel::configPrototype = c.initialConfig;
     }-*/;
-
+	
     protected JavaScriptObject getConfigPrototype() {
         return configPrototype;
     }
@@ -71,17 +71,20 @@ public class Panel extends Container {
      */
     public Panel(String title) {
         setTitle(title);
+        setDestroy();
     }
 
     public Panel(String title, String html) {
         setTitle(title);
         setHtml(html);
+        setDestroy();
     }
 
     public Panel(String title, int width, int height) {
         setTitle(title);
         setWidth(width);
         setHeight(height);
+        setDestroy();
     }
 
     protected Panel(JavaScriptObject jsObj) {
@@ -97,11 +100,29 @@ public class Panel extends Container {
         super(element);
     }
 
+	/**
+	 * This method will clean the panel
+	 */
+	private native void setDestroy()/*-{
+	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforedestroy',
+		    function() {
+    			if (this.header) {
+        			$wnd.Ext.destroy(this.header);
+    			}
+		    }
+        );
+
+	}-*/;
+	
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
 		return new $wnd.Ext.Panel(config);
     }-*/;
     
 	private static Panel instance(JavaScriptObject jsObj) {
+		return new Panel(jsObj);
+	}
+	
+	protected static Panel panelInstance(JavaScriptObject jsObj) {
 		return new Panel(jsObj);
 	}
 

@@ -62,6 +62,7 @@ public class SyntaxHighlightPanel extends HTMLPanel {
 	private boolean collapseAll = false;
 	private int firstLine = 1;
 	private boolean showColumns = true;
+	private boolean hideBeforeHighlight = false;
 	
 	
     /**
@@ -100,21 +101,41 @@ public class SyntaxHighlightPanel extends HTMLPanel {
     }
 
     /**
+     * Hide the panel until after the hightlighting has been
+     * rendered correctly.  This is to avoid showing a non-
+     * highlighted panel as it might take time to do the 
+     * syntax highliting.
+     * @param hide true if need to hide.  Default is false;
+     */
+    public void setHideBeforeHighlighting(boolean hide){
+    	this.hideBeforeHighlight = hide;
+    }
+    
+    /**
      * sets the code to the SyntaxHighlightPanel.  This is the code
      * that will be displayed in the panel
      * @param code is the code to display in the panel
      */
     public void setHtml(String code){
     	this.html = code;
+    	final SyntaxHighlightPanel me = this;
     	
 		addListener("render", new Function(){
 			public void execute() {
+				if(me.hideBeforeHighlight)
+					me.hide();
 				setSuperHtml(setSyntaxHighlight());
-				DeferredCommand.addCommand(new Command(){
-					public void execute() {
-						executeSh(name, showGutter, showControls, collapseAll, firstLine, showColumns);
-					}
-				});
+				doDeferredCommand();
+			}
+		});
+    }
+    
+    private void doDeferredCommand(){
+    	final SyntaxHighlightPanel me = this;
+		DeferredCommand.addCommand(new Command(){
+			public void execute() {
+				executeSh(name, showGutter, showControls, collapseAll, firstLine, showColumns);
+				me.show();
 			}
 		});
     }

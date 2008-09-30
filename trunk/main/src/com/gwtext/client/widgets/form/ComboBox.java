@@ -178,6 +178,8 @@ public class ComboBox extends TextField {
 	public native String getValue() /*-{
         var cb = this.@com.gwtext.client.widgets.Component::getOrCreateJsObj()();
         var val = cb.getValue();
+        if(val === undefined)
+        	return null;
         return val === '' ? null : val.toString();
     }-*/;
 

@@ -40,6 +40,29 @@ import com.gwtext.client.widgets.form.event.FieldListener;
  */
 public abstract class Field extends BoxComponent {
 
+	static {
+		fix();
+	}
+	/**
+	 * Fixes setValue for FileUpload...
+	 * http://code.google.com/p/gwt-ext/issues/detail?id=423
+	 * 
+	 * This method should be removed once this is fixed by the extjs patch
+	 */
+	private static native void fix()/*-{
+        $wnd.Ext.override($wnd.Ext.form.Field, {
+            setValue: function (v) {
+                this.value = v;
+                if(this.rendered){
+                    if(v === null || v === undefined) {
+                        this.el.dom.value = ''
+                    }    
+                    this.validate();  
+                }   
+            }
+        });
+	}-*/;	
+	
 	public Field() {
 		setDestroy();
     }

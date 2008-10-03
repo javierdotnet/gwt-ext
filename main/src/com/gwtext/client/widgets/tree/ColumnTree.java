@@ -36,7 +36,7 @@ public class ColumnTree extends TreePanel {
 
 	private static native void init()/*-{
         var c = new $wnd.Ext.tree.ColumnTree();
-        @com.gwtextux.client.widgets.tree.ColumnTree::configPrototype = c.initialConfig;
+        @com.gwtext.client.widgets.tree.ColumnTree::configPrototype = c.initialConfig;
     }-*/;
 
 	public ColumnTree(){
@@ -72,7 +72,7 @@ public class ColumnTree extends TreePanel {
         this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforecelledit',
             function(tree, node, dataIndex) {
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                return listener.@com.gwtextux.client.widgets.tree.ColumnTreeListener::onBeforeCellEdit(Lcom/gwtextux/client/widgets/tree/ColumnTree;Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;)(this, nodeJ, dataIndex);
+                return listener.@com.gwtext.client.widgets.tree.ColumnTreeListener::onBeforeCellEdit(Lcom/gwtext/client/widgets/tree/ColumnTree;Lcom/gwtext/client/widgets/tree/TreeNode;Ljava/lang/String;)(this, nodeJ, dataIndex);
             }
         );
 	}-*/;

@@ -690,3 +690,11 @@
 .map-icon {
 	background-image: url( images/silk/map.gif ) !important;
 }
+
+/* ColumnTree */
+.task {
+    background-image:url(js/ext/examples/shared/icons/fam/cog.png) !important;
+}
+.task-folder {
+    background-image:url(js/ext/examples/shared/icons/fam/folder_go.png) !important;
+}

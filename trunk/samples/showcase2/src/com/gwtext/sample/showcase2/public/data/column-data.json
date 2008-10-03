@@ -1,0 +1,167 @@
+[{
+    task:'Milestone 2.0.5',
+    duration:'30 Days',
+    user:'',
+    uiProvider:'col',
+    cls:'master-task',
+    iconCls:'task-folder',
+    children:[{
+        task:'Column Tree',
+        duration:'2 Days',
+        user:'',
+        uiProvider:'col',
+        cls:'master-task',
+        iconCls:'task-folder',
+        children:[{
+	        task:'Wrap it',
+	        duration:'1 Days',
+	        user:'TBD',
+	        uiProvider:'col',
+	        leaf:true,
+	        iconCls:'task'        
+        },{
+	        task:'Multi-level setup',
+	        duration:'1 Days',
+	        user:'TBD',
+	        uiProvider:'col',
+	        leaf:true,
+	        iconCls:'task'         
+        }]
+    },{
+        task:'Slider',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Toast Window',
+        duration:'1 Day',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Icon Menu',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Grid Filter',
+        duration:'5 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    }]
+},{
+    task:'Milestone 2.0.6',
+    duration:'2 1/2 hours',
+    user:'',
+    uiProvider:'col',
+    cls:'master-task',
+    iconCls:'task-folder',
+    children:[{
+        task:'Enhanced HTML Editor',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Sample GridEditor with different column editors',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Initial Fusion charts support',
+        duration:'1 hour',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    }]
+},{
+    task:'Milestone 2.0.5',
+    duration:'10 Hours',
+    user:'',
+    uiProvider:'col',
+    cls:'master-task',
+    iconCls:'task-folder',
+    children:[{
+        task:'Login Widget',
+        duration:'3 hours',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Media Panel',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Web Desktop',
+        duration:'20 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Grid Column Locking',
+        duration:'30 min',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'DatePickerPlus',
+        duration:'5 hour',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    }]
+},{
+    task:'Milestone 2.5.1',
+    duration:'5 Days',
+    user:'',
+    uiProvider:'col',
+    cls:'master-task',
+    iconCls:'task-folder',
+    children:[{
+        task:'Animations samples',
+        duration:'1 Day',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Mad Cool Date integration',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Initial Gears / Offline Support',
+        duration:'5 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    },{
+        task:'Calendar',
+        duration:'2 Days',
+        user:'TBD',
+        uiProvider:'col',
+        leaf:true,
+        iconCls:'task'
+    }]
+}]

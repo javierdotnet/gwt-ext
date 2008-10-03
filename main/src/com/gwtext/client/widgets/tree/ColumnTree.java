@@ -27,7 +27,7 @@ import com.gwtext.client.util.JavaScriptObjectHelper;
 
 public class ColumnTree extends TreePanel {
 
-	private JavaScriptObject configPrototype = null;
+	private static JavaScriptObject configPrototype = null;
 	private Column cols[] =null;
 
 	static {

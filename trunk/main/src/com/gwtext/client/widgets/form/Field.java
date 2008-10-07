@@ -51,15 +51,15 @@ public abstract class Field extends BoxComponent {
 	 */
 	private static native void fix()/*-{
         $wnd.Ext.override($wnd.Ext.form.Field, {
-            setValue: function (v) {
-                this.value = v;
-                if(this.rendered){
-                    if(v === null || v === undefined) {
-                        this.el.dom.value = ''
-                    }    
-                    this.validate();  
-                }   
-            }
+		    setValue : function(v){
+		        this.value = v;
+		        if(this.rendered){
+		        	if(this.type != 'file'){
+		            	this.el.dom.value = (v === null || v === undefined ? '' : v);
+		            }
+		            this.validate();
+		        }
+		    }
         });
 	}-*/;	
 	

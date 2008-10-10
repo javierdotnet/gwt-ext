@@ -342,7 +342,8 @@ public class Form extends JsObject {
                     var responseText = '';
                     var status = 200;
                     if(action.response && action.response != null) {
-                        responseText = action.response.responseText;
+                        responseText = action.response.responseText ?
+                             action.response.responseText:action.response.statusText ;
                         status = action.response.status;
                     }
                     listener.@com.gwtext.client.widgets.form.event.FormListener::onActionFailed(Lcom/gwtext/client/widgets/form/Form;ILjava/lang/String;)(formJ, status, responseText);

@@ -95,7 +95,7 @@ public class LocalXmlGridSample extends ShowcasePanel {
             indoorCol.setRenderer(new Renderer() {
                 public String render(Object value, CellMetadata cellMetadata, Record record, int rowIndex, int colNum, Store store) {
                     boolean checked = ((Boolean) value).booleanValue();
-                    return "<img class=\"checkbox\" src=\"js/ext/resources/images/default/menu/" + (checked ? "checked.gif" : "unchecked.gif") + "\"/>";
+                    return "<img class=\"checkbox\" src=\"../ext/2.0.2/resources/images/default/menu/" + (checked ? "checked.gif" : "unchecked.gif") + "\"/>";
                 }
             });
 

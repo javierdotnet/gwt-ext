@@ -38,8 +38,8 @@ public class Margins extends JsObject {
     /**
      * Create a new Margins instance.
      *
-     * @param left   the left margin
      * @param top    the top margin
+     * @param left   the left margin
      * @param right  the right margin
      * @param bottom the bottom margin
      */

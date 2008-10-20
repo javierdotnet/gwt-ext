@@ -691,7 +691,7 @@ public class GridPanel extends Panel {
     }
 
     /**
-     * True to stripe the rows. Default is true.
+     * True to stripe the rows. Default is false.
      *
      * @param stripeRows true to stripe rows
      * @throws IllegalStateException this property cannot be changed after the Component has been rendered

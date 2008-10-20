@@ -460,13 +460,13 @@ public abstract class Field extends BoxComponent {
 
     public void hide() {
         super.hide();
-        if(!isRendered()) {
+        if(!isRendered() && !this.isHidden()) {
             DeferredCommand.addCommand(new Command() {
                 public void execute() {
                     hide();
                 }
             });
-        } else {
+        } else if(isRendered()){
             ExtElement elem = getEl().up(".x-form-item");
             if(elem != null) elem.setDisplayed(false);
         }

@@ -427,7 +427,7 @@ public class TreePanel extends Panel {
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ, refNodeJ);
-                treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::insertToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ, refNodeJ);
+                treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::insertToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ, refNodeJ);
             }
         );
 

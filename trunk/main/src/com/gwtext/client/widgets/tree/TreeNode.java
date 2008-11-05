@@ -28,6 +28,7 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
+import com.gwtext.client.data.NodeModel;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.QuickTipsConfig;
 import com.gwtext.client.widgets.tree.event.TreeNodeListener;
@@ -40,6 +41,8 @@ import com.gwtext.client.widgets.tree.event.TreeNodeListener;
  */
 public class TreeNode extends Node {
 
+	protected NodeModel nodeModel = null;
+	
     /**
      * Create a new TreeNode.
      */
@@ -74,6 +77,14 @@ public class TreeNode extends Node {
     	return new TreeNode(jsObj);
     }
 
+    public JavaScriptObject getJsObj() {
+        if(jsObj == null) {
+            jsObj = super.getJsObj();
+            setNodeModel(nodeModel);
+        }
+        return jsObj;
+    }
+    
     protected native JavaScriptObject create(JavaScriptObject config)/*-{
         return new $wnd.Ext.tree.TreeNode(config);
     }-*/;
@@ -622,4 +633,73 @@ public class TreeNode extends Node {
     public void setTreeAttribute(String name, Object value) {
     	JavaScriptObjectHelper.setAttribute(configJS, name, value);
     }
+    
+    /**
+     * add child information to this node.  
+     * @param child node based on JSon data: <BR>
+     * <code>
+     * [{
+     *    text: "TreeNode1",
+     *    leaf: true
+     *  }, {
+     *    text: "TreeNode2",
+     *    leaf: true
+     *  }, {
+     *    text: "TreeNode3",
+     *    leaf: true
+     * }]
+     * </code>
+     */
+    public native void addChild(JavaScriptObject child)/*-{
+    	var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        node.addChild(child);
+    }-*/;
+    
+    public void setNodeModel(NodeModel nodeModel){
+    	this.nodeModel = nodeModel;
+        if(!isCreated()) {
+            this.nodeModel = nodeModel;
+        } else {
+            setNodeModelCreated(nodeModel);
+        }
+    }
+    
+    /**
+     * Return the user defined object
+     *
+     * @return the user defined object
+     */
+    public NodeModel getNodeModel() {
+        if(!isCreated()) {
+            return nodeModel;
+        } else {
+            return  (NodeModel)getNodeModelCreated();
+        }
+    }
+    
+    /**
+     * Associate a user defined Object with the node.
+     *
+     * @param o the user data object
+     */
+    private native void setNodeModelCreated(Object o) /*-{
+        var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        node.attributes._nodeModel = o;
+    }-*/;
+
+    /**
+     * Return the user defined object associated with the node.
+     *
+     * @return the user defined object , null if not defined
+     */
+    private native Object getNodeModelCreated() /*-{
+        var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
+
+        //need to convert javascript undefined to null before passing to java layer
+        if(node.attributes._nodeModel === undefined) {
+            return null;
+        } else {
+            return node.attributes._nodeModel;
+       }
+    }-*/;
 }

@@ -77,6 +77,30 @@ public class ColumnNodeUI extends TreeNodeUI {
     	return newTreeNode;
     }
     
+    public static AsyncTreeNode getNewAsyncTreeNode(NameValuePair[] values){
+    	ColumnAsyncTreeNode newTreeNode = new ColumnAsyncTreeNode();
+    	for (int i = 0; i < values.length; i++) {
+			if(values[i].getType() == NameValuePair.BOOLEAN){
+				newTreeNode.setColumnValue(values[i].getName(), values[i].getValueAsBoolean());
+			}
+			else if(values[i].getType() == NameValuePair.STRING){
+				newTreeNode.setColumnValue(values[i].getName(), values[i].getValue());
+			}
+			else if(values[i].getType() == NameValuePair.FLOAT){
+				newTreeNode.setColumnValue(values[i].getName(), values[i].getValueAsFloat());
+			}
+			else if(values[i].getType() == NameValuePair.DATE){
+				newTreeNode.setColumnValue(values[i].getName(), values[i].getValueAsDate());
+			}
+			else if(values[i].getType() == NameValuePair.INT){
+				newTreeNode.setColumnValue(values[i].getName(), values[i].getValueAsInt());
+			}
+		}
+    	newTreeNode.setUiProvider(getNewTreeUiProvider());
+    	
+    	
+    	return newTreeNode;
+    }
     private native static JavaScriptObject getNewTreeUiProvider()/*-{
 		return $wnd.Ext.tree.ColumnNodeUI;
 	}-*/;

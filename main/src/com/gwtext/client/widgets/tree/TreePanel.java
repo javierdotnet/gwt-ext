@@ -23,11 +23,16 @@
 
 package com.gwtext.client.widgets.tree;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DeferredCommand;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
+import com.gwtext.client.data.NodeModel;
+import com.gwtext.client.data.NodeModelListener;
 import com.gwtext.client.data.Tree;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Panel;
@@ -42,6 +47,7 @@ import com.gwtext.client.widgets.tree.event.TreePanelListener;
 public class TreePanel extends Panel {
 
 	private TreeSelectionModel selectionModel;
+	private NodeModel nodeModel = null;
 
 	private static JavaScriptObject configPrototype;
 
@@ -391,6 +397,7 @@ public class TreePanel extends Panel {
                 var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onAppend(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(treeJ, parentJ, nodeJ, index);
+                treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::appendToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(parentJ, nodeJ, index);
             }
         );
 
@@ -420,6 +427,7 @@ public class TreePanel extends Panel {
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onInsert(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ, refNodeJ);
+                treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::insertToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ, refNodeJ);
             }
         );
 
@@ -438,6 +446,7 @@ public class TreePanel extends Panel {
                 var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
                 var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
                 listener.@com.gwtext.client.widgets.tree.event.TreePanelListener::onRemove(Lcom/gwtext/client/data/Tree;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(treeJ, parentJ, nodeJ);
+                treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::removeFromModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ);
             }
         );
 
@@ -836,5 +845,31 @@ public class TreePanel extends Panel {
      */
     public boolean getUseArrows() {
         return getAttributeAsBoolean("useArrows");
+    }
+    
+    /////////////////////////////// Handling NodeModel //////////////////////
+    
+    protected void appendToModel(TreeNode parent, TreeNode node, int index){
+    	NodeModel nodeModel = parent.getNodeModel();
+    	if(nodeModel != null)
+    		nodeModel.addChild(node.getNodeModel(), index);
+    }
+    
+    protected void insertToModel(TreeNode parent, TreeNode child, TreeNode refNode){
+    	Node node[] = parent.getChildNodes();
+    	for (int i = 0; i < node.length; i++) {
+			if(node[i].getId() == refNode.getId()){
+		    	NodeModel nodeModel = parent.getNodeModel();
+		    	if(nodeModel != null)
+		    		nodeModel.addChild(child.getNodeModel(), i);
+		    	break;
+			}
+		}
+    }
+    
+    protected void removeFromModel(TreeNode parent, TreeNode node){
+    	NodeModel nodeModel = parent.getNodeModel();
+    	if(nodeModel != null)
+    		nodeModel.remove(node.getNodeModel());
     }
 }

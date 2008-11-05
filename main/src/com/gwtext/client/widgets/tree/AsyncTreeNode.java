@@ -25,6 +25,7 @@ package com.gwtext.client.widgets.tree;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.Function;
+import com.gwtext.client.data.NodeModel;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.tree.event.AsyncTreeNodeListener;
 
@@ -105,6 +106,7 @@ import com.gwtext.client.widgets.tree.event.AsyncTreeNodeListener;
 
 public class AsyncTreeNode extends TreeNode {
 
+	
 	/**
 	 * Construct a new AsyncTreeNode
 	 *
@@ -122,6 +124,14 @@ public class AsyncTreeNode extends TreeNode {
         setLoader(treeLoader);
     }
 
+	/**
+	 * Constructor for the text only for this AsyncTreeNode
+	 * @param text the text for this node
+	 */
+	public AsyncTreeNode(String text) {
+		setText(text);
+    }
+	
 	/**
 	 * Construct a new AsyncTreeNode
 	 *
@@ -143,6 +153,19 @@ public class AsyncTreeNode extends TreeNode {
     public AsyncTreeNode(String text, TreeLoader treeLoader, boolean expanded) {
 		setText(text);
         setLoader(treeLoader);
+        setExpanded(expanded);
+    }
+    
+	/**
+	 * Construct a new AsyncTreeNode using the children parameter as JavaScriptObject
+	 *
+	 * @param treeLoader the tree loader
+	 * @param text the node label / display text
+     * @param expanded true to expand
+	 */
+    public AsyncTreeNode(String text, JavaScriptObject children, boolean expanded) {
+		setText(text);
+        setChildren(children);
         setExpanded(expanded);
     }
 
@@ -227,4 +250,28 @@ public class AsyncTreeNode extends TreeNode {
     public void setLoader(TreeLoader loader) {
         JavaScriptObjectHelper.setAttribute(configJS, "loader", loader.getJsObj());
     }
+    
+    public void setChildren(JavaScriptObject jsobject){
+    	JavaScriptObjectHelper.setAttribute(configJS, "children", jsobject);
+    }
+    
+    public void setNodeModelAsChildren(NodeModel nodeModel, boolean displayRoot){
+    	this.nodeModel = nodeModel;
+    	
+    	JavaScriptObject childrenArray = JavaScriptObjectHelper.createJavaScriptArray();
+    	if(displayRoot){
+    		JavaScriptObjectHelper.setArrayValue(childrenArray, 0, nodeModel.getJsonVersion());
+    	} else{
+    		if(nodeModel.getChildSize() > 0){
+    			for (int i = 0; i < nodeModel.getChildSize(); i++) {
+    				NodeModel curChild = nodeModel.getChild(i);
+    				JavaScriptObjectHelper.setArrayValue(childrenArray, i, curChild.getJsonVersion());
+    			}
+    		}
+    	}
+    	setChildren(childrenArray);
+    }
+    
+
+
 }

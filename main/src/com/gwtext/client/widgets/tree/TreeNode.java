@@ -663,6 +663,8 @@ public class TreeNode extends Node {
     }-*/;
     
     public void setNodeModel(NodeModel nodeModel){
+    	if(nodeModel == null) return;
+    	
     	this.nodeModel = nodeModel;
         if(!isCreated()) {
             this.nodeModel = nodeModel;

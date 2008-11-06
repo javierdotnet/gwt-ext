@@ -23,16 +23,12 @@
 
 package com.gwtext.client.widgets.tree;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DeferredCommand;
 import com.gwtext.client.core.Function;
 import com.gwtext.client.data.Node;
 import com.gwtext.client.data.NodeModel;
-import com.gwtext.client.data.NodeModelListener;
 import com.gwtext.client.data.Tree;
 import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Panel;
@@ -47,7 +43,6 @@ import com.gwtext.client.widgets.tree.event.TreePanelListener;
 public class TreePanel extends Panel {
 
 	private TreeSelectionModel selectionModel;
-	private NodeModel nodeModel = null;
 
 	private static JavaScriptObject configPrototype;
 
@@ -70,6 +65,7 @@ public class TreePanel extends Panel {
 	}
 
 	public TreePanel() {
+		addModelListeners();
 	}
 
 	public TreePanel(JavaScriptObject jsObj) {
@@ -91,6 +87,7 @@ public class TreePanel extends Panel {
 	 */
 	public TreePanel(String title) {
 		setTitle(title);
+		addModelListeners();
 	}
 
 
@@ -848,6 +845,37 @@ public class TreePanel extends Panel {
     }
     
     /////////////////////////////// Handling NodeModel //////////////////////
+	private native void addModelListeners()/*-{
+	    var treePanelJ = this;
+	
+	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('append',
+	        function(tree, parent, node, index) {
+	            var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
+	            var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+	            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+	            treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::appendToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;I)(parentJ, nodeJ, index);
+	        }
+	    );
+	
+	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('insert',
+	        function(tree, parent, node, refNode) {
+	            var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
+	            var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+	            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+	            var refNodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(refNode);
+	            treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::insertToModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ, refNodeJ);
+	        }
+	    );
+	
+	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('remove',
+	        function(tree, parent, node) {
+	            var treeJ = @com.gwtext.client.data.Tree::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(tree);
+	            var parentJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(parent);
+	            var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+	            treePanelJ.@com.gwtext.client.widgets.tree.TreePanel::removeFromModel(Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/TreeNode;)(parentJ, nodeJ);
+	        }
+	    );
+    }-*/;
     
     protected void appendToModel(TreeNode parent, TreeNode node, int index){
     	NodeModel nodeModel = parent.getNodeModel();

@@ -211,8 +211,11 @@ public class NodeModelTreeLoader extends TreeLoader {
 			NodeModel curModel = (NodeModel) iterator.next();
 			curModel.setColumnDataName(coldata);
 			currentNode.appendChild(createNode(treeLoader, coldata, curModel, true));
-			if(currentNode.getNodeModel() != null)
-				currentNode.getNodeModel().addChild(curModel);
+			/* no need to add the model child to the model parent since the 
+			 * treepanel listener for the model will do just that...
+			 */
+			//if(currentNode.getNodeModel() != null)
+			//	currentNode.getNodeModel().addChild(curModel);
 		}
 //		endUpdate(currentNode);
 	}
@@ -249,15 +252,6 @@ public class NodeModelTreeLoader extends TreeLoader {
 		}
 		tnode.setNodeModel(nodeModel);
 		
-		HashMap props = nodeModel.getProperties();
-		
-		Iterator iter = props.keySet().iterator();
-			
-		while (iter.hasNext()) {
-			String key = (String)iter.next();
-			Object value = nodeModel.getPropertyAsObject(key);
-			tnode.setAttribute(key, value);
-		}
 //		if(nodeModel.getChildren().size() > 0){
 //			for (int i = 0; i < nodeModel.getChildren().size(); i++) {
 //				tnode.appendChild(getNode(coldata,nodeModel.getChild(i), asyncNode));

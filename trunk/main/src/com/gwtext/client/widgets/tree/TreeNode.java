@@ -23,6 +23,9 @@
 
 package com.gwtext.client.widgets.tree;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
@@ -67,6 +70,10 @@ public class TreeNode extends Node {
 	public TreeNode(String text, String iconCls){
 		setText(text);
 		setIconCls(iconCls);
+	}
+	
+	public TreeNode(NodeModel model){
+		setNodeModel(model);
 	}
 
 	TreeNode(JavaScriptObject jsObj) {
@@ -662,6 +669,14 @@ public class TreeNode extends Node {
         } else {
             setNodeModelCreated(nodeModel);
         }
+		HashMap props = nodeModel.getProperties();
+		Iterator iter = props.keySet().iterator();
+			
+		while (iter.hasNext()) {
+			String key = (String)iter.next();
+			Object value = nodeModel.getPropertyAsObject(key);
+			setAttribute(key, value);
+		}
     }
     
     /**

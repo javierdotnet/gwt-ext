@@ -164,7 +164,9 @@ public class NodeModelTreeLoader extends TreeLoader {
     		                        final JavaScriptObject callback, String params) {
 
     	if(asyncCallback == null) return;
-    	NodeModel nodeModelRoot = new NodeModel(root);
+    	
+    	NodeModel nodeModelRoot = root.getNodeModel();
+    	if(nodeModelRoot == null) nodeModelRoot = new NodeModel(root);
     	
         try {
         	asyncCallback.getTreeNodeModel(nodeModelRoot, new AsyncCallback(){

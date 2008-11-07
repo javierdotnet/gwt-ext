@@ -22,14 +22,12 @@
 
 package com.gwtext.client.widgets.tree;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.gwtext.client.core.NameValuePair;
-import com.gwtext.client.data.Node;
 import com.gwtext.client.data.NodeModel;
 
 /**
@@ -103,8 +101,9 @@ public class NodeModelTreeLoader extends TreeLoader {
                            if(typeof callback == "function"){
                                callback();
                            }
+                       }else{
+                           this.requestData(node, callback);
                        }
-                       this.requestData(node, callback);
                    },
 
               requestData : function(node, callback){
@@ -230,26 +229,37 @@ public class NodeModelTreeLoader extends TreeLoader {
 	}
 	
 	private static TreeNode createNode(NodeModelTreeLoader treeLoader, String[] coldata,NodeModel nodeModel, boolean asyncNode){
-		NameValuePair nodeData[] = new NameValuePair[coldata.length];
-
-		for (int i = 0; i < coldata.length; i++) {
-			String value = nodeModel.getProperty(coldata[i]);
-			if(value != null)
-				nodeData[i] = new NameValuePair(coldata[i], value);
-			else
-				nodeData[i] = new NameValuePair(coldata[i], "");
-
-		}
-
 		TreeNode tnode = null;
 		
-		if(asyncNode){
-			AsyncTreeNode asyncTreeNode = ColumnNodeUI.getNewAsyncTreeNode(nodeData);
-			asyncTreeNode.setLoader(treeLoader);
-			tnode = asyncTreeNode;
+		if(coldata != null){
+			NameValuePair nodeData[] = new NameValuePair[coldata.length];
+
+			for (int i = 0; i < coldata.length; i++) {
+				String value = nodeModel.getProperty(coldata[i]);
+				if(value != null)
+					nodeData[i] = new NameValuePair(coldata[i], value);
+				else
+					nodeData[i] = new NameValuePair(coldata[i], "");
+			}
+
+			if(asyncNode){
+				AsyncTreeNode asyncTreeNode = ColumnNodeUI.getNewAsyncTreeNode(nodeData);
+				asyncTreeNode.setLoader(treeLoader);
+				tnode = asyncTreeNode;
+			}else{
+				tnode = ColumnNodeUI.getNewTreeNode(nodeData);
+			}
 		}else{
-			tnode = ColumnNodeUI.getNewTreeNode(nodeData);
+			if(asyncNode){
+				tnode = new AsyncTreeNode(treeLoader);
+			}else{
+				tnode = new TreeNode();
+			}
+			String text = nodeModel.getProperty("text");
+			if(text != null && text.length() > 0)
+				tnode.setText(text);
 		}
+
 		tnode.setNodeModel(nodeModel);
 		
 //		if(nodeModel.getChildren().size() > 0){

@@ -184,11 +184,7 @@ public class NodeModel implements IsSerializable {
 		NodeModel childModel = new NodeModel();
 		String propName[] = child.getProperties();
 		for (int i = 0; i < propName.length; i++) {
-			if(propName[i].equals("leaf")){
-				childModel.addProperty(propName[i], new Boolean(child.isLeaf()));
-			} else {
-				childModel.addProperty(propName[i], child.getAttributeAsObject(propName[i]));
-			}
+			childModel.addProperty(propName[i], child.getAttributeAsObject(propName[i]));
 		}
 
 		Node children[] = child.getChildNodes();

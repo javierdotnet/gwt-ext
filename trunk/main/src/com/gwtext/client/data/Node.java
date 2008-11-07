@@ -153,6 +153,13 @@ public class Node extends JsObject {
     public native Object getAttributeAsObject(String name) /*-{
 		var node = this.@com.gwtext.client.core.JsObject::getJsObj()();
 		var value = node.attributes[name];
+		if (typeof(value)=='boolean') {
+	      if(value==true) {
+	        return @java.lang.Boolean::TRUE;
+	      } else {
+	        return @java.lang.Boolean::FALSE;
+	      }			
+		}
 		return value === undefined ? null : value;
 	}-*/;
 

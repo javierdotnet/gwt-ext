@@ -178,6 +178,9 @@ public class NodeModelTreeLoader extends TreeLoader {
 
 				public void onSuccess(Object result) {
 					loadNode(treeLoader, root, result);
+					if(result == null){
+						result = "";
+					}
 					call(success, treeLoaderJS, root.getJsObj(), callback, result.toString());
 				}
         	});

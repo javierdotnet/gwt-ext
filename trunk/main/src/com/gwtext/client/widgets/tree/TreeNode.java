@@ -577,6 +577,7 @@ public class TreeNode extends Node {
             Element el = getUI().getIconEl();
             if (el != null) {
                 DOM.setElementAttribute(el, "className", "x-tree-node-icon " + iconCls);
+                DOM.setElementAttribute(el, "class", "x-tree-node-icon " + iconCls);
             }
         }
     }

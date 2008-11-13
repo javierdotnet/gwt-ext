@@ -23,6 +23,7 @@
 
 package com.gwtext.client.widgets.tree;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -641,7 +642,23 @@ public class TreeNode extends Node {
     public void setTreeAttribute(String name, Object value) {
     	JavaScriptObjectHelper.setAttribute(configJS, name, value);
     }
-    
+
+    public void setTreeAttribute(String name, int value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
+    public void setTreeAttribute(String name, float value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
+    public void setTreeAttribute(String name, Date value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
+    public void setTreeAttribute(String name, boolean value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
+    public void setTreeAttribute(String name, double value) {
+    	JavaScriptObjectHelper.setAttribute(configJS, name, value);
+    }
+
     /**
      * add child information to this node.  
      * @param child node based on JSon data: <BR>
@@ -663,6 +680,10 @@ public class TreeNode extends Node {
         node.addChild(child);
     }-*/;
     
+    /**
+     * Set the NodeModel associated to this TreeNode
+     * @param nodeModel The NodeModel to be associated to the TreeNode
+     */
     public void setNodeModel(NodeModel nodeModel){
     	if(nodeModel == null) return;
     	
@@ -696,7 +717,7 @@ public class TreeNode extends Node {
     }
     
     /**
-     * Associate a user defined Object with the node.
+     * Associate a NodeModel Object with the node.
      *
      * @param o the user data object
      */
@@ -706,7 +727,7 @@ public class TreeNode extends Node {
     }-*/;
 
     /**
-     * Return the user defined object associated with the node.
+     * Return the NodeModel object associated with the node.
      *
      * @return the user defined object , null if not defined
      */

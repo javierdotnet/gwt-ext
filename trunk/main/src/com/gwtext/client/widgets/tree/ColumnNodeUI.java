@@ -24,12 +24,22 @@ package com.gwtext.client.widgets.tree;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.gwtext.client.core.NameValuePair;
 
+/** 
+ * This class is used to represent the Node UI of a ColumnTree
+ * widget.
+ * @author mlim1972
+ *
+ */
 public class ColumnNodeUI extends TreeNodeUI {
 	
 	public ColumnNodeUI(JavaScriptObject jsObj) {
 		super(jsObj);
 	}
 
+	/**
+	 * Creates an instance of ColumnNodeUI
+	 * @return
+	 */
 	public static ColumnNodeUI instance(){
 		return new ColumnNodeUI(create());
 	}
@@ -46,12 +56,24 @@ public class ColumnNodeUI extends TreeNodeUI {
 		return new $wnd.Ext.tree.ColumnNodeUI();
 	}-*/;
     
+    /**
+     * returns the appropriate JavaScriptObject to the UI provider
+     * used in a ColumnTee
+     * @return
+     */
     public native static JavaScriptObject getUiProvider()/*-{
     	var colui = {};
 		colui['col'] = $wnd.Ext.tree.ColumnNodeUI
 		return colui;
     }-*/;
     
+    /**
+     * This metod returns the TreeNode representation of a particular
+     * ColumnTree Node.
+     * @param values NameValuePair of the columns for the ColumnTree
+     * 
+     * @return the TreeNode representation based on the columns passed
+     */
     public static TreeNode getNewTreeNode(NameValuePair[] values){
     	ColumnTreeNode newTreeNode = new ColumnTreeNode();
     	for (int i = 0; i < values.length; i++) {
@@ -73,10 +95,15 @@ public class ColumnNodeUI extends TreeNodeUI {
 		}
     	newTreeNode.setUiProvider(getNewTreeUiProvider());
     	
-    	
     	return newTreeNode;
     }
     
+    /**
+     * Returns the AsyncTreeNode based on the columns that are part of the 
+     * ColumnTreeNode
+     * @param values The NameValuePair for the column tree 
+     * @return the generated AsynTreeNode representing the columns passed
+     */
     public static AsyncTreeNode getNewAsyncTreeNode(NameValuePair[] values){
     	ColumnAsyncTreeNode newTreeNode = new ColumnAsyncTreeNode();
     	for (int i = 0; i < values.length; i++) {

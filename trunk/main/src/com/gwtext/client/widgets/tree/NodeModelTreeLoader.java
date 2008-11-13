@@ -31,7 +31,8 @@ import com.gwtext.client.core.NameValuePair;
 import com.gwtext.client.data.NodeModel;
 
 /**
- *
+ * This class is a TreeLoader based on a Model that can load
+ * the tree via RPC instead of JSon Data.
  * @author mlim1972
  * @see com.gwtext.client.widgets.tree.TreePanel
  * @see com.gwtext.client.widgets.tree.TreeLoader
@@ -71,10 +72,21 @@ public class NodeModelTreeLoader extends TreeLoader {
         setUiProviders(ColumnNodeUI.getUiProvider());
     }
 
+    /**
+     * Set the callback whenever RPC communication is required.
+     * Otherwise, the system assumes that the model will
+     * handle it programmatically
+     * @param callback
+     */
     public void setCallback(NodeModelServiceAsync callback) {
     	asyncCallback = callback;		
 	}
     
+    /**
+     * This sets the Column names to be used.  It is necessary
+     * whenever a ColumnTree is used.
+     * @param coldata
+     */
     public void setColumnDataName(String[] coldata){
     	columnDataName = coldata;
     }
@@ -267,6 +279,9 @@ public class NodeModelTreeLoader extends TreeLoader {
 
 		tnode.setNodeModel(nodeModel);
 		
+		// No need to load the children recursively since
+		// the extjs will call for every expanded node for the
+		// direct children only.
 //		if(nodeModel.getChildren().size() > 0){
 //			for (int i = 0; i < nodeModel.getChildren().size(); i++) {
 //				tnode.appendChild(getNode(coldata,nodeModel.getChild(i), asyncNode));

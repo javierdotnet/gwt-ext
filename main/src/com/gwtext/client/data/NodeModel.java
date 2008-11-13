@@ -254,6 +254,10 @@ public class NodeModel implements IsSerializable {
 	public void addProperty(String name, Object value, boolean force) {
 		if (force || attributesAllowed.contains(name)){
 			properties.put(name, value);
+			if(name.equals("text") && treeNode != null){
+				if(value instanceof String)
+					treeNode.setText((String)value);
+			}
 			notifyUpdateListeners(name, value);
 		}
 	}

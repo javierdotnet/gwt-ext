@@ -25,7 +25,12 @@ import java.util.Date;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-
+/**
+ * This class is in charge of setting column values for the ColumnTree
+ * widget.
+ * @author mlim1972
+ *
+ */
 public class ColumnAsyncTreeNode extends AsyncTreeNode{
 	public ColumnAsyncTreeNode() {
 		super("");

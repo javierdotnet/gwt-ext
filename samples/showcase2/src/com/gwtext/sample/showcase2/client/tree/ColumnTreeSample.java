@@ -44,8 +44,8 @@ import com.gwtext.client.widgets.tree.TreeSorterConfig;
 import com.gwtext.sample.showcase2.client.ShowcasePanel;
 
 /**
- * Example that illustrates FileTreePanel to handle files with a tree
- * interface.  It needs a corresponding server side to handle requests.
+ * Example that illustrates ColumnTree to handle a tree with columns like
+ * a tree grid however it is not a grid per se.
  * @author mlim1972
  */
 public class ColumnTreeSample extends ShowcasePanel {

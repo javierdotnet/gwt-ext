@@ -699,8 +699,23 @@ public class TreeNode extends Node {
 		while (iter.hasNext()) {
 			String key = (String)iter.next();
 			Object value = nodeModel.getPropertyAsObject(key);
-			setAttribute(key, value);
+			if(value instanceof Boolean){
+				JavaScriptObjectHelper.setAttribute(configJS, key, ((Boolean)value).booleanValue());
+			}else if(value instanceof String){
+				JavaScriptObjectHelper.setAttribute(configJS, key, (String) value);
+			}else if(value instanceof Integer){
+				JavaScriptObjectHelper.setAttribute(configJS, key, ((Integer)value).intValue());
+			}else if(value instanceof Float){
+				JavaScriptObjectHelper.setAttribute(configJS, key, ((Float)value).floatValue());
+			}else if(value instanceof Double){
+				JavaScriptObjectHelper.setAttribute(configJS, key, ((Double)value).doubleValue());
+			}else if(value instanceof Date){
+				JavaScriptObjectHelper.setAttribute(configJS, key, (Date) value);
+			}else{
+				JavaScriptObjectHelper.setAttribute(configJS, key, value);
+			}
 		}
+
     }
     
     /**

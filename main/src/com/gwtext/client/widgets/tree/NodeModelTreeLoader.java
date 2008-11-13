@@ -272,9 +272,6 @@ public class NodeModelTreeLoader extends TreeLoader {
 			}else{
 				tnode = new TreeNode();
 			}
-			String text = nodeModel.getProperty("text");
-			if(text != null && text.length() > 0)
-				tnode.setText(text);
 		}
 
 		tnode.setNodeModel(nodeModel);

@@ -22,13 +22,19 @@
 
 package com.gwtext.client.widgets.tree;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.gwtext.client.core.NameValuePair;
+import com.gwtext.client.data.Node;
 import com.gwtext.client.data.NodeModel;
+import com.gwtext.client.data.NodeModelListener;
+import com.gwtext.client.data.Tree;
+import com.gwtext.client.util.JavaScriptObjectHelper;
+import com.gwtext.client.widgets.tree.event.TreeNodeListenerAdapter;
 
 /**
  * This class is a TreeLoader based on a Model that can load
@@ -276,6 +282,9 @@ public class NodeModelTreeLoader extends TreeLoader {
 
 		tnode.setNodeModel(nodeModel);
 		
+		//nodeModel.addListener((new NodeModelTreeLoader()).new NodeModelListenerImpl(tnode));
+		nodeModel.setTreeNode(tnode);
+		
 		// No need to load the children recursively since
 		// the extjs will call for every expanded node for the
 		// direct children only.
@@ -288,6 +297,39 @@ public class NodeModelTreeLoader extends TreeLoader {
 		
 		return tnode;
 	}
-
-
+//
+//	private class NodeModelListenerImpl implements NodeModelListener{
+//		private TreeNode treeNode = null;
+//		
+//		public NodeModelListenerImpl(TreeNode treeNode){
+//			this.treeNode = treeNode;
+//		}
+//		public void onAppend(NodeModel self, NodeModel node) {
+//			treeNode.appendChild(NodeModel.createTreeNode(node));
+//			
+//		}
+//		public void onInsert(NodeModel self, NodeModel node, int index) {
+//			Node child[] = treeNode.getChildNodes();
+//			treeNode.insertBefore(NodeModel.createTreeNode(node), child[index]);
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		public void onMove(NodeModel self, NodeModel oldParent,
+//				NodeModel newParent, int index) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		public void onRemove(NodeModel self, NodeModel node) {
+//			Node child[] = treeNode.getChildNodes();
+//			for (int i = 0; i < child.length; i++) {
+//				if(((String)node.getProperty("id")).equals(child[i].getId()) ){
+//					treeNode.removeChild(child[i]);
+//					break;
+//				}
+//			}
+//		}
+//		public void onUpdate(NodeModel self, String attributeName, Object value) {
+//			treeNode.setTreeNodeModelAttribute(attributeName, value);
+//		}
+//	}
 }

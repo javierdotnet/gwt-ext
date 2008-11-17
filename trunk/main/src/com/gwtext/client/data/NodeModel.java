@@ -27,15 +27,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.IsSerializable;
-import com.gwtext.client.core.Ext;
 import com.gwtext.client.core.NameValuePair;
 import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.tree.AsyncTreeNode;
 import com.gwtext.client.widgets.tree.ColumnNodeUI;
 import com.gwtext.client.widgets.tree.NodeModelServiceAsync;
-import com.gwtext.client.widgets.tree.NodeModelTreeLoader;
 import com.gwtext.client.widgets.tree.TreeNode;
 
 public class NodeModel implements IsSerializable {
@@ -45,7 +41,7 @@ public class NodeModel implements IsSerializable {
 	 * 
 	 * @gwt.typeArgs <java.lang.String>
 	 */
-	protected static ArrayList attributesAllowed = new ArrayList() {
+	public static ArrayList attributesAllowed = new ArrayList() {
 		{
 			add(new String("disabled"));
 			add(new String("id"));
@@ -214,15 +210,28 @@ public class NodeModel implements IsSerializable {
 	 * @param index
 	 */
 	public boolean addChild(NodeModel child, int index) {
+		return addChild(child, index, false);
+	}
+
+	/**
+	 * adds a NodeModel as a child of this NodeModel in a specific location
+	 * 
+	 * @param child
+	 * @param index
+	 * @param skipListener will skip the listerners
+	 */
+	public boolean addChild(NodeModel child, int index, boolean skipListener) {
 		boolean added = false;
 
 		if (index == getChildSize()) {
 			children.add(index, child);
-			notifyAppendListeners(child);
+			if(!skipListener)
+				notifyAppendListeners(child);
 			added = true;
 		} else if (index < getChildSize()) {
 			children.add(index, child);
-			notifyInsertListeners(child, index);
+			if(!skipListener)
+				notifyInsertListeners(child, index);
 			added = true;
 		}
 
@@ -254,10 +263,10 @@ public class NodeModel implements IsSerializable {
 	public void addProperty(String name, Object value, boolean force) {
 		if (force || attributesAllowed.contains(name)){
 			properties.put(name, value);
-			if(name.equals("text") && treeNode != null){
-				if(value instanceof String)
-					treeNode.setText((String)value);
-			}
+//			if(name.equals("text") && treeNode != null){
+//				if(value instanceof String)
+//					treeNode.setText((String)value);
+//			}
 			notifyUpdateListeners(name, value);
 		}
 	}
@@ -345,10 +354,15 @@ public class NodeModel implements IsSerializable {
 	}
 
 	public void remove(NodeModel child) {
+		remove(child, false);
+	}
+	
+	public void remove(NodeModel child, boolean skipListener) {
 		if (children.contains(child)) {
 			child.removeAllChildren();
 			children.remove(child);
-			notifyRemoveListeners(child);
+			if(!skipListener)
+				notifyRemoveListeners(child);
 		}
 	}
 
@@ -463,18 +477,18 @@ public class NodeModel implements IsSerializable {
 		return columnDataName;
 	}
 	
-	private TreeNode createTreeNode(NodeModel nodeModel){
+	public static TreeNode createTreeNode(NodeModel nodeModel){
 		TreeNode tnode = null;
 		
-		if(columnDataName != null){
-			NameValuePair nodeData[] = new NameValuePair[columnDataName.length];
+		if(nodeModel.columnDataName != null){
+			NameValuePair nodeData[] = new NameValuePair[nodeModel.columnDataName.length];
 
-			for (int i = 0; i < columnDataName.length; i++) {
-				String value = nodeModel.getProperty(columnDataName[i]);
+			for (int i = 0; i < nodeModel.columnDataName.length; i++) {
+				String value = nodeModel.getProperty(nodeModel.columnDataName[i]);
 				if(value != null)
-					nodeData[i] = new NameValuePair(columnDataName[i], value);
+					nodeData[i] = new NameValuePair(nodeModel.columnDataName[i], value);
 				else
-					nodeData[i] = new NameValuePair(columnDataName[i], "");
+					nodeData[i] = new NameValuePair(nodeModel.columnDataName[i], "");
 
 			}
 
@@ -484,15 +498,6 @@ public class NodeModel implements IsSerializable {
 		}
 		
 		tnode.setNodeModel(nodeModel);
-		HashMap props = nodeModel.getProperties();
-		
-		Iterator iter = props.keySet().iterator();
-			
-		while (iter.hasNext()) {
-			String key = (String)iter.next();
-			Object value = nodeModel.getPropertyAsObject(key);
-			tnode.setAttribute(key, value);
-		}
 		
 		return tnode;
 	}
@@ -534,6 +539,9 @@ public class NodeModel implements IsSerializable {
 		for (int i = 0; i < listeners.size(); i++) {
 			NodeModelListener listener = (NodeModelListener) listeners.get(i);
 			listener.onUpdate(this, name, value);
+		}
+		if(treeNode != null){
+			treeNode.setTreeNodeModelAttribute(name, value);
 		}
 	}
 	

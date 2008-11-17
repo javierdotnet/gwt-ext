@@ -880,7 +880,7 @@ public class TreePanel extends Panel {
     protected void appendToModel(TreeNode parent, TreeNode node, int index){
     	NodeModel nodeModel = parent.getNodeModel();
     	if(nodeModel != null)
-    		nodeModel.addChild(node.getNodeModel(), index);
+    		nodeModel.addChild(node.getNodeModel(), index,true);
     }
     
     protected void insertToModel(TreeNode parent, TreeNode child, TreeNode refNode){
@@ -889,7 +889,7 @@ public class TreePanel extends Panel {
 			if(node[i].getId() == refNode.getId()){
 		    	NodeModel nodeModel = parent.getNodeModel();
 		    	if(nodeModel != null)
-		    		nodeModel.addChild(child.getNodeModel(), i);
+		    		nodeModel.addChild(child.getNodeModel(), i, true);
 		    	break;
 			}
 		}
@@ -898,6 +898,6 @@ public class TreePanel extends Panel {
     protected void removeFromModel(TreeNode parent, TreeNode node){
     	NodeModel nodeModel = parent.getNodeModel();
     	if(nodeModel != null)
-    		nodeModel.remove(node.getNodeModel());
+    		nodeModel.remove(node.getNodeModel(), true);
     }
 }

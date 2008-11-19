@@ -40,6 +40,10 @@ public class DragSource extends DDProxy {
     public DragSource(Component component, DragSourceConfig config) {
         super(component, null, config);
     }
+    
+    public DragSource(Element el, DragSourceConfig config) {
+        super(el, null, config);
+    }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DragSource(id, config);

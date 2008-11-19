@@ -23,9 +23,20 @@
 
 package com.gwtext.client.dd;
 
+import com.google.gwt.user.client.Element;
+
 /**
  *
  * @author Sanjiv Jivan
  */
 public class Registry {
+	
+    public static native void register(String element)/*-{
+	    $wnd.Ext.dd.Registry.register(element);
+	}-*/;
+
+    public static native void register(Element element)/*-{
+	    $wnd.Ext.dd.Registry.register(element);
+	}-*/;
+
 }

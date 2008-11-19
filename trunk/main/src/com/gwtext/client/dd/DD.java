@@ -60,6 +60,10 @@ public class DD extends DragDrop {
         super(component, sGroup, config);
     }
 
+    public DD(Element el, String sGroup, DragDropConfig config) {
+        super(el, sGroup, config);
+    }
+    
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DD(id, sGroup, config);
     }-*/;
@@ -67,7 +71,7 @@ public class DD extends DragDrop {
     protected native JavaScriptObject create(Element element, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DD(element, sGroup, config);
     }-*/;
-
+    
     private static DD ddInstance(JavaScriptObject jsObj) {
         return new DD(jsObj);
     }

@@ -131,7 +131,7 @@ public class DropTarget extends DDTarget {
      * @return The CSS class that communicates the drop status back to the source so that the underlying {@link StatusProxy} can be updated
      */
     public String notifyEnter(DragSource source, EventObject e, DragData data) {
-        return "";
+        return "x-dd-drop-ok";
     }
 
     /**
@@ -146,7 +146,7 @@ public class DropTarget extends DDTarget {
     }
 
     public String notifyOver(DragSource source, EventObject e, DragData data) {
-        return "";
+        return "x-dd-drop-ok";
     }
 
 }

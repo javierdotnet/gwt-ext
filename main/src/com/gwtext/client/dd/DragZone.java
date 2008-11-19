@@ -40,6 +40,10 @@ public class DragZone extends DragSource {
     public DragZone(Component component, DragSourceConfig config) {
         super(component, config);
     }
+    
+    public DragZone(Element el, DragSourceConfig config) {
+        super(el, config);
+    }
 
     protected native JavaScriptObject create(String id, String sGroup, JavaScriptObject config)/*-{
         return new $wnd.Ext.dd.DragZone(id, config);

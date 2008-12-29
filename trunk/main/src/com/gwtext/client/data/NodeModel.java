@@ -271,6 +271,23 @@ public class NodeModel implements IsSerializable {
 		}
 	}
 
+    public void update(String attributeName, Object attributeValue)
+    {
+        update(attributeName, attributeValue, false);
+    }
+
+   
+
+    public void update(String attributeName, Object attributeValue, boolean skipListener)
+    {
+        addProperty(attributeName, attributeValue);
+
+        if(!skipListener)
+        {
+            notifyUpdateListeners(attributeName, attributeValue);
+        }
+    }
+    
 	/**
 	 * gets the property as an Object
 	 * 
@@ -368,8 +385,9 @@ public class NodeModel implements IsSerializable {
 
 	public NodeModel findById(String id) {
 		NodeModel ret = null;
-
-		if (((String) this.properties.get("id")).equals(id))
+		String myId = (String) this.properties.get("id");
+		
+		if (myId != null && myId.equals(id))
 			return this;
 
 		for (int i = 0; i < getChildSize(); i++) {

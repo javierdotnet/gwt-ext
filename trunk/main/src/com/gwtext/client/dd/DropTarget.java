@@ -26,6 +26,7 @@ package com.gwtext.client.dd;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 import com.gwtext.client.core.EventObject;
+import com.gwtext.client.util.JavaScriptObjectHelper;
 import com.gwtext.client.widgets.Component;
 
 /**
@@ -148,5 +149,4 @@ public class DropTarget extends DDTarget {
     public String notifyOver(DragSource source, EventObject e, DragData data) {
         return "x-dd-drop-ok";
     }
-
 }

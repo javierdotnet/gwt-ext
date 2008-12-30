@@ -67,7 +67,7 @@ public class ShowcaseView extends Panel {
         panel.setAutoScroll(true);
         panel.setCollapsible(true);
         panel.setLayout(new FitLayout());
-        panel.setTitle("Welcome to GWT-Ext 2.0.5");
+        panel.setTitle("Welcome to GWT-Ext 2.0.6");
 
         final DataView dataView = new DataView("div.thumb-wrap") {
             public void prepareData(Data data) {

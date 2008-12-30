@@ -1,0 +1,161 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushJava.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 650px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nogutter:nocontrols" rows="15" cols="120">
+/*
+ * GWT-Ext Widget Library
+ * Copyright 2007 - 2008, GWT-Ext LLC., and individual contributors as indicated
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+ 
+
+package com.gwtext.sample.showcase2.client;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.layout.HorizontalLayout;
+import com.gwtext.client.widgets.layout.VerticalLayout;
+import com.gwtext.client.widgets.tree.TreeNode;
+import com.gwtext.client.widgets.tree.TreePanel;
+
+public class TreeAppearanceSample implements EntryPoint {
+
+	public void onModuleLoad() {
+		Panel panel = new Panel();
+		panel.setBorder(false);
+		panel.setPaddings(15);
+
+		final TreePanel treePanel = new SampleTree();
+		treePanel.setTitle("Default Appearance");
+		treePanel.setWidth(190);
+		treePanel.setHeight(400);
+
+		final TreePanel treePanelNoLines = new SampleTree();
+		treePanelNoLines.setTitle("No Lines");
+		treePanelNoLines.setWidth(190);
+		treePanelNoLines.setHeight(400);
+		treePanelNoLines.setLines(false);
+
+		final TreePanel treePanelVistaArrows = new SampleTree();
+		treePanelVistaArrows.setTitle("Vista Arrows");
+		treePanelVistaArrows.setWidth(190);
+		treePanelVistaArrows.setHeight(400);
+		treePanelVistaArrows.setUseArrows(true);
+
+		Panel horizontalPanel = new Panel();
+		horizontalPanel.setLayout(new HorizontalLayout(20));
+		horizontalPanel.add(treePanel);
+		horizontalPanel.add(treePanelNoLines);
+		horizontalPanel.add(treePanelVistaArrows);
+
+		Panel verticalPanel = new Panel();
+		verticalPanel.setLayout(new VerticalLayout(15));
+
+		verticalPanel.add(horizontalPanel);
+
+		panel.add(verticalPanel);
+
+		RootPanel.get().add(panel);
+	}
+
+	class SampleTree extends TreePanel {
+
+		public SampleTree() {
+
+			TreeNode root = new TreeNode("Company Heirarchy");
+
+			TreeNode ceo = new TreeNode("Julie W. Walker");
+			ceo.setExpanded(true);
+
+			TreeNode manager1 = new TreeNode("William J. Vear");
+			manager1.setExpanded(true);
+			TreeNode manager2 = new TreeNode("Dennis E. Walker");
+			manager2.setExpanded(true);
+			TreeNode manager3 = new TreeNode("Joann R. Williams");
+			manager3.setExpanded(true);
+
+			ceo.appendChild(manager1);
+			ceo.appendChild(manager2);
+			ceo.appendChild(manager3);
+
+			TreeNode director1 = new TreeNode("Robert L. Carbaugh");
+			director1.setExpanded(true);
+
+			TreeNode director2 = new TreeNode("Agnes H. Keene");
+			director2.setExpanded(true);
+
+			manager1.appendChild(director1);
+			manager1.appendChild(director2);
+
+			TreeNode director3 = new TreeNode("Erin T. Marks");
+			manager2.appendChild(director3);
+
+			manager3.appendChild(new TreeNode("Harry L. Krieger"));
+
+			director1.appendChild(new TreeNode("Jim H. Baker"));
+			director1.appendChild(new TreeNode("Randy M. Smith"));
+			director1.appendChild(new TreeNode("Annie P. Burke"));
+			director2.appendChild(new TreeNode("Shirley P. Tanaka"));
+			director2.appendChild(new TreeNode("Anthony C. Decarlo"));
+			director2.appendChild(new TreeNode("Katherine D. Saenz"));
+			director3.appendChild(new TreeNode("Carolyn M. Gauna"));
+			director3.appendChild(new TreeNode("Johanna E. Armistead"));
+			director3.appendChild(new TreeNode("Duane E. Ashe"));
+			director3.appendChild(new TreeNode("Norman N. Gardner"));
+			root.appendChild(ceo);
+
+			setRootVisible(false);
+
+			setTitle("Company");
+			setWidth(200);
+			setHeight(400);
+			setRootNode(root);
+			root.setExpanded(true);
+		}
+	}
+}
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

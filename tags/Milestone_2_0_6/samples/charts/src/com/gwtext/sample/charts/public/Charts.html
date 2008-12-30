@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>GWT-Ext Charts Showcase</title>
+    <!--CSS for loading message at application Startup-->
+    <style type="text/css">
+        #loading {
+            position: absolute;
+            left: 45%;
+            top: 40%;
+            padding: 2px;
+            z-index: 20001;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        #loading a {
+            color: #225588;
+        }
+
+        #loading .loading-indicator {
+            background: white;
+            color: #444;
+            font: bold 13px tahoma, arial, helvetica;
+            padding: 10px;
+            margin: 0;
+            height: auto;
+        }
+
+        #loading-msg {
+            font: normal 10px arial, tahoma, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="Charts.css">
+
+    <script type="text/javascript">
+        function formatCurrencyAxisLabel(value) {
+            return YAHOO.util.Number.format(value,
+            {
+                prefix: "$",
+                thousandsSeparator: ",",
+                decimalPlaces: 2
+            });
+        }
+
+        function getDataTipText(item, index, series) {
+            var toolTipText = series.displayName + " for " + item.month;
+            toolTipText += "\n" + formatCurrencyAxisLabel(item[series.yField]);
+            return toolTipText;
+        }
+    </script>
+
+<!--include the Ext CSS, and use the gray theme-->
+<link rel="stylesheet" type="text/css" href="js/ext/resources/css/ext-all.css" charset="utf-8">
+<link rel="stylesheet" type="text/css" href="themes/slate/css/xtheme-slate.css" charset="utf-8">
+</head>
+<body>
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+
+<!--include the Ext Core API-->
+<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js" charset="utf-8"></script>
+
+<!--include Ext -->
+<script type="text/javascript" src="js/ext/ext-all.js" charset="utf-8"></script>
+
+<!--include the application JS-->
+<script type="text/javascript" src="com.gwtext.sample.charts.Charts.nocache.js" charset="utf-8"></script>
+
+<!--hide loading message-->
+
+</body>
+</html>

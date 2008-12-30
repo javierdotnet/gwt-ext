@@ -1,0 +1,6 @@
+
+<module>
+    <inherits name='com.gwtext.GwtExt'/>
+    <script src="js/yui/charts/yui-chart.js"/>
+
+</module>

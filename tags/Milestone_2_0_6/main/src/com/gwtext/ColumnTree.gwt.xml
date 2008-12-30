@@ -1,0 +1,7 @@
+<module>    
+    <inherits name='com.gwtext.GwtExt'/>
+
+	<script src="js/columntree/ColumnNodeUI.js"/>
+	<stylesheet src="js/columntree/column-tree.css"/>
+    
+</module>

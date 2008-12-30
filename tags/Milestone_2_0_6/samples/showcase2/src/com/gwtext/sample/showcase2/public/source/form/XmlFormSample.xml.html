@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../js/sh/SyntaxHighlighter.css" type="text/css" />
+<script src="../../js/sh/shCore.js"></script>
+<script src="../../js/sh/shBrushXml.js"></script>
+<style>
+
+* {
+font-family:Courier New,monospace;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  width: 710px;
+  font-size: 11px;
+  font-family:Courier New,monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="xml:nogutter:nocontrols" rows="15" cols="120">
+<!-- xml-form.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<response success="true">
+    <contact>
+        <name>
+            <first>Sanjiv</first>
+            <last>Jivan</last>
+        </name>
+        <company>foo bar</company>
+        <email>sanjiv.jivan@gmail.com</email>
+        <state>MA</state>
+        <dob>04/15/2007</dob>
+    </contact>
+</response>
+
+
+<!--xml-errors.xml-->
+<?xml version="1.0" encoding="UTF-8"?>
+<response success="false">
+    <errors>
+        <field>
+            <id>first</id>
+            <msg><![CDATA[
+            Invalid name. <br /><i>This is a test validation message from the server </i>
+         ]]></msg>
+        </field>
+        <field>
+            <id>dob</id>
+            <msg><![CDATA[
+            Invalid Date of Birth. <br /><i>This is a test validation message from the server </i>
+         ]]></msg>
+        </field>
+    </errors>
+</response>
+
+</textarea>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>

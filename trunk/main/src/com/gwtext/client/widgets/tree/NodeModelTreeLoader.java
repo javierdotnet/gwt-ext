@@ -22,19 +22,13 @@
 
 package com.gwtext.client.widgets.tree;
 
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.gwtext.client.core.NameValuePair;
-import com.gwtext.client.data.Node;
 import com.gwtext.client.data.NodeModel;
-import com.gwtext.client.data.NodeModelListener;
-import com.gwtext.client.data.Tree;
-import com.gwtext.client.util.JavaScriptObjectHelper;
-import com.gwtext.client.widgets.tree.event.TreeNodeListenerAdapter;
 
 /**
  * This class is a TreeLoader based on a Model that can load
@@ -45,17 +39,14 @@ import com.gwtext.client.widgets.tree.event.TreeNodeListenerAdapter;
  */
 public class NodeModelTreeLoader extends TreeLoader {
 
-	private static NodeModelServiceAsync asyncCallback = null;
-	private static String[] columnDataName = null;
-	
-    static {
-        init();
-    }
+	private NodeModelServiceAsync asyncCallback = null;
+	private String[] columnDataName = null;
 
     /**
      * Construct a new XMLTreeLoader.
      */
     public NodeModelTreeLoader() {
+    	init();
     	setUiProviders(ColumnNodeUI.getUiProvider());
     }
     
@@ -63,6 +54,7 @@ public class NodeModelTreeLoader extends TreeLoader {
      * Construct a new XMLTreeLoader.
      */
     public NodeModelTreeLoader(String columnDataName[]) {
+    	init();
     	setColumnDataName(columnDataName);
     	setUiProviders(ColumnNodeUI.getUiProvider());
     }
@@ -74,6 +66,7 @@ public class NodeModelTreeLoader extends TreeLoader {
      *
      */
     public NodeModelTreeLoader(NodeModelServiceAsync callback) {
+    	init();
         setCallback(callback);
         setUiProviders(ColumnNodeUI.getUiProvider());
     }
@@ -85,7 +78,9 @@ public class NodeModelTreeLoader extends TreeLoader {
      * @param callback
      */
     public void setCallback(NodeModelServiceAsync callback) {
-    	asyncCallback = callback;		
+    	if(callback == null) return;
+    	
+    	this.asyncCallback = callback;
 	}
     
     /**
@@ -101,81 +96,83 @@ public class NodeModelTreeLoader extends TreeLoader {
         return new $wnd.Ext.tree.NodeModelTreeLoader(configJS, this);
     }-*/;
 
-    private static native void init() /*-{
-       $wnd.Ext.tree.NodeModelTreeLoader = function(configJS, selfJ) {
-         $wnd.Ext.tree.NodeModelTreeLoader.superclass.constructor.call(this, configJS);
-          this.selfJ = selfJ;
-       };
+    private native void init() /*-{
+    	var myinstance = this;
+    	
+	    $wnd.Ext.tree.NodeModelTreeLoader = function(configJS, selfJ) {
+	      $wnd.Ext.tree.NodeModelTreeLoader.superclass.constructor.call(this, configJS);
+	       this.selfJ = selfJ;
+	    };
+	
+	    $wnd.Ext.extend($wnd.Ext.tree.NodeModelTreeLoader, $wnd.Ext.tree.TreeLoader, {
+	
+	            load : function(node, callback){
+	                    if(this.clearOnLoad){
+	                        while(node.firstChild){
+	                            node.removeChild(node.firstChild);
+	                        }
+	                    }
+	                    if(this.doPreload(node)){ 
+	                        if(typeof callback == "function"){
+	                            callback();
+	                        }
+	                    }else{
+	                        this.requestData(node, callback);
+	                    }
+	                },
+	
+	           requestData : function(node, callback){
+	                if(this.fireEvent("beforeload", this, node, callback) !== false){
+	                    var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
+	                    var params = this.getParams(node);
+	                    myinstance.@com.gwtext.client.widgets.tree.NodeModelTreeLoader::requestData(Lcom/google/gwt/core/client/JavaScriptObject;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/NodeModelTreeLoader;Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Ljava/lang/String;)(this, nodeJ, this.selfJ, this.requestMethod, this.dataUrl||this.url, this.handleResponse, this.handleFailure, callback, params);
+	
+	                }else{
+	                    // if the load is cancelled, make sure we notify
+	                    // the node that we are done
+	                    if(typeof callback == "function"){
+	                        callback();
+	                    }
+	                }
+	            },
+	
+	            handleResponse : function(response){
+	                this.transId = false;
+	                //var a = response.argument;
+	                var callback  = response.callback;
+	                var node = response.node;
+	                var responseData = response.responseData;
+	                if(typeof callback == "function"){
+	                    callback(this, node);
+	                }
+	                this.fireEvent("load", this, node, responseData);
+	            },
+	
+	            handleFailure : function(response){
+	                this.transId = false;
+	                var callback  = response.callback;
+	                var node = response.node;
+	                var responseData = response.responseData;
+	                this.fireEvent("loadexception", this, node, responseData);
+	                if(typeof callback == "function"){
+	                    callback(this, node);
+	                }
+	            },
+	            
+	            createNode : function(attr){
+	            	   if(attr instanceof $wnd.Ext.tree.TreeNode){
+	            	       var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(attr);
+	            	       return @com.gwtext.client.widgets.tree.NodeModelTreeLoader::createNode(Lcom/google/gwt/core/client/JavaScriptObject;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/NodeModelTreeLoader;)(this, nodeJ, this.selfJ);
+	            	   }else{
+	            	       $wnd.alert("in NodeModelTreeLoader and createNode attr is not a TreeNode");
+	            	   }
+	            	   
+				   }
+	    });
+	 }-*/;
 
-       $wnd.Ext.extend($wnd.Ext.tree.NodeModelTreeLoader, $wnd.Ext.tree.TreeLoader, {
 
-               load : function(node, callback){
-                       if(this.clearOnLoad){
-                           while(node.firstChild){
-                               node.removeChild(node.firstChild);
-                           }
-                       }
-                       if(this.doPreload(node)){ 
-                           if(typeof callback == "function"){
-                               callback();
-                           }
-                       }else{
-                           this.requestData(node, callback);
-                       }
-                   },
-
-              requestData : function(node, callback){
-                   if(this.fireEvent("beforeload", this, node, callback) !== false){
-                       var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(node);
-                       var params = this.getParams(node);
-                       @com.gwtext.client.widgets.tree.NodeModelTreeLoader::requestData(Lcom/google/gwt/core/client/JavaScriptObject;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/NodeModelTreeLoader;Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Lcom/google/gwt/core/client/JavaScriptObject;Ljava/lang/String;)(this, nodeJ, this.selfJ, this.requestMethod, this.dataUrl||this.url, this.handleResponse, this.handleFailure, callback, params);
-
-                   }else{
-                       // if the load is cancelled, make sure we notify
-                       // the node that we are done
-                       if(typeof callback == "function"){
-                           callback();
-                       }
-                   }
-               },
-
-               handleResponse : function(response){
-                   this.transId = false;
-                   //var a = response.argument;
-                   var callback  = response.callback;
-                   var node = response.node;
-                   var responseData = response.responseData;
-                   if(typeof callback == "function"){
-                       callback(this, node);
-                   }
-                   this.fireEvent("load", this, node, responseData);
-               },
-
-               handleFailure : function(response){
-                   this.transId = false;
-                   var callback  = response.callback;
-                   var node = response.node;
-                   var responseData = response.responseData;
-                   this.fireEvent("loadexception", this, node, responseData);
-                   if(typeof callback == "function"){
-                       callback(this, node);
-                   }
-               },
-               
-               createNode : function(attr){
-               	   if(attr instanceof $wnd.Ext.tree.TreeNode){
-               	       var nodeJ = @com.gwtext.client.widgets.tree.TreeNode::treeNodeInstance(Lcom/google/gwt/core/client/JavaScriptObject;)(attr);
-               	       return @com.gwtext.client.widgets.tree.NodeModelTreeLoader::createNode(Lcom/google/gwt/core/client/JavaScriptObject;Lcom/gwtext/client/widgets/tree/TreeNode;Lcom/gwtext/client/widgets/tree/NodeModelTreeLoader;)(this, nodeJ, this.selfJ);
-               	   }else{
-               	       $wnd.alert("in NodeModelTreeLoader and createNode attr is not a TreeNode");
-               	   }
-               	   
-			   }
-       });
-    }-*/;
-
-
-    private static void requestData(final JavaScriptObject treeLoaderJS, final TreeNode root, 
+    private void requestData(final JavaScriptObject treeLoaderJS, final TreeNode root, 
     		                        final NodeModelTreeLoader treeLoader, String method, 
     		                        String url, final JavaScriptObject success, 
     		                        final JavaScriptObject failure, 
@@ -297,39 +294,4 @@ public class NodeModelTreeLoader extends TreeLoader {
 		
 		return tnode;
 	}
-//
-//	private class NodeModelListenerImpl implements NodeModelListener{
-//		private TreeNode treeNode = null;
-//		
-//		public NodeModelListenerImpl(TreeNode treeNode){
-//			this.treeNode = treeNode;
-//		}
-//		public void onAppend(NodeModel self, NodeModel node) {
-//			treeNode.appendChild(NodeModel.createTreeNode(node));
-//			
-//		}
-//		public void onInsert(NodeModel self, NodeModel node, int index) {
-//			Node child[] = treeNode.getChildNodes();
-//			treeNode.insertBefore(NodeModel.createTreeNode(node), child[index]);
-//			// TODO Auto-generated method stub
-//			
-//		}
-//		public void onMove(NodeModel self, NodeModel oldParent,
-//				NodeModel newParent, int index) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//		public void onRemove(NodeModel self, NodeModel node) {
-//			Node child[] = treeNode.getChildNodes();
-//			for (int i = 0; i < child.length; i++) {
-//				if(((String)node.getProperty("id")).equals(child[i].getId()) ){
-//					treeNode.removeChild(child[i]);
-//					break;
-//				}
-//			}
-//		}
-//		public void onUpdate(NodeModel self, String attributeName, Object value) {
-//			treeNode.setTreeNodeModelAttribute(attributeName, value);
-//		}
-//	}
 }

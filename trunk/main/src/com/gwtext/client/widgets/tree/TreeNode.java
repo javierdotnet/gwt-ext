@@ -701,6 +701,12 @@ public class TreeNode extends Node {
 			Object value = nodeModel.getPropertyAsObject(key);
 			setTreeNodeModelAttribute(key, value);
 		}
+		
+		// check if model has reference to this treenode
+		TreeNode treeNode = nodeModel.getTreeNode();
+		if(this != treeNode){
+			nodeModel.setTreeNode(this);
+		}
 
     }
 

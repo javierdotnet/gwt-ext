@@ -39,9 +39,8 @@ public class NodeModel implements IsSerializable {
 	/**
 	 * children
 	 * 
-	 * @gwt.typeArgs <java.lang.String>
 	 */
-	public static ArrayList attributesAllowed = new ArrayList() {
+	public static ArrayList<String> attributesAllowed = new ArrayList<String>() {
 		{
 			add(new String("disabled"));
 			add(new String("id"));
@@ -70,18 +69,13 @@ public class NodeModel implements IsSerializable {
 	/**
 	 * children
 	 * 
-	 * @gwt.typeArgs <com.gwtext.client.data.NodeModel>
 	 */
-	protected ArrayList children = new ArrayList();
+	protected ArrayList<NodeModel> children = new ArrayList<NodeModel>();
 
 	/**
 	 * properties
-	 * 
-	 * @gwt.typeArgs 
-	 *               <java.lang.String,com.google.gwt.user.client.rpc.IsSerializable
-	 *               >
 	 */
-	protected HashMap properties = new HashMap();
+	protected HashMap<String, Object> properties = new HashMap<String, Object>();
 
 	/**
 	 * local not-serialized listeners

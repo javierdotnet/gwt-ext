@@ -89,4 +89,23 @@ public class GroupingView extends GridView {
     public void setStartCollapsed(boolean startCollapsed) {
         JavaScriptObjectHelper.setAttribute(configJS, "startCollapsed", startCollapsed);
     }
+    
+    /**
+     * Sets the expanded state of the group to the value passed.
+     * @param groupId the group id to expand or collapse
+     * @param expanded
+     */
+    public native void setExpand(String groupId, boolean expanded) /*-{
+        var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        view.toggleGroup(groupId, expanded);
+    }-*/;
+    
+    /**
+     * Toggles the specified group 
+     * @param groupId the group id to toggle
+     */
+    public native void setToggleGroup(String groupId) /*-{
+        var view = this.@com.gwtext.client.core.JsObject::getJsObj()();
+        view.toggleGroup(groupId);
+    }-*/;
 }

@@ -98,7 +98,8 @@ public abstract class Field extends BoxComponent {
 	    this.@com.gwtext.client.widgets.Component::addListener(Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)('beforedestroy',
 		    function(item) {
     			if (item.isFormField) {
-        			$wnd.Ext.destroy(item.container.up('.x-form-item'));
+    				if(item.container != null && item.container != undefined)
+        				$wnd.Ext.destroy(item.container.up('.x-form-item'));
     			}
 		    }
         );

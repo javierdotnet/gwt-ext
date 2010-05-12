@@ -1,5 +1,0 @@
-== Ext API's that have still to be covered ==
-
-Work on Ext 2.0 support has started. This page will be updated to reflect the TODO's with the Ext 2.0 support.
-
- 
